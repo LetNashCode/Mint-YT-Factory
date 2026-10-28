@@ -1,20 +1,7 @@
 {
-  "status": "complete",
-  "video_id": "jFZr6neYq-w",
-  "youtube_url": "https://www.youtube.com/shorts/jFZr6neYq-w",
-  "platforms": {
-    "youtube": {
-      "status": "published",
-      "video_id": "jFZr6neYq-w"
-    },
-    "instagram": {
-      "status": "published",
-      "media_id": "18128377789879671",
-      "container_id": "18501879676097136"
-    },
-    "facebook": {
-      "status": "published",
-      "video_id": "1455964736671101"
-    }
-  }
+  "status": "pending",
+  "video_id": "",
+  "youtube_url": "",
+  "reason": "",
+  "updated_at": 1793215787
 }

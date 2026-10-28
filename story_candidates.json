@@ -1,31 +1,5 @@
 [
   {
-    "format": "strange_turning_point",
-    "person": "Marie Curie",
-    "premise": "Moving from partitioned Poland to Paris to study physics, where a chance meeting in a laboratory led to a historic scientific partnership.",
-    "hook": "She moved to Paris unable to afford proper meals, subsisting mostly on tea and bread until a laboratory space assignment changed physics forever.",
-    "key_facts": [
-      "Educated in the clandestine 'Flying University' in Warsaw before moving to Paris",
-      "Studied physics and mathematics at the Sorbonne while facing extreme poverty",
-      "Met Pierre Curie while looking for laboratory space to study magnetic properties of steels",
-      "Discovered the elements polonium and radium and won two Nobel Prizes in different sciences"
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Sachin Tendulkar",
-    "premise": "Being sent out to bat against seasoned international fast bowlers at age sixteen after taking a severe blow to the face.",
-    "hook": "A devastating bouncer hit him square in the mouth. Instead of retiring hurt, a sixteen-year-old boy kept playing.",
-    "key_facts": [
-      "Made his international Test cricket debut against Pakistan in Karachi in 1989 at age 16.",
-      "Struck on the nose by a Waqar Younis bouncer, causing heavy bleeding.",
-      "Declined medical retirement and continued batting to score a crucial half-century.",
-      "Went on to play international cricket for 24 years, setting numerous batting records."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Rosa Montero",
     "premise": "Overcoming severe childhood illness and social isolation to become a celebrated journalist and novelist.",
@@ -35,19 +9,6 @@
       "Turned extensively to reading and writing as a solitary coping mechanism.",
       "Became a prominent journalist for El País and an award-winning novelist.",
       "Widely documented in Spanish literary archives and public television interviews."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "J.K. Rowling",
-    "premise": "How a delayed train journey across England sparked the creation of a global literary phenomenon.",
-    "hook": "A stranded train ride on a rainy afternoon sparked the idea for a wizarding world.",
-    "key_facts": [
-      "Conceived the idea for a boy wizard while stuck on a delayed train from Manchester to London in 1990.",
-      "Wrote the first manuscript over several years while facing personal financial hardship.",
-      "The book was rejected by multiple publishers before being accepted by Bloomsbury.",
-      "Extensive recorded public readings, press conferences, and literary interviews exist."
     ],
     "source": "gemini_original"
   },
@@ -64,26 +25,67 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Chadwick Boseman",
-    "premise": "The pivotal moment when an aspiring director chose acting over behind-the-scenes roles after traveling to Africa.",
-    "hook": "He initially wanted to direct plays, but a trip to South Africa permanently changed his path to the silver screen.",
+    "format": "impossible_odds",
+    "person": "Tenzing Norgay",
+    "premise": "Rising from an illiterate yak herder and expedition porter to summit Mount Everest for the first time in history.",
+    "hook": "He had already failed on six previous Everest expeditions before finally reaching the highest point on Earth.",
     "key_facts": [
-      "Graduated from Howard University with a Bachelor of Fine Arts in directing.",
-      "Studied at the British American Drama Academy before pursuing screen acting.",
-      "Achieved global recognition starring as T'Challa in Marvel's Black Panther."
+      "Born in Tibet and moved to the Khumbu region of Nepal as a sherpa youth.",
+      "Worked as a high-altitude porter on multiple British and Swiss Himalayan expeditions in the 1930s and 1940s.",
+      "Reached the summit of Mount Everest alongside Edmund Hillary on May 29, 1953.",
+      "Later founded the Himalayan Mountaineering Institute to train future climbers."
     ],
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Stanislov Petrov",
-    "premise": "The Soviet military officer who single-handedly prevented a nuclear disaster by ignoring a computer warning.",
-    "hook": "His intuition told him a high-tech early warning system was wrong, and his split-second choice saved the world.",
+    "format": "impossible_odds",
+    "person": "Shakuntala Devi",
+    "premise": "Performing complex mental arithmetic globally without formal schooling, earning the title of the 'Human Computer'.",
+    "hook": "She never attended school, yet she could multiply two 13-digit numbers in her head faster than the most advanced computers of her era.",
     "key_facts": [
-      "Served as a lieutenant colonel in the Soviet Air Defense Forces in 1983.",
-      "Assessed a satellite system alert indicating incoming American nuclear missiles as a false alarm.",
-      "Followed protocol by not reporting the false signal up the chain of command, preventing a retaliatory strike."
+      "Born in Bangalore, India, and discovered her numerical talent through card games with her father.",
+      "Demonstrated her mental calculation abilities on international tours from an early age.",
+      "Computed the product of two 13-digit numbers randomly selected at Imperial College London in 1980 in 28 seconds.",
+      "Authored books on mathematics, puzzles, and astrology."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Satyajit Ray",
+    "premise": "How an advertising graphic designer risked his life savings to self-finance a risky, independent Bengali village film with amateur actors against the advice of veteran producers.",
+    "hook": "He pawned his wife's jewelry and emptied his bank account to make a movie nobody in the industry believed in.",
+    "key_facts": [
+      "Worked as a junior visualizer and commercial artist for D.J. Keymer advertising agency in Calcutta.",
+      "Pawned his wife's jewelry and used his own savings to fund the initial shooting of 'Pather Panchali' over three sporadic years.",
+      "Persuaded by well-wishers and later supported by the West Bengal government to complete production when funds ran dry.",
+      "The film premiered at the 1956 Cannes Film Festival and won the Best Human Document award, launching international recognition."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Louis Armstrong",
+    "premise": "The early struggles of a young cornet player raised in the impoverished New Orleans neighborhood of 'The Battlefield', who learned music theory and discipline inside the Colored Waifs' Home.",
+    "hook": "Before he changed jazz forever, he spent his youth in a reform school learning how to blow a cornet.",
+    "key_facts": [
+      "Grew up in a notoriously rough New Orleans district known locally as 'The Battlefield'.",
+      "Sent to the Colored Waifs' Home for Boys at age eleven after firing a pistol in the air on New Year's Eve.",
+      "Learned to play the cornet under the guidance of music instructor Peter Davis at the institution.",
+      "Mentored by King Oliver in New Orleans before joining Joe Oliver's Creole Jazz Band in Chicago in 1922."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Enrico Fermi",
+    "premise": "How a brilliant Italian physicist decided to emigrate with his Jewish wife to the United States after accepting the Nobel Prize in Stockholm, escaping fascist racial laws.",
+    "hook": "He used a trip to accept the Nobel Prize as a permanent escape hatch from fascist Europe.",
+    "key_facts": [
+      "Awarded the Nobel Prize in Physics in December 1938 for his work on neutron-induced radioactivity.",
+      "Recognized the extreme danger posed by Italy's newly enacted Manifesto of Race against Jewish citizens, which affected his wife Laura.",
+      "Traveled to Stockholm with his family for the ceremony and directly continued onward to New York City instead of returning to Italy.",
+      "Joined Columbia University and later led the team that achieved the first self-sustaining nuclear chain reaction in Chicago in 1942."
     ],
     "source": "gemini_original"
   }

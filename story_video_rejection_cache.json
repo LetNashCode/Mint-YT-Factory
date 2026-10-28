@@ -9802,6 +9802,551 @@
       "start": 5.0,
       "reason": "The sampled frames show only channel and program title cards ('Link TV' and 'Earth Focus'), with the subject Sylvia Earle completely absent.",
       "reviewed_at": 1793130213.4146338
+    },
+    "a7101893d35a961cd53d3340": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sachinmrindia-scn",
+      "source_url": "https://archive.org/details/sachinmrindia-scn",
+      "person": "Sachin Tendulkar",
+      "start": 1486.94,
+      "reason": "The sampled frames show an unidentified interviewee/commentator rather than the subject Sachin Tendulkar, making this footage unusable for identity depiction.",
+      "reviewed_at": 1793215955.7913573
+    },
+    "def8b71ef1cc132b2c0b0b5a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sachinmrindia-scn",
+      "source_url": "https://archive.org/details/sachinmrindia-scn",
+      "person": "Sachin Tendulkar",
+      "start": 2042.67,
+      "reason": "The sampled frames feature another cricketer (Virender Sehwag) and archival cricket match footage rather than Sachin Tendulkar, making it unsuitable for a biographical segment about Sachin.",
+      "reviewed_at": 1793215974.4283688
+    },
+    "21672145fc31e107163a4027": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sachinmrindia-scn",
+      "source_url": "https://archive.org/details/sachinmrindia-scn",
+      "person": "Sachin Tendulkar",
+      "start": 2227.91,
+      "reason": "The video features Sourav Ganguly, a different famous Indian cricketer, rather than the named subject Sachin Tendulkar, making the clip unusable for a biography about Tendulkar.",
+      "reviewed_at": 1793216004.7943997
+    },
+    "edf0d804a85006ad9d29a7b6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nps-video-mimi-stanislov-petrov-1983",
+      "source_url": "https://archive.org/details/nps-video-mimi-stanislov-petrov-1983",
+      "person": "Stanislov Petrov",
+      "start": 5.0,
+      "reason": "The video features interviews with Bruce Blair and Jim Boensch discussing missile systems and near-miss incidents, but the subject Stanislov Petrov is never visible in any of the sampled frames.",
+      "reviewed_at": 1793216034.7459483
+    },
+    "279fad6e7c12a22319a226bd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nps-video-mimi-stanislov-petrov-1983",
+      "source_url": "https://archive.org/details/nps-video-mimi-stanislov-petrov-1983",
+      "person": "Stanislov Petrov",
+      "start": 62.04,
+      "reason": "The footage shows a dramatic re-enactment or stock video of a man walking in Red Square with subtitles, but it does not contain actual identifiable footage of Stanislav Petrov himself.",
+      "reviewed_at": 1793216222.9214487
+    },
+    "8ce8daaf0b0c21ed2d08072c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nps-video-mimi-stanislov-petrov-1983",
+      "source_url": "https://archive.org/details/nps-video-mimi-stanislov-petrov-1983",
+      "person": "Stanislov Petrov",
+      "start": 109.58,
+      "reason": "The footage shows historical archival material related to nuclear tests and missile alerts from the era, serving as valid biographical illustration for the subject's context, but the named person is not visibly present in the frames.",
+      "reviewed_at": 1793216281.2553368
+    },
+    "25e134439082041a1c3e5663": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nps-video-mimi-stanislov-petrov-1983",
+      "source_url": "https://archive.org/details/nps-video-mimi-stanislov-petrov-1983",
+      "person": "Stanislov Petrov",
+      "start": 128.6,
+      "reason": "The footage shows archival video of Stanislav Petrov, but the clip fades entirely to black for the majority of the sampled frames, making it unusable.",
+      "reviewed_at": 1793216312.4686399
+    },
+    "0c6f761fc1cc18d183a68664": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+      "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+      "person": "Bob Ross",
+      "start": 5.0,
+      "reason": "The footage features a commercial presenter for Straight Talk Wireless and does not contain any archival footage or depiction of Bob Ross.",
+      "reviewed_at": 1793216462.9271603
+    },
+    "7887b0c6954fd54a18f15e18": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+      "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+      "person": "Bob Ross",
+      "start": 14.68,
+      "reason": "The footage features Bob Ross painting, but the clip is an advertisement (commercial) for Straight Talk Wireless, making it unsuitable for a serious biographical short due to commercial branding and overlays.",
+      "reviewed_at": 1793216486.6039472
+    },
+    "cbd4f150e1b71eb9777eea0a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
+      "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
+      "person": "Bob Ross",
+      "start": 78.46,
+      "reason": "The sampled frames show only a painting and title card of 'The Joy of Painting' with no visible appearance of Bob Ross.",
+      "reviewed_at": 1793216517.3989942
+    },
+    "8b7c6806261fc17ab8d8554e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
+      "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
+      "person": "Bob Ross",
+      "start": 115.19,
+      "reason": "The video shows an unidentified person painting while holding a microphone, but Bob Ross is not visible in any of the frames, making this unusable as identity footage or direct historical context for Bob Ross.",
+      "reviewed_at": 1793216524.785146
+    },
+    "25c34e1e894b633ca650c362": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "source_url": "https://archive.org/details/sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "person": "Bob Ross",
+      "start": 1357.8,
+      "reason": "The footage shows a musical band performing in a studio/venue setting, with no appearance of Bob Ross. The video is unrelated to Bob Ross and cannot be used for his biography.",
+      "reviewed_at": 1793216547.8885407
+    },
+    "48863ea9617ff24e58e16136": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "source_url": "https://archive.org/details/sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "person": "Bob Ross",
+      "start": 140.28,
+      "reason": "The video features unrelated contemporary footage of a dancer (Dani Tirrell) and an interview, having no connection to Bob Ross.",
+      "reviewed_at": 1793216601.6917982
+    },
+    "ff26fcf80666bbf1cc4ad597": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "source_url": "https://archive.org/details/ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "person": "Bob Ross",
+      "start": 5.0,
+      "reason": "The footage shows an art teacher named Mr. Adair discussing a school project about Bob Ross, but Bob Ross himself is not visible in the clip. Therefore, this segment cannot be used as identity footage for Bob Ross.",
+      "reviewed_at": 1793216608.1685007
+    },
+    "0963003b3080a509a24bb8b9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "source_url": "https://archive.org/details/ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "person": "Bob Ross",
+      "start": 23.43,
+      "reason": "The video shows students working on a school art project inspired by Bob Ross, but Bob Ross himself is not visible in the footage.",
+      "reviewed_at": 1793216710.1207156
+    },
+    "ddcb09a7d6c1840a2af38e1b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "source_url": "https://archive.org/details/ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "person": "Bob Ross",
+      "start": 32.65,
+      "reason": "The video features a classroom project about Bob Ross and interviews with a teacher (Mr. Adair) and students, but the subject Bob Ross is not visible in any frame, making it unusable as archival footage of his life.",
+      "reviewed_at": 1793216716.2331169
+    },
+    "0c062a999e6b00686c48d474": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v848971694",
+      "source_url": "https://archive.org/details/twitch-vod-v848971694",
+      "person": "Bob Ross",
+      "start": 2896.54,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793216745.5361657
+    },
+    "f45f2c0ec530e08c173aaaaf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v848971694",
+      "source_url": "https://archive.org/details/twitch-vod-v848971694",
+      "person": "Bob Ross",
+      "start": 4135.77,
+      "reason": "The video shows a modern Twitch streamer painting in their room, not actual archival footage of Bob Ross.",
+      "reviewed_at": 1793216770.2656584
+    },
+    "22ea5f585bd8c0926ef8d092": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v848971694",
+      "source_url": "https://archive.org/details/twitch-vod-v848971694",
+      "person": "Bob Ross",
+      "start": 5.0,
+      "reason": "The footage shows a contemporary Twitch streamer reacting to or watching a Bob Ross video, not Bob Ross himself. Therefore, it is unusable for a biography about Bob Ross.",
+      "reviewed_at": 1793216832.9957154
+    },
+    "5f670c81b1dcec57af9751df": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v600505325",
+      "source_url": "https://archive.org/details/twitch-vod-v600505325",
+      "person": "Bob Ross",
+      "start": 3341.8,
+      "reason": "The footage shows an unidentified modern streamer painting on Twitch, not Bob Ross.",
+      "reviewed_at": 1793216884.3652432
+    },
+    "0e765229aba105f1106cc7b6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v600505325",
+      "source_url": "https://archive.org/details/twitch-vod-v600505325",
+      "person": "Bob Ross",
+      "start": 4771.86,
+      "reason": "The video shows a Twitch streamer painting along with a Bob Ross video, not archival footage of Bob Ross himself.",
+      "reviewed_at": 1793216961.3533838
+    },
+    "d3c760df792c7005299e60c5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "source_url": "https://archive.org/details/ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "person": "Arthur Ashe",
+      "start": 24.8,
+      "reason": "The video features historian Raymond Arsenault speaking about Arthur Ashe, but the subject Arthur Ashe is never visible in the footage. Therefore, it fails the identity footage requirement.",
+      "reviewed_at": 1793217033.9524853
+    },
+    "ce45a2c36fc69ea9608de536": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "source_url": "https://archive.org/details/ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "person": "Arthur Ashe",
+      "start": 34.69,
+      "reason": "The frames show historian Raymond Arsenault speaking at a podium, not Arthur Ashe.",
+      "reviewed_at": 1793217040.7525496
+    },
+    "cdfc06b4b8d9ab56763f62f9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsva-First_Day_-_Arthur_Ashe_Jr._Elementary",
+      "source_url": "https://archive.org/details/hcpsva-First_Day_-_Arthur_Ashe_Jr._Elementary",
+      "person": "Arthur Ashe",
+      "start": 25.56,
+      "reason": "The footage shows modern elementary school students getting off a school bus in 2026, which has no connection to Arthur Ashe's historical life or biography.",
+      "reviewed_at": 1793217046.4604266
+    },
+    "b5c992112644d0c02e0fd049": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsva-First_Day_-_Arthur_Ashe_Jr._Elementary",
+      "source_url": "https://archive.org/details/hcpsva-First_Day_-_Arthur_Ashe_Jr._Elementary",
+      "person": "Arthur Ashe",
+      "start": 56.4,
+      "reason": "The footage shows modern B-roll from a school named after Arthur Ashe in 2026, which has no connection to Arthur Ashe's actual life or historical context.",
+      "reviewed_at": 1793217052.0487833
+    },
+    "23c48bbe9fa300dec6912617": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsva-First_Day_of_School_-_Arthur_Ashe_Jr._Elementary_School",
+      "source_url": "https://archive.org/details/hcpsva-First_Day_of_School_-_Arthur_Ashe_Jr._Elementary_School",
+      "person": "Arthur Ashe",
+      "start": 26.56,
+      "reason": "The video shows modern footage from an elementary school named after Arthur Ashe Jr. in 2021, but Arthur Ashe himself died in 1993 and is not present. This footage has no direct biographical connection to Arthur Ashe's actual life events.",
+      "reviewed_at": 1793217060.40678
+    },
+    "e523c768d23a69e06b205358": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsva-First_Day_of_School_-_Arthur_Ashe_Jr._Elementary_School",
+      "source_url": "https://archive.org/details/hcpsva-First_Day_of_School_-_Arthur_Ashe_Jr._Elementary_School",
+      "person": "Arthur Ashe",
+      "start": 58.9,
+      "reason": "The footage shows modern elementary school students and school logos from 2021, which has no connection to the historical life of Arthur Ashe (who passed away in 1993).",
+      "reviewed_at": 1793217071.457942
+    },
+    "2fd41fbd63a9fdc05e6076dd": {
+      "source_id": "commons:161344249",
+      "source_url": "https://commons.wikimedia.org/wiki/File:040213_FLOTUS_FilmWorkshop_HD.webm",
+      "reason": "strong metadata exclusion: portraying"
+    },
+    "84080ec4d9b19bab3b43dbee": {
+      "kind": "segment_rejection",
+      "source_id": "archive:spotnetdc-Howard_University_Celebrates_Chadwick_Boseman_Day_2026",
+      "source_url": "https://archive.org/details/spotnetdc-Howard_University_Celebrates_Chadwick_Boseman_Day_2026",
+      "person": "Chadwick Boseman",
+      "start": 51.76,
+      "reason": "The video footage shows student performances at Howard University's Chadwick Boseman Day 2026 event. Chadwick Boseman is deceased and not visible in the footage, and the modern student performances from 2026 do not constitute historical context depicting Boseman's own life or career.",
+      "reviewed_at": 1793217139.8841543
+    },
+    "d46b2653c2646f81c9100296": {
+      "kind": "segment_rejection",
+      "source_id": "archive:spotnetdc-Howard_University_Celebrates_Chadwick_Boseman_Day_2026",
+      "source_url": "https://archive.org/details/spotnetdc-Howard_University_Celebrates_Chadwick_Boseman_Day_2026",
+      "person": "Chadwick Boseman",
+      "start": 70.46,
+      "reason": "The sampled frames feature student interviews at Howard University during an event celebrating Chadwick Boseman, but Chadwick Boseman himself is not visibly present in any of the footage. Therefore, it cannot be used as identity footage for him.",
+      "reviewed_at": 1793217147.7975492
+    },
+    "235423ac5697163084d22acd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:adult-swim-chadwick-boseman-bumper-2020",
+      "source_url": "https://archive.org/details/adult-swim-chadwick-boseman-bumper-2020",
+      "person": "Chadwick Boseman",
+      "start": 0.73,
+      "reason": "blank/near-blank frames",
+      "reviewed_at": 1793217155.323536
+    },
+    "35b16d7e29e7d861820b674f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-1551022278787403776",
+      "source_url": "https://archive.org/details/twitter-1551022278787403776",
+      "person": "Chadwick Boseman",
+      "start": 68.16,
+      "reason": "The sampled footage features scenes from Black Panther: Wakanda Forever, but Chadwick Boseman passed away before this film and is not visible in any of the frames.",
+      "reviewed_at": 1793217167.1355245
+    },
+    "1cac600c7b35f8c42806f1c5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-1551022278787403776",
+      "source_url": "https://archive.org/details/twitter-1551022278787403776",
+      "person": "Chadwick Boseman",
+      "start": 95.23,
+      "reason": "The video clip features scenes from Black Panther: Wakanda Forever showing other characters and action, but Chadwick Boseman is not visible in any of the sampled frames.",
+      "reviewed_at": 1793217178.0682375
+    },
+    "3afe120dcc9a11f8ddf0ffc2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:chadwick-boseman",
+      "source_url": "https://archive.org/details/chadwick-boseman",
+      "person": "Chadwick Boseman",
+      "start": 433.71,
+      "reason": "The video features an unidentified podcast host speaking into microphones. Chadwick Boseman is not visible in any of the sampled frames; the imagery only shows a clip of Black Panther playing on a television screen in the background, which is insufficient for identity footage of Boseman.",
+      "reviewed_at": 1793217202.4918218
+    },
+    "9e1cf8fb73afb4a9e0acc7a8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:chadwick-boseman",
+      "source_url": "https://archive.org/details/chadwick-boseman",
+      "person": "Chadwick Boseman",
+      "start": 617.45,
+      "reason": "The video features an unidentified speaker in a podcast/interview setup talking about Chadwick Boseman, but Chadwick Boseman himself is not visibly present in any of the frames, making the segment unusable for direct identity footage.",
+      "reviewed_at": 1793217222.0512712
+    },
+    "1387cc253248e58bde1f6967": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "person": "Madam C.J. Walker",
+      "start": 97.0,
+      "reason": "The video features contemporary footage of A'Lelia Bundles (Madam C.J. Walker's great-great-granddaughter) speaking at an event and presenting awards at MTSU in 2017. Madam C.J. Walker herself is deceased long before this footage and is not visible in any frame.",
+      "reviewed_at": 1793217509.6542172
+    },
+    "e22619c94fac6b1278d270e5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "person": "Madam C.J. Walker",
+      "start": 106.2,
+      "reason": "The video shows a modern university event in 2017 featuring Madam C.J. Walker's great-great-granddaughter and various award recipients, but the historical figure Madam C.J. Walker herself is not present or depicted in the footage.",
+      "reviewed_at": 1793217518.537069
+    },
+    "0e19b2c4c59f9898bc99b307": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kevin-spencer-season-4-episode-2-snowfort-greg-lawrence-thomasin-langlands-480p-_202601",
+      "source_url": "https://archive.org/details/kevin-spencer-season-4-episode-2-snowfort-greg-lawrence-thomasin-langlands-480p-_202601",
+      "person": "Percy Spencer",
+      "start": 754.29,
+      "reason": "The footage consists of animated cartoon clips from 'Kevin Spencer' rather than real, usable archival footage or biographical documentation of Percy Spencer.",
+      "reviewed_at": 1793217539.3433137
+    },
+    "f227f24860919ac09edc5b40": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kevin-spencer-season-4-episode-2-snowfort-greg-lawrence-thomasin-langlands-480p-_202601",
+      "source_url": "https://archive.org/details/kevin-spencer-season-4-episode-2-snowfort-greg-lawrence-thomasin-langlands-480p-_202601",
+      "person": "Percy Spencer",
+      "start": 1075.41,
+      "reason": "The video segment contains animated cartoon footage (from 'Kevin Spencer') rather than real historical or biographical footage of Percy Spencer.",
+      "reviewed_at": 1793217556.450309
+    },
+    "088952fd09c413f7ae363526": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Opera_s_Influence_on_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 5.0,
+      "reason": "The video shows Jon Batiste speaking at a panel discussion, but the subject of the biography is Louis Armstrong. Therefore, the person is not visible and the footage is not relevant.",
+      "reviewed_at": 1793217640.4890327
+    },
+    "087706d10f6a7fc14d2255a3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Opera_s_Influence_on_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 14.75,
+      "reason": "The footage shows Jon Batiste speaking at a panel discussion, not Louis Armstrong. Since Louis Armstrong is not visible and the clip does not provide usable historical context for him, it is rejected.",
+      "reviewed_at": 1793217646.5806408
+    },
+    "fb834e50d4f8dd44a6172af1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Jon_Batiste_explains_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Jon_Batiste_explains_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 5.0,
+      "reason": "The video features Jon Batiste and Walter Isaacson discussing music at the Aspen Ideas Festival in 2014. It does not show Louis Armstrong, nor is it archival footage of him.",
+      "reviewed_at": 1793217663.0939426
+    },
+    "202b16fd4a6a1ff18b262cb1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Jon_Batiste_explains_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Jon_Batiste_explains_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 121.38,
+      "reason": "The video features Jon Batiste discussing Louis Armstrong, but Louis Armstrong is not visible in the footage. The subject of the biography is Louis Armstrong, not Jon Batiste.",
+      "reviewed_at": 1793217687.8028736
+    },
+    "ab097028d6859c4be1dc644b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "person": "Louis Armstrong",
+      "start": 31.95,
+      "reason": "The footage shows modern video of a political event at the Louis Armstrong International Airport in 2015, not Louis Armstrong himself, making it irrelevant for a biography about him.",
+      "reviewed_at": 1793217694.8904026
+    },
+    "a98c8775744b9d55cd6c8d77": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "person": "Louis Armstrong",
+      "start": 45.42,
+      "reason": "The footage shows Mayor Michael S. Yenni speaking at the Louis Armstrong International Airport, not Louis Armstrong himself. Louis Armstrong is not visible in any of the sampled frames.",
+      "reviewed_at": 1793217715.613701
+    },
+    "5e602ddcedd7c6d1cec221ad": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aug-31-2022-new-jk-rowling-book-dropped",
+      "source_url": "https://archive.org/details/aug-31-2022-new-jk-rowling-book-dropped",
+      "person": "J.K. Rowling",
+      "start": 6353.87,
+      "reason": "The frames show a political commentator (Vaush) streaming, not J.K. Rowling. The subject of the biography is not visible in any of the sampled frames.",
+      "reviewed_at": 1793218010.3957195
+    },
+    "4ebffc203754115dcc732a29": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aug-31-2022-new-jk-rowling-book-dropped",
+      "source_url": "https://archive.org/details/aug-31-2022-new-jk-rowling-book-dropped",
+      "person": "J.K. Rowling",
+      "start": 9074.82,
+      "reason": "The sampled frames show a livestream of the commentator Vaush and chat logs, not J.K. Rowling. While her name appears in chat and source descriptions, she is not visually present in the footage.",
+      "reviewed_at": 1793218021.8069649
+    },
+    "ccc278fb6615fc53cac33411": {
+      "kind": "segment_rejection",
+      "source_id": "archive:m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "source_url": "https://archive.org/details/m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "person": "M. S. Dhoni",
+      "start": 1707.54,
+      "reason": "The frames depict a scene from a biographical feature film starring Sushant Singh Rajput as M. S. Dhoni, not actual archival footage or real footage of M. S. Dhoni himself. Therefore, it is rejected as a lookalike/dramatization.",
+      "reviewed_at": 1793218078.305248
+    },
+    "644a31ed85c2b43d35ec70df": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "source_url": "https://archive.org/details/kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "person": "M. S. Dhoni",
+      "start": 36.0,
+      "reason": "The footage shows a fictional dramatization from a biographical movie ('M. S. Dhoni: The Untold Story') starring Sushant Singh Rajput and Disha Patani rather than actual archival footage of M. S. Dhoni himself. However, it is usable as a biographical illustration since it depicts scenes related to his life story.",
+      "reviewed_at": 1793218098.6439815
+    },
+    "046f04291cd347f99c3559ff": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "source_url": "https://archive.org/details/kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "person": "M. S. Dhoni",
+      "start": 51.5,
+      "reason": "The frames depict actors Sushant Singh Rajput and Disha Patani from the biographical feature film 'M.S. Dhoni: The Untold Story', not the actual M.S. Dhoni. Therefore, the person is not visible and the footage is unsuitable.",
+      "reviewed_at": 1793218109.2333224
+    },
+    "348b327e38ad1487c93dfe79": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "source_url": "https://archive.org/details/www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "person": "M. S. Dhoni",
+      "start": 5963.91,
+      "reason": "The footage shows actors in a biographical film dramatization rather than actual archival footage or genuine historical recordings of M. S. Dhoni, making it unsuitable for authentic biographical illustration.",
+      "reviewed_at": 1793218119.8349435
+    },
+    "4006fd4bb1a68744ae374483": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "source_url": "https://archive.org/details/www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "person": "M. S. Dhoni",
+      "start": 8517.72,
+      "reason": "The footage is from a biographical feature film (biopic) rather than actual historical or archival footage of M. S. Dhoni, depicting actors portraying scenes and characters, which does not qualify as genuine archival material for a biography short.",
+      "reviewed_at": 1793218128.3967707
+    },
+    "ac2ba5154b281aaf6f7457cc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "person": "M. S. Dhoni",
+      "start": 5963.95,
+      "reason": "The footage shows actors in a biographical film dramatization (from 'M.S. Dhoni: The Untold Story') rather than actual archival footage or genuine historical documentation of M.S. Dhoni, rendering it unusable as authentic biographical illustration.",
+      "reviewed_at": 1793218136.8275301
+    },
+    "b6c639995a1c709ee09fd3d9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "person": "M. S. Dhoni",
+      "start": 1707.56,
+      "reason": "The footage is from a biographical film depicting M. S. Dhoni's early life (playing cricket in a match), but Dhoni himself (played by an actor) is not clearly visible in these specific frames as the shot focuses on spectators and players from behind, making it biographical illustration rather than direct identity footage.",
+      "reviewed_at": 1793218145.0752141
+    },
+    "f52d72613cc6a50b10b02ec6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:KaunTujheM.SDhoniPalakMuchhalRaveenaMehta",
+      "source_url": "https://archive.org/details/KaunTujheM.SDhoniPalakMuchhalRaveenaMehta",
+      "person": "M. S. Dhoni",
+      "start": 40.25,
+      "reason": "The frames show a singer (Raveena Mehta) performing a cover song related to M.S. Dhoni's biopic, but M.S. Dhoni himself is not visible in any of the sampled frames.",
+      "reviewed_at": 1793218158.5336885
+    },
+    "50af1ec065d37c6a07cb3ff1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:KaunTujheM.SDhoniPalakMuchhalRaveenaMehta",
+      "source_url": "https://archive.org/details/KaunTujheM.SDhoniPalakMuchhalRaveenaMehta",
+      "person": "M. S. Dhoni",
+      "start": 57.87,
+      "reason": "The sampled frames feature a music video performance by Raveena Mehta covering a song related to M.S. Dhoni, but M.S. Dhoni himself is not visible in the footage.",
+      "reviewed_at": 1793218166.8270533
+    },
+    "0733a6f63ce678e7c0a0bbfd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "source_url": "https://archive.org/details/m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "person": "M. S. Dhoni",
+      "start": 3410.09,
+      "reason": "The sampled frames depict a fictional biographical film scene featuring an actor (Sushant Singh Rajput) portraying M. S. Dhoni, rather than actual archival footage or identity footage of M. S. Dhoni himself.",
+      "reviewed_at": 1793218216.169068
+    },
+    "55c33ce6b8b275ef125ca3f2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "source_url": "https://archive.org/details/m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "person": "M. S. Dhoni",
+      "start": 5112.63,
+      "reason": "The sampled frames are from the biographical film 'M. S. Dhoni: The Untold Story', showing dramatized scenes in a pavilion/hall with other characters, but the named subject M. S. Dhoni (or actor Sushant Singh Rajput portraying him) is not clearly identifiable in the visible frames (only secondary characters and backs of heads are shown). Thus person_visible is false, but it serves as biographical illustration for Dhoni's life story.",
+      "reviewed_at": 1793218258.132578
+    },
+    "49f65842e4fcd90576e23ef8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "source_url": "https://archive.org/details/m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "person": "M. S. Dhoni",
+      "start": 6815.18,
+      "reason": "The footage shows actors (Sushant Singh Rajput playing M. S. Dhoni in a biographical film) rather than the actual real-life person M. S. Dhoni, making it a fictionalized dramatization rather than genuine archival or documentary footage.",
+      "reviewed_at": 1793218270.8633206
+    },
+    "b072a1778c82d7d445aff597": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Www.TamilMv.OrgM.S.Dhoni2016TamilBRRip720pX264DD5.12.5GBESub.mkv1",
+      "source_url": "https://archive.org/details/Www.TamilMv.OrgM.S.Dhoni2016TamilBRRip720pX264DD5.12.5GBESub.mkv1",
+      "person": "M. S. Dhoni",
+      "start": 4261.36,
+      "reason": "The footage is from a biographical feature film (re-enactment with actors, portraying M. S. Dhoni played by Sushant Singh Rajput), not genuine archival or documentary footage of the real subject.",
+      "reviewed_at": 1793218279.0386622
+    },
+    "1ca0082e0c3fc2e5318b507c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Www.TamilMv.OrgM.S.Dhoni2016TamilBRRip720pX264DD5.12.5GBESub.mkv1",
+      "source_url": "https://archive.org/details/Www.TamilMv.OrgM.S.Dhoni2016TamilBRRip720pX264DD5.12.5GBESub.mkv1",
+      "person": "M. S. Dhoni",
+      "start": 5112.63,
+      "reason": "The sampled segment features scenes from a biographical film (M.S. Dhoni: The Untold Story) depicting other characters, but the named subject, M. S. Dhoni, is not visibly present in any of the frames.",
+      "reviewed_at": 1793218285.6095843
     }
   }
 }

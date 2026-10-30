@@ -2,285 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Viktor Frankl",
-      "source": {
-        "id": "archive:viktor-frankl-on-why-idealists-are-real-realists",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/viktor-frankl-on-why-idealists-are-real-realists/Viktor%20Frankl%20on%20Why%20Idealists%20Are%20Real%20Realists.mp4",
-        "source_url": "https://archive.org/details/viktor-frankl-on-why-idealists-are-real-realists",
-        "title": "Viktor Frankl On Why Idealists Are Real Realists",
-        "description": "Toronto Youth Corps, June 7, 1972 ['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "creator": "Viktor Emil Frankl",
-        "license": "",
-        "subject": "['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 199.332666,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 76.28,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The frames show archival lecture footage of Viktor Frankl speaking and gesturing in front of a blackboard, matching the biographical context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7923af4b866e6d17d1a9b42574c8e8bbc3e872eaf4dc27da07bdaf3583c5e093",
-      "reviewed_at": 1791719523.9140306
-    },
-    {
-      "person": "Viktor Frankl",
-      "source": {
-        "id": "archive:viktor-frankl-on-why-idealists-are-real-realists",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/viktor-frankl-on-why-idealists-are-real-realists/Viktor%20Frankl%20on%20Why%20Idealists%20Are%20Real%20Realists.mp4",
-        "source_url": "https://archive.org/details/viktor-frankl-on-why-idealists-are-real-realists",
-        "title": "Viktor Frankl On Why Idealists Are Real Realists",
-        "description": "Toronto Youth Corps, June 7, 1972 ['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "creator": "Viktor Emil Frankl",
-        "license": "",
-        "subject": "['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 199.332666,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 90.54,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames show archival video of Viktor Frankl giving a lecture at the Toronto Youth Corps in 1972. While the subject is seen at a distance on stage, he is identifiable in the context of the archival recording matching the metadata.",
-        "usage": "direct_event"
-      },
-      "review_key": "d360a05f61a97aa7bde4c74a98cb412cb613a510d94fff17ec22f2a59bfe4734",
-      "reviewed_at": 1791719531.4683194
-    },
-    {
-      "person": "Viktor Frankl",
-      "source": {
-        "id": "archive:viktor-frankl-on-why-idealists-are-real-realists",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/viktor-frankl-on-why-idealists-are-real-realists/Viktor%20Frankl%20on%20Why%20Idealists%20Are%20Real%20Realists.mp4",
-        "source_url": "https://archive.org/details/viktor-frankl-on-why-idealists-are-real-realists",
-        "title": "Viktor Frankl On Why Idealists Are Real Realists",
-        "description": "Toronto Youth Corps, June 7, 1972 ['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "creator": "Viktor Emil Frankl",
-        "license": "",
-        "subject": "['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 199.332666,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 119.05,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The frames clearly show Viktor Frankl lecturing (archival footage from June 7, 1972), matching the subject and biographical context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "cceb26cabd61f688f16a193da91b2fe92d54b08d2239f540d02f250e97b75370",
-      "reviewed_at": 1791724058.1025655
-    },
-    {
-      "person": "Viktor Frankl",
-      "source": {
-        "id": "archive:viktor-frankl-on-why-idealists-are-real-realists",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/viktor-frankl-on-why-idealists-are-real-realists/Viktor%20Frankl%20on%20Why%20Idealists%20Are%20Real%20Realists.mp4",
-        "source_url": "https://archive.org/details/viktor-frankl-on-why-idealists-are-real-realists",
-        "title": "Viktor Frankl On Why Idealists Are Real Realists",
-        "description": "Toronto Youth Corps, June 7, 1972 ['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "creator": "Viktor Emil Frankl",
-        "license": "",
-        "subject": "['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 199.332666,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 133.31,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows authentic archival footage of Viktor Frankl lecturing in 1972, making it highly usable as biographical illustration of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "fd5599b85bd172dd38cacc27c1fa534f313d9a3a17728e4c7a50a02fe95a5f96",
-      "reviewed_at": 1791724063.13876
-    },
-    {
-      "person": "Viktor Frankl",
-      "source": {
-        "id": "archive:viktor-frankl-on-why-idealists-are-real-realists",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/viktor-frankl-on-why-idealists-are-real-realists/Viktor%20Frankl%20on%20Why%20Idealists%20Are%20Real%20Realists.mp4",
-        "source_url": "https://archive.org/details/viktor-frankl-on-why-idealists-are-real-realists",
-        "title": "Viktor Frankl On Why Idealists Are Real Realists",
-        "description": "Toronto Youth Corps, June 7, 1972 ['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "creator": "Viktor Emil Frankl",
-        "license": "",
-        "subject": "['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 199.332666,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 147.56,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features real archival footage of Viktor Frankl giving a lecture in 1972, clearly showing him speaking and gesturing. The footage is slightly blurry and low quality due to its age, but usable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0334f1eef1bd2f7785d28c73e6b9a39848cc2b7879b083162a0aef3e91935710",
-      "reviewed_at": 1791724068.6778283
-    },
-    {
-      "person": "Viktor Frankl",
-      "source": {
-        "id": "archive:viktor-frankl-on-why-idealists-are-real-realists",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/viktor-frankl-on-why-idealists-are-real-realists/Viktor%20Frankl%20on%20Why%20Idealists%20Are%20Real%20Realists.mp4",
-        "source_url": "https://archive.org/details/viktor-frankl-on-why-idealists-are-real-realists",
-        "title": "Viktor Frankl On Why Idealists Are Real Realists",
-        "description": "Toronto Youth Corps, June 7, 1972 ['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "creator": "Viktor Emil Frankl",
-        "license": "",
-        "subject": "['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 199.332666,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 161.82,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly show Viktor Frankl lecturing in archival footage from 1972, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0df11dd10be76238c41465f94970afbff2133d204544f45b3b690d1b2591c180",
-      "reviewed_at": 1791724073.4475815
-    },
-    {
-      "person": "Viktor Frankl",
-      "source": {
-        "id": "archive:viktor-frankl-on-why-idealists-are-real-realists",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/viktor-frankl-on-why-idealists-are-real-realists/Viktor%20Frankl%20on%20Why%20Idealists%20Are%20Real%20Realists.mp4",
-        "source_url": "https://archive.org/details/viktor-frankl-on-why-idealists-are-real-realists",
-        "title": "Viktor Frankl On Why Idealists Are Real Realists",
-        "description": "Toronto Youth Corps, June 7, 1972 ['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "creator": "Viktor Emil Frankl",
-        "license": "",
-        "subject": "['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 199.332666,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 176.08,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video shows actual archival footage of Viktor Frankl speaking at a lecture, clearly identifying him across the sampled frames, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "02b85c4d238640f79854c0129dfe386b4b5063b7bbde93625f72229974dff302",
-      "reviewed_at": 1791724078.6674297
-    },
-    {
-      "person": "Viktor Frankl",
-      "source": {
-        "id": "archive:viktor-frankl-on-why-idealists-are-real-realists",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/viktor-frankl-on-why-idealists-are-real-realists/Viktor%20Frankl%20on%20Why%20Idealists%20Are%20Real%20Realists.mp4",
-        "source_url": "https://archive.org/details/viktor-frankl-on-why-idealists-are-real-realists",
-        "title": "Viktor Frankl On Why Idealists Are Real Realists",
-        "description": "Toronto Youth Corps, June 7, 1972 ['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "creator": "Viktor Emil Frankl",
-        "license": "",
-        "subject": "['Viktor Frankl', 'idealism', 'realism', 'Toronto', '1972', 'lecture']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 199.332666,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 190.33,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features genuine archival footage of Viktor Frankl giving a lecture in 1972, clearly showing him speaking and gesturing at a podium, serving as good biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c390d1c48559d2699d405735fbe64d3f554e94d1e24b7fe69f334fd697cfa434",
-      "reviewed_at": 1791724084.044984
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary/Rosa_Parks_story_lives_on_at_Daily_Elementary.mp4",
-        "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
-        "title": "Rosa Parks' story lives on at Daily Elementary",
-        "description": " ['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
-        "creator": "Houston Independent School District",
-        "license": "",
-        "subject": "['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
-        "runtime": "00:01:24",
-        "direct_subject": true,
-        "duration_hint": 84.317651,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 45.18,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The segment includes archival footage of Rosa Parks on a bus (making her clearly visible in the first two frames) followed by an interview with her niece, Urana McCauley, providing relevant biographical context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b6d6f84a222b51f0bc4d4f65e2fcf2c10676ebd6fa624f5f1c4b20b1dca55d6a",
-      "reviewed_at": 1791736856.7204225
-    },
-    {
       "person": "Morgan Freeman",
       "source": {
         "id": "archive:bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
@@ -10378,285 +10099,6 @@
       "reviewed_at": 1792701027.0351613
     },
     {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 198.76,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature genuine archival footage of Louis Armstrong performing in the 1961 film Paris Blues, matching the subject and narration well.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5ab84169841a2d2fa97d1dbb4fbf8aa8e3ef31e1b1011db1286814af8f9288be",
-      "reviewed_at": 1792701639.3330846
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 32.68,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features authentic archival film footage from the 1961 film Paris Blues, clearly showing Louis Armstrong playing the trumpet in several frames (particularly the second frame), along with related scenes and other actors like Sidney Poitier and Paul Newman. It directly illustrates his musical career and cameo appearances.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9ce29b4dd24f2601099ba9a51e089c510097b46d105a1ba78352db8e498620b5",
-      "reviewed_at": 1792701812.525669
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 60.36,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video features genuine archival footage of Louis Armstrong performing on trumpet with a band, clearly visible and centrally framed.",
-        "usage": "direct_event"
-      },
-      "review_key": "9bcd8d38a294608f1984082e123d4610cf779214085793fe0252d144abe39e43",
-      "reviewed_at": 1792701828.1611974
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 88.04,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment features genuine archival film footage from Paris Blues (1961) clearly showing Louis Armstrong performing on the trumpet with his band, perfectly illustrating his musical career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d097a29266f707bf38302ad7f5c73f1b148deb437134db8068251da77041fd24",
-      "reviewed_at": 1792701849.6255093
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 115.72,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment features genuine historical archival footage of Louis Armstrong playing the trumpet in the 1961 film Paris Blues, making him clearly visible and the footage highly relevant for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e0e51a018dbe1358740946ed3005cab7d2f339e86a1a97aa4a86d228920fc76d",
-      "reviewed_at": 1792701862.4542274
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 143.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features genuine archival footage from the 1961 film Paris Blues featuring Louis Armstrong performing and appearing alongside other actors, which directly illustrates his life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a07a8addb426ad332e47edceb58a1e49d94fcb99d6682c87ab70724497b7e739",
-      "reviewed_at": 1792701887.4952157
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 171.08,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet with a band, matching the biographical subject and archival context, with only a brief cutaway to another musician in frames 2 and 3.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f89e9a51f9a3450b6f2d52747b34d85510936831d12d751da6dc9b126c77008d",
-      "reviewed_at": 1792701901.5151484
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 226.44,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features Louis Armstrong playing his trumpet in a scene from the 1961 film Paris Blues, making it authentic and directly usable archival footage illustrating his career and musical performances.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "474b186259ccb3e2242402d3a954fd0d94ad9493da9229db312c220225696d88",
-      "reviewed_at": 1792701915.131701
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 254.12,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Louis Armstrong is clearly visible and performing in frames 1, 2, and 5 from the 1961 film Paris Blues, which provides good biographical illustration of his career, even though frames 3 and 4 show another actor (Paul Newman).",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b09cea6abb0bf779739a2e36adc38435afff9c78678d00dd608be4d5a3c5cfca",
-      "reviewed_at": 1792701975.7759829
-    },
-    {
       "person": "Satyajit Ray",
       "source": {
         "id": "archive:Satyajit",
@@ -11833,37 +11275,6 @@
       },
       "review_key": "4338f4248361c20a0ff7e03bd279d562504ae7950f2f67e0e371db3669f734cb",
       "reviewed_at": 1792785325.2922626
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 281.79,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features genuine historical film of Louis Armstrong playing the trumpet alongside Paul Newman in a scene from the 1961 film Paris Blues, making it highly relevant and usable biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "279108616e882b9d5ea6e43bea9223a0263f58bb480d40a9dc9fdad2d6f38021",
-      "reviewed_at": 1792785617.3944645
     },
     {
       "person": "Louis Armstrong",
@@ -17034,37 +16445,6 @@
       "reviewed_at": 1793129997.1134546
     },
     {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 60.85,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features clear historical and archival footage of Jonas Salk in both laboratory and family contexts, matching the biographical narration well.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "94563a025362273c1e5265f43171af0827401bcc78597b06b502dff7215b8eb1",
-      "reviewed_at": 1793130084.6054475
-    },
-    {
       "person": "Sylvia Earle",
       "source": {
         "id": "archive:linktv_earth2011093018",
@@ -18057,37 +17437,6 @@
       "reviewed_at": 1793216610.9895623
     },
     {
-      "person": "Arthur Ashe",
-      "source": {
-        "id": "archive:hctvva-Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr.",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/hctvva-Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr./Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr..mp4",
-        "source_url": "https://archive.org/details/hctvva-Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr.",
-        "title": "Black History Month promo: Hometown Hero Arthur Ashe, Jr.",
-        "description": "Arthur Ashe, Jr. made his mark as a worldwide tennis champion and advocate for education. Throughout his life, Ashe worked to eliminate racism and poverty around the world. The hometown hero died in 1993 from AIDS-related pneumonia as the result of a blood transfusion. Ashe's legacy and his ties to Central Virginia are cemented in the Henrico County public school that bears his name, Arthur Ashe, Jr. Elementary. \"Hometown Hero\" is one of a dozen stories in our #BlackHistoryMonth playlist right here on YouTube: https://bit.ly/341cUJm ['Virginia', 'Henrico', 'Henrico County VA', 'HCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2022']",
-        "creator": "Henrico County VA",
-        "license": "",
-        "subject": "['Virginia', 'Henrico', 'Henrico County VA', 'HCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2022']",
-        "runtime": "00:00:48",
-        "direct_subject": true,
-        "duration_hint": 48.148148,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 15.73,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features genuine archival video of Arthur Ashe visiting Woodville Elementary School in 1969 and receiving an honorary degree in 1976. Arthur Ashe is clearly identifiable in multiple frames, making the footage highly relevant and usable for a biographical Short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6f10172c26541dec79d0d49f67c59a64b9add9d87a86d514fd0d33125c0d4be3",
-      "reviewed_at": 1793217022.339545
-    },
-    {
       "person": "Chadwick Boseman",
       "source": {
         "id": "archive:twitter-1299759741779030016",
@@ -18582,6 +17931,657 @@
       },
       "review_key": "78ef91c2d58756c4fb0acef6251f14045c2fb0bf76670400448ea9725a543567",
       "reviewed_at": 1793218241.9576428
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 198.76,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features authentic historical film of Louis Armstrong performing in the 1961 film Paris Blues, clearly showing him in multiple frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "dfab41a5faca90ed5350753c3967539fa5a019dc6d8f0c513aad8672b53a369b",
+      "reviewed_at": 1793383181.5201237
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 32.68,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Louis Armstrong is clearly visible performing in archival film footage from Paris Blues (1961), making it relevant and usable biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f1559591f86725781a70477a6ce98e5892bddc6c2cc70de3d4a00fde39ac4360",
+      "reviewed_at": 1793383246.2179916
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 60.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet with his band in archival film footage, directly illustrating his musical career.",
+        "usage": "direct_event"
+      },
+      "review_key": "845455e1dcdf55a4a284e7e5c56aea7a1992b27228b78587cf9eddc8c0b06e10",
+      "reviewed_at": 1793383262.3869233
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 88.04,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet in his cameo appearance in the 1961 film Paris Blues, perfectly matching the biographical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "9c21f13d3e6baa581bc01645d4381c15b9d7dd9ca5d614e4ee54ae3d29d7e3d7",
+      "reviewed_at": 1793383274.2846744
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 115.72,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly features Louis Armstrong performing on the trumpet in a live musical scene, directly illustrating his career and persona as a legendary musician.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3e6f2d8a2aa6435b8d8ebed675b8d03d2d4befa85c8e6fcbd4babcdde5b0b4ff",
+      "reviewed_at": 1793383290.506499
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 143.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The clip features genuine archival film footage from Paris Blues (1961), showing Louis Armstrong clearly identifiable playing and singing in several frames, directly illustrating his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6201db8b1c21b24d40072acbc577e8d5158ce8cae263fa9b2639119f55f40b0f",
+      "reviewed_at": 1793383303.1367984
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 171.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature genuine archival footage of Louis Armstrong playing the trumpet in Paris Blues (1961), perfectly matching the biography narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9cfb08485ad6ea01e262850d819b67052ab5a8de0974cafb65c47d259cd0ca6d",
+      "reviewed_at": 1793383318.1644783
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 226.44,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features genuine historical film of Louis Armstrong playing the trumpet (cameo in Paris Blues, 1961), clearly showing him in multiple frames alongside other actors like Paul Newman.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ab44f569558b66050af1f850581597681fab4be74c44c0cb3329fa2a7fd42f87",
+      "reviewed_at": 1793383331.7075946
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 254.12,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature genuine archival footage of Louis Armstrong performing in the 1961 film Paris Blues, perfectly illustrating his musical career.",
+        "usage": "direct_event"
+      },
+      "review_key": "fb4186368fe062509bd3b6b6f2f3a6d2b6d0b32f2ed44c526a96f8b9b9bc6aa8",
+      "reviewed_at": 1793383344.1888983
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 281.79,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Louis Armstrong is clearly visible playing the trumpet in archival film footage from Paris Blues (1961), perfectly illustrating his musical career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "72e9c63c9688a2a4bec74c34a40bf14b2f0da9fdfadbaa67b487e6bcb73ab2d5",
+      "reviewed_at": 1793383356.9900634
+    },
+    {
+      "person": "Arthur Ashe",
+      "source": {
+        "id": "archive:hctvva-Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr.",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/hctvva-Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr./Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr..mp4",
+        "source_url": "https://archive.org/details/hctvva-Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr.",
+        "title": "Black History Month promo: Hometown Hero Arthur Ashe, Jr.",
+        "description": "Arthur Ashe, Jr. made his mark as a worldwide tennis champion and advocate for education. Throughout his life, Ashe worked to eliminate racism and poverty around the world. The hometown hero died in 1993 from AIDS-related pneumonia as the result of a blood transfusion. Ashe's legacy and his ties to Central Virginia are cemented in the Henrico County public school that bears his name, Arthur Ashe, Jr. Elementary. \"Hometown Hero\" is one of a dozen stories in our #BlackHistoryMonth playlist right here on YouTube: https://bit.ly/341cUJm ['Virginia', 'Henrico', 'Henrico County VA', 'HCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2022']",
+        "creator": "Henrico County VA",
+        "license": "",
+        "subject": "['Virginia', 'Henrico', 'Henrico County VA', 'HCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2022']",
+        "runtime": "00:00:48",
+        "direct_subject": true,
+        "duration_hint": 48.148148,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 15.73,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage contains authentic archival video and photographs explicitly showing Arthur Ashe during his school visit in 1969 and receiving an honorary degree in 1976, perfectly matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "68a1aaf8bc51614a1a010be4a619b337b4084f1212b2fe1e7e01f40ce72785f6",
+      "reviewed_at": 1793383770.3007286
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 60.85,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The video features archival-style dramatic reenactment/footage depicting Jonas Salk working in a laboratory and with his family, clearly identifying him. It serves as biographical illustration for a Short about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "61cf5de8741a212cbf919ff318890559031e9935ea98eb5584101c5a1815145c",
+      "reviewed_at": 1793383906.3949978
+    },
+    {
+      "person": "Nawazuddin Siddiqui",
+      "source": {
+        "id": "archive:baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1/Baarish%20Ki%20Jaaye%20%20%20B%20Praak%20Ft%20Nawazuddin%20Siddiqui%20%26%20Sunanda%20Sharma%20%20%20Jaani%20%20%20Arvindr%20Khaira%20%20%20DM%20%281%29.ia.mp4",
+        "source_url": "https://archive.org/details/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+        "title": "Baarish Ki Jaaye B Praak Ft Nawazuddin Siddiqui & Sunanda Sharma Jaani Arvindr Khaira DM ( 1)",
+        "description": "aaaa aaaa",
+        "creator": "",
+        "license": "",
+        "subject": "aaaa",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 304.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 161.24,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage features actor Nawazuddin Siddiqui clearly visible in a music video performance, serving as biographical illustration of his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1385400c73c4e67ee5d8ebb0aa65a39be5cfb8cca55188c38caa2402654b3df8",
+      "reviewed_at": 1793384099.6051562
+    },
+    {
+      "person": "Nawazuddin Siddiqui",
+      "source": {
+        "id": "archive:raat-akeli-hai-the-bansal-murders-2025",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/raat-akeli-hai-the-bansal-murders-2025/RaatAkeliHaiTheBansalMurders.2025.BRRip.mp4",
+        "source_url": "https://archive.org/details/raat-akeli-hai-the-bansal-murders-2025",
+        "title": "Raat Akeli Hai: The Bansal Murders (2025) – Hindi Crime Thriller",
+        "description": "Raat Akeli Hai: The Bansal Murders is a 2025 Indian Hindi-language crime thriller film. The story revolves around Inspector Jatil Yadav, who is assigned to investigate the brutal murder of the wealthy Bansal family inside their locked mansion. As Inspector Yadav examines the crime scene, he uncovers a disturbing trail of greed, betrayal, and long-buried secrets. With poisoned water, misleading evidence, and suspects hiding behind privilege and power, the investigation becomes increasingly complex. While the police attempt to close the case quickly by blaming an easy suspect, Inspector Yadav digs deeper, exposing a deadly conspiracy that unfolds until the final moments. The film explores themes of class divide, corruption, and moral decay within elite families, delivering a dark and suspenseful murder mystery. ['Raat Akeli Hai The Bansal Murders', 'Hindi crime thriller', 'Indian murder mystery', 'Nawazuddin Siddiqui', 'Radhika Apte', 'Inspector Jatil Yadav', 'Bollywood thriller 2025', 'locked room mystery', 'Indian detective film']",
+        "creator": "Nawazuddin Siddiqui, Radhika Apte, Chitrangda Singh, Rajat Kapoor, Ila Arun (Cast)",
+        "license": "",
+        "subject": "['Raat Akeli Hai The Bansal Murders', 'Hindi crime thriller', 'Indian murder mystery', 'Nawazuddin Siddiqui', 'Radhika Apte', 'Inspector Jatil Yadav', 'Bollywood thriller 2025', 'locked room mystery', 'Indian detective film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 8185.791667,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 1262.2,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage features actor Nawazuddin Siddiqui clearly visible in the second frame, and serves as biographical illustration for a Short about his life and career, using a scene from a film featuring him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "156b86cc28bcb087f74422b464a2a323b6238a3456a900aa14101cead6834b01",
+      "reviewed_at": 1793384125.5849915
+    },
+    {
+      "person": "Nawazuddin Siddiqui",
+      "source": {
+        "id": "archive:baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1/Baarish%20Ki%20Jaaye%20%20%20B%20Praak%20Ft%20Nawazuddin%20Siddiqui%20%26%20Sunanda%20Sharma%20%20%20Jaani%20%20%20Arvindr%20Khaira%20%20%20DM%20%281%29.ia.mp4",
+        "source_url": "https://archive.org/details/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+        "title": "Baarish Ki Jaaye B Praak Ft Nawazuddin Siddiqui & Sunanda Sharma Jaani Arvindr Khaira DM ( 1)",
+        "description": "aaaa aaaa",
+        "creator": "",
+        "license": "",
+        "subject": "aaaa",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 304.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 27.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The sampled frames clearly feature actor Nawazuddin Siddiqui in a music video scene (frame 3 clearly shows his face), making it valid identity and biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "59beb4d6de029c7396507a2062142df136e023e286608a553a1a56487585f6f5",
+      "reviewed_at": 1793384147.0130906
+    },
+    {
+      "person": "Nawazuddin Siddiqui",
+      "source": {
+        "id": "archive:raat-akeli-hai-the-bansal-murders-2025",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/raat-akeli-hai-the-bansal-murders-2025/RaatAkeliHaiTheBansalMurders.2025.BRRip.mp4",
+        "source_url": "https://archive.org/details/raat-akeli-hai-the-bansal-murders-2025",
+        "title": "Raat Akeli Hai: The Bansal Murders (2025) – Hindi Crime Thriller",
+        "description": "Raat Akeli Hai: The Bansal Murders is a 2025 Indian Hindi-language crime thriller film. The story revolves around Inspector Jatil Yadav, who is assigned to investigate the brutal murder of the wealthy Bansal family inside their locked mansion. As Inspector Yadav examines the crime scene, he uncovers a disturbing trail of greed, betrayal, and long-buried secrets. With poisoned water, misleading evidence, and suspects hiding behind privilege and power, the investigation becomes increasingly complex. While the police attempt to close the case quickly by blaming an easy suspect, Inspector Yadav digs deeper, exposing a deadly conspiracy that unfolds until the final moments. The film explores themes of class divide, corruption, and moral decay within elite families, delivering a dark and suspenseful murder mystery. ['Raat Akeli Hai The Bansal Murders', 'Hindi crime thriller', 'Indian murder mystery', 'Nawazuddin Siddiqui', 'Radhika Apte', 'Inspector Jatil Yadav', 'Bollywood thriller 2025', 'locked room mystery', 'Indian detective film']",
+        "creator": "Nawazuddin Siddiqui, Radhika Apte, Chitrangda Singh, Rajat Kapoor, Ila Arun (Cast)",
+        "license": "",
+        "subject": "['Raat Akeli Hai The Bansal Murders', 'Hindi crime thriller', 'Indian murder mystery', 'Nawazuddin Siddiqui', 'Radhika Apte', 'Inspector Jatil Yadav', 'Bollywood thriller 2025', 'locked room mystery', 'Indian detective film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 8185.791667,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 1890.8,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features Nawazuddin Siddiqui clearly visible in the later frames as an actor in a scene from the film, serving as biographical illustration of his work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bd412b99b8a4b68a726ad8dca1aec756b61450ff11cf928feab66cc34a5d43ac",
+      "reviewed_at": 1793384155.9052978
+    },
+    {
+      "person": "Nawazuddin Siddiqui",
+      "source": {
+        "id": "archive:baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1/Baarish%20Ki%20Jaaye%20%20%20B%20Praak%20Ft%20Nawazuddin%20Siddiqui%20%26%20Sunanda%20Sharma%20%20%20Jaani%20%20%20Arvindr%20Khaira%20%20%20DM%20%281%29.ia.mp4",
+        "source_url": "https://archive.org/details/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+        "title": "Baarish Ki Jaaye B Praak Ft Nawazuddin Siddiqui & Sunanda Sharma Jaani Arvindr Khaira DM ( 1)",
+        "description": "aaaa aaaa",
+        "creator": "",
+        "license": "",
+        "subject": "aaaa",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 304.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 49.64,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "The sampled frames feature Nawazuddin Siddiqui clearly in frames 1 and 3 from the music video 'Baarish Ki Jaaye', making it usable as biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "88f46918e7ddb70887b2da3d5e8f9a1947bfdf79a1e12f4ec7177474c3ce1f93",
+      "reviewed_at": 1793384164.781784
+    },
+    {
+      "person": "Nawazuddin Siddiqui",
+      "source": {
+        "id": "archive:baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1/Baarish%20Ki%20Jaaye%20%20%20B%20Praak%20Ft%20Nawazuddin%20Siddiqui%20%26%20Sunanda%20Sharma%20%20%20Jaani%20%20%20Arvindr%20Khaira%20%20%20DM%20%281%29.ia.mp4",
+        "source_url": "https://archive.org/details/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+        "title": "Baarish Ki Jaaye B Praak Ft Nawazuddin Siddiqui & Sunanda Sharma Jaani Arvindr Khaira DM ( 1)",
+        "description": "aaaa aaaa",
+        "creator": "",
+        "license": "",
+        "subject": "aaaa",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 304.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 94.28,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6.0,
+        "reason": "The segment features real filmed footage of Nawazuddin Siddiqui clearly visible in multiple sampled frames (such as frames 1 and 4), serving as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f3df4784e6d5f61aef439b3770ea8c5164f84f5727249efc8d0c5aba82576dbd",
+      "reviewed_at": 1793384207.3999603
+    },
+    {
+      "person": "Nawazuddin Siddiqui",
+      "source": {
+        "id": "archive:baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1/Baarish%20Ki%20Jaaye%20%20%20B%20Praak%20Ft%20Nawazuddin%20Siddiqui%20%26%20Sunanda%20Sharma%20%20%20Jaani%20%20%20Arvindr%20Khaira%20%20%20DM%20%281%29.ia.mp4",
+        "source_url": "https://archive.org/details/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+        "title": "Baarish Ki Jaaye B Praak Ft Nawazuddin Siddiqui & Sunanda Sharma Jaani Arvindr Khaira DM ( 1)",
+        "description": "aaaa aaaa",
+        "creator": "",
+        "license": "",
+        "subject": "aaaa",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 304.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 116.6,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The segment features actor Nawazuddin Siddiqui clearly visible in the music video footage (Frame 2), serving as biographical illustration for his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7926acce1cae3356ea0123ca05c29f95d22ba118d04e94bc9d88c79da1027661",
+      "reviewed_at": 1793384217.5349233
+    },
+    {
+      "person": "Nawazuddin Siddiqui",
+      "source": {
+        "id": "archive:baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1/Baarish%20Ki%20Jaaye%20%20%20B%20Praak%20Ft%20Nawazuddin%20Siddiqui%20%26%20Sunanda%20Sharma%20%20%20Jaani%20%20%20Arvindr%20Khaira%20%20%20DM%20%281%29.ia.mp4",
+        "source_url": "https://archive.org/details/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+        "title": "Baarish Ki Jaaye B Praak Ft Nawazuddin Siddiqui & Sunanda Sharma Jaani Arvindr Khaira DM ( 1)",
+        "description": "aaaa aaaa",
+        "creator": "",
+        "license": "",
+        "subject": "aaaa",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 304.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 138.92,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features actor Nawazuddin Siddiqui visible in the first frame, and the remaining frames show music video footage from 'Baarish Ki Jaaye', serving as valid biographical illustration of his work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c1ea423c0d403ecf8ff2a808c4e79bf07813384140a8a60a7dd9c084d98a1816",
+      "reviewed_at": 1793384224.8480034
+    },
+    {
+      "person": "APJ Abdul Kalam",
+      "source": {
+        "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3/%22APJ_Abdul_Kalam_interacts_with_Children%22-Asianet_News_Edufest%3A_Part_3.mp4",
+        "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
+        "title": "\" APJ Abdul Kalam Interacts With Children\" Asianet News Edufest: Part 3",
+        "description": "Motivation speech Love",
+        "creator": "Durai",
+        "license": "",
+        "subject": "Love",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 927.92,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 918.92,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video shows APJ Abdul Kalam speaking at an event interacting with children and audiences, featuring genuine archival footage clearly identifying the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b48024527b7164092c6f38b1b2873e1e997355f16e5dd804d3ac2e8d57b69f34",
+      "reviewed_at": 1793384466.8164387
     }
   ]
 }

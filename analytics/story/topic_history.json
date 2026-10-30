@@ -532,5 +532,21 @@
     "video_id": "jFZr6neYq-w",
     "workdir": "",
     "published_at": 1793130788
+  },
+  {
+    "topic": "APJ Abdul Kalam: The early struggles of India's future President delivering newspapers as a boy in Rameswaram.",
+    "normalized": "apj abdul kalam the early struggles of india s future president delivering newspapers as a boy in rameswaram",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1793384302,
+    "recorded_at": 1793384302,
+    "metadata": {
+      "person": "APJ Abdul Kalam",
+      "pillar": "before_they_were_famous"
+    },
+    "title": "APJ Abdul Kalam: The early struggles of India's future President delivering newspapers as a boy in Rameswaram.",
+    "video_id": "173fjsRF-aE",
+    "workdir": "",
+    "published_at": 1793385145
   }
 ]

@@ -10347,6 +10347,384 @@
       "start": 5112.63,
       "reason": "The sampled segment features scenes from a biographical film (M.S. Dhoni: The Untold Story) depicting other characters, but the named subject, M. S. Dhoni, is not visibly present in any of the frames.",
       "reviewed_at": 1793218285.6095843
+    },
+    "7090d06fdf7d620eb0ec865e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Opera_s_Influence_on_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 24.5,
+      "reason": "The video segment features Jon Batiste speaking at the Aspen Ideas Festival, but the named subject of the biography is Louis Armstrong. Therefore, the footage does not show the correct person.",
+      "reviewed_at": 1793383190.8639674
+    },
+    "fbf78b42490fab6dbbda04f7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Opera_s_Influence_on_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 34.26,
+      "reason": "The video features musician Jon Batiste discussing music at a festival, but the narration is about Louis Armstrong. Jon Batiste is not Louis Armstrong, so the person visible does not match the subject of the biography.",
+      "reviewed_at": 1793383196.8558602
+    },
+    "0956701f7ceaa7ef740818d7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Jon_Batiste_explains_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Jon_Batiste_explains_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 63.19,
+      "reason": "The video shows Jon Batiste being interviewed about Louis Armstrong, but Louis Armstrong himself is not visible in any of the frames.",
+      "reviewed_at": 1793383204.521204
+    },
+    "efd3e9d04088a9b1a5552e2f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Jon_Batiste_explains_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Jon_Batiste_explains_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 179.57,
+      "reason": "The video features Jon Batiste discussing music at the Aspen Ideas Festival, but Louis Armstrong is neither visible in the frames nor depicted in this modern discussion panel clip.",
+      "reviewed_at": 1793383209.8716097
+    },
+    "6befe885a2f4491def5ee9fd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "source_url": "https://archive.org/details/Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "person": "Louis Armstrong",
+      "start": 275.42,
+      "reason": "The video shows a press conference announcing the expansion of the Louis Armstrong International Airport. While the airport is named after Louis Armstrong, the footage only depicts modern public officials speaking and does not feature Louis Armstrong himself, nor any biographical footage of his life.",
+      "reviewed_at": 1793383217.0485573
+    },
+    "91922960ba132fc3ad9f94c9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "source_url": "https://archive.org/details/Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "person": "Louis Armstrong",
+      "start": 410.62,
+      "reason": "The footage shows a press conference about the Louis Armstrong International Airport expansion, but Louis Armstrong (who died in 1971) is not visible in any frame. The connection is merely through the airport's namesake, which does not constitute valid biographical illustration or direct historical context depicting his life.",
+      "reviewed_at": 1793383224.03873
+    },
+    "ac7c3084e55dca695fccb538": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "person": "Louis Armstrong",
+      "start": 58.89,
+      "reason": "The video shows a modern local politician (Mayor Michael S. Yenni) speaking at the Louis Armstrong International Airport in 2015, not archival footage of Louis Armstrong himself. Louis Armstrong is not visible in the footage.",
+      "reviewed_at": 1793383229.7430449
+    },
+    "37f00f71fbb1bacfd5c57446": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "person": "Louis Armstrong",
+      "start": 72.37,
+      "reason": "The video shows modern political figures and officials at the Louis Armstrong International Airport, but Louis Armstrong himself is deceased and not visible in the footage. Therefore, it cannot be used as identity footage for Louis Armstrong.",
+      "reviewed_at": 1793383235.5941687
+    },
+    "7ba79d3faa26ab1a1c3b3981": {
+      "kind": "segment_rejection",
+      "source_id": "archive:etvct-Enfield_CT_-_Enfield_Annex_Enrico_Fermi_High_School_Mechanical_Systems_Tour",
+      "source_url": "https://archive.org/details/etvct-Enfield_CT_-_Enfield_Annex_Enrico_Fermi_High_School_Mechanical_Systems_Tour",
+      "person": "Enrico Fermi",
+      "start": 484.14,
+      "reason": "The footage shows a modern tour of the mechanical systems of Enrico Fermi High School, which has no connection to Enrico Fermi himself beyond sharing a school name. It does not depict the physicist or his life.",
+      "reviewed_at": 1793383405.080089
+    },
+    "8ab5b9c756c29f8c0752a001": {
+      "kind": "segment_rejection",
+      "source_id": "archive:etvct-Enfield_CT_-_Enfield_Annex_Enrico_Fermi_High_School_Mechanical_Systems_Tour",
+      "source_url": "https://archive.org/details/etvct-Enfield_CT_-_Enfield_Annex_Enrico_Fermi_High_School_Mechanical_Systems_Tour",
+      "person": "Enrico Fermi",
+      "start": 689.49,
+      "reason": "The video shows a modern tour of the mechanical systems of Enrico Fermi High School, completely unrelated to the life and historical context of physicist Enrico Fermi.",
+      "reviewed_at": 1793383412.7239287
+    },
+    "a632ec6d8bb0a63d7020af83": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Enfield_Schools_-_Kindness_Carnival_at_Enrico_Fermi_High_School_-_June_14_2013",
+      "source_url": "https://archive.org/details/Enfield_Schools_-_Kindness_Carnival_at_Enrico_Fermi_High_School_-_June_14_2013",
+      "person": "Enrico Fermi",
+      "start": 844.52,
+      "reason": "The video footage shows a school carnival event at Enrico Fermi High School, not archival footage illustrating the life of the physicist Enrico Fermi himself.",
+      "reviewed_at": 1793383447.087286
+    },
+    "c8c961c86a047a93d66ff426": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Enfield_Schools_-_Kindness_Carnival_at_Enrico_Fermi_High_School_-_June_14_2013",
+      "source_url": "https://archive.org/details/Enfield_Schools_-_Kindness_Carnival_at_Enrico_Fermi_High_School_-_June_14_2013",
+      "person": "Enrico Fermi",
+      "start": 1204.31,
+      "reason": "The footage shows modern school children and community activities at Enfield High School in 2013, which has no connection to Enrico Fermi's life or history.",
+      "reviewed_at": 1793383455.6804447
+    },
+    "ccef4d17cea2c58ca5510095": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Enrico_Fermi_High_School_Graduation_-_June_21_2012",
+      "source_url": "https://archive.org/details/Enrico_Fermi_High_School_Graduation_-_June_21_2012",
+      "person": "Enrico Fermi",
+      "start": 2284.17,
+      "reason": "The video shows a modern high school graduation ceremony from Enrico Fermi High School in 2012, which shares a name with the physicist Enrico Fermi (1901-1954) but has no historical connection to him. The historical subject is not depicted.",
+      "reviewed_at": 1793383463.2007577
+    },
+    "e1ad25dc08ce5e6b8069fdc0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Enrico_Fermi_High_School_Graduation_-_June_21_2012",
+      "source_url": "https://archive.org/details/Enrico_Fermi_High_School_Graduation_-_June_21_2012",
+      "person": "Enrico Fermi",
+      "start": 3260.96,
+      "reason": "The video shows a 2012 high school graduation ceremony from Enrico Fermi High School, which has no connection to the physicist Enrico Fermi (1901–1954) other than sharing his name. Therefore, it is entirely irrelevant as historical footage for a biography on the scientist.",
+      "reviewed_at": 1793383470.396258
+    },
+    "7ba73707479ebef97fa64237": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Family_Science_Night_at_Enrico_Fermi_High_School_-_April_11_2013",
+      "source_url": "https://archive.org/details/Family_Science_Night_at_Enrico_Fermi_High_School_-_April_11_2013",
+      "person": "Enrico Fermi",
+      "start": 1433.41,
+      "reason": "The footage shows a modern high school classroom event from 2013, completely unrelated to historical archival footage of physicist Enrico Fermi.",
+      "reviewed_at": 1793383478.2902088
+    },
+    "74c48ce2f397b9f96355a1c6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Family_Science_Night_at_Enrico_Fermi_High_School_-_April_11_2013",
+      "source_url": "https://archive.org/details/Family_Science_Night_at_Enrico_Fermi_High_School_-_April_11_2013",
+      "person": "Enrico Fermi",
+      "start": 2045.59,
+      "reason": "The footage shows a modern school gym event (Enfield High School, 2013) and does not depict Enrico Fermi or any historical context related to his life and work.",
+      "reviewed_at": 1793383484.6009138
+    },
+    "23af3a3dbc7acc66e271e64d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:etvct-Enfield_CT_-_2011_Enrico_Fermi_High_School_Graduation",
+      "source_url": "https://archive.org/details/etvct-Enfield_CT_-_2011_Enrico_Fermi_High_School_Graduation",
+      "person": "Enrico Fermi",
+      "start": 2580.75,
+      "reason": "The video shows attendees at a 2011 high school graduation ceremony (Enrico Fermi High School), not archival footage of the physicist Enrico Fermi himself. Therefore, it lacks a concrete or defensible connection to the biographical subject.",
+      "reviewed_at": 1793383492.9721344
+    },
+    "0e2a44bc1071dd40169baebe": {
+      "kind": "segment_rejection",
+      "source_id": "archive:etvct-Enfield_CT_-_2011_Enrico_Fermi_High_School_Graduation",
+      "source_url": "https://archive.org/details/etvct-Enfield_CT_-_2011_Enrico_Fermi_High_School_Graduation",
+      "person": "Enrico Fermi",
+      "start": 3684.64,
+      "reason": "The footage shows a 2011 high school graduation ceremony from Enrico Fermi High School, which is named after the physicist Enrico Fermi, but it does not depict Enrico Fermi himself (who died in 1954). Therefore, it is irrelevant historical context for a biography of Enrico Fermi.",
+      "reviewed_at": 1793383499.1037545
+    },
+    "c1ed6098441bb23ef2b3e245": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Enrico_Fermi_High_School_Instrumental_Band_-_December_13_2012",
+      "source_url": "https://archive.org/details/Enrico_Fermi_High_School_Instrumental_Band_-_December_13_2012",
+      "person": "Enrico Fermi",
+      "start": 2841.91,
+      "reason": "The footage shows a high school instrumental band performance from 2012, completely unrelated to Enrico Fermi himself (who died in 1954). The subject is not present, and the video has no historical or biographical connection to Fermi beyond sharing a school name.",
+      "reviewed_at": 1793383508.2318811
+    },
+    "5bdc9c58c578849371e6f040": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Enrico_Fermi_High_School_Instrumental_Band_-_December_13_2012",
+      "source_url": "https://archive.org/details/Enrico_Fermi_High_School_Instrumental_Band_-_December_13_2012",
+      "person": "Enrico Fermi",
+      "start": 4057.73,
+      "reason": "The footage shows a high school instrumental band concert from 2012, named after Enrico Fermi High School, but does not depict the physicist Enrico Fermi himself nor provide relevant historical context about his life.",
+      "reviewed_at": 1793383518.843652
+    },
+    "129a78ef23c5caf0b23de7c2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "person": "Satyajit Ray",
+      "start": 1722.0,
+      "reason": "The footage shows a static archival photograph of Satyajit Ray as a child with a text overlay, rather than moving archival footage illustrating his life.",
+      "reviewed_at": 1793383639.8607945
+    },
+    "12ee02cea66d199aa5d0137c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "person": "Satyajit Ray",
+      "start": 1589.92,
+      "reason": "The segment shows historical illustrations and book covers related to Satyajit Ray's family legacy (specifically 'Abol Tabol' by Sukumar Ray), serving as relevant biographical illustration despite the subject himself not being visible.",
+      "reviewed_at": 1793383674.0133815
+    },
+    "98eac705dc1e758b54c2fbd3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:satyajit-ray-films",
+      "source_url": "https://archive.org/details/satyajit-ray-films",
+      "person": "Satyajit Ray",
+      "start": 4030.44,
+      "reason": "The frames show actors in a scene from a Satyajit Ray film (likely Pather Panchali or another classic), but Satyajit Ray himself (the director) is not visible in the footage. However, it is genuine historical cinematic context representing his work.",
+      "reviewed_at": 1793383710.3567235
+    },
+    "1e0cdfcbccfafa1b4c6f8056": {
+      "kind": "segment_rejection",
+      "source_id": "archive:satyajit-ray-films",
+      "source_url": "https://archive.org/details/satyajit-ray-films",
+      "person": "Satyajit Ray",
+      "start": 5372.25,
+      "reason": "The footage shows actors in a scene from a Satyajit Ray film (likely Devī or a similar work), providing authentic archival film illustration for a biography, although Satyajit Ray himself is not visible in the frame.",
+      "reviewed_at": 1793383716.0117126
+    },
+    "b3eb659c486b32320b2e2c63": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "source_url": "https://archive.org/details/ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "person": "Arthur Ashe",
+      "start": 54.49,
+      "reason": "The footage shows Raymond Arsenault, the biographer and historian discussing Arthur Ashe, rather than Arthur Ashe himself. While valid contextual or commentary material featuring the author of the biography, Arthur Ashe is not visible in the frames.",
+      "reviewed_at": 1793383819.1202245
+    },
+    "0137d50b3dcecb51a814061c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "source_url": "https://archive.org/details/ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "person": "Arthur Ashe",
+      "start": 74.28,
+      "reason": "The video features historian Raymond Arsenault discussing Arthur Ashe, but the subject Arthur Ashe is never visible in the sampled frames.",
+      "reviewed_at": 1793383826.9507222
+    },
+    "7c7aac732966954cf77d3787": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "source_url": "https://archive.org/details/ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "person": "Marie Curie",
+      "start": 209.68,
+      "reason": "The video features actors and behind-the-scenes footage from a theatrical production about Marie Curie, but does not contain genuine historical footage or direct depiction of Marie Curie herself. The second through fourth frames contain static historical photographs rather than real moving identity footage.",
+      "reviewed_at": 1793384013.498404
+    },
+    "bf0ce0681bbf6fb4e12d6d96": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "source_url": "https://archive.org/details/ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "person": "Marie Curie",
+      "start": 277.9,
+      "reason": "The footage shows modern theater crew members (Ivy Carter and Holly S. Couling) being interviewed about a contemporary theatrical production, not Marie Curie.",
+      "reviewed_at": 1793384020.9863899
+    },
+    "bff161a803146b518e0b3f29": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+      "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+      "person": "Marie Curie",
+      "start": 123.3,
+      "reason": "The frames consist entirely of title cards and graphic backgrounds with credits and sponsor information, lacking any real historical footage or depiction of Marie Curie.",
+      "reviewed_at": 1793384036.4319541
+    },
+    "ace1a4417289483ecf46e2ed": {
+      "kind": "segment_rejection",
+      "source_id": "archive:haraamkhor-director-shlok-sharma-full-interview-nawazuddin-siddiqui-shweta-tripathi",
+      "source_url": "https://archive.org/details/haraamkhor-director-shlok-sharma-full-interview-nawazuddin-siddiqui-shweta-tripathi",
+      "person": "Nawazuddin Siddiqui",
+      "start": 256.12,
+      "reason": "The video features director Shlok Sharma being interviewed, but the named subject Nawazuddin Siddiqui is not visible in any of the sampled frames.",
+      "reviewed_at": 1793384077.6342294
+    },
+    "8a0535444969d99e65a08009": {
+      "kind": "segment_rejection",
+      "source_id": "archive:haraamkhor-director-shlok-sharma-full-interview-nawazuddin-siddiqui-shweta-tripathi",
+      "source_url": "https://archive.org/details/haraamkhor-director-shlok-sharma-full-interview-nawazuddin-siddiqui-shweta-tripathi",
+      "person": "Nawazuddin Siddiqui",
+      "start": 112.62,
+      "reason": "The frames show director Shlok Sharma speaking in an interview about the movie Haraamkhor, but the named subject Nawazuddin Siddiqui is not visible in any of the sampled frames.",
+      "reviewed_at": 1793384089.2914503
+    },
+    "0d21b250df85092275f5b4ba": {
+      "kind": "segment_rejection",
+      "source_id": "archive:raat-akeli-hai-the-bansal-murders-2025",
+      "source_url": "https://archive.org/details/raat-akeli-hai-the-bansal-murders-2025",
+      "person": "Nawazuddin Siddiqui",
+      "start": 6290.99,
+      "reason": "The subject Nawazuddin Siddiqui is clearly visible in the initial frames from the fictional film Raat Akeli Hai. However, the footage is a fictional narrative film rather than biographical or archival documentary footage of the actor's real life, making it usable only as illustrative context with lower relevance.",
+      "reviewed_at": 1793384120.2963958
+    },
+    "b771028d2fdb9ae8ab72899e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+      "source_url": "https://archive.org/details/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+      "person": "Nawazuddin Siddiqui",
+      "start": 5.0,
+      "reason": "The sampled frames clearly feature actor Nawazuddin Siddiqui in a music video, making it suitable as biographical illustration for a video about his life/career.",
+      "reviewed_at": 1793384136.0346637
+    },
+    "ee8939e970f920b37b70919e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:raat-akeli-hai-the-bansal-murders-2025",
+      "source_url": "https://archive.org/details/raat-akeli-hai-the-bansal-murders-2025",
+      "person": "Nawazuddin Siddiqui",
+      "start": 2519.4,
+      "reason": "The clip features Nawazuddin Siddiqui clearly visible in the sampled frames (such as frame 3), portraying a character from his film 'Raat Akeli Hai'. It serves as biographical illustration for a video about his acting career, though it is fictional film footage rather than archival material about his personal life.",
+      "reviewed_at": 1793384174.3692534
+    },
+    "a2af9df6d9e8c42549b63520": {
+      "kind": "segment_rejection",
+      "source_id": "archive:raat-akeli-hai-the-bansal-murders-2025",
+      "source_url": "https://archive.org/details/raat-akeli-hai-the-bansal-murders-2025",
+      "person": "Nawazuddin Siddiqui",
+      "start": 3148.0,
+      "reason": "The clip features Nawazuddin Siddiqui acting in a scene from a crime thriller film, which can be used as biographical illustration of his acting career, though it is fictional movie footage rather than a direct documentary or archival record of his life.",
+      "reviewed_at": 1793384181.4352596
+    },
+    "0bc93face1e60d7c37e8e73b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+      "source_url": "https://archive.org/details/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+      "person": "Nawazuddin Siddiqui",
+      "start": 71.96,
+      "reason": "The segment features Nawazuddin Siddiqui in a music video, but it represents biographical illustration rather than direct documentary evidence of a biographical event.",
+      "reviewed_at": 1793384199.667538
+    },
+    "668c0d8bdffd457c27fdbcaa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+      "source_url": "https://archive.org/details/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+      "person": "Nawazuddin Siddiqui",
+      "start": 183.56,
+      "reason": "The sampled frames contain music video footage featuring Nawazuddin Siddiqui, identifiable in some frames (such as frame 4). While it is a music video rather than direct biographical footage of his life events, it serves as usable biographical illustration of his work.",
+      "reviewed_at": 1793384270.4944868
+    },
+    "bca9a833d89bf5e0c8f9e406": {
+      "kind": "segment_rejection",
+      "source_id": "archive:baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+      "source_url": "https://archive.org/details/baarish-ki-jaaye-b-praak-ft-nawazuddin-siddiqui-sunanda-sharma-jaani-arvindr-khaira-dm-1",
+      "person": "Nawazuddin Siddiqui",
+      "start": 205.88,
+      "reason": "The clip features actor Nawazuddin Siddiqui in a music video, serving as biographical illustration of his work.",
+      "reviewed_at": 1793384282.7666557
+    },
+    "c5fd09c5cc2f7faabeef1ab3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:InspirationalStoryOfAPJAbdulKalam",
+      "source_url": "https://archive.org/details/InspirationalStoryOfAPJAbdulKalam",
+      "person": "APJ Abdul Kalam",
+      "start": 5.0,
+      "reason": "The video consists of generic animated drawings and a hand sketching stock vector art (whiteboard animation style), not actual filmed footage or historical context featuring APJ Abdul Kalam.",
+      "reviewed_at": 1793384310.018289
+    },
+    "b2cba9b6e7e93396194fea32": {
+      "kind": "segment_rejection",
+      "source_id": "archive:InspirationalStoryOfAPJAbdulKalam",
+      "source_url": "https://archive.org/details/InspirationalStoryOfAPJAbdulKalam",
+      "person": "APJ Abdul Kalam",
+      "start": 14.58,
+      "reason": "The video consists entirely of animated vector graphics and cartoon drawings being drawn by hand, rather than real filmed footage or actual archival records of APJ Abdul Kalam.",
+      "reviewed_at": 1793384317.5358815
+    },
+    "d52434508ad10ef9e359023f": {
+      "kind": "segment_rejection",
+      "source_id": "commons:183824792",
+      "source_url": "https://commons.wikimedia.org/wiki/File:DR._APJ_Abdul_Kalam.webm",
+      "person": "APJ Abdul Kalam",
+      "start": 33.39,
+      "reason": "The video consists of projected slides and static photographs of archival images on a screen, which is not usable moving archival footage or real filmed video context.",
+      "reviewed_at": 1793384354.526475
+    },
+    "ead84a30fe6e31ce08bfde57": {
+      "kind": "segment_rejection",
+      "source_id": "commons:183824792",
+      "source_url": "https://commons.wikimedia.org/wiki/File:DR._APJ_Abdul_Kalam.webm",
+      "person": "APJ Abdul Kalam",
+      "start": 42.86,
+      "reason": "The video shows projector screen footage displaying photographs of APJ Abdul Kalam, but the footage itself is of a projection onto a wall rather than clean, direct archival footage or moving video, making it poor quality and unsuitable for a professional biography Short.",
+      "reviewed_at": 1793384368.6609044
     }
   }
 }

@@ -1,19 +1,6 @@
 [
   {
     "format": "one_decision",
-    "person": "Rosa Montero",
-    "premise": "Overcoming severe childhood illness and social isolation to become a celebrated journalist and novelist.",
-    "hook": "Bedridden for years with a crippling illness as a child, she learned to explore entire worlds inside her own mind.",
-    "key_facts": [
-      "Suffered from severe pulmonary tuberculosis during early childhood, keeping her isolated.",
-      "Turned extensively to reading and writing as a solitary coping mechanism.",
-      "Became a prominent journalist for El País and an award-winning novelist.",
-      "Widely documented in Spanish literary archives and public television interviews."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
     "person": "Harrison Ford",
     "premise": "How a working carpenter installing a door for George Lucas accidentally landed the role of Han Solo.",
     "hook": "He went to a movie studio to fix a cabinet and ended up starring in a multi-billion dollar franchise.",
@@ -51,41 +38,27 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Satyajit Ray",
-    "premise": "How an advertising graphic designer risked his life savings to self-finance a risky, independent Bengali village film with amateur actors against the advice of veteran producers.",
-    "hook": "He pawned his wife's jewelry and emptied his bank account to make a movie nobody in the industry believed in.",
+    "format": "impossible_odds",
+    "person": "Amelia Earhart",
+    "premise": "Breaking aviation barriers by becoming the first woman to fly solo across the Atlantic Ocean amidst severe mechanical risks.",
+    "hook": "Flying a single-engine plane through icy storms and equipment failures, she nearly plunged into the ocean before crash-landing in a pasture.",
     "key_facts": [
-      "Worked as a junior visualizer and commercial artist for D.J. Keymer advertising agency in Calcutta.",
-      "Pawned his wife's jewelry and used his own savings to fund the initial shooting of 'Pather Panchali' over three sporadic years.",
-      "Persuaded by well-wishers and later supported by the West Bengal government to complete production when funds ran dry.",
-      "The film premiered at the 1956 Cannes Film Festival and won the Best Human Document award, launching international recognition."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
-    "person": "Louis Armstrong",
-    "premise": "The early struggles of a young cornet player raised in the impoverished New Orleans neighborhood of 'The Battlefield', who learned music theory and discipline inside the Colored Waifs' Home.",
-    "hook": "Before he changed jazz forever, he spent his youth in a reform school learning how to blow a cornet.",
-    "key_facts": [
-      "Grew up in a notoriously rough New Orleans district known locally as 'The Battlefield'.",
-      "Sent to the Colored Waifs' Home for Boys at age eleven after firing a pistol in the air on New Year's Eve.",
-      "Learned to play the cornet under the guidance of music instructor Peter Davis at the institution.",
-      "Mentored by King Oliver in New Orleans before joining Joe Oliver's Creole Jazz Band in Chicago in 1922."
+      "Set numerous aviation records for distance, speed, and solo endurance in the 1920s and 1930s.",
+      "Fledging aviation industry offered little safety equipment or reliable navigation tools for long-distance flights.",
+      "Founded the Ninety-Nines, an organization dedicated to the advancement of female pilots.",
+      "Disappeared over the central Pacific Ocean in 1937 during an attempt to circumnavigate the globe."
     ],
     "source": "gemini_original"
   },
   {
     "format": "one_decision",
-    "person": "Enrico Fermi",
-    "premise": "How a brilliant Italian physicist decided to emigrate with his Jewish wife to the United States after accepting the Nobel Prize in Stockholm, escaping fascist racial laws.",
-    "hook": "He used a trip to accept the Nobel Prize as a permanent escape hatch from fascist Europe.",
+    "person": "Jonas Salk",
+    "premise": "The fateful choice to test his experimental polio vaccine on himself, his wife, and his children.",
+    "hook": "He injected his own family with an untried virus to prove his vaccine was safe before the massive national trial.",
     "key_facts": [
-      "Awarded the Nobel Prize in Physics in December 1938 for his work on neutron-induced radioactivity.",
-      "Recognized the extreme danger posed by Italy's newly enacted Manifesto of Race against Jewish citizens, which affected his wife Laura.",
-      "Traveled to Stockholm with his family for the ceremony and directly continued onward to New York City instead of returning to Italy.",
-      "Joined Columbia University and later led the team that achieved the first self-sustaining nuclear chain reaction in Chicago in 1942."
+      "Led the research team at the University of Pittsburgh to develop the first successful polio vaccine.",
+      "Used a killed-virus approach against the conventional live-attenuated virus theory backed by rivals like Albert Sabin.",
+      "Refused to patent the vaccine, famously asking 'Could you patent the sun?' to ensure global access."
     ],
     "source": "gemini_original"
   }

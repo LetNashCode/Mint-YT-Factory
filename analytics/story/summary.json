@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-30T18:32:28.400208+00:00",
-  "refresh_attempted_at": "2026-10-30T18:32:28.400208+00:00",
+  "generated_at": "2026-10-30T19:48:18.141248+00:00",
+  "refresh_attempted_at": "2026-10-30T19:48:18.141248+00:00",
   "refresh_status": "success",
   "video_count": 33,
   "optimization_ready": true,
@@ -8,15 +8,15 @@
   "advanced_metrics_videos": 32,
   "reason": "",
   "totals": {
-    "views": 10540,
+    "views": 10549,
     "likes": 206,
     "comments": 5
   },
   "averages": {
-    "views": 319.39,
+    "views": 319.67,
     "likes": 6.24,
     "comments": 0.15,
-    "average_view_percentage": 50.29,
+    "average_view_percentage": 50.08,
     "subscribers_gained": 0.42,
     "shares": 0.03
   },
@@ -213,7 +213,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 1040,
-      "views_after_24h": 1015,
+      "views_after_24h": 1021,
       "views_after_7d": 1040,
       "likes": 29,
       "comments": 0,
@@ -505,7 +505,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 1040,
-      "views_after_24h": 1015,
+      "views_after_24h": 1021,
       "views_after_7d": 1040,
       "likes": 29,
       "comments": 0,
@@ -627,7 +627,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 13.0,
-      "average_view_percentage": 38.63,
+      "average_view_percentage": 38.66,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 1.0239
@@ -714,7 +714,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 25.0,
-      "average_view_percentage": 62.83,
+      "average_view_percentage": 62.97999999999999,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -917,7 +917,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 24.0,
-      "average_view_percentage": 55.43,
+      "average_view_percentage": 54.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 3.6364
@@ -1148,8 +1148,8 @@
       "likes": 0,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 29.0,
-      "average_view_percentage": 80.97,
+      "average_view_duration": 25.0,
+      "average_view_percentage": 68.41,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -1177,8 +1177,8 @@
       "likes": 0,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 8.0,
-      "average_view_percentage": 21.56,
+      "average_view_duration": 10.0,
+      "average_view_percentage": 28.610000000000003,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -1258,7 +1258,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 0,
+      "views": 9,
       "views_after_24h": null,
       "views_after_7d": null,
       "likes": 0,
@@ -1276,22 +1276,10 @@
     "metric": "average_view_percentage",
     "eligible_video_count": 32,
     "immature_or_missing_metric_count": 1,
-    "videos_meeting_target_count": 5,
-    "target_hit_rate_percentage": 15.62,
-    "average_view_percentage": 51.86,
+    "videos_meeting_target_count": 4,
+    "target_hit_rate_percentage": 12.5,
+    "average_view_percentage": 51.65,
     "videos_needing_improvement": [
-      {
-        "video_id": "jFZr6neYq-w",
-        "title": "The Untold Turning Point in Sylvia Earle's Story",
-        "topic": "Sylvia Earle: How the pioneering oceanographer logged thousands of hours underwater despite facing systemic exclusion in early marine research.",
-        "workflow": "story",
-        "average_view_percentage": 21.56,
-        "average_view_duration": 8.0,
-        "views": 15,
-        "age_hours": 70.7,
-        "target_met": false,
-        "status": "needs_improvement"
-      },
       {
         "video_id": "negG-shOfpM",
         "title": "The Untold Turning Point in Boman Irani's Story",
@@ -1300,7 +1288,19 @@
         "average_view_percentage": 28.47,
         "average_view_duration": 12.0,
         "views": 193,
-        "age_hours": 403.3,
+        "age_hours": 404.6,
+        "target_met": false,
+        "status": "needs_improvement"
+      },
+      {
+        "video_id": "jFZr6neYq-w",
+        "title": "The Untold Turning Point in Sylvia Earle's Story",
+        "topic": "Sylvia Earle: How the pioneering oceanographer logged thousands of hours underwater despite facing systemic exclusion in early marine research.",
+        "workflow": "story",
+        "average_view_percentage": 28.61,
+        "average_view_duration": 10.0,
+        "views": 15,
+        "age_hours": 71.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1312,7 +1312,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 93.1,
+        "age_hours": 94.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1324,7 +1324,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 102,
-        "age_hours": 191.4,
+        "age_hours": 192.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1336,7 +1336,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1147.0,
+        "age_hours": 1148.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1348,7 +1348,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1172.1,
+        "age_hours": 1173.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1357,10 +1357,10 @@
         "title": "Diana Nyad Was Rejected... Then Everything Changed",
         "topic": "Diana Nyad: Attempting a historic 110-mile open-ocean swim from Cuba to Florida at the age of 64 after multiple prior failures.",
         "workflow": "story",
-        "average_view_percentage": 38.63,
+        "average_view_percentage": 38.66,
         "average_view_duration": 13.0,
         "views": 293,
-        "age_hours": 262.5,
+        "age_hours": 263.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1372,7 +1372,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 289.0,
+        "age_hours": 290.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1384,7 +1384,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1174.5,
+        "age_hours": 1175.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1396,7 +1396,7 @@
         "average_view_percentage": 41.49,
         "average_view_duration": 18.0,
         "views": 1056,
-        "age_hours": 1156.2,
+        "age_hours": 1157.4,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1410,7 +1410,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 386.1,
+        "age_hours": 387.4,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1422,19 +1422,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 457.3,
-        "target_met": true,
-        "status": "goal_met"
-      },
-      {
-        "video_id": "2W0svCSK8r0",
-        "title": "The Untold Turning Point in Temple Grandin's Story",
-        "topic": "Temple Grandin: Transforming her lived experience with autism into a revolutionary career redesigning humane livestock handling facilities.",
-        "workflow": "story",
-        "average_view_percentage": 80.97,
-        "average_view_duration": 29.0,
-        "views": 15,
-        "age_hours": 94.3,
+        "age_hours": 458.5,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1446,7 +1434,7 @@
         "average_view_percentage": 78.09,
         "average_view_duration": 29.0,
         "views": 64,
-        "age_hours": 296.0,
+        "age_hours": 297.2,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1458,7 +1446,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 487.9,
+        "age_hours": 489.2,
         "target_met": true,
         "status": "goal_met"
       }

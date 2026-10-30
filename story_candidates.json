@@ -1,17 +1,5 @@
 [
   {
-    "format": "one_decision",
-    "person": "Harrison Ford",
-    "premise": "How a working carpenter installing a door for George Lucas accidentally landed the role of Han Solo.",
-    "hook": "He went to a movie studio to fix a cabinet and ended up starring in a multi-billion dollar franchise.",
-    "key_facts": [
-      "Worked primarily as a professional carpenter in Los Angeles to support his family.",
-      "Hired by George Lucas to build cabinets and help run auditions for Star Wars.",
-      "Cast as Han Solo after reading lines with other auditioning actors."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "impossible_odds",
     "person": "Tenzing Norgay",
     "premise": "Rising from an illiterate yak herder and expedition porter to summit Mount Everest for the first time in history.",
@@ -26,39 +14,88 @@
   },
   {
     "format": "impossible_odds",
-    "person": "Shakuntala Devi",
-    "premise": "Performing complex mental arithmetic globally without formal schooling, earning the title of the 'Human Computer'.",
-    "hook": "She never attended school, yet she could multiply two 13-digit numbers in her head faster than the most advanced computers of her era.",
+    "person": "Ernest Shackleton",
+    "premise": "Keeping all 27 crew members alive for nearly two years after their ship was crushed by Antarctic pack ice.",
+    "hook": "His ship was completely destroyed, stranding his crew on floating ice packs with no way to communicate with the outside world.",
     "key_facts": [
-      "Born in Bangalore, India, and discovered her numerical talent through card games with her father.",
-      "Demonstrated her mental calculation abilities on international tours from an early age.",
-      "Computed the product of two 13-digit numbers randomly selected at Imperial College London in 1980 in 28 seconds.",
-      "Authored books on mathematics, puzzles, and astrology."
+      "The Endurance became trapped and was crushed by ice in the Weddell Sea in 1915.",
+      "Led an open-boat journey across 800 miles of stormy Southern Ocean to reach South Georgia Island.",
+      "Successfully rescued every member of his expedition without a single human loss.",
+      "Regarded as a defining figure of the Heroic Age of Antarctic Exploration."
     ],
     "source": "gemini_original"
   },
   {
     "format": "impossible_odds",
-    "person": "Amelia Earhart",
-    "premise": "Breaking aviation barriers by becoming the first woman to fly solo across the Atlantic Ocean amidst severe mechanical risks.",
-    "hook": "Flying a single-engine plane through icy storms and equipment failures, she nearly plunged into the ocean before crash-landing in a pasture.",
+    "person": "Viswanathan Anand",
+    "premise": "Rising from the chess clubs of India to challenge Soviet dominance and become India's first Grandmaster.",
+    "hook": "He learned the game from his mother at age six, long before India had any chess grandmasters on the world stage.",
     "key_facts": [
-      "Set numerous aviation records for distance, speed, and solo endurance in the 1920s and 1930s.",
-      "Fledging aviation industry offered little safety equipment or reliable navigation tools for long-distance flights.",
-      "Founded the Ninety-Nines, an organization dedicated to the advancement of female pilots.",
-      "Disappeared over the central Pacific Ocean in 1937 during an attempt to circumnavigate the globe."
+      "Became India's first Grandmaster in 1988 at the age of 18.",
+      "Won the FIDE World Chess Championship five times across different formats.",
+      "Popularized chess significantly across India, inspiring a new generation of players.",
+      "Awarded India's highest sporting honor, the Rajiv Gandhi Khel Ratna, in 1991."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Louis Armstrong",
+    "premise": "Growing up in poverty in New Orleans and learning to play the cornet while housed in a colored waifs' home.",
+    "hook": "He fired a pistol into the air during a New Year's Eve celebration, an incident that landed him in a juvenile detention home and changed his life.",
+    "key_facts": [
+      "Spent nearly two years at the Colored Waifs' Home for Boys, where he learned to play the cornet.",
+      "Mentored by early jazz pioneer Joe 'King' Oliver in New Orleans.",
+      "Rose to international fame in the 1920s as a virtuoso trumpet player and vocalist.",
+      "Pioneered scat singing and transformed jazz from an ensemble art form to a soloist's vehicle."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "M. S. Dhoni",
+    "premise": "From working as a ticket collector at Kharagpur railway station to becoming India's most successful cricket captain.",
+    "hook": "He spent his days checking tickets on railway platforms, but his real job was waiting on the cricket pitch.",
+    "key_facts": [
+      "Worked as a Travelling Ticket Examiner for South Eastern Railway in Kharagpur.",
+      "Selected for the Indian national cricket team in 2004.",
+      "Captained India to victory in the 2007 ICC World Twenty20 and 2011 ICC Cricket World Cup."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Harrison Ford",
+    "premise": "Working as a carpenter in Hollywood and about to quit acting when a chance encounter led to a life-changing audition.",
+    "hook": "He was building cabinets for George Lucas when a single hallway conversation changed cinema history forever.",
+    "key_facts": [
+      "Worked primarily as a professional carpenter in Los Angeles to support his family.",
+      "Built cabinets and recording studios for Francis Ford Coppola and George Lucas.",
+      "Hired initially to run lines for auditions for Star Wars before being cast as Han Solo."
     ],
     "source": "gemini_original"
   },
   {
     "format": "one_decision",
     "person": "Jonas Salk",
-    "premise": "The fateful choice to test his experimental polio vaccine on himself, his wife, and his children.",
-    "hook": "He injected his own family with an untried virus to prove his vaccine was safe before the massive national trial.",
+    "premise": "Choosing to test his polio vaccine on himself and his own family before conducting large-scale clinical trials.",
+    "hook": "To prove his vaccine was safe, he injected his own wife and children with the live virus first.",
     "key_facts": [
-      "Led the research team at the University of Pittsburgh to develop the first successful polio vaccine.",
-      "Used a killed-virus approach against the conventional live-attenuated virus theory backed by rivals like Albert Sabin.",
-      "Refused to patent the vaccine, famously asking 'Could you patent the sun?' to ensure global access."
+      "Developed the first successful polio vaccine in the early 1950s at the University of Pittsburgh.",
+      "Inoculated himself, his wife, and his children with the killed-virus vaccine prior to public trials.",
+      "Refused to patent the vaccine, ensuring it could be manufactured cheaply and globally."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Amelia Earhart",
+    "premise": "Becoming the first woman to fly solo across the Atlantic Ocean despite severe weather, mechanical failures, and fierce skepticism.",
+    "hook": "Flying through a blinding North American snowstorm with a broken altimeter, she kept going.",
+    "key_facts": [
+      "Faded across the Atlantic Ocean solo in May 1932 from Harbour Grace, Newfoundland, to Northern Ireland.",
+      "Flew a Lockheed Vega 5B during the historic 14-hour and 56-minute crossing.",
+      "Awarded the Distinguished Flying Cross by the United States Congress for the achievement."
     ],
     "source": "gemini_original"
   }

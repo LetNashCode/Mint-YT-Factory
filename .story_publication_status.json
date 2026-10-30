@@ -1,20 +1,6 @@
 {
-  "status": "complete",
-  "video_id": "173fjsRF-aE",
-  "youtube_url": "https://www.youtube.com/shorts/173fjsRF-aE",
-  "platforms": {
-    "youtube": {
-      "status": "published",
-      "video_id": "173fjsRF-aE"
-    },
-    "instagram": {
-      "status": "published",
-      "media_id": "17915907837538751",
-      "container_id": "18502588495097136"
-    },
-    "facebook": {
-      "status": "published",
-      "video_id": "1139671281835310"
-    }
-  }
+  "status": "deferred",
+  "video_id": "",
+  "youtube_url": "",
+  "reason": "No unused Story subject with real-video candidates found in 16 attempts"
 }

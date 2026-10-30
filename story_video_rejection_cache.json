@@ -10725,6 +10725,411 @@
       "start": 42.86,
       "reason": "The video shows projector screen footage displaying photographs of APJ Abdul Kalam, but the footage itself is of a projection onto a wall rather than clean, direct archival footage or moving video, making it poor quality and unsuitable for a professional biography Short.",
       "reviewed_at": 1793384368.6609044
+    },
+    "10a67f713047bf9c9a7dac3f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "source_url": "https://archive.org/details/kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "person": "M. S. Dhoni",
+      "start": 67.0,
+      "reason": "The sampled frames show a fictionalized biographical movie scene (featuring actors such as Disha Patani) and generic cricket footage rather than actual historical footage of M. S. Dhoni.",
+      "reviewed_at": 1793387563.3910651
+    },
+    "66f861ca6956354c625a5f80": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "source_url": "https://archive.org/details/kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "person": "M. S. Dhoni",
+      "start": 82.5,
+      "reason": "The frames show actress Disha Patani portraying M. S. Dhoni's late girlfriend Priyanka Jha in the biographical film 'M. S. Dhoni: The Untold Story'. While M. S. Dhoni himself is not visible in these specific frames, the segment serves as valid biographical illustration depicting a significant relationship from his life story.",
+      "reviewed_at": 1793387596.578819
+    },
+    "ed166b284da6dd24254ba5cc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "source_url": "https://archive.org/details/www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "person": "M. S. Dhoni",
+      "start": 1707.54,
+      "reason": "The segment features dramatized cinematic footage from a biographical film about M.S. Dhoni, depicting a cricket ground scene. While the specific person M.S. Dhoni is not clearly identifiable in these frames (showing background characters and seated players from the back), it serves as biographical illustration for his early cricket days, though direct event classification is not met due to lack of the subject's clear visibility.",
+      "reviewed_at": 1793387608.0700943
+    },
+    "974b0b847e39071da3d9db44": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "source_url": "https://archive.org/details/www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "person": "M. S. Dhoni",
+      "start": 4261.36,
+      "reason": "The clip shows dramatized biographical scenes featuring an actor portraying M. S. Dhoni from the biographical film 'M.S. Dhoni: The Untold Story', which qualifies as biographical illustration rather than direct historical footage.",
+      "reviewed_at": 1793387689.263231
+    },
+    "53a264620befd826ce47a3e0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "source_url": "https://archive.org/details/www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "person": "M. S. Dhoni",
+      "start": 5112.63,
+      "reason": "The sampled frames depict scenes from a dramatic feature film (biopic) rather than actual historical footage of M. S. Dhoni. Since M. S. Dhoni is not visibly identifiable in any of the sampled frames and the footage is fictionalized biographical dramatization, it is rejected.",
+      "reviewed_at": 1793387696.6765401
+    },
+    "ae496e91dd275f5db9ca688a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "source_url": "https://archive.org/details/m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "person": "M. S. Dhoni",
+      "start": 11071.54,
+      "reason": "The sampled frames only show copyright notices and black/blank screens, containing no usable biographical footage or historical context.",
+      "reviewed_at": 1793387736.507019
+    },
+    "b29d667cb7919705b0b74e3d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "person": "M. S. Dhoni",
+      "start": 6815.23,
+      "reason": "The footage shows fictional dramatization/biopic clips featuring an actor portraying M. S. Dhoni rather than actual archival footage or direct historical coverage of the subject.",
+      "reviewed_at": 1793387751.8222382
+    },
+    "1ddf0931d44725e7eb837283": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "person": "M. S. Dhoni",
+      "start": 8517.79,
+      "reason": "The clip is from a biographical feature film (biopic) starring an actor portraying M. S. Dhoni, rather than real historical archive footage or direct documentary evidence of the subject.",
+      "reviewed_at": 1793387767.9358234
+    },
+    "fec4b5bc9041f46e3b4d7944": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "person": "M. S. Dhoni",
+      "start": 9369.07,
+      "reason": "The footage is from a fictional biographical film (recreated dramatization with actors, not actual archival/documentary footage of M.S. Dhoni) and does not qualify as genuine historical context or real identity footage of the subject.",
+      "reviewed_at": 1793387775.3713133
+    },
+    "b73c60c78aa62c419ad9188f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:KaunTujheM.SDhoniPalakMuchhalRaveenaMehta",
+      "source_url": "https://archive.org/details/KaunTujheM.SDhoniPalakMuchhalRaveenaMehta",
+      "person": "M. S. Dhoni",
+      "start": 75.5,
+      "reason": "The footage features singer Raveena Mehta performing a cover song ('Kaun Tujhe'), not M. S. Dhoni. Therefore, M. S. Dhoni is not visible in the frames, making the segment unusable for his biography.",
+      "reviewed_at": 1793387786.6356769
+    },
+    "c71b2bfa7a12ebff1364655b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:satyajit-ray-films",
+      "source_url": "https://archive.org/details/satyajit-ray-films",
+      "person": "Satyajit Ray",
+      "start": 6043.16,
+      "reason": "The footage shows archival driving scenes from the perspective of an old vehicle in a rural setting, which serves as suitable illustrative backdrop for a biography of filmmaker Satyajit Ray, though Satyajit Ray himself is not visible.",
+      "reviewed_at": 1793387902.1248577
+    },
+    "fd2e2be538505f6517a1487a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:satyajit-ray-films",
+      "source_url": "https://archive.org/details/satyajit-ray-films",
+      "person": "Satyajit Ray",
+      "start": 7384.97,
+      "reason": "The footage shows a scene from a Satyajit Ray film ('Satyajit Ray Films'), which serves as authentic biographical illustration of his cinematic work, even though Satyajit Ray himself is not visible in the frame.",
+      "reviewed_at": 1793387908.9305918
+    },
+    "cf208513af854c3751b145a0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Chai_with_Manjula_-_Akshaya_Patra",
+      "source_url": "https://archive.org/details/Chai_with_Manjula_-_Akshaya_Patra",
+      "person": "Narayana Murthy",
+      "start": 661.35,
+      "reason": "The sampled frames feature an interviewer/host (Manjula) rather than the named subject Narayana Murthy, making the footage unusable for depicting the subject.",
+      "reviewed_at": 1793387947.8414946
+    },
+    "ac5617c77e781097331fc22e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Chai_with_Manjula_-_Akshaya_Patra",
+      "source_url": "https://archive.org/details/Chai_with_Manjula_-_Akshaya_Patra",
+      "person": "Narayana Murthy",
+      "start": 792.62,
+      "reason": "The sampled frames show an interviewer (Manjula) talking on the show 'Chai with Manjula', but Narayana Murthy is not visible in any of the footage. Therefore, the clip cannot be used as identity footage for Narayana Murthy.",
+      "reviewed_at": 1793387972.9026742
+    },
+    "d024fabaf9e678679ca8cd8a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+      "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+      "person": "Narayana Murthy",
+      "start": 137.55,
+      "reason": "The video features Narayana Murthy in an interview setting, providing valid identity and biographical illustration footage. However, the quality is somewhat low and it consists of a static two-shot interview.",
+      "reviewed_at": 1793387979.181175
+    },
+    "ee274aa5b950f93595d369ea": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.009027",
+      "source_url": "https://archive.org/details/dli.MoI.films.009027",
+      "person": "Bismillah Khan",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of title cards and static artwork graphics with text introducing 'Ustad Bismillah Khan'. No actual filmed footage or moving identity footage of the subject is present.",
+      "reviewed_at": 1793388253.3499978
+    },
+    "3c9f4bbc04ef9a1e5383fa7f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dni.ncaa.ICCR-2730-VHS",
+      "source_url": "https://archive.org/details/dni.ncaa.ICCR-2730-VHS",
+      "person": "Bismillah Khan",
+      "start": 5.0,
+      "reason": "The sampled frames only show title cards/credits with text (Smt. Girija Devi, Pt. Kishan Maharaj) and blank screens during the introduction, with no actual footage of Bismillah Khan visible.",
+      "reviewed_at": 1793388324.3331583
+    },
+    "5e822fecdfe84635ddf978c2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dni.ncaa.ICCR-2730-VHS",
+      "source_url": "https://archive.org/details/dni.ncaa.ICCR-2730-VHS",
+      "person": "Bismillah Khan",
+      "start": 599.45,
+      "reason": "The sampled frames show other musicians (Smt. Girija Devi and Pandit Krishan Maharaj) performing, but Ustad Bismillah Khan (the shehnai player) is not visible in the frame, making it unusable as identity footage.",
+      "reviewed_at": 1793388333.121543
+    },
+    "6877bcd8a13bdf6f834b506a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.009027",
+      "source_url": "https://archive.org/details/dli.MoI.films.009027",
+      "person": "Bismillah Khan",
+      "start": 171.85,
+      "reason": "The footage shows musicians playing traditional Indian instruments (tabla and shehnai), fitting the context of Bismillah Khan's musical career, but Bismillah Khan's face is not clearly identifiable in the frames.",
+      "reviewed_at": 1793388341.6307497
+    },
+    "7203ea9d13cdc2b79e0b153c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.009027",
+      "source_url": "https://archive.org/details/dli.MoI.films.009027",
+      "person": "Bismillah Khan",
+      "start": 255.28,
+      "reason": "The sampled frames consist entirely of illustrated/drawn artwork rather than actual filmed historical footage or identity footage of Bismillah Khan.",
+      "reviewed_at": 1793388389.6487963
+    },
+    "01c1f2080223b54150ef5580": {
+      "kind": "segment_rejection",
+      "source_id": "archive:UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "source_url": "https://archive.org/details/UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "person": "Bismillah Khan",
+      "start": 733.2,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793388399.3520474
+    },
+    "74e6ce3ffd42eb793dba065a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "source_url": "https://archive.org/details/UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "person": "Bismillah Khan",
+      "start": 1045.28,
+      "reason": "The frames show static photographs and heavily processed, low-quality imagery rather than genuine moving archival footage of Bismillah Khan.",
+      "reviewed_at": 1793388431.3759263
+    },
+    "def1c7d35931ffa6ef37d97c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "source_url": "https://archive.org/details/UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "person": "Bismillah Khan",
+      "start": 5.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793388440.9083679
+    },
+    "ac3027e494989f526f133373": {
+      "kind": "segment_rejection",
+      "source_id": "archive:UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "source_url": "https://archive.org/details/UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "person": "Bismillah Khan",
+      "start": 109.03,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793388461.3884501
+    },
+    "ddf34952de6a4a42a6da6c17": {
+      "kind": "segment_rejection",
+      "source_id": "archive:UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "source_url": "https://archive.org/details/UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "person": "Bismillah Khan",
+      "start": 213.06,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793388473.8975747
+    },
+    "eef7c24deddcb0517af0f7a9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "source_url": "https://archive.org/details/UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "person": "Bismillah Khan",
+      "start": 421.11,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793388524.9794168
+    },
+    "933ca8920aace89194144a2e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "source_url": "https://archive.org/details/UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "person": "Bismillah Khan",
+      "start": 525.14,
+      "reason": "The sampled frames are identical static photographs (or a paused frame from a video) that do not constitute moving historical footage; furthermore, the static image depicts children alongside an unidentified or unverified person rather than genuine usable historical identity or event footage of Bismillah Khan.",
+      "reviewed_at": 1793388565.353873
+    },
+    "86c7fef761cda2fb02d9212f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "source_url": "https://archive.org/details/UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "person": "Bismillah Khan",
+      "start": 837.22,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793388630.8368042
+    },
+    "25ff153cd66e7c36c95c2347": {
+      "kind": "segment_rejection",
+      "source_id": "archive:UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "source_url": "https://archive.org/details/UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "person": "Bismillah Khan",
+      "start": 941.25,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793388640.8810918
+    },
+    "022f56de7681ac0a82b7c505": {
+      "kind": "segment_rejection",
+      "source_id": "archive:UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "source_url": "https://archive.org/details/UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "person": "Bismillah Khan",
+      "start": 1149.31,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793388651.038206
+    },
+    "866b2b56531719458a5427b3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "source_url": "https://archive.org/details/UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "person": "Bismillah Khan",
+      "start": 1253.34,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793388659.7957766
+    },
+    "5830e405a2debb3dc5721d98": {
+      "kind": "segment_rejection",
+      "source_id": "archive:UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "source_url": "https://archive.org/details/UstadBismillahKhanVGJogRagaJaijaiwantiTeenTaal",
+      "person": "Bismillah Khan",
+      "start": 1357.37,
+      "reason": "The sampled frames show a static photograph or an extremely low-motion slideshow rather than dynamic filmed footage of Bismillah Khan.",
+      "reviewed_at": 1793388703.1475317
+    },
+    "22da7df96df9856957322661": {
+      "kind": "segment_rejection",
+      "source_id": "commons:77376019",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Bismillah_and_Benaras.webm",
+      "person": "Bismillah Khan",
+      "start": 80.12,
+      "reason": "The footage shows ritual worship ceremonies in Varanasi, serving as biographical illustration for Bismillah Khan's connection to the city and the temples where he played, although Bismillah Khan himself is not visible in the frames.",
+      "reviewed_at": 1793388729.668429
+    },
+    "94fb6401e3073aea8333cfe1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 246.13,
+      "reason": "The video shows modern student podcast creators discussing Amelia Earhart, but Amelia Earhart herself is not visible in any of the sampled frames, making this modern discussion footage unusable for direct biographical identity or historical context of the subject.",
+      "reviewed_at": 1793389244.5505013
+    },
+    "0cc85e81f45f52e87f879baa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 299.71,
+      "reason": "The footage shows contemporary students/hosts in a podcast/radio studio discussing Amelia Earhart, but Amelia Earhart herself is not visible and the clip does not provide genuine historical context depicting her life or events.",
+      "reviewed_at": 1793389264.3856838
+    },
+    "6d0db28f6c737573ef617f6d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:42424-europes-powder-keg-vwr",
+      "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+      "person": "Amelia Earhart",
+      "start": 487.4,
+      "reason": "The footage shows archival newsreel content about the bombing of Shanghai South Station during the Second Sino-Japanese War, which has no connection to Amelia Earhart's biography.",
+      "reviewed_at": 1793389288.7623653
+    },
+    "47cdcac842764c8abe9c618d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:42424-europes-powder-keg-vwr",
+      "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+      "person": "Amelia Earhart",
+      "start": 531.26,
+      "reason": "The sampled frames show unrelated archival footage of military planes diving and title cards, with no appearance of Amelia Earhart or direct connection to her life events.",
+      "reviewed_at": 1793389319.0511653
+    },
+    "2670758161bcfe27b56fded8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "person": "Amelia Earhart",
+      "start": 487.4,
+      "reason": "The footage shows archival newsreel clips of events in 1937 such as the Spanish Civil War and bombing scenes in Shanghai, which have no direct connection to Amelia Earhart's biography beyond being from the same year.",
+      "reviewed_at": 1793389328.8942747
+    },
+    "20531fcac6ea9bad0e55f655": {
+      "kind": "segment_rejection",
+      "source_id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "person": "Amelia Earhart",
+      "start": 531.26,
+      "reason": "The footage shows archival newsreel content from 1937, including aerial shots of planes and cities, but does not clearly depict Amelia Earhart herself. However, it provides genuine historical context related to the era.",
+      "reviewed_at": 1793389361.2760699
+    },
+    "f7f458fb22ea0721f1df9141": {
+      "kind": "segment_rejection",
+      "source_id": "archive:rajnikanth-style-flying-dosa-in-mumbai-indian-street-food",
+      "source_url": "https://archive.org/details/rajnikanth-style-flying-dosa-in-mumbai-indian-street-food",
+      "person": "Rajnikanth",
+      "start": 97.04,
+      "reason": "The video shows a street food vendor making dosas in Mumbai, styled after Rajnikanth, but the actor Rajnikanth himself is not present in any of the frames.",
+      "reviewed_at": 1793389531.979109
+    },
+    "2e28193b3b2b5355c02c46f1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:rajnikanth-style-flying-dosa-in-mumbai-indian-street-food",
+      "source_url": "https://archive.org/details/rajnikanth-style-flying-dosa-in-mumbai-indian-street-food",
+      "person": "Rajnikanth",
+      "start": 136.49,
+      "reason": "The footage shows a street food vendor preparing dosas in a style named after Rajnikanth, but Rajnikanth himself is not present in the video.",
+      "reviewed_at": 1793389543.0334425
+    },
+    "83cbaddf635eb41b959f835b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:KadavulUllameOrKarunaiIllameAnbullaRajnikanth",
+      "source_url": "https://archive.org/details/KadavulUllameOrKarunaiIllameAnbullaRajnikanth",
+      "person": "Rajnikanth",
+      "start": 131.54,
+      "reason": "The sampled frames show unrelated scenes (an outdoor tree/statue and a 1981 calendar) with no appearance of Rajnikanth, making it unusable as identity or historical context footage.",
+      "reviewed_at": 1793389566.8370495
+    },
+    "6a41eed31afd58631f0922af": {
+      "kind": "segment_rejection",
+      "source_id": "archive:KadavulUllameOrKarunaiIllameAnbullaRajnikanth",
+      "source_url": "https://archive.org/details/KadavulUllameOrKarunaiIllameAnbullaRajnikanth",
+      "person": "Rajnikanth",
+      "start": 185.77,
+      "reason": "The sampled frames show unrelated archival footage of a nun and children with subtitles about caste, but Rajnikanth is not visible anywhere in the clip, making it unusable for a biographical segment about him.",
+      "reviewed_at": 1793389577.7959158
+    },
+    "22cd1fe03daf60a6973d9453": {
+      "kind": "segment_rejection",
+      "source_id": "archive:andhaa-kaanoon-1983-1080p-untouche-d-web-dl-avc-aac-dusic-tv",
+      "source_url": "https://archive.org/details/andhaa-kaanoon-1983-1080p-untouche-d-web-dl-avc-aac-dusic-tv",
+      "person": "Rajnikanth",
+      "start": 5.0,
+      "reason": "The clip consists entirely of opening title cards and establishing street shots from the movie 'Andhaa Kaanoon' without clearly showing Rajnikanth in a recognizable way across the sampled frames.",
+      "reviewed_at": 1793389608.4757059
+    },
+    "8e2bc4a1d9fdee6105912eaa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:andhaa-kaanoon-1983-1080p-untouche-d-web-dl-avc-aac-dusic-tv",
+      "source_url": "https://archive.org/details/andhaa-kaanoon-1983-1080p-untouche-d-web-dl-avc-aac-dusic-tv",
+      "person": "Rajnikanth",
+      "start": 747.45,
+      "reason": "The sampled frames show scenes from the movie 'Andhaa Kaanoon' featuring other actors and close-ups of legs, hands, and a police officer, but Rajnikanth is not clearly visible in any of the five sampled frames.",
+      "reviewed_at": 1793389622.5332804
     }
   }
 }

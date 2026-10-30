@@ -17479,6 +17479,116 @@
       "shot": 2,
       "query": "hair elastics snap until band simply runs",
       "recorded_at": 1793391394
+    },
+    {
+      "asset_key": "pexels:video:5161866",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5161866/5161866-hd_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "apples leave sliced apple alone",
+      "recorded_at": 1793396914
+    },
+    {
+      "asset_key": "pexels:video:17770565",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/17770565/17770565-hd_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "apples five minutes instantly ruins",
+      "recorded_at": 1793396925
+    },
+    {
+      "asset_key": "pexels:video:7293866",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7293866/7293866-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "apples you not burn brown",
+      "recorded_at": 1793396932
+    },
+    {
+      "asset_key": "pexels:video:5876893",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5876893/5876893-hd_1366_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "apples you exposed innocent looking",
+      "recorded_at": 1793396943
+    },
+    {
+      "asset_key": "pexels:video:10473646",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10473646/10473646-hd_1366_720_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "apples inside cells hide trapped",
+      "recorded_at": 1793396950
+    },
+    {
+      "asset_key": "pexels:video:29448550",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/29448550/12676719_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "apples oxygen rushes meets released",
+      "recorded_at": 1793396973
+    },
+    {
+      "asset_key": "pexels:video:39123110",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39123110/16647979_720_1280_60fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "apples instantly triggers rapid chemical",
+      "recorded_at": 1793396981
+    },
+    {
+      "asset_key": "pexels:video:35123994",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35123994/14879750_1280_720_24fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "apples you probably thought fruit",
+      "recorded_at": 1793396998
+    },
+    {
+      "asset_key": "pexels:video:7686976",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7686976/7686976-hd_1280_720_24fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "apples building heavy dark shield",
+      "recorded_at": 1793397030
+    },
+    {
+      "asset_key": "pexels:video:31182856",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/31182856/13320821_720_1280_24fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "apples ugly brown coat rich",
+      "recorded_at": 1793397045
+    },
+    {
+      "asset_key": "pexels:video:7458245",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7458245/7458245-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "apples pure plant survival chemistry",
+      "recorded_at": 1793397050
     }
   ]
 }

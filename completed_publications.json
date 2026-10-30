@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1788888288",
-    "video_id": "wDt7R-vvNGc",
-    "topic": "Why do keychains pinch fingers",
-    "completed_at": 1788889541
-  },
-  {
     "workdir": "output/1789033320",
     "video_id": "AUKaGzgi7AY",
     "topic": "Why do pencils break inside sharpeners",
@@ -598,5 +592,11 @@
     "video_id": "pCdkQe2lVm8",
     "topic": "Why do hair elastics snap fast",
     "completed_at": 1793392357
+  },
+  {
+    "workdir": "output/1793396645",
+    "video_id": "mVCqobInodE",
+    "topic": "Why do apples turn brown when cut",
+    "completed_at": 1793398384
   }
 ]

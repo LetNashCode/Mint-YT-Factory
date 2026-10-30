@@ -3526,5 +3526,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do apples turn brown when cut",
+    "normalized": "why do apples turn brown when cut",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793396578,
+    "recorded_at": 1793396578,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

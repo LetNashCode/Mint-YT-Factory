@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1788818845",
-    "video_id": "aoBK-w-X7eg",
-    "topic": "Why do toes wrinkle in water",
-    "completed_at": 1788820674
-  },
-  {
     "workdir": "output/1788824500",
     "video_id": "bfS30wUd3zk",
     "topic": "Why does a plate get hot",
@@ -598,5 +592,11 @@
     "video_id": "X1JWZ4LpMDs",
     "topic": "Why soda cans have indented bottoms",
     "completed_at": 1793216229
+  },
+  {
+    "workdir": "output/1793358027",
+    "video_id": "B9_eb1m7bO0",
+    "topic": "Why does a remote need pointing",
+    "completed_at": 1793359552
   }
 ]

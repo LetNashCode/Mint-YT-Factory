@@ -17129,6 +17129,126 @@
       "shot": 1,
       "query": "soda cans have without clever inward dome",
       "recorded_at": 1793214490
+    },
+    {
+      "asset_key": "pexels:video:7698679",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7698679/7698679-hd_720_1366_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "remote need pointing you aggressively human hand",
+      "recorded_at": 1793358348
+    },
+    {
+      "asset_key": "pexels:video:7328516",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7328516/7328516-hd_720_1280_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "remote need pointing stabbing your television",
+      "recorded_at": 1793358351
+    },
+    {
+      "asset_key": "pexels:video:6976212",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6976212/6976212-hd_960_720_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "remote need pointing tilt two inches left",
+      "recorded_at": 1793358354
+    },
+    {
+      "asset_key": "pexels:video:38899338",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/38899338/16540159_720_1280_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "remote need pointing ignores you completely screen",
+      "recorded_at": 1793358360
+    },
+    {
+      "asset_key": "pexels:video:15763478",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/15763478/15763478-hd_1280_720_50fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "remote need pointing your firing secret",
+      "recorded_at": 1793358366
+    },
+    {
+      "asset_key": "pexels:video:35569744",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35569744/15071469_720_1280_60fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "remote need pointing but speaks infrared light",
+      "recorded_at": 1793358370
+    },
+    {
+      "asset_key": "pexels:video:6975845",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6975845/6975845-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "remote need pointing think like shining narrow",
+      "recorded_at": 1793358374
+    },
+    {
+      "asset_key": "pexels:video:6655855",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6655855/6655855-hd_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "remote need pointing your beam misses target",
+      "recorded_at": 1793358378
+    },
+    {
+      "asset_key": "pexels:video:13306927",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/13306927/13306927-hd_1280_720_24fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "remote need pointing not steady beam either",
+      "recorded_at": 1793358385
+    },
+    {
+      "asset_key": "pexels:video:8321919",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8321919/8321919-hd_720_1366_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "remote need pointing complex morse code flashes",
+      "recorded_at": 1793358390
+    },
+    {
+      "asset_key": "pexels:video:5083987",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5083987/5083987-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "remote need pointing without direct line sight",
+      "recorded_at": 1793358394
+    },
+    {
+      "asset_key": "pexels:video:8503308",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8503308/8503308-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "remote need pointing crash into living room",
+      "recorded_at": 1793358400
     }
   ]
 }

@@ -3480,48 +3480,12 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do metal coins leave smells",
-    "normalized": "why do metal coins leave smells",
+    "topic": "Why does a remote need pointing",
+    "normalized": "why does a remote need pointing",
     "workflow": "publish",
     "status": "reserved",
-    "reserved_at": 1793138613,
-    "recorded_at": 1793138613,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 2
-    }
-  },
-  {
-    "topic": "Why does dry pasta always snap",
-    "normalized": "why does dry pasta always snap",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793141653,
-    "recorded_at": 1793141653,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do cardboard coffee sleeves bend",
-    "normalized": "why do cardboard coffee sleeves bend",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793206116,
-    "recorded_at": 1793206116,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why soda cans have indented bottoms",
-    "normalized": "why soda cans have indented bottoms",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793214226,
-    "recorded_at": 1793214226,
+    "reserved_at": 1793358014,
+    "recorded_at": 1793358014,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-30T18:55:36.563728+00:00",
-  "video_count": 173,
-  "learning_sample_size": 152,
+  "generated_at": "2026-10-30T20:32:41.926566+00:00",
+  "video_count": 174,
+  "learning_sample_size": 153,
   "learning_ready": true,
   "metrics_available": true,
   "comparative_learning_ready": true,
-  "advanced_metrics_videos": 152,
+  "advanced_metrics_videos": 153,
   "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -17,7 +17,7 @@
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 14.858,
+      "score": 14.865,
       "sample_size": 10
     }
   ],
@@ -48,7 +48,7 @@
     "Why do apples squeak when polished",
     "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive."
   ],
-  "used_topic_count": 173,
+  "used_topic_count": 174,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

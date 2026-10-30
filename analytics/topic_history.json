@@ -3514,5 +3514,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do hair elastics snap fast",
+    "normalized": "why do hair elastics snap fast",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793390907,
+    "recorded_at": 1793390907,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

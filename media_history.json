@@ -17779,6 +17779,126 @@
       "shot": 2,
       "query": "ceiling fans gather bigger stationary dust trap",
       "recorded_at": 1793469554
+    },
+    {
+      "asset_key": "pexels:video:7653864",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7653864/7653864-hd_1366_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "leather jackets your jacket smells",
+      "recorded_at": 1793475342
+    },
+    {
+      "asset_key": "pexels:video:7654156",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7654156/7654156-hd_1366_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "leather jackets but second rain hits",
+      "recorded_at": 1793475348
+    },
+    {
+      "asset_key": "pexels:video:7654159",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7654159/7654159-hd_720_1366_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "leather jackets not dirt even rain",
+      "recorded_at": 1793475353
+    },
+    {
+      "asset_key": "pexels:video:7654152",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7654152/7654152-hd_720_1366_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "leather jackets jacket secretly harboring ancient",
+      "recorded_at": 1793475359
+    },
+    {
+      "asset_key": "pexels:video:7621840",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7621840/7621840-hd_1366_720_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "leather jackets turn raw animal skin",
+      "recorded_at": 1793475365
+    },
+    {
+      "asset_key": "pexels:video:10329106",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10329106/10329106-hd_1280_720_50fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "leather jackets tanners soak heavy oils",
+      "recorded_at": 1793475370
+    },
+    {
+      "asset_key": "pexels:video:855730",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/855730/855730-hd_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "leather jackets fatty compounds stay trapped",
+      "recorded_at": 1793475380
+    },
+    {
+      "asset_key": "pexels:video:7653866",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7653866/7653866-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "leather jackets they stay completely quiet",
+      "recorded_at": 1793475386
+    },
+    {
+      "asset_key": "pexels:video:28352566",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/28352566/12365779_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "leather jackets rainwater sinks triggers rapid",
+      "recorded_at": 1793475391
+    },
+    {
+      "asset_key": "pexels:video:8059308",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8059308/8059308-hd_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "leather jackets trapped oils break down",
+      "recorded_at": 1793475396
+    },
+    {
+      "asset_key": "pexels:video:10191853",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10191853/10191853-hd_1366_720_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "leather jackets you not smelling filth",
+      "recorded_at": 1793475399
+    },
+    {
+      "asset_key": "pexels:video:8090493",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8090493/8090493-hd_1366_720_24fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "leather jackets you literally wearing chemistry",
+      "recorded_at": 1793475406
     }
   ]
 }

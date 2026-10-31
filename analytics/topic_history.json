@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "How do wooden spoons stain dark",
-    "normalized": "how do wooden spoons stain dark",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793386149,
-    "recorded_at": 1793386149,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do hair elastics snap fast",
     "normalized": "why do hair elastics snap fast",
     "workflow": "publish",
@@ -3534,6 +3522,18 @@
     "status": "reserved",
     "reserved_at": 1793469351,
     "recorded_at": 1793469351,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do leather jackets smell after rain",
+    "normalized": "why do leather jackets smell after rain",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793475147,
+    "recorded_at": 1793475147,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

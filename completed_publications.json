@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789048386",
-    "video_id": "cKIRd5OUObc",
-    "topic": "Why elevator doors have hidden sensors",
-    "completed_at": 1789051460
-  },
-  {
     "workdir": "output/1789060140",
     "video_id": "zxflt_WOHK0",
     "topic": "Why sliding glass doors lock automatically",
@@ -598,5 +592,11 @@
     "video_id": "fD7U9d_xbQc",
     "topic": "Why ceiling fans gather dust on top",
     "completed_at": 1793470736
+  },
+  {
+    "workdir": "output/1793475174",
+    "video_id": "YQ3bOLDVO1Q",
+    "topic": "Why do leather jackets smell after rain",
+    "completed_at": 1793476707
   }
 ]

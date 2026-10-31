@@ -17899,6 +17899,56 @@
       "shot": 2,
       "query": "leather jackets you literally wearing chemistry",
       "recorded_at": 1793475406
+    },
+    {
+      "asset_key": "pexels:video:40293228",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40293228/17211276_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "metal gates squeak ear-splitting shriek your backyard",
+      "recorded_at": 1793479487
+    },
+    {
+      "asset_key": "pexels:video:9656459",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9656459/9656459-hd_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "metal gates squeak smooth surfaces like",
+      "recorded_at": 1793479499
+    },
+    {
+      "asset_key": "pexels:video:4976926",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4976926/4976926-hd_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "metal gates squeak crashing together two interlocking",
+      "recorded_at": 1793479502
+    },
+    {
+      "asset_key": "pexels:video:9656466",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9656466/9656466-hd_1280_720_24fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "metal gates squeak vibration acts like tiny",
+      "recorded_at": 1793479510
+    },
+    {
+      "asset_key": "pexels:video:30618921",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30618921/13107399_720_1280_24fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "metal gates squeak playing high-frequency guitar solo",
+      "recorded_at": 1793479520
     }
   ]
 }

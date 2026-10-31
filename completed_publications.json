@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789060140",
-    "video_id": "zxflt_WOHK0",
-    "topic": "Why sliding glass doors lock automatically",
-    "completed_at": 1789061896
-  },
-  {
     "workdir": "output/1789109785",
     "video_id": "0fInCjLAutI",
     "topic": "Why sliding door tracks collect gravel",
@@ -598,5 +592,11 @@
     "video_id": "YQ3bOLDVO1Q",
     "topic": "Why do leather jackets smell after rain",
     "completed_at": 1793476707
+  },
+  {
+    "workdir": "output/1793479304",
+    "video_id": "YySEJG2WxsI",
+    "topic": "Why do metal gates squeak loudly",
+    "completed_at": 1793480760
   }
 ]

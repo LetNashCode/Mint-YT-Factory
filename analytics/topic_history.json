@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do hair elastics snap fast",
-    "normalized": "why do hair elastics snap fast",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793390907,
-    "recorded_at": 1793390907,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do apples turn brown when cut",
     "normalized": "why do apples turn brown when cut",
     "workflow": "publish",
@@ -3534,6 +3522,18 @@
     "status": "reserved",
     "reserved_at": 1793475147,
     "recorded_at": 1793475147,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do metal gates squeak loudly",
+    "normalized": "why do metal gates squeak loudly",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793479236,
+    "recorded_at": 1793479236,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

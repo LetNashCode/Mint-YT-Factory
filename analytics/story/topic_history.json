@@ -548,5 +548,21 @@
     "video_id": "173fjsRF-aE",
     "workdir": "",
     "published_at": 1793385145
+  },
+  {
+    "topic": "M. S. Dhoni: A ticket collector from a small railway town rising through domestic cricket to become India's most successful captain.",
+    "normalized": "m s dhoni a ticket collector from a small railway town rising through domestic cricket to become india s most successful captain",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1793473171,
+    "recorded_at": 1793473171,
+    "metadata": {
+      "person": "M. S. Dhoni",
+      "pillar": "rise_from_nothing"
+    },
+    "title": "M. S. Dhoni: A ticket collector from a small railway town rising through domestic cricket to become India's most successful captain.",
+    "video_id": "RVBp08uabW0",
+    "workdir": "",
+    "published_at": 1793474117
   }
 ]

@@ -1,6 +1,20 @@
 {
-  "status": "deferred",
-  "video_id": "",
-  "youtube_url": "",
-  "reason": "No unused Story subject with real-video candidates found in 16 attempts"
+  "status": "complete",
+  "video_id": "RVBp08uabW0",
+  "youtube_url": "https://www.youtube.com/shorts/RVBp08uabW0",
+  "platforms": {
+    "youtube": {
+      "status": "published",
+      "video_id": "RVBp08uabW0"
+    },
+    "instagram": {
+      "status": "published",
+      "media_id": "18199428424387329",
+      "container_id": "18502816546097136"
+    },
+    "facebook": {
+      "status": "published",
+      "video_id": "1639532044317561"
+    }
+  }
 }

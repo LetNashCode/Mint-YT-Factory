@@ -1,19 +1,6 @@
 [
   {
     "format": "impossible_odds",
-    "person": "Tenzing Norgay",
-    "premise": "Rising from an illiterate yak herder and expedition porter to summit Mount Everest for the first time in history.",
-    "hook": "He had already failed on six previous Everest expeditions before finally reaching the highest point on Earth.",
-    "key_facts": [
-      "Born in Tibet and moved to the Khumbu region of Nepal as a sherpa youth.",
-      "Worked as a high-altitude porter on multiple British and Swiss Himalayan expeditions in the 1930s and 1940s.",
-      "Reached the summit of Mount Everest alongside Edmund Hillary on May 29, 1953.",
-      "Later founded the Himalayan Mountaineering Institute to train future climbers."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
     "person": "Ernest Shackleton",
     "premise": "Keeping all 27 crew members alive for nearly two years after their ship was crushed by Antarctic pack ice.",
     "hook": "His ship was completely destroyed, stranding his crew on floating ice packs with no way to communicate with the outside world.",
@@ -52,50 +39,54 @@
     "source": "gemini_original"
   },
   {
-    "format": "rise_from_nothing",
-    "person": "M. S. Dhoni",
-    "premise": "From working as a ticket collector at Kharagpur railway station to becoming India's most successful cricket captain.",
-    "hook": "He spent his days checking tickets on railway platforms, but his real job was waiting on the cricket pitch.",
-    "key_facts": [
-      "Worked as a Travelling Ticket Examiner for South Eastern Railway in Kharagpur.",
-      "Selected for the Indian national cricket team in 2004.",
-      "Captained India to victory in the 2007 ICC World Twenty20 and 2011 ICC Cricket World Cup."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
+    "format": "before_they_were_famous",
     "person": "Harrison Ford",
-    "premise": "Working as a carpenter in Hollywood and about to quit acting when a chance encounter led to a life-changing audition.",
-    "hook": "He was building cabinets for George Lucas when a single hallway conversation changed cinema history forever.",
+    "premise": "Working as a master carpenter in Hollywood while struggling to secure major acting roles, until a chance hallway meeting changed his trajectory.",
+    "hook": "He built cabinets for George Lucas's office, never imagining it would lead to one of the most iconic roles in cinema.",
     "key_facts": [
-      "Worked primarily as a professional carpenter in Los Angeles to support his family.",
-      "Built cabinets and recording studios for Francis Ford Coppola and George Lucas.",
-      "Hired initially to run lines for auditions for Star Wars before being cast as Han Solo."
+      "Experienced years of minor television roles and struggled to earn a living solely from acting.",
+      "Trained as a self-taught carpenter to support his wife and two young sons.",
+      "Hired by George Lucas to build cabinets at American Zoetrope.",
+      "Asked to read lines for actors auditioning for Star Wars, which led directly to being cast as Han Solo."
     ],
     "source": "gemini_original"
   },
   {
     "format": "one_decision",
-    "person": "Jonas Salk",
-    "premise": "Choosing to test his polio vaccine on himself and his own family before conducting large-scale clinical trials.",
-    "hook": "To prove his vaccine was safe, he injected his own wife and children with the live virus first.",
+    "person": "Srinivasa Ramanujan",
+    "premise": "The self-taught mathematical genius making the bold decision to mail his unproven theorems across the world to a Cambridge professor.",
+    "hook": "A self-taught clerk mailed a letter filled with impossible math to England, changing mathematics forever.",
     "key_facts": [
-      "Developed the first successful polio vaccine in the early 1950s at the University of Pittsburgh.",
-      "Inoculated himself, his wife, and his children with the killed-virus vaccine prior to public trials.",
-      "Refused to patent the vaccine, ensuring it could be manufactured cheaply and globally."
+      "Had almost no formal training in pure mathematics growing up in Kumbakonam, India.",
+      "Wrote a letter containing complex mathematical formulas to British mathematician G. H. Hardy in 1913.",
+      "Traveled to Trinity College, Cambridge, in 1914 to collaborate with Hardy.",
+      "Elected a Fellow of the Royal Society in 1918."
     ],
     "source": "gemini_original"
   },
   {
     "format": "impossible_odds",
-    "person": "Amelia Earhart",
-    "premise": "Becoming the first woman to fly solo across the Atlantic Ocean despite severe weather, mechanical failures, and fierce skepticism.",
-    "hook": "Flying through a blinding North American snowstorm with a broken altimeter, she kept going.",
+    "person": "Amundsen",
+    "premise": "Winning the grueling race to the South Pole against the British expedition led by Robert Falcon Scott.",
+    "hook": "Two teams raced across the freezing wastes of Antarctica—only one made it back to tell the tale.",
     "key_facts": [
-      "Faded across the Atlantic Ocean solo in May 1932 from Harbour Grace, Newfoundland, to Northern Ireland.",
-      "Flew a Lockheed Vega 5B during the historic 14-hour and 56-minute crossing.",
-      "Awarded the Distinguished Flying Cross by the United States Congress for the achievement."
+      "Led the first expedition to successfully reach the geographic South Pole in December 1911.",
+      "Utilized traditional Inuit survival methods, fur clothing, and experienced sled dogs.",
+      "Previously led the first expedition to successfully navigate the Northwest Passage between 1903 and 1906.",
+      "Disappeared in 1928 while participating in an arctic rescue mission."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Bob Ross",
+    "premise": "Transforming his strict military demeanor into a gentle, soothing television persona after leaving the US Air Force.",
+    "hook": "A military drill sergeant retired from the army and promised to never scream at anyone again, creating a global art phenomenon.",
+    "key_facts": [
+      "Served for 20 years in the United States Air Force, rising to the rank of master sergeant.",
+      "Learned the quick-painting wet-on-wet technique while stationed in Alaska.",
+      "Hosted the long-running instructional television show The Joy of Painting from 1983 to 1994.",
+      "Became a globally recognized pop culture icon known for his calm voice and 'happy little trees'."
     ],
     "source": "gemini_original"
   }

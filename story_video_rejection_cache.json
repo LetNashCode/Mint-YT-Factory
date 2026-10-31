@@ -11130,6 +11130,231 @@
       "start": 747.45,
       "reason": "The sampled frames show scenes from the movie 'Andhaa Kaanoon' featuring other actors and close-ups of legs, hands, and a police officer, but Rajnikanth is not clearly visible in any of the five sampled frames.",
       "reviewed_at": 1793389622.5332804
+    },
+    "7c54584f192bf46d8a33cbee": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord",
+      "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord",
+      "person": "Harrison Ford",
+      "start": 138.45,
+      "reason": "The sampled frames show an interviewer and an interviewee discussing the movie Firewall, but Harrison Ford is never visible in any of the frames.",
+      "reviewed_at": 1793471876.5278327
+    },
+    "3d1f0ddf1efe0b3526a002da": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord",
+      "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord",
+      "person": "Harrison Ford",
+      "start": 195.64,
+      "reason": "The sampled frames only show the interviewer (Chuck the Movieguy) and the back of another person's head; the named subject, Harrison Ford, is not visible in any of the frames.",
+      "reviewed_at": 1793471880.3879614
+    },
+    "e5711ca6a08fb7c6fc5bcfd9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+      "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+      "person": "Harrison Ford",
+      "start": 235.7,
+      "reason": "The sampled frames show movie clip footage and an interview, but Harrison Ford is not clearly identifiable in any of the five sampled frames (only the interviewer/host is visible in the interview portion, and a fictional character in the movie clip).",
+      "reviewed_at": 1793471957.4452577
+    },
+    "a0c1333365fe57ef0c609819": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 326.5,
+      "reason": "The footage shows modern students recording a podcast about Amelia Earhart, not Amelia Earhart herself or genuine historical context related to her life and disappearance.",
+      "reviewed_at": 1793472323.398715
+    },
+    "d58d763e5778e5f7d710e7e8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 353.29,
+      "reason": "The footage shows modern commercial airplane wing views and a modern airport tarmac from a passenger window, which has no historical or contextual relevance to Amelia Earhart's life or era.",
+      "reviewed_at": 1793472348.531233
+    },
+    "a9fbeb9988bc5bf5086fb0ae": {
+      "kind": "segment_rejection",
+      "source_id": "archive:44754ManAgainstMountEverest",
+      "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+      "person": "Tenzing Norgay",
+      "start": 368.22,
+      "reason": "The footage shows authentic archival material from the 1952 Swiss Mount Everest expedition in which Tenzing Norgay participated as part of the team, depicting expedition preparations and equipment handling. Although Tenzing Norgay is not clearly identifiable in the sampled frames, the segment provides valid and concrete historical context illustrating his early mountaineering expeditions prior to his historic 1953 summit.",
+      "reviewed_at": 1793472641.1699176
+    },
+    "a75cb060924718fc654cec42": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "person": "Tenzing Norgay",
+      "start": 533.57,
+      "reason": "The footage is from a 1991 documentary about Brian Blessed's recreation of George Mallory's 1924 climb, not archival footage of Tenzing Norgay. Tenzing Norgay is not present in the video segment.",
+      "reviewed_at": 1793472668.899598
+    },
+    "367af7e1681950108a420abf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "person": "Tenzing Norgay",
+      "start": 709.76,
+      "reason": "The footage is from a 1991 documentary about recreating an Everest climb, showing a mountaineer in snow gear. While Tenzing Norgay is not personally visible (and the footage is modern relative to his life), it serves as usable biographical illustration of mountain climbing context for a documentary short.",
+      "reviewed_at": 1793472683.5544586
+    },
+    "1b082109bfcda6f5a33482e7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:44754ManAgainstMountEverest",
+      "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+      "person": "Tenzing Norgay",
+      "start": 45.36,
+      "reason": "The segment shows archival footage from the 1952 Swiss Mount Everest expedition, which is directly relevant to Tenzing Norgay's life and mountaineering career. Although Tenzing Norgay's face is obscured by goggles and winter gear in the close-up frames, the historical footage accurately depicts the preparations and context of the expedition he participated in.",
+      "reviewed_at": 1793472692.8850117
+    },
+    "5c952238426e40594f12fed2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:44754ManAgainstMountEverest",
+      "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+      "person": "Tenzing Norgay",
+      "start": 206.79,
+      "reason": "The archival footage shows the 1952 Swiss Mount Everest expedition, which is directly relevant context for Tenzing Norgay's mountaineering career as part of this expedition. Tenzing Norgay is not clearly identifiable in the distant figures climbing, so person_visible is false, but it qualifies as genuine historical context depicting the expedition.",
+      "reviewed_at": 1793472712.9106627
+    },
+    "a5b6b97f055fdec1f1033261": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colbca-Black_History_Month_Spotlight_-_Katherine_Johnson",
+      "source_url": "https://archive.org/details/colbca-Black_History_Month_Spotlight_-_Katherine_Johnson",
+      "person": "Katherine Johnson",
+      "start": 25.26,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793472980.5184007
+    },
+    "0ccc4ff8cad4472547194fc0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colbca-Black_History_Month_Spotlight_-_Katherine_Johnson",
+      "source_url": "https://archive.org/details/colbca-Black_History_Month_Spotlight_-_Katherine_Johnson",
+      "person": "Katherine Johnson",
+      "start": 36.05,
+      "reason": "The sampled frames consist entirely of title cards, text overlays, and abstract graphic patterns ('VISION VOICE LEGACY') with no actual filmed footage of Katherine Johnson or usable historical context.",
+      "reviewed_at": 1793472989.0114715
+    },
+    "9693fc7188ee1967c1d4b328": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colbca-Black_History_Month_Spotlight_-_Katherine_Johnson",
+      "source_url": "https://archive.org/details/colbca-Black_History_Month_Spotlight_-_Katherine_Johnson",
+      "person": "Katherine Johnson",
+      "start": 3.7,
+      "reason": "The segment consists of static graphic layouts with a portrait of Katherine Johnson and text overlays rather than real moving historical footage or dynamic archival recordings.",
+      "reviewed_at": 1793472994.7273383
+    },
+    "8146b971617a072d3de030cb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:fcpsva-Meet_the_Principal_of_Lanier_MS_now_Katherine_Johnson_MS",
+      "source_url": "https://archive.org/details/fcpsva-Meet_the_Principal_of_Lanier_MS_now_Katherine_Johnson_MS",
+      "person": "Katherine Johnson",
+      "start": 33.29,
+      "reason": "The video footage shows modern students and school staff at Lanier Middle School (which was later renamed to Katherine Johnson Middle School), but Katherine Johnson herself is not depicted, as she passed away before the renaming and the footage consists of unrelated modern school scenes.",
+      "reviewed_at": 1793473012.1071367
+    },
+    "a66c9979f34d9b9361cb6339": {
+      "kind": "segment_rejection",
+      "source_id": "archive:fcpsva-Meet_the_Principal_of_Lanier_MS_now_Katherine_Johnson_MS",
+      "source_url": "https://archive.org/details/fcpsva-Meet_the_Principal_of_Lanier_MS_now_Katherine_Johnson_MS",
+      "person": "Katherine Johnson",
+      "start": 52.14,
+      "reason": "The video shows modern middle school students and teachers in a classroom setting at a school named after Katherine Johnson. However, Katherine Johnson herself is not depicted (as she passed away before this footage and it is not archival footage of her), making it irrelevant as direct or biographical illustration footage for her life story.",
+      "reviewed_at": 1793473022.6428726
+    },
+    "3f4e75be4393d3dd29308198": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nasa_tv-NASA_Honors_Space_Mathematician_Katherine_Johnson_on_her_101st_Birthday",
+      "source_url": "https://archive.org/details/nasa_tv-NASA_Honors_Space_Mathematician_Katherine_Johnson_on_her_101st_Birthday",
+      "person": "Katherine Johnson",
+      "start": 42.66,
+      "reason": "The video features archival footage of space missions and NASA rocket launches corresponding to the narrative about Katherine Johnson's work on the Space Shuttle and lunar missions. Katherine Johnson is not visibly present in the sampled frames, so person_visible is false and usage is biographical_illustration.",
+      "reviewed_at": 1793473033.9255652
+    },
+    "f78a1fc21926ae3cc6608ad4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:fcpsva-Eagles_Can_Soar_at_Katherine_Johnson_MS",
+      "source_url": "https://archive.org/details/fcpsva-Eagles_Can_Soar_at_Katherine_Johnson_MS",
+      "person": "Katherine Johnson",
+      "start": 81.14,
+      "reason": "The footage shows modern B-roll and ceremony clips related to the renaming of Katherine Johnson Middle School in 2021, but the subject Katherine Johnson (who passed away in 2020) is never visible in the video frames.",
+      "reviewed_at": 1793473078.5450242
+    },
+    "9456023c33af76893eed1b51": {
+      "kind": "segment_rejection",
+      "source_id": "archive:fcpsva-Eagles_Can_Soar_at_Katherine_Johnson_MS",
+      "source_url": "https://archive.org/details/fcpsva-Eagles_Can_Soar_at_Katherine_Johnson_MS",
+      "person": "Katherine Johnson",
+      "start": 5.0,
+      "reason": "The footage shows contemporary school scenes and B-roll related to the renaming of Katherine Johnson Middle School in 2021, but Katherine Johnson herself is not present in the video, making it unusable for a biographical short about her historical life.",
+      "reviewed_at": 1793473088.655683
+    },
+    "41111c4b40e8072e4b00ba79": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dctvdc-Katherine_Johnson",
+      "source_url": "https://archive.org/details/dctvdc-Katherine_Johnson",
+      "person": "Katherine Johnson",
+      "start": 3.25,
+      "reason": "The segment consists entirely of static photographs presented as a slideshow with text overlays and graphic borders, which violates the requirement against slideshows and static photos.",
+      "reviewed_at": 1793473131.513201
+    },
+    "8faba997890d3fabd0fb6ad1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dctvdc-Katherine_Johnson",
+      "source_url": "https://archive.org/details/dctvdc-Katherine_Johnson",
+      "person": "Katherine Johnson",
+      "start": 12.68,
+      "reason": "The sampled frames show static historical photographs rather than moving film footage, violating the requirement for genuine moving identity or contextual footage.",
+      "reviewed_at": 1793473146.2904027
+    },
+    "097145f286ab5b41001f2adc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "source_url": "https://archive.org/details/kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "person": "M. S. Dhoni",
+      "start": 98.0,
+      "reason": "The frames feature actress Disha Patani from a fictional biographical film, but the subject of the video is M. S. Dhoni, who is not visible in any of the sampled frames.",
+      "reviewed_at": 1793473207.3651478
+    },
+    "a0444e48b1ba3700a0efeef8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "source_url": "https://archive.org/details/kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "person": "M. S. Dhoni",
+      "start": 175.5,
+      "reason": "The frames depict actors portraying M. S. Dhoni and his former girlfriend in a biographical feature film (M. S. Dhoni: The Untold Story), not actual archival or historical footage of the real M. S. Dhoni. Therefore, it is rejected.",
+      "reviewed_at": 1793473270.9199793
+    },
+    "228ffd7543b272f0cdbf415d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "source_url": "https://archive.org/details/kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "person": "M. S. Dhoni",
+      "start": 191.0,
+      "reason": "The segment contains movie dramatization and distant archival cricket footage where the subject's face is not clearly identifiable across the sampled frames, but it serves as biographical illustration for M. S. Dhoni.",
+      "reviewed_at": 1793473280.1709719
+    },
+    "15580855f3a8f32008ff921b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "source_url": "https://archive.org/details/www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "person": "M. S. Dhoni",
+      "start": 9369.0,
+      "reason": "The footage is from a biographical feature film (drama), not actual archival or historical footage of M. S. Dhoni. It shows actors portraying the subject and lacks usable historical context.",
+      "reviewed_at": 1793473382.0760012
+    },
+    "074836be9f05484a99be093d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "source_url": "https://archive.org/details/www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "person": "M. S. Dhoni",
+      "start": 11071.54,
+      "reason": "The frames consist only of copyright warning text screens and blank frames, with no usable footage of the subject.",
+      "reviewed_at": 1793473392.001589
     }
   }
 }

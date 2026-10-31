@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why microwave buttons stick",
-    "normalized": "why microwave buttons stick",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793378974,
-    "recorded_at": 1793378974,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "How do wooden spoons stain dark",
     "normalized": "how do wooden spoons stain dark",
     "workflow": "publish",
@@ -3534,6 +3522,18 @@
     "status": "reserved",
     "reserved_at": 1793462056,
     "recorded_at": 1793462056,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why ceiling fans gather dust on top",
+    "normalized": "why ceiling fans gather dust on top",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793469351,
+    "recorded_at": 1793469351,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

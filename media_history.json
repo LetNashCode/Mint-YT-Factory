@@ -17709,6 +17709,76 @@
       "shot": 2,
       "query": "sweaters static cling refuses let layered sweater",
       "recorded_at": 1793462340
+    },
+    {
+      "asset_key": "pexels:video:39000394",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39000394/16594505_720_1280_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "ceiling fans gather yet grows furry gray",
+      "recorded_at": 1793469495
+    },
+    {
+      "asset_key": "pexels:video:34324810",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34324810/14541688_720_1280_50fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "ceiling fans gather blast fuzz clean off",
+      "recorded_at": 1793469514
+    },
+    {
+      "asset_key": "pixabay:video:133872",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/10/07/133872-758336535_medium.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "ceiling fans gather instead spinning blade acts",
+      "recorded_at": 1793469518
+    },
+    {
+      "asset_key": "pexels:video:6911645",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6911645/6911645-hd_720_1280_24fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "ceiling fans gather leaves behind tiny bubble",
+      "recorded_at": 1793469540
+    },
+    {
+      "asset_key": "pexels:video:3644071",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3644071/3644071-hd_1280_720_33fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "ceiling fans gather dust drops settles safely",
+      "recorded_at": 1793469548
+    },
+    {
+      "asset_key": "pixabay:video:38388",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/05/07/38388-418005845_medium.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "ceiling fans gather faster fan spins spinning",
+      "recorded_at": 1793469551
+    },
+    {
+      "asset_key": "pexels:video:5327935",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5327935/5327935-hd_1280_720_60fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "ceiling fans gather bigger stationary dust trap",
+      "recorded_at": 1793469554
     }
   ]
 }

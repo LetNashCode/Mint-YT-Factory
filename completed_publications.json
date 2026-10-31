@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789036334",
-    "video_id": "pJve5eAJ-j8",
-    "topic": "Why do umbrellas flip",
-    "completed_at": 1789037862
-  },
-  {
     "workdir": "output/1789048386",
     "video_id": "cKIRd5OUObc",
     "topic": "Why elevator doors have hidden sensors",
@@ -598,5 +592,11 @@
     "video_id": "3xD6ztq1mBE",
     "topic": "Why do sweaters static cling to shirts",
     "completed_at": 1793463391
+  },
+  {
+    "workdir": "output/1793469435",
+    "video_id": "fD7U9d_xbQc",
+    "topic": "Why ceiling fans gather dust on top",
+    "completed_at": 1793470736
   }
 ]

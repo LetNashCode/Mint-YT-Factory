@@ -17589,6 +17589,126 @@
       "shot": 2,
       "query": "apples pure plant survival chemistry",
       "recorded_at": 1793397050
+    },
+    {
+      "asset_key": "pexels:video:7760267",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7760267/7760267-hd_1366_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "sweaters static cling you peel your wool",
+      "recorded_at": 1793462319
+    },
+    {
+      "asset_key": "pexels:video:5889060",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5889060/5889060-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "sweaters static cling somehow your shirt flies",
+      "recorded_at": 1793462326
+    },
+    {
+      "asset_key": "pexels:video:7794088",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7794088/7794088-hd_720_1280_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "sweaters static cling there glue inner surface",
+      "recorded_at": 1793462327
+    },
+    {
+      "asset_key": "pexels:video:9142396",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9142396/9142396-hd_720_1280_60fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "sweaters static cling there velcro yet they",
+      "recorded_at": 1793462328
+    },
+    {
+      "asset_key": "pexels:video:10198573",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10198573/10198573-hd_720_1366_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "sweaters static cling every time you move",
+      "recorded_at": 1793462329
+    },
+    {
+      "asset_key": "pexels:video:37950067",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/37950067/16102574_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "sweaters static cling swap microscopic invisible building",
+      "recorded_at": 1793462330
+    },
+    {
+      "asset_key": "pexels:video:7507158",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7507158/7507158-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "sweaters static cling wool loves giving them",
+      "recorded_at": 1793462332
+    },
+    {
+      "asset_key": "pexels:video:7764123",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7764123/7764123-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "sweaters static cling one gets overloaded minus",
+      "recorded_at": 1793462334
+    },
+    {
+      "asset_key": "pexels:video:6901296",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6901296/6901296-hd_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "sweaters static cling opposites attract violently wool",
+      "recorded_at": 1793462335
+    },
+    {
+      "asset_key": "pexels:video:7760271",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7760271/7760271-hd_1366_720_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "sweaters static cling your clothes turn into",
+      "recorded_at": 1793462337
+    },
+    {
+      "asset_key": "pexels:video:9558204",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9558204/9558204-hd_1366_720_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "sweaters static cling you basically wearing battery",
+      "recorded_at": 1793462338
+    },
+    {
+      "asset_key": "pexels:video:29624433",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/29624433/12747858_720_1280_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "sweaters static cling refuses let layered sweater",
+      "recorded_at": 1793462340
     }
   ]
 }

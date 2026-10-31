@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789033320",
-    "video_id": "AUKaGzgi7AY",
-    "topic": "Why do pencils break inside sharpeners",
-    "completed_at": 1789034302
-  },
-  {
     "workdir": "output/1789036334",
     "video_id": "pJve5eAJ-j8",
     "topic": "Why do umbrellas flip",
@@ -598,5 +592,11 @@
     "video_id": "mVCqobInodE",
     "topic": "Why do apples turn brown when cut",
     "completed_at": 1793398384
+  },
+  {
+    "workdir": "output/1793462135",
+    "video_id": "3xD6ztq1mBE",
+    "topic": "Why do sweaters static cling to shirts",
+    "completed_at": 1793463391
   }
 ]

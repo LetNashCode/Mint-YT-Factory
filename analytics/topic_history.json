@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why does a remote need pointing",
-    "normalized": "why does a remote need pointing",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793358014,
-    "recorded_at": 1793358014,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why microwave buttons stick",
     "normalized": "why microwave buttons stick",
     "workflow": "publish",
@@ -3534,6 +3522,18 @@
     "status": "reserved",
     "reserved_at": 1793396578,
     "recorded_at": 1793396578,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do sweaters static cling to shirts",
+    "normalized": "why do sweaters static cling to shirts",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793462056,
+    "recorded_at": 1793462056,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789164169",
-    "video_id": "S2wMsP5RdCk",
-    "topic": "Why do zipper teeth stick",
-    "completed_at": 1789165935
-  },
-  {
     "workdir": "output/1789195656",
     "video_id": "m67CxuHMF2Q",
     "topic": "Why do tape rolls stick",
@@ -598,5 +592,11 @@
     "video_id": "w8NBl2MjYm4",
     "topic": "Why do candle wicks curl over",
     "completed_at": 1793564099
+  },
+  {
+    "workdir": "output/1793568333",
+    "video_id": "wTDuVyXykNA",
+    "topic": "Why does a yawn spread",
+    "completed_at": 1793569393
   }
 ]

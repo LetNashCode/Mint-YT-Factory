@@ -18159,6 +18159,116 @@
       "shot": 2,
       "query": "magnets because billions invisible partners",
       "recorded_at": 1793558526
+    },
+    {
+      "asset_key": "pexels:video:7034332",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7034332/7034332-hd_720_1280_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "candle wicks curl every single time you",
+      "recorded_at": 1793563130
+    },
+    {
+      "asset_key": "pexels:video:6419918",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6419918/6419918-hd_720_1280_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "candle wicks curl refuses stand tall curls",
+      "recorded_at": 1793563133
+    },
+    {
+      "asset_key": "pexels:video:855965",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/855965/855965-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "candle wicks curl you might think wax",
+      "recorded_at": 1793563138
+    },
+    {
+      "asset_key": "pexels:video:7033918",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7033918/7033918-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "candle wicks curl tip transforms into blackened",
+      "recorded_at": 1793563141
+    },
+    {
+      "asset_key": "pexels:video:6748837",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6748837/6748837-hd_1280_720_50fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "candle wicks curl uneven heat makes one",
+      "recorded_at": 1793563153
+    },
+    {
+      "asset_key": "pexels:video:26885208",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/26885208/12025938_1280_720_100fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "candle wicks curl cotton burns into pure",
+      "recorded_at": 1793563154
+    },
+    {
+      "asset_key": "pixabay:video:143419",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/12/18/143419-782363231_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "candle wicks curl outer fringe flame air",
+      "recorded_at": 1793563155
+    },
+    {
+      "asset_key": "pexels:video:7233828",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7233828/7233828-hd_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "candle wicks curl clumsy brilliant self-cleaning",
+      "recorded_at": 1793563156
+    },
+    {
+      "asset_key": "pexels:video:6962391",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6962391/6962391-hd_1280_720_50fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "candle wicks curl tip pokes out flame",
+      "recorded_at": 1793563158
+    },
+    {
+      "asset_key": "pexels:video:4790497",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4790497/4790497-hd_720_1280_60fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "candle wicks curl without graceful bend soot",
+      "recorded_at": 1793563159
+    },
+    {
+      "asset_key": "pexels:video:8271971",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8271971/8271971-hd_720_1366_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "candle wicks curl your simply drown",
+      "recorded_at": 1793563160
     }
   ]
 }

@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789148772",
-    "video_id": "QnWjBSY5TVE",
-    "topic": "Why heavy wool blankets feel instantly comforting",
-    "completed_at": 1789150816
-  },
-  {
     "workdir": "output/1789164169",
     "video_id": "S2wMsP5RdCk",
     "topic": "Why do zipper teeth stick",
@@ -598,5 +592,11 @@
     "video_id": "1Ebpy0VzsKk",
     "topic": "How do magnets stick to fridges",
     "completed_at": 1793560089
+  },
+  {
+    "workdir": "output/1793563035",
+    "video_id": "w8NBl2MjYm4",
+    "topic": "Why do candle wicks curl over",
+    "completed_at": 1793564099
   }
 ]

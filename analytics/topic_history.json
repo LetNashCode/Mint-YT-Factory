@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why ceiling fans gather dust on top",
-    "normalized": "why ceiling fans gather dust on top",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793469351,
-    "recorded_at": 1793469351,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do leather jackets smell after rain",
     "normalized": "why do leather jackets smell after rain",
     "workflow": "publish",
@@ -3522,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1793552124,
     "recorded_at": 1793552124,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "How do magnets stick to fridges",
+    "normalized": "how do magnets stick to fridges",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793558076,
+    "recorded_at": 1793558076,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

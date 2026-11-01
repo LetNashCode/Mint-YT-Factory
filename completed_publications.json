@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789109785",
-    "video_id": "0fInCjLAutI",
-    "topic": "Why sliding door tracks collect gravel",
-    "completed_at": 1789111351
-  },
-  {
     "workdir": "output/1789148772",
     "video_id": "QnWjBSY5TVE",
     "topic": "Why heavy wool blankets feel instantly comforting",
@@ -598,5 +592,11 @@
     "video_id": "YySEJG2WxsI",
     "topic": "Why do metal gates squeak loudly",
     "completed_at": 1793480760
+  },
+  {
+    "workdir": "output/1793558142",
+    "video_id": "1Ebpy0VzsKk",
+    "topic": "How do magnets stick to fridges",
+    "completed_at": 1793560089
   }
 ]

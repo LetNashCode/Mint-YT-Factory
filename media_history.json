@@ -18059,6 +18059,106 @@
       "shot": 2,
       "query": "plastic hangers snap shattered because invisible aging",
       "recorded_at": 1793552235
+    },
+    {
+      "asset_key": "pexels:video:35762426",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35762426/15161552_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "magnets little plastic pizza slice",
+      "recorded_at": 1793558361
+    },
+    {
+      "asset_key": "pexels:video:7316367",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7316367/7316367-hd_720_1280_50fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "magnets hangs your fridge forever",
+      "recorded_at": 1793558369
+    },
+    {
+      "asset_key": "pexels:video:37438142",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/37438142/15855887_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "magnets slide around you feel",
+      "recorded_at": 1793558375
+    },
+    {
+      "asset_key": "pexels:video:6539115",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6539115/6539115-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "magnets smooth glide over invisible",
+      "recorded_at": 1793558381
+    },
+    {
+      "asset_key": "pexels:video:34913011",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34913011/14789432_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "magnets millions microscopic atomic compasses",
+      "recorded_at": 1793558494
+    },
+    {
+      "asset_key": "pexels:video:7217395",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7217395/7217395-hd_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "magnets you bring near door",
+      "recorded_at": 1793558498
+    },
+    {
+      "asset_key": "pexels:video:7004801",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7004801/7004801-hd_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "magnets aligned forces reach out",
+      "recorded_at": 1793558503
+    },
+    {
+      "asset_key": "pexels:video:6654779",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6654779/6654779-hd_1366_720_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "magnets actively pulls back locking",
+      "recorded_at": 1793558514
+    },
+    {
+      "asset_key": "pexels:video:3024343",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3024343/3024343-hd_1280_720_50fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "magnets tiny piece plastic stays",
+      "recorded_at": 1793558521
+    },
+    {
+      "asset_key": "pexels:video:10935593",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10935593/10935593-hd_720_1280_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "magnets because billions invisible partners",
+      "recorded_at": 1793558526
     }
   ]
 }

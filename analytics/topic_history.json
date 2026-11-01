@@ -3480,30 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do apples turn brown when cut",
-    "normalized": "why do apples turn brown when cut",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793396578,
-    "recorded_at": 1793396578,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do sweaters static cling to shirts",
-    "normalized": "why do sweaters static cling to shirts",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793462056,
-    "recorded_at": 1793462056,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why ceiling fans gather dust on top",
     "normalized": "why ceiling fans gather dust on top",
     "workflow": "publish",
@@ -3534,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1793479236,
     "recorded_at": 1793479236,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do plastic hangers snap suddenly",
+    "normalized": "why do plastic hangers snap suddenly",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793552124,
+    "recorded_at": 1793552124,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

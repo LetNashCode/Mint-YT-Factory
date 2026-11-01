@@ -17949,6 +17949,116 @@
       "shot": 2,
       "query": "metal gates squeak playing high-frequency guitar solo",
       "recorded_at": 1793479520
+    },
+    {
+      "asset_key": "pexels:video:1362720",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/1362720/1362720-hd_1280_720_60fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "plastic hangers snap blue hanger resting",
+      "recorded_at": 1793552206
+    },
+    {
+      "asset_key": "pexels:video:8890976",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8890976/8890976-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "plastic hangers snap sitting quietly your closet",
+      "recorded_at": 1793552212
+    },
+    {
+      "asset_key": "pexels:video:8387364",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8387364/8387364-hd_1366_720_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "plastic hangers snap you pulled off rack",
+      "recorded_at": 1793552216
+    },
+    {
+      "asset_key": "pexels:video:9594994",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9594994/9594994-hd_1366_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "plastic hangers snap suddenly explodes into two",
+      "recorded_at": 1793552220
+    },
+    {
+      "asset_key": "pexels:video:8386973",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8386973/8386973-hd_720_1366_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "plastic hangers snap inside molded millions",
+      "recorded_at": 1793552228
+    },
+    {
+      "asset_key": "pexels:video:10054741",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10054741/10054741-hd_720_1366_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "plastic hangers snap fresh tangled strands",
+      "recorded_at": 1793552230
+    },
+    {
+      "asset_key": "pexels:video:6756058",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6756058/6756058-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "plastic hangers snap absorb stress bending flexible",
+      "recorded_at": 1793552231
+    },
+    {
+      "asset_key": "pexels:video:8322295",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8322295/8322295-hd_1366_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "plastic hangers snap over time room air",
+      "recorded_at": 1793552232
+    },
+    {
+      "asset_key": "pexels:video:10055009",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10055009/10055009-hd_720_1366_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "plastic hangers snap turning slippery spaghetti chains",
+      "recorded_at": 1793552234
+    },
+    {
+      "asset_key": "pexels:video:7764692",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7764692/7764692-hd_1366_720_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "plastic hangers snap your hanger not break",
+      "recorded_at": 1793552234
+    },
+    {
+      "asset_key": "pexels:video:7764688",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7764688/7764688-hd_1366_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "plastic hangers snap shattered because invisible aging",
+      "recorded_at": 1793552235
     }
   ]
 }

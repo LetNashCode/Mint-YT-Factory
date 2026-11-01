@@ -11355,6 +11355,159 @@
       "start": 11071.54,
       "reason": "The frames consist only of copyright warning text screens and blank frames, with no usable footage of the subject.",
       "reviewed_at": 1793473392.001589
+    },
+    "8dc5ed4fdddea8548b41bfc0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+      "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+      "person": "Bob Ross",
+      "start": 24.37,
+      "reason": "The footage contains actual footage of Bob Ross in the first frame, but quickly transitions into a commercial advertisement for a cellular network, rendering the segment unusable for a biographical short.",
+      "reviewed_at": 1793559412.69562
+    },
+    "aabcb1bb3fa0459ee764eeee": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
+      "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
+      "person": "Bob Ross",
+      "start": 151.92,
+      "reason": "The video shows someone else (Jacob) painting with Bob Ross, but Bob Ross himself is not visible in the footage, making it unsuitable for a biographical segment of Bob Ross.",
+      "reviewed_at": 1793559431.930392
+    },
+    "350731708570359ab55090c4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
+      "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
+      "person": "Bob Ross",
+      "start": 225.38,
+      "reason": "The video shows someone else (Jacob) painting, not Bob Ross. Bob Ross is not visible in any of the sampled frames.",
+      "reviewed_at": 1793559458.976584
+    },
+    "9c91a9f5430f863ba659b4d7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
+      "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
+      "person": "Bob Ross",
+      "start": 298.84,
+      "reason": "The footage shows someone else (Jacob painting) rather than Bob Ross, making it unusable for a biography of Bob Ross.",
+      "reviewed_at": 1793559465.8484387
+    },
+    "18eea8e329524b70932c47e0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+      "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+      "person": "Bob Ross",
+      "start": 63.1,
+      "reason": "The footage shows a commercial parody or advertisement featuring a painting of a Mountain Dew bottle rather than genuine archival footage or historical documentation of Bob Ross.",
+      "reviewed_at": 1793559478.088633
+    },
+    "341e314d9f2a30a29cfd2364": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+      "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+      "person": "Bob Ross",
+      "start": 82.47,
+      "reason": "The footage shows archival-style footage of Bob Ross, but it is a commercial advertisement for Mountain Dew rather than genuine biographical footage.",
+      "reviewed_at": 1793559505.9143715
+    },
+    "1b82483142c71cd1635a9dba": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "source_url": "https://archive.org/details/sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "person": "Bob Ross",
+      "start": 275.56,
+      "reason": "The footage shows an interview with choreographer Dani Tirrell and B-roll of someone browsing YouTube videos on a laptop. Bob Ross is neither visible nor is this archival footage of him.",
+      "reviewed_at": 1793559518.5242114
+    },
+    "4a983a334fdb14698826d268": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "source_url": "https://archive.org/details/sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "person": "Bob Ross",
+      "start": 410.84,
+      "reason": "The sampled frames feature Nancy Guppy and Dani Tirrell, but Bob Ross is neither visible nor is the segment about his life/work; it discusses other artists.",
+      "reviewed_at": 1793559526.7992518
+    },
+    "3431e2f862b634933e3f937c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "source_url": "https://archive.org/details/ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "person": "Bob Ross",
+      "start": 41.87,
+      "reason": "The video segment features a student talking about a Bob Ross project in a modern school setting, but Bob Ross himself is not visible in any of the frames, making it unsuitable as archival identity or direct event footage for his biography.",
+      "reviewed_at": 1793559571.2177565
+    },
+    "2102a66153ca5aa338103b8f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "source_url": "https://archive.org/details/ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "person": "Bob Ross",
+      "start": 60.3,
+      "reason": "The video features a student talking about a Bob Ross project and b-roll of a painting, but Bob Ross himself is never visible in any of the sampled frames.",
+      "reviewed_at": 1793559584.8713996
+    },
+    "2dca7ead5c973d3c5c701e69": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-clips-556520154",
+      "source_url": "https://archive.org/details/twitch-clips-556520154",
+      "person": "Bob Ross",
+      "start": 0.25,
+      "reason": "The footage shows a Twitch streamer doing makeup, not Bob Ross. Bob Ross is not visible in the frames, making this clip unsuitable for a biography about him.",
+      "reviewed_at": 1793559596.1908545
+    },
+    "96d830ecd3282aec6e7bb798": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kevin-spencer-season-4-episode-2-snowfort-greg-lawrence-thomasin-langlands-480p-_202601",
+      "source_url": "https://archive.org/details/kevin-spencer-season-4-episode-2-snowfort-greg-lawrence-thomasin-langlands-480p-_202601",
+      "person": "Percy Spencer",
+      "start": 5.0,
+      "reason": "The video segment consists entirely of animated cartoon fiction (Kevin Spencer), not real historical footage or biographical illustration of Percy Spencer.",
+      "reviewed_at": 1793559662.7402651
+    },
+    "bcd2bb981ea00d0fdd5c7f6c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kevin-spencer-season-4-episode-2-snowfort-greg-lawrence-thomasin-langlands-480p-_202601",
+      "source_url": "https://archive.org/details/kevin-spencer-season-4-episode-2-snowfort-greg-lawrence-thomasin-langlands-480p-_202601",
+      "person": "Percy Spencer",
+      "start": 112.04,
+      "reason": "The footage consists of animated cartoon clips from a fictional series ('Kevin Spencer') unrelated to Percy Spencer, and contains no real or historically accurate context.",
+      "reviewed_at": 1793559669.5820875
+    },
+    "041155b903c3d1332e9aecda": {
+      "kind": "segment_rejection",
+      "source_id": "archive:conscientious-objector",
+      "source_url": "https://archive.org/details/conscientious-objector",
+      "person": "Desmond Doss",
+      "start": 5.0,
+      "reason": "blank/near-blank frames",
+      "reviewed_at": 1793559791.1187494
+    },
+    "4d7c119ae5e6d30617f652b2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+      "source_url": "https://archive.org/details/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+      "person": "Desmond Doss",
+      "start": 5.0,
+      "reason": "The sampled frames only display static title cards and text screens ('Interview with Desmond Doss Unluckiest Hero of World War II' and recording credits) with no actual filmed footage or visible subject.",
+      "reviewed_at": 1793559836.7329812
+    },
+    "6b7c9660cbcd364be28c752b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:conscientious-objector",
+      "source_url": "https://archive.org/details/conscientious-objector",
+      "person": "Desmond Doss",
+      "start": 941.41,
+      "reason": "The footage shows archival documentary interviews and historical context relating to Desmond Doss's military detachment and associates (such as John Centola from the 307th medical detachment), but Desmond Doss himself is not visible in the sampled frames.",
+      "reviewed_at": 1793559857.5786402
+    },
+    "998b04cfca715e201aa6306b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:conscientious-objector",
+      "source_url": "https://archive.org/details/conscientious-objector",
+      "person": "Desmond Doss",
+      "start": 1409.62,
+      "reason": "The clip shows historical documentary footage featuring a handwritten letter associated with Desmond Doss, providing biographical context, though the subject is not visibly present in the frames.",
+      "reviewed_at": 1793559905.9514592
     }
   }
 }

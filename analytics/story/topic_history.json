@@ -564,5 +564,21 @@
     "video_id": "RVBp08uabW0",
     "workdir": "",
     "published_at": 1793474117
+  },
+  {
+    "topic": "Desmond Doss: Serving as a combat medic in World War II while refusing to touch a weapon due to religious convictions.",
+    "normalized": "desmond doss serving as a combat medic in world war ii while refusing to touch a weapon due to religious convictions",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1793559713,
+    "recorded_at": 1793559713,
+    "metadata": {
+      "person": "Desmond Doss",
+      "pillar": "one_decision"
+    },
+    "title": "Desmond Doss: Serving as a combat medic in World War II while refusing to touch a weapon due to religious convictions.",
+    "video_id": "Ju_LZZiGafc",
+    "workdir": "",
+    "published_at": 1793560682
   }
 ]

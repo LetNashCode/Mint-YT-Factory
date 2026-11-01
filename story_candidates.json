@@ -1,19 +1,6 @@
 [
   {
     "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "Keeping all 27 crew members alive for nearly two years after their ship was crushed by Antarctic pack ice.",
-    "hook": "His ship was completely destroyed, stranding his crew on floating ice packs with no way to communicate with the outside world.",
-    "key_facts": [
-      "The Endurance became trapped and was crushed by ice in the Weddell Sea in 1915.",
-      "Led an open-boat journey across 800 miles of stormy Southern Ocean to reach South Georgia Island.",
-      "Successfully rescued every member of his expedition without a single human loss.",
-      "Regarded as a defining figure of the Heroic Age of Antarctic Exploration."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
     "person": "Viswanathan Anand",
     "premise": "Rising from the chess clubs of India to challenge Soviet dominance and become India's first Grandmaster.",
     "hook": "He learned the game from his mother at age six, long before India had any chess grandmasters on the world stage.",
@@ -52,19 +39,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Srinivasa Ramanujan",
-    "premise": "The self-taught mathematical genius making the bold decision to mail his unproven theorems across the world to a Cambridge professor.",
-    "hook": "A self-taught clerk mailed a letter filled with impossible math to England, changing mathematics forever.",
-    "key_facts": [
-      "Had almost no formal training in pure mathematics growing up in Kumbakonam, India.",
-      "Wrote a letter containing complex mathematical formulas to British mathematician G. H. Hardy in 1913.",
-      "Traveled to Trinity College, Cambridge, in 1914 to collaborate with Hardy.",
-      "Elected a Fellow of the Royal Society in 1918."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "impossible_odds",
     "person": "Amundsen",
     "premise": "Winning the grueling race to the South Pole against the British expedition led by Robert Falcon Scott.",
@@ -78,15 +52,28 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Bob Ross",
-    "premise": "Transforming his strict military demeanor into a gentle, soothing television persona after leaving the US Air Force.",
-    "hook": "A military drill sergeant retired from the army and promised to never scream at anyone again, creating a global art phenomenon.",
+    "format": "one_decision",
+    "person": "Jonas Salk",
+    "premise": "Choosing not to patent the polio vaccine to ensure maximum global distribution and access.",
+    "hook": "He had the chance to become one of the wealthiest scientists in history, but gave it all away with a single question.",
     "key_facts": [
-      "Served for 20 years in the United States Air Force, rising to the rank of master sergeant.",
-      "Learned the quick-painting wet-on-wet technique while stationed in Alaska.",
-      "Hosted the long-running instructional television show The Joy of Painting from 1983 to 1994.",
-      "Became a globally recognized pop culture icon known for his calm voice and 'happy little trees'."
+      "Led the research team that developed the first successful polio vaccine in the early 1950s.",
+      "Announced on national radio in 1955 that the vaccine would not be patented.",
+      "Famously asked 'Would you patent the sun?' when questioned about ownership.",
+      "Contributed to the near-global eradication of wild poliovirus."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Kalpana Chawla",
+    "premise": "Journeying from a small-town upbringing in Karnal, India, to becoming the first Indian-born woman in space.",
+    "hook": "She grew up watching local airplanes fly overhead, dreaming of a career that nobody in her region had ever pursued.",
+    "key_facts": [
+      "Raised in Karnal, Haryana, completing her early education locally.",
+      "Earned an engineering degree from Punjab Engineering College against traditional local expectations.",
+      "Moved to the United States to pursue graduate studies in aerospace engineering.",
+      "First flew on Space Shuttle Columbia in 1997."
     ],
     "source": "gemini_original"
   }

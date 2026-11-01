@@ -2,564 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Dolly Parton",
-      "source": {
-        "id": "archive:LarryKingLive20030703DollyParton",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LarryKingLive20030703DollyParton/Larry%20King%20Live%202003-07-03%20Dolly%20Parton.mp4",
-        "source_url": "https://archive.org/details/LarryKingLive20030703DollyParton",
-        "title": "Larry King Live 2003-07-03 Dolly Parton",
-        "description": "Dolly Parton discusses her album \"For God and Country,\" her fourth of July special, Dollywood, \"Nine to Five,\" her family and early career, former musical partner Porter Wagoner, Whitney Houston's cover of \"I Will Always Love You,\" plastic surgery, the tabloids, and much more. ['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
-        "creator": "CNN",
-        "license": "",
-        "subject": "['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2770.437104,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 641.1,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8.0,
-        "reason": "The video segment features archival television interview footage of Dolly Parton alongside historical photos of her and Porter Wagoner, directly supporting her biographical narrative.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c562e77c076c7111a73800c2b7f38a2ec1b3a35d3ef606a1031ce1763e9a7732",
-      "reviewed_at": 1791966450.6426022
-    },
-    {
-      "person": "Dolly Parton",
-      "source": {
-        "id": "archive:dolly-parton-and-david-brenner",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/dolly-parton-and-david-brenner/Dolly%20Parton%20and%20David%20Brenner.ia.mp4",
-        "source_url": "https://archive.org/details/dolly-parton-and-david-brenner",
-        "title": "Dolly Parton and David Brenner",
-        "description": "David Brenner interviews Dolly Parton R.I.P. Dolly Parton ['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
-        "creator": "Motown Productions and Kingworld",
-        "license": "",
-        "subject": "['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 787.586787,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 183.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The clip is genuine archival interview footage showing Dolly Parton being interviewed by David Brenner, making it highly relevant and usable biographical illustration for a video about her life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f900ef71fcf15c3a287c4dbef551f8310da901e3e524541fd5fbd53dd8a684a5",
-      "reviewed_at": 1791966454.5448003
-    },
-    {
-      "person": "Dolly Parton",
-      "source": {
-        "id": "archive:LarryKingLive20030703DollyParton",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LarryKingLive20030703DollyParton/Larry%20King%20Live%202003-07-03%20Dolly%20Parton.mp4",
-        "source_url": "https://archive.org/details/LarryKingLive20030703DollyParton",
-        "title": "Larry King Live 2003-07-03 Dolly Parton",
-        "description": "Dolly Parton discusses her album \"For God and Country,\" her fourth of July special, Dollywood, \"Nine to Five,\" her family and early career, former musical partner Porter Wagoner, Whitney Houston's cover of \"I Will Always Love You,\" plastic surgery, the tabloids, and much more. ['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
-        "creator": "CNN",
-        "license": "",
-        "subject": "['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2770.437104,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 853.13,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage features Dolly Parton clearly visible during a Larry King Live interview, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "13b254b5f431e25df3477a86ead588177055772f3260d0c74aa48377e7db22ff",
-      "reviewed_at": 1791966460.4338248
-    },
-    {
-      "person": "Dolly Parton",
-      "source": {
-        "id": "archive:dolly-parton-and-david-brenner",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/dolly-parton-and-david-brenner/Dolly%20Parton%20and%20David%20Brenner.ia.mp4",
-        "source_url": "https://archive.org/details/dolly-parton-and-david-brenner",
-        "title": "Dolly Parton and David Brenner",
-        "description": "David Brenner interviews Dolly Parton R.I.P. Dolly Parton ['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
-        "creator": "Motown Productions and Kingworld",
-        "license": "",
-        "subject": "['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 787.586787,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 243.03,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly feature Dolly Parton participating in a television interview/talk show, making it valid biographical illustration footage for a video about her life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "17a15799441f0822755a0dd4f37bbd0d2958df804d29fb713a69ba5d92dafb54",
-      "reviewed_at": 1791966464.7811875
-    },
-    {
-      "person": "Dolly Parton",
-      "source": {
-        "id": "archive:LarryKingLive20030703DollyParton",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LarryKingLive20030703DollyParton/Larry%20King%20Live%202003-07-03%20Dolly%20Parton.mp4",
-        "source_url": "https://archive.org/details/LarryKingLive20030703DollyParton",
-        "title": "Larry King Live 2003-07-03 Dolly Parton",
-        "description": "Dolly Parton discusses her album \"For God and Country,\" her fourth of July special, Dollywood, \"Nine to Five,\" her family and early career, former musical partner Porter Wagoner, Whitney Houston's cover of \"I Will Always Love You,\" plastic surgery, the tabloids, and much more. ['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
-        "creator": "CNN",
-        "license": "",
-        "subject": "['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2770.437104,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 1065.17,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment shows genuine archival interview footage of Dolly Parton on Larry King Live in 2003, clearly depicting her speaking. It is well-suited for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c00ef93c04d4f078577cbf309216cdc575d10c60fc800022cb711c37bb9748a0",
-      "reviewed_at": 1791966470.8041303
-    },
-    {
-      "person": "Dolly Parton",
-      "source": {
-        "id": "archive:dolly-parton-and-david-brenner",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/dolly-parton-and-david-brenner/Dolly%20Parton%20and%20David%20Brenner.ia.mp4",
-        "source_url": "https://archive.org/details/dolly-parton-and-david-brenner",
-        "title": "Dolly Parton and David Brenner",
-        "description": "David Brenner interviews Dolly Parton R.I.P. Dolly Parton ['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
-        "creator": "Motown Productions and Kingworld",
-        "license": "",
-        "subject": "['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 787.586787,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 302.53,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Dolly Parton is clearly visible in the first two sampled frames during her interview with David Brenner, satisfying the identity requirement, even though subsequent frames focus on the interviewer.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4bc6225664c957de8bfcb9e52bf8d87b160eb35a45d59dbc05e7087b32c745f9",
-      "reviewed_at": 1791966474.895285
-    },
-    {
-      "person": "Srinivasa Ramanujan",
-      "source": {
-        "id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm/Srinivasa%20Ramanujan%20-%20The%20Mathematician%20and%20His%20Legacy-20170518.mp4",
-        "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
-        "title": "Srinivasa Ramanujan - The Mathematician and His Legacy-20170518",
-        "description": "Uncovering the fundamental principles governing our universe, through science and mathematics. / / Directed by- Nandan Kudhyadi / Producer & Commissioning Editor- Rajiv Mehrotra / / Festivals / India International Science Festival, India (Award) / Golemog, Serbia / Kolkata; Trivandrum, India / / Nandan Kudhyadi has more than sixty five documentaries to his credit on varied subjects. Several of these have won top national awards and been screened at various international film festivals like Cinema du Reel, Tokyo. Nandan graduated in Film Direction at the Film and Television Institute of India, Pune. He has worked with celebrated international filmmakers like Michelangelo Antonioni, Krzysztof Zanussi, Mani Kaul and Ketan Mehta. / / Rajiv Mehrotra is the Managing Trustee and Commissioning Editor of PSBT - his films have won more than 300 awards worldwide, including 32 in 31 years from the President of India. His nine books are available in 50 languages and editions. / / / / / PSBT is a not-for-profit that nurtures and supports the production of independent documentary films. Over two decades, it has produced some 700 documentary films. Each film averages two festival selections and every second film an award. / / Its Board of Trustees includes Adoor Gopalakrishnan, Fali Nariman, Kiran Karnik, Shyam Benegal, Sharmila Tagore and CEO, Prasar Bharati. / / Credits / Cinematographer: R V Ramani / Sound Recordist: Tushar Pandit / Editor: Nandkishor Jadhav / Animator: Milind Rairikar / / Produced by PSBT in partnership with Doordarshan India. / http://www.psbt.org/ ; http://www.ddindi ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3044.96,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1637.06,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The segment features archival photographs and historical documents from 1916 showing Srinivasa Ramanujan among his peers at Cambridge, perfectly aligning with the narration about his university degree.",
-        "usage": "direct_event"
-      },
-      "review_key": "6a86a3e4d28474687a78242ffde7c25a1455e04a82611c3b0dbec5e75a83a291",
-      "reviewed_at": 1791971661.9611983
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:tolkienarchive",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tolkienarchive/Documentaries/1996%20-%20J.R.R.%20Tolkien%20-%20A%20Film%20Portrait/J.R.R.Tolkien%20-%20A%20Film%20Portrait.mp4",
-        "source_url": "https://archive.org/details/tolkienarchive",
-        "title": "J. R. R. Tolkien - A Film Archive",
-        "description": "A collection of J.R.R. Tolkien and Middle-Earth related videos, including documentaries, BBC archive footage and interviews with the man himself. ['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
-        "creator": "Various",
-        "license": "",
-        "subject": "['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6471.431633,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 3482.08,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows J.R.R. Tolkien writing at his desk in archival footage, perfectly illustrating his life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "bb6cf3082c5d0e36ff694d3f84dedfdbc21c4ecf193a938c96373457c42eca1e",
-      "reviewed_at": 1791972063.188639
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:jrr-tolkien-1892-1973",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jrr-tolkien-1892-1973/JRR%20TOLKIEN%20%271892-1973%27%20-%20A%20Study%20Of%20The%20Maker%20Of%20Middle-earth.mp4",
-        "source_url": "https://archive.org/details/jrr-tolkien-1892-1973",
-        "title": "JRR TOLKIEN ' 1892-1973'",
-        "description": "J.R.R.T.: A Study Of The Maker Of Middle-earth is a 1992 documentary, narrated by Judi Dench, produced to celebrate the centenary of J.R.R. Tolkien’s birth. It is sometimes called “J.R.R. Tolkien: A Portrait” and “J.R.R. Tolkien – An Authorized Film Portrait”. It features archive footage and audio recordings of J.R.R. Tolkien, and interviews with three of his children Priscilla, John, and Christopher. It also includes interviews with Baillie Tolkien, Robert Murray, Queen Margrethe II of Denmark, Rayner Unwin, Tom Shippey, and Verlyn Flieger. ['jrr tolkien', 'documentary', 'middle earth']",
-        "creator": "Derek Bailey",
-        "license": "",
-        "subject": "['jrr tolkien', 'documentary', 'middle earth']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6474.92,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 3483.96,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows archival moving images of J.R.R. Tolkien sitting at his desk writing, which directly illustrates his life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6cee3383cdb7cc32d144dc3ba07d3c26577f5a7192c2a1ce3475c08e8d8f1fe2",
-      "reviewed_at": 1791972069.7953231
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:tolkienarchive",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tolkienarchive/Documentaries/1996%20-%20J.R.R.%20Tolkien%20-%20A%20Film%20Portrait/J.R.R.Tolkien%20-%20A%20Film%20Portrait.mp4",
-        "source_url": "https://archive.org/details/tolkienarchive",
-        "title": "J. R. R. Tolkien - A Film Archive",
-        "description": "A collection of J.R.R. Tolkien and Middle-Earth related videos, including documentaries, BBC archive footage and interviews with the man himself. ['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
-        "creator": "Various",
-        "license": "",
-        "subject": "['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6471.431633,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 501.73,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The clip features Christopher Tolkien (J.R.R. Tolkien's son) being interviewed about his father and their legacy, alongside archival animation illustrating Middle-earth. While J.R.R. Tolkien himself is not alive in the footage, Christopher Tolkien provides direct biographical context and commentary relevant to a biography Short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "67dfeb7e9b3378bbbaa4c8939ed1f0bf33cfb61985bccc26590ca54ff2377c6b",
-      "reviewed_at": 1791972074.533827
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:tolkienarchive",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tolkienarchive/Documentaries/1996%20-%20J.R.R.%20Tolkien%20-%20A%20Film%20Portrait/J.R.R.Tolkien%20-%20A%20Film%20Portrait.mp4",
-        "source_url": "https://archive.org/details/tolkienarchive",
-        "title": "J. R. R. Tolkien - A Film Archive",
-        "description": "A collection of J.R.R. Tolkien and Middle-Earth related videos, including documentaries, BBC archive footage and interviews with the man himself. ['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
-        "creator": "Various",
-        "license": "",
-        "subject": "['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6471.431633,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 2488.63,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature J.R.R. Tolkien's son, Christopher Tolkien (or archival interview footage related to the Tolkien family and biography), speaking about his father's life and legacy. While the prompt asks for J.R.R. Tolkien himself, archival interviews and family members discussing the subject provide valuable biographical illustration context, though strictly speaking, this appears to be Christopher Tolkien in archive interviews rather than J.R.R. Tolkien himself. Wait, looking closely at the face, this is an interview with J.R.R. Tolkien's son Christopher Tolkien or an archival documentary piece. Let's evaluate accurately: J.R.R. Tolkien passed away in 1973, and filmed interviews of J.R.R. Tolkien do exist (such as the 1968 BBC interview). This man has features matching older J.R.R. Tolkien or Christopher. Regardless, it is genuine archival documentary footage suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "25ae06893d9634df14dd8c65464d5d2a077a24b7e8febc2efb0600f48c4d7023",
-      "reviewed_at": 1791972093.3769202
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
-        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
-        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
-        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
-        "creator": "BBC Archive",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Tolkien', 'God', 'Creator']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 386.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 205.82,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features genuine archival interview video of J.R.R. Tolkien from 1962, clearly showing the named subject speaking and directly usable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5ff9685ebbdf68eb551611c2d1c846631d5f7b9e3705239b6c79029bf401e7a7",
-      "reviewed_at": 1791972123.329083
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
-        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
-        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
-        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
-        "creator": "BBC Archive",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Tolkien', 'God', 'Creator']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 386.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The segment features genuine archival footage of J.R.R. Tolkien being interviewed in 1962, with the subject clearly visible and identifiable throughout most of the frames, making it ideal biographical illustration for a Short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f25bb89d3ead4cf9bd51675b101e5e9ffc7dbfb81533c52ac4bebf6ec13e9e16",
-      "reviewed_at": 1791972135.5651584
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
-        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
-        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
-        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
-        "creator": "BBC Archive",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Tolkien', 'God', 'Creator']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 386.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 33.69,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The clip features genuine archival interview footage from 1962 showing J.R.R. Tolkien clearly in the first three frames, while the remaining frames show the interviewer. This meets the criteria for valid identity and biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6250ef4e7ae8938e5e62a69468d275cd5e4c7e18da026e4f714ae188e7a9cf9e",
-      "reviewed_at": 1791972147.7663987
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
-        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
-        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
-        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
-        "creator": "BBC Archive",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Tolkien', 'God', 'Creator']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 386.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 62.38,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The segment features genuine archival footage of J.R.R. Tolkien being interviewed in 1962, clearly visible and identifiable throughout all sampled frames, making it ideal biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "175b769dd32e82ed7a1bcc7916d1c99b708d2dd58297168dfa2aae219afcab12",
-      "reviewed_at": 1791972161.9272044
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
-        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
-        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
-        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
-        "creator": "BBC Archive",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Tolkien', 'God', 'Creator']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 386.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 91.07,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows genuine archival footage of J.R.R. Tolkien being interviewed by the BBC in 1962, making it highly relevant and usable as biographical illustration for a Short about him.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d526790e8c7a71b13b9ce715744c55a161907726c9dc11e550fc4b4046c433e1",
-      "reviewed_at": 1791972173.9619765
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
-        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
-        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
-        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
-        "creator": "BBC Archive",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Tolkien', 'God', 'Creator']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 386.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 119.76,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment features genuine archival interview footage of J.R.R. Tolkien from a 1962 BBC interview, where he is clearly identifiable in the majority of the sampled frames, making it excellent biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4059b7777c580baf9876dac88483e65195fdbd4b806ea99571fb52d07a24011b",
-      "reviewed_at": 1791972187.395002
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
-        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
-        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
-        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
-        "creator": "BBC Archive",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Tolkien', 'God', 'Creator']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 386.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 148.45,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage features authentic archival video of J.R.R. Tolkien being interviewed by the BBC in 1962. Tolkien is clearly identifiable in the later frames, making this prime biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0241284ae1c3ebc0a52d5120fcef4e63756cc5db9c052e39eb9fd74b93b2a820",
-      "reviewed_at": 1791972199.0942352
-    },
-    {
       "person": "J.R.R. Tolkien",
       "source": {
         "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
@@ -15796,37 +15238,6 @@
     {
       "person": "Bob Ross",
       "source": {
-        "id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew/Bob%20Ross%20Ad%20Straight%20Talk%20Wireless%20MTV%20and%20mountain%20dew.ia.mp4",
-        "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
-        "title": "Bob Ross Ad Straight Talk Wireless MTV And Mountain Dew",
-        "description": "Video Used: MTV Promo Bob Ross Mtn Dew \"Bob Ross\" 30 ['Jacob04 Edit', 'Commerical']",
-        "creator": "",
-        "license": "",
-        "subject": "['Jacob04 Edit', 'Commerical']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.466633,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 43.73,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows authentic archival material of Bob Ross painting on his show, with his face clearly identifiable in multiple frames and his iconic painting process depicted throughout.",
-        "usage": "direct_event"
-      },
-      "review_key": "f86bf916e4e5d928970588480a1031e7ee2a88997e2b1829a1ca3add33b565f7",
-      "reviewed_at": 1793216416.6962147
-    },
-    {
-      "person": "Bob Ross",
-      "source": {
         "id": "archive:ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/ttvemi-Classroom_Spotlight_-_Bob_Ross_Project/Classroom_Spotlight_-_Bob_Ross_Project.mp4",
@@ -18570,6 +17981,595 @@
       },
       "review_key": "e281828ec6a7b89ca8766a697d0030491c9505ab51833230c0c25c798f68f432",
       "reviewed_at": 1793473362.6098676
+    },
+    {
+      "person": "Bob Ross",
+      "source": {
+        "id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew/Bob%20Ross%20Ad%20Straight%20Talk%20Wireless%20MTV%20and%20mountain%20dew.ia.mp4",
+        "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+        "title": "Bob Ross Ad Straight Talk Wireless MTV And Mountain Dew",
+        "description": "Video Used: MTV Promo Bob Ross Mtn Dew \"Bob Ross\" 30 ['Jacob04 Edit', 'Commerical']",
+        "creator": "",
+        "license": "",
+        "subject": "['Jacob04 Edit', 'Commerical']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 91.466633,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 43.73,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage features genuine archival video of Bob Ross painting on his show, clearly showing him and his recognizable artistic process, making it directly relevant and usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "74c5896d55b6609b26541c4cf78971e56ee922197785c7e274e4b7d432ccd5bd",
+      "reviewed_at": 1793559393.5496886
+    },
+    {
+      "person": "Bob Ross",
+      "source": {
+        "id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew/Bob%20Ross%20Ad%20Straight%20Talk%20Wireless%20MTV%20and%20mountain%20dew.ia.mp4",
+        "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+        "title": "Bob Ross Ad Straight Talk Wireless MTV And Mountain Dew",
+        "description": "Video Used: MTV Promo Bob Ross Mtn Dew \"Bob Ross\" 30 ['Jacob04 Edit', 'Commerical']",
+        "creator": "",
+        "license": "",
+        "subject": "['Jacob04 Edit', 'Commerical']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 91.466633,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 34.05,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature genuine archival footage of Bob Ross painting at his easel, making it perfectly usable as direct biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bb14d6cfd3fc5eadcae1b1d3f1662f8fc3af72463a4a7427e9607a10020701f4",
+      "reviewed_at": 1793559423.1095603
+    },
+    {
+      "person": "Bob Ross",
+      "source": {
+        "id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TomFrankStudiosJacobPaintswithBobRoss/JacobPaints_512kb.mp4",
+        "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
+        "title": "Jacob Paints with Bob Ross",
+        "description": "Jacob Paints with Bob Ross from \"The Joy of Painting\" ['Bob Ross', 'The Joy of Painting']",
+        "creator": "Tom Frank Studios",
+        "license": "http://creativecommons.org/licenses/by-sa/2.5/",
+        "subject": "['Bob Ross', 'The Joy of Painting']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 491.491491,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 188.65,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video clip features Bob Ross painting on set, making it highly relevant and authentic archival footage for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e85da7bbef87d40c09e5da5363628a31397ea51619e8e37cb6db4fd66394eb72",
+      "reviewed_at": 1793559436.665794
+    },
+    {
+      "person": "Bob Ross",
+      "source": {
+        "id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew/Bob%20Ross%20Ad%20Straight%20Talk%20Wireless%20MTV%20and%20mountain%20dew.ia.mp4",
+        "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+        "title": "Bob Ross Ad Straight Talk Wireless MTV And Mountain Dew",
+        "description": "Video Used: MTV Promo Bob Ross Mtn Dew \"Bob Ross\" 30 ['Jacob04 Edit', 'Commerical']",
+        "creator": "",
+        "license": "",
+        "subject": "['Jacob04 Edit', 'Commerical']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 91.466633,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 53.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features real archival footage of Bob Ross painting in his characteristic style, serving as good biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6f3fd7c7bf2ed2890a740af5690296ffb12da13f41ec9f3b0ada0d3f52b6a9c5",
+      "reviewed_at": 1793559451.5011327
+    },
+    {
+      "person": "Bob Ross",
+      "source": {
+        "id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew/Bob%20Ross%20Ad%20Straight%20Talk%20Wireless%20MTV%20and%20mountain%20dew.ia.mp4",
+        "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+        "title": "Bob Ross Ad Straight Talk Wireless MTV And Mountain Dew",
+        "description": "Video Used: MTV Promo Bob Ross Mtn Dew \"Bob Ross\" 30 ['Jacob04 Edit', 'Commerical']",
+        "creator": "",
+        "license": "",
+        "subject": "['Jacob04 Edit', 'Commerical']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 91.466633,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 72.78,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage features Bob Ross painting, though in the context of a commercial advertisement involving Mountain Dew. Bob Ross is clearly identifiable in frame two, making the segment usable as biographical illustration of his painting style and persona.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3d3eaeb203395719f90c181cb6b514a6737a0182a4266330d7f26fd0bd6969c3",
+      "reviewed_at": 1793559488.1142645
+    },
+    {
+      "person": "Desmond Doss",
+      "source": {
+        "id": "archive:conscientious-objector",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/conscientious-objector/Conscientious%20Objector.ia.mp4",
+        "source_url": "https://archive.org/details/conscientious-objector",
+        "title": "Conscientious Objector - Desmond Doss - Medal Of Honour Medic",
+        "description": "Conscientious Objector - Desmond Doss - Medal Of Honour Medic ['Conscientious Objector', 'Desmond Doss', 'Medal Of Honour', 'World War', 'Razroback Ridge', 'War', 'Fight', 'Guns', 'Battle', 'Sabbath', 'Sunday', \"The Lord's Day\", 'SDA', 'Seventh-day Adventist', 'History', 'Documentary', 'Biography', 'Victory', 'Army', 'United States', 'Military', 'Veteran', 'Foreign Wars', 'Mel Gibson', 'Salvation', 'Redemption', 'Battlefield', 'Medic', 'Weapons', 'Sidearms', 'Pistols', 'Noncombatant', 'Field Medic', 'Battalion', 'Commander', 'Officer', 'President', 'Award', 'Bloody', 'COnflict', 'Great Controversy', 'Cosmic Conflict', 'Star Wars', 'Interview', 'Hero', 'War Hero']",
+        "creator": "",
+        "license": "",
+        "subject": "['Conscientious Objector', 'Desmond Doss', 'Medal Of Honour', 'World War', 'Razroback Ridge', 'War', 'Fight', 'Guns', 'Battle', 'Sabbath', 'Sunday', \"The Lord's Day\", 'SDA', 'Seventh-day Adventist', 'History', 'Documentary', 'Biography', 'Victory', 'Army', 'United States', 'Military', 'Veteran', 'Foreign Wars', 'Mel Gibson', 'Salvation', 'Redemption', 'Battlefield', 'Medic', 'Weapons', 'Sidearms', 'Pistols', 'Noncombatant', 'Field Medic', 'Battalion', 'Commander', 'Officer', 'President', 'Award', 'Bloody', 'COnflict', 'Great Controversy', 'Cosmic Conflict', 'Star Wars', 'Interview', 'Hero', 'War Hero']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6100.667333,
+        "identity_score": 13.0,
+        "archival_signal": 3
+      },
+      "start": 3282.44,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features real interview footage of Desmond Doss, the subject of the biography, speaking directly about his life and experiences.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b5e0df93f9a15435df76664e26defad4107b80b4740e19fe6a29893586196b85",
+      "reviewed_at": 1793559725.786562
+    },
+    {
+      "person": "Desmond Doss",
+      "source": {
+        "id": "archive:Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998.mp4",
+        "source_url": "https://archive.org/details/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "title": "Unlikely Hero, The Story of Desmond Doss and the Medal of Honor, November 1998",
+        "description": "Desmond Thomas Doss (February 7, 1919 – March 23, 2006)[1] was a United States Army corporal who served as a combat medic with an infantry company in World War II. Due to his religious beliefs, he refused to carry a weapon. He was twice awarded the Bronze Star Medal for actions on Guam and in the Philippines. Doss further distinguished himself in the Battle of Okinawa by saving an estimated 75 men,[a] acting on his own, becoming the first of only three conscientious objectors to receive the Medal of Honor for this and other actions, the others being Thomas W. Bennett and Joseph G. LaPointe Jr., who were posthumously awarded the Medal of Honor during the Vietnam War. His life has been the subject of books, the 2004 documentary The Conscientious Objector, and the 2016 Oscar-winning film Hacksaw Ridge, in which he was portrayed by Andrew Garfield. ['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "creator": "Missoula Community Access Television",
+        "license": "",
+        "subject": "['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "runtime": "01:08:49",
+        "direct_subject": true,
+        "duration_hint": 4128.928929,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2220.73,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames show Desmond Doss himself being interviewed in archival footage, wearing his Medal of Honor, which serves as valid biographical illustration for a Short about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8bcaf3a647330977bece08d1b360c778bc12420b69418de54791db3a669f01c8",
+      "reviewed_at": 1793559763.0896924
+    },
+    {
+      "person": "Desmond Doss",
+      "source": {
+        "id": "archive:conscientious-objector",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/conscientious-objector/Conscientious%20Objector.ia.mp4",
+        "source_url": "https://archive.org/details/conscientious-objector",
+        "title": "Conscientious Objector - Desmond Doss - Medal Of Honour Medic",
+        "description": "Conscientious Objector - Desmond Doss - Medal Of Honour Medic ['Conscientious Objector', 'Desmond Doss', 'Medal Of Honour', 'World War', 'Razroback Ridge', 'War', 'Fight', 'Guns', 'Battle', 'Sabbath', 'Sunday', \"The Lord's Day\", 'SDA', 'Seventh-day Adventist', 'History', 'Documentary', 'Biography', 'Victory', 'Army', 'United States', 'Military', 'Veteran', 'Foreign Wars', 'Mel Gibson', 'Salvation', 'Redemption', 'Battlefield', 'Medic', 'Weapons', 'Sidearms', 'Pistols', 'Noncombatant', 'Field Medic', 'Battalion', 'Commander', 'Officer', 'President', 'Award', 'Bloody', 'COnflict', 'Great Controversy', 'Cosmic Conflict', 'Star Wars', 'Interview', 'Hero', 'War Hero']",
+        "creator": "",
+        "license": "",
+        "subject": "['Conscientious Objector', 'Desmond Doss', 'Medal Of Honour', 'World War', 'Razroback Ridge', 'War', 'Fight', 'Guns', 'Battle', 'Sabbath', 'Sunday', \"The Lord's Day\", 'SDA', 'Seventh-day Adventist', 'History', 'Documentary', 'Biography', 'Victory', 'Army', 'United States', 'Military', 'Veteran', 'Foreign Wars', 'Mel Gibson', 'Salvation', 'Redemption', 'Battlefield', 'Medic', 'Weapons', 'Sidearms', 'Pistols', 'Noncombatant', 'Field Medic', 'Battalion', 'Commander', 'Officer', 'President', 'Award', 'Bloody', 'COnflict', 'Great Controversy', 'Cosmic Conflict', 'Star Wars', 'Interview', 'Hero', 'War Hero']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6100.667333,
+        "identity_score": 13.0,
+        "archival_signal": 3
+      },
+      "start": 473.21,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features genuine documentary interview footage of the subject, Desmond Doss, in his later years, along with a historical photograph showing him as a young boy.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "dad6439fecc95cfbd746ad7595aa918178caef852e0f2b9bd76bcc007a97115a",
+      "reviewed_at": 1793559805.1406312
+    },
+    {
+      "person": "Desmond Doss",
+      "source": {
+        "id": "archive:Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998.mp4",
+        "source_url": "https://archive.org/details/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "title": "Unlikely Hero, The Story of Desmond Doss and the Medal of Honor, November 1998",
+        "description": "Desmond Thomas Doss (February 7, 1919 – March 23, 2006)[1] was a United States Army corporal who served as a combat medic with an infantry company in World War II. Due to his religious beliefs, he refused to carry a weapon. He was twice awarded the Bronze Star Medal for actions on Guam and in the Philippines. Doss further distinguished himself in the Battle of Okinawa by saving an estimated 75 men,[a] acting on his own, becoming the first of only three conscientious objectors to receive the Medal of Honor for this and other actions, the others being Thomas W. Bennett and Joseph G. LaPointe Jr., who were posthumously awarded the Medal of Honor during the Vietnam War. His life has been the subject of books, the 2004 documentary The Conscientious Objector, and the 2016 Oscar-winning film Hacksaw Ridge, in which he was portrayed by Andrew Garfield. ['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "creator": "Missoula Community Access Television",
+        "license": "",
+        "subject": "['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "runtime": "01:08:49",
+        "direct_subject": true,
+        "duration_hint": 4128.928929,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 321.53,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival segment features genuine historical footage of Desmond Doss clearly visible in uniform and helmet during World War II service, accompanied by contextual military footage relevant to his biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "018b469f272095286d50bcf9713ffbf5897863458fe06c0df3f0a5bb97490924",
+      "reviewed_at": 1793559843.7028675
+    },
+    {
+      "person": "Desmond Doss",
+      "source": {
+        "id": "archive:Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998.mp4",
+        "source_url": "https://archive.org/details/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "title": "Unlikely Hero, The Story of Desmond Doss and the Medal of Honor, November 1998",
+        "description": "Desmond Thomas Doss (February 7, 1919 – March 23, 2006)[1] was a United States Army corporal who served as a combat medic with an infantry company in World War II. Due to his religious beliefs, he refused to carry a weapon. He was twice awarded the Bronze Star Medal for actions on Guam and in the Philippines. Doss further distinguished himself in the Battle of Okinawa by saving an estimated 75 men,[a] acting on his own, becoming the first of only three conscientious objectors to receive the Medal of Honor for this and other actions, the others being Thomas W. Bennett and Joseph G. LaPointe Jr., who were posthumously awarded the Medal of Honor during the Vietnam War. His life has been the subject of books, the 2004 documentary The Conscientious Objector, and the 2016 Oscar-winning film Hacksaw Ridge, in which he was portrayed by Andrew Garfield. ['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "creator": "Missoula Community Access Television",
+        "license": "",
+        "subject": "['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "runtime": "01:08:49",
+        "direct_subject": true,
+        "duration_hint": 4128.928929,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 638.07,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows Desmond Doss clearly in archival interview/documentary video (frames 1-2) alongside footage of the Medal of Honor he received, directly supporting the biographical narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "761c92deecf2d637a640563b05b64cb5569cc2c4ba6cc8330e36e9217ef01eaa",
+      "reviewed_at": 1793559912.8248847
+    },
+    {
+      "person": "Desmond Doss",
+      "source": {
+        "id": "archive:Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998.mp4",
+        "source_url": "https://archive.org/details/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "title": "Unlikely Hero, The Story of Desmond Doss and the Medal of Honor, November 1998",
+        "description": "Desmond Thomas Doss (February 7, 1919 – March 23, 2006)[1] was a United States Army corporal who served as a combat medic with an infantry company in World War II. Due to his religious beliefs, he refused to carry a weapon. He was twice awarded the Bronze Star Medal for actions on Guam and in the Philippines. Doss further distinguished himself in the Battle of Okinawa by saving an estimated 75 men,[a] acting on his own, becoming the first of only three conscientious objectors to receive the Medal of Honor for this and other actions, the others being Thomas W. Bennett and Joseph G. LaPointe Jr., who were posthumously awarded the Medal of Honor during the Vietnam War. His life has been the subject of books, the 2004 documentary The Conscientious Objector, and the 2016 Oscar-winning film Hacksaw Ridge, in which he was portrayed by Andrew Garfield. ['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "creator": "Missoula Community Access Television",
+        "license": "",
+        "subject": "['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "runtime": "01:08:49",
+        "direct_subject": true,
+        "duration_hint": 4128.928929,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 954.6,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival interview footage of Desmond Doss himself seated on a couch with an interviewer, providing genuine biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fdc31d38dc1c5ebeeb015b8aff3984b1853ad8a564d3f5445969a089d26b64e1",
+      "reviewed_at": 1793559959.72328
+    },
+    {
+      "person": "Desmond Doss",
+      "source": {
+        "id": "archive:Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998.mp4",
+        "source_url": "https://archive.org/details/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "title": "Unlikely Hero, The Story of Desmond Doss and the Medal of Honor, November 1998",
+        "description": "Desmond Thomas Doss (February 7, 1919 – March 23, 2006)[1] was a United States Army corporal who served as a combat medic with an infantry company in World War II. Due to his religious beliefs, he refused to carry a weapon. He was twice awarded the Bronze Star Medal for actions on Guam and in the Philippines. Doss further distinguished himself in the Battle of Okinawa by saving an estimated 75 men,[a] acting on his own, becoming the first of only three conscientious objectors to receive the Medal of Honor for this and other actions, the others being Thomas W. Bennett and Joseph G. LaPointe Jr., who were posthumously awarded the Medal of Honor during the Vietnam War. His life has been the subject of books, the 2004 documentary The Conscientious Objector, and the 2016 Oscar-winning film Hacksaw Ridge, in which he was portrayed by Andrew Garfield. ['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "creator": "Missoula Community Access Television",
+        "license": "",
+        "subject": "['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "runtime": "01:08:49",
+        "direct_subject": true,
+        "duration_hint": 4128.928929,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1271.13,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features genuine archival video of Desmond Doss (seated in the center wearing a jacket and medal) participating in an interview, making it valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "52a73439d37300fd1700721429574988ecf229851b285da8cf20a123b2ce8cba",
+      "reviewed_at": 1793560002.9485946
+    },
+    {
+      "person": "Desmond Doss",
+      "source": {
+        "id": "archive:Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998.mp4",
+        "source_url": "https://archive.org/details/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "title": "Unlikely Hero, The Story of Desmond Doss and the Medal of Honor, November 1998",
+        "description": "Desmond Thomas Doss (February 7, 1919 – March 23, 2006)[1] was a United States Army corporal who served as a combat medic with an infantry company in World War II. Due to his religious beliefs, he refused to carry a weapon. He was twice awarded the Bronze Star Medal for actions on Guam and in the Philippines. Doss further distinguished himself in the Battle of Okinawa by saving an estimated 75 men,[a] acting on his own, becoming the first of only three conscientious objectors to receive the Medal of Honor for this and other actions, the others being Thomas W. Bennett and Joseph G. LaPointe Jr., who were posthumously awarded the Medal of Honor during the Vietnam War. His life has been the subject of books, the 2004 documentary The Conscientious Objector, and the 2016 Oscar-winning film Hacksaw Ridge, in which he was portrayed by Andrew Garfield. ['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "creator": "Missoula Community Access Television",
+        "license": "",
+        "subject": "['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "runtime": "01:08:49",
+        "direct_subject": true,
+        "duration_hint": 4128.928929,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1587.66,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9.0,
+        "reason": "The footage features a clear, identifiable interview clip of Desmond Doss speaking about his life and experiences, wearing his Medal of Honor. It is authentic archival material well-suited for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "af0d48c0a194a5948ab06988d80a9da949941d6cfda8b906beaeff57feddcc6b",
+      "reviewed_at": 1793560016.911472
+    },
+    {
+      "person": "Desmond Doss",
+      "source": {
+        "id": "archive:Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998.mp4",
+        "source_url": "https://archive.org/details/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "title": "Unlikely Hero, The Story of Desmond Doss and the Medal of Honor, November 1998",
+        "description": "Desmond Thomas Doss (February 7, 1919 – March 23, 2006)[1] was a United States Army corporal who served as a combat medic with an infantry company in World War II. Due to his religious beliefs, he refused to carry a weapon. He was twice awarded the Bronze Star Medal for actions on Guam and in the Philippines. Doss further distinguished himself in the Battle of Okinawa by saving an estimated 75 men,[a] acting on his own, becoming the first of only three conscientious objectors to receive the Medal of Honor for this and other actions, the others being Thomas W. Bennett and Joseph G. LaPointe Jr., who were posthumously awarded the Medal of Honor during the Vietnam War. His life has been the subject of books, the 2004 documentary The Conscientious Objector, and the 2016 Oscar-winning film Hacksaw Ridge, in which he was portrayed by Andrew Garfield. ['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "creator": "Missoula Community Access Television",
+        "license": "",
+        "subject": "['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "runtime": "01:08:49",
+        "direct_subject": true,
+        "duration_hint": 4128.928929,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1904.2,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival interview footage of the actual subject, Desmond Doss, sitting and speaking on a television program, making it highly relevant biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2526643e11211793845f19013fc4a4988db9d1bf88c5d9d3350517b5cc2ef1cf",
+      "reviewed_at": 1793560029.0078394
+    },
+    {
+      "person": "Desmond Doss",
+      "source": {
+        "id": "archive:Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998.mp4",
+        "source_url": "https://archive.org/details/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "title": "Unlikely Hero, The Story of Desmond Doss and the Medal of Honor, November 1998",
+        "description": "Desmond Thomas Doss (February 7, 1919 – March 23, 2006)[1] was a United States Army corporal who served as a combat medic with an infantry company in World War II. Due to his religious beliefs, he refused to carry a weapon. He was twice awarded the Bronze Star Medal for actions on Guam and in the Philippines. Doss further distinguished himself in the Battle of Okinawa by saving an estimated 75 men,[a] acting on his own, becoming the first of only three conscientious objectors to receive the Medal of Honor for this and other actions, the others being Thomas W. Bennett and Joseph G. LaPointe Jr., who were posthumously awarded the Medal of Honor during the Vietnam War. His life has been the subject of books, the 2004 documentary The Conscientious Objector, and the 2016 Oscar-winning film Hacksaw Ridge, in which he was portrayed by Andrew Garfield. ['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "creator": "Missoula Community Access Television",
+        "license": "",
+        "subject": "['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "runtime": "01:08:49",
+        "direct_subject": true,
+        "duration_hint": 4128.928929,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2537.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Desmond Doss being interviewed in archival footage, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "463ef3cc0147db6d5a4fdc4d202534c1ef12567f0a1d055f797390b64434d579",
+      "reviewed_at": 1793560039.4811368
+    },
+    {
+      "person": "Desmond Doss",
+      "source": {
+        "id": "archive:Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998.mp4",
+        "source_url": "https://archive.org/details/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "title": "Unlikely Hero, The Story of Desmond Doss and the Medal of Honor, November 1998",
+        "description": "Desmond Thomas Doss (February 7, 1919 – March 23, 2006)[1] was a United States Army corporal who served as a combat medic with an infantry company in World War II. Due to his religious beliefs, he refused to carry a weapon. He was twice awarded the Bronze Star Medal for actions on Guam and in the Philippines. Doss further distinguished himself in the Battle of Okinawa by saving an estimated 75 men,[a] acting on his own, becoming the first of only three conscientious objectors to receive the Medal of Honor for this and other actions, the others being Thomas W. Bennett and Joseph G. LaPointe Jr., who were posthumously awarded the Medal of Honor during the Vietnam War. His life has been the subject of books, the 2004 documentary The Conscientious Objector, and the 2016 Oscar-winning film Hacksaw Ridge, in which he was portrayed by Andrew Garfield. ['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "creator": "Missoula Community Access Television",
+        "license": "",
+        "subject": "['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "runtime": "01:08:49",
+        "direct_subject": true,
+        "duration_hint": 4128.928929,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2853.8,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment features archival interview footage of Desmond Doss himself seated on the left alongside an interviewer, providing genuine historical identity footage, although subsequent frames show a book illustration rather than moving event footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e03412dd9d6156615f41f58eec4979dbf5a519de12c6a1326e0887f9f49faae9",
+      "reviewed_at": 1793560052.8977592
+    },
+    {
+      "person": "Desmond Doss",
+      "source": {
+        "id": "archive:Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998.mp4",
+        "source_url": "https://archive.org/details/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "title": "Unlikely Hero, The Story of Desmond Doss and the Medal of Honor, November 1998",
+        "description": "Desmond Thomas Doss (February 7, 1919 – March 23, 2006)[1] was a United States Army corporal who served as a combat medic with an infantry company in World War II. Due to his religious beliefs, he refused to carry a weapon. He was twice awarded the Bronze Star Medal for actions on Guam and in the Philippines. Doss further distinguished himself in the Battle of Okinawa by saving an estimated 75 men,[a] acting on his own, becoming the first of only three conscientious objectors to receive the Medal of Honor for this and other actions, the others being Thomas W. Bennett and Joseph G. LaPointe Jr., who were posthumously awarded the Medal of Honor during the Vietnam War. His life has been the subject of books, the 2004 documentary The Conscientious Objector, and the 2016 Oscar-winning film Hacksaw Ridge, in which he was portrayed by Andrew Garfield. ['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "creator": "Missoula Community Access Television",
+        "license": "",
+        "subject": "['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "runtime": "01:08:49",
+        "direct_subject": true,
+        "duration_hint": 4128.928929,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 3170.33,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment features genuine archival video footage of the real Desmond Doss being interviewed and demonstrating rope tying on a public access program in November 1998. While it is not combat footage from World War II, it is valuable biographical illustration showing the real subject later in life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "896ec93c490e22d44dabc3a2f0e9724739c6f6d5334698d90408e73c8261f54f",
+      "reviewed_at": 1793560078.1237943
+    },
+    {
+      "person": "Desmond Doss",
+      "source": {
+        "id": "archive:Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998.mp4",
+        "source_url": "https://archive.org/details/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "title": "Unlikely Hero, The Story of Desmond Doss and the Medal of Honor, November 1998",
+        "description": "Desmond Thomas Doss (February 7, 1919 – March 23, 2006)[1] was a United States Army corporal who served as a combat medic with an infantry company in World War II. Due to his religious beliefs, he refused to carry a weapon. He was twice awarded the Bronze Star Medal for actions on Guam and in the Philippines. Doss further distinguished himself in the Battle of Okinawa by saving an estimated 75 men,[a] acting on his own, becoming the first of only three conscientious objectors to receive the Medal of Honor for this and other actions, the others being Thomas W. Bennett and Joseph G. LaPointe Jr., who were posthumously awarded the Medal of Honor during the Vietnam War. His life has been the subject of books, the 2004 documentary The Conscientious Objector, and the 2016 Oscar-winning film Hacksaw Ridge, in which he was portrayed by Andrew Garfield. ['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "creator": "Missoula Community Access Television",
+        "license": "",
+        "subject": "['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "runtime": "01:08:49",
+        "direct_subject": true,
+        "duration_hint": 4128.928929,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 3486.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features actual archival interview recording of Desmond Doss himself seated on a couch, making it genuine and usable biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b151d087abf02ee7959670a1f43c22a4962b9311de68c779d472dd89c214aed5",
+      "reviewed_at": 1793560094.8356047
+    },
+    {
+      "person": "Desmond Doss",
+      "source": {
+        "id": "archive:Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998.mp4",
+        "source_url": "https://archive.org/details/Unlikely_Hero_The_Story_of_Desmond_Doss_and_the_Medal_of_Honor_November_1998",
+        "title": "Unlikely Hero, The Story of Desmond Doss and the Medal of Honor, November 1998",
+        "description": "Desmond Thomas Doss (February 7, 1919 – March 23, 2006)[1] was a United States Army corporal who served as a combat medic with an infantry company in World War II. Due to his religious beliefs, he refused to carry a weapon. He was twice awarded the Bronze Star Medal for actions on Guam and in the Philippines. Doss further distinguished himself in the Battle of Okinawa by saving an estimated 75 men,[a] acting on his own, becoming the first of only three conscientious objectors to receive the Medal of Honor for this and other actions, the others being Thomas W. Bennett and Joseph G. LaPointe Jr., who were posthumously awarded the Medal of Honor during the Vietnam War. His life has been the subject of books, the 2004 documentary The Conscientious Objector, and the 2016 Oscar-winning film Hacksaw Ridge, in which he was portrayed by Andrew Garfield. ['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "creator": "Missoula Community Access Television",
+        "license": "",
+        "subject": "['Montana', 'Missoula', 'Missoula Community Access Television', 'MCAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2025']",
+        "runtime": "01:08:49",
+        "direct_subject": true,
+        "duration_hint": 4128.928929,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 3803.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival interview footage of Desmond Doss wearing his Medal of Honor, which directly illustrates his life and history as a biography subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6ddaaa908f34eb081fbfeb2f1f2475b66b1028e801ed8a2d2fe8bb7ac9d37a57",
+      "reviewed_at": 1793560115.1058602
     }
   ]
 }

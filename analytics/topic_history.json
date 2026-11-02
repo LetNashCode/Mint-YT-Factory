@@ -3480,48 +3480,24 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do plastic hangers snap suddenly",
-    "normalized": "why do plastic hangers snap suddenly",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793552124,
-    "recorded_at": 1793552124,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "How do magnets stick to fridges",
-    "normalized": "how do magnets stick to fridges",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793558076,
-    "recorded_at": 1793558076,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do candle wicks curl over",
-    "normalized": "why do candle wicks curl over",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793562969,
-    "recorded_at": 1793562969,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why does a yawn spread",
     "normalized": "why does a yawn spread",
     "workflow": "publish",
     "status": "reserved",
     "reserved_at": 1793568245,
     "recorded_at": 1793568245,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do wet clothes smell musty indoors",
+    "normalized": "why do wet clothes smell musty indoors",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793651501,
+    "recorded_at": 1793651501,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

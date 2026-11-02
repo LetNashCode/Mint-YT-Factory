@@ -18389,6 +18389,126 @@
       "shot": 2,
       "query": "yawn spread your ancient biological handshake",
       "recorded_at": 1793568464
+    },
+    {
+      "asset_key": "pexels:video:36707274",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/36707274/15558714_720_1280_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "wet clothes you hang freshly washed",
+      "recorded_at": 1793651682
+    },
+    {
+      "asset_key": "pexels:video:7724674",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7724674/7724674-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "wet clothes but hours later smells",
+      "recorded_at": 1793651687
+    },
+    {
+      "asset_key": "pexels:video:3978428",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3978428/3978428-hd_1280_720_24fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "wet clothes outside breeze smells like",
+      "recorded_at": 1793651690
+    },
+    {
+      "asset_key": "pexels:video:8538664",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8538664/8538664-hd_1366_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "wet clothes inside smells like damp",
+      "recorded_at": 1793651695
+    },
+    {
+      "asset_key": "pexels:video:27374418",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/27374418/12127546_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "wet clothes culprit trapped time water",
+      "recorded_at": 1793651699
+    },
+    {
+      "asset_key": "pexels:video:6843783",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6843783/6843783-hd_720_1280_50fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "wet clothes water needs evaporate tiny",
+      "recorded_at": 1793651704
+    },
+    {
+      "asset_key": "pexels:video:4068408",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4068408/4068408-hd_1366_720_50fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "wet clothes thick shirt stays damp",
+      "recorded_at": 1793651709
+    },
+    {
+      "asset_key": "pexels:video:2644023",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/2644023/2644023-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "wet clothes moisture has nowhere escape",
+      "recorded_at": 1793651721
+    },
+    {
+      "asset_key": "pexels:video:8756953",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8756953/8756953-hd_1366_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "wet clothes you not smelling old",
+      "recorded_at": 1793651728
+    },
+    {
+      "asset_key": "pexels:video:38053795",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/38053795/16154154_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "wet clothes you smelling tiny organisms",
+      "recorded_at": 1793651734
+    },
+    {
+      "asset_key": "pexels:video:39949398",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39949398/17046869_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "wet clothes they love damp darkness",
+      "recorded_at": 1793651738
+    },
+    {
+      "asset_key": "pexels:video:5019328",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5019328/5019328-hd_1366_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "wet clothes their lingering dinner party",
+      "recorded_at": 1793651743
     }
   ]
 }

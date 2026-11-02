@@ -580,5 +580,21 @@
     "video_id": "Ju_LZZiGafc",
     "workdir": "",
     "published_at": 1793560682
+  },
+  {
+    "topic": "Hrithik Roshan: Overcoming severe childhood stuttering and doctors' predictions that he could never dance professionally to become India's top action star.",
+    "normalized": "hrithik roshan overcoming severe childhood stuttering and doctors predictions that he could never dance professionally to become india s top action star",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1793661013,
+    "recorded_at": 1793661013,
+    "metadata": {
+      "person": "Hrithik Roshan",
+      "pillar": "rise_from_nothing"
+    },
+    "title": "Hrithik Roshan: Overcoming severe childhood stuttering and doctors' predictions that he could never dance professionally to become India's top action star.",
+    "video_id": "ylDmhCYG65k",
+    "workdir": "",
+    "published_at": 1793662031
   }
 ]

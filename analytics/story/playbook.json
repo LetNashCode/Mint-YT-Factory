@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-01T19:18:05.790992+00:00",
-  "video_count": 35,
-  "learning_sample_size": 21,
+  "generated_at": "2026-11-02T23:27:14.771600+00:00",
+  "video_count": 36,
+  "learning_sample_size": 22,
   "learning_ready": true,
   "metrics_available": true,
   "comparative_learning_ready": true,
-  "advanced_metrics_videos": 21,
+  "advanced_metrics_videos": 22,
   "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -26,11 +26,11 @@
   "creative_strategy_results": [],
   "winning_topics": [
     "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
+    "APJ Abdul Kalam: The early struggles of India's future President delivering newspapers as a boy in Rameswaram.",
     "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
     "Sylvester Stallone: Writing the script for Rocky while living in extreme poverty and refusing to sell it unless he played the lead role.",
     "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
-    "Jim Henson: Innovating early television puppetry for local Washington D.C. shows years before creating the Muppets.",
-    "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes."
+    "Jim Henson: Innovating early television puppetry for local Washington D.C. shows years before creating the Muppets."
   ],
   "avoid_topics": [
     "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -40,7 +40,7 @@
     "Valentina Tereshkova: A textile factory worker and amateur parachutist selected to become the first woman in space.",
     "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age."
   ],
-  "used_topic_count": 35,
+  "used_topic_count": 36,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

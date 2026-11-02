@@ -2,750 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
-        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
-        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
-        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
-        "creator": "BBC Archive",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Tolkien', 'God', 'Creator']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 386.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 177.14,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows genuine archival footage of J.R.R. Tolkien being interviewed in 1962, making it valuable biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "58dcc2bce9c8040af58a04c9e0a61e9862d81c07f34e25eb91039c92e4729a1b",
-      "reviewed_at": 1791972211.6338556
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
-        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
-        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
-        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
-        "creator": "BBC Archive",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Tolkien', 'God', 'Creator']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 386.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 234.51,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows authentic archival video of J.R.R. Tolkien being interviewed in 1962, clearly depicting the subject speaking and well-suited for a biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6d2142d4747940982f84f2f15f36ed1b6d5ecd0f42e95e22bdf80dcf146bc089",
-      "reviewed_at": 1791972224.4425673
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
-        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
-        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
-        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
-        "creator": "BBC Archive",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Tolkien', 'God', 'Creator']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 386.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 263.2,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video segment features genuine archival interview footage of J.R.R. Tolkien from 1962, clearly showing the subject speaking directly to the camera and serving as perfect biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "68f1e7772c4a89b9cd5a84ec04dbd8641ceb97747a7f6cd683a22642176c80be",
-      "reviewed_at": 1791972238.6928744
-    },
-    {
-      "person": "Zaha Hadid",
-      "source": {
-        "id": "archive:Zaha_Hadid_speaks_at_Phaeno_Opening",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Zaha_Hadid_speaks_at_Phaeno_Opening/HadidOpeningPhaeno_512kb.mp4",
-        "source_url": "https://archive.org/details/Zaha_Hadid_speaks_at_Phaeno_Opening",
-        "title": "Zaha Hadid speaks at Phaeno Opening",
-        "description": "Listen to the speech of Zaha Hadid taken from the opening ceremony of the Science Center Phaeno. The phaeno buidling, created and realized by Zaha Hadid Partners London and Mayer Baehrle Architects, is already now a milestone of architectural history. VernissageTV shows pictures of the phaeno science center and the installations of Joe Ansel during the opening ceremony. ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 403.36,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 304.51,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows real archival recording from the opening of the Science Center Phaeno, featuring Zaha Hadid clearly visible in the final frame speaking at the event.",
-        "usage": "direct_event"
-      },
-      "review_key": "d789d14e87a9f500589f2ee03d6bb37dbaf8aa62122f11eb423cdf64c3900318",
-      "reviewed_at": 1791992927.8721235
-    },
-    {
-      "person": "Zaha Hadid",
-      "source": {
-        "id": "archive:Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015.mp4",
-        "source_url": "https://archive.org/details/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
-        "title": "Zaha Hadid Reflects on Favorite Projects in her Career - Citylab 2015",
-        "description": "Zaha Hadid with Christine Murray, Editor, The Architectural Review at City Lab 2015 in London. #CityLab2015 Watch full video at: https://youtu.be/0_rb9Emp544 (Recorded October 19, 2015). ---- The Aspen Institute is an educational and policy studies organization based in Washington, DC. Our mission is to foster leadership based on enduring values and provide a nonpartisan venue for dealing with critical issues. Learn more at: http://www.aspeninstitute.org/ Follow us on: Instagram: http://instagram.com/aspeninstitute Facebook: https://www.facebook.com/AspenInstitute Twitter: https://twitter.com/aspeninstitute ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
-        "runtime": "00:01:55",
-        "direct_subject": true,
-        "duration_hint": 115.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 60.25,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The footage shows Zaha Hadid speaking at an event in 2015, which provides valid biographical illustration material, though it is a panel discussion rather than direct footage of her architectural projects.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "86ffd74d18c43a0ad21a8257302fe08cc9f0151b0b9fb75d47d505d751e01b1c",
-      "reviewed_at": 1791992938.5050552
-    },
-    {
-      "person": "Zaha Hadid",
-      "source": {
-        "id": "archive:Zaha_Hadid_speaks_at_Phaeno_Opening",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Zaha_Hadid_speaks_at_Phaeno_Opening/HadidOpeningPhaeno_512kb.mp4",
-        "source_url": "https://archive.org/details/Zaha_Hadid_speaks_at_Phaeno_Opening",
-        "title": "Zaha Hadid speaks at Phaeno Opening",
-        "description": "Listen to the speech of Zaha Hadid taken from the opening ceremony of the Science Center Phaeno. The phaeno buidling, created and realized by Zaha Hadid Partners London and Mayer Baehrle Architects, is already now a milestone of architectural history. VernissageTV shows pictures of the phaeno science center and the installations of Joe Ansel during the opening ceremony. ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 403.36,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows the Phaeno Science Center designed by Zaha Hadid during its opening ceremony with fireworks and lighting, providing genuine historical context of her architectural work, even though Zaha Hadid herself is not visibly present in these frames.",
-        "usage": "direct_event"
-      },
-      "review_key": "ffb3f33760af43f83bf895b1a3cabd3d67a7ef0b67e09e5b2c46189364f54d84",
-      "reviewed_at": 1791992946.9548924
-    },
-    {
-      "person": "Zaha Hadid",
-      "source": {
-        "id": "archive:Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015.mp4",
-        "source_url": "https://archive.org/details/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
-        "title": "Zaha Hadid Reflects on Favorite Projects in her Career - Citylab 2015",
-        "description": "Zaha Hadid with Christine Murray, Editor, The Architectural Review at City Lab 2015 in London. #CityLab2015 Watch full video at: https://youtu.be/0_rb9Emp544 (Recorded October 19, 2015). ---- The Aspen Institute is an educational and policy studies organization based in Washington, DC. Our mission is to foster leadership based on enduring values and provide a nonpartisan venue for dealing with critical issues. Learn more at: http://www.aspeninstitute.org/ Follow us on: Instagram: http://instagram.com/aspeninstitute Facebook: https://www.facebook.com/AspenInstitute Twitter: https://twitter.com/aspeninstitute ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
-        "runtime": "00:01:55",
-        "direct_subject": true,
-        "duration_hint": 115.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features Zaha Hadid speaking at CityLab 2015, clearly visible and identifiable throughout the frames. It is genuine archival footage suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a9ad3ddfd792e8b6299b610c9a36b2151f7d588ec165b24c3a51e6e39d6aa71f",
-      "reviewed_at": 1791992955.362961
-    },
-    {
-      "person": "Zaha Hadid",
-      "source": {
-        "id": "archive:Zaha_Hadid_speaks_at_Phaeno_Opening",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Zaha_Hadid_speaks_at_Phaeno_Opening/HadidOpeningPhaeno_512kb.mp4",
-        "source_url": "https://archive.org/details/Zaha_Hadid_speaks_at_Phaeno_Opening",
-        "title": "Zaha Hadid speaks at Phaeno Opening",
-        "description": "Listen to the speech of Zaha Hadid taken from the opening ceremony of the Science Center Phaeno. The phaeno buidling, created and realized by Zaha Hadid Partners London and Mayer Baehrle Architects, is already now a milestone of architectural history. VernissageTV shows pictures of the phaeno science center and the installations of Joe Ansel during the opening ceremony. ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 403.36,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 34.95,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8.0,
-        "reason": "Zaha Hadid is clearly visible speaking at the opening ceremony of the Phaeno Science Center in the first frame, followed by footage of visitors at the building she designed.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b4dc29f911273b8481c3906179e716904f5e2219c71a72e6620bf1e66a093ced",
-      "reviewed_at": 1791992961.2172205
-    },
-    {
-      "person": "Zaha Hadid",
-      "source": {
-        "id": "archive:Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015.mp4",
-        "source_url": "https://archive.org/details/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
-        "title": "Zaha Hadid Reflects on Favorite Projects in her Career - Citylab 2015",
-        "description": "Zaha Hadid with Christine Murray, Editor, The Architectural Review at City Lab 2015 in London. #CityLab2015 Watch full video at: https://youtu.be/0_rb9Emp544 (Recorded October 19, 2015). ---- The Aspen Institute is an educational and policy studies organization based in Washington, DC. Our mission is to foster leadership based on enduring values and provide a nonpartisan venue for dealing with critical issues. Learn more at: http://www.aspeninstitute.org/ Follow us on: Instagram: http://instagram.com/aspeninstitute Facebook: https://www.facebook.com/AspenInstitute Twitter: https://twitter.com/aspeninstitute ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
-        "runtime": "00:01:55",
-        "direct_subject": true,
-        "duration_hint": 115.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 14.21,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The footage shows Zaha Hadid speaking at a panel event (CityLab 2015), making it usable as biographical illustration footage for a video about her life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7e36a2f06b6e21ce6437f5f9c8626fc45dec60fff93b51466e244affcd975eb5",
-      "reviewed_at": 1791992967.2073667
-    },
-    {
-      "person": "Zaha Hadid",
-      "source": {
-        "id": "archive:Zaha_Hadid_speaks_at_Phaeno_Opening",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Zaha_Hadid_speaks_at_Phaeno_Opening/HadidOpeningPhaeno_512kb.mp4",
-        "source_url": "https://archive.org/details/Zaha_Hadid_speaks_at_Phaeno_Opening",
-        "title": "Zaha Hadid speaks at Phaeno Opening",
-        "description": "Listen to the speech of Zaha Hadid taken from the opening ceremony of the Science Center Phaeno. The phaeno buidling, created and realized by Zaha Hadid Partners London and Mayer Baehrle Architects, is already now a milestone of architectural history. VernissageTV shows pictures of the phaeno science center and the installations of Joe Ansel during the opening ceremony. ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 403.36,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 94.85,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video shows actual archival footage of Zaha Hadid attending the Phaeno Science Center opening ceremony, making it usable biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e6d463d5e391a0fe1a6fbeeef3a7f663482e418356d486a2ed7ed18b1e35beb9",
-      "reviewed_at": 1791992990.6967466
-    },
-    {
-      "person": "Zaha Hadid",
-      "source": {
-        "id": "archive:Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015.mp4",
-        "source_url": "https://archive.org/details/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
-        "title": "Zaha Hadid Reflects on Favorite Projects in her Career - Citylab 2015",
-        "description": "Zaha Hadid with Christine Murray, Editor, The Architectural Review at City Lab 2015 in London. #CityLab2015 Watch full video at: https://youtu.be/0_rb9Emp544 (Recorded October 19, 2015). ---- The Aspen Institute is an educational and policy studies organization based in Washington, DC. Our mission is to foster leadership based on enduring values and provide a nonpartisan venue for dealing with critical issues. Learn more at: http://www.aspeninstitute.org/ Follow us on: Instagram: http://instagram.com/aspeninstitute Facebook: https://www.facebook.com/AspenInstitute Twitter: https://twitter.com/aspeninstitute ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
-        "runtime": "00:01:55",
-        "direct_subject": true,
-        "duration_hint": 115.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 23.42,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features Zaha Hadid speaking at CityLab 2015, providing good biographical illustration footage of her discussing her work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "856b685cfe487b1d9239ac6b807a4d532fd774b6905ec88c38d0a7380105f507",
-      "reviewed_at": 1791992997.127001
-    },
-    {
-      "person": "Zaha Hadid",
-      "source": {
-        "id": "archive:Zaha_Hadid_speaks_at_Phaeno_Opening",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Zaha_Hadid_speaks_at_Phaeno_Opening/HadidOpeningPhaeno_512kb.mp4",
-        "source_url": "https://archive.org/details/Zaha_Hadid_speaks_at_Phaeno_Opening",
-        "title": "Zaha Hadid speaks at Phaeno Opening",
-        "description": "Listen to the speech of Zaha Hadid taken from the opening ceremony of the Science Center Phaeno. The phaeno buidling, created and realized by Zaha Hadid Partners London and Mayer Baehrle Architects, is already now a milestone of architectural history. VernissageTV shows pictures of the phaeno science center and the installations of Joe Ansel during the opening ceremony. ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 403.36,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 124.8,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features authentic archival footage of architect Zaha Hadid speaking at an opening ceremony, with her clearly visible in all sampled frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "805863189161bb5cdaba158a161a91d24bf1b707e0961b847f6aeca2e92a51ec",
-      "reviewed_at": 1791993001.7832446
-    },
-    {
-      "person": "Zaha Hadid",
-      "source": {
-        "id": "archive:Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015.mp4",
-        "source_url": "https://archive.org/details/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
-        "title": "Zaha Hadid Reflects on Favorite Projects in her Career - Citylab 2015",
-        "description": "Zaha Hadid with Christine Murray, Editor, The Architectural Review at City Lab 2015 in London. #CityLab2015 Watch full video at: https://youtu.be/0_rb9Emp544 (Recorded October 19, 2015). ---- The Aspen Institute is an educational and policy studies organization based in Washington, DC. Our mission is to foster leadership based on enduring values and provide a nonpartisan venue for dealing with critical issues. Learn more at: http://www.aspeninstitute.org/ Follow us on: Instagram: http://instagram.com/aspeninstitute Facebook: https://www.facebook.com/AspenInstitute Twitter: https://twitter.com/aspeninstitute ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
-        "runtime": "00:01:55",
-        "direct_subject": true,
-        "duration_hint": 115.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 32.63,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The sampled frames clearly feature architect Zaha Hadid speaking at CityLab 2015. This is genuine archival interview footage providing biographical illustration for a Short about her life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "25a4c47966c007d0875174a6475cc78a02a485cc2b6a5293d393ade332c455c4",
-      "reviewed_at": 1791993008.1225197
-    },
-    {
-      "person": "Zaha Hadid",
-      "source": {
-        "id": "archive:Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015.mp4",
-        "source_url": "https://archive.org/details/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
-        "title": "Zaha Hadid Reflects on Favorite Projects in her Career - Citylab 2015",
-        "description": "Zaha Hadid with Christine Murray, Editor, The Architectural Review at City Lab 2015 in London. #CityLab2015 Watch full video at: https://youtu.be/0_rb9Emp544 (Recorded October 19, 2015). ---- The Aspen Institute is an educational and policy studies organization based in Washington, DC. Our mission is to foster leadership based on enduring values and provide a nonpartisan venue for dealing with critical issues. Learn more at: http://www.aspeninstitute.org/ Follow us on: Instagram: http://instagram.com/aspeninstitute Facebook: https://www.facebook.com/AspenInstitute Twitter: https://twitter.com/aspeninstitute ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
-        "runtime": "00:01:55",
-        "direct_subject": true,
-        "duration_hint": 115.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 41.84,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features architect Zaha Hadid speaking at CityLab 2015, making it suitable as biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "24cf43655e375a96e8bd91adce7e8371d7b46bdeac809bce247dc54fd7a5d207",
-      "reviewed_at": 1791993036.8252642
-    },
-    {
-      "person": "Zaha Hadid",
-      "source": {
-        "id": "archive:Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015.mp4",
-        "source_url": "https://archive.org/details/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
-        "title": "Zaha Hadid Reflects on Favorite Projects in her Career - Citylab 2015",
-        "description": "Zaha Hadid with Christine Murray, Editor, The Architectural Review at City Lab 2015 in London. #CityLab2015 Watch full video at: https://youtu.be/0_rb9Emp544 (Recorded October 19, 2015). ---- The Aspen Institute is an educational and policy studies organization based in Washington, DC. Our mission is to foster leadership based on enduring values and provide a nonpartisan venue for dealing with critical issues. Learn more at: http://www.aspeninstitute.org/ Follow us on: Instagram: http://instagram.com/aspeninstitute Facebook: https://www.facebook.com/AspenInstitute Twitter: https://twitter.com/aspeninstitute ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
-        "runtime": "00:01:55",
-        "direct_subject": true,
-        "duration_hint": 115.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 51.05,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features Zaha Hadid speaking at CityLab London 2015, providing valid biographical footage of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8271ea9187ab0a9c6cc09a08cf6cef55c7923d533c090abe118563d77b74fce1",
-      "reviewed_at": 1791993045.729448
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:israel-wohltater-der-menschheit",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
-        "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
-        "title": "Israel ist Wohltäter der Menschheit ( JONAS SALK )",
-        "description": "Israel ist nicht Gaza ; Kolonialismus ; Gewalt und Leid sondern Wohltäter der Menscheit. ( z.B.: Jonas Salk ) Israel is not Gaza; colonialism; violence and suffering but a benefactor of humanity. (e.g., Jonas Salk) Israël n’est pas Gaza ; colonialisme ; violence et souffrance mais bienfaiteur de l’humanité. (ex. : Jonas Salk) ['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
-        "creator": "BBC ( England )",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 249.233333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 131.66,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage includes archival imagery of Jonas Salk and his family, as well as an interview with his son Peter Salk discussing his father's work on the polio vaccine, making it highly relevant and usable biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "27168d34fdb0e28f7e6796bd4f0436c4148e1e0721a218c0ad79c8656f100906",
-      "reviewed_at": 1791993208.5998714
-    },
-    {
-      "person": "Nawazuddin Siddiqui",
-      "source": {
-        "id": "archive:raat-akeli-hai-the-bansal-murders-2025",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/raat-akeli-hai-the-bansal-murders-2025/RaatAkeliHaiTheBansalMurders.2025.BRRip.mp4",
-        "source_url": "https://archive.org/details/raat-akeli-hai-the-bansal-murders-2025",
-        "title": "Raat Akeli Hai: The Bansal Murders (2025) – Hindi Crime Thriller",
-        "description": "Raat Akeli Hai: The Bansal Murders is a 2025 Indian Hindi-language crime thriller film. The story revolves around Inspector Jatil Yadav, who is assigned to investigate the brutal murder of the wealthy Bansal family inside their locked mansion. As Inspector Yadav examines the crime scene, he uncovers a disturbing trail of greed, betrayal, and long-buried secrets. With poisoned water, misleading evidence, and suspects hiding behind privilege and power, the investigation becomes increasingly complex. While the police attempt to close the case quickly by blaming an easy suspect, Inspector Yadav digs deeper, exposing a deadly conspiracy that unfolds until the final moments. The film explores themes of class divide, corruption, and moral decay within elite families, delivering a dark and suspenseful murder mystery. ['Raat Akeli Hai The Bansal Murders', 'Hindi crime thriller', 'Indian murder mystery', 'Nawazuddin Siddiqui', 'Radhika Apte', 'Inspector Jatil Yadav', 'Bollywood thriller 2025', 'locked room mystery', 'Indian detective film']",
-        "creator": "Nawazuddin Siddiqui, Radhika Apte, Chitrangda Singh, Rajat Kapoor, Ila Arun (Cast)",
-        "license": "",
-        "subject": "['Raat Akeli Hai The Bansal Murders', 'Hindi crime thriller', 'Indian murder mystery', 'Nawazuddin Siddiqui', 'Radhika Apte', 'Inspector Jatil Yadav', 'Bollywood thriller 2025', 'locked room mystery', 'Indian detective film']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 8185.791667,
-        "identity_score": 10.0,
-        "archival_signal": 0
-      },
-      "start": 6290.99,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage features actor Nawazuddin Siddiqui clearly visible in character from the film 'Raat Akeli Hai', making it valid biographical illustration material for a video about his work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3ea9f8f848b53a3c3fbe4d239a7f9dbc801d7694ca8390cdf8be4fff843c5795",
-      "reviewed_at": 1791993899.4980097
-    },
-    {
-      "person": "Tenzing Norgay",
-      "source": {
-        "id": "archive:44754ManAgainstMountEverest",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
-        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
-        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
-        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
-        "creator": "",
-        "license": "",
-        "subject": "['Stock Footage', 'High Definition']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 538.657214,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 368.22,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The archival footage shows authentic historical documentation from the 1952 Swiss Mount Everest expedition, featuring Tenzing Norgay in the early frames alongside team members preparing equipment and checking oxygen tanks.",
-        "usage": "direct_event"
-      },
-      "review_key": "ff7a215d392f21d66ccd01a6bb1e5187801e5cc9564e820cfe80e80f0ee4917e",
-      "reviewed_at": 1792008464.3961642
-    },
-    {
-      "person": "Morgan Freeman",
-      "source": {
-        "id": "archive:bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
-        "title": "Morgan Freeman Interview for The Dark Knight Rises",
-        "description": "Check out this Exclusive Interview with actor Morgan Freeman for the new Batman film \"The Dark Knight Rises\"! MORGAN FREEMAN (Lucius Fox) won an Academy Award® for Best Supporting Actor for his role in Clint Eastwood's \"Million Dollar Baby,\" for which he also won a Screen Actors Guild (SAG) Award® and received a Golden Globe nomination. In 2009, he reunited with Eastwood to star in the director's true-life drama \"Invictus,\" on which Freeman also served as an executive producer under his Revelations Entertainment banner. For his portrayal of Nelson Mandela in the film, Freeman garnered Oscar®, Golden Globe and Critics' Choice Award nominations, and won the National Board of Review Award for Best Actor. Freeman has been honored with three additional Oscar® nominations, the first for his chilling performance in the 1987 drama \"Street Smart,\" which also brought him Los Angeles Film Critics, New York Film Critics, and National Society of Film Critics Awards, and an Independent Spirit Award for Best Supporting Actor, as well as his first Golden Globe Award nomination. He earned his second Oscar® nomination and won Golden Globe and National Board of Review Awards for Best Actor for the 1989 film \"Driving Miss Daisy,\" in which he recreated his award-winning off-Broadway role. He gained his third Oscar® nod, as well as Golden Globe and SAG Award® nominations, for his performance in Frank Darabont's 1994 drama \"The Shawshank Redemption.\" Among his many other accolades, Freeman was named a Kennedy Center Honoree in 2008, and, in 2011, was honored with the 39th AFI Lifetime Achievement ['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
-        "creator": "",
-        "license": "",
-        "subject": "['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 234.067167,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 38.86,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video segment shows real interview footage of Morgan Freeman discussing The Dark Knight Rises, serving as good biographical illustration material for a profile on him, though it does not directly depict the specific historical events narrated in a broader life story.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6de6e98c8463332d2e43daaf894508316146298c79bbb19ce2c6485929697a8c",
-      "reviewed_at": 1792056775.6576254
-    },
-    {
-      "person": "Morgan Freeman",
-      "source": {
-        "id": "archive:bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
-        "title": "Morgan Freeman Interview for The Dark Knight Rises",
-        "description": "Check out this Exclusive Interview with actor Morgan Freeman for the new Batman film \"The Dark Knight Rises\"! MORGAN FREEMAN (Lucius Fox) won an Academy Award® for Best Supporting Actor for his role in Clint Eastwood's \"Million Dollar Baby,\" for which he also won a Screen Actors Guild (SAG) Award® and received a Golden Globe nomination. In 2009, he reunited with Eastwood to star in the director's true-life drama \"Invictus,\" on which Freeman also served as an executive producer under his Revelations Entertainment banner. For his portrayal of Nelson Mandela in the film, Freeman garnered Oscar®, Golden Globe and Critics' Choice Award nominations, and won the National Board of Review Award for Best Actor. Freeman has been honored with three additional Oscar® nominations, the first for his chilling performance in the 1987 drama \"Street Smart,\" which also brought him Los Angeles Film Critics, New York Film Critics, and National Society of Film Critics Awards, and an Independent Spirit Award for Best Supporting Actor, as well as his first Golden Globe Award nomination. He earned his second Oscar® nomination and won Golden Globe and National Board of Review Awards for Best Actor for the 1989 film \"Driving Miss Daisy,\" in which he recreated his award-winning off-Broadway role. He gained his third Oscar® nod, as well as Golden Globe and SAG Award® nominations, for his performance in Frank Darabont's 1994 drama \"The Shawshank Redemption.\" Among his many other accolades, Freeman was named a Kennedy Center Honoree in 2008, and, in 2011, was honored with the 39th AFI Lifetime Achievement ['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
-        "creator": "",
-        "license": "",
-        "subject": "['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 234.067167,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 55.78,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The footage features Morgan Freeman speaking in an interview setting, which serves as valid biographical illustration material, though it contains a channel watermark.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "37f2926d0fe0fc076367f1b53d7548da61770b3bc730f8b8b7776aacb7a58eea",
-      "reviewed_at": 1792056799.207422
-    },
-    {
-      "person": "Morgan Freeman",
-      "source": {
-        "id": "archive:bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
-        "title": "Morgan Freeman Interview for The Dark Knight Rises",
-        "description": "Check out this Exclusive Interview with actor Morgan Freeman for the new Batman film \"The Dark Knight Rises\"! MORGAN FREEMAN (Lucius Fox) won an Academy Award® for Best Supporting Actor for his role in Clint Eastwood's \"Million Dollar Baby,\" for which he also won a Screen Actors Guild (SAG) Award® and received a Golden Globe nomination. In 2009, he reunited with Eastwood to star in the director's true-life drama \"Invictus,\" on which Freeman also served as an executive producer under his Revelations Entertainment banner. For his portrayal of Nelson Mandela in the film, Freeman garnered Oscar®, Golden Globe and Critics' Choice Award nominations, and won the National Board of Review Award for Best Actor. Freeman has been honored with three additional Oscar® nominations, the first for his chilling performance in the 1987 drama \"Street Smart,\" which also brought him Los Angeles Film Critics, New York Film Critics, and National Society of Film Critics Awards, and an Independent Spirit Award for Best Supporting Actor, as well as his first Golden Globe Award nomination. He earned his second Oscar® nomination and won Golden Globe and National Board of Review Awards for Best Actor for the 1989 film \"Driving Miss Daisy,\" in which he recreated his award-winning off-Broadway role. He gained his third Oscar® nod, as well as Golden Globe and SAG Award® nominations, for his performance in Frank Darabont's 1994 drama \"The Shawshank Redemption.\" Among his many other accolades, Freeman was named a Kennedy Center Honoree in 2008, and, in 2011, was honored with the 39th AFI Lifetime Achievement ['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
-        "creator": "",
-        "license": "",
-        "subject": "['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 234.067167,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 72.71,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment shows real archival interview footage of Morgan Freeman discussing his career and work on The Dark Knight Rises, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2cf0718e1dc94fddc41729bdf69ac921230ddb3922cf3826aa8da8df866a4f72",
-      "reviewed_at": 1792056805.2814808
-    },
-    {
-      "person": "Morgan Freeman",
-      "source": {
-        "id": "archive:bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
-        "title": "Morgan Freeman Interview for The Dark Knight Rises",
-        "description": "Check out this Exclusive Interview with actor Morgan Freeman for the new Batman film \"The Dark Knight Rises\"! MORGAN FREEMAN (Lucius Fox) won an Academy Award® for Best Supporting Actor for his role in Clint Eastwood's \"Million Dollar Baby,\" for which he also won a Screen Actors Guild (SAG) Award® and received a Golden Globe nomination. In 2009, he reunited with Eastwood to star in the director's true-life drama \"Invictus,\" on which Freeman also served as an executive producer under his Revelations Entertainment banner. For his portrayal of Nelson Mandela in the film, Freeman garnered Oscar®, Golden Globe and Critics' Choice Award nominations, and won the National Board of Review Award for Best Actor. Freeman has been honored with three additional Oscar® nominations, the first for his chilling performance in the 1987 drama \"Street Smart,\" which also brought him Los Angeles Film Critics, New York Film Critics, and National Society of Film Critics Awards, and an Independent Spirit Award for Best Supporting Actor, as well as his first Golden Globe Award nomination. He earned his second Oscar® nomination and won Golden Globe and National Board of Review Awards for Best Actor for the 1989 film \"Driving Miss Daisy,\" in which he recreated his award-winning off-Broadway role. He gained his third Oscar® nod, as well as Golden Globe and SAG Award® nominations, for his performance in Frank Darabont's 1994 drama \"The Shawshank Redemption.\" Among his many other accolades, Freeman was named a Kennedy Center Honoree in 2008, and, in 2011, was honored with the 39th AFI Lifetime Achievement ['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
-        "creator": "",
-        "license": "",
-        "subject": "['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 234.067167,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 89.64,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features real interview footage of Morgan Freeman discussing his career and roles, making it suitable as biographical illustration for a Short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0a92fdfcd7946a17bd04205a005814b932dbcde3f4285ad31aad62fec9e485c8",
-      "reviewed_at": 1792056810.8804984
-    },
-    {
-      "person": "Morgan Freeman",
-      "source": {
-        "id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/a878fb30c6e5c0b0323c0c072e713fbe/The%20Inside%20Reel%3A%20Morgan%20Freeman%20Interview-5267142.mp4",
-        "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
-        "title": "2821220_The Inside Reel: Morgan Freeman Interview-5267142",
-        "description": " ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 147.633333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 66.68,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show Morgan Freeman seated in a cafe interacting with another person in film footage, making it usable as biographical illustration, although the clip is from a movie scene rather than archival documentary footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "16b2905783b9d1495343c39e024adc65d3eeef0abc5b268430dbef713ce918af",
-      "reviewed_at": 1792056857.385534
-    },
-    {
-      "person": "Morgan Freeman",
-      "source": {
-        "id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/a878fb30c6e5c0b0323c0c072e713fbe/The%20Inside%20Reel%3A%20Morgan%20Freeman%20Interview-5267142.mp4",
-        "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
-        "title": "2821220_The Inside Reel: Morgan Freeman Interview-5267142",
-        "description": " ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 147.633333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 87.24,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage features clear, genuine interview footage of Morgan Freeman discussing his life and career, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "794d2d5e1dee7dc786d1292841b2f536461394d24c2110545394cb1d0f9fcd07",
-      "reviewed_at": 1792056868.1491902
-    },
-    {
       "person": "Morgan Freeman",
       "source": {
         "id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
@@ -9603,223 +8859,6 @@
       "reviewed_at": 1792863250.771687
     },
     {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 52.26,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features real archival footage of astronaut Kalpana Chawla in her spacesuit, directly illustrating her life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f33563042a3d132dde00308aa0dcf0ccc31b1396c6b44a02fe51e95ea6661c7b",
-      "reviewed_at": 1792867249.7942061
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment includes clear photographic and archival footage of astronaut Kalpana Chawla in her NASA flight suit, as well as an interview discussing her legacy, making it highly relevant and usable for her biography.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "42d189ad3743993cf0539fb6ce3f88d406ea0ed65941b74c8b0db914e5e22a2a",
-      "reviewed_at": 1792867262.5096092
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 20.75,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7.0,
-        "reason": "The sampled frames clearly feature archival photo/video evidence of Kalpana Chawla alongside commentary discussing her legacy at UT Arlington, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "285e91fa9e919992bc1f7335e874d4324103a36293c5e0842cc227fd2b46de47",
-      "reviewed_at": 1792867278.8805022
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
-        "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
-        "title": "Remembering the Crew of Columbia 20 Years Later",
-        "description": "Sen John Cornyn of Texas remembers the lost crew of the Space Shuttle, Columbia, who were lost when the Space Shuttle broke apart upon reentry, scattering debris over a large portion of Texas. The shuttle's left wing had been damaged upon takeoff when a large chunk of ice came off the main fuel tank and created a hole in the left wing about the size of basketball. Upon entering earth's atmosphere, the hot gasses entered the hole and the Columbia shuttle broke apart, just minutes before they were to have landed in Florida at the Kennedy Space Center. February 1, 2023 marks the 20th anniversary of the disaster, when the Space Shuttle Columbia disintegrated as it returned to Earth, killing all seven astronauts on board: commander Rick Husband, pilot Willie McCool, mission specialists Kalpana Chawla, Laurel Clark, Michael Anderson, David Brown and payload specialist Ilan Ramon of Israel. #Columbia #space #SpaceShuttleColumbia #ColumbiaCrew #IllinoisChannel #SenCornyn Politics, Personalities, Policies and business developments! Stay in touch with one of the most politically active, and important states in the USA!\\r \\r Follow us on Twitter: @IllinoisChannel\\r \\r \\r DONATE to help fund our Independent Coverage: https://illinoischannel.givingfuel.com/donatenow ['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
-        "creator": "ICTV",
-        "license": "",
-        "subject": "['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
-        "runtime": "00:06:55",
-        "direct_subject": true,
-        "duration_hint": 415.30442,
-        "identity_score": 10.0,
-        "archival_signal": 0
-      },
-      "start": 344.57,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features archival footage including a photograph of the STS-107 crew of the Space Shuttle Columbia, where Kalpana Chawla is clearly visible and identifiable alongside her fellow astronauts, accompanied by a speech discussing the disaster.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a4ea7e712a80428a74f4f149bd55e9dc77699bcdc9b5cb081ff79f4d04c9f675",
-      "reviewed_at": 1792867302.9533763
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 68.01,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment contains real archival footage and photos clearly showing Kalpana Chawla speaking at a microphone and in official astronaut crew portraits, perfectly supporting her biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "69372a5bd844f48728eb318db2aafe2474e765f66e42308d55a22ceea282bdc2",
-      "reviewed_at": 1792867312.0561113
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 99.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features archival footage showing Kalpana Chawla among her fellow astronauts in orange flight suits walking and waving, providing clear visual evidence of her life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "44d6d33ad8ef7df0d7e7eade71868165f633e303cf32d346c81d4b232533c314",
-      "reviewed_at": 1792867325.8387694
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 115.27,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "Kalpana Chawla is clearly visible in the first two sampled frames as part of her astronaut crew, providing authentic archival identity footage.",
-        "usage": "direct_event"
-      },
-      "review_key": "5fd9014ec1a8762c3ed683db9bed55f0dd489b42dab64edc39d89b5f43f5188f",
-      "reviewed_at": 1792867332.3903515
-    },
-    {
       "person": "M. S. Dhoni",
       "source": {
         "id": "archive:www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
@@ -10717,68 +9756,6 @@
       },
       "review_key": "a16a89b1e7bbe7840cacc76301df08953b9fc9d1245e6ee79cb131609da2b53a",
       "reviewed_at": 1792869000.040724
-    },
-    {
-      "person": "Marie Curie",
-      "source": {
-        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
-        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
-        "title": "Marie Curie A Scientific Hero",
-        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "creator": "Bloomington",
-        "license": "",
-        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "runtime": "00:02:12",
-        "direct_subject": true,
-        "duration_hint": 132.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 23.2,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The sampled frames show historical photographs of Marie Curie and Pierre Curie combined with graphical scientific overlays, serving as biographical illustration for a documentary about Marie Curie.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "788839917a9ee3ee6b199b135853ac57341848ed2b68cec831eaccfc75038546",
-      "reviewed_at": 1792869587.9720526
-    },
-    {
-      "person": "Marie Curie",
-      "source": {
-        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
-        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
-        "title": "Marie Curie A Scientific Hero",
-        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "creator": "Bloomington",
-        "license": "",
-        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "runtime": "00:02:12",
-        "direct_subject": true,
-        "duration_hint": 132.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 32.3,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly depict archival photographs and footage of Marie Curie and Pierre Curie, matching the subject and biographical context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c430184eab1f1453c71d118a147ae8b310c1067469fa3e69815169e1675314a3",
-      "reviewed_at": 1792869618.3071342
     },
     {
       "person": "Madam C.J. Walker",
@@ -15701,316 +14678,6 @@
       "reviewed_at": 1793218241.9576428
     },
     {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 198.76,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features authentic historical film of Louis Armstrong performing in the 1961 film Paris Blues, clearly showing him in multiple frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "dfab41a5faca90ed5350753c3967539fa5a019dc6d8f0c513aad8672b53a369b",
-      "reviewed_at": 1793383181.5201237
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 32.68,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "Louis Armstrong is clearly visible performing in archival film footage from Paris Blues (1961), making it relevant and usable biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f1559591f86725781a70477a6ce98e5892bddc6c2cc70de3d4a00fde39ac4360",
-      "reviewed_at": 1793383246.2179916
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 60.36,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet with his band in archival film footage, directly illustrating his musical career.",
-        "usage": "direct_event"
-      },
-      "review_key": "845455e1dcdf55a4a284e7e5c56aea7a1992b27228b78587cf9eddc8c0b06e10",
-      "reviewed_at": 1793383262.3869233
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 88.04,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet in his cameo appearance in the 1961 film Paris Blues, perfectly matching the biographical context.",
-        "usage": "direct_event"
-      },
-      "review_key": "9c21f13d3e6baa581bc01645d4381c15b9d7dd9ca5d614e4ee54ae3d29d7e3d7",
-      "reviewed_at": 1793383274.2846744
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 115.72,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly features Louis Armstrong performing on the trumpet in a live musical scene, directly illustrating his career and persona as a legendary musician.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3e6f2d8a2aa6435b8d8ebed675b8d03d2d4befa85c8e6fcbd4babcdde5b0b4ff",
-      "reviewed_at": 1793383290.506499
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 143.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The clip features genuine archival film footage from Paris Blues (1961), showing Louis Armstrong clearly identifiable playing and singing in several frames, directly illustrating his life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6201db8b1c21b24d40072acbc577e8d5158ce8cae263fa9b2639119f55f40b0f",
-      "reviewed_at": 1793383303.1367984
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 171.08,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature genuine archival footage of Louis Armstrong playing the trumpet in Paris Blues (1961), perfectly matching the biography narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9cfb08485ad6ea01e262850d819b67052ab5a8de0974cafb65c47d259cd0ca6d",
-      "reviewed_at": 1793383318.1644783
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 226.44,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features genuine historical film of Louis Armstrong playing the trumpet (cameo in Paris Blues, 1961), clearly showing him in multiple frames alongside other actors like Paul Newman.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ab44f569558b66050af1f850581597681fab4be74c44c0cb3329fa2a7fd42f87",
-      "reviewed_at": 1793383331.7075946
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 254.12,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature genuine archival footage of Louis Armstrong performing in the 1961 film Paris Blues, perfectly illustrating his musical career.",
-        "usage": "direct_event"
-      },
-      "review_key": "fb4186368fe062509bd3b6b6f2f3a6d2b6d0b32f2ed44c526a96f8b9b9bc6aa8",
-      "reviewed_at": 1793383344.1888983
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 281.79,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "Louis Armstrong is clearly visible playing the trumpet in archival film footage from Paris Blues (1961), perfectly illustrating his musical career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "72e9c63c9688a2a4bec74c34a40bf14b2f0da9fdfadbaa67b487e6bcb73ab2d5",
-      "reviewed_at": 1793383356.9900634
-    },
-    {
       "person": "Arthur Ashe",
       "source": {
         "id": "archive:hctvva-Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr.",
@@ -17256,37 +15923,6 @@
         "identity_score": 13.0,
         "archival_signal": 1
       },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features real interview footage of Harrison Ford discussing his film Firewall, with clear visibility of the subject in multiple sampled frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "85ac04ed8a3bad9703308dcd2e72d2b88d90616cac5e1c9358d96a348a8c780d",
-      "reviewed_at": 1793471887.0014338
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
       "start": 28.07,
       "length": 8.0,
       "verification": {
@@ -17504,37 +16140,6 @@
         "identity_score": 13.0,
         "archival_signal": 1
       },
-      "start": 212.63,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features real archival interview footage of Harrison Ford discussing his film Firewall, clearly identifying him throughout the sampled frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a75e8ec8f9477a402367c313064eb133d740dd75a8a8af9bacd285f063f5c9df",
-      "reviewed_at": 1793471948.5730917
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
       "start": 258.77,
       "length": 8.0,
       "verification": {
@@ -17578,37 +16183,6 @@
       },
       "review_key": "9634479d581b6393e859951ed520d5c92ee70ae4e1f2bc0df8fcb05953f1910c",
       "reviewed_at": 1793471976.388812
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 304.91,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment features real archival interview footage of Harrison Ford discussing his film Firewall, clearly identifying the subject in multiple sampled frames despite some frames showing the interviewer and animated title cards.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "699447bba4e04bc66f3809965bec334934377233fa05cf47c5028dbea53a26f3",
-      "reviewed_at": 1793471989.515673
     },
     {
       "person": "Tenzing Norgay",
@@ -18000,37 +16574,6 @@
         "identity_score": 13.0,
         "archival_signal": 1
       },
-      "start": 43.73,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage features genuine archival video of Bob Ross painting on his show, clearly showing him and his recognizable artistic process, making it directly relevant and usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "74c5896d55b6609b26541c4cf78971e56ee922197785c7e274e4b7d432ccd5bd",
-      "reviewed_at": 1793559393.5496886
-    },
-    {
-      "person": "Bob Ross",
-      "source": {
-        "id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew/Bob%20Ross%20Ad%20Straight%20Talk%20Wireless%20MTV%20and%20mountain%20dew.ia.mp4",
-        "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
-        "title": "Bob Ross Ad Straight Talk Wireless MTV And Mountain Dew",
-        "description": "Video Used: MTV Promo Bob Ross Mtn Dew \"Bob Ross\" 30 ['Jacob04 Edit', 'Commerical']",
-        "creator": "",
-        "license": "",
-        "subject": "['Jacob04 Edit', 'Commerical']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.466633,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
       "start": 34.05,
       "length": 8.0,
       "verification": {
@@ -18043,37 +16586,6 @@
       },
       "review_key": "bb14d6cfd3fc5eadcae1b1d3f1662f8fc3af72463a4a7427e9607a10020701f4",
       "reviewed_at": 1793559423.1095603
-    },
-    {
-      "person": "Bob Ross",
-      "source": {
-        "id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TomFrankStudiosJacobPaintswithBobRoss/JacobPaints_512kb.mp4",
-        "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
-        "title": "Jacob Paints with Bob Ross",
-        "description": "Jacob Paints with Bob Ross from \"The Joy of Painting\" ['Bob Ross', 'The Joy of Painting']",
-        "creator": "Tom Frank Studios",
-        "license": "http://creativecommons.org/licenses/by-sa/2.5/",
-        "subject": "['Bob Ross', 'The Joy of Painting']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 491.491491,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 188.65,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video clip features Bob Ross painting on set, making it highly relevant and authentic archival footage for a biographical short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e85da7bbef87d40c09e5da5363628a31397ea51619e8e37cb6db4fd66394eb72",
-      "reviewed_at": 1793559436.665794
     },
     {
       "person": "Bob Ross",
@@ -18105,37 +16617,6 @@
       },
       "review_key": "6f3fd7c7bf2ed2890a740af5690296ffb12da13f41ec9f3b0ada0d3f52b6a9c5",
       "reviewed_at": 1793559451.5011327
-    },
-    {
-      "person": "Bob Ross",
-      "source": {
-        "id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew/Bob%20Ross%20Ad%20Straight%20Talk%20Wireless%20MTV%20and%20mountain%20dew.ia.mp4",
-        "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
-        "title": "Bob Ross Ad Straight Talk Wireless MTV And Mountain Dew",
-        "description": "Video Used: MTV Promo Bob Ross Mtn Dew \"Bob Ross\" 30 ['Jacob04 Edit', 'Commerical']",
-        "creator": "",
-        "license": "",
-        "subject": "['Jacob04 Edit', 'Commerical']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.466633,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 72.78,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage features Bob Ross painting, though in the context of a commercial advertisement involving Mountain Dew. Bob Ross is clearly identifiable in frame two, making the segment usable as biographical illustration of his painting style and persona.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3d3eaeb203395719f90c181cb6b514a6737a0182a4266330d7f26fd0bd6969c3",
-      "reviewed_at": 1793559488.1142645
     },
     {
       "person": "Desmond Doss",
@@ -18570,6 +17051,1525 @@
       },
       "review_key": "6ddaaa908f34eb081fbfeb2f1f2475b66b1028e801ed8a2d2fe8bb7ac9d37a57",
       "reviewed_at": 1793560115.1058602
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features actual film clips and interview footage of Harrison Ford discussing his work on Firewall, making it useful biographical illustration despite some graphic overlays and cartoon introductions.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "50d59652d32d27f65bf9ab201feecbf259f9a13e4b4abdbc774272394b685ef1",
+      "reviewed_at": 1793659530.8633585
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 212.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features genuine interview footage of Harrison Ford discussing his work, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "31d0659c653148ef87589b34183be3d8074ccdb071ca5df9804cd4fca7ddcf2b",
+      "reviewed_at": 1793659585.4398365
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 304.91,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real archival interview footage of Harrison Ford discussing his film 'Firewall', making it a valid biographical illustration despite ending with an animated graphic title sequence.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7bad4a1859fb3ab56d6f69ac1e056da7031159e5e25ba1e61a32e0f36889bb6d",
+      "reviewed_at": 1793659595.8739111
+    },
+    {
+      "person": "Marie Curie",
+      "source": {
+        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+        "title": "Marie Curie A Scientific Hero",
+        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "runtime": "00:02:12",
+        "direct_subject": true,
+        "duration_hint": 132.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 23.2,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment shows archival photographs and historical context related to Marie Curie and Pierre Curie, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f8b050a9589811baa38079c3b7f58f93a2dc47c2b01ea4022be495017505fad1",
+      "reviewed_at": 1793659730.422682
+    },
+    {
+      "person": "Marie Curie",
+      "source": {
+        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+        "title": "Marie Curie A Scientific Hero",
+        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "runtime": "00:02:12",
+        "direct_subject": true,
+        "duration_hint": 132.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 32.3,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature archival photographs and historical footage of Marie Curie (alongside Pierre Curie), directly matching the biographical subject and narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9f853092abf75ddb5a9a56a4dc91e73e61516e925c9afb1cb78ccae674f1514d",
+      "reviewed_at": 1793659749.3502712
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 198.76,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features genuine archival film footage of Louis Armstrong performing in the 1961 film Paris Blues, clearly showing him playing music and interacting in period setting.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5ab84169841a2d2fa97d1dbb4fbf8aa8e3ef31e1b1011db1286814af8f9288be",
+      "reviewed_at": 1793659982.7203236
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 32.68,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features authentic archival footage of Louis Armstrong performing in the 1961 film Paris Blues, clearly identifying him in several frames, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9ce29b4dd24f2601099ba9a51e089c510097b46d105a1ba78352db8e498620b5",
+      "reviewed_at": 1793659996.6163769
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 60.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet in authentic archival film footage from Paris Blues (1961), directly supporting the biographical narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9bcd8d38a294608f1984082e123d4610cf779214085793fe0252d144abe39e43",
+      "reviewed_at": 1793660012.1726031
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 88.04,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly show archival footage of Louis Armstrong performing with a trumpet in the 1961 film Paris Blues, directly matching the biographical subject and narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d097a29266f707bf38302ad7f5c73f1b148deb437134db8068251da77041fd24",
+      "reviewed_at": 1793660024.685544
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 143.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features genuine historical archival footage from the 1961 film Paris Blues, clearly showing Louis Armstrong performing and interacting with other musicians, directly illustrating his life and musical career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a07a8addb426ad332e47edceb58a1e49d94fcb99d6682c87ab70724497b7e739",
+      "reviewed_at": 1793660042.3089395
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 115.72,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet in the 1961 film Paris Blues, perfectly illustrating his musical career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e0e51a018dbe1358740946ed3005cab7d2f339e86a1a97aa4a86d228920fc76d",
+      "reviewed_at": 1793660058.8242488
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 171.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features genuine historical archival film of Louis Armstrong playing the trumpet in Paris Blues (1961), directly illustrating his musical career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f89e9a51f9a3450b6f2d52747b34d85510936831d12d751da6dc9b126c77008d",
+      "reviewed_at": 1793660071.9266899
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 226.44,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features Louis Armstrong clearly visible and playing his trumpet in scenes from the 1961 film Paris Blues, making it highly relevant biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "474b186259ccb3e2242402d3a954fd0d94ad9493da9229db312c220225696d88",
+      "reviewed_at": 1793660087.7095323
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 254.12,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Louis Armstrong is clearly visible and performing in frames 1, 2, and 5 (from the film Paris Blues, 1961), providing excellent archival footage illustrating his musical career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b09cea6abb0bf779739a2e36adc38435afff9c78678d00dd608be4d5a3c5cfca",
+      "reviewed_at": 1793660108.0588078
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 281.79,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Louis Armstrong playing the trumpet alongside Paul Newman in a scene from the 1961 film Paris Blues, making it authentic and directly relevant historical footage for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "279108616e882b9d5ea6e43bea9223a0263f58bb480d40a9dc9fdad2d6f38021",
+      "reviewed_at": 1793660122.8015184
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2156.24,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features genuine archival footage of Richard Feynman speaking and gesturing in an armchair interview format, perfectly matching the biographical subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a3b78c1c0d96bf3288e2faae3ea18a4217071b057b11ee0ef751691f3f543440",
+      "reviewed_at": 1793660312.1127284
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993/Horizon%2018-09%20Feynman-The%20Pleasure%20Of%20Finding%20Things%20Out%20%5BRichard%20Feynman%5D%20%2823%20Nov%201981%29.mp4",
+        "source_url": "https://archive.org/details/horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993",
+        "title": "2. Prof. Richard Feynman Folder",
+        "description": "Physics Physics",
+        "creator": "",
+        "license": "",
+        "subject": "Physics",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2978.86,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1601.46,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features genuine archival interview footage of Richard Feynman speaking clearly and directly identifiable throughout the sampled frames, making it highly usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1a32f3034802974ccc1d21a1f62134e3b6411388ee8deb62e115f6a1954da1ce",
+      "reviewed_at": 1793660321.7591202
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real archival footage of Richard Feynman speaking in an interview setting, making it highly relevant and usable as biographical illustration for a Short about him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6227793a0df977a1adc68ffd3d16cc7a6ac4d62a2e41cfd28072fea39760a629",
+      "reviewed_at": 1793660328.2702117
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993/Horizon%2018-09%20Feynman-The%20Pleasure%20Of%20Finding%20Things%20Out%20%5BRichard%20Feynman%5D%20%2823%20Nov%201981%29.mp4",
+        "source_url": "https://archive.org/details/horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993",
+        "title": "2. Prof. Richard Feynman Folder",
+        "description": "Physics Physics",
+        "creator": "",
+        "license": "",
+        "subject": "Physics",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2978.86,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 233.07,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video shows genuine archival footage of the named subject, Richard Feynman, speaking in an interview setting. He is clearly visible across all sampled frames. The footage is suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ddb06821a14a3d0c89aa11dd475bde2fe29732b2be3a61bba146b7fd6cc2b7d7",
+      "reviewed_at": 1793660350.9035847
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 312.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features genuine archival footage of Richard Feynman speaking and gesturing during an interview, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f8f8dbb17577fdada65f9fe0b135ad9bd3fe60b244349dc3ea20350519af7aa5",
+      "reviewed_at": 1793660358.8181324
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993/Horizon%2018-09%20Feynman-The%20Pleasure%20Of%20Finding%20Things%20Out%20%5BRichard%20Feynman%5D%20%2823%20Nov%201981%29.mp4",
+        "source_url": "https://archive.org/details/horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993",
+        "title": "2. Prof. Richard Feynman Folder",
+        "description": "Physics Physics",
+        "creator": "",
+        "license": "",
+        "subject": "Physics",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2978.86,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 461.13,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Richard Feynman speaking in an archival interview setting, making it directly usable and highly relevant for his biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4a21acb4e3566fead68b0427050cd06bfa6472ecfb6f15947ba5bbe6db95bbb9",
+      "reviewed_at": 1793660368.3915837
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 619.64,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows Richard Feynman speaking in an interview/discussion format, providing authentic biographical illustration suitable for a short video.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f2862d8e1c9c475db6eac347f8cef35de691bc9794228c1ceef4f9f684d0ee00",
+      "reviewed_at": 1793660378.894985
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993/Horizon%2018-09%20Feynman-The%20Pleasure%20Of%20Finding%20Things%20Out%20%5BRichard%20Feynman%5D%20%2823%20Nov%201981%29.mp4",
+        "source_url": "https://archive.org/details/horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993",
+        "title": "2. Prof. Richard Feynman Folder",
+        "description": "Physics Physics",
+        "creator": "",
+        "license": "",
+        "subject": "Physics",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2978.86,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 689.2,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows Richard Feynman clearly in archival interview/documentary footage, making it highly usable and relevant as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fe6fce232dc21269bc7f5ea2bf8d31e579ea23198a8d22ca5680bf5a52be6b3a",
+      "reviewed_at": 1793660387.4348283
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 926.96,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment shows genuine archival interview footage of Richard Feynman sitting in a chair, clearly identifiable throughout all sampled frames, making it very suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f272f2bdb1fde67b15216edad84483edf72e891d5b98e12a79c4baca6bcd185e",
+      "reviewed_at": 1793660395.3402743
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows astronaut Kalpana Chawla in space gear and training context, directly illustrating her life and career.",
+        "usage": "direct_event"
+      },
+      "review_key": "baf7433fe07c801459b0a97cf319ea660eb77a1cc67d0c28619405602fddf57f",
+      "reviewed_at": 1793660474.8362608
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features archival footage and a memorial interview segment discussing Kalpana Chawla, with the subject clearly identifiable in the first three frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f33feb74652cc0595701dd120ad0768202fd8961a72fc7263e31171603512b90",
+      "reviewed_at": 1793660483.9774263
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 20.75,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Kalpana Chawla is clearly visible in the first two sampled frames next to a display board dedicated to her memory, providing biographical illustration for a short about her legacy, even though subsequent frames show an interviewee discussing her.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "952fa014e7dcd026bcaf49605a1be58d44667ba895e87ec3853143d6c3aacf12",
+      "reviewed_at": 1793660497.3873842
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 68.01,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real archival footage and photographs of Kalpana Chawla, including her speaking at a podium, archival display photos, and her official STS-87 astronaut crew portrait. She is clearly identifiable in multiple frames, making it highly relevant biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "321575c067ba2c44cb35ded475a67d0a0d390386d4b1d04ecb5ddcfb7d4aeb77",
+      "reviewed_at": 1793660527.8169591
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
+        "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+        "title": "Remembering the Crew of Columbia 20 Years Later",
+        "description": "Sen John Cornyn of Texas remembers the lost crew of the Space Shuttle, Columbia, who were lost when the Space Shuttle broke apart upon reentry, scattering debris over a large portion of Texas. The shuttle's left wing had been damaged upon takeoff when a large chunk of ice came off the main fuel tank and created a hole in the left wing about the size of basketball. Upon entering earth's atmosphere, the hot gasses entered the hole and the Columbia shuttle broke apart, just minutes before they were to have landed in Florida at the Kennedy Space Center. February 1, 2023 marks the 20th anniversary of the disaster, when the Space Shuttle Columbia disintegrated as it returned to Earth, killing all seven astronauts on board: commander Rick Husband, pilot Willie McCool, mission specialists Kalpana Chawla, Laurel Clark, Michael Anderson, David Brown and payload specialist Ilan Ramon of Israel. #Columbia #space #SpaceShuttleColumbia #ColumbiaCrew #IllinoisChannel #SenCornyn Politics, Personalities, Policies and business developments! Stay in touch with one of the most politically active, and important states in the USA!\\r \\r Follow us on Twitter: @IllinoisChannel\\r \\r \\r DONATE to help fund our Independent Coverage: https://illinoischannel.givingfuel.com/donatenow ['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
+        "creator": "ICTV",
+        "license": "",
+        "subject": "['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
+        "runtime": "00:06:55",
+        "direct_subject": true,
+        "duration_hint": 415.30442,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 344.57,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The clip features archival footage of Kalpana Chawla as part of the STS-107 crew portrait, shown during a speech commemorating the Columbia disaster, directly illustrating her biographical narrative.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5c8b7165fc902415660d9797c662eb3f7d4361cf8c672be1d05a7b93cdbb4fd0",
+      "reviewed_at": 1793660537.3113327
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 99.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real archival footage showing astronaut Kalpana Chawla (clearly visible in orange flight suit among her crewmates in frames 3-5) participating in pre-flight preparation, perfectly matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b331d467d6b6634fc9dcd6fb915a4d9cc0d401e0f41769de93c0946e0631a598",
+      "reviewed_at": 1793660547.7771924
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 115.27,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly show Kalpana Chawla among her Columbia space shuttle crew in archival space footage (first two frames), followed by interview footage discussing her legacy, making it highly relevant and usable for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "09a251c446059a97c978f64b4880bf5904346b511f6d3323326b3db6837df96e",
+      "reviewed_at": 1793660556.8357425
+    },
+    {
+      "person": "Bob Ross",
+      "source": {
+        "id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew/Bob%20Ross%20Ad%20Straight%20Talk%20Wireless%20MTV%20and%20mountain%20dew.ia.mp4",
+        "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+        "title": "Bob Ross Ad Straight Talk Wireless MTV And Mountain Dew",
+        "description": "Video Used: MTV Promo Bob Ross Mtn Dew \"Bob Ross\" 30 ['Jacob04 Edit', 'Commerical']",
+        "creator": "",
+        "license": "",
+        "subject": "['Jacob04 Edit', 'Commerical']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 91.466633,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 43.73,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Bob Ross painting on canvas, directly illustrating his life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f86bf916e4e5d928970588480a1031e7ee2a88997e2b1829a1ca3add33b565f7",
+      "reviewed_at": 1793660673.5611453
+    },
+    {
+      "person": "Bob Ross",
+      "source": {
+        "id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TomFrankStudiosJacobPaintswithBobRoss/JacobPaints_512kb.mp4",
+        "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
+        "title": "Jacob Paints with Bob Ross",
+        "description": "Jacob Paints with Bob Ross from \"The Joy of Painting\" ['Bob Ross', 'The Joy of Painting']",
+        "creator": "Tom Frank Studios",
+        "license": "http://creativecommons.org/licenses/by-sa/2.5/",
+        "subject": "['Bob Ross', 'The Joy of Painting']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 491.491491,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 188.65,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features Bob Ross painting on set, clearly showing his iconic appearance and painting process across multiple frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "15432d04d295e5ba21f0750985917ae46418b16eaec153568d7760e9f967d5bc",
+      "reviewed_at": 1793660692.0954988
+    },
+    {
+      "person": "Bob Ross",
+      "source": {
+        "id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TomFrankStudiosJacobPaintswithBobRoss/JacobPaints_512kb.mp4",
+        "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
+        "title": "Jacob Paints with Bob Ross",
+        "description": "Jacob Paints with Bob Ross from \"The Joy of Painting\" ['Bob Ross', 'The Joy of Painting']",
+        "creator": "Tom Frank Studios",
+        "license": "http://creativecommons.org/licenses/by-sa/2.5/",
+        "subject": "['Bob Ross', 'The Joy of Painting']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 491.491491,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 372.3,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features Bob Ross himself painting on set, clearly identifiable in the second frame, making it authentic archival material illustrating his life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9bc9561414cdf8eeb1e5511164a15804707efede8ad5b1c680a4a5c779688d7b",
+      "reviewed_at": 1793660712.7068293
+    },
+    {
+      "person": "Bob Ross",
+      "source": {
+        "id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew/Bob%20Ross%20Ad%20Straight%20Talk%20Wireless%20MTV%20and%20mountain%20dew.ia.mp4",
+        "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
+        "title": "Bob Ross Ad Straight Talk Wireless MTV And Mountain Dew",
+        "description": "Video Used: MTV Promo Bob Ross Mtn Dew \"Bob Ross\" 30 ['Jacob04 Edit', 'Commerical']",
+        "creator": "",
+        "license": "",
+        "subject": "['Jacob04 Edit', 'Commerical']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 91.466633,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 72.78,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows real archival footage of Bob Ross painting in his signature style, making it valid biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8eb974c3d99e3016a4fd2c53c807af6dd7a9c1f5dbf6f3e2ea595eae34620d21",
+      "reviewed_at": 1793660728.3285913
+    },
+    {
+      "person": "Hrithik Roshan",
+      "source": {
+        "id": "archive:LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN/LAUNCH%20OF%20MPOWER%20%20EVERYDAYHEROES%20CAMPAIGN%20FEATURING%20HRITHIK%20ROSHAN.mp4",
+        "source_url": "https://archive.org/details/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+        "title": "Hrithik Roshan At The Launch of MPower Everyday Heroes Campaign",
+        "description": "Hrithik Roshan along with Neerja Birla at the launch of MPower Everyday Heroes campaign. ['Hrithik Roshan', 'Neerja Birla', 'MPower Everyday Heroes Campaign']",
+        "creator": "",
+        "license": "",
+        "subject": "['Hrithik Roshan', 'Neerja Birla', 'MPower Everyday Heroes Campaign']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 89.88,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 61.91,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Hrithik Roshan speaking at a campaign event, which serves as biographical illustration of his public appearances and advocacy work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b1ed78888ba868b192c4af789bd1cd50f0e747be1aa9dbe3389b718e47f79ae1",
+      "reviewed_at": 1793661039.5266485
+    },
+    {
+      "person": "Hrithik Roshan",
+      "source": {
+        "id": "archive:bestofhrvcd",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bestofhrvcd/1%20%28Track%2006%29.mp4",
+        "source_url": "https://archive.org/details/bestofhrvcd",
+        "title": "Best of Hrithik Roshan vol 1 (Video Channel) VCD",
+        "description": "VC-727 sha1 track4: 6315F061B7CE6AB49CAF3AF4CF528B2A0FE0AE44 mastering code: VC 727 mastering sid: - ['vcd', 'video cd', 'video-cd']",
+        "creator": "Video Channel",
+        "license": "",
+        "subject": "['vcd', 'video cd', 'video-cd']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 395.8955,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 210.64,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage shows real archival film clips of Hrithik Roshan performing, but contains a noticeable lower-left watermark ('VIDEO CHANNEL'), making it suitable as biographical illustration rather than direct event footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c5b1cc2fcdb335acc49a3fa3d959c45b62a38f2ecf213b9b41feed5fe7988f92",
+      "reviewed_at": 1793661079.6177406
+    },
+    {
+      "person": "Hrithik Roshan",
+      "source": {
+        "id": "archive:LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN/LAUNCH%20OF%20MPOWER%20%20EVERYDAYHEROES%20CAMPAIGN%20FEATURING%20HRITHIK%20ROSHAN.mp4",
+        "source_url": "https://archive.org/details/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+        "title": "Hrithik Roshan At The Launch of MPower Everyday Heroes Campaign",
+        "description": "Hrithik Roshan along with Neerja Birla at the launch of MPower Everyday Heroes campaign. ['Hrithik Roshan', 'Neerja Birla', 'MPower Everyday Heroes Campaign']",
+        "creator": "",
+        "license": "",
+        "subject": "['Hrithik Roshan', 'Neerja Birla', 'MPower Everyday Heroes Campaign']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 89.88,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 23.97,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows actual filmed footage of Hrithik Roshan speaking at a campaign event, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "81bc8b95cc0e2cad4d20088847d13f6cf2ab70ac37a66969a5e2d2e50d7d9a0d",
+      "reviewed_at": 1793661142.6029253
+    },
+    {
+      "person": "Hrithik Roshan",
+      "source": {
+        "id": "archive:bestofhrvcd",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bestofhrvcd/1%20%28Track%2006%29.mp4",
+        "source_url": "https://archive.org/details/bestofhrvcd",
+        "title": "Best of Hrithik Roshan vol 1 (Video Channel) VCD",
+        "description": "VC-727 sha1 track4: 6315F061B7CE6AB49CAF3AF4CF528B2A0FE0AE44 mastering code: VC 727 mastering sid: - ['vcd', 'video cd', 'video-cd']",
+        "creator": "Video Channel",
+        "license": "",
+        "subject": "['vcd', 'video cd', 'video-cd']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 395.8955,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 34.38,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature actor Hrithik Roshan in archival video footage from his career, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "349dee063e52f04014909b83cad31752580c14f810e3bc44891835e865ef6c52",
+      "reviewed_at": 1793661205.9185452
+    },
+    {
+      "person": "Hrithik Roshan",
+      "source": {
+        "id": "archive:LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN/LAUNCH%20OF%20MPOWER%20%20EVERYDAYHEROES%20CAMPAIGN%20FEATURING%20HRITHIK%20ROSHAN.mp4",
+        "source_url": "https://archive.org/details/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+        "title": "Hrithik Roshan At The Launch of MPower Everyday Heroes Campaign",
+        "description": "Hrithik Roshan along with Neerja Birla at the launch of MPower Everyday Heroes campaign. ['Hrithik Roshan', 'Neerja Birla', 'MPower Everyday Heroes Campaign']",
+        "creator": "",
+        "license": "",
+        "subject": "['Hrithik Roshan', 'Neerja Birla', 'MPower Everyday Heroes Campaign']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 89.88,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 14.48,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video shows Hrithik Roshan speaking at a public event (MPower Everyday Heroes campaign launch), which serves as valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "63a22305829923259b9606d5ae776195848765ca9bf330222f69eab097abae25",
+      "reviewed_at": 1793661249.935381
+    },
+    {
+      "person": "Hrithik Roshan",
+      "source": {
+        "id": "archive:bestofhrvcd",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bestofhrvcd/1%20%28Track%2006%29.mp4",
+        "source_url": "https://archive.org/details/bestofhrvcd",
+        "title": "Best of Hrithik Roshan vol 1 (Video Channel) VCD",
+        "description": "VC-727 sha1 track4: 6315F061B7CE6AB49CAF3AF4CF528B2A0FE0AE44 mastering code: VC 727 mastering sid: - ['vcd', 'video cd', 'video-cd']",
+        "creator": "Video Channel",
+        "license": "",
+        "subject": "['vcd', 'video cd', 'video-cd']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 395.8955,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 63.75,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames clearly feature actor Hrithik Roshan in archival film footage climbing a ladder outdoors, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1fc53b8a35387cfe764f8455e9c806b4200594457837f30f1edf5f1df4491b3b",
+      "reviewed_at": 1793661271.9706836
+    },
+    {
+      "person": "Hrithik Roshan",
+      "source": {
+        "id": "archive:LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN/LAUNCH%20OF%20MPOWER%20%20EVERYDAYHEROES%20CAMPAIGN%20FEATURING%20HRITHIK%20ROSHAN.mp4",
+        "source_url": "https://archive.org/details/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+        "title": "Hrithik Roshan At The Launch of MPower Everyday Heroes Campaign",
+        "description": "Hrithik Roshan along with Neerja Birla at the launch of MPower Everyday Heroes campaign. ['Hrithik Roshan', 'Neerja Birla', 'MPower Everyday Heroes Campaign']",
+        "creator": "",
+        "license": "",
+        "subject": "['Hrithik Roshan', 'Neerja Birla', 'MPower Everyday Heroes Campaign']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 89.88,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 33.45,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows actual filmed footage of Hrithik Roshan speaking at a campaign event, making it usable as biographical illustration, though it lacks direct connection to specific historical events in his biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4705c7ff3ba091f7d32a0df6bd5b5f6996767a90d8f507fb2e13cfaf6d537490",
+      "reviewed_at": 1793661352.479657
+    },
+    {
+      "person": "Hrithik Roshan",
+      "source": {
+        "id": "archive:bestofhrvcd",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bestofhrvcd/1%20%28Track%2006%29.mp4",
+        "source_url": "https://archive.org/details/bestofhrvcd",
+        "title": "Best of Hrithik Roshan vol 1 (Video Channel) VCD",
+        "description": "VC-727 sha1 track4: 6315F061B7CE6AB49CAF3AF4CF528B2A0FE0AE44 mastering code: VC 727 mastering sid: - ['vcd', 'video cd', 'video-cd']",
+        "creator": "Video Channel",
+        "license": "",
+        "subject": "['vcd', 'video cd', 'video-cd']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 395.8955,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 93.13,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features genuine archival film footage showing Hrithik Roshan dancing with a group, directly supporting a biographical video about him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8d52de2ecf40e9f743bcca82e9b0e730771ae9691d6da74431fef8714e55dd76",
+      "reviewed_at": 1793661374.6081543
+    },
+    {
+      "person": "Hrithik Roshan",
+      "source": {
+        "id": "archive:LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN/LAUNCH%20OF%20MPOWER%20%20EVERYDAYHEROES%20CAMPAIGN%20FEATURING%20HRITHIK%20ROSHAN.mp4",
+        "source_url": "https://archive.org/details/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+        "title": "Hrithik Roshan At The Launch of MPower Everyday Heroes Campaign",
+        "description": "Hrithik Roshan along with Neerja Birla at the launch of MPower Everyday Heroes campaign. ['Hrithik Roshan', 'Neerja Birla', 'MPower Everyday Heroes Campaign']",
+        "creator": "",
+        "license": "",
+        "subject": "['Hrithik Roshan', 'Neerja Birla', 'MPower Everyday Heroes Campaign']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 89.88,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 71.39,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real archival footage of Hrithik Roshan speaking at the MPower Everyday Heroes campaign launch. He is clearly visible in multiple sampled frames, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fae3c38b727744ed2f6d4abe27ccc96bde75a3548e0ead066d72e18e824499c9",
+      "reviewed_at": 1793661478.1167138
+    },
+    {
+      "person": "Hrithik Roshan",
+      "source": {
+        "id": "archive:bestofhrvcd",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bestofhrvcd/1%20%28Track%2006%29.mp4",
+        "source_url": "https://archive.org/details/bestofhrvcd",
+        "title": "Best of Hrithik Roshan vol 1 (Video Channel) VCD",
+        "description": "VC-727 sha1 track4: 6315F061B7CE6AB49CAF3AF4CF528B2A0FE0AE44 mastering code: VC 727 mastering sid: - ['vcd', 'video cd', 'video-cd']",
+        "creator": "Video Channel",
+        "license": "",
+        "subject": "['vcd', 'video cd', 'video-cd']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 395.8955,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 122.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames feature Hrithik Roshan alongside co-stars in archival film/music footage, suitable for illustrating his biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c34390a3df1f5b0c2a1da1636193a45ddd98a0c716fcfe9b0e8e1beaa7bd99f2",
+      "reviewed_at": 1793661486.5383341
+    },
+    {
+      "person": "Hrithik Roshan",
+      "source": {
+        "id": "archive:LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN/LAUNCH%20OF%20MPOWER%20%20EVERYDAYHEROES%20CAMPAIGN%20FEATURING%20HRITHIK%20ROSHAN.mp4",
+        "source_url": "https://archive.org/details/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+        "title": "Hrithik Roshan At The Launch of MPower Everyday Heroes Campaign",
+        "description": "Hrithik Roshan along with Neerja Birla at the launch of MPower Everyday Heroes campaign. ['Hrithik Roshan', 'Neerja Birla', 'MPower Everyday Heroes Campaign']",
+        "creator": "",
+        "license": "",
+        "subject": "['Hrithik Roshan', 'Neerja Birla', 'MPower Everyday Heroes Campaign']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 89.88,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 80.88,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Hrithik Roshan is clearly visible in the first two sampled frames attending a campaign launch event, making the footage suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9ea14ca6c89fda39a1af338fe491027ae230e0868038e55f0e04f57d1c537f09",
+      "reviewed_at": 1793661498.4307876
+    },
+    {
+      "person": "Hrithik Roshan",
+      "source": {
+        "id": "archive:bestofhrvcd",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bestofhrvcd/1%20%28Track%2006%29.mp4",
+        "source_url": "https://archive.org/details/bestofhrvcd",
+        "title": "Best of Hrithik Roshan vol 1 (Video Channel) VCD",
+        "description": "VC-727 sha1 track4: 6315F061B7CE6AB49CAF3AF4CF528B2A0FE0AE44 mastering code: VC 727 mastering sid: - ['vcd', 'video cd', 'video-cd']",
+        "creator": "Video Channel",
+        "license": "",
+        "subject": "['vcd', 'video cd', 'video-cd']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 395.8955,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 151.88,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The segment shows archival film footage featuring Hrithik Roshan dancing in a scene, though the video quality is low and has a watermark.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0299a96b01f6e010a4c848bbabfb2cdfdf037496c43a04a38fc59da551cbf91a",
+      "reviewed_at": 1793661507.258042
+    },
+    {
+      "person": "Hrithik Roshan",
+      "source": {
+        "id": "archive:bestofhrvcd",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bestofhrvcd/1%20%28Track%2006%29.mp4",
+        "source_url": "https://archive.org/details/bestofhrvcd",
+        "title": "Best of Hrithik Roshan vol 1 (Video Channel) VCD",
+        "description": "VC-727 sha1 track4: 6315F061B7CE6AB49CAF3AF4CF528B2A0FE0AE44 mastering code: VC 727 mastering sid: - ['vcd', 'video cd', 'video-cd']",
+        "creator": "Video Channel",
+        "license": "",
+        "subject": "['vcd', 'video cd', 'video-cd']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 395.8955,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 181.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real archival footage of actor Hrithik Roshan alongside co-star Ameesha Patel, clearly identifiable in multiple frames from their film work, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8d625e88463543b2d105a39799cf21501ac1eafa4696a61e4f1ddc9d6a5a82b3",
+      "reviewed_at": 1793661514.0032358
+    },
+    {
+      "person": "Hrithik Roshan",
+      "source": {
+        "id": "archive:bestofhrvcd",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bestofhrvcd/1%20%28Track%2006%29.mp4",
+        "source_url": "https://archive.org/details/bestofhrvcd",
+        "title": "Best of Hrithik Roshan vol 1 (Video Channel) VCD",
+        "description": "VC-727 sha1 track4: 6315F061B7CE6AB49CAF3AF4CF528B2A0FE0AE44 mastering code: VC 727 mastering sid: - ['vcd', 'video cd', 'video-cd']",
+        "creator": "Video Channel",
+        "license": "",
+        "subject": "['vcd', 'video cd', 'video-cd']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 395.8955,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 240.01,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature actor Hrithik Roshan in archival music video/film footage, showing him performing choreography outdoors. The footage is usable and directly illustrates his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b2d2ca7093ec1226407490cc190b2d333c108bbe3d2ba44daadec1cf650becaa",
+      "reviewed_at": 1793661520.125832
     }
   ]
 }

@@ -11508,6 +11508,312 @@
       "start": 1409.62,
       "reason": "The clip shows historical documentary footage featuring a handwritten letter associated with Desmond Doss, providing biographical context, though the subject is not visibly present in the frames.",
       "reviewed_at": 1793559905.9514592
+    },
+    "d9f89f9eceaa66525a56d86d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "source_url": "https://archive.org/details/ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "person": "Marie Curie",
+      "start": 312.01,
+      "reason": "The footage shows modern actors and directors discussing a theatre production about Marie Curie, not Marie Curie herself or historical archival footage of her life.",
+      "reviewed_at": 1793659717.3303666
+    },
+    "1652ad1507fd94ec153d54b7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "source_url": "https://archive.org/details/ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "person": "Marie Curie",
+      "start": 380.24,
+      "reason": "The video shows modern actors and directors discussing a theatre production about Marie Curie, not actual historical footage or depictions of Marie Curie herself.",
+      "reviewed_at": 1793659723.216814
+    },
+    "ea765758bd6d18c93a58fe04": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Opera_s_Influence_on_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 44.01,
+      "reason": "The video features Jon Batiste and Walter Isaacson discussing music at the Aspen Ideas Festival in 2014, with no footage or mention of Louis Armstrong.",
+      "reviewed_at": 1793659892.6108935
+    },
+    "67002bc8f9baa28e42f131ac": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Opera_s_Influence_on_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 53.76,
+      "reason": "The video features Jon Batiste and Walter Isaacson discussing music at the Aspen Ideas Festival, which has no connection to Louis Armstrong beyond a general mention of New Orleans, and Louis Armstrong is not visible in any frame.",
+      "reviewed_at": 1793659913.9081254
+    },
+    "8b19aafc88d58d729fc12cda": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Jon_Batiste_explains_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Jon_Batiste_explains_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 237.76,
+      "reason": "The video shows Jon Batiste talking about Louis Armstrong in an interview/panel setting, but Louis Armstrong is not visible in any of the frames.",
+      "reviewed_at": 1793659931.840835
+    },
+    "d067c764ddaf635ebce0e0e9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Jon_Batiste_explains_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Jon_Batiste_explains_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 295.95,
+      "reason": "The footage features musician Jon Batiste discussing Louis Armstrong in an interview setting. While Louis Armstrong himself is not visible in the frames, the clip provides relevant commentary about Armstrong's musical legacy, making it useful as biographical illustration.",
+      "reviewed_at": 1793659945.186605
+    },
+    "4996fc97380dbbc624fd4c3b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "person": "Louis Armstrong",
+      "start": 85.84,
+      "reason": "The footage shows a modern political event at the Louis Armstrong International Airport featuring Mayor Michael S. Yenni, not Louis Armstrong himself.",
+      "reviewed_at": 1793659951.3412824
+    },
+    "f99f99165f7a9752b9d2ca94": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "person": "Louis Armstrong",
+      "start": 112.79,
+      "reason": "The video shows modern archival footage of Mayor Michael S. Yenni welcoming WWII veterans at the Louis Armstrong International Airport in 2015. It does not feature Louis Armstrong, who died in 1971, and has no biographical connection to his life.",
+      "reviewed_at": 1793659959.5188248
+    },
+    "e75a19c77c6846f6254e4f21": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LeonardSusskind_2010X",
+      "source_url": "https://archive.org/details/LeonardSusskind_2010X",
+      "person": "Richard Feynman",
+      "start": 472.21,
+      "reason": "The video features physicist Leonard Susskind speaking about Richard Feynman, but Richard Feynman himself is not visible in the footage. Therefore, person_visible is false.",
+      "reviewed_at": 1793660214.4034796
+    },
+    "6396a947f1d967e74a6d7969": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LeonardSusskind_2010X",
+      "source_url": "https://archive.org/details/LeonardSusskind_2010X",
+      "person": "Richard Feynman",
+      "start": 672.44,
+      "reason": "The video shows physicist Leonard Susskind speaking about Richard Feynman at TEDxCaltech. While the person in the footage is Susskind (not Richard Feynman himself), it provides valid biographical context and commentary about Feynman from a close colleague.",
+      "reviewed_at": 1793660225.5978994
+    },
+    "752e21610df68a77257b84d8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LeonardSusskind_2011X",
+      "source_url": "https://archive.org/details/LeonardSusskind_2011X",
+      "person": "Richard Feynman",
+      "start": 472.22,
+      "reason": "The video features physicist Leonard Susskind speaking on stage about Richard Feynman, but the person visible throughout the frames is Leonard Susskind, not Richard Feynman himself. Therefore, person_visible is false, but it serves as biographical illustration.",
+      "reviewed_at": 1793660240.0866818
+    },
+    "678540227a8b576808edccfc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LeonardSusskind_2011X",
+      "source_url": "https://archive.org/details/LeonardSusskind_2011X",
+      "person": "Richard Feynman",
+      "start": 672.46,
+      "reason": "The sampled frames show physicist Leonard Susskind speaking about Richard Feynman during a TED talk. Richard Feynman himself is not visible in the footage, but Susskind provides biographical context and stories about him, making this usable as biographical illustration footage for a Short about Feynman.",
+      "reviewed_at": 1793660258.2778404
+    },
+    "62dcd109e8cbc1bbb35c718e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:media.ccc.de-emf2018-143-richard-feynman-dick",
+      "source_url": "https://archive.org/details/media.ccc.de-emf2018-143-richard-feynman-dick",
+      "person": "Richard Feynman",
+      "start": 647.36,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793660262.8716497
+    },
+    "880bd62d507f8d7183f21ed5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:media.ccc.de-emf2018-143-richard-feynman-dick",
+      "source_url": "https://archive.org/details/media.ccc.de-emf2018-143-richard-feynman-dick",
+      "person": "Richard Feynman",
+      "start": 922.66,
+      "reason": "The sampled frames consist of static slides and a speaker at a podium giving a presentation (not Richard Feynman himself), making it unusable for direct biographical identity footage.",
+      "reviewed_at": 1793660268.0896044
+    },
+    "770d31580cf6ba985415a91a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:media.ccc.de-emf2018-143-richard-feynman-dick",
+      "source_url": "https://archive.org/details/media.ccc.de-emf2018-143-richard-feynman-dick",
+      "person": "Richard Feynman",
+      "start": 5.0,
+      "reason": "The footage shows a contemporary speaker at a conference giving a talk about Richard Feynman, not Richard Feynman himself. Richard Feynman passed away in 1988, and the person visible is a modern speaker at EMF 2018.",
+      "reviewed_at": 1793660273.960543
+    },
+    "6ba321b6b086e3d40cb40af9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:how-richard-feynman-sees-a-flower",
+      "source_url": "https://archive.org/details/how-richard-feynman-sees-a-flower",
+      "person": "Richard Feynman",
+      "start": 54.53,
+      "reason": "The video shows nature footage of flowers and butterflies accompanied by narration discussing the aesthetics of nature, matching the theme of Richard Feynman's perspectives, though Feynman himself is not visible.",
+      "reviewed_at": 1793660288.6896172
+    },
+    "818223e5e3002d9b765ffd87": {
+      "kind": "segment_rejection",
+      "source_id": "archive:how-richard-feynman-sees-a-flower",
+      "source_url": "https://archive.org/details/how-richard-feynman-sees-a-flower",
+      "person": "Richard Feynman",
+      "start": 5.0,
+      "reason": "The video displays b-roll footage of flowers, directly matching the famous 'How Richard Feynman Sees a Flower' anecdote discussed in his biography and lectures, serving as relevant biographical illustration.",
+      "reviewed_at": 1793660304.3184087
+    },
+    "0ee7c688817750eb86c72365": {
+      "kind": "segment_rejection",
+      "source_id": "archive:horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993",
+      "source_url": "https://archive.org/details/horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993",
+      "person": "Richard Feynman",
+      "start": 5.0,
+      "reason": "The footage features abstract 3D computer graphics and animations typical of educational physics documentaries from the era, serving as valid biographical illustration for Richard Feynman's work in physics, though Feynman himself is not visible in the frames.",
+      "reviewed_at": 1793660345.0132737
+    },
+    "2053dd7aab55372abccdeff2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
+      "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
+      "person": "Bob Ross",
+      "start": 335.57,
+      "reason": "The sampled frames show only hands and an arm painting on a canvas, with no clear facial view or identifiable features of Bob Ross himself. Additionally, there is a prominent watermark/text overlay in the top left corner, making the footage unsuitable for use.",
+      "reviewed_at": 1793660710.414673
+    },
+    "abd2ef8ec4a7851c6fa179b6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
+      "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
+      "person": "Bob Ross",
+      "start": 409.03,
+      "reason": "The footage shows someone else (Jacob) painting rather than Bob Ross, making it unusable for a biography of Bob Ross.",
+      "reviewed_at": 1793660737.644828
+    },
+    "3391c7ac19518007bf2fd84f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
+      "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
+      "person": "Bob Ross",
+      "start": 445.76,
+      "reason": "The footage shows an unidentified person painting on the floor, not Bob Ross. Therefore, Bob Ross is not visible and the segment is not usable for a biography of Bob Ross.",
+      "reviewed_at": 1793660745.7797608
+    },
+    "3ff49b342fc17e45b78dc9f4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "source_url": "https://archive.org/details/sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "person": "Bob Ross",
+      "start": 546.12,
+      "reason": "The video features an interview about modern artists and writers influenced by Bob Ross, but Bob Ross himself is not present in the footage.",
+      "reviewed_at": 1793660774.9689531
+    },
+    "7bc33f180c04795d1154cb07": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "source_url": "https://archive.org/details/sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "person": "Bob Ross",
+      "start": 681.4,
+      "reason": "The frames show an unidentified woman being interviewed, not Bob Ross. Therefore, Bob Ross is not visible and the footage is not usable as identity footage for him.",
+      "reviewed_at": 1793660782.627637
+    },
+    "33f5b72f44b229a1cb779659": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "source_url": "https://archive.org/details/ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "person": "Bob Ross",
+      "start": 69.52,
+      "reason": "The video features a school interview about a student art project related to Bob Ross, but Bob Ross himself is not visible in any of the frames, making it unsuitable as biographical footage of the subject.",
+      "reviewed_at": 1793660795.119335
+    },
+    "96e82b8de514f0c6cc4e63f6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "source_url": "https://archive.org/details/ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "person": "Bob Ross",
+      "start": 87.96,
+      "reason": "The video shows a modern high school art classroom and an interview with a teacher discussing a student art project inspired by Bob Ross, but Bob Ross himself is not visible in any of the frames.",
+      "reviewed_at": 1793660800.5323973
+    },
+    "8baedbd8c5359b7740cdd80d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v848971694",
+      "source_url": "https://archive.org/details/twitch-vod-v848971694",
+      "person": "Bob Ross",
+      "start": 418.08,
+      "reason": "The footage shows a random Twitch streamer painting while watching Bob Ross on a secondary inset video, not the actual subject Bob Ross.",
+      "reviewed_at": 1793660844.3022664
+    },
+    "6e54486725063c89eef9138c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v848971694",
+      "source_url": "https://archive.org/details/twitch-vod-v848971694",
+      "person": "Bob Ross",
+      "start": 831.15,
+      "reason": "The footage shows a modern Twitch streamer painting along to a tutorial, not Bob Ross himself. Bob Ross is not visible in any frame, making this unusable as identity footage or direct archival context for his biography.",
+      "reviewed_at": 1793660867.8605454
+    },
+    "d58a09704e16e6f6bfcc9413": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v600505325",
+      "source_url": "https://archive.org/details/twitch-vod-v600505325",
+      "person": "Bob Ross",
+      "start": 5.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793660901.0858595
+    },
+    "f63759a6eae46aaf24495ad7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v600505325",
+      "source_url": "https://archive.org/details/twitch-vod-v600505325",
+      "person": "Bob Ross",
+      "start": 481.69,
+      "reason": "The video features an unidentified Twitch streamer, not Bob Ross, making it unusable and irrelevant for a biography about Bob Ross.",
+      "reviewed_at": 1793660935.9013948
+    },
+    "7518b6268193445fa0d4a2fb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v600505325",
+      "source_url": "https://archive.org/details/twitch-vod-v600505325",
+      "person": "Bob Ross",
+      "start": 958.37,
+      "reason": "The video shows a modern streamer/content creator painting or reacting to a Bob Ross tutorial, not Bob Ross himself. Therefore, it is unusable for a biography of Bob Ross.",
+      "reviewed_at": 1793660967.446891
+    },
+    "1a0c3cac64e967ca9894d7c8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+      "source_url": "https://archive.org/details/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+      "person": "Hrithik Roshan",
+      "start": 42.94,
+      "reason": "The video features real archival footage of Hrithik Roshan speaking at an event, making it usable as biographical illustration, though it lacks direct depiction of a specific narrated historical event.",
+      "reviewed_at": 1793661027.4615426
+    },
+    "119342d9530de4594ebbcddd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+      "source_url": "https://archive.org/details/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+      "person": "Hrithik Roshan",
+      "start": 5.0,
+      "reason": "The video features real footage of Hrithik Roshan attending the MPower Everyday Heroes campaign launch. While it matches the subject identity, it depicts a generic promotional event rather than a specific major biographical milestone requested in the narration, making it moderately useful as biographical illustration.",
+      "reviewed_at": 1793661129.2973802
+    },
+    "f015d72d7da958e58f6a3092": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bestofhrvcd",
+      "source_url": "https://archive.org/details/bestofhrvcd",
+      "person": "Hrithik Roshan",
+      "start": 5.0,
+      "reason": "The footage shows a silhouette against the sun with an intrusive channel watermark, and the subject's identity cannot be clearly verified from these frames alone.",
+      "reviewed_at": 1793661202.13914
+    },
+    "86cdb5ed4f12e32a534ce3ff": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+      "source_url": "https://archive.org/details/LAUNCHOFMPOWEREVERYDAYHEROESCAMPAIGNFEATURINGHRITHIKROSHAN",
+      "person": "Hrithik Roshan",
+      "start": 52.42,
+      "reason": "The video shows Hrithik Roshan speaking at a public event (MPower Everyday Heroes Campaign), which serves as biographical illustration footage for a Short about his life.",
+      "reviewed_at": 1793661463.9317267
     }
   }
 }

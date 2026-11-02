@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789213336",
-    "video_id": "5kxNPAiI5Po",
-    "topic": "Why do sneakers squeak on floors",
-    "completed_at": 1789214711
-  },
-  {
     "workdir": "output/1789230580",
     "video_id": "T7dt-DLaxBI",
     "topic": "Why do cardboard boxes tear sideways",
@@ -598,5 +592,11 @@
     "video_id": "uTT1NG5VUMA",
     "topic": "Why do wet clothes smell musty indoors",
     "completed_at": 1793653049
+  },
+  {
+    "workdir": "output/1793658662",
+    "video_id": "j8DaHuJRGN8",
+    "topic": "Why do glass lids get stuck tight",
+    "completed_at": 1793659973
   }
 ]

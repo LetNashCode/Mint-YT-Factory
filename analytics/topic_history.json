@@ -3502,5 +3502,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do coins smell like metal",
+    "normalized": "why do coins smell like metal",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793661367,
+    "recorded_at": 1793661367,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

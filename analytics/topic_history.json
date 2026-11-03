@@ -3526,5 +3526,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do socks slide down inside shoes",
+    "normalized": "why do socks slide down inside shoes",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793719683,
+    "recorded_at": 1793719683,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

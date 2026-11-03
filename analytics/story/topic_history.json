@@ -596,5 +596,21 @@
     "video_id": "ylDmhCYG65k",
     "workdir": "",
     "published_at": 1793662031
+  },
+  {
+    "topic": "Tom Hanks: Risking typecasting in light comedies by aggressively pursuing dramatic roles, starting with 'Philadelphia'.",
+    "normalized": "tom hanks risking typecasting in light comedies by aggressively pursuing dramatic roles starting with philadelphia",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1793711228,
+    "recorded_at": 1793711228,
+    "metadata": {
+      "person": "Tom Hanks",
+      "pillar": "one_decision"
+    },
+    "title": "Tom Hanks: Risking typecasting in light comedies by aggressively pursuing dramatic roles, starting with 'Philadelphia'.",
+    "video_id": "bZMEXXx8cXw",
+    "workdir": "",
+    "published_at": 1793712003
   }
 ]

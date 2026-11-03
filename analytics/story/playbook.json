@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-02T23:27:14.771600+00:00",
-  "video_count": 36,
+  "generated_at": "2026-11-03T13:20:05.814368+00:00",
+  "video_count": 37,
   "learning_sample_size": 22,
   "learning_ready": true,
   "metrics_available": true,
@@ -40,7 +40,7 @@
     "Valentina Tereshkova: A textile factory worker and amateur parachutist selected to become the first woman in space.",
     "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age."
   ],
-  "used_topic_count": 36,
+  "used_topic_count": 37,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

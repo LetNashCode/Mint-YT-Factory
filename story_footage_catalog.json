@@ -2,499 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Morgan Freeman",
-      "source": {
-        "id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/a878fb30c6e5c0b0323c0c072e713fbe/The%20Inside%20Reel%3A%20Morgan%20Freeman%20Interview-5267142.mp4",
-        "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
-        "title": "2821220_The Inside Reel: Morgan Freeman Interview-5267142",
-        "description": " ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 147.633333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 97.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Morgan Freeman in an interview setting, making it valid biographical illustration footage, though it is not a direct event depiction.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "27e9de522a363c7a9366eb2b2f4a19d5a784753dd673f86f52cd15750dbfacf7",
-      "reviewed_at": 1792056873.2529159
-    },
-    {
-      "person": "Morgan Freeman",
-      "source": {
-        "id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/a878fb30c6e5c0b0323c0c072e713fbe/The%20Inside%20Reel%3A%20Morgan%20Freeman%20Interview-5267142.mp4",
-        "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
-        "title": "2821220_The Inside Reel: Morgan Freeman Interview-5267142",
-        "description": " ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 147.633333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 107.79,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video segment shows Morgan Freeman clearly during an interview discussion, making it valid biographical illustration footage, though it lacks direct depiction of historical events.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d757dc083412669a412d30ce2d305fb2031b3d4276f7c69397a3c4f59c71f585",
-      "reviewed_at": 1792056878.3513007
-    },
-    {
-      "person": "A.R. Rahman",
-      "source": {
-        "id": "commons:83034875",
-        "provider": "Wikimedia Commons",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Wikipedia-VideoWiki-A._R._Rahman.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wikipedia-VideoWiki-A._R._Rahman.webm",
-        "title": "File:Wikipedia-VideoWiki-A. R. Rahman.webm",
-        "description": "Wikipedia:VideoWiki/A. R. Rahman",
-        "creator": "See script and authors listed in details below.",
-        "license": "CC BY-SA 3.0",
-        "direct_subject": false,
-        "identity_score": 10.0,
-        "duration_hint": 350.954
-      },
-      "start": 186.44,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment shows A.R. Rahman performing live on stage with musicians and dancers, serving as good biographical illustration for his musical career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "868f753b06e7abb38840dd45ef11084327e57e0d1c0bf0a700f209d99327ee9b",
-      "reviewed_at": 1792100767.8051262
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston/Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston.mp4",
-        "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
-        "title": "Transit Equity Day (CM Amanda Edwards, Rosa Parks, Link Houston)",
-        "description": "Acting on behalf of Mayor Sylvester Turner, At-Large Position 4 council member Amanda Edwards bestows a city proclamation to Oni Blair, the Executive Director of Link Houston. The proclamation was to declare February 4, 2019 as Transit Equity Day. February 4th is also the day in which Rosa Parks was born. ['Texas', 'Houston', 'City of Houston', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'HTV', 'Amanda Edwards', 'Transportation', 'Link Houston', 'Rosa Parks', 'News', '2019']",
-        "creator": "HTV",
-        "license": "",
-        "subject": "['Texas', 'Houston', 'City of Houston', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'HTV', 'Amanda Edwards', 'Transportation', 'Link Houston', 'Rosa Parks', 'News', '2019']",
-        "runtime": "00:01:55",
-        "direct_subject": true,
-        "duration_hint": 115.315315,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 23.42,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The sampled frames clearly feature historical footage of Rosa Parks seated on a bus, directly illustrating her life and the historic event.",
-        "usage": "direct_event"
-      },
-      "review_key": "aecd948ab7121708aab42c51f64a92b0e3722e09e468beea01333e8dc58a7055",
-      "reviewed_at": 1792100915.0251157
-    },
-    {
-      "person": "Marie Curie",
-      "source": {
-        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
-        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
-        "title": "Marie Curie A Scientific Hero",
-        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "creator": "Bloomington",
-        "license": "",
-        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "runtime": "00:02:12",
-        "direct_subject": true,
-        "duration_hint": 132.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 59.6,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature archival photographs and footage of Marie Curie, serving as valid biographical illustration for her life and legacy.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "dce02f6fdb51c81609e810da16d8561ed6aa827b2b3e2e86cc0b276674863cf9",
-      "reviewed_at": 1792101131.4816816
-    },
-    {
-      "person": "Agatha Christie",
-      "source": {
-        "id": "archive:agatha-christie-arena",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/agatha-christie-arena/Agatha%20Christie%20_001.mp4",
-        "source_url": "https://archive.org/details/agatha-christie-arena",
-        "title": "Arena: Agatha Christie - Unfinished Portrait",
-        "description": "Profile celebrating the centenary of the famous author Agatha Christie’s birth. Looking at her life, her character and the key moments in her childhood that influenced her writing. ['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
-        "creator": "BBC",
-        "license": "",
-        "subject": "['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3656.42408,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2806.86,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The archival footage clearly shows Agatha Christie at a desk, reflected in a mirror, providing direct and engaging visual context for her life as an author.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "315a62b3ac5bcaf9b254cf7c61c93c110b2ace364b94130cb68af3e2369800b9",
-      "reviewed_at": 1792139814.3317614
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Shackleton Documentary Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 223.95,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment features archival footage and photographs depicting Ernest Shackleton during his youth, accompanied by commentary from an expert, providing strong biographical illustration for a documentary on his life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "db42ebf5fff80780448f3ca96474c0ef2608d96e713c8259da50b2d2f5eec323",
-      "reviewed_at": 1792140553.0148978
-    },
-    {
-      "person": "Billie Eilish",
-      "source": {
-        "id": "archive:TikTok-6983923555671035141",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TikTok-6983923555671035141/6983923555671035141.mp4",
-        "source_url": "https://archive.org/details/TikTok-6983923555671035141",
-        "title": "BILLIE EILISH",
-        "description": "literally all i see on this app… eat my dust my tits are bigger than yours Source: https://www.tiktok.com/@billieeilish/video/6983923555671035141 Uploader: BILLIE EILISH ['TikTok', 'video']",
-        "creator": "BILLIE EILISH",
-        "license": "",
-        "subject": "['TikTok', 'video']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 10.566667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 0.26,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features Billie Eilish herself speaking directly to the camera from her own verified TikTok account, discussing online comments about her career. It is authentic first-hand identity footage suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a47f5983467f9fddef309f0a7daccbb084e1de16ab3cb2f518fffa6146e0563a",
-      "reviewed_at": 1792143517.6185765
-    },
-    {
-      "person": "Jane Goodall",
-      "source": {
-        "id": "archive:interviewwithjanegoodallinbaselfebruary2008",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/interviewwithjanegoodallinbaselfebruary2008/janegoodall-long-1500mb_512kb.mp4",
-        "source_url": "https://archive.org/details/interviewwithjanegoodallinbaselfebruary2008",
-        "title": "Interview with Jane Goodall",
-        "description": "Jane Goodall is an English UN Messenger of Peace, primatologist, ethologist, and anthropologist. She is best-known for her study of chimpanzee social and family life in Gombe Stream National Park, Tanzania, for 45 years, and for founding the Jane Goodall Institute. She visited Basel, Switzerland, for a few days in feb. 2008 for a convention / congress called \"natur\". At this occasion this interview took place. jane goodall, chimpanzee, basel, switzerland",
-        "creator": "Patrik Tschudin",
-        "license": "",
-        "subject": "jane goodall, chimpanzee, basel, switzerland",
-        "runtime": "11:39",
-        "direct_subject": true,
-        "duration_hint": 699.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 374.36,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video features real interview footage of Jane Goodall speaking and gesturing. While it is an interview rather than direct archival event footage from Gombe, it is genuine biographical illustration showing the named subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ed3e447b9ca8cafed4c7e638177b184ce378149ea10d1a08c3e06614e00b2959",
-      "reviewed_at": 1792158284.1721613
-    },
-    {
-      "person": "Jane Goodall",
-      "source": {
-        "id": "archive:JaneGoodall_2002",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JaneGoodall_2002/JaneGoodall_2002.mp4",
-        "source_url": "https://archive.org/details/JaneGoodall_2002",
-        "title": "Jane Goodall on what separates us from the apes",
-        "description": "Jane Goodall hasn't found the missing link, but she's come closer than nearly anyone else. The primatologist says the only real difference between humans and chimps is our sophisticated language. She urges us to start using it to change the world. ['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
-        "runtime": "00:27:28",
-        "direct_subject": true,
-        "duration_hint": 1647.266667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 130.64,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage features Jane Goodall speaking at a TED talk, which serves as valid biographical illustration material for a biography about her life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "156fa0edccca608d59daadcb9c63e40c8db802d0e3391edefaf71474246e4448",
-      "reviewed_at": 1792158300.0988052
-    },
-    {
-      "person": "Jane Goodall",
-      "source": {
-        "id": "archive:interviewwithjanegoodallinbaselfebruary2008",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/interviewwithjanegoodallinbaselfebruary2008/janegoodall-long-1500mb_512kb.mp4",
-        "source_url": "https://archive.org/details/interviewwithjanegoodallinbaselfebruary2008",
-        "title": "Interview with Jane Goodall",
-        "description": "Jane Goodall is an English UN Messenger of Peace, primatologist, ethologist, and anthropologist. She is best-known for her study of chimpanzee social and family life in Gombe Stream National Park, Tanzania, for 45 years, and for founding the Jane Goodall Institute. She visited Basel, Switzerland, for a few days in feb. 2008 for a convention / congress called \"natur\". At this occasion this interview took place. jane goodall, chimpanzee, basel, switzerland",
-        "creator": "Patrik Tschudin",
-        "license": "",
-        "subject": "jane goodall, chimpanzee, basel, switzerland",
-        "runtime": "11:39",
-        "direct_subject": true,
-        "duration_hint": 699.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 268.83,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment features real archival interview footage of Jane Goodall speaking and gesturing, making it suitable as biographical illustration for her life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ef3c321110887dd3ed9dbb5fee6bebd1d281edfc7e97526057e2785b02256a9d",
-      "reviewed_at": 1792158307.1066966
-    },
-    {
-      "person": "Jane Goodall",
-      "source": {
-        "id": "archive:JaneGoodall_2002",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JaneGoodall_2002/JaneGoodall_2002.mp4",
-        "source_url": "https://archive.org/details/JaneGoodall_2002",
-        "title": "Jane Goodall on what separates us from the apes",
-        "description": "Jane Goodall hasn't found the missing link, but she's come closer than nearly anyone else. The primatologist says the only real difference between humans and chimps is our sophisticated language. She urges us to start using it to change the world. ['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
-        "runtime": "00:27:28",
-        "direct_subject": true,
-        "duration_hint": 1647.266667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 633.18,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features real archival footage of Jane Goodall speaking at a TED event, clearly visible in all sampled frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c0b8ad6bc0b0fdc49709d969a0390b7ceac11d18949eeb18eaed008229e7dd5c",
-      "reviewed_at": 1792158331.411669
-    },
-    {
-      "person": "Jane Goodall",
-      "source": {
-        "id": "archive:interviewwithjanegoodallinbaselfebruary2008",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/interviewwithjanegoodallinbaselfebruary2008/janegoodall-long-1500mb_512kb.mp4",
-        "source_url": "https://archive.org/details/interviewwithjanegoodallinbaselfebruary2008",
-        "title": "Interview with Jane Goodall",
-        "description": "Jane Goodall is an English UN Messenger of Peace, primatologist, ethologist, and anthropologist. She is best-known for her study of chimpanzee social and family life in Gombe Stream National Park, Tanzania, for 45 years, and for founding the Jane Goodall Institute. She visited Basel, Switzerland, for a few days in feb. 2008 for a convention / congress called \"natur\". At this occasion this interview took place. jane goodall, chimpanzee, basel, switzerland",
-        "creator": "Patrik Tschudin",
-        "license": "",
-        "subject": "jane goodall, chimpanzee, basel, switzerland",
-        "runtime": "11:39",
-        "direct_subject": true,
-        "duration_hint": 699.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 321.6,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage features a clear, identifiable interview with Jane Goodall speaking and gesturing. It serves as valid biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0ad0faa1811e6fa2893b3969ca83f38937eeee21be84da870086fa34156896b3",
-      "reviewed_at": 1792158338.4311633
-    },
-    {
-      "person": "Jane Goodall",
-      "source": {
-        "id": "archive:JaneGoodall_2002",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JaneGoodall_2002/JaneGoodall_2002.mp4",
-        "source_url": "https://archive.org/details/JaneGoodall_2002",
-        "title": "Jane Goodall on what separates us from the apes",
-        "description": "Jane Goodall hasn't found the missing link, but she's come closer than nearly anyone else. The primatologist says the only real difference between humans and chimps is our sophisticated language. She urges us to start using it to change the world. ['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
-        "runtime": "00:27:28",
-        "direct_subject": true,
-        "duration_hint": 1647.266667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 256.27,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "Jane Goodall is clearly visible and speaking in all five sampled frames from her TED talk, making it high-quality biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "36eab55aee5577d581684289da45b86024165e9e25cee67e4e2cfc31d528d799",
-      "reviewed_at": 1792158350.8711631
-    },
-    {
-      "person": "Jane Goodall",
-      "source": {
-        "id": "archive:interviewwithjanegoodallinbaselfebruary2008",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/interviewwithjanegoodallinbaselfebruary2008/janegoodall-long-1500mb_512kb.mp4",
-        "source_url": "https://archive.org/details/interviewwithjanegoodallinbaselfebruary2008",
-        "title": "Interview with Jane Goodall",
-        "description": "Jane Goodall is an English UN Messenger of Peace, primatologist, ethologist, and anthropologist. She is best-known for her study of chimpanzee social and family life in Gombe Stream National Park, Tanzania, for 45 years, and for founding the Jane Goodall Institute. She visited Basel, Switzerland, for a few days in feb. 2008 for a convention / congress called \"natur\". At this occasion this interview took place. jane goodall, chimpanzee, basel, switzerland",
-        "creator": "Patrik Tschudin",
-        "license": "",
-        "subject": "jane goodall, chimpanzee, basel, switzerland",
-        "runtime": "11:39",
-        "direct_subject": true,
-        "duration_hint": 699.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage features a clear, identifiable interview with Jane Goodall discussing her work, matching the biographical context well despite an initial title card frame.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "898f2d4aeadfb0bde9c5800aeeec364458f07b28c80e66bc14061442f376ae35",
-      "reviewed_at": 1792158356.5936873
-    },
-    {
-      "person": "Jane Goodall",
-      "source": {
-        "id": "archive:JaneGoodall_2002",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JaneGoodall_2002/JaneGoodall_2002.mp4",
-        "source_url": "https://archive.org/details/JaneGoodall_2002",
-        "title": "Jane Goodall on what separates us from the apes",
-        "description": "Jane Goodall hasn't found the missing link, but she's come closer than nearly anyone else. The primatologist says the only real difference between humans and chimps is our sophisticated language. She urges us to start using it to change the world. ['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
-        "runtime": "00:27:28",
-        "direct_subject": true,
-        "duration_hint": 1647.266667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 381.91,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Jane Goodall is clearly visible throughout the sampled frames speaking at a podium during her TED talk, providing valid biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "cb375ab338ce9bbb414170edab39ad291a728b4095a555ea089b8d85b16a4a35",
-      "reviewed_at": 1792158367.665652
-    },
-    {
       "person": "Jane Goodall",
       "source": {
         "id": "archive:interviewwithjanegoodallinbaselfebruary2008",
@@ -9357,37 +8864,6 @@
     {
       "person": "Tom Hanks",
       "source": {
-        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
-        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
-        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
-        "creator": "",
-        "license": "",
-        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 96.996967,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 51.11,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage clearly shows Tom Hanks being interviewed on the red carpet at the Larry Crowne premiere, making it valid biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7c3f0506db65b3863882f36418cf16d215b648f7209e6e4daafeab2fc84e26d4",
-      "reviewed_at": 1792868722.1312416
-    },
-    {
-      "person": "Tom Hanks",
-      "source": {
         "id": "archive:ts-5-bts",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
@@ -9694,37 +9170,6 @@
       },
       "review_key": "02c7198190f79fce910a18f291d5469246d318aa6196ba1e3d8bb41f29793280",
       "reviewed_at": 1792868960.4891334
-    },
-    {
-      "person": "Tom Hanks",
-      "source": {
-        "id": "archive:ts-5-bts",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
-        "source_url": "https://archive.org/details/ts-5-bts",
-        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
-        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
-        "creator": "Fandango",
-        "license": "",
-        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1218.926042,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 746.49,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage shows Tom Hanks participating in an interview panel discussing Toy Story 5 alongside Tim Allen and Joan Cusack/Greta Lee. While it is recent promotional interview footage rather than archival material from his early life or classic films, it is genuine video featuring the clearly identifiable subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "83d9b4412820a7d906b0042d7ef5f8b11bd58cfaa867d3ad8978e335eeb62c51",
-      "reviewed_at": 1792868979.3171082
     },
     {
       "person": "Tom Hanks",
@@ -11365,37 +10810,6 @@
       },
       "review_key": "ef1c844f282606d35048985b29d5c5da462147de91f85b893067ffd4107099fd",
       "reviewed_at": 1793048671.138658
-    },
-    {
-      "person": "Louis Braille",
-      "source": {
-        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
-        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
-        "title": "Louis Braille ~ The Braille Alphabet",
-        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "creator": "",
-        "license": "",
-        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 864.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 332.03,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames from the archival-style biographical footage clearly show an actor portraying Louis Braille working on a tactile reading/writing system for the blind, with his face visible in the final frame.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "94d56e1e5ff3c1814ecea13d0319ae21ae109eda3cb493bdd67a42d946da9b4a",
-      "reviewed_at": 1793048869.8558292
     },
     {
       "person": "Malala Yousafzai",
@@ -18570,6 +17984,595 @@
       },
       "review_key": "b2d2ca7093ec1226407490cc190b2d333c108bbe3d2ba44daadec1cf650becaa",
       "reviewed_at": 1793661520.125832
+    },
+    {
+      "person": "Louis Braille",
+      "source": {
+        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
+        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+        "title": "Louis Braille ~ The Braille Alphabet",
+        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "creator": "",
+        "license": "",
+        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 864.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 332.03,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features historical reconstruction/archival footage depicting Louis Braille as a young boy interacting with tactile objects and learning at the institute, with his face clearly visible in the final frame.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bf4eaa2090cc4c6631481104a89113b4048e16a416fad535ac40c00a8537dfab",
+      "reviewed_at": 1793709910.3396072
+    },
+    {
+      "person": "Yuri Gagarin",
+      "source": {
+        "id": "archive:twitter-1249255658702147584",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1249255658702147584/1249255658702147584.mp4",
+        "source_url": "https://archive.org/details/twitter-1249255658702147584",
+        "title": "Russia 🇷🇺 - 📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️",
+        "description": "📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️ https://t.co/qFcrJyqNgN https://t.co/DJOYqk4RGu Source: https://twitter.com/Russia/status/1249255658702147584 Uploader: Russia 🇷🇺 ['Twitter', 'video', 'Gagarin']",
+        "creator": "Russia 🇷🇺",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Gagarin']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 418.36,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 222.73,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival footage of Yuri Gagarin appearing in a BBC interview in July 1961, clearly identifiable in the final sampled frame alongside an interviewer. Although the initial frames show the interviewer/host (Tom Margerison), Gagarin is visible later in the segment, making it suitable and usable historical identity footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d1023ca90479b61dfe244fd92307a133f0d7e3d4ea365ea637baa91fa707ff2d",
+      "reviewed_at": 1793710422.206732
+    },
+    {
+      "person": "Yuri Gagarin",
+      "source": {
+        "id": "archive:twitter-1249255658702147584",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1249255658702147584/1249255658702147584.mp4",
+        "source_url": "https://archive.org/details/twitter-1249255658702147584",
+        "title": "Russia 🇷🇺 - 📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️",
+        "description": "📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️ https://t.co/qFcrJyqNgN https://t.co/DJOYqk4RGu Source: https://twitter.com/Russia/status/1249255658702147584 Uploader: Russia 🇷🇺 ['Twitter', 'video', 'Gagarin']",
+        "creator": "Russia 🇷🇺",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Gagarin']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 418.36,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature archival interview footage of Yuri Gagarin (alongside the interviewer in initial frames), perfectly illustrating his life and historical significance.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6728063c096c2578071cde0c46a744c9ce7b7ef8d8aa3676493779162b7c7678",
+      "reviewed_at": 1793710492.891629
+    },
+    {
+      "person": "Yuri Gagarin",
+      "source": {
+        "id": "archive:twitter-1249255658702147584",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1249255658702147584/1249255658702147584.mp4",
+        "source_url": "https://archive.org/details/twitter-1249255658702147584",
+        "title": "Russia 🇷🇺 - 📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️",
+        "description": "📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️ https://t.co/qFcrJyqNgN https://t.co/DJOYqk4RGu Source: https://twitter.com/Russia/status/1249255658702147584 Uploader: Russia 🇷🇺 ['Twitter', 'video', 'Gagarin']",
+        "creator": "Russia 🇷🇺",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Gagarin']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 418.36,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 67.21,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video shows authentic archival footage of Yuri Gagarin being interviewed in 1961, perfectly illustrating his life and historical significance.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "575a0eb3f966df551ea6cff1cc791a62403fddb0bd9858ed8909f304424d5d18",
+      "reviewed_at": 1793710507.502675
+    },
+    {
+      "person": "Yuri Gagarin",
+      "source": {
+        "id": "archive:twitter-1249255658702147584",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1249255658702147584/1249255658702147584.mp4",
+        "source_url": "https://archive.org/details/twitter-1249255658702147584",
+        "title": "Russia 🇷🇺 - 📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️",
+        "description": "📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️ https://t.co/qFcrJyqNgN https://t.co/DJOYqk4RGu Source: https://twitter.com/Russia/status/1249255658702147584 Uploader: Russia 🇷🇺 ['Twitter', 'video', 'Gagarin']",
+        "creator": "Russia 🇷🇺",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Gagarin']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 418.36,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 98.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly show archival interview footage of Yuri Gagarin in 1961, perfectly matching the biographical subject and narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d8c7edbf22f9fbbcc8bf47d43e88e9c1e7fcaef0b3ba03f1240654e9bb6fb568",
+      "reviewed_at": 1793710513.6618793
+    },
+    {
+      "person": "Yuri Gagarin",
+      "source": {
+        "id": "archive:twitter-1249255658702147584",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1249255658702147584/1249255658702147584.mp4",
+        "source_url": "https://archive.org/details/twitter-1249255658702147584",
+        "title": "Russia 🇷🇺 - 📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️",
+        "description": "📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️ https://t.co/qFcrJyqNgN https://t.co/DJOYqk4RGu Source: https://twitter.com/Russia/status/1249255658702147584 Uploader: Russia 🇷🇺 ['Twitter', 'video', 'Gagarin']",
+        "creator": "Russia 🇷🇺",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Gagarin']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 418.36,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 129.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features genuine archival footage of Yuri Gagarin speaking in an interview, making it highly relevant and usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c0fd6acaa6ee1c70edd25f15ffee4e4638bcd325efbec8d0fca151045d2f6cf9",
+      "reviewed_at": 1793710529.3113818
+    },
+    {
+      "person": "Yuri Gagarin",
+      "source": {
+        "id": "archive:twitter-1249255658702147584",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1249255658702147584/1249255658702147584.mp4",
+        "source_url": "https://archive.org/details/twitter-1249255658702147584",
+        "title": "Russia 🇷🇺 - 📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️",
+        "description": "📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️ https://t.co/qFcrJyqNgN https://t.co/DJOYqk4RGu Source: https://twitter.com/Russia/status/1249255658702147584 Uploader: Russia 🇷🇺 ['Twitter', 'video', 'Gagarin']",
+        "creator": "Russia 🇷🇺",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Gagarin']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 418.36,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 160.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video segment shows genuine archival footage of Yuri Gagarin being interviewed in the UK in 1961, clearly showing him in the final frame and an interviewer/panelists in the earlier frames, perfectly matching the subject and biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b8a3321f414f2b115874d4220b8dc44e68f028347d14eee15c516b896d44502c",
+      "reviewed_at": 1793710535.9080358
+    },
+    {
+      "person": "Yuri Gagarin",
+      "source": {
+        "id": "archive:twitter-1249255658702147584",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1249255658702147584/1249255658702147584.mp4",
+        "source_url": "https://archive.org/details/twitter-1249255658702147584",
+        "title": "Russia 🇷🇺 - 📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️",
+        "description": "📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️ https://t.co/qFcrJyqNgN https://t.co/DJOYqk4RGu Source: https://twitter.com/Russia/status/1249255658702147584 Uploader: Russia 🇷🇺 ['Twitter', 'video', 'Gagarin']",
+        "creator": "Russia 🇷🇺",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Gagarin']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 418.36,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 191.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features genuine archival footage of Yuri Gagarin participating in an interview, clearly visible and identifiable throughout the frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "906928e45f95350c683fdbc083d4f5c7076f99431ba2c82a8df724eea739a57e",
+      "reviewed_at": 1793710560.2729287
+    },
+    {
+      "person": "Yuri Gagarin",
+      "source": {
+        "id": "archive:twitter-1249255658702147584",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1249255658702147584/1249255658702147584.mp4",
+        "source_url": "https://archive.org/details/twitter-1249255658702147584",
+        "title": "Russia 🇷🇺 - 📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️",
+        "description": "📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️ https://t.co/qFcrJyqNgN https://t.co/DJOYqk4RGu Source: https://twitter.com/Russia/status/1249255658702147584 Uploader: Russia 🇷🇺 ['Twitter', 'video', 'Gagarin']",
+        "creator": "Russia 🇷🇺",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Gagarin']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 418.36,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 253.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment shows real archival footage of Yuri Gagarin being interviewed in 1961, clearly visible across multiple frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cbf001351ab8ae2b1db5c22daa020ab97d4d8072e3aa479d70f0bf8563cdfd89",
+      "reviewed_at": 1793710593.72948
+    },
+    {
+      "person": "Yuri Gagarin",
+      "source": {
+        "id": "archive:twitter-1249255658702147584",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1249255658702147584/1249255658702147584.mp4",
+        "source_url": "https://archive.org/details/twitter-1249255658702147584",
+        "title": "Russia 🇷🇺 - 📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️",
+        "description": "📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️ https://t.co/qFcrJyqNgN https://t.co/DJOYqk4RGu Source: https://twitter.com/Russia/status/1249255658702147584 Uploader: Russia 🇷🇺 ['Twitter', 'video', 'Gagarin']",
+        "creator": "Russia 🇷🇺",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Gagarin']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 418.36,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 284.94,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment shows genuine archival footage of Yuri Gagarin during an interview, with the subject clearly visible in the early frames, making it highly relevant and usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f2384b0dc64ea2f1a842e7fd48867060e05c7b1e3f59c4d128274be6ffde12dd",
+      "reviewed_at": 1793710599.6218634
+    },
+    {
+      "person": "Yuri Gagarin",
+      "source": {
+        "id": "archive:twitter-1249255658702147584",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1249255658702147584/1249255658702147584.mp4",
+        "source_url": "https://archive.org/details/twitter-1249255658702147584",
+        "title": "Russia 🇷🇺 - 📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️",
+        "description": "📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️ https://t.co/qFcrJyqNgN https://t.co/DJOYqk4RGu Source: https://twitter.com/Russia/status/1249255658702147584 Uploader: Russia 🇷🇺 ['Twitter', 'video', 'Gagarin']",
+        "creator": "Russia 🇷🇺",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Gagarin']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 418.36,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 316.05,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment shows genuine archival footage of Yuri Gagarin participating in a televised interview during his UK visit in 1961, perfectly matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "258a29e6cc85f91aefe6912a882da4049e8cc153c96c77a70d0f155a1026295b",
+      "reviewed_at": 1793710610.2347314
+    },
+    {
+      "person": "Yuri Gagarin",
+      "source": {
+        "id": "archive:twitter-1249255658702147584",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1249255658702147584/1249255658702147584.mp4",
+        "source_url": "https://archive.org/details/twitter-1249255658702147584",
+        "title": "Russia 🇷🇺 - 📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️",
+        "description": "📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️ https://t.co/qFcrJyqNgN https://t.co/DJOYqk4RGu Source: https://twitter.com/Russia/status/1249255658702147584 Uploader: Russia 🇷🇺 ['Twitter', 'video', 'Gagarin']",
+        "creator": "Russia 🇷🇺",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Gagarin']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 418.36,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 347.15,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly show Yuri Gagarin in archival interview footage, making it highly relevant and usable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "12c6146784a06df2f97bb39426d2931cca10dad19da458f7cbfe0557fa153cc5",
+      "reviewed_at": 1793710633.7481408
+    },
+    {
+      "person": "Yuri Gagarin",
+      "source": {
+        "id": "archive:twitter-1249255658702147584",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1249255658702147584/1249255658702147584.mp4",
+        "source_url": "https://archive.org/details/twitter-1249255658702147584",
+        "title": "Russia 🇷🇺 - 📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️",
+        "description": "📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️ https://t.co/qFcrJyqNgN https://t.co/DJOYqk4RGu Source: https://twitter.com/Russia/status/1249255658702147584 Uploader: Russia 🇷🇺 ['Twitter', 'video', 'Gagarin']",
+        "creator": "Russia 🇷🇺",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Gagarin']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 418.36,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 378.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival BBC interview footage of Yuri Gagarin clearly visible and speaking about his historic spaceflight, perfectly matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c2af21565ab928121a23e638c52fa8d90f5ad846550dff9faa680905bc1093e2",
+      "reviewed_at": 1793710662.2970076
+    },
+    {
+      "person": "Yuri Gagarin",
+      "source": {
+        "id": "archive:twitter-1249255658702147584",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1249255658702147584/1249255658702147584.mp4",
+        "source_url": "https://archive.org/details/twitter-1249255658702147584",
+        "title": "Russia 🇷🇺 - 📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️",
+        "description": "📺 Witness Yuri #Gagarin sharing first-hand impressions on the historic spaceflight of 12 April 1961 in an interview to @BBC in July 1961 during his visit to the 🇬🇧 UK. - «No butterflies in the tummy» - «Vostok capsule far roomier than cabin of a jet» ▶️ https://t.co/qFcrJyqNgN https://t.co/DJOYqk4RGu Source: https://twitter.com/Russia/status/1249255658702147584 Uploader: Russia 🇷🇺 ['Twitter', 'video', 'Gagarin']",
+        "creator": "Russia 🇷🇺",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Gagarin']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 418.36,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 409.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival interview footage of Yuri Gagarin clearly visible and speaking, perfectly matching the biographical subject and context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f5955b0b956702969d25f3f17f1aed9d73839d5b8af18f67302e1c89f526164e",
+      "reviewed_at": 1793710670.9152315
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
+        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "creator": "",
+        "license": "",
+        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 96.996967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 51.11,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "The video features real archival footage of Tom Hanks being interviewed on the red carpet for the premiere of Larry Crowne, making it suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "23f1dc49609daa172812d60d7193832e0bcf3044215b4e5b6636556b22a6265e",
+      "reviewed_at": 1793711277.1325617
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:ts-5-bts",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
+        "source_url": "https://archive.org/details/ts-5-bts",
+        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
+        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "creator": "Fandango",
+        "license": "",
+        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1218.926042,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 746.49,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage shows Tom Hanks participating in an interview/panel with other cast members, making it suitable as biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "08a828adf1c3834dc9cd6de0678cb91c770ddd5348f3c31bd47db2047b845ba6",
+      "reviewed_at": 1793711358.9574099
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:ts-5-bts",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
+        "source_url": "https://archive.org/details/ts-5-bts",
+        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
+        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "creator": "Fandango",
+        "license": "",
+        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1218.926042,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 839.18,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames clearly feature Tom Hanks sitting in an interview panel with Tim Allen and Joan Cusack, qualifying as valid biographical illustration footage for a Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2f109acefecf42a2f664f56619e5603b098ee7314482dd441ca0697c52a27b4f",
+      "reviewed_at": 1793711390.6036267
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:ts-5-bts",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
+        "source_url": "https://archive.org/details/ts-5-bts",
+        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
+        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "creator": "Fandango",
+        "license": "",
+        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1218.926042,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 931.87,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features Tom Hanks participating in an interview panel about Toy Story 5, providing valid biographical footage of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "de2970e56658794ad09dae95e58e51dbff30b023565b330aba62f7a91c634bd4",
+      "reviewed_at": 1793711401.6960557
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:ts-5-bts",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
+        "source_url": "https://archive.org/details/ts-5-bts",
+        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
+        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "creator": "Fandango",
+        "license": "",
+        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1218.926042,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1024.55,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Tom Hanks is clearly visible in the first two interview frames, and the subsequent frames show Toy Story animation footage representing his famous voice acting role, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c43d6b4fbd45cc5311b6a7a777cd892baafda3df220aff65bd4fc3d2d6356148",
+      "reviewed_at": 1793711458.5986545
     }
   ]
 }

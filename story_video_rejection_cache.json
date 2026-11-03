@@ -11814,6 +11814,132 @@
       "start": 52.42,
       "reason": "The video shows Hrithik Roshan speaking at a public event (MPower Everyday Heroes Campaign), which serves as biographical illustration footage for a Short about his life.",
       "reviewed_at": 1793661463.9317267
+    },
+    "007f9db0d2cee44585618b68": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coyaz-Arizona_Winter_League",
+      "source_url": "https://archive.org/details/coyaz-Arizona_Winter_League",
+      "person": "Ray Kroc",
+      "start": 5.0,
+      "reason": "The footage shows a baseball field and an interview with Brooks Carey, Vice President of Baseball Operations for the Arizona Winter League. Ray Kroc is neither visible nor is there any historical connection to him shown in the clip beyond the metadata.",
+      "reviewed_at": 1793710055.6785324
+    },
+    "b62022e058b07917a475d4b3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coyaz-Arizona_Winter_League",
+      "source_url": "https://archive.org/details/coyaz-Arizona_Winter_League",
+      "person": "Ray Kroc",
+      "start": 23.17,
+      "reason": "The footage shows a modern baseball game at the Ray Kroc Baseball Complex in Yuma, Arizona (filmed in 2016), but Ray Kroc died in 1984. Therefore, this is modern B-roll footage named after him, lacking historical relevance to his actual life.",
+      "reviewed_at": 1793710133.8353121
+    },
+    "e50272dc2e2a804a9271dbb6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Lo_que_Rompeviento_se_llevo-_TheFounder_-_06_04_2017",
+      "source_url": "https://archive.org/details/Lo_que_Rompeviento_se_llevo-_TheFounder_-_06_04_2017",
+      "person": "Ray Kroc",
+      "start": 404.35,
+      "reason": "The footage consists of clips from a dramatic feature film ('The Founder') starring Michael Keaton playing Ray Kroc, accompanied by a commentator in the foreground. This is a fictional dramatization rather than genuine historical footage or authentic documentary coverage of Ray Kroc.",
+      "reviewed_at": 1793710144.687871
+    },
+    "31e15e27484b5246ef232cbe": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Lo_que_Rompeviento_se_llevo-_TheFounder_-_06_04_2017",
+      "source_url": "https://archive.org/details/Lo_que_Rompeviento_se_llevo-_TheFounder_-_06_04_2017",
+      "person": "Ray Kroc",
+      "start": 575.5,
+      "reason": "The footage shows a movie review/discussion panel where a host is speaking in front of a projection screen playing scenes from the biographical film 'The Founder' starring Michael Keaton. The actual historical subject Ray Kroc is not visible, and the clip is a third-party commentary video rather than usable archival footage or direct biographical illustration of the subject.",
+      "reviewed_at": 1793710150.851446
+    },
+    "2e82be66da78ad993c6939ec": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ray-kroc",
+      "source_url": "https://archive.org/details/ray-kroc",
+      "person": "Ray Kroc",
+      "start": 418.49,
+      "reason": "The footage shows archival black and white film of a diner/store counter scene that serves as biographical illustration for Ray Kroc's early career, but Ray Kroc himself is not clearly identifiable in the frames.",
+      "reviewed_at": 1793710184.4259202
+    },
+    "99bb1c449001eff9405a297c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ray-kroc",
+      "source_url": "https://archive.org/details/ray-kroc",
+      "person": "Ray Kroc",
+      "start": 625.23,
+      "reason": "The segment features archival footage of the 1920s era and cityscapes representing Ray Kroc's lifetime context, but does not depict Ray Kroc himself visibly in the frames.",
+      "reviewed_at": 1793710191.8311224
+    },
+    "887fe05a246d2fcffa8dca33": {
+      "kind": "segment_rejection",
+      "source_id": "archive:42424-europes-powder-keg-vwr",
+      "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+      "person": "Amelia Earhart",
+      "start": 575.11,
+      "reason": "The sampled frames consist entirely of ending credits, stock footage licensing information, and distributor title cards. Amelia Earhart is not visible, and the segment does not contain any usable historical context or footage depicting her life.",
+      "reviewed_at": 1793710323.625479
+    },
+    "1008ff7a7a7b0837d9628a17": {
+      "kind": "segment_rejection",
+      "source_id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "person": "Amelia Earhart",
+      "start": 575.11,
+      "reason": "The sampled frames consist entirely of title cards ('The End') and stock footage distributor credit slates from Periscope Film. Amelia Earhart is not visible anywhere in these frames, and the segment contains no usable historical context or biographical illustration related to her.",
+      "reviewed_at": 1793710330.906383
+    },
+    "d026e024efa469ab2c8df673": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-984408293518008321",
+      "source_url": "https://archive.org/details/twitter-984408293518008321",
+      "person": "Yuri Gagarin",
+      "start": 60.34,
+      "reason": "The footage shows Air Commodore Stewart being interviewed about Yuri Gagarin's flight, but Yuri Gagarin himself is not visible in any of the sampled frames.",
+      "reviewed_at": 1793710441.0729976
+    },
+    "9e21e96b329705b602767c23": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-984408293518008321",
+      "source_url": "https://archive.org/details/twitter-984408293518008321",
+      "person": "Yuri Gagarin",
+      "start": 88.01,
+      "reason": "The video shows archival news footage interviewing Air Commodore Stewart about Yuri Gagarin, but Yuri Gagarin is never visible in any of the frames.",
+      "reviewed_at": 1793710456.2570014
+    },
+    "10039d283e9d62ca735e59f2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-1116744033815154689",
+      "source_url": "https://archive.org/details/twitter-1116744033815154689",
+      "person": "Yuri Gagarin",
+      "start": 60.34,
+      "reason": "The video features Air Commodore Stewart being interviewed about Yuri Gagarin, but Yuri Gagarin himself is not visible in any of the sampled frames.",
+      "reviewed_at": 1793710477.3188589
+    },
+    "72a8b14f6e79db9b9cf4cde7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-1116744033815154689",
+      "source_url": "https://archive.org/details/twitter-1116744033815154689",
+      "person": "Yuri Gagarin",
+      "start": 5.0,
+      "reason": "The footage shows Air Commodore Stewart being interviewed about Yuri Gagarin's flight. While Yuri Gagarin is not visible in the clip, the archival interview provides genuine historical context and commentary related to Gagarin's historic spaceflight, making it usable as biographical illustration.",
+      "reviewed_at": 1793710490.5136714
+    },
+    "ef053d602163b73169b40404": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-1249255658702147584",
+      "source_url": "https://archive.org/details/twitter-1249255658702147584",
+      "person": "Yuri Gagarin",
+      "start": 36.1,
+      "reason": "The sampled frames show Tom Margerison interviewing someone, but Yuri Gagarin is not visible in any of the frames.",
+      "reviewed_at": 1793710503.274099
+    },
+    "b38ca52f54f19cc570da62b6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131031-095001-Celebritywire-TomHanksRidesABlueScooterIntoPremiereOfLARRYCROWNE616",
+      "source_url": "https://archive.org/details/bliptv-20131031-095001-Celebritywire-TomHanksRidesABlueScooterIntoPremiereOfLARRYCROWNE616",
+      "person": "Tom Hanks",
+      "start": 2.2,
+      "reason": "The sampled frames consist of static title cards, channel logos, and photo collages rather than actual moving footage of Tom Hanks. Therefore, it is unusable.",
+      "reviewed_at": 1793711265.31308
     }
   }
 }

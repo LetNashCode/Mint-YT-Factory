@@ -1,18 +1,5 @@
 [
   {
-    "format": "impossible_odds",
-    "person": "Amundsen",
-    "premise": "Winning the grueling race to the South Pole against the British expedition led by Robert Falcon Scott.",
-    "hook": "Two teams raced across the freezing wastes of Antarctica—only one made it back to tell the tale.",
-    "key_facts": [
-      "Led the first expedition to successfully reach the geographic South Pole in December 1911.",
-      "Utilized traditional Inuit survival methods, fur clothing, and experienced sled dogs.",
-      "Previously led the first expedition to successfully navigate the Northwest Passage between 1903 and 1906.",
-      "Disappeared in 1928 while participating in an arctic rescue mission."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Jonas Salk",
     "premise": "Choosing not to patent the polio vaccine to ensure maximum global distribution and access.",
@@ -22,32 +9,6 @@
       "Announced on national radio in 1955 that the vaccine would not be patented.",
       "Famously asked 'Would you patent the sun?' when questioned about ownership.",
       "Contributed to the near-global eradication of wild poliovirus."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Edson Arantes do Nascimento (Pelé)",
-    "premise": "How a boy from the impoverished neighborhoods of Bauru who practiced with rolled-up socks became a global soccer icon.",
-    "hook": "He grew up so poor he couldn't afford a real football, so he practiced dribbling with a sock stuffed with rags.",
-    "key_facts": [
-      "Born in Tres Coracoes, Minas Gerais, and raised in poverty in Bauru.",
-      "Worked as a servant in a tea shop to earn extra money as a child.",
-      "Scored twice in the 1958 World Cup final at just 17 years of age, helping Brazil win its first title.",
-      "Finished his career with 1,279 goals in 1,363 games, recognized by Guinness World Records."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Louis Braille",
-    "premise": "How a blinded French boy invented a revolutionary tactile reading system that changed global literacy for the visually impaired.",
-    "hook": "He lost his sight at age three in a tragic workshop accident, yet created a universal reading code before he turned fifteen.",
-    "key_facts": [
-      "Blinded in his father's harness-making shop in Coupvray following an infection from a stitching awl.",
-      "Attended the Royal Institution for Blind Youth in Paris, where books were printed in heavy, raised standard letters.",
-      "Adapted a military 'night writing' code based on raised dots developed by Charles Barbier.",
-      "Published his raised-dot writing system in 1829, though it was only officially adopted in France after his death."
     ],
     "source": "gemini_original"
   },
@@ -64,26 +25,28 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Tom Hanks",
-    "premise": "Risking typecasting in light comedies by aggressively pursuing dramatic roles, starting with 'Philadelphia'.",
-    "hook": "America's favorite comedic actor had to completely reinvent his career to be taken seriously as a dramatic heavyweight.",
+    "format": "rise_from_nothing",
+    "person": "Ramanujan",
+    "premise": "A self-taught mathematical genius from Erode who produced groundbreaking theorems without formal university training.",
+    "hook": "A low-level shipping clerk mailed a notebook filled with impossible mathematical equations to a professor in Cambridge.",
     "key_facts": [
-      "Built his early career on light comedies like 'Splash' and 'Big'.",
-      "Accepted a challenging dramatic role in the 1993 film 'Philadelphia'.",
-      "Won consecutive Academy Awards for Best Actor in the 1990s."
+      "Grew up in modest circumstances in Tamil Nadu and struggled through regular college due to an obsession with mathematics.",
+      "Worked as a clerk at the Madras Port Trust to support his family while pursuing mathematics independently.",
+      "Sent a letter containing unproven mathematical formulas to British mathematician G.H. Hardy in 1913.",
+      "Was invited to Trinity College, Cambridge, where he became a Fellow of the Royal Society."
     ],
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
+    "format": "rise_from_nothing",
     "person": "Viswanathan Anand",
-    "premise": "Pioneering Indian chess on the global stage against heavily funded Soviet grandmaster hegemony without a domestic professional training infrastructure.",
-    "hook": "He learned the game from his mother in a quiet corner of Madras and grew up to defeat the greatest chess machine in history.",
+    "premise": "Rising from the chess clubs of southern India to become the undisputed World Chess Champion.",
+    "hook": "He learned the rules of chess from his mother at age six in a house without a computer or grandmaster coach.",
     "key_facts": [
-      "Became India's first chess Grandmaster in 1988.",
-      "Won the World Chess Championship across multiple formats including tournament, knockout, and match.",
-      "Popularized chess across India, inspiring an entire generation of international grandmasters."
+      "Became India's first international chess grandmaster in 1988 at the age of 18",
+      "Won the FIDE World Chess Championship in 2000, becoming the first Indian to hold the title",
+      "Defended and retained the world championship title in 2007, 2008, 2010, and 2012",
+      "Awarded India's highest civilian sporting honor, the Rajiv Gandhi Khel Ratna, in 1991"
     ],
     "source": "gemini_original"
   }

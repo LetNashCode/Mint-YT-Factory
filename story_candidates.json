@@ -1,43 +1,5 @@
 [
   {
-    "format": "one_decision",
-    "person": "Jonas Salk",
-    "premise": "Choosing not to patent the polio vaccine to ensure maximum global distribution and access.",
-    "hook": "He had the chance to become one of the wealthiest scientists in history, but gave it all away with a single question.",
-    "key_facts": [
-      "Led the research team that developed the first successful polio vaccine in the early 1950s.",
-      "Announced on national radio in 1955 that the vaccine would not be patented.",
-      "Famously asked 'Would you patent the sun?' when questioned about ownership.",
-      "Contributed to the near-global eradication of wild poliovirus."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "Shah Rukh Khan",
-    "premise": "From losing both parents in Delhi to becoming the biggest movie star in global cinema without a film-industry family background.",
-    "hook": "He arrived in Mumbai with a suitcase and a promise to his dying mother that he would conquer the city.",
-    "key_facts": [
-      "Lost both parents at a young age before establishing his career.",
-      "Started in television before transitioning to Bollywood villain roles.",
-      "Achieved global superstardom without any family connections in the film industry."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "Ramanujan",
-    "premise": "A self-taught mathematical genius from Erode who produced groundbreaking theorems without formal university training.",
-    "hook": "A low-level shipping clerk mailed a notebook filled with impossible mathematical equations to a professor in Cambridge.",
-    "key_facts": [
-      "Grew up in modest circumstances in Tamil Nadu and struggled through regular college due to an obsession with mathematics.",
-      "Worked as a clerk at the Madras Port Trust to support his family while pursuing mathematics independently.",
-      "Sent a letter containing unproven mathematical formulas to British mathematician G.H. Hardy in 1913.",
-      "Was invited to Trinity College, Cambridge, where he became a Fellow of the Royal Society."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "rise_from_nothing",
     "person": "Viswanathan Anand",
     "premise": "Rising from the chess clubs of southern India to become the undisputed World Chess Champion.",
@@ -47,6 +9,69 @@
       "Won the FIDE World Chess Championship in 2000, becoming the first Indian to hold the title",
       "Defended and retained the world championship title in 2007, 2008, 2010, and 2012",
       "Awarded India's highest civilian sporting honor, the Rajiv Gandhi Khel Ratna, in 1991"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Narayana Murthy",
+    "premise": "Starting Infosys with just $250 borrowed from his wife and a vision to build a global software giant in India.",
+    "hook": "He launched one of the world's biggest tech companies from his living room using borrowed money from his wife.",
+    "key_facts": [
+      "Co-founded Infosys in Pune, India, in 1981.",
+      "Started with a modest capital of 10,000 rupees.",
+      "Pioneered the global delivery model for software services.",
+      "Served as CEO for over two decades, transforming India's tech landscape."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Yashwantrao Chavan",
+    "premise": "Resigning as India's Defence Minister immediately after the 1962 war defeat to accept full political accountability.",
+    "hook": "Instead of defending his department after a military defeat, he took full responsibility on national television.",
+    "key_facts": [
+      "Served as India's Defence Minister during the 1962 Sino-Indian War",
+      "Succeeded V. K. Krishna Menon in the cabinet following the conflict",
+      "Navigated the transition of leadership during the deaths of Nehru and Shastri",
+      "Later served as India's Home Minister and Finance Minister"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Satyajit Ray",
+    "premise": "Pawned his wife's jewelry and used his own life savings to finish filming Pather Panchali after running out of money.",
+    "hook": "His masterpiece film was paused for nearly three years because nobody believed a slow-paced art film about rural Bengal would sell.",
+    "key_facts": [
+      "Worked as a commercial artist while struggling to finance his directorial debut.",
+      "Shot the film intermittently on weekends whenever funds became available.",
+      "Received partial financial intervention from the Government of West Bengal to complete production.",
+      "Pather Panchali won Best Human Document at the 1956 Cannes Film Festival."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Kalpana Chawla",
+    "premise": "Journeying from a small town in Haryana to becoming the first Indian-born woman in space.",
+    "hook": "Growing up in a conservative Indian town where engineering was rarely pursued by women, she dreamed only of the stars.",
+    "key_facts": [
+      "Graduated with an aeronautical engineering degree from Punjab Engineering College.",
+      "Moved to the United States in 1982 to earn her master's and doctorate in aerospace engineering.",
+      "Selected by NASA in 1994 and flew on Space Shuttle Columbia in 1997."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "Surviving months stranded on the Antarctic ice after his ship was crushed in the pack ice.",
+    "hook": "His ship was completely destroyed by icebergs, leaving his entire crew stranded on floating ice floes with no way to communicate with the outside world.",
+    "key_facts": [
+      "Led the Imperial Trans-Antarctic Expedition in 1914 aboard the ship Endurance.",
+      "Watched the Endurance sink after being trapped and crushed by Weddell Sea ice in 1915.",
+      "Successfully navigated an open lifeboat 800 miles across stormy seas to South Georgia Island to secure rescue."
     ],
     "source": "gemini_original"
   }

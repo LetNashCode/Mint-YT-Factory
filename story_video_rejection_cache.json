@@ -11940,6 +11940,312 @@
       "start": 2.2,
       "reason": "The sampled frames consist of static title cards, channel logos, and photo collages rather than actual moving footage of Tom Hanks. Therefore, it is unusable.",
       "reviewed_at": 1793711265.31308
+    },
+    "7e2c574462f97ab1a0a82ec0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:satyajit-ray-films",
+      "source_url": "https://archive.org/details/satyajit-ray-films",
+      "person": "Satyajit Ray",
+      "start": 8055.87,
+      "reason": "The footage shows a scene from a film (likely directed by Satyajit Ray, given the source and style), but the person visible in the frames is an actor, not Satyajit Ray himself. Therefore, person_visible is false, but it serves as valid biographical illustration for a segment about his films.",
+      "reviewed_at": 1793730202.7272158
+    },
+    "d95199fe93787ae0ad36775d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:satyajit-ray-films",
+      "source_url": "https://archive.org/details/satyajit-ray-films",
+      "person": "Satyajit Ray",
+      "start": 8726.78,
+      "reason": "The frames show a title card and archive credits ('THIS FILM WAS PRESERVED BY THE ACADEMY FILM ARCHIVE') rather than actual filmed footage of Satyajit Ray or concrete historical context.",
+      "reviewed_at": 1793730208.154841
+    },
+    "52b1c2921a700edf5376fbb4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+      "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+      "person": "Shah Rukh Khan",
+      "start": 61.3,
+      "reason": "The sampled frames show a website player interface with advertisements and brand animations ('excel'), but do not contain usable moving footage or the subject Shah Rukh Khan clearly visible in the video segment.",
+      "reviewed_at": 1793730429.451441
+    },
+    "37494e8b20ba949b4bb80005": {
+      "kind": "segment_rejection",
+      "source_id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+      "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+      "person": "Shah Rukh Khan",
+      "start": 12.33,
+      "reason": "The video shows Shah Rukh Khan in an interview/discussion format, but the footage has been heavily cropped and poorly framed from a social media platform, with surrounding UI elements making it unsuitable for a 9:16 vertical biography short.",
+      "reviewed_at": 1793730488.2517493
+    },
+    "84ad463b480c9c8f45da1a2c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+      "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+      "person": "Shah Rukh Khan",
+      "start": 30.67,
+      "reason": "The video features Shah Rukh Khan talking, but the footage is captured within a social media UI/browser window with distracting overlays, heavy letterboxing, and an intrusive floating video player covering part of the frame, making it completely unusable for a clean biography Short.",
+      "reviewed_at": 1793730496.7096164
+    },
+    "e5fc477df2767b366e93f202": {
+      "kind": "segment_rejection",
+      "source_id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+      "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+      "person": "Shah Rukh Khan",
+      "start": 51.92,
+      "reason": "The video shows Shah Rukh Khan in an interview in the first two frames, but the remaining frames transition to unrelated commercial advertisements and video player content, making the segment unsuitable for a biography short.",
+      "reviewed_at": 1793730545.197544
+    },
+    "3290f6e060f8de2c22bca7ec": {
+      "kind": "segment_rejection",
+      "source_id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+      "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+      "person": "Shah Rukh Khan",
+      "start": 70.68,
+      "reason": "The video segment consists entirely of commercial ads (Excel mints) and an unknown person, completely failing to show Shah Rukh Khan.",
+      "reviewed_at": 1793730556.0928483
+    },
+    "1bf54f3228cdf666b1e0f0ce": {
+      "kind": "segment_rejection",
+      "source_id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+      "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+      "person": "Shah Rukh Khan",
+      "start": 14.0,
+      "reason": "The video shows Shah Rukh Khan in an interview, but it is captured within a web player interface with surrounding website elements, ads, and borders that make it unsuitable for a clean biography short.",
+      "reviewed_at": 1793730578.8904245
+    },
+    "6aea62dad10c822462dd20d3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Ramanujan",
+      "start": 704.45,
+      "reason": "The segment consists entirely of animated graphics illustrating prime numbers rather than actual filmed footage of Ramanujan or historical context.",
+      "reviewed_at": 1793730633.0885592
+    },
+    "65236d1acb11db2eeb83f161": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Ramanujan",
+      "start": 937.6,
+      "reason": "The footage shows contemporary interviewees discussing Ramanujan's legacy and notebooks, but Ramanujan himself is not visible (as he lived long before this documentary was filmed). Therefore, it does not directly depict the historical subject.",
+      "reviewed_at": 1793730640.6158717
+    },
+    "3255625c2ce2208eda51619d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Microsoft_Research_Video_118020",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_118020",
+      "person": "Ramanujan",
+      "start": 485.52,
+      "reason": "The video features a modern lecture on computer science and graph theory given by Nikhil Srivastava, but the subject is incorrectly labeled as the historical mathematician Srinivasa Ramanujan (who lived from 1887 to 1920). This is a chronological mismatch and a misidentification of the speaker.",
+      "reviewed_at": 1793730648.9142756
+    },
+    "4d1ce78bdc518ac1c39a5c35": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Microsoft_Research_Video_118020",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_118020",
+      "person": "Ramanujan",
+      "start": 725.78,
+      "reason": "The video shows a modern academic lecture/presentation by a researcher, but the subject of the biography is the historical mathematician Srinivasa Ramanujan (1887-1920). This modern footage does not depict Ramanujan, making it an anachronistic mismatch and unusable as biographical footage for him.",
+      "reviewed_at": 1793730654.6671019
+    },
+    "fa1ad4b64a7764048d126556": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Microsoft_Research_Video_143258",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_143258",
+      "person": "Ramanujan",
+      "start": 648.38,
+      "reason": "The video features a modern-day lecture on graph theory by researcher Nikhil Srivastava (discussing Ramanujan graphs/sparsifiers), but the subject of the biography is the historical mathematician Srinivasa Ramanujan (1887-1920). This is a completely different person sharing a similar name in a modern context, making the footage entirely unusable for Ramanujan's biography.",
+      "reviewed_at": 1793730662.1955197
+    },
+    "5b0046e5538ddc84f7be9574": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Microsoft_Research_Video_143258",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_143258",
+      "person": "Ramanujan",
+      "start": 970.07,
+      "reason": "The video shows a modern researcher giving a talk about graph sparsifiers (such as Ramanujan expanders), but the historical mathematician Srinivasa Ramanujan (1887-1920) is not depicted. Therefore, this footage is irrelevant for a biography of Ramanujan.",
+      "reviewed_at": 1793730669.5577347
+    },
+    "dfdbeca0692e067b736606fd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Ramanujan",
+      "start": 16.61,
+      "reason": "The video segment shows modern documentary interviews and conference footage with various mathematicians and scientists, but Srinivasa Ramanujan (who lived from 1887 to 1920) is not visible in any of the frames. Therefore, it cannot depict him.",
+      "reviewed_at": 1793730677.8900063
+    },
+    "af74a2cd7d2aa30ef3fec741": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Ramanujan",
+      "start": 39.84,
+      "reason": "The segment features animated graphic illustrations of mathematics formulas and Ramanujan's portrait overlaid with a tree, followed by contemporary interview footage. Since Srinivasa Ramanujan lived from 1887 to 1920, historical live-action footage of him does not exist; the visuals serve as biographical illustration for a documentary trailer.",
+      "reviewed_at": 1793730685.3486156
+    },
+    "a1a71a10e0e3012ed9119f9f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dni.ncaa.ICCR-2121-VHS",
+      "source_url": "https://archive.org/details/dni.ncaa.ICCR-2121-VHS",
+      "person": "Ramanujan",
+      "start": 630.69,
+      "reason": "The video features Shri K. V. Ramanujan, a flutist, who is a different person from the historical mathematician Srinivasa Ramanujan. The footage is a mismatch for a biography on the mathematician.",
+      "reviewed_at": 1793730692.6858335
+    },
+    "f3ed9dfc6f58528bc69146eb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dni.ncaa.ICCR-2121-VHS",
+      "source_url": "https://archive.org/details/dni.ncaa.ICCR-2121-VHS",
+      "person": "Ramanujan",
+      "start": 1256.38,
+      "reason": "The video features a musician named K. V. Ramanujan playing an instrument, but this is a different person from the historical mathematician Srinivasa Ramanujan. Therefore, the footage is irrelevant and unusable for the subject's biography.",
+      "reviewed_at": 1793730699.3760595
+    },
+    "fa18953b94decf4fad15279e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v383511641",
+      "source_url": "https://archive.org/details/twitch-vod-v383511641",
+      "person": "Ramanujan",
+      "start": 595.45,
+      "reason": "The video footage shows gameplay from a Harry Potter video game (Harry Potter and the Philosopher's Stone), featuring video game characters and graphics. It has no connection to Ramanujan.",
+      "reviewed_at": 1793730710.7812471
+    },
+    "e80c30bdb08070da8bd1c2fe": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v383511641",
+      "source_url": "https://archive.org/details/twitch-vod-v383511641",
+      "person": "Ramanujan",
+      "start": 890.67,
+      "reason": "The video footage shows gameplay from a Harry Potter video game, which is completely irrelevant to the mathematician Ramanujan and has no connection to his life or history.",
+      "reviewed_at": 1793730722.3186672
+    },
+    "5f3b02f499d48b80fc761717": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "person": "Tenzing Norgay",
+      "start": 797.86,
+      "reason": "The footage is from a 1991 documentary about recreating George Mallory's 1924 Everest climb, featuring modern mountaineers (such as Brian Blessed's expedition), not Tenzing Norgay himself. However, it provides genuine historical context and moving footage of mountaineering on Everest suitable as biographical illustration.",
+      "reviewed_at": 1793730766.9091964
+    },
+    "0a4100999e9d2b585057a994": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "person": "Tenzing Norgay",
+      "start": 974.05,
+      "reason": "The footage shows scenic shots of Mt. Everest and snowy mountain terrain from a 1991 documentary, serving as valid biographical illustration for Tenzing Norgay's mountaineering life, though Tenzing Norgay himself is not visible.",
+      "reviewed_at": 1793730777.2936325
+    },
+    "f12fad468afc776bd7017629": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+      "person": "Ernest Shackleton",
+      "start": 1756.58,
+      "reason": "The clip features genuine historical archival footage showing the ship Endurance trapped in pack ice during Ernest Shackleton's Imperial Trans-Antarctic Expedition, serving as highly relevant contextual illustration despite the specific individual not being clearly identifiable in the frames.",
+      "reviewed_at": 1793730845.770596
+    },
+    "640da223f14f8b3c27b625e3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+      "person": "Ernest Shackleton",
+      "start": 2413.42,
+      "reason": "The footage shows archival-style or dramatic historical recreation of polar explorers in heavy winter gear in Antarctica, fitting the context of Ernest Shackleton's expeditions, though Shackleton himself is not definitively identifiable among the bundled figures.",
+      "reviewed_at": 1793730856.221077
+    },
+    "3de67b63fa140555de6c9152": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NimrodTrollsJKRowling",
+      "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+      "person": "J.K. Rowling",
+      "start": 114.11,
+      "reason": "The footage features Nimrod Kamer trolling J.K. Rowling, but J.K. Rowling is not clearly visible in the frames (only the back/side of a person's head is shown, and the person is not identifiable). Therefore, person_visible is false.",
+      "reviewed_at": 1793731036.0513663
+    },
+    "13843d21a92658bb30a628f7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NimrodTrollsJKRowling",
+      "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+      "person": "J.K. Rowling",
+      "start": 82.94,
+      "reason": "The clip features actual footage of J.K. Rowling speaking at an event in one of the sampled frames, along with documentary coverage related to her, but also contains unrelated prank footage and close-ups of a phone screen, making it only moderately usable as biographical illustration.",
+      "reviewed_at": 1793731060.5550938
+    },
+    "95e1833f0bcee1095ff9482e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NimrodTrollsJKRowling",
+      "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+      "person": "J.K. Rowling",
+      "start": 145.29,
+      "reason": "The footage shows a prankster (Nimrod Kamer) trolling at a book event, but J.K. Rowling is not clearly identifiable in any of the sampled frames (she is obscured or cut off). Therefore, it fails the visibility requirement for a biography short.",
+      "reviewed_at": 1793731071.4120505
+    },
+    "6de539156e28262f39edd672": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "source_url": "https://archive.org/details/bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "person": "George Lucas",
+      "start": 259.87,
+      "reason": "Although this is real red carpet footage from the premiere of Red Tails, George Lucas is not visible in any of the sampled frames (the frames show Spike Lee and Michael B. Jordan being interviewed), making this clip unusable for a biography segment about George Lucas.",
+      "reviewed_at": 1793731140.9799485
+    },
+    "f636fe3c5e022150d7c453bd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "source_url": "https://archive.org/details/bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "person": "George Lucas",
+      "start": 369.09,
+      "reason": "The sampled frames feature Al Roker and Method Man being interviewed on the red carpet, but George Lucas is not visible in any of the frames.",
+      "reviewed_at": 1793731150.272243
+    },
+    "d4039ba9663fbf98ee833707": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FUHIKUBO-DIG-HERENSIA-2010-011",
+      "source_url": "https://archive.org/details/FUHIKUBO-DIG-HERENSIA-2010-011",
+      "person": "George Lucas",
+      "start": 1771.71,
+      "reason": "The footage shows an interview with an individual named George Lucas Alberto in Bonaire, but this person is entirely unrelated to the famous American filmmaker George Lucas targeted in the narration.",
+      "reviewed_at": 1793731174.4396334
+    },
+    "1720e3fb7041bed6cb8c1b71": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FUHIKUBO-DIG-HERENSIA-2010-011",
+      "source_url": "https://archive.org/details/FUHIKUBO-DIG-HERENSIA-2010-011",
+      "person": "George Lucas",
+      "start": 2528.87,
+      "reason": "The video shows George Lucas Alberto, a different individual from the subject George Lucas (the American filmmaker), resulting in a complete identity mismatch for a biography Short.",
+      "reviewed_at": 1793731182.594832
+    },
+    "1c47afe0b8864476666240eb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+      "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+      "person": "George Lucas",
+      "start": 5.0,
+      "reason": "The video shows Michael Eisner speaking at an Aspen Institute podium, not George Lucas. Therefore, George Lucas is not visible in any of the sampled frames.",
+      "reviewed_at": 1793731201.0035849
+    },
+    "a8b4386f484337348c5fbc2b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+      "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+      "person": "George Lucas",
+      "start": 150.32,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793731203.9308224
+    },
+    "2c56aa648a2e6a5e99bb19a1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:lucas_nolan",
+      "source_url": "https://archive.org/details/lucas_nolan",
+      "person": "George Lucas",
+      "start": 5.0,
+      "reason": "The video shows another person speaking at a podium (identified as part of a DGA event, likely Christopher Nolan or another speaker), not George Lucas, making this unsuitable as identity footage for George Lucas.",
+      "reviewed_at": 1793731226.220299
     }
   }
 }

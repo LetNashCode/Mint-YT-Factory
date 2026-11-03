@@ -2,750 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Jane Goodall",
-      "source": {
-        "id": "archive:interviewwithjanegoodallinbaselfebruary2008",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/interviewwithjanegoodallinbaselfebruary2008/janegoodall-long-1500mb_512kb.mp4",
-        "source_url": "https://archive.org/details/interviewwithjanegoodallinbaselfebruary2008",
-        "title": "Interview with Jane Goodall",
-        "description": "Jane Goodall is an English UN Messenger of Peace, primatologist, ethologist, and anthropologist. She is best-known for her study of chimpanzee social and family life in Gombe Stream National Park, Tanzania, for 45 years, and for founding the Jane Goodall Institute. She visited Basel, Switzerland, for a few days in feb. 2008 for a convention / congress called \"natur\". At this occasion this interview took place. jane goodall, chimpanzee, basel, switzerland",
-        "creator": "Patrik Tschudin",
-        "license": "",
-        "subject": "jane goodall, chimpanzee, basel, switzerland",
-        "runtime": "11:39",
-        "direct_subject": true,
-        "duration_hint": 699.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 57.77,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Jane Goodall is clearly visible and speaking in multiple sampled interview frames, making it valid biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "eaf91f5bb8a53deb140237d58be06fecc94dc30fa22b901371ece11a19febb36",
-      "reviewed_at": 1792158378.119437
-    },
-    {
-      "person": "Jane Goodall",
-      "source": {
-        "id": "archive:JaneGoodall_2002",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JaneGoodall_2002/JaneGoodall_2002.mp4",
-        "source_url": "https://archive.org/details/JaneGoodall_2002",
-        "title": "Jane Goodall on what separates us from the apes",
-        "description": "Jane Goodall hasn't found the missing link, but she's come closer than nearly anyone else. The primatologist says the only real difference between humans and chimps is our sophisticated language. She urges us to start using it to change the world. ['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
-        "runtime": "00:27:28",
-        "direct_subject": true,
-        "duration_hint": 1647.266667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 507.54,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Jane Goodall is clearly visible speaking at a podium in all sampled frames, providing good biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8f436f3fa4d08556210be23ea804246af0fe4e383195ef8e38f58296b1d55c01",
-      "reviewed_at": 1792158388.5461416
-    },
-    {
-      "person": "Jane Goodall",
-      "source": {
-        "id": "archive:interviewwithjanegoodallinbaselfebruary2008",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/interviewwithjanegoodallinbaselfebruary2008/janegoodall-long-1500mb_512kb.mp4",
-        "source_url": "https://archive.org/details/interviewwithjanegoodallinbaselfebruary2008",
-        "title": "Interview with Jane Goodall",
-        "description": "Jane Goodall is an English UN Messenger of Peace, primatologist, ethologist, and anthropologist. She is best-known for her study of chimpanzee social and family life in Gombe Stream National Park, Tanzania, for 45 years, and for founding the Jane Goodall Institute. She visited Basel, Switzerland, for a few days in feb. 2008 for a convention / congress called \"natur\". At this occasion this interview took place. jane goodall, chimpanzee, basel, switzerland",
-        "creator": "Patrik Tschudin",
-        "license": "",
-        "subject": "jane goodall, chimpanzee, basel, switzerland",
-        "runtime": "11:39",
-        "direct_subject": true,
-        "duration_hint": 699.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 110.53,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The footage features a clear interview with Jane Goodall in the first three frames, though the last two frames show title cards. Since Jane Goodall is clearly identifiable in at least one frame, the segment is usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d999cec1042d15e09b3b57510a16dc0fb8f423b8316d9997e6fc6ef9cc41977b",
-      "reviewed_at": 1792158396.9288394
-    },
-    {
-      "person": "Jane Goodall",
-      "source": {
-        "id": "archive:JaneGoodall_2002",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JaneGoodall_2002/JaneGoodall_2002.mp4",
-        "source_url": "https://archive.org/details/JaneGoodall_2002",
-        "title": "Jane Goodall on what separates us from the apes",
-        "description": "Jane Goodall hasn't found the missing link, but she's come closer than nearly anyone else. The primatologist says the only real difference between humans and chimps is our sophisticated language. She urges us to start using it to change the world. ['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
-        "runtime": "00:27:28",
-        "direct_subject": true,
-        "duration_hint": 1647.266667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 758.82,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment shows Jane Goodall speaking at a podium during a TED talk, which serves as valid biographical illustration footage, though it is from a speech rather than her primary fieldwork in Africa.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b5b6483fae46db668a2f49fee7aa0c0632030c94519e6e9ea9e3f7ab33a0293e",
-      "reviewed_at": 1792158408.4656036
-    },
-    {
-      "person": "Jane Goodall",
-      "source": {
-        "id": "archive:interviewwithjanegoodallinbaselfebruary2008",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/interviewwithjanegoodallinbaselfebruary2008/janegoodall-long-1500mb_512kb.mp4",
-        "source_url": "https://archive.org/details/interviewwithjanegoodallinbaselfebruary2008",
-        "title": "Interview with Jane Goodall",
-        "description": "Jane Goodall is an English UN Messenger of Peace, primatologist, ethologist, and anthropologist. She is best-known for her study of chimpanzee social and family life in Gombe Stream National Park, Tanzania, for 45 years, and for founding the Jane Goodall Institute. She visited Basel, Switzerland, for a few days in feb. 2008 for a convention / congress called \"natur\". At this occasion this interview took place. jane goodall, chimpanzee, basel, switzerland",
-        "creator": "Patrik Tschudin",
-        "license": "",
-        "subject": "jane goodall, chimpanzee, basel, switzerland",
-        "runtime": "11:39",
-        "direct_subject": true,
-        "duration_hint": 699.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 163.3,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Jane Goodall is clearly visible in all sampled frames participating in an interview, serving as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6897ee0c4ab151d106f5206776bd259d2099f386c2ac6a363b6e90017e346cf7",
-      "reviewed_at": 1792158435.6491795
-    },
-    {
-      "person": "Jane Goodall",
-      "source": {
-        "id": "archive:JaneGoodall_2002",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JaneGoodall_2002/JaneGoodall_2002.mp4",
-        "source_url": "https://archive.org/details/JaneGoodall_2002",
-        "title": "Jane Goodall on what separates us from the apes",
-        "description": "Jane Goodall hasn't found the missing link, but she's come closer than nearly anyone else. The primatologist says the only real difference between humans and chimps is our sophisticated language. She urges us to start using it to change the world. ['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
-        "runtime": "00:27:28",
-        "direct_subject": true,
-        "duration_hint": 1647.266667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 884.45,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Jane Goodall speaking at a TED talk, which provides biographical illustration of her discussing her work and views, but it is not direct archival footage of her historical field research events.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4388e769ed914ef7ede82fafcf093fdead8955a7b8f5866909982893ca3cdb07",
-      "reviewed_at": 1792158447.1697464
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:sabrina-audrey-hepburn",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sabrina-audrey-hepburn/Sabrina%20Audrey%20Hepburn.mp4",
-        "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
-        "title": "Sabrina Audrey Hepburn",
-        "description": "(From Wiki) Sabrina Fairchild is the young daughter of the Larrabee family's chauffeur, Thomas, and has been in love with David Larrabee all her life. David is a three-times-married playboy who has never paid attention to Sabrina because to him she was still a child. 1954 American romantic comedy-drama film directed by Billy Wilder, adapted for the screen by Wilder, Samuel A. Taylor, and Ernest Lehman[4] from Taylor's 1953 play Sabrina Fair. The picture stars Humphrey Bogart, Audrey Hepburn and William Holden. This was Wilder's last film released by Paramount Pictures, ending a 12-year business relationship between Wilder and the company. ['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
-        "creator": "",
-        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6833.666667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 3677.13,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video features genuine film footage from Sabrina (1954), clearly showing Audrey Hepburn alongside Humphrey Bogart, perfectly matching the biographical illustration requirement.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ccf8f7c4bad5f0b79ebc48e775aec519c87ef823ab018a29b15fdaa1940f9782",
-      "reviewed_at": 1792230401.9845903
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:sabrina-audrey-hepburn",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sabrina-audrey-hepburn/Sabrina%20Audrey%20Hepburn.mp4",
-        "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
-        "title": "Sabrina Audrey Hepburn",
-        "description": "(From Wiki) Sabrina Fairchild is the young daughter of the Larrabee family's chauffeur, Thomas, and has been in love with David Larrabee all her life. David is a three-times-married playboy who has never paid attention to Sabrina because to him she was still a child. 1954 American romantic comedy-drama film directed by Billy Wilder, adapted for the screen by Wilder, Samuel A. Taylor, and Ernest Lehman[4] from Taylor's 1953 play Sabrina Fair. The picture stars Humphrey Bogart, Audrey Hepburn and William Holden. This was Wilder's last film released by Paramount Pictures, ending a 12-year business relationship between Wilder and the company. ['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
-        "creator": "",
-        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6833.666667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1054.18,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment features genuine historical film footage from Sabrina (1954), clearly showing Audrey Hepburn being carried by Humphrey Bogart, directly illustrating her acting career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2157ce3f369576941b28ac0bea3370a461c8c2f245dd99ed172285928873310e",
-      "reviewed_at": 1792230428.9965863
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:twitter-1338797197635145728",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
-        "source_url": "https://archive.org/details/twitter-1338797197635145728",
-        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
-        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 243.785208,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 111.05,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video segment features archival footage of Audrey Hepburn being interviewed on the Wogan show in 1989. Audrey Hepburn is clearly visible and identifiable in multiple frames (such as the first and fifth frames), making this high-quality real identity footage directly usable for a biographical Short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1d22bc66f71c09d2fff3b89a5150544fc0cacac57bfbc98b48d3f6319204b062",
-      "reviewed_at": 1792230476.401075
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:charade-1963-cary-grant-audrey-hepburn-walter-matthau-1080p-reup",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/charade-1963-cary-grant-audrey-hepburn-walter-matthau-1080p-reup/Charade%20%281963%29%20%5B720p%20Blu-Ray%20Rip%5D.ia.mp4",
-        "source_url": "https://archive.org/details/charade-1963-cary-grant-audrey-hepburn-walter-matthau-1080p-reup",
-        "title": "Charade (1963) Cary Grant & Audrey Hepburn in 1080p SD & 720p HD",
-        "description": "Charade (1963) Starring Cary Grant, Audrey Hepburn, Walter Matthau, James Coburn, George Kennedy, Ned Glass, & Jacques Marin Music by Henry Mancini Edited by James Clark Cinematography by Charles Lang Jr. Based on the short story \"The Unsuspecting Wife\" by Peter Stone & Marc Behm Screenplay by Peter Stone Produced & Directed by Stanley Donen Distributed by Universal Pictures 1963 / Color / NR / 113min / English Audio / No Subs / 16:9 / 1080p Standard Res., 720p HD ['movies', 'Cary Grant', 'Audrey Hepburn', 'Charade', '60s movies', 'spy movies', 'thriller', 'romance', 'comedy', 'Paris', 'post-war', 'Stanley Donen', 'Henry Mancini', '1963', 'public domain', 'classic films', 'classic movies', 'whodunit', 'spy thriller', 'Universal Pictures', 'vintage movies']",
-        "creator": "Stanley Donen",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['movies', 'Cary Grant', 'Audrey Hepburn', 'Charade', '60s movies', 'spy movies', 'thriller', 'romance', 'comedy', 'Paris', 'post-war', 'Stanley Donen', 'Henry Mancini', '1963', 'public domain', 'classic films', 'classic movies', 'whodunit', 'spy thriller', 'Universal Pictures', 'vintage movies']",
-        "runtime": "113min",
-        "direct_subject": true,
-        "duration_hint": 6816.351189,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 3667.8,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The footage shows authentic film archival material of Audrey Hepburn acting in 'Charade' (1963) alongside Cary Grant, making it suitable as biographical illustration for a documentary Short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "874b8683742322eac755cdff181921dfdd1580de2deb004700a61d67b18bef26",
-      "reviewed_at": 1792230516.7021596
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:charade-1963-cary-grant-audrey-hepburn-walter-matthau-1080p-reup",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/charade-1963-cary-grant-audrey-hepburn-walter-matthau-1080p-reup/Charade%20%281963%29%20%5B720p%20Blu-Ray%20Rip%5D.ia.mp4",
-        "source_url": "https://archive.org/details/charade-1963-cary-grant-audrey-hepburn-walter-matthau-1080p-reup",
-        "title": "Charade (1963) Cary Grant & Audrey Hepburn in 1080p SD & 720p HD",
-        "description": "Charade (1963) Starring Cary Grant, Audrey Hepburn, Walter Matthau, James Coburn, George Kennedy, Ned Glass, & Jacques Marin Music by Henry Mancini Edited by James Clark Cinematography by Charles Lang Jr. Based on the short story \"The Unsuspecting Wife\" by Peter Stone & Marc Behm Screenplay by Peter Stone Produced & Directed by Stanley Donen Distributed by Universal Pictures 1963 / Color / NR / 113min / English Audio / No Subs / 16:9 / 1080p Standard Res., 720p HD ['movies', 'Cary Grant', 'Audrey Hepburn', 'Charade', '60s movies', 'spy movies', 'thriller', 'romance', 'comedy', 'Paris', 'post-war', 'Stanley Donen', 'Henry Mancini', '1963', 'public domain', 'classic films', 'classic movies', 'whodunit', 'spy thriller', 'Universal Pictures', 'vintage movies']",
-        "creator": "Stanley Donen",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['movies', 'Cary Grant', 'Audrey Hepburn', 'Charade', '60s movies', 'spy movies', 'thriller', 'romance', 'comedy', 'Paris', 'post-war', 'Stanley Donen', 'Henry Mancini', '1963', 'public domain', 'classic films', 'classic movies', 'whodunit', 'spy thriller', 'Universal Pictures', 'vintage movies']",
-        "runtime": "113min",
-        "direct_subject": true,
-        "duration_hint": 6816.351189,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 528.26,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The clip features genuine archival film footage from Charade (1963) clearly showing Audrey Hepburn, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b32488e3397325cb2d58612840f65fdc75f6f3675b529803e33334a614a2c0b3",
-      "reviewed_at": 1792230530.413318
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:charade-1963-cary-grant-audrey-hepburn-walter-matthau-1080p-reup",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/charade-1963-cary-grant-audrey-hepburn-walter-matthau-1080p-reup/Charade%20%281963%29%20%5B720p%20Blu-Ray%20Rip%5D.ia.mp4",
-        "source_url": "https://archive.org/details/charade-1963-cary-grant-audrey-hepburn-walter-matthau-1080p-reup",
-        "title": "Charade (1963) Cary Grant & Audrey Hepburn in 1080p SD & 720p HD",
-        "description": "Charade (1963) Starring Cary Grant, Audrey Hepburn, Walter Matthau, James Coburn, George Kennedy, Ned Glass, & Jacques Marin Music by Henry Mancini Edited by James Clark Cinematography by Charles Lang Jr. Based on the short story \"The Unsuspecting Wife\" by Peter Stone & Marc Behm Screenplay by Peter Stone Produced & Directed by Stanley Donen Distributed by Universal Pictures 1963 / Color / NR / 113min / English Audio / No Subs / 16:9 / 1080p Standard Res., 720p HD ['movies', 'Cary Grant', 'Audrey Hepburn', 'Charade', '60s movies', 'spy movies', 'thriller', 'romance', 'comedy', 'Paris', 'post-war', 'Stanley Donen', 'Henry Mancini', '1963', 'public domain', 'classic films', 'classic movies', 'whodunit', 'spy thriller', 'Universal Pictures', 'vintage movies']",
-        "creator": "Stanley Donen",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['movies', 'Cary Grant', 'Audrey Hepburn', 'Charade', '60s movies', 'spy movies', 'thriller', 'romance', 'comedy', 'Paris', 'post-war', 'Stanley Donen', 'Henry Mancini', '1963', 'public domain', 'classic films', 'classic movies', 'whodunit', 'spy thriller', 'Universal Pictures', 'vintage movies']",
-        "runtime": "113min",
-        "direct_subject": true,
-        "duration_hint": 6816.351189,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1051.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Audrey Hepburn is clearly visible sitting in the background during a scene from the film 'Charade', making it valid biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "29a741d60bb29a7b202b6d82811eae36d2deafd5b3524b4d00d9408d816c0abc",
-      "reviewed_at": 1792230537.1558976
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:charade-1963-cary-grant-audrey-hepburn-walter-matthau-1080p-reup",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/charade-1963-cary-grant-audrey-hepburn-walter-matthau-1080p-reup/Charade%20%281963%29%20%5B720p%20Blu-Ray%20Rip%5D.ia.mp4",
-        "source_url": "https://archive.org/details/charade-1963-cary-grant-audrey-hepburn-walter-matthau-1080p-reup",
-        "title": "Charade (1963) Cary Grant & Audrey Hepburn in 1080p SD & 720p HD",
-        "description": "Charade (1963) Starring Cary Grant, Audrey Hepburn, Walter Matthau, James Coburn, George Kennedy, Ned Glass, & Jacques Marin Music by Henry Mancini Edited by James Clark Cinematography by Charles Lang Jr. Based on the short story \"The Unsuspecting Wife\" by Peter Stone & Marc Behm Screenplay by Peter Stone Produced & Directed by Stanley Donen Distributed by Universal Pictures 1963 / Color / NR / 113min / English Audio / No Subs / 16:9 / 1080p Standard Res., 720p HD ['movies', 'Cary Grant', 'Audrey Hepburn', 'Charade', '60s movies', 'spy movies', 'thriller', 'romance', 'comedy', 'Paris', 'post-war', 'Stanley Donen', 'Henry Mancini', '1963', 'public domain', 'classic films', 'classic movies', 'whodunit', 'spy thriller', 'Universal Pictures', 'vintage movies']",
-        "creator": "Stanley Donen",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['movies', 'Cary Grant', 'Audrey Hepburn', 'Charade', '60s movies', 'spy movies', 'thriller', 'romance', 'comedy', 'Paris', 'post-war', 'Stanley Donen', 'Henry Mancini', '1963', 'public domain', 'classic films', 'classic movies', 'whodunit', 'spy thriller', 'Universal Pictures', 'vintage movies']",
-        "runtime": "113min",
-        "direct_subject": true,
-        "duration_hint": 6816.351189,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1574.77,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The clip features genuine film footage from the movie 'Charade' (1963) where Audrey Hepburn is clearly visible alongside Cary Grant in several frames (frames 2, 3, and 4), serving as valid biographical illustration for a Short about her.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d7ae51fc9fe5cc2bc28b14cf90bd970d99da8451c84e3b4c10e0923a4dacd978",
-      "reviewed_at": 1792230544.4856532
-    },
-    {
-      "person": "Luciano Pavarotti",
-      "source": {
-        "id": "archive:tributoalucianopavarotti",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tributoalucianopavarotti/Tributo%20a%20Luciano%20Pavarotti.mp4",
-        "source_url": "https://archive.org/details/tributoalucianopavarotti",
-        "title": "TRIBUTO A LUCIANO PAVAROTTI (1 di 2)",
-        "description": "Tributo a Luciano Pavarotti (1 di 2), 2020 (originale integrale) Qui riuniti i seguenti venticinque video: - Luciano Pavarotti - Che Gelida Manina 1961 live (his debut!), https://www.youtube.com/watch?v=G890jG02RbI - Pavarotti - Questa O Quella from Verdis, Rigoletto. 1964, Moscow, https://www.youtube.com/watch?v=8WUnBvk8iUw - Pavarotti, La Donna e Mobile from Verdis Rigoletto. Moscow, 1964, https://www.youtube.com/watch?v=I4Iv9WdI4LE - Young Luciano Pavarotti La Boheme Che gelida manina 1964, https://www.youtube.com/watch?v=6dxWA2vqv7U - The Young Pavarotti His Early Career BBC Radio 3 25th December 2007, https://www.youtube.com/watch?v=bkzuI2P5hVE&t=2666s - Ingemisco young Pavarotti, Karajan 1967, https://www.youtube.com/watch?v=i9aIm0ZhNno - Luciano Pavarotti Collection 1973 (At the best of his shape), https://www.youtube.com/watch?v=A2Jz0pspc_k&t=8s - G.F. Handel - Care Selve, the arioso from Atalanta by young Luciano Pavarotti [prima del 1974], https://www.youtube.com/watch?v=1o6LzM0wJHQ - Luciano Pavarotti - Angelo Casto e Bel (w Orchestra) wTranslation, https://www.youtube.com/watch?v=ZXDES33468c - Panis Angelicus Pavarotti Father & Son Duet 1978, https://www.youtube.com/watch?v=7ftoQ5G_eQM&t=20s - Luciano Pavarotti - Recital 1978, https://www.youtube.com/watch?v=_fQa9ecUCgc&t=302s - LUCIANO PAVAROTTI - I due Foscari Dal più remoto esilio...Sì io sento Iddio mi chiama [1981], https://www.youtube.com/watch?v=gj_XKvnANC8 - The Essential - Luciano Pavarotti, 1982, https://www.youtube.com/watch?v=56BL8V1I_XI&t=1132s - Luciano Pavarotti - Milan 7 marzo 1983, https://www.y Luciano Pavarotti",
-        "creator": "",
-        "license": "",
-        "subject": "Luciano Pavarotti",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 34952.8,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 26881.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features genuine archival footage of Luciano Pavarotti performing live, clearly visible and identifiable across all sampled frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c62b618c625f9949c0ce58ea7bae3c5f050921924715d960c3f3e98278e84a0a",
-      "reviewed_at": 1792230878.1047647
-    },
-    {
-      "person": "Luciano Pavarotti",
-      "source": {
-        "id": "archive:luciano-pavarotti-nessun-dorma_202412",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/luciano-pavarotti-nessun-dorma_202412/Luciano%20Pavarotti%20-%20Nessun%20Dorma.mp4",
-        "source_url": "https://archive.org/details/luciano-pavarotti-nessun-dorma_202412",
-        "title": "Luciano Pavarotti - Nessun Dorma",
-        "description": "MTV 90s UK ['MTV', 'MTV 90s', 'MTV 90s UK']",
-        "creator": "",
-        "license": "",
-        "subject": "['MTV', 'MTV 90s', 'MTV 90s UK']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 192.916667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 101.34,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows Luciano Pavarotti performing on stage with other tenors (The Three Tenors), which is directly relevant as biographical archival footage of his singing career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "93cdcaffa2a47e724c1fbae1f07832030d4fe6d88e552b0adad683c2ae4d3b17",
-      "reviewed_at": 1792230901.8020191
-    },
-    {
-      "person": "Luciano Pavarotti",
-      "source": {
-        "id": "archive:tributoalucianopavarotti",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tributoalucianopavarotti/Tributo%20a%20Luciano%20Pavarotti.mp4",
-        "source_url": "https://archive.org/details/tributoalucianopavarotti",
-        "title": "TRIBUTO A LUCIANO PAVAROTTI (1 di 2)",
-        "description": "Tributo a Luciano Pavarotti (1 di 2), 2020 (originale integrale) Qui riuniti i seguenti venticinque video: - Luciano Pavarotti - Che Gelida Manina 1961 live (his debut!), https://www.youtube.com/watch?v=G890jG02RbI - Pavarotti - Questa O Quella from Verdis, Rigoletto. 1964, Moscow, https://www.youtube.com/watch?v=8WUnBvk8iUw - Pavarotti, La Donna e Mobile from Verdis Rigoletto. Moscow, 1964, https://www.youtube.com/watch?v=I4Iv9WdI4LE - Young Luciano Pavarotti La Boheme Che gelida manina 1964, https://www.youtube.com/watch?v=6dxWA2vqv7U - The Young Pavarotti His Early Career BBC Radio 3 25th December 2007, https://www.youtube.com/watch?v=bkzuI2P5hVE&t=2666s - Ingemisco young Pavarotti, Karajan 1967, https://www.youtube.com/watch?v=i9aIm0ZhNno - Luciano Pavarotti Collection 1973 (At the best of his shape), https://www.youtube.com/watch?v=A2Jz0pspc_k&t=8s - G.F. Handel - Care Selve, the arioso from Atalanta by young Luciano Pavarotti [prima del 1974], https://www.youtube.com/watch?v=1o6LzM0wJHQ - Luciano Pavarotti - Angelo Casto e Bel (w Orchestra) wTranslation, https://www.youtube.com/watch?v=ZXDES33468c - Panis Angelicus Pavarotti Father & Son Duet 1978, https://www.youtube.com/watch?v=7ftoQ5G_eQM&t=20s - Luciano Pavarotti - Recital 1978, https://www.youtube.com/watch?v=_fQa9ecUCgc&t=302s - LUCIANO PAVAROTTI - I due Foscari Dal più remoto esilio...Sì io sento Iddio mi chiama [1981], https://www.youtube.com/watch?v=gj_XKvnANC8 - The Essential - Luciano Pavarotti, 1982, https://www.youtube.com/watch?v=56BL8V1I_XI&t=1132s - Luciano Pavarotti - Milan 7 marzo 1983, https://www.y Luciano Pavarotti",
-        "creator": "",
-        "license": "",
-        "subject": "Luciano Pavarotti",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 34952.8,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 10755.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature Luciano Pavarotti performing live on stage in archival footage, making it highly usable and relevant as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "013f04671e7f9f8e879b8df364a9c673f2e922e56d2051c79c678c1ce3eb0dfb",
-      "reviewed_at": 1792230933.7055068
-    },
-    {
-      "person": "Luciano Pavarotti",
-      "source": {
-        "id": "archive:luciano-pavarotti-nessun-dorma_202412",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/luciano-pavarotti-nessun-dorma_202412/Luciano%20Pavarotti%20-%20Nessun%20Dorma.mp4",
-        "source_url": "https://archive.org/details/luciano-pavarotti-nessun-dorma_202412",
-        "title": "Luciano Pavarotti - Nessun Dorma",
-        "description": "MTV 90s UK ['MTV', 'MTV 90s', 'MTV 90s UK']",
-        "creator": "",
-        "license": "",
-        "subject": "['MTV', 'MTV 90s', 'MTV 90s UK']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 192.916667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 18.76,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows authentic historical performance footage of Luciano Pavarotti (alongside fellow tenors) singing Nessun Dorma in 1990. The subject is clearly visible and identifiable throughout the frames.",
-        "usage": "direct_event"
-      },
-      "review_key": "00b3e833b75341962bd3602feafdeb11bf3eeb829e5f3e69a054abe1836fd5b4",
-      "reviewed_at": 1792230958.514748
-    },
-    {
-      "person": "Luciano Pavarotti",
-      "source": {
-        "id": "archive:tributoalucianopavarotti",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tributoalucianopavarotti/Tributo%20a%20Luciano%20Pavarotti.mp4",
-        "source_url": "https://archive.org/details/tributoalucianopavarotti",
-        "title": "TRIBUTO A LUCIANO PAVAROTTI (1 di 2)",
-        "description": "Tributo a Luciano Pavarotti (1 di 2), 2020 (originale integrale) Qui riuniti i seguenti venticinque video: - Luciano Pavarotti - Che Gelida Manina 1961 live (his debut!), https://www.youtube.com/watch?v=G890jG02RbI - Pavarotti - Questa O Quella from Verdis, Rigoletto. 1964, Moscow, https://www.youtube.com/watch?v=8WUnBvk8iUw - Pavarotti, La Donna e Mobile from Verdis Rigoletto. Moscow, 1964, https://www.youtube.com/watch?v=I4Iv9WdI4LE - Young Luciano Pavarotti La Boheme Che gelida manina 1964, https://www.youtube.com/watch?v=6dxWA2vqv7U - The Young Pavarotti His Early Career BBC Radio 3 25th December 2007, https://www.youtube.com/watch?v=bkzuI2P5hVE&t=2666s - Ingemisco young Pavarotti, Karajan 1967, https://www.youtube.com/watch?v=i9aIm0ZhNno - Luciano Pavarotti Collection 1973 (At the best of his shape), https://www.youtube.com/watch?v=A2Jz0pspc_k&t=8s - G.F. Handel - Care Selve, the arioso from Atalanta by young Luciano Pavarotti [prima del 1974], https://www.youtube.com/watch?v=1o6LzM0wJHQ - Luciano Pavarotti - Angelo Casto e Bel (w Orchestra) wTranslation, https://www.youtube.com/watch?v=ZXDES33468c - Panis Angelicus Pavarotti Father & Son Duet 1978, https://www.youtube.com/watch?v=7ftoQ5G_eQM&t=20s - Luciano Pavarotti - Recital 1978, https://www.youtube.com/watch?v=_fQa9ecUCgc&t=302s - LUCIANO PAVAROTTI - I due Foscari Dal più remoto esilio...Sì io sento Iddio mi chiama [1981], https://www.youtube.com/watch?v=gj_XKvnANC8 - The Essential - Luciano Pavarotti, 1982, https://www.youtube.com/watch?v=56BL8V1I_XI&t=1132s - Luciano Pavarotti - Milan 7 marzo 1983, https://www.y Luciano Pavarotti",
-        "creator": "",
-        "license": "",
-        "subject": "Luciano Pavarotti",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 34952.8,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 13443.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features real archival footage of Luciano Pavarotti performing live on stage with an orchestra, clearly visible and identifiable throughout the sampled frames, fitting well for a biographical short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f6e77d1b832d4e0ee12728c259cb1a42b13da7ff2b00f06afeafecb5856e088c",
-      "reviewed_at": 1792230966.115116
-    },
-    {
-      "person": "Luciano Pavarotti",
-      "source": {
-        "id": "archive:luciano-pavarotti-nessun-dorma_202412",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/luciano-pavarotti-nessun-dorma_202412/Luciano%20Pavarotti%20-%20Nessun%20Dorma.mp4",
-        "source_url": "https://archive.org/details/luciano-pavarotti-nessun-dorma_202412",
-        "title": "Luciano Pavarotti - Nessun Dorma",
-        "description": "MTV 90s UK ['MTV', 'MTV 90s', 'MTV 90s UK']",
-        "creator": "",
-        "license": "",
-        "subject": "['MTV', 'MTV 90s', 'MTV 90s UK']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 192.916667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 32.53,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Luciano Pavarotti performing live on stage (on the right) alongside fellow tenors, providing authentic biographical and musical illustration for a documentary short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b8d4db52b34efb131aca4a985261360d101632908a3794588ca7b04ccd45c181",
-      "reviewed_at": 1792230978.4557097
-    },
-    {
-      "person": "Luciano Pavarotti",
-      "source": {
-        "id": "archive:tributoalucianopavarotti",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tributoalucianopavarotti/Tributo%20a%20Luciano%20Pavarotti.mp4",
-        "source_url": "https://archive.org/details/tributoalucianopavarotti",
-        "title": "TRIBUTO A LUCIANO PAVAROTTI (1 di 2)",
-        "description": "Tributo a Luciano Pavarotti (1 di 2), 2020 (originale integrale) Qui riuniti i seguenti venticinque video: - Luciano Pavarotti - Che Gelida Manina 1961 live (his debut!), https://www.youtube.com/watch?v=G890jG02RbI - Pavarotti - Questa O Quella from Verdis, Rigoletto. 1964, Moscow, https://www.youtube.com/watch?v=8WUnBvk8iUw - Pavarotti, La Donna e Mobile from Verdis Rigoletto. Moscow, 1964, https://www.youtube.com/watch?v=I4Iv9WdI4LE - Young Luciano Pavarotti La Boheme Che gelida manina 1964, https://www.youtube.com/watch?v=6dxWA2vqv7U - The Young Pavarotti His Early Career BBC Radio 3 25th December 2007, https://www.youtube.com/watch?v=bkzuI2P5hVE&t=2666s - Ingemisco young Pavarotti, Karajan 1967, https://www.youtube.com/watch?v=i9aIm0ZhNno - Luciano Pavarotti Collection 1973 (At the best of his shape), https://www.youtube.com/watch?v=A2Jz0pspc_k&t=8s - G.F. Handel - Care Selve, the arioso from Atalanta by young Luciano Pavarotti [prima del 1974], https://www.youtube.com/watch?v=1o6LzM0wJHQ - Luciano Pavarotti - Angelo Casto e Bel (w Orchestra) wTranslation, https://www.youtube.com/watch?v=ZXDES33468c - Panis Angelicus Pavarotti Father & Son Duet 1978, https://www.youtube.com/watch?v=7ftoQ5G_eQM&t=20s - Luciano Pavarotti - Recital 1978, https://www.youtube.com/watch?v=_fQa9ecUCgc&t=302s - LUCIANO PAVAROTTI - I due Foscari Dal più remoto esilio...Sì io sento Iddio mi chiama [1981], https://www.youtube.com/watch?v=gj_XKvnANC8 - The Essential - Luciano Pavarotti, 1982, https://www.youtube.com/watch?v=56BL8V1I_XI&t=1132s - Luciano Pavarotti - Milan 7 marzo 1983, https://www.y Luciano Pavarotti",
-        "creator": "",
-        "license": "",
-        "subject": "Luciano Pavarotti",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 34952.8,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 16130.6,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video footage clearly shows Luciano Pavarotti performing live on stage in formal attire, perfectly matching the biographical subject and providing great archival footage for the short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0c734465384da1d1c37ce163630fff6a4f14063151e6722269a6c916083409fb",
-      "reviewed_at": 1792230986.844948
-    },
-    {
-      "person": "Luciano Pavarotti",
-      "source": {
-        "id": "archive:luciano-pavarotti-nessun-dorma_202412",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/luciano-pavarotti-nessun-dorma_202412/Luciano%20Pavarotti%20-%20Nessun%20Dorma.mp4",
-        "source_url": "https://archive.org/details/luciano-pavarotti-nessun-dorma_202412",
-        "title": "Luciano Pavarotti - Nessun Dorma",
-        "description": "MTV 90s UK ['MTV', 'MTV 90s', 'MTV 90s UK']",
-        "creator": "",
-        "license": "",
-        "subject": "['MTV', 'MTV 90s', 'MTV 90s UK']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 192.916667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 46.29,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature Luciano Pavarotti performing on stage with other tenors and an orchestra, making it authentic archival identity footage suitable for a biography.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "964ab86efccdb45ef3d2e6f2c4a18476208dcef9798c80a4b01715cf614e2247",
-      "reviewed_at": 1792230997.7133825
-    },
-    {
-      "person": "Luciano Pavarotti",
-      "source": {
-        "id": "archive:tributoalucianopavarotti",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tributoalucianopavarotti/Tributo%20a%20Luciano%20Pavarotti.mp4",
-        "source_url": "https://archive.org/details/tributoalucianopavarotti",
-        "title": "TRIBUTO A LUCIANO PAVAROTTI (1 di 2)",
-        "description": "Tributo a Luciano Pavarotti (1 di 2), 2020 (originale integrale) Qui riuniti i seguenti venticinque video: - Luciano Pavarotti - Che Gelida Manina 1961 live (his debut!), https://www.youtube.com/watch?v=G890jG02RbI - Pavarotti - Questa O Quella from Verdis, Rigoletto. 1964, Moscow, https://www.youtube.com/watch?v=8WUnBvk8iUw - Pavarotti, La Donna e Mobile from Verdis Rigoletto. Moscow, 1964, https://www.youtube.com/watch?v=I4Iv9WdI4LE - Young Luciano Pavarotti La Boheme Che gelida manina 1964, https://www.youtube.com/watch?v=6dxWA2vqv7U - The Young Pavarotti His Early Career BBC Radio 3 25th December 2007, https://www.youtube.com/watch?v=bkzuI2P5hVE&t=2666s - Ingemisco young Pavarotti, Karajan 1967, https://www.youtube.com/watch?v=i9aIm0ZhNno - Luciano Pavarotti Collection 1973 (At the best of his shape), https://www.youtube.com/watch?v=A2Jz0pspc_k&t=8s - G.F. Handel - Care Selve, the arioso from Atalanta by young Luciano Pavarotti [prima del 1974], https://www.youtube.com/watch?v=1o6LzM0wJHQ - Luciano Pavarotti - Angelo Casto e Bel (w Orchestra) wTranslation, https://www.youtube.com/watch?v=ZXDES33468c - Panis Angelicus Pavarotti Father & Son Duet 1978, https://www.youtube.com/watch?v=7ftoQ5G_eQM&t=20s - Luciano Pavarotti - Recital 1978, https://www.youtube.com/watch?v=_fQa9ecUCgc&t=302s - LUCIANO PAVAROTTI - I due Foscari Dal più remoto esilio...Sì io sento Iddio mi chiama [1981], https://www.youtube.com/watch?v=gj_XKvnANC8 - The Essential - Luciano Pavarotti, 1982, https://www.youtube.com/watch?v=56BL8V1I_XI&t=1132s - Luciano Pavarotti - Milan 7 marzo 1983, https://www.y Luciano Pavarotti",
-        "creator": "",
-        "license": "",
-        "subject": "Luciano Pavarotti",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 34952.8,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 21505.8,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The frames show archival footage of a young Luciano Pavarotti performing in a black and white broadcast, clearly identifiable and suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7043d4bf2049d4673af64220d6fe0233e93d3db3c67d609735fe6b406fa0b2f1",
-      "reviewed_at": 1792231005.2534378
-    },
-    {
-      "person": "Luciano Pavarotti",
-      "source": {
-        "id": "archive:luciano-pavarotti-nessun-dorma_202412",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/luciano-pavarotti-nessun-dorma_202412/Luciano%20Pavarotti%20-%20Nessun%20Dorma.mp4",
-        "source_url": "https://archive.org/details/luciano-pavarotti-nessun-dorma_202412",
-        "title": "Luciano Pavarotti - Nessun Dorma",
-        "description": "MTV 90s UK ['MTV', 'MTV 90s', 'MTV 90s UK']",
-        "creator": "",
-        "license": "",
-        "subject": "['MTV', 'MTV 90s', 'MTV 90s UK']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 192.916667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 60.05,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features archival footage of Luciano Pavarotti performing live on stage with an orchestra, making it highly relevant and usable as direct event footage for his biography.",
-        "usage": "direct_event"
-      },
-      "review_key": "507cebe82c0af3fab70c0587a0b517a3c460bcdce0e358928c0a8de566f81d4f",
-      "reviewed_at": 1792231018.6630287
-    },
-    {
-      "person": "Luciano Pavarotti",
-      "source": {
-        "id": "archive:tributoalucianopavarotti",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tributoalucianopavarotti/Tributo%20a%20Luciano%20Pavarotti.mp4",
-        "source_url": "https://archive.org/details/tributoalucianopavarotti",
-        "title": "TRIBUTO A LUCIANO PAVAROTTI (1 di 2)",
-        "description": "Tributo a Luciano Pavarotti (1 di 2), 2020 (originale integrale) Qui riuniti i seguenti venticinque video: - Luciano Pavarotti - Che Gelida Manina 1961 live (his debut!), https://www.youtube.com/watch?v=G890jG02RbI - Pavarotti - Questa O Quella from Verdis, Rigoletto. 1964, Moscow, https://www.youtube.com/watch?v=8WUnBvk8iUw - Pavarotti, La Donna e Mobile from Verdis Rigoletto. Moscow, 1964, https://www.youtube.com/watch?v=I4Iv9WdI4LE - Young Luciano Pavarotti La Boheme Che gelida manina 1964, https://www.youtube.com/watch?v=6dxWA2vqv7U - The Young Pavarotti His Early Career BBC Radio 3 25th December 2007, https://www.youtube.com/watch?v=bkzuI2P5hVE&t=2666s - Ingemisco young Pavarotti, Karajan 1967, https://www.youtube.com/watch?v=i9aIm0ZhNno - Luciano Pavarotti Collection 1973 (At the best of his shape), https://www.youtube.com/watch?v=A2Jz0pspc_k&t=8s - G.F. Handel - Care Selve, the arioso from Atalanta by young Luciano Pavarotti [prima del 1974], https://www.youtube.com/watch?v=1o6LzM0wJHQ - Luciano Pavarotti - Angelo Casto e Bel (w Orchestra) wTranslation, https://www.youtube.com/watch?v=ZXDES33468c - Panis Angelicus Pavarotti Father & Son Duet 1978, https://www.youtube.com/watch?v=7ftoQ5G_eQM&t=20s - Luciano Pavarotti - Recital 1978, https://www.youtube.com/watch?v=_fQa9ecUCgc&t=302s - LUCIANO PAVAROTTI - I due Foscari Dal più remoto esilio...Sì io sento Iddio mi chiama [1981], https://www.youtube.com/watch?v=gj_XKvnANC8 - The Essential - Luciano Pavarotti, 1982, https://www.youtube.com/watch?v=56BL8V1I_XI&t=1132s - Luciano Pavarotti - Milan 7 marzo 1983, https://www.y Luciano Pavarotti",
-        "creator": "",
-        "license": "",
-        "subject": "Luciano Pavarotti",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 34952.8,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 24193.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features genuine archival performance footage of Luciano Pavarotti singing, making it highly relevant and usable as biographical illustration for a biography short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d7fe64646ce9e6543ee314207b16ecc4314b1c16ccb45aa9c3a5d06846191d5e",
-      "reviewed_at": 1792231026.8277102
-    },
-    {
       "person": "Luciano Pavarotti",
       "source": {
         "id": "archive:luciano-pavarotti-nessun-dorma_202412",
@@ -11924,68 +11180,6 @@
     {
       "person": "Ernest Shackleton",
       "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Ernest Shackleton Documentaries Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 442.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The frames depict archival footage of Ernest Shackleton and his team during their expedition in Antarctica, directly illustrating his life and historical exploits.",
-        "usage": "direct_event"
-      },
-      "review_key": "ea125380e6f5cbfff1583ab7b5443ae2557e0559ccdb205064cdce22e4d8b224",
-      "reviewed_at": 1793129092.098977
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Shackleton Documentary Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 442.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The frames show historical archival footage depicting Ernest Shackleton (centre/right in heavy polar gear) with his expedition team on the ice, directly matching the biographical narration.",
-        "usage": "direct_event"
-      },
-      "review_key": "2308371d9b56ead957f6ef4d745598595383553da16dc0ca32480a01c85446a9",
-      "reviewed_at": 1793129120.7424932
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
         "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
@@ -12110,37 +11304,6 @@
     {
       "person": "J.K. Rowling",
       "source": {
-        "id": "archive:PrideMonthShowedProgressExceptforJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/PrideMonthShowedProgressExceptforJKRowling/Pride%20Month%20Showed%20Progress%20%E2%80%94%20Except%20for%20J.K.%20Rowling%20%5BYSItxEJtW4s%5D.mp4",
-        "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
-        "title": "Pride Month Showed Progress — Except for J.K. Rowling",
-        "description": "The yearly tradition of companies and politicians falling over themselves to recognize queer people is here. Here's how the 50th anniversary of Pride Month was (and wasn't) celebrated this year. Subscribe to VICE News here: [URL REMOVED] Check out VICE News for more: [URL REMOVED] Follow VICE News here: Facebook: [URL REMOVED] Twitter: [URL REMOVED] Tumblr: [URL REMOVED] Instagram: [URL REMOVED] More videos from the VICE network: [URL REMOVED] ",
-        "creator": "VICE News",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 167.767768,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 52.31,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The segment includes real archival footage where J.K. Rowling is clearly visible (frames 2, 3, and 5), suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0cab0308d4e2ee5c61c834934df5c9bc474560991ed6d13141653d91aca71fb6",
-      "reviewed_at": 1793129638.2039595
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
         "id": "archive:NimrodTrollsJKRowling",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
@@ -12168,68 +11331,6 @@
       },
       "review_key": "16a769a0a8ff3fefd8d233f890264bf1ba6f617594b490137bce781b10425ec2",
       "reviewed_at": 1793129650.0454118
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 67.35,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "J.K. Rowling is clearly visible speaking in the first four frames, making this usable as biographical illustration, though the fifth frame shows camera crew and the Vice watermark is present.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d3ad4d110f21585e0eb3c1553ac49f8cf942700cc276efcd960deda3222fa9ce",
-      "reviewed_at": 1793129657.1378853
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 36.18,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features real archival footage of J.K. Rowling at a book signing event, making her clearly visible and identifiable in multiple sampled frames. It provides biographical illustration of her public appearances.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "accdc4493db5f707db86fb0cb2dc3243099bc58b019d4c5e24a40ce4096eae68",
-      "reviewed_at": 1793129663.368514
     },
     {
       "person": "J.K. Rowling",
@@ -16467,99 +15568,6 @@
       "reviewed_at": 1793560115.1058602
     },
     {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features actual film clips and interview footage of Harrison Ford discussing his work on Firewall, making it useful biographical illustration despite some graphic overlays and cartoon introductions.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "50d59652d32d27f65bf9ab201feecbf259f9a13e4b4abdbc774272394b685ef1",
-      "reviewed_at": 1793659530.8633585
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 212.63,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features genuine interview footage of Harrison Ford discussing his work, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "31d0659c653148ef87589b34183be3d8074ccdb071ca5df9804cd4fca7ddcf2b",
-      "reviewed_at": 1793659585.4398365
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 304.91,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features real archival interview footage of Harrison Ford discussing his film 'Firewall', making it a valid biographical illustration despite ending with an animated graphic title sequence.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7bad4a1859fb3ab56d6f69ac1e056da7031159e5e25ba1e61a32e0f36889bb6d",
-      "reviewed_at": 1793659595.8739111
-    },
-    {
       "person": "Marie Curie",
       "source": {
         "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
@@ -17209,223 +16217,6 @@
       },
       "review_key": "f272f2bdb1fde67b15216edad84483edf72e891d5b98e12a79c4baca6bcd185e",
       "reviewed_at": 1793660395.3402743
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 52.26,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows astronaut Kalpana Chawla in space gear and training context, directly illustrating her life and career.",
-        "usage": "direct_event"
-      },
-      "review_key": "baf7433fe07c801459b0a97cf319ea660eb77a1cc67d0c28619405602fddf57f",
-      "reviewed_at": 1793660474.8362608
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features archival footage and a memorial interview segment discussing Kalpana Chawla, with the subject clearly identifiable in the first three frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f33feb74652cc0595701dd120ad0768202fd8961a72fc7263e31171603512b90",
-      "reviewed_at": 1793660483.9774263
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 20.75,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "Kalpana Chawla is clearly visible in the first two sampled frames next to a display board dedicated to her memory, providing biographical illustration for a short about her legacy, even though subsequent frames show an interviewee discussing her.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "952fa014e7dcd026bcaf49605a1be58d44667ba895e87ec3853143d6c3aacf12",
-      "reviewed_at": 1793660497.3873842
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 68.01,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features real archival footage and photographs of Kalpana Chawla, including her speaking at a podium, archival display photos, and her official STS-87 astronaut crew portrait. She is clearly identifiable in multiple frames, making it highly relevant biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "321575c067ba2c44cb35ded475a67d0a0d390386d4b1d04ecb5ddcfb7d4aeb77",
-      "reviewed_at": 1793660527.8169591
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
-        "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
-        "title": "Remembering the Crew of Columbia 20 Years Later",
-        "description": "Sen John Cornyn of Texas remembers the lost crew of the Space Shuttle, Columbia, who were lost when the Space Shuttle broke apart upon reentry, scattering debris over a large portion of Texas. The shuttle's left wing had been damaged upon takeoff when a large chunk of ice came off the main fuel tank and created a hole in the left wing about the size of basketball. Upon entering earth's atmosphere, the hot gasses entered the hole and the Columbia shuttle broke apart, just minutes before they were to have landed in Florida at the Kennedy Space Center. February 1, 2023 marks the 20th anniversary of the disaster, when the Space Shuttle Columbia disintegrated as it returned to Earth, killing all seven astronauts on board: commander Rick Husband, pilot Willie McCool, mission specialists Kalpana Chawla, Laurel Clark, Michael Anderson, David Brown and payload specialist Ilan Ramon of Israel. #Columbia #space #SpaceShuttleColumbia #ColumbiaCrew #IllinoisChannel #SenCornyn Politics, Personalities, Policies and business developments! Stay in touch with one of the most politically active, and important states in the USA!\\r \\r Follow us on Twitter: @IllinoisChannel\\r \\r \\r DONATE to help fund our Independent Coverage: https://illinoischannel.givingfuel.com/donatenow ['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
-        "creator": "ICTV",
-        "license": "",
-        "subject": "['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
-        "runtime": "00:06:55",
-        "direct_subject": true,
-        "duration_hint": 415.30442,
-        "identity_score": 10.0,
-        "archival_signal": 0
-      },
-      "start": 344.57,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The clip features archival footage of Kalpana Chawla as part of the STS-107 crew portrait, shown during a speech commemorating the Columbia disaster, directly illustrating her biographical narrative.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5c8b7165fc902415660d9797c662eb3f7d4361cf8c672be1d05a7b93cdbb4fd0",
-      "reviewed_at": 1793660537.3113327
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 99.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features real archival footage showing astronaut Kalpana Chawla (clearly visible in orange flight suit among her crewmates in frames 3-5) participating in pre-flight preparation, perfectly matching the biographical context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b331d467d6b6634fc9dcd6fb915a4d9cc0d401e0f41769de93c0946e0631a598",
-      "reviewed_at": 1793660547.7771924
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 115.27,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly show Kalpana Chawla among her Columbia space shuttle crew in archival space footage (first two frames), followed by interview footage discussing her legacy, making it highly relevant and usable for a biographical short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "09a251c446059a97c978f64b4880bf5904346b511f6d3323326b3db6837df96e",
-      "reviewed_at": 1793660556.8357425
     },
     {
       "person": "Bob Ross",
@@ -18573,6 +17364,1215 @@
       },
       "review_key": "c43d6b4fbd45cc5311b6a7a777cd892baafda3df220aff65bd4fc3d2d6356148",
       "reviewed_at": 1793711458.5986545
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The sampled frames show actual interview footage and movie clips featuring Harrison Ford, making it usable biographical illustration for a video about his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "85ac04ed8a3bad9703308dcd2e72d2b88d90616cac5e1c9358d96a348a8c780d",
+      "reviewed_at": 1793730041.5174565
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 212.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features Harrison Ford speaking in an interview setting, providing valid biographical illustration footage, though it is promotional interview content rather than direct historical event footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a75e8ec8f9477a402367c313064eb133d740dd75a8a8af9bacd285f063f5c9df",
+      "reviewed_at": 1793730045.3434198
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 304.91,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment contains authentic interview footage featuring Harrison Ford clearly visible in multiple frames, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "699447bba4e04bc66f3809965bec334934377233fa05cf47c5028dbea53a26f3",
+      "reviewed_at": 1793730049.4343722
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video segment features real archival footage of astronaut Kalpana Chawla, clearly identifiable in the space suit preparing for her mission, fitting the biographical narrative perfectly.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f33563042a3d132dde00308aa0dcf0ccc31b1396c6b44a02fe51e95ea6661c7b",
+      "reviewed_at": 1793730245.5147233
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 20.75,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Kalpana Chawla is clearly visible in the first two frames alongside a memorial display, and the subsequent frames feature an interview discussing her legacy. This footage provides valid biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "285e91fa9e919992bc1f7335e874d4324103a36293c5e0842cc227fd2b46de47",
+      "reviewed_at": 1793730257.1153312
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features archival photographs of Kalpana Chawla in the early frames and an interview related to her legacy, which serves as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "42d189ad3743993cf0539fb6ce3f88d406ea0ed65941b74c8b0db914e5e22a2a",
+      "reviewed_at": 1793730268.1233704
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 68.01,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames feature genuine archival footage and photographs of Kalpana Chawla speaking at a podium, her memorial display, and her official STS-87 crew portrait, directly illustrating her life and career as an astronaut.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "69372a5bd844f48728eb318db2aafe2474e765f66e42308d55a22ceea282bdc2",
+      "reviewed_at": 1793730287.9156585
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
+        "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+        "title": "Remembering the Crew of Columbia 20 Years Later",
+        "description": "Sen John Cornyn of Texas remembers the lost crew of the Space Shuttle, Columbia, who were lost when the Space Shuttle broke apart upon reentry, scattering debris over a large portion of Texas. The shuttle's left wing had been damaged upon takeoff when a large chunk of ice came off the main fuel tank and created a hole in the left wing about the size of basketball. Upon entering earth's atmosphere, the hot gasses entered the hole and the Columbia shuttle broke apart, just minutes before they were to have landed in Florida at the Kennedy Space Center. February 1, 2023 marks the 20th anniversary of the disaster, when the Space Shuttle Columbia disintegrated as it returned to Earth, killing all seven astronauts on board: commander Rick Husband, pilot Willie McCool, mission specialists Kalpana Chawla, Laurel Clark, Michael Anderson, David Brown and payload specialist Ilan Ramon of Israel. #Columbia #space #SpaceShuttleColumbia #ColumbiaCrew #IllinoisChannel #SenCornyn Politics, Personalities, Policies and business developments! Stay in touch with one of the most politically active, and important states in the USA!\\r \\r Follow us on Twitter: @IllinoisChannel\\r \\r \\r DONATE to help fund our Independent Coverage: https://illinoischannel.givingfuel.com/donatenow ['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
+        "creator": "ICTV",
+        "license": "",
+        "subject": "['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
+        "runtime": "00:06:55",
+        "direct_subject": true,
+        "duration_hint": 415.30442,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 344.57,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival footage including a clear view of Kalpana Chawla among the Columbia crew members during a congressional tribute, which directly supports the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a4ea7e712a80428a74f4f149bd55e9dc77699bcdc9b5cb081ff79f4d04c9f675",
+      "reviewed_at": 1793730302.218665
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 99.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real archival footage showing Kalpana Chawla clearly identifiable among the crew in orange flight suits walking out for a space mission, providing strong biographical illustration for her life and astronaut career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "44d6d33ad8ef7df0d7e7eade71868165f633e303cf32d346c81d4b232533c314",
+      "reviewed_at": 1793730315.0372107
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 115.27,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames include genuine archival footage of Kalpana Chawla (visible on the left in the group astronaut photo in frames 1 and 2), followed by a relevant interview context about her legacy. She is clearly identifiable, making this usable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5fd9014ec1a8762c3ed683db9bed55f0dd489b42dab64edc39d89b5f43f5188f",
+      "reviewed_at": 1793730324.1025686
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'Social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'Social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 39.666667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 21.5,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows actual interview footage of Shah Rukh Khan talking on a show, making it usable and relevant as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e7f0fe3b23ff886756975b4b16b88ffdd786ae1014a961427727c191dcb0f141",
+      "reviewed_at": 1793730421.5309017
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 117.216667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 89.45,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows actual filmed footage of Shah Rukh Khan in an interview setting with Komal Nahta, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fd5e6ffb9bc2c2c7996d98924a481c75a44a3d58f9cebc67e1b122600e6c3188",
+      "reviewed_at": 1793730431.7096868
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'Social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'Social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 39.666667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 3.17,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows real interview footage featuring Shah Rukh Khan clearly identifiable in the initial frames, discussing social boycotts, which matches the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b1de7559114771512469a3c662c44e06c3d0291b7aaed72263778b7f44be5ca7",
+      "reviewed_at": 1793730442.3345559
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 117.216667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real archival footage of Shah Rukh Khan in an interview setting, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "94f8b9a797bc757c9c07bd15ceb97fc152956f6889baecc046a0f9ebe9f21ae7",
+      "reviewed_at": 1793730446.8138812
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 117.216667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 14.38,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly show Shah Rukh Khan in an interview setting, matching the biographical subject and providing valid archival illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c5f9e7620718aa7185b4ba9629bad62d20040b26c337c35e28729b5a32faad76",
+      "reviewed_at": 1793730501.2768986
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 117.216667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 23.77,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real archival footage of Shah Rukh Khan during an interview, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f36e7c38105e7f07de96598da3ab146573f2c86f896b7b9954a1c2d836f7ebea",
+      "reviewed_at": 1793730526.3161507
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 117.216667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 33.15,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment shows genuine interview footage featuring Shah Rukh Khan alongside the interviewer, making it valid biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3f89ea07188004c3929824ee9a29b3debf5b50edc186dcfb388039edce4793e3",
+      "reviewed_at": 1793730531.0706367
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 117.216667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 42.53,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows real interview footage featuring Shah Rukh Khan alongside the interviewer, making it valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e6dc11700a4363354e1d630e16e6f3e578de3cedb8558c4d2a63d74378603a88",
+      "reviewed_at": 1793730535.5086243
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 131.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 68.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Shah Rukh Khan in an interview setting, providing valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fa56a40be37fdfd19de4c910ac3dafb2f14829b30b6392a3a441350c4e9a3340",
+      "reviewed_at": 1793730560.369303
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 131.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video shows real archival interview footage of Shah Rukh Khan, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "34a47d0b3dbff847c4635db4221217fec55bf365d31405ef0497d641d2acb52d",
+      "reviewed_at": 1793730565.2586708
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 131.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 23.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows actual interview footage of Shah Rukh Khan talking on Z-etc Bollywood, which serves as valid biographical illustration material, though framed within a Dailymotion webpage interface.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ce7468d77f4e71dd9d6f8c528164b6687ec357bf8c2e39d27a17759caf9793b2",
+      "reviewed_at": 1793730582.5493975
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 131.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 32.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows real archival interview footage of Shah Rukh Khan speaking, clearly identifiable in multiple frames, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "643d74b5102b609de55cda349dfa1a7ec939509d6b8145ac929c22334786d139",
+      "reviewed_at": 1793730588.1845515
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Ernest Shackleton Documentaries Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames show historical footage of Ernest Shackleton and his expedition team during their Antarctic journey, directly depicting the subject and his historical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "02ef616fe98df805259849b0c9564ef9e4c1c650af1b0415a7107af4497145cd",
+      "reviewed_at": 1793730833.7671328
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames show authentic historical moving footage and photographs of Ernest Shackleton and his expedition team in Antarctica during their historic journey, directly depicting the subject and context.",
+        "usage": "direct_event"
+      },
+      "review_key": "790c5c7cd4fd4553c4f8cfc96422c22b35e5b1ffc9f02548f1b4e7c1ce22420e",
+      "reviewed_at": 1793730839.7432008
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/PrideMonthShowedProgressExceptforJKRowling/Pride%20Month%20Showed%20Progress%20%E2%80%94%20Except%20for%20J.K.%20Rowling%20%5BYSItxEJtW4s%5D.mp4",
+        "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+        "title": "Pride Month Showed Progress — Except for J.K. Rowling",
+        "description": "The yearly tradition of companies and politicians falling over themselves to recognize queer people is here. Here's how the 50th anniversary of Pride Month was (and wasn't) celebrated this year. Subscribe to VICE News here: [URL REMOVED] Check out VICE News for more: [URL REMOVED] Follow VICE News here: Facebook: [URL REMOVED] Twitter: [URL REMOVED] Tumblr: [URL REMOVED] Instagram: [URL REMOVED] More videos from the VICE network: [URL REMOVED] ",
+        "creator": "VICE News",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 167.767768,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features real archival footage of J.K. Rowling in multiple frames (such as frames 2, 3, and 5), making it usable as biographical illustration for her life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "83636fe578398f9859eaded91a7a238b6905ddd2127173fff2d0d0566c2d3e4f",
+      "reviewed_at": 1793731023.8014948
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 67.35,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The clip features real archival footage of J.K. Rowling speaking at an event, making it suitable for biographical illustration despite the final frame cutting away to a camera operator.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8b4f3a19815be6cf293f2cf17b814589a08cbbda5ea00c79121ad9561e9648dd",
+      "reviewed_at": 1793731040.0116827
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 36.18,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "J.K. Rowling is clearly visible seated at a book signing table in frames 4 and 5, providing authentic archival footage of the subject during a public appearance.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f371c5b63ea604f70848c8bfb6343962a7685f849a964fc8b778ac96f86d8d0f",
+      "reviewed_at": 1793731048.0875971
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
+        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
+        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "runtime": "00:31:43",
+        "direct_subject": true,
+        "duration_hint": 1903.2,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 1022.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6.0,
+        "reason": "George Lucas is clearly visible and seated on stage during an interview discussion, making this usable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "46761ecc3fb075d885a31a39de44c6faaf504169364913f1502cdd9482463823",
+      "reviewed_at": 1793731154.3963835
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:lucas_nolan",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
+        "source_url": "https://archive.org/details/lucas_nolan",
+        "title": "George Lucas on the Impact of Star Wars",
+        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
+        "creator": "George Lucas, Christopher Nolan",
+        "license": "",
+        "subject": "george luca, christopher nolan, interviews, star wars, directors",
+        "runtime": "57:57",
+        "direct_subject": true,
+        "duration_hint": 3477.106967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1869.75,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real archival interview footage of George Lucas speaking, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1185f916d3fe8b224e7aea7b00f7865f26953c305027f2eb62006c9e7b18b13f",
+      "reviewed_at": 1793731192.3288872
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
+        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
+        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "runtime": "00:31:43",
+        "direct_subject": true,
+        "duration_hint": 1903.2,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 295.65,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "The segment features genuine interview/archival footage of George Lucas participating in a panel discussion at the Aspen Institute in 2012. He is clearly visible and identifiable throughout the sampled frames, making this suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "02de407f46ec38774dac843ceed825db17c8c0249ec6f125ab2c6f217b33cccf",
+      "reviewed_at": 1793731207.3661857
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:lucas_nolan",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
+        "source_url": "https://archive.org/details/lucas_nolan",
+        "title": "George Lucas on the Impact of Star Wars",
+        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
+        "creator": "George Lucas, Christopher Nolan",
+        "license": "",
+        "subject": "george luca, christopher nolan, interviews, star wars, directors",
+        "runtime": "57:57",
+        "direct_subject": true,
+        "duration_hint": 3477.106967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 271.39,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features genuine archival interview footage of George Lucas speaking, making it suitable as biographical illustration for a biography Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "10e6652e6b4f247e292de47f3ac8aa2ffa42e6864f7acd0edec5bdb6427affc8",
+      "reviewed_at": 1793731240.6601982
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
+        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
+        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "runtime": "00:31:43",
+        "direct_subject": true,
+        "duration_hint": 1903.2,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 440.97,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features real archival footage of George Lucas participating in a panel conversation and discussion on stage. He is clearly visible throughout the frames, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ddd0e2eae3d99e074ac20d9d07e6af828ba4cd95b2d8e7330fdce8a945d71e44",
+      "reviewed_at": 1793731248.1399307
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:lucas_nolan",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
+        "source_url": "https://archive.org/details/lucas_nolan",
+        "title": "George Lucas on the Impact of Star Wars",
+        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
+        "creator": "George Lucas, Christopher Nolan",
+        "license": "",
+        "subject": "george luca, christopher nolan, interviews, star wars, directors",
+        "runtime": "57:57",
+        "direct_subject": true,
+        "duration_hint": 3477.106967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 537.79,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows George Lucas being interviewed, clearly identifiable in the first three frames, making it valid biographical footage for a documentary style short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "226dff21ed7f2b9fcb24a25765597c9aa2ea6ed4f931af76a469190d7a7ecf1b",
+      "reviewed_at": 1793731265.195533
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
+        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
+        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "runtime": "00:31:43",
+        "direct_subject": true,
+        "duration_hint": 1903.2,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 586.29,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features George Lucas participating in an on-stage conversation/interview, making him clearly visible and identifiable. It serves as biographical illustration for a documentary short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0ac0d496929085f2e32ea4bd888a89d91dfe0a4ba9fa13fd1832865924de90a8",
+      "reviewed_at": 1793731271.473427
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:lucas_nolan",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
+        "source_url": "https://archive.org/details/lucas_nolan",
+        "title": "George Lucas on the Impact of Star Wars",
+        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
+        "creator": "George Lucas, Christopher Nolan",
+        "license": "",
+        "subject": "george luca, christopher nolan, interviews, star wars, directors",
+        "runtime": "57:57",
+        "direct_subject": true,
+        "duration_hint": 3477.106967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 804.18,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature George Lucas being interviewed, making it excellent archival/interview footage suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "211c7354dcd1f189bcadfa05e15728bb996538fd3314c8ebb55831fb1d4a1fda",
+      "reviewed_at": 1793731283.6797256
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
+        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
+        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "runtime": "00:31:43",
+        "direct_subject": true,
+        "duration_hint": 1903.2,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 876.94,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames feature George Lucas on stage participating in a conversation and awards ceremony, providing valid biographical illustration footage, though it is a static wide shot of a panel discussion.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7b95a41ec6728b637e0edbcb9dc8587b76f3e21c869302ed27d055abc2da9db6",
+      "reviewed_at": 1793731290.6545103
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:lucas_nolan",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
+        "source_url": "https://archive.org/details/lucas_nolan",
+        "title": "George Lucas on the Impact of Star Wars",
+        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
+        "creator": "George Lucas, Christopher Nolan",
+        "license": "",
+        "subject": "george luca, christopher nolan, interviews, star wars, directors",
+        "runtime": "57:57",
+        "direct_subject": true,
+        "duration_hint": 3477.106967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1070.57,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features real interview footage of George Lucas speaking with Christopher Nolan, clearly identifying the subject and serving as great biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3175ff0ca914872ea08c4a8db7f54d7405f2b4aef8ce3f91ca6c7dd4a3da864b",
+      "reviewed_at": 1793731301.302225
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
+        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
+        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "runtime": "00:31:43",
+        "direct_subject": true,
+        "duration_hint": 1903.2,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 731.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features genuine archival video footage of George Lucas participating in an onstage conversation at the Aspen Institute in 2012, making it valid biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "39e5f392d6cdd48e2a4575fe165938ae96451a14503f2875e92abde304b00836",
+      "reviewed_at": 1793731312.886982
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:lucas_nolan",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
+        "source_url": "https://archive.org/details/lucas_nolan",
+        "title": "George Lucas on the Impact of Star Wars",
+        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
+        "creator": "George Lucas, Christopher Nolan",
+        "license": "",
+        "subject": "george luca, christopher nolan, interviews, star wars, directors",
+        "runtime": "57:57",
+        "direct_subject": true,
+        "duration_hint": 3477.106967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1336.96,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features George Lucas speaking in an interview setting, which is suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1cabc61d184c97d6f724bc98c000f5843fc2e6ba51d496b413565bf56591acdd",
+      "reviewed_at": 1793731321.2487552
     }
   ]
 }

@@ -18629,6 +18629,96 @@
       "shot": 2,
       "query": "glass lids get seals lid shut until",
       "recorded_at": 1793659113
+    },
+    {
+      "asset_key": "pixabay:video:1495",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2015/12/03/1495-147827970_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "frying pans click yet metal keeps popping",
+      "recorded_at": 1793686804
+    },
+    {
+      "asset_key": "pexels:video:855941",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/855941/855941-hd_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "frying pans click pan gets scorching hot",
+      "recorded_at": 1793686888
+    },
+    {
+      "asset_key": "pixabay:video:141855",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/12/06/141855-778906881_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "frying pans click but cools down shrinks",
+      "recorded_at": 1793686891
+    },
+    {
+      "asset_key": "pixabay:video:8466",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/03/22/8466-209563051_medium.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "frying pans click rim cools faster than",
+      "recorded_at": 1793686894
+    },
+    {
+      "asset_key": "pixabay:video:200129",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/02/11/200129-912127880_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "frying pans click mismatch creates sudden pulling",
+      "recorded_at": 1793686896
+    },
+    {
+      "asset_key": "pixabay:video:14146",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2018/02/06/14146-254487756_medium.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "frying pans click instead sliding smoothly stuck",
+      "recorded_at": 1793686899
+    },
+    {
+      "asset_key": "pexels:video:12664519",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/12664519/12664519-hd_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "frying pans click tiny jump makes loud",
+      "recorded_at": 1793686919
+    },
+    {
+      "asset_key": "pexels:video:39137543",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39137543/16653901_720_1280_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "frying pans click your cooling pan basically",
+      "recorded_at": 1793686938
+    },
+    {
+      "asset_key": "pexels:video:35789975",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35789975/15173720_1280_720_50fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "frying pans click its metal relaxes back",
+      "recorded_at": 1793686941
     }
   ]
 }

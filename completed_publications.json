@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789230580",
-    "video_id": "T7dt-DLaxBI",
-    "topic": "Why do cardboard boxes tear sideways",
-    "completed_at": 1789283201
-  },
-  {
     "workdir": "output/1789302060",
     "video_id": "IsDZbHvHuz4",
     "topic": "Why ice cubes crack in water",
@@ -598,5 +592,11 @@
     "video_id": "j8DaHuJRGN8",
     "topic": "Why do glass lids get stuck tight",
     "completed_at": 1793659973
+  },
+  {
+    "workdir": "output/1793686688",
+    "video_id": "QgO87L-dEyA",
+    "topic": "Why do frying pans click cooling",
+    "completed_at": 1793688291
   }
 ]

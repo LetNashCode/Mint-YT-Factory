@@ -2,440 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Freddie Mercury",
-      "source": {
-        "id": "archive:FreddieMS1",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/FreddieMS1/videoplayback.mp4",
-        "source_url": "https://archive.org/details/FreddieMS1",
-        "title": "Freddie Mercury S1E48",
-        "description": "Host A.J. Benza looks at the lives of Hollywood's fallen stars. #hollywoodmysteriesandscandals",
-        "creator": "",
-        "license": "",
-        "subject": "#hollywoodmysteriesandscandals",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1279.56,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 199.7,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features archival footage and biographical illustration of Freddie Mercury, with the subject clearly identifiable in the later frames alongside band members, making it suitable for a biographical short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "968cff653f901b8cbcdaa455759d594fc8df20a0c8494035c398c2b01d6d7128",
-      "reviewed_at": 1792231423.3867073
-    },
-    {
-      "person": "Freddie Mercury",
-      "source": {
-        "id": "archive:freddie-mercury-the-great-pretender-2012",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/freddie-mercury-the-great-pretender-2012/Freddie%20Mercury%20-%20The%20Great%20Pretender%20%282012%29.mp4",
-        "source_url": "https://archive.org/details/freddie-mercury-the-great-pretender-2012",
-        "title": "Freddie Mercury - The Great Pretender (2012)",
-        "description": "Freddie Mercury - The Great Pretender (2012) 720p ['Freddie Mercury', '2012', 'Music', 'Music Documentary', 'England']",
-        "creator": "Freddie Mercury",
-        "license": "",
-        "subject": "['Freddie Mercury', '2012', 'Music', 'Music Documentary', 'England']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 5109.007506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 1964.62,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames feature genuine archival concert footage of Freddie Mercury performing live on stage, making it highly relevant and usable for a biographical Short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "345b90310ff72eb38b032be046878581cd27fadb64297c11c3d86c7f10991017",
-      "reviewed_at": 1792231436.0586288
-    },
-    {
-      "person": "Freddie Mercury",
-      "source": {
-        "id": "archive:freddie-mercury-the-great-pretender-2012",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/freddie-mercury-the-great-pretender-2012/Freddie%20Mercury%20-%20The%20Great%20Pretender%20%282012%29.mp4",
-        "source_url": "https://archive.org/details/freddie-mercury-the-great-pretender-2012",
-        "title": "Freddie Mercury - The Great Pretender (2012)",
-        "description": "Freddie Mercury - The Great Pretender (2012) 720p ['Freddie Mercury', '2012', 'Music', 'Music Documentary', 'England']",
-        "creator": "Freddie Mercury",
-        "license": "",
-        "subject": "['Freddie Mercury', '2012', 'Music', 'Music Documentary', 'England']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 5109.007506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2356.54,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature Freddie Mercury performing in archival music video footage ('The Great Pretender'), making it authentic and highly relevant biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "fecfbe1634790d4907b16dca29194d7af38d38e464e142c6e4d1a51a0e91c122",
-      "reviewed_at": 1792231462.9411764
-    },
-    {
-      "person": "Freddie Mercury",
-      "source": {
-        "id": "archive:freddie-mercury-the-great-pretender-2012",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/freddie-mercury-the-great-pretender-2012/Freddie%20Mercury%20-%20The%20Great%20Pretender%20%282012%29.mp4",
-        "source_url": "https://archive.org/details/freddie-mercury-the-great-pretender-2012",
-        "title": "Freddie Mercury - The Great Pretender (2012)",
-        "description": "Freddie Mercury - The Great Pretender (2012) 720p ['Freddie Mercury', '2012', 'Music', 'Music Documentary', 'England']",
-        "creator": "Freddie Mercury",
-        "license": "",
-        "subject": "['Freddie Mercury', '2012', 'Music', 'Music Documentary', 'England']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 5109.007506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 3140.39,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The clip features real archival footage of Freddie Mercury performing alongside Montserrat Caballe, making it highly relevant and usable for a biographical short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2fdb7bdd614e67550e6d2b5f07d07a1af950769cea44bdce35b6d7ee29d889e7",
-      "reviewed_at": 1792231468.614065
-    },
-    {
-      "person": "Edmund Hillary",
-      "source": {
-        "id": "archive:SirEdmundHillaryJohnMeekInterview",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/SirEdmundHillaryJohnMeekInterview/EdmundHillary50thAnniversary_Exported_512kb.mp4",
-        "source_url": "https://archive.org/details/SirEdmundHillaryJohnMeekInterview",
-        "title": "Sir Edmund Hillary: John Meek Interview",
-        "description": "\"While vacationing in Colorado in the summer of 2002, I was reminded the 50th anniversary of Sir Edmund Hillary being the first person to summit Mt. Everest would be coming up in a few months. After a series of emails explaining my video interviews of noted climbers project for the American Alpine Club library, Sir Edmund's agent sent word that I could have one hour at 10 am Sept. 3rd at the Hillary home in Auckland, NZ. What a thrill. Not having Sir Edmund in my interview collection would be akin to the Louvre without the Mona LIsa. When I arrived at the Hillary home, it was raining and equipment destroying a house two doors away made a terrible racket. Assuming the destruction crew would not want to go away while I did the interview, I went in the house and got on with it. In what seemed as if only a few minutes had gone by, it was already noon and Lady June Hillary interrupted to say lunch was ready. To my surprise, she also had set a place for me. After lunch, I continued and finally at 4 pm, Lady June insisted she drive me back to the hotel. Now, it is my understanding Sir Edmund have only three interviews on his anniversary. One was for National Geographic, which had helped sponsor the 1953 climb. Another was for Time Life for a book on famous adventurers. The third was with me. I deeply appreciate the time and effort spent by Debbie Tawse, Sir Edmund's agent, in arranging the interview. And, my gratitude also to Sir Edmund and Lady June for their hospitality.\" -- John Martin Meek ['Sir Edmund Hillary', 'Lady June Hillary', 'Everest', 'First Ascent', 'American Alpine Club', 'AAC', 'American Alpine Club Library', 'John Martin Meek', 'Mountaineering', 'Climbing']",
-        "creator": "John Martin Meek",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/us/",
-        "subject": "['Sir Edmund Hillary', 'Lady June Hillary', 'Everest', 'First Ascent', 'American Alpine Club', 'AAC', 'American Alpine Club Library', 'John Martin Meek', 'Mountaineering', 'Climbing']",
-        "runtime": "1:27:30",
-        "direct_subject": true,
-        "duration_hint": 5250.066667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 4032.74,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features genuine archival interview footage of Sir Edmund Hillary speaking about his life and experiences, making it relevant biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ccd910f561ada442751dbd045d7ade5665aabc248bd3fb9452220bfd6f2bd794",
-      "reviewed_at": 1792231529.2527194
-    },
-    {
-      "person": "Edmund Hillary",
-      "source": {
-        "id": "archive:fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM/tmp522qq06y.mp4",
-        "source_url": "https://archive.org/details/fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
-        "title": "“FOOTHOLD ON ANTARCTICA” 1957 EDMUND HILLARY COMMONWEALTH TRANS-ANTARCTIC EXPEDITION DOCU XD8680",
-        "description": "\"Foothold on Antarctica\" is a 1957 adventure documentary presented by the British Petroleum Company. It features the first phase of advance preparations which laid the groundwork for Sir Edmund Hillary's landmark crossing of Antarctica and the South Pole in January 1958. This film focuses on the advance party of the Commonwealth Trans-Antarctic Expedition which arrived in Antarctica in November 1955. Eight men, led by Ken Blaiklock, stayed through the winter and established the Shackleton Base near the Weddell Sea which was critical to the mission's success.(01:06) November 1955, the motor vessel Theron found Antarctica.(01:20) The sailing vessel Huron is shown on its way to the Weddell Sea near the South Pole.(01:39) Dr Vivian Fuchs (later Sir Vivian Ernest Fuchs FRS), is the leader(01:41) Sir Edmund Hillary is seen. He was known for his historic summit of Mt. Everest in 1953. Set to lead a New Zealand group the following year, here is seen accompanying the British expedition.(02:02) The crew chat in their bunks.(02:09) Huskies and their pups are housed in kennels on the deck.(02:37) Men relax on deck and enjoy the nice weather.(03:15) A diagram showing the positions of South Georgia, the Weddell Sea, and Antarctica.(03:48) A map demonstrates the locations of the Weddell Sea and Ross Sea, the planned start and end points for the expedition.(03:53) The two locations are 2000 miles apart and the crew will cross the South Pole.(04:16) The burial site of Ernest Shackleton who died while exploring the area in 1922.(04:26) Seals and whales are common creatures near South Georgia ['Sir Vivian Ernest Fuchs', 'British Petroleum Company', 'Sir Edmund Hillary', 'South Pole', 'Commonwealth Trans', 'Antarctic Expedition', 'Ken Blaiklock', 'Shackleton Base', 'Weddell Sea', 'Dr Vivian Fuchs', 'Stock Footage', 'Periscope Film']",
-        "creator": "",
-        "license": "",
-        "subject": "['Sir Vivian Ernest Fuchs', 'British Petroleum Company', 'Sir Edmund Hillary', 'South Pole', 'Commonwealth Trans', 'Antarctic Expedition', 'Ken Blaiklock', 'Shackleton Base', 'Weddell Sea', 'Dr Vivian Fuchs', 'Stock Footage', 'Periscope Film']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1275.312761,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 684.17,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features real archival footage from the 1957 Commonwealth Trans-Antarctic Expedition, including aerial/expedition context and a clear shot of Sir Edmund Hillary in the final frame.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d63069da57a2f70aa328edbc8b1615d1ff4f31527e5d115a84baf46d09c8b8da",
-      "reviewed_at": 1792231537.3784964
-    },
-    {
-      "person": "Edmund Hillary",
-      "source": {
-        "id": "archive:SirEdmundHillaryJohnMeekInterview",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/SirEdmundHillaryJohnMeekInterview/EdmundHillary50thAnniversary_Exported_512kb.mp4",
-        "source_url": "https://archive.org/details/SirEdmundHillaryJohnMeekInterview",
-        "title": "Sir Edmund Hillary: John Meek Interview",
-        "description": "\"While vacationing in Colorado in the summer of 2002, I was reminded the 50th anniversary of Sir Edmund Hillary being the first person to summit Mt. Everest would be coming up in a few months. After a series of emails explaining my video interviews of noted climbers project for the American Alpine Club library, Sir Edmund's agent sent word that I could have one hour at 10 am Sept. 3rd at the Hillary home in Auckland, NZ. What a thrill. Not having Sir Edmund in my interview collection would be akin to the Louvre without the Mona LIsa. When I arrived at the Hillary home, it was raining and equipment destroying a house two doors away made a terrible racket. Assuming the destruction crew would not want to go away while I did the interview, I went in the house and got on with it. In what seemed as if only a few minutes had gone by, it was already noon and Lady June Hillary interrupted to say lunch was ready. To my surprise, she also had set a place for me. After lunch, I continued and finally at 4 pm, Lady June insisted she drive me back to the hotel. Now, it is my understanding Sir Edmund have only three interviews on his anniversary. One was for National Geographic, which had helped sponsor the 1953 climb. Another was for Time Life for a book on famous adventurers. The third was with me. I deeply appreciate the time and effort spent by Debbie Tawse, Sir Edmund's agent, in arranging the interview. And, my gratitude also to Sir Edmund and Lady June for their hospitality.\" -- John Martin Meek ['Sir Edmund Hillary', 'Lady June Hillary', 'Everest', 'First Ascent', 'American Alpine Club', 'AAC', 'American Alpine Club Library', 'John Martin Meek', 'Mountaineering', 'Climbing']",
-        "creator": "John Martin Meek",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/us/",
-        "subject": "['Sir Edmund Hillary', 'Lady June Hillary', 'Everest', 'First Ascent', 'American Alpine Club', 'AAC', 'American Alpine Club Library', 'John Martin Meek', 'Mountaineering', 'Climbing']",
-        "runtime": "1:27:30",
-        "direct_subject": true,
-        "duration_hint": 5250.066667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 810.55,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage shows Sir Edmund Hillary being interviewed in his home, making it genuine biographical illustration footage. However, because it is an interview about his life and achievements rather than direct archival footage of the 1953 Everest summit itself, it serves as biographical illustration rather than direct_event.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e9db99c73dffbbd46e6bd79b096ad896ce0db21bd7b55790bd8028278d10001d",
-      "reviewed_at": 1792231551.519783
-    },
-    {
-      "person": "Edmund Hillary",
-      "source": {
-        "id": "archive:fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM/tmp522qq06y.mp4",
-        "source_url": "https://archive.org/details/fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
-        "title": "“FOOTHOLD ON ANTARCTICA” 1957 EDMUND HILLARY COMMONWEALTH TRANS-ANTARCTIC EXPEDITION DOCU XD8680",
-        "description": "\"Foothold on Antarctica\" is a 1957 adventure documentary presented by the British Petroleum Company. It features the first phase of advance preparations which laid the groundwork for Sir Edmund Hillary's landmark crossing of Antarctica and the South Pole in January 1958. This film focuses on the advance party of the Commonwealth Trans-Antarctic Expedition which arrived in Antarctica in November 1955. Eight men, led by Ken Blaiklock, stayed through the winter and established the Shackleton Base near the Weddell Sea which was critical to the mission's success.(01:06) November 1955, the motor vessel Theron found Antarctica.(01:20) The sailing vessel Huron is shown on its way to the Weddell Sea near the South Pole.(01:39) Dr Vivian Fuchs (later Sir Vivian Ernest Fuchs FRS), is the leader(01:41) Sir Edmund Hillary is seen. He was known for his historic summit of Mt. Everest in 1953. Set to lead a New Zealand group the following year, here is seen accompanying the British expedition.(02:02) The crew chat in their bunks.(02:09) Huskies and their pups are housed in kennels on the deck.(02:37) Men relax on deck and enjoy the nice weather.(03:15) A diagram showing the positions of South Georgia, the Weddell Sea, and Antarctica.(03:48) A map demonstrates the locations of the Weddell Sea and Ross Sea, the planned start and end points for the expedition.(03:53) The two locations are 2000 miles apart and the crew will cross the South Pole.(04:16) The burial site of Ernest Shackleton who died while exploring the area in 1922.(04:26) Seals and whales are common creatures near South Georgia ['Sir Vivian Ernest Fuchs', 'British Petroleum Company', 'Sir Edmund Hillary', 'South Pole', 'Commonwealth Trans', 'Antarctic Expedition', 'Ken Blaiklock', 'Shackleton Base', 'Weddell Sea', 'Dr Vivian Fuchs', 'Stock Footage', 'Periscope Film']",
-        "creator": "",
-        "license": "",
-        "subject": "['Sir Vivian Ernest Fuchs', 'British Petroleum Company', 'Sir Edmund Hillary', 'South Pole', 'Commonwealth Trans', 'Antarctic Expedition', 'Ken Blaiklock', 'Shackleton Base', 'Weddell Sea', 'Dr Vivian Fuchs', 'Stock Footage', 'Periscope Film']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1275.312761,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 102.02,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The archival footage clearly shows Sir Edmund Hillary aboard the ship during the Commonwealth Trans-Antarctic Expedition in 1957, providing authentic historical identity and context.",
-        "usage": "direct_event"
-      },
-      "review_key": "b316a0ff61e7b59da93c71b99720369b719967a3a42ca5153c1f63a5fa750804",
-      "reviewed_at": 1792231558.772635
-    },
-    {
-      "person": "Edmund Hillary",
-      "source": {
-        "id": "archive:SirEdmundHillaryJohnMeekInterview",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/SirEdmundHillaryJohnMeekInterview/EdmundHillary50thAnniversary_Exported_512kb.mp4",
-        "source_url": "https://archive.org/details/SirEdmundHillaryJohnMeekInterview",
-        "title": "Sir Edmund Hillary: John Meek Interview",
-        "description": "\"While vacationing in Colorado in the summer of 2002, I was reminded the 50th anniversary of Sir Edmund Hillary being the first person to summit Mt. Everest would be coming up in a few months. After a series of emails explaining my video interviews of noted climbers project for the American Alpine Club library, Sir Edmund's agent sent word that I could have one hour at 10 am Sept. 3rd at the Hillary home in Auckland, NZ. What a thrill. Not having Sir Edmund in my interview collection would be akin to the Louvre without the Mona LIsa. When I arrived at the Hillary home, it was raining and equipment destroying a house two doors away made a terrible racket. Assuming the destruction crew would not want to go away while I did the interview, I went in the house and got on with it. In what seemed as if only a few minutes had gone by, it was already noon and Lady June Hillary interrupted to say lunch was ready. To my surprise, she also had set a place for me. After lunch, I continued and finally at 4 pm, Lady June insisted she drive me back to the hotel. Now, it is my understanding Sir Edmund have only three interviews on his anniversary. One was for National Geographic, which had helped sponsor the 1953 climb. Another was for Time Life for a book on famous adventurers. The third was with me. I deeply appreciate the time and effort spent by Debbie Tawse, Sir Edmund's agent, in arranging the interview. And, my gratitude also to Sir Edmund and Lady June for their hospitality.\" -- John Martin Meek ['Sir Edmund Hillary', 'Lady June Hillary', 'Everest', 'First Ascent', 'American Alpine Club', 'AAC', 'American Alpine Club Library', 'John Martin Meek', 'Mountaineering', 'Climbing']",
-        "creator": "John Martin Meek",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/us/",
-        "subject": "['Sir Edmund Hillary', 'Lady June Hillary', 'Everest', 'First Ascent', 'American Alpine Club', 'AAC', 'American Alpine Club Library', 'John Martin Meek', 'Mountaineering', 'Climbing']",
-        "runtime": "1:27:30",
-        "direct_subject": true,
-        "duration_hint": 5250.066667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 1213.32,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage features Sir Edmund Hillary speaking in a genuine interview setting, providing biographical illustration for a segment about his life, though the video quality is somewhat soft.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "65f53d71ea6f5ac9e78a696eefcc43b69648fcba2f83c570e78f575605f6f590",
-      "reviewed_at": 1792231564.1884289
-    },
-    {
-      "person": "Edmund Hillary",
-      "source": {
-        "id": "archive:fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM/tmp522qq06y.mp4",
-        "source_url": "https://archive.org/details/fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
-        "title": "“FOOTHOLD ON ANTARCTICA” 1957 EDMUND HILLARY COMMONWEALTH TRANS-ANTARCTIC EXPEDITION DOCU XD8680",
-        "description": "\"Foothold on Antarctica\" is a 1957 adventure documentary presented by the British Petroleum Company. It features the first phase of advance preparations which laid the groundwork for Sir Edmund Hillary's landmark crossing of Antarctica and the South Pole in January 1958. This film focuses on the advance party of the Commonwealth Trans-Antarctic Expedition which arrived in Antarctica in November 1955. Eight men, led by Ken Blaiklock, stayed through the winter and established the Shackleton Base near the Weddell Sea which was critical to the mission's success.(01:06) November 1955, the motor vessel Theron found Antarctica.(01:20) The sailing vessel Huron is shown on its way to the Weddell Sea near the South Pole.(01:39) Dr Vivian Fuchs (later Sir Vivian Ernest Fuchs FRS), is the leader(01:41) Sir Edmund Hillary is seen. He was known for his historic summit of Mt. Everest in 1953. Set to lead a New Zealand group the following year, here is seen accompanying the British expedition.(02:02) The crew chat in their bunks.(02:09) Huskies and their pups are housed in kennels on the deck.(02:37) Men relax on deck and enjoy the nice weather.(03:15) A diagram showing the positions of South Georgia, the Weddell Sea, and Antarctica.(03:48) A map demonstrates the locations of the Weddell Sea and Ross Sea, the planned start and end points for the expedition.(03:53) The two locations are 2000 miles apart and the crew will cross the South Pole.(04:16) The burial site of Ernest Shackleton who died while exploring the area in 1922.(04:26) Seals and whales are common creatures near South Georgia ['Sir Vivian Ernest Fuchs', 'British Petroleum Company', 'Sir Edmund Hillary', 'South Pole', 'Commonwealth Trans', 'Antarctic Expedition', 'Ken Blaiklock', 'Shackleton Base', 'Weddell Sea', 'Dr Vivian Fuchs', 'Stock Footage', 'Periscope Film']",
-        "creator": "",
-        "license": "",
-        "subject": "['Sir Vivian Ernest Fuchs', 'British Petroleum Company', 'Sir Edmund Hillary', 'South Pole', 'Commonwealth Trans', 'Antarctic Expedition', 'Ken Blaiklock', 'Shackleton Base', 'Weddell Sea', 'Dr Vivian Fuchs', 'Stock Footage', 'Periscope Film']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1275.312761,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 393.1,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features authentic archival documentary footage from 1957 showing the Commonwealth Trans-Antarctic Expedition, with Sir Edmund Hillary clearly visible on deck in the later frames.",
-        "usage": "direct_event"
-      },
-      "review_key": "7c1e13cc0324b2862408c56b62a2a9b25966f8b540ba45cf13cc749cceef7712",
-      "reviewed_at": 1792231570.3538592
-    },
-    {
-      "person": "Edmund Hillary",
-      "source": {
-        "id": "archive:SirEdmundHillaryJohnMeekInterview",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/SirEdmundHillaryJohnMeekInterview/EdmundHillary50thAnniversary_Exported_512kb.mp4",
-        "source_url": "https://archive.org/details/SirEdmundHillaryJohnMeekInterview",
-        "title": "Sir Edmund Hillary: John Meek Interview",
-        "description": "\"While vacationing in Colorado in the summer of 2002, I was reminded the 50th anniversary of Sir Edmund Hillary being the first person to summit Mt. Everest would be coming up in a few months. After a series of emails explaining my video interviews of noted climbers project for the American Alpine Club library, Sir Edmund's agent sent word that I could have one hour at 10 am Sept. 3rd at the Hillary home in Auckland, NZ. What a thrill. Not having Sir Edmund in my interview collection would be akin to the Louvre without the Mona LIsa. When I arrived at the Hillary home, it was raining and equipment destroying a house two doors away made a terrible racket. Assuming the destruction crew would not want to go away while I did the interview, I went in the house and got on with it. In what seemed as if only a few minutes had gone by, it was already noon and Lady June Hillary interrupted to say lunch was ready. To my surprise, she also had set a place for me. After lunch, I continued and finally at 4 pm, Lady June insisted she drive me back to the hotel. Now, it is my understanding Sir Edmund have only three interviews on his anniversary. One was for National Geographic, which had helped sponsor the 1953 climb. Another was for Time Life for a book on famous adventurers. The third was with me. I deeply appreciate the time and effort spent by Debbie Tawse, Sir Edmund's agent, in arranging the interview. And, my gratitude also to Sir Edmund and Lady June for their hospitality.\" -- John Martin Meek ['Sir Edmund Hillary', 'Lady June Hillary', 'Everest', 'First Ascent', 'American Alpine Club', 'AAC', 'American Alpine Club Library', 'John Martin Meek', 'Mountaineering', 'Climbing']",
-        "creator": "John Martin Meek",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/us/",
-        "subject": "['Sir Edmund Hillary', 'Lady June Hillary', 'Everest', 'First Ascent', 'American Alpine Club', 'AAC', 'American Alpine Club Library', 'John Martin Meek', 'Mountaineering', 'Climbing']",
-        "runtime": "1:27:30",
-        "direct_subject": true,
-        "duration_hint": 5250.066667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 1616.1,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage features a clear, identifiable interview of Sir Edmund Hillary later in life, providing valid biographical illustration of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9678bb7e85dc8181b46a98565393e84a4c34efc352b9ed69743e08ebd17088d0",
-      "reviewed_at": 1792231574.4601028
-    },
-    {
-      "person": "Edmund Hillary",
-      "source": {
-        "id": "archive:SirEdmundHillaryJohnMeekInterview",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/SirEdmundHillaryJohnMeekInterview/EdmundHillary50thAnniversary_Exported_512kb.mp4",
-        "source_url": "https://archive.org/details/SirEdmundHillaryJohnMeekInterview",
-        "title": "Sir Edmund Hillary: John Meek Interview",
-        "description": "\"While vacationing in Colorado in the summer of 2002, I was reminded the 50th anniversary of Sir Edmund Hillary being the first person to summit Mt. Everest would be coming up in a few months. After a series of emails explaining my video interviews of noted climbers project for the American Alpine Club library, Sir Edmund's agent sent word that I could have one hour at 10 am Sept. 3rd at the Hillary home in Auckland, NZ. What a thrill. Not having Sir Edmund in my interview collection would be akin to the Louvre without the Mona LIsa. When I arrived at the Hillary home, it was raining and equipment destroying a house two doors away made a terrible racket. Assuming the destruction crew would not want to go away while I did the interview, I went in the house and got on with it. In what seemed as if only a few minutes had gone by, it was already noon and Lady June Hillary interrupted to say lunch was ready. To my surprise, she also had set a place for me. After lunch, I continued and finally at 4 pm, Lady June insisted she drive me back to the hotel. Now, it is my understanding Sir Edmund have only three interviews on his anniversary. One was for National Geographic, which had helped sponsor the 1953 climb. Another was for Time Life for a book on famous adventurers. The third was with me. I deeply appreciate the time and effort spent by Debbie Tawse, Sir Edmund's agent, in arranging the interview. And, my gratitude also to Sir Edmund and Lady June for their hospitality.\" -- John Martin Meek ['Sir Edmund Hillary', 'Lady June Hillary', 'Everest', 'First Ascent', 'American Alpine Club', 'AAC', 'American Alpine Club Library', 'John Martin Meek', 'Mountaineering', 'Climbing']",
-        "creator": "John Martin Meek",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/us/",
-        "subject": "['Sir Edmund Hillary', 'Lady June Hillary', 'Everest', 'First Ascent', 'American Alpine Club', 'AAC', 'American Alpine Club Library', 'John Martin Meek', 'Mountaineering', 'Climbing']",
-        "runtime": "1:27:30",
-        "direct_subject": true,
-        "duration_hint": 5250.066667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2018.87,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage clearly shows Sir Edmund Hillary being interviewed in later life, providing good biographical illustration for a video about him.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "08e4abd81ac466fe1c6625aa7353d4b6223d2c7a9865b1fc14659833585ec5be",
-      "reviewed_at": 1792231591.8455489
-    },
-    {
-      "person": "Edmund Hillary",
-      "source": {
-        "id": "archive:SirEdmundHillaryJohnMeekInterview",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/SirEdmundHillaryJohnMeekInterview/EdmundHillary50thAnniversary_Exported_512kb.mp4",
-        "source_url": "https://archive.org/details/SirEdmundHillaryJohnMeekInterview",
-        "title": "Sir Edmund Hillary: John Meek Interview",
-        "description": "\"While vacationing in Colorado in the summer of 2002, I was reminded the 50th anniversary of Sir Edmund Hillary being the first person to summit Mt. Everest would be coming up in a few months. After a series of emails explaining my video interviews of noted climbers project for the American Alpine Club library, Sir Edmund's agent sent word that I could have one hour at 10 am Sept. 3rd at the Hillary home in Auckland, NZ. What a thrill. Not having Sir Edmund in my interview collection would be akin to the Louvre without the Mona LIsa. When I arrived at the Hillary home, it was raining and equipment destroying a house two doors away made a terrible racket. Assuming the destruction crew would not want to go away while I did the interview, I went in the house and got on with it. In what seemed as if only a few minutes had gone by, it was already noon and Lady June Hillary interrupted to say lunch was ready. To my surprise, she also had set a place for me. After lunch, I continued and finally at 4 pm, Lady June insisted she drive me back to the hotel. Now, it is my understanding Sir Edmund have only three interviews on his anniversary. One was for National Geographic, which had helped sponsor the 1953 climb. Another was for Time Life for a book on famous adventurers. The third was with me. I deeply appreciate the time and effort spent by Debbie Tawse, Sir Edmund's agent, in arranging the interview. And, my gratitude also to Sir Edmund and Lady June for their hospitality.\" -- John Martin Meek ['Sir Edmund Hillary', 'Lady June Hillary', 'Everest', 'First Ascent', 'American Alpine Club', 'AAC', 'American Alpine Club Library', 'John Martin Meek', 'Mountaineering', 'Climbing']",
-        "creator": "John Martin Meek",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/us/",
-        "subject": "['Sir Edmund Hillary', 'Lady June Hillary', 'Everest', 'First Ascent', 'American Alpine Club', 'AAC', 'American Alpine Club Library', 'John Martin Meek', 'Mountaineering', 'Climbing']",
-        "runtime": "1:27:30",
-        "direct_subject": true,
-        "duration_hint": 5250.066667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2421.65,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features real archival interview footage of Sir Edmund Hillary speaking about his life and experiences, perfectly matching the biographical context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f030bf8a191a9a11911a8f93a35bb9d666c2ba21f1d57cdc2ffffcd0d2f9e709",
-      "reviewed_at": 1792231601.2859602
-    },
-    {
-      "person": "Edmund Hillary",
-      "source": {
-        "id": "archive:SirEdmundHillaryJohnMeekInterview",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/SirEdmundHillaryJohnMeekInterview/EdmundHillary50thAnniversary_Exported_512kb.mp4",
-        "source_url": "https://archive.org/details/SirEdmundHillaryJohnMeekInterview",
-        "title": "Sir Edmund Hillary: John Meek Interview",
-        "description": "\"While vacationing in Colorado in the summer of 2002, I was reminded the 50th anniversary of Sir Edmund Hillary being the first person to summit Mt. Everest would be coming up in a few months. After a series of emails explaining my video interviews of noted climbers project for the American Alpine Club library, Sir Edmund's agent sent word that I could have one hour at 10 am Sept. 3rd at the Hillary home in Auckland, NZ. What a thrill. Not having Sir Edmund in my interview collection would be akin to the Louvre without the Mona LIsa. When I arrived at the Hillary home, it was raining and equipment destroying a house two doors away made a terrible racket. Assuming the destruction crew would not want to go away while I did the interview, I went in the house and got on with it. In what seemed as if only a few minutes had gone by, it was already noon and Lady June Hillary interrupted to say lunch was ready. To my surprise, she also had set a place for me. After lunch, I continued and finally at 4 pm, Lady June insisted she drive me back to the hotel. Now, it is my understanding Sir Edmund have only three interviews on his anniversary. One was for National Geographic, which had helped sponsor the 1953 climb. Another was for Time Life for a book on famous adventurers. The third was with me. I deeply appreciate the time and effort spent by Debbie Tawse, Sir Edmund's agent, in arranging the interview. And, my gratitude also to Sir Edmund and Lady June for their hospitality.\" -- John Martin Meek ['Sir Edmund Hillary', 'Lady June Hillary', 'Everest', 'First Ascent', 'American Alpine Club', 'AAC', 'American Alpine Club Library', 'John Martin Meek', 'Mountaineering', 'Climbing']",
-        "creator": "John Martin Meek",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/us/",
-        "subject": "['Sir Edmund Hillary', 'Lady June Hillary', 'Everest', 'First Ascent', 'American Alpine Club', 'AAC', 'American Alpine Club Library', 'John Martin Meek', 'Mountaineering', 'Climbing']",
-        "runtime": "1:27:30",
-        "direct_subject": true,
-        "duration_hint": 5250.066667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 3227.19,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows actual filmed interview footage of Sir Edmund Hillary speaking in later life. While it is an interview rather than direct archival footage of the 1953 Everest summit, it clearly depicts the subject and serves as valid biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ee89e606679329ecb5f209bfb56f37b45d225fb1004c594cf03e851bf04bf898",
-      "reviewed_at": 1792231607.7634432
-    },
-    {
       "person": "Edmund Hillary",
       "source": {
         "id": "archive:SirEdmundHillaryJohnMeekInterview",
@@ -18573,6 +18139,440 @@
       },
       "review_key": "ab44f569558b66050af1f850581597681fab4be74c44c0cb3329fa2a7fd42f87",
       "reviewed_at": 1793798872.2948143
+    },
+    {
+      "person": "Luciano Pavarotti",
+      "source": {
+        "id": "archive:Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary/Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary.mp4",
+        "source_url": "https://archive.org/details/Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
+        "title": "Luciano Pavarotti World Concert Jackson Heights Documentary",
+        "description": "Luciano Pavarotti World Concert Jackson Heights Documentary ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 10178.044711,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival footage clearly shows Luciano Pavarotti conducting/performing in concert, making it directly relevant biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "509000c1ddfd33a737f8d9c57d86e7ec16c261fb0c17dd0b8ab28d103ed6cea8",
+      "reviewed_at": 1793817195.5526056
+    },
+    {
+      "person": "Luciano Pavarotti",
+      "source": {
+        "id": "archive:tributoalucianopavarotti",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tributoalucianopavarotti/Tributo%20a%20Luciano%20Pavarotti.mp4",
+        "source_url": "https://archive.org/details/tributoalucianopavarotti",
+        "title": "TRIBUTO A LUCIANO PAVAROTTI (1 di 2)",
+        "description": "Tributo a Luciano Pavarotti (1 di 2), 2020 (originale integrale) Qui riuniti i seguenti venticinque video: - Luciano Pavarotti - Che Gelida Manina 1961 live (his debut!), https://www.youtube.com/watch?v=G890jG02RbI - Pavarotti - Questa O Quella from Verdis, Rigoletto. 1964, Moscow, https://www.youtube.com/watch?v=8WUnBvk8iUw - Pavarotti, La Donna e Mobile from Verdis Rigoletto. Moscow, 1964, https://www.youtube.com/watch?v=I4Iv9WdI4LE - Young Luciano Pavarotti La Boheme Che gelida manina 1964, https://www.youtube.com/watch?v=6dxWA2vqv7U - The Young Pavarotti His Early Career BBC Radio 3 25th December 2007, https://www.youtube.com/watch?v=bkzuI2P5hVE&t=2666s - Ingemisco young Pavarotti, Karajan 1967, https://www.youtube.com/watch?v=i9aIm0ZhNno - Luciano Pavarotti Collection 1973 (At the best of his shape), https://www.youtube.com/watch?v=A2Jz0pspc_k&t=8s - G.F. Handel - Care Selve, the arioso from Atalanta by young Luciano Pavarotti [prima del 1974], https://www.youtube.com/watch?v=1o6LzM0wJHQ - Luciano Pavarotti - Angelo Casto e Bel (w Orchestra) wTranslation, https://www.youtube.com/watch?v=ZXDES33468c - Panis Angelicus Pavarotti Father & Son Duet 1978, https://www.youtube.com/watch?v=7ftoQ5G_eQM&t=20s - Luciano Pavarotti - Recital 1978, https://www.youtube.com/watch?v=_fQa9ecUCgc&t=302s - LUCIANO PAVAROTTI - I due Foscari Dal più remoto esilio...Sì io sento Iddio mi chiama [1981], https://www.youtube.com/watch?v=gj_XKvnANC8 - The Essential - Luciano Pavarotti, 1982, https://www.youtube.com/watch?v=56BL8V1I_XI&t=1132s - Luciano Pavarotti - Milan 7 marzo 1983, https://www.y Luciano Pavarotti",
+        "creator": "",
+        "license": "",
+        "subject": "Luciano Pavarotti",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 34952.8,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 26881.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly depict archival video footage of Luciano Pavarotti performing, making it directly relevant and usable as biographical illustration for a video about his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c62b618c625f9949c0ce58ea7bae3c5f050921924715d960c3f3e98278e84a0a",
+      "reviewed_at": 1793817216.179544
+    },
+    {
+      "person": "Luciano Pavarotti",
+      "source": {
+        "id": "archive:Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary/Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary.mp4",
+        "source_url": "https://archive.org/details/Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
+        "title": "Luciano Pavarotti World Concert Jackson Heights Documentary",
+        "description": "Luciano Pavarotti World Concert Jackson Heights Documentary ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 10178.044711,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1568.7,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Luciano Pavarotti performing on stage during a concert, making it authentic archival footage directly illustrating his career and life.",
+        "usage": "direct_event"
+      },
+      "review_key": "03fef72158991d7b9e399c8449de4bf1f6f96bd250e87b5a0bcc501487c4d5e2",
+      "reviewed_at": 1793817240.992183
+    },
+    {
+      "person": "Luciano Pavarotti",
+      "source": {
+        "id": "archive:tributoalucianopavarotti",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tributoalucianopavarotti/Tributo%20a%20Luciano%20Pavarotti.mp4",
+        "source_url": "https://archive.org/details/tributoalucianopavarotti",
+        "title": "TRIBUTO A LUCIANO PAVAROTTI (1 di 2)",
+        "description": "Tributo a Luciano Pavarotti (1 di 2), 2020 (originale integrale) Qui riuniti i seguenti venticinque video: - Luciano Pavarotti - Che Gelida Manina 1961 live (his debut!), https://www.youtube.com/watch?v=G890jG02RbI - Pavarotti - Questa O Quella from Verdis, Rigoletto. 1964, Moscow, https://www.youtube.com/watch?v=8WUnBvk8iUw - Pavarotti, La Donna e Mobile from Verdis Rigoletto. Moscow, 1964, https://www.youtube.com/watch?v=I4Iv9WdI4LE - Young Luciano Pavarotti La Boheme Che gelida manina 1964, https://www.youtube.com/watch?v=6dxWA2vqv7U - The Young Pavarotti His Early Career BBC Radio 3 25th December 2007, https://www.youtube.com/watch?v=bkzuI2P5hVE&t=2666s - Ingemisco young Pavarotti, Karajan 1967, https://www.youtube.com/watch?v=i9aIm0ZhNno - Luciano Pavarotti Collection 1973 (At the best of his shape), https://www.youtube.com/watch?v=A2Jz0pspc_k&t=8s - G.F. Handel - Care Selve, the arioso from Atalanta by young Luciano Pavarotti [prima del 1974], https://www.youtube.com/watch?v=1o6LzM0wJHQ - Luciano Pavarotti - Angelo Casto e Bel (w Orchestra) wTranslation, https://www.youtube.com/watch?v=ZXDES33468c - Panis Angelicus Pavarotti Father & Son Duet 1978, https://www.youtube.com/watch?v=7ftoQ5G_eQM&t=20s - Luciano Pavarotti - Recital 1978, https://www.youtube.com/watch?v=_fQa9ecUCgc&t=302s - LUCIANO PAVAROTTI - I due Foscari Dal più remoto esilio...Sì io sento Iddio mi chiama [1981], https://www.youtube.com/watch?v=gj_XKvnANC8 - The Essential - Luciano Pavarotti, 1982, https://www.youtube.com/watch?v=56BL8V1I_XI&t=1132s - Luciano Pavarotti - Milan 7 marzo 1983, https://www.y Luciano Pavarotti",
+        "creator": "",
+        "license": "",
+        "subject": "Luciano Pavarotti",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 34952.8,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 10755.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly show Luciano Pavarotti performing in archival footage, making it authentic and directly relevant biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "013f04671e7f9f8e879b8df364a9c673f2e922e56d2051c79c678c1ce3eb0dfb",
+      "reviewed_at": 1793817255.113516
+    },
+    {
+      "person": "Luciano Pavarotti",
+      "source": {
+        "id": "archive:tributoalucianopavarotti",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tributoalucianopavarotti/Tributo%20a%20Luciano%20Pavarotti.mp4",
+        "source_url": "https://archive.org/details/tributoalucianopavarotti",
+        "title": "TRIBUTO A LUCIANO PAVAROTTI (1 di 2)",
+        "description": "Tributo a Luciano Pavarotti (1 di 2), 2020 (originale integrale) Qui riuniti i seguenti venticinque video: - Luciano Pavarotti - Che Gelida Manina 1961 live (his debut!), https://www.youtube.com/watch?v=G890jG02RbI - Pavarotti - Questa O Quella from Verdis, Rigoletto. 1964, Moscow, https://www.youtube.com/watch?v=8WUnBvk8iUw - Pavarotti, La Donna e Mobile from Verdis Rigoletto. Moscow, 1964, https://www.youtube.com/watch?v=I4Iv9WdI4LE - Young Luciano Pavarotti La Boheme Che gelida manina 1964, https://www.youtube.com/watch?v=6dxWA2vqv7U - The Young Pavarotti His Early Career BBC Radio 3 25th December 2007, https://www.youtube.com/watch?v=bkzuI2P5hVE&t=2666s - Ingemisco young Pavarotti, Karajan 1967, https://www.youtube.com/watch?v=i9aIm0ZhNno - Luciano Pavarotti Collection 1973 (At the best of his shape), https://www.youtube.com/watch?v=A2Jz0pspc_k&t=8s - G.F. Handel - Care Selve, the arioso from Atalanta by young Luciano Pavarotti [prima del 1974], https://www.youtube.com/watch?v=1o6LzM0wJHQ - Luciano Pavarotti - Angelo Casto e Bel (w Orchestra) wTranslation, https://www.youtube.com/watch?v=ZXDES33468c - Panis Angelicus Pavarotti Father & Son Duet 1978, https://www.youtube.com/watch?v=7ftoQ5G_eQM&t=20s - Luciano Pavarotti - Recital 1978, https://www.youtube.com/watch?v=_fQa9ecUCgc&t=302s - LUCIANO PAVAROTTI - I due Foscari Dal più remoto esilio...Sì io sento Iddio mi chiama [1981], https://www.youtube.com/watch?v=gj_XKvnANC8 - The Essential - Luciano Pavarotti, 1982, https://www.youtube.com/watch?v=56BL8V1I_XI&t=1132s - Luciano Pavarotti - Milan 7 marzo 1983, https://www.y Luciano Pavarotti",
+        "creator": "",
+        "license": "",
+        "subject": "Luciano Pavarotti",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 34952.8,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 13443.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Luciano Pavarotti performing live on stage in archival footage, making it highly usable and relevant as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f6e77d1b832d4e0ee12728c259cb1a42b13da7ff2b00f06afeafecb5856e088c",
+      "reviewed_at": 1793817328.5503018
+    },
+    {
+      "person": "Luciano Pavarotti",
+      "source": {
+        "id": "archive:tributoalucianopavarotti",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tributoalucianopavarotti/Tributo%20a%20Luciano%20Pavarotti.mp4",
+        "source_url": "https://archive.org/details/tributoalucianopavarotti",
+        "title": "TRIBUTO A LUCIANO PAVAROTTI (1 di 2)",
+        "description": "Tributo a Luciano Pavarotti (1 di 2), 2020 (originale integrale) Qui riuniti i seguenti venticinque video: - Luciano Pavarotti - Che Gelida Manina 1961 live (his debut!), https://www.youtube.com/watch?v=G890jG02RbI - Pavarotti - Questa O Quella from Verdis, Rigoletto. 1964, Moscow, https://www.youtube.com/watch?v=8WUnBvk8iUw - Pavarotti, La Donna e Mobile from Verdis Rigoletto. Moscow, 1964, https://www.youtube.com/watch?v=I4Iv9WdI4LE - Young Luciano Pavarotti La Boheme Che gelida manina 1964, https://www.youtube.com/watch?v=6dxWA2vqv7U - The Young Pavarotti His Early Career BBC Radio 3 25th December 2007, https://www.youtube.com/watch?v=bkzuI2P5hVE&t=2666s - Ingemisco young Pavarotti, Karajan 1967, https://www.youtube.com/watch?v=i9aIm0ZhNno - Luciano Pavarotti Collection 1973 (At the best of his shape), https://www.youtube.com/watch?v=A2Jz0pspc_k&t=8s - G.F. Handel - Care Selve, the arioso from Atalanta by young Luciano Pavarotti [prima del 1974], https://www.youtube.com/watch?v=1o6LzM0wJHQ - Luciano Pavarotti - Angelo Casto e Bel (w Orchestra) wTranslation, https://www.youtube.com/watch?v=ZXDES33468c - Panis Angelicus Pavarotti Father & Son Duet 1978, https://www.youtube.com/watch?v=7ftoQ5G_eQM&t=20s - Luciano Pavarotti - Recital 1978, https://www.youtube.com/watch?v=_fQa9ecUCgc&t=302s - LUCIANO PAVAROTTI - I due Foscari Dal più remoto esilio...Sì io sento Iddio mi chiama [1981], https://www.youtube.com/watch?v=gj_XKvnANC8 - The Essential - Luciano Pavarotti, 1982, https://www.youtube.com/watch?v=56BL8V1I_XI&t=1132s - Luciano Pavarotti - Milan 7 marzo 1983, https://www.y Luciano Pavarotti",
+        "creator": "",
+        "license": "",
+        "subject": "Luciano Pavarotti",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 34952.8,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 16130.6,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Luciano Pavarotti performing in archival footage, making it suitable as biographical illustration for a short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0c734465384da1d1c37ce163630fff6a4f14063151e6722269a6c916083409fb",
+      "reviewed_at": 1793817346.5124152
+    },
+    {
+      "person": "Luciano Pavarotti",
+      "source": {
+        "id": "archive:tributoalucianopavarotti",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tributoalucianopavarotti/Tributo%20a%20Luciano%20Pavarotti.mp4",
+        "source_url": "https://archive.org/details/tributoalucianopavarotti",
+        "title": "TRIBUTO A LUCIANO PAVAROTTI (1 di 2)",
+        "description": "Tributo a Luciano Pavarotti (1 di 2), 2020 (originale integrale) Qui riuniti i seguenti venticinque video: - Luciano Pavarotti - Che Gelida Manina 1961 live (his debut!), https://www.youtube.com/watch?v=G890jG02RbI - Pavarotti - Questa O Quella from Verdis, Rigoletto. 1964, Moscow, https://www.youtube.com/watch?v=8WUnBvk8iUw - Pavarotti, La Donna e Mobile from Verdis Rigoletto. Moscow, 1964, https://www.youtube.com/watch?v=I4Iv9WdI4LE - Young Luciano Pavarotti La Boheme Che gelida manina 1964, https://www.youtube.com/watch?v=6dxWA2vqv7U - The Young Pavarotti His Early Career BBC Radio 3 25th December 2007, https://www.youtube.com/watch?v=bkzuI2P5hVE&t=2666s - Ingemisco young Pavarotti, Karajan 1967, https://www.youtube.com/watch?v=i9aIm0ZhNno - Luciano Pavarotti Collection 1973 (At the best of his shape), https://www.youtube.com/watch?v=A2Jz0pspc_k&t=8s - G.F. Handel - Care Selve, the arioso from Atalanta by young Luciano Pavarotti [prima del 1974], https://www.youtube.com/watch?v=1o6LzM0wJHQ - Luciano Pavarotti - Angelo Casto e Bel (w Orchestra) wTranslation, https://www.youtube.com/watch?v=ZXDES33468c - Panis Angelicus Pavarotti Father & Son Duet 1978, https://www.youtube.com/watch?v=7ftoQ5G_eQM&t=20s - Luciano Pavarotti - Recital 1978, https://www.youtube.com/watch?v=_fQa9ecUCgc&t=302s - LUCIANO PAVAROTTI - I due Foscari Dal più remoto esilio...Sì io sento Iddio mi chiama [1981], https://www.youtube.com/watch?v=gj_XKvnANC8 - The Essential - Luciano Pavarotti, 1982, https://www.youtube.com/watch?v=56BL8V1I_XI&t=1132s - Luciano Pavarotti - Milan 7 marzo 1983, https://www.y Luciano Pavarotti",
+        "creator": "",
+        "license": "",
+        "subject": "Luciano Pavarotti",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 34952.8,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 21505.8,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Luciano Pavarotti performing in archival footage, perfectly illustrating his musical career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7043d4bf2049d4673af64220d6fe0233e93d3db3c67d609735fe6b406fa0b2f1",
+      "reviewed_at": 1793817370.35574
+    },
+    {
+      "person": "Luciano Pavarotti",
+      "source": {
+        "id": "archive:tributoalucianopavarotti",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tributoalucianopavarotti/Tributo%20a%20Luciano%20Pavarotti.mp4",
+        "source_url": "https://archive.org/details/tributoalucianopavarotti",
+        "title": "TRIBUTO A LUCIANO PAVAROTTI (1 di 2)",
+        "description": "Tributo a Luciano Pavarotti (1 di 2), 2020 (originale integrale) Qui riuniti i seguenti venticinque video: - Luciano Pavarotti - Che Gelida Manina 1961 live (his debut!), https://www.youtube.com/watch?v=G890jG02RbI - Pavarotti - Questa O Quella from Verdis, Rigoletto. 1964, Moscow, https://www.youtube.com/watch?v=8WUnBvk8iUw - Pavarotti, La Donna e Mobile from Verdis Rigoletto. Moscow, 1964, https://www.youtube.com/watch?v=I4Iv9WdI4LE - Young Luciano Pavarotti La Boheme Che gelida manina 1964, https://www.youtube.com/watch?v=6dxWA2vqv7U - The Young Pavarotti His Early Career BBC Radio 3 25th December 2007, https://www.youtube.com/watch?v=bkzuI2P5hVE&t=2666s - Ingemisco young Pavarotti, Karajan 1967, https://www.youtube.com/watch?v=i9aIm0ZhNno - Luciano Pavarotti Collection 1973 (At the best of his shape), https://www.youtube.com/watch?v=A2Jz0pspc_k&t=8s - G.F. Handel - Care Selve, the arioso from Atalanta by young Luciano Pavarotti [prima del 1974], https://www.youtube.com/watch?v=1o6LzM0wJHQ - Luciano Pavarotti - Angelo Casto e Bel (w Orchestra) wTranslation, https://www.youtube.com/watch?v=ZXDES33468c - Panis Angelicus Pavarotti Father & Son Duet 1978, https://www.youtube.com/watch?v=7ftoQ5G_eQM&t=20s - Luciano Pavarotti - Recital 1978, https://www.youtube.com/watch?v=_fQa9ecUCgc&t=302s - LUCIANO PAVAROTTI - I due Foscari Dal più remoto esilio...Sì io sento Iddio mi chiama [1981], https://www.youtube.com/watch?v=gj_XKvnANC8 - The Essential - Luciano Pavarotti, 1982, https://www.youtube.com/watch?v=56BL8V1I_XI&t=1132s - Luciano Pavarotti - Milan 7 marzo 1983, https://www.y Luciano Pavarotti",
+        "creator": "",
+        "license": "",
+        "subject": "Luciano Pavarotti",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 34952.8,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 24193.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real archival footage of Luciano Pavarotti singing in a formal performance setting. The subject is clearly identifiable throughout the sampled frames, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d7fe64646ce9e6543ee314207b16ecc4314b1c16ccb45aa9c3a5d06846191d5e",
+      "reviewed_at": 1793817395.6742375
+    },
+    {
+      "person": "Luciano Pavarotti",
+      "source": {
+        "id": "archive:tributoalucianopavarotti",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tributoalucianopavarotti/Tributo%20a%20Luciano%20Pavarotti.mp4",
+        "source_url": "https://archive.org/details/tributoalucianopavarotti",
+        "title": "TRIBUTO A LUCIANO PAVAROTTI (1 di 2)",
+        "description": "Tributo a Luciano Pavarotti (1 di 2), 2020 (originale integrale) Qui riuniti i seguenti venticinque video: - Luciano Pavarotti - Che Gelida Manina 1961 live (his debut!), https://www.youtube.com/watch?v=G890jG02RbI - Pavarotti - Questa O Quella from Verdis, Rigoletto. 1964, Moscow, https://www.youtube.com/watch?v=8WUnBvk8iUw - Pavarotti, La Donna e Mobile from Verdis Rigoletto. Moscow, 1964, https://www.youtube.com/watch?v=I4Iv9WdI4LE - Young Luciano Pavarotti La Boheme Che gelida manina 1964, https://www.youtube.com/watch?v=6dxWA2vqv7U - The Young Pavarotti His Early Career BBC Radio 3 25th December 2007, https://www.youtube.com/watch?v=bkzuI2P5hVE&t=2666s - Ingemisco young Pavarotti, Karajan 1967, https://www.youtube.com/watch?v=i9aIm0ZhNno - Luciano Pavarotti Collection 1973 (At the best of his shape), https://www.youtube.com/watch?v=A2Jz0pspc_k&t=8s - G.F. Handel - Care Selve, the arioso from Atalanta by young Luciano Pavarotti [prima del 1974], https://www.youtube.com/watch?v=1o6LzM0wJHQ - Luciano Pavarotti - Angelo Casto e Bel (w Orchestra) wTranslation, https://www.youtube.com/watch?v=ZXDES33468c - Panis Angelicus Pavarotti Father & Son Duet 1978, https://www.youtube.com/watch?v=7ftoQ5G_eQM&t=20s - Luciano Pavarotti - Recital 1978, https://www.youtube.com/watch?v=_fQa9ecUCgc&t=302s - LUCIANO PAVAROTTI - I due Foscari Dal più remoto esilio...Sì io sento Iddio mi chiama [1981], https://www.youtube.com/watch?v=gj_XKvnANC8 - The Essential - Luciano Pavarotti, 1982, https://www.youtube.com/watch?v=56BL8V1I_XI&t=1132s - Luciano Pavarotti - Milan 7 marzo 1983, https://www.y Luciano Pavarotti",
+        "creator": "",
+        "license": "",
+        "subject": "Luciano Pavarotti",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 34952.8,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 29568.6,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Luciano Pavarotti in archival video footage, making it suitable as biographical illustration for a documentary short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6899a69b3eaa75afb7855de6c62b987600242714669cbc8037a8ed39b073066c",
+      "reviewed_at": 1793817449.2300243
+    },
+    {
+      "person": "Luciano Pavarotti",
+      "source": {
+        "id": "archive:tributoalucianopavarotti",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tributoalucianopavarotti/Tributo%20a%20Luciano%20Pavarotti.mp4",
+        "source_url": "https://archive.org/details/tributoalucianopavarotti",
+        "title": "TRIBUTO A LUCIANO PAVAROTTI (1 di 2)",
+        "description": "Tributo a Luciano Pavarotti (1 di 2), 2020 (originale integrale) Qui riuniti i seguenti venticinque video: - Luciano Pavarotti - Che Gelida Manina 1961 live (his debut!), https://www.youtube.com/watch?v=G890jG02RbI - Pavarotti - Questa O Quella from Verdis, Rigoletto. 1964, Moscow, https://www.youtube.com/watch?v=8WUnBvk8iUw - Pavarotti, La Donna e Mobile from Verdis Rigoletto. Moscow, 1964, https://www.youtube.com/watch?v=I4Iv9WdI4LE - Young Luciano Pavarotti La Boheme Che gelida manina 1964, https://www.youtube.com/watch?v=6dxWA2vqv7U - The Young Pavarotti His Early Career BBC Radio 3 25th December 2007, https://www.youtube.com/watch?v=bkzuI2P5hVE&t=2666s - Ingemisco young Pavarotti, Karajan 1967, https://www.youtube.com/watch?v=i9aIm0ZhNno - Luciano Pavarotti Collection 1973 (At the best of his shape), https://www.youtube.com/watch?v=A2Jz0pspc_k&t=8s - G.F. Handel - Care Selve, the arioso from Atalanta by young Luciano Pavarotti [prima del 1974], https://www.youtube.com/watch?v=1o6LzM0wJHQ - Luciano Pavarotti - Angelo Casto e Bel (w Orchestra) wTranslation, https://www.youtube.com/watch?v=ZXDES33468c - Panis Angelicus Pavarotti Father & Son Duet 1978, https://www.youtube.com/watch?v=7ftoQ5G_eQM&t=20s - Luciano Pavarotti - Recital 1978, https://www.youtube.com/watch?v=_fQa9ecUCgc&t=302s - LUCIANO PAVAROTTI - I due Foscari Dal più remoto esilio...Sì io sento Iddio mi chiama [1981], https://www.youtube.com/watch?v=gj_XKvnANC8 - The Essential - Luciano Pavarotti, 1982, https://www.youtube.com/watch?v=56BL8V1I_XI&t=1132s - Luciano Pavarotti - Milan 7 marzo 1983, https://www.y Luciano Pavarotti",
+        "creator": "",
+        "license": "",
+        "subject": "Luciano Pavarotti",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 34952.8,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 32256.2,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Luciano Pavarotti performing on stage (specifically in makeup/costume for a role like Pagliacci), providing genuine archival footage suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "890a98ebe4e80d9799b8d76322cdf6355291d3df1318ef60d85f6dfc3fc86e3f",
+      "reviewed_at": 1793817465.882378
+    },
+    {
+      "person": "Luciano Pavarotti",
+      "source": {
+        "id": "archive:luciano-pavarotti-nessun-dorma_202412",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/luciano-pavarotti-nessun-dorma_202412/Luciano%20Pavarotti%20-%20Nessun%20Dorma.mp4",
+        "source_url": "https://archive.org/details/luciano-pavarotti-nessun-dorma_202412",
+        "title": "Luciano Pavarotti - Nessun Dorma",
+        "description": "MTV 90s UK ['MTV', 'MTV 90s', 'MTV 90s UK']",
+        "creator": "",
+        "license": "",
+        "subject": "['MTV', 'MTV 90s', 'MTV 90s UK']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 192.916667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 101.34,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows Luciano Pavarotti (on the right) performing live on stage alongside other tenors with an orchestra, perfectly matching the biographical subject and archival nature of the video.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "93cdcaffa2a47e724c1fbae1f07832030d4fe6d88e552b0adad683c2ae4d3b17",
+      "reviewed_at": 1793817543.2886438
+    },
+    {
+      "person": "Luciano Pavarotti",
+      "source": {
+        "id": "archive:luciano-pavarotti-nessun-dorma_202412",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/luciano-pavarotti-nessun-dorma_202412/Luciano%20Pavarotti%20-%20Nessun%20Dorma.mp4",
+        "source_url": "https://archive.org/details/luciano-pavarotti-nessun-dorma_202412",
+        "title": "Luciano Pavarotti - Nessun Dorma",
+        "description": "MTV 90s UK ['MTV', 'MTV 90s', 'MTV 90s UK']",
+        "creator": "",
+        "license": "",
+        "subject": "['MTV', 'MTV 90s', 'MTV 90s UK']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 192.916667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 18.76,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival footage of Luciano Pavarotti performing 'Nessun Dorma' alongside other tenors, clearly visible and identifiable throughout the sampled frames.",
+        "usage": "direct_event"
+      },
+      "review_key": "00b3e833b75341962bd3602feafdeb11bf3eeb829e5f3e69a054abe1836fd5b4",
+      "reviewed_at": 1793817577.8081028
+    },
+    {
+      "person": "Luciano Pavarotti",
+      "source": {
+        "id": "archive:luciano-pavarotti-nessun-dorma_202412",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/luciano-pavarotti-nessun-dorma_202412/Luciano%20Pavarotti%20-%20Nessun%20Dorma.mp4",
+        "source_url": "https://archive.org/details/luciano-pavarotti-nessun-dorma_202412",
+        "title": "Luciano Pavarotti - Nessun Dorma",
+        "description": "MTV 90s UK ['MTV', 'MTV 90s', 'MTV 90s UK']",
+        "creator": "",
+        "license": "",
+        "subject": "['MTV', 'MTV 90s', 'MTV 90s UK']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 192.916667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 32.53,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment clearly shows Luciano Pavarotti performing live on stage alongside other tenors, making it genuine and usable archival footage for a biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b8d4db52b34efb131aca4a985261360d101632908a3794588ca7b04ccd45c181",
+      "reviewed_at": 1793817601.042933
+    },
+    {
+      "person": "Luciano Pavarotti",
+      "source": {
+        "id": "archive:luciano-pavarotti-nessun-dorma_202412",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/luciano-pavarotti-nessun-dorma_202412/Luciano%20Pavarotti%20-%20Nessun%20Dorma.mp4",
+        "source_url": "https://archive.org/details/luciano-pavarotti-nessun-dorma_202412",
+        "title": "Luciano Pavarotti - Nessun Dorma",
+        "description": "MTV 90s UK ['MTV', 'MTV 90s', 'MTV 90s UK']",
+        "creator": "",
+        "license": "",
+        "subject": "['MTV', 'MTV 90s', 'MTV 90s UK']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 192.916667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 46.29,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows Luciano Pavarotti performing live on stage alongside other tenors, providing excellent historical and biographical context of his career.",
+        "usage": "direct_event"
+      },
+      "review_key": "964ab86efccdb45ef3d2e6f2c4a18476208dcef9798c80a4b01715cf614e2247",
+      "reviewed_at": 1793817638.791456
     }
   ]
 }

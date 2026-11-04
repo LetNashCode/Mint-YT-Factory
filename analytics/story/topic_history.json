@@ -612,5 +612,21 @@
     "video_id": "bZMEXXx8cXw",
     "workdir": "",
     "published_at": 1793712003
+  },
+  {
+    "topic": "Luciano Pavarotti: Overcoming a severe pulmonary illness and years of rejection before becoming the world's most famous tenor.",
+    "normalized": "luciano pavarotti overcoming a severe pulmonary illness and years of rejection before becoming the world s most famous tenor",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1793817191,
+    "recorded_at": 1793817191,
+    "metadata": {
+      "person": "Luciano Pavarotti",
+      "pillar": "rise_from_nothing"
+    },
+    "title": "Luciano Pavarotti: Overcoming a severe pulmonary illness and years of rejection before becoming the world's most famous tenor.",
+    "video_id": "fY425_2rAPg",
+    "workdir": "",
+    "published_at": 1793818190
   }
 ]

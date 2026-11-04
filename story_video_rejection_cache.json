@@ -12534,6 +12534,42 @@
       "start": 110.93,
       "reason": "The footage shows parachute airdrop testing conducted by the Vikram Sarabhai Space Centre in 2022, which is long after Vikram Sarabhai's death in 1971. However, it can serve as biographical illustration representing the ongoing work and legacy of the institution he founded.",
       "reviewed_at": 1793799093.5455458
+    },
+    "cc73d964e84c4f3df2b62fb7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
+      "source_url": "https://archive.org/details/Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
+      "person": "Luciano Pavarotti",
+      "start": 786.85,
+      "reason": "The footage shows a flutist performing in a tuxedo, who is clearly not Luciano Pavarotti (an opera tenor). Therefore, the subject is not visible and the video is not usable for a biography of Pavarotti.",
+      "reviewed_at": 1793817236.9293628
+    },
+    "889d8b65dc77aae2c6d97d17": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
+      "source_url": "https://archive.org/details/Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
+      "person": "Luciano Pavarotti",
+      "start": 2350.55,
+      "reason": "The sampled footage shows an orchestra and a flutist, but the named subject, Luciano Pavarotti, is never visible in any of the frames.",
+      "reviewed_at": 1793817311.255539
+    },
+    "edc0f506ebeda880cd0ee842": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
+      "source_url": "https://archive.org/details/Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
+      "person": "Luciano Pavarotti",
+      "start": 3132.4,
+      "reason": "The sampled frames show an orchestra performing in a large concert hall, consistent with a Luciano Pavarotti concert documentary. However, Luciano Pavarotti himself is not visible in any of the five sampled frames, so the clip serves as biographical illustration rather than direct identity footage.",
+      "reviewed_at": 1793817324.4191928
+    },
+    "55a8211a56cafa8776a818ca": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tributoalucianopavarotti",
+      "source_url": "https://archive.org/details/tributoalucianopavarotti",
+      "person": "Luciano Pavarotti",
+      "start": 34943.8,
+      "reason": "The sampled frames show a title card or end screen with 'Fine' and a watermark ('Freemake.com'), lacking any clear footage of Luciano Pavarotti or usable historical context.",
+      "reviewed_at": 1793817531.502162
     }
   }
 }

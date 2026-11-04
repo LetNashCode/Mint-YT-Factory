@@ -64,19 +64,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "rise_from_nothing",
-    "person": "Luciano Pavarotti",
-    "premise": "Overcoming a severe pulmonary illness and years of rejection before becoming the world's most famous tenor.",
-    "hook": "He was told by doctors to give up singing entirely after developing a mysterious node on his vocal cords.",
-    "key_facts": [
-      "Trained as an elementary school teacher and sold insurance before pursuing music full-time.",
-      "Studied music for seven years without earning a steady income.",
-      "Made his professional opera debut in Reggio Emilia in 1961.",
-      "Achieved global crossover fame through performances like 'Nessun Dorma'."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Katherine Johnson",
     "premise": "Refusing to accept segregated computing limitations and demanding to attend high-level mission planning briefings.",

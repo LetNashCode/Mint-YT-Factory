@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789303809",
-    "video_id": "UJgwdW_xxUA",
-    "topic": "Why ice cream gives you brain freeze",
-    "completed_at": 1789305519
-  },
-  {
     "workdir": "output/1789396166",
     "video_id": "0_k5v6sCgEo",
     "topic": "Why do plastic bags rustle",
@@ -598,5 +592,11 @@
     "video_id": "w2Z8PjcF0IM",
     "topic": "Why do fresh blankets pill",
     "completed_at": 1793768837
+  },
+  {
+    "workdir": "output/1793807021",
+    "video_id": "cu_CAIIESyY",
+    "topic": "Why do soda bottles hiss loudly",
+    "completed_at": 1793809184
   }
 ]

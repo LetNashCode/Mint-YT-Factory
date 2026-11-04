@@ -3480,30 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do frying pans click cooling",
-    "normalized": "why do frying pans click cooling",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793686617,
-    "recorded_at": 1793686617,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do socks slide down inside shoes",
-    "normalized": "why do socks slide down inside shoes",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793719683,
-    "recorded_at": 1793719683,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do garlic cloves peel easy",
     "normalized": "why do garlic cloves peel easy",
     "workflow": "publish",
@@ -3522,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1793767515,
     "recorded_at": 1793767515,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do soda bottles hiss loudly",
+    "normalized": "why do soda bottles hiss loudly",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793806910,
+    "recorded_at": 1793806910,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

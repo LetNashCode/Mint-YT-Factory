@@ -18839,6 +18839,126 @@
       "shot": 2,
       "query": "fresh blankets pill refusing let secure pilled",
       "recorded_at": 1793767743
+    },
+    {
+      "asset_key": "pexels:video:8844689",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8844689/8844689-hd_1366_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "soda bottles hiss aggressive plastic",
+      "recorded_at": 1793807478
+    },
+    {
+      "asset_key": "pexels:video:4465010",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4465010/4465010-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "soda bottles hiss fresh bottle pure",
+      "recorded_at": 1793807531
+    },
+    {
+      "asset_key": "pexels:video:8880961",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8880961/8880961-hd_1366_720_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "soda bottles hiss factories pump invisible gas",
+      "recorded_at": 1793807563
+    },
+    {
+      "asset_key": "pexels:video:8676986",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8676986/8676986-hd_720_1280_60fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "soda bottles hiss forcing billions rebellious bubbles",
+      "recorded_at": 1793807586
+    },
+    {
+      "asset_key": "pexels:video:4465045",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4465045/4465045-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "soda bottles hiss they held captive upper",
+      "recorded_at": 1793807607
+    },
+    {
+      "asset_key": "pexels:video:4465060",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4465060/4465060-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "soda bottles hiss squished tightly they cannot",
+      "recorded_at": 1793807623
+    },
+    {
+      "asset_key": "pexels:video:5538177",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5538177/5538177-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "soda bottles hiss moment you crack seal",
+      "recorded_at": 1793807646
+    },
+    {
+      "asset_key": "pexels:video:4465011",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4465011/4465011-hd_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "soda bottles hiss lid loosens heavy pressure",
+      "recorded_at": 1793807667
+    },
+    {
+      "asset_key": "pexels:video:8844913",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8844913/8844913-hd_1366_720_24fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "soda bottles hiss trapped gas molecules instantly",
+      "recorded_at": 1793807680
+    },
+    {
+      "asset_key": "pexels:video:4465029",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4465029/4465029-hd_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "soda bottles hiss race upward together creating",
+      "recorded_at": 1793807722
+    },
+    {
+      "asset_key": "pexels:video:4465028",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4465028/4465028-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "soda bottles hiss loud simply billions",
+      "recorded_at": 1793807757
+    },
+    {
+      "asset_key": "pexels:video:4465043",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4465043/4465043-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "soda bottles hiss microscopic escapees shouting freedom",
+      "recorded_at": 1793807777
     }
   ]
 }

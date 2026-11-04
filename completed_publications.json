@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789302060",
-    "video_id": "IsDZbHvHuz4",
-    "topic": "Why ice cubes crack in water",
-    "completed_at": 1789303543
-  },
-  {
     "workdir": "output/1789303809",
     "video_id": "UJgwdW_xxUA",
     "topic": "Why ice cream gives you brain freeze",
@@ -598,5 +592,11 @@
     "video_id": "QgO87L-dEyA",
     "topic": "Why do frying pans click cooling",
     "completed_at": 1793688291
+  },
+  {
+    "workdir": "output/1793767604",
+    "video_id": "w2Z8PjcF0IM",
+    "topic": "Why do fresh blankets pill",
+    "completed_at": 1793768837
   }
 ]

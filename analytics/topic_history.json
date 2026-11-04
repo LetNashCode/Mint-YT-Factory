@@ -3480,42 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do wet clothes smell musty indoors",
-    "normalized": "why do wet clothes smell musty indoors",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793651501,
-    "recorded_at": 1793651501,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do glass lids get stuck tight",
-    "normalized": "why do glass lids get stuck tight",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793658575,
-    "recorded_at": 1793658575,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do coins smell like metal",
-    "normalized": "why do coins smell like metal",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793661367,
-    "recorded_at": 1793661367,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do frying pans click cooling",
     "normalized": "why do frying pans click cooling",
     "workflow": "publish",
@@ -3546,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1793737072,
     "recorded_at": 1793737072,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do fresh blankets pill",
+    "normalized": "why do fresh blankets pill",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793767515,
+    "recorded_at": 1793767515,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

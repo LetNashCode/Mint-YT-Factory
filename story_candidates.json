@@ -14,45 +14,6 @@
   },
   {
     "format": "rise_from_nothing",
-    "person": "Narayana Murthy",
-    "premise": "Starting Infosys with just $250 borrowed from his wife and a vision to build a global software giant in India.",
-    "hook": "He launched one of the world's biggest tech companies from his living room using borrowed money from his wife.",
-    "key_facts": [
-      "Co-founded Infosys in Pune, India, in 1981.",
-      "Started with a modest capital of 10,000 rupees.",
-      "Pioneered the global delivery model for software services.",
-      "Served as CEO for over two decades, transforming India's tech landscape."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Yashwantrao Chavan",
-    "premise": "Resigning as India's Defence Minister immediately after the 1962 war defeat to accept full political accountability.",
-    "hook": "Instead of defending his department after a military defeat, he took full responsibility on national television.",
-    "key_facts": [
-      "Served as India's Defence Minister during the 1962 Sino-Indian War",
-      "Succeeded V. K. Krishna Menon in the cabinet following the conflict",
-      "Navigated the transition of leadership during the deaths of Nehru and Shastri",
-      "Later served as India's Home Minister and Finance Minister"
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Satyajit Ray",
-    "premise": "Pawned his wife's jewelry and used his own life savings to finish filming Pather Panchali after running out of money.",
-    "hook": "His masterpiece film was paused for nearly three years because nobody believed a slow-paced art film about rural Bengal would sell.",
-    "key_facts": [
-      "Worked as a commercial artist while struggling to finance his directorial debut.",
-      "Shot the film intermittently on weekends whenever funds became available.",
-      "Received partial financial intervention from the Government of West Bengal to complete production.",
-      "Pather Panchali won Best Human Document at the 1956 Cannes Film Festival."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
     "person": "Kalpana Chawla",
     "premise": "Journeying from a small town in Haryana to becoming the first Indian-born woman in space.",
     "hook": "Growing up in a conservative Indian town where engineering was rarely pursued by women, she dreamed only of the stars.",
@@ -64,14 +25,67 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "Surviving months stranded on the Antarctic ice after his ship was crushed in the pack ice.",
-    "hook": "His ship was completely destroyed by icebergs, leaving his entire crew stranded on floating ice floes with no way to communicate with the outside world.",
+    "format": "one_decision",
+    "person": "Harrison Ford",
+    "premise": "Working as a carpenter on a film set when a chance reading for an audition changed his life.",
+    "hook": "He was literally building cabinets for Francis Ford Coppola when he was asked to read lines for an upcoming space movie.",
     "key_facts": [
-      "Led the Imperial Trans-Antarctic Expedition in 1914 aboard the ship Endurance.",
-      "Watched the Endurance sink after being trapped and crushed by Weddell Sea ice in 1915.",
-      "Successfully navigated an open lifeboat 800 miles across stormy seas to South Georgia Island to secure rescue."
+      "Worked as a professional carpenter in Hollywood to support his family after struggling to land acting roles.",
+      "Built a doorway for George Lucas, which led to being hired to read lines for actors auditioning for Star Wars.",
+      "Cast as Han Solo after George Lucas realized he was the right fit for the role.",
+      "Became one of the most successful leading men in cinema history."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "N. R. Narayana Murthy",
+    "premise": "Risking financial ruin to launch a pioneering IT company with a minimal loan from his wife.",
+    "hook": "He started a global tech giant with just 10,000 rupees borrowed from his wife and a vision for software outsourcing.",
+    "key_facts": [
+      "Co-founded Infosys in Pune, India, in 1981 with six other software engineers.",
+      "Faced extreme bureaucratic hurdles and a lack of venture capital infrastructure in early 1980s India.",
+      "Helped pioneer the global software services industry model from Bangalore.",
+      "Grew the company into one of India's largest multinational IT corporations."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Satyajit Ray",
+    "premise": "Pawned his wife's jewelry and used personal savings to finish his debut film 'Pather Panchali' after running out of funds.",
+    "hook": "India's greatest cinematic masterpiece almost wasn't made because the production ran completely out of money halfway through.",
+    "key_facts": [
+      "Worked as a commercial artist while struggling to finance his first film.",
+      "Shot 'Pather Panchali' intermittently over nearly three years using amateur actors.",
+      "The film premiered at the 1956 Cannes Film Festival and won Best Human Document.",
+      "Received an Academy Honorary Award in 1992."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Luciano Pavarotti",
+    "premise": "Overcoming a severe pulmonary illness and years of rejection before becoming the world's most famous tenor.",
+    "hook": "He was told by doctors to give up singing entirely after developing a mysterious node on his vocal cords.",
+    "key_facts": [
+      "Trained as an elementary school teacher and sold insurance before pursuing music full-time.",
+      "Studied music for seven years without earning a steady income.",
+      "Made his professional opera debut in Reggio Emilia in 1961.",
+      "Achieved global crossover fame through performances like 'Nessun Dorma'."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Katherine Johnson",
+    "premise": "Refusing to accept segregated computing limitations and demanding to attend high-level mission planning briefings.",
+    "hook": "She was the human computer whose calculations NASA trusted above electronic mainframes for John Glenn's orbit.",
+    "key_facts": [
+      "Graduated from college at age 18 with highest honors in mathematics.",
+      "Joined the guidance and navigation department at NASA's Langley research center in 1953.",
+      "Calculated the trajectory for the 1961 Mercury flight of Alan Shepard.",
+      "Awarded the Presidential Medal of Freedom in 2015."
     ],
     "source": "gemini_original"
   }

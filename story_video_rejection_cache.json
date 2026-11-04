@@ -12246,6 +12246,294 @@
       "start": 5.0,
       "reason": "The video shows another person speaking at a podium (identified as part of a DGA event, likely Christopher Nolan or another speaker), not George Lucas, making this unsuitable as identity footage for George Lucas.",
       "reviewed_at": 1793731226.220299
+    },
+    "74bd2040bbafa6860e1abc81": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Chai_with_Manjula_-_Akshaya_Patra",
+      "source_url": "https://archive.org/details/Chai_with_Manjula_-_Akshaya_Patra",
+      "person": "Narayana Murthy",
+      "start": 1055.17,
+      "reason": "The footage shows children eating and workers in an Akshaya Patra facility, illustrating general philanthropic context rather than depicting Narayana Murthy directly.",
+      "reviewed_at": 1793796986.7403388
+    },
+    "280c797aadd58c5cf48158b7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:is-harry-potter-anti-semitic-the-j.-k.-rowling-accusations",
+      "source_url": "https://archive.org/details/is-harry-potter-anti-semitic-the-j.-k.-rowling-accusations",
+      "person": "J.K. Rowling",
+      "start": 77.35,
+      "reason": "The video shows a live-streaming VTuber reacting to web articles and social media posts, with no actual archival footage or presence of J.K. Rowling.",
+      "reviewed_at": 1793797410.7476535
+    },
+    "49fb749e2dde0f9a840e952e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:is-harry-potter-anti-semitic-the-j.-k.-rowling-accusations",
+      "source_url": "https://archive.org/details/is-harry-potter-anti-semitic-the-j.-k.-rowling-accusations",
+      "person": "J.K. Rowling",
+      "start": 149.7,
+      "reason": "The sampled frames show Jon Stewart and a vtuber reacting to a video, but J.K. Rowling is not visible anywhere in the footage.",
+      "reviewed_at": 1793797484.9888697
+    },
+    "c8ae1ac68a7730db02704060": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-20m-16s-02h-55m-20s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-20m-16s-02h-55m-20s",
+      "person": "Rajinikanth",
+      "start": 1130.78,
+      "reason": "The sampled frames show an interview with KCR and an interviewer named Rajinikanth (anchor), but the biographical subject requested is the famous Indian actor Rajinikanth. This is a case of name confusion, and the actual actor Rajinikanth is not present in the footage.",
+      "reviewed_at": 1793797654.676027
+    },
+    "4fc6f490a63fd8f818d0f9d5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-20m-16s-02h-55m-20s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-20m-16s-02h-55m-20s",
+      "person": "Rajinikanth",
+      "start": 1613.26,
+      "reason": "The sampled frames show an interviewer and politician KCR, but the subject Rajinikanth (who is the interviewer in this TV show context) is not visible in the footage frames provided.",
+      "reviewed_at": 1793797671.916657
+    },
+    "f7de55c8dd723bba5d57d985": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+      "person": "Rajinikanth",
+      "start": 1131.34,
+      "reason": "The sampled frames feature a television interview between the host Rajinikanth and politician K. Chandrashekar Rao (KCR). Although the host's name is Rajinikanth, this is a journalist/interviewer, not the famous actor subject of the biography. Therefore, the person is not visible as the target subject, making the footage unusable.",
+      "reviewed_at": 1793797715.8273044
+    },
+    "94d6e4f770bf15925bd06813": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+      "person": "Rajinikanth",
+      "start": 5.0,
+      "reason": "The video footage features politician K. Chandrashekar Rao (KCR), not the named subject Rajinikanth.",
+      "reviewed_at": 1793797821.9923644
+    },
+    "ee5f680e0c072a2f7b8e4259": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+      "person": "Rajinikanth",
+      "start": 326.56,
+      "reason": "The video shows journalist Rajinikanth hosting an interview show ('Rajinikanth's Show with KCR'). While the named subject Rajinikanth is visible conducting the interview, the footage features heavy TV news channel banners and side-by-side split screens with heavy watermarks, making it less suitable for clean biographical short vertical edits.",
+      "reviewed_at": 1793797894.463957
+    },
+    "f5437526170781d489352980": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+      "person": "Rajinikanth",
+      "start": 165.91,
+      "reason": "The video features the journalist Rajinikanth hosting a show and interviewing politician KCR. The subject of the biography is the actor Rajinikanth, making this footage a mismatch/lookalike context error regarding the person's identity.",
+      "reviewed_at": 1793797944.6286488
+    },
+    "8375552a70f972d2a30c8b36": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+      "person": "Rajinikanth",
+      "start": 808.91,
+      "reason": "The sampled frames show journalist Rajinikanth conducting an interview with KCR, but the subject of the biography is the actor Rajinikanth (or rather, the video features the interviewer whose name happens to be Rajinikanth, while the prompt refers to the famous actor Rajinikanth). The person visible is the journalist/interviewer, not the biographical subject.",
+      "reviewed_at": 1793798047.4396503
+    },
+    "d1c6c35ac4385d4676a412eb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nirmala-sitharaman_202312",
+      "source_url": "https://archive.org/details/nirmala-sitharaman_202312",
+      "person": "Nirmala Sitharaman",
+      "start": 0.61,
+      "reason": "The footage is presented within a social media interface containing heavy UI overlays, text banners, and screenshots rather than clean archival video footage suitable for a biographical short.",
+      "reviewed_at": 1793798258.0532784
+    },
+    "be46913776af34fad93217e5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nirmala-sitharaman-gst",
+      "source_url": "https://archive.org/details/nirmala-sitharaman-gst",
+      "person": "Nirmala Sitharaman",
+      "start": 13.73,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793798263.8547392
+    },
+    "9dc6ba13cf96e263b2d185f2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nirmala-sitharaman-gst",
+      "source_url": "https://archive.org/details/nirmala-sitharaman-gst",
+      "person": "Nirmala Sitharaman",
+      "start": 24.87,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793798267.7453911
+    },
+    "f411afad8fb7e12ddcc47533": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nirmala-sitharaman-gst",
+      "source_url": "https://archive.org/details/nirmala-sitharaman-gst",
+      "person": "Nirmala Sitharaman",
+      "start": 2.59,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793798270.6137807
+    },
+    "3c71caf80bd2002b35e1e833": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nirmala-sitharaman",
+      "source_url": "https://archive.org/details/nirmala-sitharaman",
+      "person": "Nirmala Sitharaman",
+      "start": 23.35,
+      "reason": "The video shows family members in a home setting, but the named subject Nirmala Sitharaman is not clearly visible in the frames. Additionally, the footage is presented as a small screen recording inside a Facebook interface, making it unsuitable for a biography short.",
+      "reviewed_at": 1793798322.4422712
+    },
+    "1eb0e52fb72985a5b35ee469": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nirmala-sitharaman",
+      "source_url": "https://archive.org/details/nirmala-sitharaman",
+      "person": "Nirmala Sitharaman",
+      "start": 33.31,
+      "reason": "The footage shows members of Nirmala Sitharaman's family (her father and relatives), but Nirmala Sitharaman herself is not clearly visible in any of the frames, making it unsuitable as identity footage for her biography.",
+      "reviewed_at": 1793798337.0882218
+    },
+    "c42ab3ba512fb2470b42f108": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nirmala-sitharaman-is-not-meeting-her-father-here",
+      "source_url": "https://archive.org/details/nirmala-sitharaman-is-not-meeting-her-father-here",
+      "person": "Nirmala Sitharaman",
+      "start": 44.44,
+      "reason": "The sampled frames show a video containing other individuals, but the named subject, Nirmala Sitharaman, is not visibly present or clearly identifiable in any of the frames.",
+      "reviewed_at": 1793798387.8029525
+    },
+    "cba3a7eda08f118a11e9aabd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nirmala-sitharaman-is-not-meeting-her-father-here",
+      "source_url": "https://archive.org/details/nirmala-sitharaman-is-not-meeting-her-father-here",
+      "person": "Nirmala Sitharaman",
+      "start": 64.16,
+      "reason": "The sampled video frames do not show Nirmala Sitharaman, and the metadata/title explicitly indicates she is not present in this footage.",
+      "reviewed_at": 1793798401.199722
+    },
+    "c67026b325f25f6a7cc922f9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Opera_s_Influence_on_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 63.51,
+      "reason": "The video features Jon Batiste and Walter Isaacson at the Aspen Ideas Festival, not Louis Armstrong.",
+      "reviewed_at": 1793798523.0140698
+    },
+    "93b4d33b759058a1f9d68e7f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Opera_s_Influence_on_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 83.01,
+      "reason": "The footage features Jon Batiste performing, but the subject of the biography is Louis Armstrong. Therefore, the person visible is incorrect and irrelevant to Louis Armstrong's life story.",
+      "reviewed_at": 1793798530.36613
+    },
+    "99e9adedd0bc8f5fc96ca69b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "source_url": "https://archive.org/details/Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "person": "Louis Armstrong",
+      "start": 545.83,
+      "reason": "The footage shows a press conference for the Louis Armstrong International Airport expansion featuring modern officials like Iftikhar Ahmad. Louis Armstrong (who died in 1971) is not visible in the footage, and the video is from 2013, making it completely irrelevant as historical or biographical footage of Armstrong himself.",
+      "reviewed_at": 1793798579.3726246
+    },
+    "56ee68ab39b3d9f0d815f20a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "source_url": "https://archive.org/details/Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "person": "Louis Armstrong",
+      "start": 681.04,
+      "reason": "The footage shows a press conference about the Louis Armstrong International Airport expansion featuring local officials like Mayor Mike Yenni. Louis Armstrong is neither visible nor is this archival footage of his life.",
+      "reviewed_at": 1793798588.7510564
+    },
+    "b4b6829a6a1b66fb43537b14": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "person": "Louis Armstrong",
+      "start": 126.26,
+      "reason": "The footage shows modern airport welcome events for WWII veterans, with no relation to Louis Armstrong other than the airport's name. Louis Armstrong is not visible, and the footage is not biographical illustration for him.",
+      "reviewed_at": 1793798602.5737903
+    },
+    "24e1532900ce30058abe35e1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "person": "Louis Armstrong",
+      "start": 153.21,
+      "reason": "The footage shows local politicians and veterans at the Louis Armstrong International Airport in 2015. While it features the airport named after Louis Armstrong, the jazz musician himself is not present in the frames (which is chronologically impossible given the date).",
+      "reviewed_at": 1793798616.0197222
+    },
+    "4586f8b3ff7bed8743887df1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:pctca-Robby_s_World_007_-_Louis_Armstrong_Armstrong_Training_CPT",
+      "source_url": "https://archive.org/details/pctca-Robby_s_World_007_-_Louis_Armstrong_Armstrong_Training_CPT",
+      "person": "Louis Armstrong",
+      "start": 5.0,
+      "reason": "The footage features a modern podcast or interview with a contemporary individual named Louis Armstrong (a fitness trainer/podcast guest), not the historical jazz musician Louis Armstrong. Therefore, it is unusable for a biography about the famous musician.",
+      "reviewed_at": 1793798624.7407036
+    },
+    "b4c729021df5967ec24a63f9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:pctca-Robby_s_World_007_-_Louis_Armstrong_Armstrong_Training_CPT",
+      "source_url": "https://archive.org/details/pctca-Robby_s_World_007_-_Louis_Armstrong_Armstrong_Training_CPT",
+      "person": "Louis Armstrong",
+      "start": 150.66,
+      "reason": "The video shows a modern podcast interview featuring two contemporary men discussing a gym, which has no connection to archival footage of Louis Armstrong.",
+      "reviewed_at": 1793798632.7409132
+    },
+    "6f92469021037a1625e7760f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.007991",
+      "source_url": "https://archive.org/details/dli.MoI.films.007991",
+      "person": "Vikram Sarabhai",
+      "start": 1370.24,
+      "reason": "The footage shows archival scenes of agriculture and rural life (a tractor in a field with palm trees) from a biographical documentary about Vikram Sarabhai, serving as generic historical/biographical illustration rather than direct footage of the subject.",
+      "reviewed_at": 1793799034.2932854
+    },
+    "a68947564473bfe13b711dfa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.007991",
+      "source_url": "https://archive.org/details/dli.MoI.films.007991",
+      "person": "Vikram Sarabhai",
+      "start": 1955.34,
+      "reason": "The footage shows archival nature scenes with trees and animals (a gecko and birds) from a biographical documentary about Vikram Sarabhai, but the subject himself is not visible. It serves as general biographical illustration footage.",
+      "reviewed_at": 1793799045.8836432
+    },
+    "efdda920b152b73af0daa04b": {
+      "kind": "segment_rejection",
+      "source_id": "commons:83398160",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-Vikram_Sarabhai.webm",
+      "person": "Vikram Sarabhai",
+      "start": 101.53,
+      "reason": "The frames consist of static photographs (a building entrance and archival satellite pictures) with a digital blur effect added to the background, functioning essentially as a slideshow rather than genuine moving historical footage or footage depicting Vikram Sarabhai.",
+      "reviewed_at": 1793799053.3000135
+    },
+    "497caa1b7324cd50b7bd27a7": {
+      "kind": "segment_rejection",
+      "source_id": "commons:83398160",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-Vikram_Sarabhai.webm",
+      "person": "Vikram Sarabhai",
+      "start": 142.9,
+      "reason": "The video shows the United Nations headquarters and a medal illustration as generic biographical context for Vikram Sarabhai's life and achievements, but the subject himself is not visible.",
+      "reviewed_at": 1793799059.124105
+    },
+    "cc98f2ecdb90a2904d219d92": {
+      "kind": "segment_rejection",
+      "source_id": "commons:125993153",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Integrated_Main_Parachute_Airdrop_Test.webm",
+      "person": "Vikram Sarabhai",
+      "start": 79.15,
+      "reason": "The footage shows a test conducted by the Vikram Sarabhai Space Centre (named after Vikram Sarabhai), making it relevant historical context as biographical illustration, even though Vikram Sarabhai himself is not visible (having passed away long before 2022).",
+      "reviewed_at": 1793799079.512962
+    },
+    "82f831cf4f46f5c9192ed3a2": {
+      "kind": "segment_rejection",
+      "source_id": "commons:125993153",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Integrated_Main_Parachute_Airdrop_Test.webm",
+      "person": "Vikram Sarabhai",
+      "start": 110.93,
+      "reason": "The footage shows parachute airdrop testing conducted by the Vikram Sarabhai Space Centre in 2022, which is long after Vikram Sarabhai's death in 1971. However, it can serve as biographical illustration representing the ongoing work and legacy of the institution he founded.",
+      "reviewed_at": 1793799093.5455458
     }
   }
 }

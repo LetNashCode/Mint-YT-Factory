@@ -2,347 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Luciano Pavarotti",
-      "source": {
-        "id": "archive:luciano-pavarotti-nessun-dorma_202412",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/luciano-pavarotti-nessun-dorma_202412/Luciano%20Pavarotti%20-%20Nessun%20Dorma.mp4",
-        "source_url": "https://archive.org/details/luciano-pavarotti-nessun-dorma_202412",
-        "title": "Luciano Pavarotti - Nessun Dorma",
-        "description": "MTV 90s UK ['MTV', 'MTV 90s', 'MTV 90s UK']",
-        "creator": "",
-        "license": "",
-        "subject": "['MTV', 'MTV 90s', 'MTV 90s UK']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 192.916667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 73.81,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly show Luciano Pavarotti performing live with an orchestra alongside other tenors, providing authentic archival footage of his singing career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "81a8377771fbe47c22d44ac7abf386678fec04adf771bb01e2314160426370a2",
-      "reviewed_at": 1792231038.8287597
-    },
-    {
-      "person": "Amelia Earhart",
-      "source": {
-        "id": "archive:ADC-10127d",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ADC-10127d/ADC-10127d.mp4",
-        "source_url": "https://archive.org/details/ADC-10127d",
-        "title": "Pathe Newsreel: Amelia Earhart Londonderry, Ireland, 1932",
-        "description": "Extracted from U.S. Army Film \"General Marshall Is Sworn In As The New Secretary Of State, 02/21/1947\" National Archives description:\"Amelia Earhart acclaimed in England after her famous flight.\" National Archives Identifier: 23889 ['Newsreel', 'Earhart, Amelia, 1897-1937']",
-        "creator": "United States. Army",
-        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Newsreel', 'Earhart, Amelia, 1897-1937']",
-        "runtime": "0:35",
-        "direct_subject": true,
-        "duration_hint": 35.268602,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 14.5,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The sampled archival frames clearly show Amelia Earhart getting out of her airplane, directly illustrating her historical aviation achievements as narrated.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "acfb9fc0832a40b7801fcd626906083dd9e6df439801463578cbc7834855904c",
-      "reviewed_at": 1792231193.8382766
-    },
-    {
-      "person": "Amelia Earhart",
-      "source": {
-        "id": "archive:ADC-10127d",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ADC-10127d/ADC-10127d.mp4",
-        "source_url": "https://archive.org/details/ADC-10127d",
-        "title": "Pathe Newsreel: Amelia Earhart Londonderry, Ireland, 1932",
-        "description": "Extracted from U.S. Army Film \"General Marshall Is Sworn In As The New Secretary Of State, 02/21/1947\" National Archives description:\"Amelia Earhart acclaimed in England after her famous flight.\" National Archives Identifier: 23889 ['Newsreel', 'Earhart, Amelia, 1897-1937']",
-        "creator": "United States. Army",
-        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Newsreel', 'Earhart, Amelia, 1897-1937']",
-        "runtime": "0:35",
-        "direct_subject": true,
-        "duration_hint": 35.268602,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2.73,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Amelia Earhart herself standing by her airplane in authentic archival newsreel footage, directly illustrating her life and historical achievements.",
-        "usage": "direct_event"
-      },
-      "review_key": "fee2bd5d6232de0752b9c482c141c6590d4049341fd226f84a863094cc75be3b",
-      "reviewed_at": 1792231216.3183675
-    },
-    {
-      "person": "Amelia Earhart",
-      "source": {
-        "id": "archive:ADC-10127d",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ADC-10127d/ADC-10127d.mp4",
-        "source_url": "https://archive.org/details/ADC-10127d",
-        "title": "Pathe Newsreel: Amelia Earhart Londonderry, Ireland, 1932",
-        "description": "Extracted from U.S. Army Film \"General Marshall Is Sworn In As The New Secretary Of State, 02/21/1947\" National Archives description:\"Amelia Earhart acclaimed in England after her famous flight.\" National Archives Identifier: 23889 ['Newsreel', 'Earhart, Amelia, 1897-1937']",
-        "creator": "United States. Army",
-        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Newsreel', 'Earhart, Amelia, 1897-1937']",
-        "runtime": "0:35",
-        "direct_subject": true,
-        "duration_hint": 35.268602,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 26.27,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "Authentic archival newsreel footage clearly featuring Amelia Earhart in Londonderry, Ireland after her famous flight, perfectly matching the biographical context.",
-        "usage": "direct_event"
-      },
-      "review_key": "92ea321510793045c900daf0f111d17fb84dac2735e4bd8c4689792eb5822a69",
-      "reviewed_at": 1792231222.8016374
-    },
-    {
-      "person": "Freddie Mercury",
-      "source": {
-        "id": "archive:freddie-mercury-the-great-pretender-2012",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/freddie-mercury-the-great-pretender-2012/Freddie%20Mercury%20-%20The%20Great%20Pretender%20%282012%29.mp4",
-        "source_url": "https://archive.org/details/freddie-mercury-the-great-pretender-2012",
-        "title": "Freddie Mercury - The Great Pretender (2012)",
-        "description": "Freddie Mercury - The Great Pretender (2012) 720p ['Freddie Mercury', '2012', 'Music', 'Music Documentary', 'England']",
-        "creator": "Freddie Mercury",
-        "license": "",
-        "subject": "['Freddie Mercury', '2012', 'Music', 'Music Documentary', 'England']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 5109.007506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2748.47,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8.0,
-        "reason": "The sampled frames clearly feature Freddie Mercury alongside Montserrat Caballé from an archival photoshoot/documentary segment, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "fccfb7fffc6963e1885036e78c9207be67113a5cc44007b86be4d5bbca6d126a",
-      "reviewed_at": 1792231317.8758569
-    },
-    {
-      "person": "Freddie Mercury",
-      "source": {
-        "id": "archive:FreddieMS1",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/FreddieMS1/videoplayback.mp4",
-        "source_url": "https://archive.org/details/FreddieMS1",
-        "title": "Freddie Mercury S1E48",
-        "description": "Host A.J. Benza looks at the lives of Hollywood's fallen stars. #hollywoodmysteriesandscandals",
-        "creator": "",
-        "license": "",
-        "subject": "#hollywoodmysteriesandscandals",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1279.56,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 978.51,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "Freddie Mercury is clearly visible in the first two sampled frames of archival television footage, while subsequent frames show a biographer discussing him. This provides genuine biographical illustration despite containing talking heads.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "589b70782bf724bb66773cd5685b4c3c48e37039aabbe85e4490dab42f09922b",
-      "reviewed_at": 1792231369.0949674
-    },
-    {
-      "person": "Freddie Mercury",
-      "source": {
-        "id": "archive:freddie-mercury-the-great-pretender-2012",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/freddie-mercury-the-great-pretender-2012/Freddie%20Mercury%20-%20The%20Great%20Pretender%20%282012%29.mp4",
-        "source_url": "https://archive.org/details/freddie-mercury-the-great-pretender-2012",
-        "title": "Freddie Mercury - The Great Pretender (2012)",
-        "description": "Freddie Mercury - The Great Pretender (2012) 720p ['Freddie Mercury', '2012', 'Music', 'Music Documentary', 'England']",
-        "creator": "Freddie Mercury",
-        "license": "",
-        "subject": "['Freddie Mercury', '2012', 'Music', 'Music Documentary', 'England']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 5109.007506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The segment features genuine archival footage from a documentary showing Freddie Mercury visibly present, interacting on a set. It serves as good biographical illustration for a Short about his life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3dd0a271c7bcf3644d146dd9403eec47ab92470ccbab567b74bf59892f8bd56f",
-      "reviewed_at": 1792231374.5501096
-    },
-    {
-      "person": "Freddie Mercury",
-      "source": {
-        "id": "archive:FreddieMS1",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/FreddieMS1/videoplayback.mp4",
-        "source_url": "https://archive.org/details/FreddieMS1",
-        "title": "Freddie Mercury S1E48",
-        "description": "Host A.J. Benza looks at the lives of Hollywood's fallen stars. #hollywoodmysteriesandscandals",
-        "creator": "",
-        "license": "",
-        "subject": "#hollywoodmysteriesandscandals",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1279.56,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "Freddie Mercury is clearly visible performing in the first frame of archival footage, followed by biographical documentary context with the host at the John Anson Ford Theater.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b8486422f369dd8ce3ef3d8b24129d6a4287009d24cc1a74352c4e5c6b356815",
-      "reviewed_at": 1792231383.633638
-    },
-    {
-      "person": "Freddie Mercury",
-      "source": {
-        "id": "archive:freddie-mercury-the-great-pretender-2012",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/freddie-mercury-the-great-pretender-2012/Freddie%20Mercury%20-%20The%20Great%20Pretender%20%282012%29.mp4",
-        "source_url": "https://archive.org/details/freddie-mercury-the-great-pretender-2012",
-        "title": "Freddie Mercury - The Great Pretender (2012)",
-        "description": "Freddie Mercury - The Great Pretender (2012) 720p ['Freddie Mercury', '2012', 'Music', 'Music Documentary', 'England']",
-        "creator": "Freddie Mercury",
-        "license": "",
-        "subject": "['Freddie Mercury', '2012', 'Music', 'Music Documentary', 'England']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 5109.007506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 396.92,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features genuine archival footage of Freddie Mercury in interview/documentary context, with him clearly visible in multiple frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a310ec595d28daa7a5bd05ddaf16001e4cf2584fb2fb90f7a8e0bbda1133bc79",
-      "reviewed_at": 1792231388.886118
-    },
-    {
-      "person": "Freddie Mercury",
-      "source": {
-        "id": "archive:FreddieMS1",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/FreddieMS1/videoplayback.mp4",
-        "source_url": "https://archive.org/details/FreddieMS1",
-        "title": "Freddie Mercury S1E48",
-        "description": "Host A.J. Benza looks at the lives of Hollywood's fallen stars. #hollywoodmysteriesandscandals",
-        "creator": "",
-        "license": "",
-        "subject": "#hollywoodmysteriesandscandals",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1279.56,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 102.35,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows archive performance footage of Freddie Mercury accompanied by biographical narration about his life and death, making it highly relevant and usable.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8888ff7e068886aef572bc402b2d85ee51c3b0dcbc00e3d11738ac2b29366041",
-      "reviewed_at": 1792231398.1294267
-    },
-    {
-      "person": "Freddie Mercury",
-      "source": {
-        "id": "archive:freddie-mercury-the-great-pretender-2012",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/freddie-mercury-the-great-pretender-2012/Freddie%20Mercury%20-%20The%20Great%20Pretender%20%282012%29.mp4",
-        "source_url": "https://archive.org/details/freddie-mercury-the-great-pretender-2012",
-        "title": "Freddie Mercury - The Great Pretender (2012)",
-        "description": "Freddie Mercury - The Great Pretender (2012) 720p ['Freddie Mercury', '2012', 'Music', 'Music Documentary', 'England']",
-        "creator": "Freddie Mercury",
-        "license": "",
-        "subject": "['Freddie Mercury', '2012', 'Music', 'Music Documentary', 'England']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 5109.007506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 1180.77,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature Freddie Mercury in archival documentary footage and historical photos, making the clip highly relevant for a biographical short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8a48322ce28168e0f4f38372f1764e2a869968467287b04261d8fdd1422ab5d8",
-      "reviewed_at": 1792231411.764383
-    },
-    {
       "person": "Freddie Mercury",
       "source": {
         "id": "archive:FreddieMS1",
@@ -7155,68 +6814,6 @@
       },
       "review_key": "4338f4248361c20a0ff7e03bd279d562504ae7950f2f67e0e371db3669f734cb",
       "reviewed_at": 1792785325.2922626
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 309.47,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "Louis Armstrong is clearly visible playing the trumpet in the first frame, while subsequent frames show a scene partner (Paul Newman) from the same film sequence, satisfying the criteria for usable archival biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8735bd173f1fc07b5a2039c3d30478306467b5b8dafae4ec00be638027c2282b",
-      "reviewed_at": 1792785632.6024506
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 337.15,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "Louis Armstrong is clearly visible performing his trumpet in archival film footage from Paris Blues (1961), perfectly illustrating his musical career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "30e00a41c86263d635cf4492bd4c76d55614b8965ec6c2df936bfbdb049a3efa",
-      "reviewed_at": 1792785646.9515388
     },
     {
       "person": "Jim Henson",
@@ -15647,254 +15244,6 @@
         "identity_score": 13.0,
         "archival_signal": 1
       },
-      "start": 198.76,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features genuine archival film footage of Louis Armstrong performing in the 1961 film Paris Blues, clearly showing him playing music and interacting in period setting.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5ab84169841a2d2fa97d1dbb4fbf8aa8e3ef31e1b1011db1286814af8f9288be",
-      "reviewed_at": 1793659982.7203236
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 32.68,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The segment features authentic archival footage of Louis Armstrong performing in the 1961 film Paris Blues, clearly identifying him in several frames, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9ce29b4dd24f2601099ba9a51e089c510097b46d105a1ba78352db8e498620b5",
-      "reviewed_at": 1793659996.6163769
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 60.36,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet in authentic archival film footage from Paris Blues (1961), directly supporting the biographical narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9bcd8d38a294608f1984082e123d4610cf779214085793fe0252d144abe39e43",
-      "reviewed_at": 1793660012.1726031
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 88.04,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly show archival footage of Louis Armstrong performing with a trumpet in the 1961 film Paris Blues, directly matching the biographical subject and narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d097a29266f707bf38302ad7f5c73f1b148deb437134db8068251da77041fd24",
-      "reviewed_at": 1793660024.685544
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 143.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment features genuine historical archival footage from the 1961 film Paris Blues, clearly showing Louis Armstrong performing and interacting with other musicians, directly illustrating his life and musical career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a07a8addb426ad332e47edceb58a1e49d94fcb99d6682c87ab70724497b7e739",
-      "reviewed_at": 1793660042.3089395
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 115.72,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet in the 1961 film Paris Blues, perfectly illustrating his musical career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e0e51a018dbe1358740946ed3005cab7d2f339e86a1a97aa4a86d228920fc76d",
-      "reviewed_at": 1793660058.8242488
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 171.08,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features genuine historical archival film of Louis Armstrong playing the trumpet in Paris Blues (1961), directly illustrating his musical career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f89e9a51f9a3450b6f2d52747b34d85510936831d12d751da6dc9b126c77008d",
-      "reviewed_at": 1793660071.9266899
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 226.44,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features Louis Armstrong clearly visible and playing his trumpet in scenes from the 1961 film Paris Blues, making it highly relevant biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "474b186259ccb3e2242402d3a954fd0d94ad9493da9229db312c220225696d88",
-      "reviewed_at": 1793660087.7095323
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
       "start": 254.12,
       "length": 8.0,
       "verification": {
@@ -18573,6 +17922,657 @@
       },
       "review_key": "1cabc61d184c97d6f724bc98c000f5843fc2e6ba51d496b413565bf56591acdd",
       "reviewed_at": 1793731321.2487552
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2104.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1130.47,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly show the subject Rajinikanth hosting an interview segment, making him visible and identifiable as the interviewer/host.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fcbfe229aad247d2fa88ea17389aa3d6183e85cac8d9f8807f4184fa73d10c06",
+      "reviewed_at": 1793797592.760547
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2802h55m20s-03h30m24s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2105.766667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1614.05,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show the anchor Rajinikanth conducting an interview with politician KCR. Although the person on the right is KCR and Rajinikanth is the interviewer on the left, the metadata and show title ('KCR with Rajini') confirm the presence of the named subject Rajinikanth as the host. Usable as biographical illustration of his career as a TV anchor/journalist.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7a408adefce2f7e100125ead426eb76415cedfd424007ed3f83eaaa3f1a3f97f",
+      "reviewed_at": 1793797723.6717827
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2104.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 165.78,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames show Rajinikanth hosting an interview (seen on the left as the interviewer/anchor 'Rajini'), making him clearly visible and identifiable throughout the segment, which is suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2579df6e8e48aee9056a8c99d77c16e2c6d8225b4b0143deaf8ad7066aa6d4f7",
+      "reviewed_at": 1793797829.3661213
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2802h55m20s-03h30m24s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2105.766667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The frames show journalist Rajinikanth conducting an interview with KCR on a TV show, making him clearly visible and the footage authentic and directly usable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6713fe076e25e13b017e9f403b4529cedae8654c28a4b5717f6350c82df6c4f5",
+      "reviewed_at": 1793797860.256322
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2104.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 487.35,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "The sampled frames clearly show the subject Rajinikanth hosting his TV show/interview (on the left side of the split screen), making it valid biographical footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f169eae2c18a1a0f9dbd91b1f60b123a2c8fafc15b6f1f4937ee2d115ed76344",
+      "reviewed_at": 1793797901.2777667
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2802h55m20s-03h30m24s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2105.766667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 326.81,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames show Rajinikanth hosting an interview show (indicated by the onscreen branding 'Rajinikanth's Live Show'), making him clearly visible as the interviewer interacting with the guest. This serves as valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8c9b18a4965ed6cd7446eb067c18e448662309db5a7d037c2958abe61628cb07",
+      "reviewed_at": 1793797954.0009458
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2104.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 648.13,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly show the subject Rajinikanth (journalist/interviewer hosting the show, visible on the left side) conducting an interview, making the footage authentic and usable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "84b9d7903b777a7a1255c6c9114fb6c6c110308fc54745b8ca268401fdf2ade0",
+      "reviewed_at": 1793797976.2614057
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2802h55m20s-03h30m24s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2105.766667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 487.72,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Rajinikanth hosting a TV interview show (as indicated by the show branding 'Rajinikanth's Live Show' and his presence on the left panel), although the main guest featured is KCR. Rajinikanth is clearly visible and identifiable throughout the frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7d9217a4e9f4cd9ab23ec3057eb1c699d2fd7f07a372f23fa90ac73f6e60b966",
+      "reviewed_at": 1793798007.4373863
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2104.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 969.69,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly show the subject Rajinikanth hosting an interview show (visible on the left side/interviewer role or mentioned in title), providing genuine biographical footage of his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a37aa86b3afeb7aabe0580880533c85cd11d2fb571abd2e6ea57c5a7155f2c31",
+      "reviewed_at": 1793798054.4178243
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2802h55m20s-03h30m24s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part06of06",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2105.766667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 970.43,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show journalist Rajinikanth hosting a TV show/interview segment ('KCR with Rajini'), but cropping to a 9:16 vertical format would cut off one of the speakers or center awkwardly, and the video is an interview context rather than direct biographical film footage of Rajinikanth himself as the main subject of a biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "95ee2b65bb906d2dd8f0f3c8ca3d71f52d39396beb5a3a3b554d1bf49d562ea3",
+      "reviewed_at": 1793798093.0544791
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2104.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1291.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly show the subject Rajinikanth (journalist/interviewer on the left) hosting an exclusive interview show titled 'KCR with Rajini' on TV9 Telugu, featuring politician KCR as the guest. This provides valid biographical illustration footage of Rajinikanth in his professional capacity.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3945414a23fb50e2869a1103f9971a9137bdcbc00160aa3e6affcc66408ad884",
+      "reviewed_at": 1793798116.5788386
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 309.47,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Louis Armstrong is clearly visible playing the trumpet in the first frame, while subsequent frames show Paul Newman in the film Paris Blues (1961), featuring Armstrong in a cameo appearance. Useful biographical illustration of his film appearances.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2f0372837e710b0b48bcf700398bb9a7a06c26fb2fb825b00f68f004fa7d215b",
+      "reviewed_at": 1793798505.6431897
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 337.15,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The clip features genuine archival film footage from Paris Blues (1961) clearly showing Louis Armstrong performing on the trumpet with his band, making it highly relevant biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "626ca990fdcd48b53ba85af86e717deab3d02f7803371e03073de9ba99b7df69",
+      "reviewed_at": 1793798646.7403097
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 198.76,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features genuine historical film of Louis Armstrong performing, clearly identifiable in multiple frames, making it highly relevant and usable as biographical illustration for a Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "dfab41a5faca90ed5350753c3967539fa5a019dc6d8f0c513aad8672b53a369b",
+      "reviewed_at": 1793798690.555576
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 32.68,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features authentic archival footage of Louis Armstrong performing in the 1961 film Paris Blues, making it highly relevant and usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f1559591f86725781a70477a6ce98e5892bddc6c2cc70de3d4a00fde39ac4360",
+      "reviewed_at": 1793798707.800406
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 60.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet in a vintage film setting, directly illustrating his musical career and matching the biographical narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "845455e1dcdf55a4a284e7e5c56aea7a1992b27228b78587cf9eddc8c0b06e10",
+      "reviewed_at": 1793798728.5962734
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 88.04,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Louis Armstrong performing on trumpet with a band in an archival clip from the 1961 film Paris Blues, perfectly illustrating his musical career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9c21f13d3e6baa581bc01645d4381c15b9d7dd9ca5d614e4ee54ae3d29d7e3d7",
+      "reviewed_at": 1793798767.7798645
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 143.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage features actual archival film of Louis Armstrong performing and making a cameo appearance in Paris Blues (1961), with Louis Armstrong clearly visible and identifiable in multiple sampled frames.",
+        "usage": "direct_event"
+      },
+      "review_key": "6201db8b1c21b24d40072acbc577e8d5158ce8cae263fa9b2639119f55f40b0f",
+      "reviewed_at": 1793798787.1194167
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 115.72,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly features Louis Armstrong performing on the trumpet (with Sidney Poitier and other musicians visible in later frames) from the 1961 film Paris Blues. This is authentic historical film footage of the named subject, highly relevant for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3e6f2d8a2aa6435b8d8ebed675b8d03d2d4befa85c8e6fcbd4babcdde5b0b4ff",
+      "reviewed_at": 1793798830.7291641
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 171.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature genuine archival footage of Louis Armstrong playing the trumpet in Paris Blues (1961), providing excellent biographical illustration for a Short about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9cfb08485ad6ea01e262850d819b67052ab5a8de0974cafb65c47d259cd0ca6d",
+      "reviewed_at": 1793798849.3582385
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 226.44,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features genuine historical film of Louis Armstrong playing the trumpet (from Paris Blues, 1961), clearly showing him in multiple frames alongside other actors like Paul Newman.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ab44f569558b66050af1f850581597681fab4be74c44c0cb3329fa2a7fd42f87",
+      "reviewed_at": 1793798872.2948143
     }
   ]
 }

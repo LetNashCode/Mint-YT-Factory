@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789396166",
-    "video_id": "0_k5v6sCgEo",
-    "topic": "Why do plastic bags rustle",
-    "completed_at": 1789398028
-  },
-  {
     "workdir": "output/1789399615",
     "video_id": "i1aoArjG6I0",
     "topic": "Why do paper coffee cups leak",
@@ -598,5 +592,11 @@
     "video_id": "cu_CAIIESyY",
     "topic": "Why do soda bottles hiss loudly",
     "completed_at": 1793809184
+  },
+  {
+    "workdir": "output/1793824427",
+    "video_id": "NBtNh0f4_dU",
+    "topic": "Why do eggs crack in boiling water",
+    "completed_at": 1793825595
   }
 ]

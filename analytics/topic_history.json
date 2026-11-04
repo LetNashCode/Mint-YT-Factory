@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do garlic cloves peel easy",
-    "normalized": "why do garlic cloves peel easy",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793737072,
-    "recorded_at": 1793737072,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do fresh blankets pill",
     "normalized": "why do fresh blankets pill",
     "workflow": "publish",
@@ -3510,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1793806910,
     "recorded_at": 1793806910,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do eggs crack in boiling water",
+    "normalized": "why do eggs crack in boiling water",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793824358,
+    "recorded_at": 1793824358,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

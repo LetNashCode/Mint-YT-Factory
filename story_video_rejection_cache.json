@@ -12570,6 +12570,78 @@
       "start": 34943.8,
       "reason": "The sampled frames show a title card or end screen with 'Fine' and a watermark ('Freemake.com'), lacking any clear footage of Luciano Pavarotti or usable historical context.",
       "reviewed_at": 1793817531.502162
+    },
+    "d12d71232c1d5fb770bbc732": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colbca-Black_History_Month_Spotlight_-_Katherine_Johnson",
+      "source_url": "https://archive.org/details/colbca-Black_History_Month_Spotlight_-_Katherine_Johnson",
+      "person": "Katherine Johnson",
+      "start": 14.48,
+      "reason": "The video consists entirely of static photographs/graphic title cards with text overlays rather than real filmed or archival moving footage.",
+      "reviewed_at": 1793903961.9516394
+    },
+    "c65a3c4dc62609cd1362109c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:fcpsva-Meet_the_Principal_of_Lanier_MS_now_Katherine_Johnson_MS",
+      "source_url": "https://archive.org/details/fcpsva-Meet_the_Principal_of_Lanier_MS_now_Katherine_Johnson_MS",
+      "person": "Katherine Johnson",
+      "start": 5.0,
+      "reason": "The video features Tammy Hanna, principal of a school named after Katherine Johnson, rather than Katherine Johnson herself. Therefore, the person visible is not the subject of the biography.",
+      "reviewed_at": 1793903975.67276
+    },
+    "8f02168a217ed4f69275937c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:fcpsva-Meet_the_Principal_of_Lanier_MS_now_Katherine_Johnson_MS",
+      "source_url": "https://archive.org/details/fcpsva-Meet_the_Principal_of_Lanier_MS_now_Katherine_Johnson_MS",
+      "person": "Katherine Johnson",
+      "start": 14.43,
+      "reason": "The video shows Tammy Hanna, the principal of a middle school named after Katherine Johnson, not Katherine Johnson herself. Therefore, it does not contain footage of the subject.",
+      "reviewed_at": 1793903994.344673
+    },
+    "1d71eb92390587a0cd3ce074": {
+      "kind": "segment_rejection",
+      "source_id": "archive:fcpsva-Eagles_Can_Soar_at_Katherine_Johnson_MS",
+      "source_url": "https://archive.org/details/fcpsva-Eagles_Can_Soar_at_Katherine_Johnson_MS",
+      "person": "Katherine Johnson",
+      "start": 52.59,
+      "reason": "The video segment shows modern news/educational footage of the renaming ceremony for Katherine Johnson Middle School in 2021, featuring students and speakers, but the historical subject Katherine Johnson (who passed away in 2020) is not visibly present in the footage. Therefore, person_visible is false and usage is biographical_illustration.",
+      "reviewed_at": 1793904009.5986214
+    },
+    "d4e796720cf97070026f95e7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:fcpsva-Eagles_Can_Soar_at_Katherine_Johnson_MS",
+      "source_url": "https://archive.org/details/fcpsva-Eagles_Can_Soar_at_Katherine_Johnson_MS",
+      "person": "Katherine Johnson",
+      "start": 14.52,
+      "reason": "The video footage shows modern events related to the renaming of Katherine Johnson Middle School in 2021, but Katherine Johnson herself is not present in the sampled frames as she passed away in 2020. The footage is usable as biographical illustration for a segment about her legacy and school renaming.",
+      "reviewed_at": 1793904022.5909007
+    },
+    "e2cde5bbe695bc66fa15f7bb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nasa_tv-Katherine_Johnson_-_An_American_Hero",
+      "source_url": "https://archive.org/details/nasa_tv-Katherine_Johnson_-_An_American_Hero",
+      "person": "Katherine Johnson",
+      "start": 60.76,
+      "reason": "The sampled frames show interviews with NASA historians and engineers (Bill Barry and Tiffaney Miller Alexander) discussing Katherine Johnson, but Katherine Johnson herself is not visible in the footage. It provides relevant biographical context and commentary about her legacy.",
+      "reviewed_at": 1793904035.2739415
+    },
+    "8bd908ff9903b58b71a4500f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nasa_tv-NASA_Honors_Space_Mathematician_Katherine_Johnson_on_her_101st_Birthday",
+      "source_url": "https://archive.org/details/nasa_tv-NASA_Honors_Space_Mathematician_Katherine_Johnson_on_her_101st_Birthday",
+      "person": "Katherine Johnson",
+      "start": 33.25,
+      "reason": "The sampled frames show historical NASA footage (astronaut John Glenn and the lunar lander) related to Katherine Johnson's work, but Katherine Johnson herself is not visible in the frames. Therefore, person_visible is false and usage is biographical_illustration.",
+      "reviewed_at": 1793904138.900438
+    },
+    "af3394a8ef96bb1f17ec7e7c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nasa_tv-Katherine_Johnson_-_An_American_Hero",
+      "source_url": "https://archive.org/details/nasa_tv-Katherine_Johnson_-_An_American_Hero",
+      "person": "Katherine Johnson",
+      "start": 51.47,
+      "reason": "The footage shows archival footage of astronaut John Glenn and an interview with NASA Chief Historian Bill Barry discussing Katherine Johnson's calculations, serving as valid biographical illustration and historical context despite Katherine Johnson herself not being visible in the sampled frames.",
+      "reviewed_at": 1793904223.3650346
     }
   }
 }

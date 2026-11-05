@@ -3480,36 +3480,24 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do soda bottles hiss loudly",
-    "normalized": "why do soda bottles hiss loudly",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793806910,
-    "recorded_at": 1793806910,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do eggs crack in boiling water",
-    "normalized": "why do eggs crack in boiling water",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793824358,
-    "recorded_at": 1793824358,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do peanut butter jars separate",
     "normalized": "why do peanut butter jars separate",
     "workflow": "publish",
     "status": "reserved",
     "reserved_at": 1793854698,
     "recorded_at": 1793854698,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do car steering wheels turn back",
+    "normalized": "why do car steering wheels turn back",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793911765,
+    "recorded_at": 1793911765,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

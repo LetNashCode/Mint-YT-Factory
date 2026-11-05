@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do fresh blankets pill",
-    "normalized": "why do fresh blankets pill",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793767515,
-    "recorded_at": 1793767515,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do soda bottles hiss loudly",
     "normalized": "why do soda bottles hiss loudly",
     "workflow": "publish",
@@ -3510,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1793824358,
     "recorded_at": 1793824358,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do peanut butter jars separate",
+    "normalized": "why do peanut butter jars separate",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793854698,
+    "recorded_at": 1793854698,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

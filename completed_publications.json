@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789399615",
-    "video_id": "i1aoArjG6I0",
-    "topic": "Why do paper coffee cups leak",
-    "completed_at": 1789401272
-  },
-  {
     "workdir": "output/1789412538",
     "video_id": "PSZqFTg7654",
     "topic": "Why do window panes rattle",
@@ -598,5 +592,11 @@
     "video_id": "NBtNh0f4_dU",
     "topic": "Why do eggs crack in boiling water",
     "completed_at": 1793825595
+  },
+  {
+    "workdir": "output/1793854796",
+    "video_id": "amyGgBh-zEk",
+    "topic": "Why do peanut butter jars separate",
+    "completed_at": 1793856029
   }
 ]

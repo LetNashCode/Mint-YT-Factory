@@ -1,20 +1,6 @@
 {
-  "status": "complete",
-  "video_id": "fY425_2rAPg",
-  "youtube_url": "https://www.youtube.com/shorts/fY425_2rAPg",
-  "platforms": {
-    "youtube": {
-      "status": "published",
-      "video_id": "fY425_2rAPg"
-    },
-    "instagram": {
-      "status": "published",
-      "media_id": "18075890060487203",
-      "container_id": "18503702083097136"
-    },
-    "facebook": {
-      "status": "published",
-      "video_id": "29432857592972423"
-    }
-  }
+  "status": "deferred",
+  "video_id": "",
+  "youtube_url": "",
+  "reason": "Story verifier unavailable after retries on gemini-flash-lite-latest: HTTP 503; fallback gemini-3.5-flash-lite: HTTP 503."
 }

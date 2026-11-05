@@ -1,19 +1,6 @@
 [
   {
     "format": "rise_from_nothing",
-    "person": "Viswanathan Anand",
-    "premise": "Rising from the chess clubs of southern India to become the undisputed World Chess Champion.",
-    "hook": "He learned the rules of chess from his mother at age six in a house without a computer or grandmaster coach.",
-    "key_facts": [
-      "Became India's first international chess grandmaster in 1988 at the age of 18",
-      "Won the FIDE World Chess Championship in 2000, becoming the first Indian to hold the title",
-      "Defended and retained the world championship title in 2007, 2008, 2010, and 2012",
-      "Awarded India's highest civilian sporting honor, the Rajiv Gandhi Khel Ratna, in 1991"
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
     "person": "Kalpana Chawla",
     "premise": "Journeying from a small town in Haryana to becoming the first Indian-born woman in space.",
     "hook": "Growing up in a conservative Indian town where engineering was rarely pursued by women, she dreamed only of the stars.",
@@ -47,19 +34,6 @@
       "Faced extreme bureaucratic hurdles and a lack of venture capital infrastructure in early 1980s India.",
       "Helped pioneer the global software services industry model from Bangalore.",
       "Grew the company into one of India's largest multinational IT corporations."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Satyajit Ray",
-    "premise": "Pawned his wife's jewelry and used personal savings to finish his debut film 'Pather Panchali' after running out of funds.",
-    "hook": "India's greatest cinematic masterpiece almost wasn't made because the production ran completely out of money halfway through.",
-    "key_facts": [
-      "Worked as a commercial artist while struggling to finance his first film.",
-      "Shot 'Pather Panchali' intermittently over nearly three years using amateur actors.",
-      "The film premiered at the 1956 Cannes Film Festival and won Best Human Document.",
-      "Received an Academy Honorary Award in 1992."
     ],
     "source": "gemini_original"
   },

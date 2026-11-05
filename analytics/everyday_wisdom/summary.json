@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-11-04T12:40:03.940065+00:00",
-  "refresh_attempted_at": "2026-11-04T12:40:03.940065+00:00",
+  "generated_at": "2026-11-05T12:40:11.614329+00:00",
+  "refresh_attempted_at": "2026-11-05T12:40:11.614329+00:00",
   "refresh_status": "success",
   "video_count": 22,
   "optimization_ready": true,
   "live_metrics_ready": true,
-  "advanced_metrics_videos": 20,
+  "advanced_metrics_videos": 21,
   "reason": "",
   "totals": {
-    "views": 6207,
+    "views": 6288,
     "likes": 50,
     "comments": 0
   },
   "averages": {
-    "views": 282.14,
+    "views": 285.82,
     "likes": 2.27,
     "comments": 0.0,
-    "average_view_percentage": 51.34,
+    "average_view_percentage": 54.57,
     "subscribers_gained": 0.27,
     "shares": 0.14
   },
@@ -125,7 +125,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 648,
+      "views": 649,
       "views_after_24h": 381,
       "views_after_7d": 648,
       "likes": 1,
@@ -135,7 +135,7 @@
       "average_view_percentage": 43.75,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.1543
+      "engagement_rate": 0.1541
     },
     {
       "topic": "The structural engineering reason behind circular airplane windows",
@@ -183,7 +183,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 335,
+      "views": 397,
       "views_after_24h": 335,
       "views_after_7d": null,
       "likes": 3,
@@ -193,7 +193,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.8955
+      "engagement_rate": 0.7557
     },
     {
       "topic": "The polite US social habit of holding doors open for people behind you, rooted in shared public courtesy, community awareness, and everyday consideration.",
@@ -218,8 +218,8 @@
       "likes": 2,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 22.0,
-      "average_view_percentage": 65.02,
+      "average_view_duration": 16.0,
+      "average_view_percentage": 49.38,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.6515
@@ -417,7 +417,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 648,
+      "views": 649,
       "views_after_24h": 381,
       "views_after_7d": 648,
       "likes": 1,
@@ -427,7 +427,7 @@
       "average_view_percentage": 43.75,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.1543
+      "engagement_rate": 0.1541
     },
     {
       "topic": "The structural engineering reason behind circular airplane windows",
@@ -475,7 +475,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 335,
+      "views": 397,
       "views_after_24h": 335,
       "views_after_7d": null,
       "likes": 3,
@@ -485,7 +485,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.8955
+      "engagement_rate": 0.7557
     },
     {
       "topic": "The polite US social habit of holding doors open for people behind you, rooted in shared public courtesy, community awareness, and everyday consideration.",
@@ -510,8 +510,8 @@
       "likes": 2,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 22.0,
-      "average_view_percentage": 65.02,
+      "average_view_duration": 16.0,
+      "average_view_percentage": 49.38,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.6515
@@ -720,6 +720,35 @@
       "engagement_rate": 0.0
     },
     {
+      "topic": "The old-fashioned household habit of saving short pieces of string, twine, and ribbon in a designated drawer, and its practical roots in mid-century thrift, reuse, and scarcity economics.",
+      "video_id": "VgtSQy5Y-V4",
+      "title": "Why We Never Threw Away a Piece of String",
+      "workflow": "everyday_wisdom",
+      "published_at": "2026-11-02T22:01:56Z",
+      "hook_text": "I used to laugh when my grandfather opened our kitchen drawer and carefully saved every scrap of twine from a package instead of tossing it",
+      "hook_type": "first_person_personal_discovery",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": 103,
+      "planned_duration_seconds": 47.0,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 83,
+      "views_after_24h": 65,
+      "views_after_7d": null,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 29.0,
+      "average_view_percentage": 86.85,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 1.2048
+    },
+    {
       "topic": "The polite US guest custom of bringing empty containers for leftovers, rooted in family hospitality and shared meals",
       "video_id": "h_gBPm8fDZA",
       "title": "Why We Always Brought Tupperware to Dinner",
@@ -747,35 +776,6 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 2.4691
-    },
-    {
-      "topic": "The old-fashioned household habit of saving short pieces of string, twine, and ribbon in a designated drawer, and its practical roots in mid-century thrift, reuse, and scarcity economics.",
-      "video_id": "VgtSQy5Y-V4",
-      "title": "Why We Never Threw Away a Piece of String",
-      "workflow": "everyday_wisdom",
-      "published_at": "2026-11-02T22:01:56Z",
-      "hook_text": "I used to laugh when my grandfather opened our kitchen drawer and carefully saved every scrap of twine from a package instead of tossing it",
-      "hook_type": "first_person_personal_discovery",
-      "hook_score": null,
-      "hook_score_components": {},
-      "script_word_count": 103,
-      "planned_duration_seconds": 47.0,
-      "actual_duration_seconds": null,
-      "video_width": null,
-      "video_height": null,
-      "resolution": "",
-      "creative_strategy": "",
-      "views": 65,
-      "views_after_24h": 65,
-      "views_after_7d": null,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 1.5385
     },
     {
       "topic": "The family dinner custom of asking to be excused from the table, rooted in household manners, family pacing, and conversational respect.",
@@ -883,7 +883,7 @@
       "creative_strategy": "",
       "views": 16,
       "views_after_24h": 15,
-      "views_after_7d": null,
+      "views_after_7d": 16,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -955,11 +955,11 @@
   "retention_objective": {
     "target_average_view_percentage": 70.0,
     "metric": "average_view_percentage",
-    "eligible_video_count": 19,
-    "immature_or_missing_metric_count": 3,
-    "videos_meeting_target_count": 3,
-    "target_hit_rate_percentage": 15.79,
-    "average_view_percentage": 59.44,
+    "eligible_video_count": 20,
+    "immature_or_missing_metric_count": 2,
+    "videos_meeting_target_count": 4,
+    "target_hit_rate_percentage": 20.0,
+    "average_view_percentage": 60.03,
     "videos_needing_improvement": [
       {
         "video_id": "Ps51gFROuzM",
@@ -969,7 +969,7 @@
         "average_view_percentage": 39.24,
         "average_view_duration": 14.0,
         "views": 966,
-        "age_hours": 121.5,
+        "age_hours": 145.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -981,7 +981,7 @@
         "average_view_percentage": 40.4,
         "average_view_duration": 13.0,
         "views": 111,
-        "age_hours": 404.5,
+        "age_hours": 428.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -992,8 +992,8 @@
         "workflow": "everyday_wisdom",
         "average_view_percentage": 43.75,
         "average_view_duration": 15.0,
-        "views": 648,
-        "age_hours": 402.3,
+        "views": 649,
+        "age_hours": 426.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1005,7 +1005,7 @@
         "average_view_percentage": 45.45,
         "average_view_duration": 15.0,
         "views": 153,
-        "age_hours": 187.4,
+        "age_hours": 211.4,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1017,7 +1017,7 @@
         "average_view_percentage": 47.3,
         "average_view_duration": 17.0,
         "views": 20,
-        "age_hours": 216.8,
+        "age_hours": 240.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1029,7 +1029,19 @@
         "average_view_percentage": 48.1,
         "average_view_duration": 18.0,
         "views": 261,
-        "age_hours": 207.9,
+        "age_hours": 231.9,
+        "target_met": false,
+        "status": "needs_improvement"
+      },
+      {
+        "video_id": "MwKF6rny6Yo",
+        "title": "Why We Had to Hold the Door Open for Strangers",
+        "topic": "The polite US social habit of holding doors open for people behind you, rooted in shared public courtesy, community awareness, and everyday consideration.",
+        "workflow": "everyday_wisdom",
+        "average_view_percentage": 49.38,
+        "average_view_duration": 16.0,
+        "views": 307,
+        "age_hours": 90.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1041,7 +1053,7 @@
         "average_view_percentage": 50.35,
         "average_view_duration": 15.0,
         "views": 1010,
-        "age_hours": 305.2,
+        "age_hours": 329.2,
         "target_met": false,
         "status": "below_target"
       },
@@ -1053,7 +1065,7 @@
         "average_view_percentage": 50.41,
         "average_view_duration": 16.0,
         "views": 88,
-        "age_hours": 282.8,
+        "age_hours": 306.8,
         "target_met": false,
         "status": "below_target"
       },
@@ -1065,19 +1077,7 @@
         "average_view_percentage": 51.09,
         "average_view_duration": 17.0,
         "views": 34,
-        "age_hours": 377.7,
-        "target_met": false,
-        "status": "below_target"
-      },
-      {
-        "video_id": "FZhK-6JU-v8",
-        "title": "Why We Had to Clear the Dinner Table First",
-        "topic": "The family guest and household custom of clearing your own plate after dinner, rooted in shared hospitality, shared chores, and teaching practical manners.",
-        "workflow": "everyday_wisdom",
-        "average_view_percentage": 51.18,
-        "average_view_duration": 17.0,
-        "views": 16,
-        "age_hours": 162.1,
+        "age_hours": 401.7,
         "target_met": false,
         "status": "below_target"
       }
@@ -1091,7 +1091,7 @@
         "average_view_percentage": 136.89,
         "average_view_duration": 53.0,
         "views": 398,
-        "age_hours": 375.9,
+        "age_hours": 399.9,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1103,7 +1103,19 @@
         "average_view_percentage": 108.86,
         "average_view_duration": 40.0,
         "views": 160,
-        "age_hours": 114.4,
+        "age_hours": 138.4,
+        "target_met": true,
+        "status": "goal_met"
+      },
+      {
+        "video_id": "VgtSQy5Y-V4",
+        "title": "Why We Never Threw Away a Piece of String",
+        "topic": "The old-fashioned household habit of saving short pieces of string, twine, and ribbon in a designated drawer, and its practical roots in mid-century thrift, reuse, and scarcity economics.",
+        "workflow": "everyday_wisdom",
+        "average_view_percentage": 86.85,
+        "average_view_duration": 29.0,
+        "views": 83,
+        "age_hours": 62.6,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1115,7 +1127,7 @@
         "average_view_percentage": 70.0,
         "average_view_duration": 24.0,
         "views": 255,
-        "age_hours": 410.2,
+        "age_hours": 434.2,
         "target_met": true,
         "status": "goal_met"
       }

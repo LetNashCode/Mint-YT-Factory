@@ -3502,5 +3502,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why does a keyboard click",
+    "normalized": "why does a keyboard click",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794266137,
+    "recorded_at": 1794266137,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

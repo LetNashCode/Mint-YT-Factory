@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-09T04:28:41.280355+00:00",
+  "generated_at": "2026-11-09T17:47:01.752472+00:00",
   "video_count": 189,
-  "learning_sample_size": 0,
-  "learning_ready": false,
-  "metrics_available": false,
-  "comparative_learning_ready": false,
-  "advanced_metrics_videos": 0,
+  "learning_sample_size": 166,
+  "learning_ready": true,
+  "metrics_available": true,
+  "comparative_learning_ready": true,
+  "advanced_metrics_videos": 166,
   "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -14,12 +14,40 @@
     "wild_exploration": 0.1
   },
   "winning_patterns": [],
-  "weak_patterns": [],
+  "weak_patterns": [
+    {
+      "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
+      "score": 15.04,
+      "sample_size": 10
+    }
+  ],
   "winning_combinations": [],
   "winning_hook_payoff_pairs": [],
   "creative_strategy_results": [],
-  "winning_topics": [],
-  "avoid_topics": [],
+  "winning_topics": [
+    "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
+    "Why do clothes shrink in dryers",
+    "Why do metal faucets drip slowly",
+    "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
+    "Why do earbuds tangle in pockets",
+    "Why paperclips float on water",
+    "Stephen King: The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
+    "Why window glass warps reflections",
+    "Why ceiling fans gather dust on top",
+    "Why ice cream gives you brain freeze"
+  ],
+  "avoid_topics": [
+    "Why do socks roll up",
+    "Why does a lock jam",
+    "Why do aluminum foil sheets tear",
+    "Why do plastic containers absorb smells",
+    "Why soda cans have indented bottoms",
+    "Why do buttons pop off coats",
+    "Why do ceramic mugs clink",
+    "Why do envelopes taste sweet",
+    "Why do apples squeak when polished",
+    "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive."
+  ],
   "used_topic_count": 189,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
@@ -30,7 +58,5 @@
     "Retention is primary; shares and subscriber conversion are stronger growth signals than likes.",
     "Use actual rendered narration duration when available to learn pacing.",
     "Reject exact repeats and near-duplicate topics before generation."
-  ],
-  "metrics_stale": true,
-  "stale_reason": "Current analytics registry does not contain live YouTube metrics; no learned winners/losers are exposed to generation."
+  ]
 }

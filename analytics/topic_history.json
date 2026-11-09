@@ -3480,24 +3480,12 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do peanut butter jars separate",
-    "normalized": "why do peanut butter jars separate",
+    "topic": "Why does a zipper catch",
+    "normalized": "why does a zipper catch",
     "workflow": "publish",
     "status": "reserved",
-    "reserved_at": 1793854698,
-    "recorded_at": 1793854698,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do car steering wheels turn back",
-    "normalized": "why do car steering wheels turn back",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793911765,
-    "recorded_at": 1793911765,
+    "reserved_at": 1794246414,
+    "recorded_at": 1794246414,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

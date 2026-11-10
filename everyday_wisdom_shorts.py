@@ -33,8 +33,8 @@ TOPIC_HISTORY_PATH = Path("everyday_wisdom_topic_history.json")
 MAX_HISTORY_FOR_PROMPT = 120
 WHISPER_MODEL = os.getenv("WISDOM_WHISPER_MODEL", "tiny.en")
 BACKGROUND_MUSIC_PATH = Path(__file__).resolve().parent / "assets" / "music" / "blade_runner_2049.mp3"
-BACKGROUND_MUSIC_VOLUME = 0.10
-NARRATION_VOLUME = 0.90
+BACKGROUND_MUSIC_VOLUME = 0.035
+NARRATION_VOLUME = 1.00
 
 def clean(value, limit=1000):
 
@@ -911,10 +911,11 @@ def _align_caption_words(narration, timed_words, duration):
                 item = recognized[j1 + offset]
                 anchors[i1 + offset] = (item["start"], item["end"])
                 matched += 1
-    minimum_match = max(1, int(len(original) * 0.70))
+    minimum_match = max(1, int(len(original) * 0.90))
     if matched < minimum_match:
         raise RuntimeError(
-            f"Caption/audio alignment confidence too low: matched {matched}/{len(original)} words"
+            f"Voice integrity QA failed: Whisper matched only {matched}/{len(original)} narration words "
+            "(minimum 90%). The rendered Short would be missing spoken content."
         )
 
     for index in range(len(original)):

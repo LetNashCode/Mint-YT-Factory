@@ -21,7 +21,7 @@ import story_gemini_budget
 PEXELS_API = "https://api.pexels.com/v1"
 PIXABAY_API = "https://pixabay.com/api"
 PIXABAY_VIDEO_API = "https://pixabay.com/api/videos"
-GEMINI_MODEL = "gemini-flash-lite-latest"
+GEMINI_MODEL = os.getenv("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
 VERIFY_THRESHOLD = 7.0
 SEARCH_PROMPTS = 8
 CANDIDATES_PER_SEARCH = 8

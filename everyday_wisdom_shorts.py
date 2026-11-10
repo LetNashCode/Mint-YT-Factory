@@ -23,7 +23,7 @@ VIDEO_DIR.mkdir(parents=True, exist_ok=True)
 
 PEXELS_URL = "https://api.pexels.com/videos/search"
 # Keep Everyday Wisdom on the same Gemini model as Publish Shorts, but isolated to this workflow.
-MODEL = "gemini-flash-lite-latest"
+MODEL = os.getenv("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
 VOICE = os.getenv("WISDOM_KOKORO_VOICE", "af_heart")
 TARGET_SECONDS = 47.0
 MIN_NARRATION_WORDS = 100

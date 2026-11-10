@@ -12642,6 +12642,34 @@
       "start": 51.47,
       "reason": "The footage shows archival footage of astronaut John Glenn and an interview with NASA Chief Historian Bill Barry discussing Katherine Johnson's calculations, serving as valid biographical illustration and historical context despite Katherine Johnson herself not being visible in the sampled frames.",
       "reviewed_at": 1793904223.3650346
+    },
+    "9749a3265264b1d0352b6646": {
+      "source_id": "commons:151171173",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Work_(Charlie_Chaplin,_1915).webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "b982f736b3fe6872c680a93c": {
+      "source_id": "commons:151171335",
+      "source_url": "https://commons.wikimedia.org/wiki/File:His_Regeneration_(Charlie_Chaplin,_1915).webm",
+      "reason": "strong metadata exclusion: title card"
+    },
+    "3fe5e83c48f5aa64bbcf2db4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vhs-recording-charlie-chaplin-the-forgotten-years-2003",
+      "source_url": "https://archive.org/details/vhs-recording-charlie-chaplin-the-forgotten-years-2003",
+      "person": "Charlie Chaplin",
+      "start": 1641.0,
+      "reason": "The video segment shows severely distorted, overlapping, and ghosted footage of architectural structures/walkways with poor visual quality, and Charlie Chaplin is not visible in any of the sampled frames.",
+      "reviewed_at": 1794324822.6777494
+    },
+    "f48b45a71583539940d07b4d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vhs-recording-charlie-chaplin-the-forgotten-years-2003",
+      "source_url": "https://archive.org/details/vhs-recording-charlie-chaplin-the-forgotten-years-2003",
+      "person": "Charlie Chaplin",
+      "start": 2342.14,
+      "reason": "The footage shows Marlon Brando and Sophia Loren from Charlie Chaplin's film A Countess from Hong Kong. While Charlie Chaplin is not visible in the clip, it provides genuine historical context and film footage related to his career as a director.",
+      "reviewed_at": 1794324831.7344348
     }
   }
 }

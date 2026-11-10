@@ -628,5 +628,21 @@
     "video_id": "fY425_2rAPg",
     "workdir": "",
     "published_at": 1793818190
+  },
+  {
+    "topic": "Charlie Chaplin: Surviving extreme Victorian London poverty in workhouses to become cinema's first global icon.",
+    "normalized": "charlie chaplin surviving extreme victorian london poverty in workhouses to become cinema s first global icon",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1794324796,
+    "recorded_at": 1794324796,
+    "metadata": {
+      "person": "Charlie Chaplin",
+      "pillar": "before_they_were_famous"
+    },
+    "title": "Charlie Chaplin: Surviving extreme Victorian London poverty in workhouses to become cinema's first global icon.",
+    "video_id": "WaOWm8Lo7_I",
+    "workdir": "",
+    "published_at": 1794325581
   }
 ]

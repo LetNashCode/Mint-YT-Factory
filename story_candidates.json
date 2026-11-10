@@ -1,1 +1,80 @@
-[]
+[
+  {
+    "format": "one_decision",
+    "person": "Jonas Salk",
+    "premise": "Choosing to test his polio vaccine on himself and his own family before mass trials.",
+    "hook": "Before giving his vaccine to millions of children, he injected his own wife and children with the live virus.",
+    "key_facts": [
+      "Developed the first successful polio vaccine in the early 1950s.",
+      "Opted to use a killed-virus approach rather than a live-attenuated one, sparking fierce scientific debate.",
+      "Refused to patent the vaccine, famously asking 'Would you patent the sun?'",
+      "Field trials in 1954 involved over one million schoolchildren."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Tenzing Norgay",
+    "premise": "Rising from a humble yak herder and porter to reaching the summit of Mount Everest for the first time.",
+    "hook": "He failed on six previous Everest expeditions over two decades before finally reaching the top.",
+    "key_facts": [
+      "Born in Tibet and raised in Nepal as part of the Sherpa community.",
+      "Worked extensively as a high-altitude porter for British and Swiss Himalayan expeditions.",
+      "Reached the summit of Mount Everest alongside Edmund Hillary on May 29, 1953.",
+      "Later became the first director of field training at the Himalayan Mountaineering Institute."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Subrahmanyan Chandrasekhar",
+    "premise": "Enduring the public humiliation of his groundbreaking astrophysics discovery by a leading British astronomer.",
+    "hook": "A top scientist publicly ridiculed his mathematical proof on a ship voyage to England, setting back black hole physics by decades.",
+    "key_facts": [
+      "Calculated the maximum mass a white dwarf star can hold before collapsing, known as the Chandrasekhar limit.",
+      "Was publicly dismissed by Sir Arthur Eddington at a Royal Astronomical Society meeting in 1935.",
+      "Continued his research in isolation at the University of Chicago for decades.",
+      "Awarded the Nobel Prize in Physics in 1983 for his work on stellar evolution."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Madam C.J. Walker",
+    "premise": "Overcoming severe poverty and hair loss to build a multi-million-dollar beauty empire.",
+    "hook": "She suffered from a severe scalp ailment that caused her to lose most of her hair before inventing a formula that changed her life.",
+    "key_facts": [
+      "Born Sarah Breedlove on a Louisiana cotton plantation in 1867, the first child in her family born free.",
+      "Started her hair care business in St. Louis with just a few dollars of savings.",
+      "Employed a vast network of door-to-door sales agents known as 'Walker agents'.",
+      "Recognized by Guinness World Records as one of the first self-made female millionaires in America."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Yuri Gagarin",
+    "premise": "Stepping inside a cramped Vostok capsule to become the first human to orbit Earth despite unknown physiological risks.",
+    "hook": "Doctors had no idea if a human would go blind, lose their mind, or die from weightlessness in outer space.",
+    "key_facts": [
+      "Selected from a group of 20 elite Soviet fighter pilots for the Vostok 1 mission.",
+      "Completed one orbit around Earth on April 12, 1961, lasting 108 minutes.",
+      "Ejected from the capsule as planned and parachuted safely down to Russian farmland.",
+      "Became an international celebrity, touring globally to promote Soviet space achievements."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Satyajit Ray",
+    "premise": "Financing and filming his debut masterpiece over three years through endless financial collapses.",
+    "hook": "He shot his film entirely on weekends whenever spare cash arrived, pausing production whenever the money completely ran out.",
+    "key_facts": [
+      "Worked as a commercial graphic designer in Calcutta before turning to cinema.",
+      "Pawned his wife's jewelry and sold his own book collection to fund initial shooting for 'Pather Panchali'.",
+      "Released 'Pather Panchali' in 1955, winning Best Human Document at the Cannes Film Festival.",
+      "Received an Academy Honorary Award in 1992 for his lifetime contribution to cinema."
+    ],
+    "source": "gemini_original"
+  }
+]

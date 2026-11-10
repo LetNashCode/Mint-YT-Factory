@@ -2,440 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano/Agneepath%20%281990%29%20Hindi.WEB.DL.1080p.x264.AAC.Arabic.ESub.BY%20Juleyano.ia.mp4",
-        "source_url": "https://archive.org/details/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
-        "title": "Amitabh Bachchan film collection",
-        "description": "Hindi Movie, Hindi Film,Bollywood, Amitabh Bachchan film collection Amitabh Bachchan, Rakhee, Amjad Khan, Bombay to Goa (1972) Ek Rishtaa The Bond of Love (2001) Aks (2001) Dev (2004) Barsaat Ki Ek Raat (1981) Mard (1985) Mohabbatein (2000) Kaalia (1981) Saat Hindustani ( 1969) Mrityudaata (1997) The Path of Fire -Agneepath (1990) Kaalia (1981) Aakhree Raasta (1986) Abhimaan (1973) Aks (2001) Kabhie Kabhie (1976) Cheeni Kum (2007) Hera Pheri (1976) Don (1978) Jaadugar (1989) Kaun Jeeta Kaun Haara (1987) Pyar Ki Kahani (1971) Parwana (1971) Sanjog (1971) Mili (1975) Mahaan (1983) Sholay (1975) Saudagar (1973) Namak Haraam (1973) Raaste Kaa Patthar (1972) Shahenshah (1988) Zanjeer (1973) Zameer (1975) Bandhe Haath (1973) Laawaris (1981) Andhaa Kaanoon (1983) Yaar Meri Zindagi ( 1973-2008 ) Benaam (1974) Gangaa Jamunaa Saraswathi (1988) Gehri Chaal (1973) Geraftaar (1985) Satte Pe Satta (1982) Eklavya The Royal Guard (2007) Suhaag (1979) Silsila (1981) Nastik (1983) Muqaddar Ka Sikandar ( 1978) Alaap (1977) Adalat (1976) Ek Nazar (1972) Do Anjaane (1976) Roti Kapada Aur Makaan (1974) Bemisal (1982) Ajooba (1991) Armaan (2003) Namak Halaal (1982) Yaarana (1981) Main Azaad Hoon (1989) Akayla (1991) Amar Akbar Anthony (1977) Trishul (1978) Kohram (1999) Do Aur Do Paanch (1980) The Great Gambler (1979) Mr Natwarlal (1979) Pukar (1983) Kaala Patthar (1979) Bade Miyan Chote Miyan (1998) Reshma Aur Shera (1971) Inquilaab (1984) Kasme Vaade (1978) Bansi Birju (1972) Majboor (1974) Bunty Aur Babli (2005) Manzil (1979) Aankhen (2002) Major Saab (1998) Hindustan Ki Kasam (1999) Khuda Gaw ['Hindi Movie', 'Hindi Film', 'Bollywood', 'Amitabh Bachchan', 'Rakhee', 'Amjad Khan']",
-        "creator": "juleyano",
-        "license": "",
-        "subject": "['Hindi Movie', 'Hindi Film', 'Bollywood', 'Amitabh Bachchan', 'Rakhee', 'Amjad Khan']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 10455.68,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 3217.82,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature actor Amitabh Bachchan in archival film footage, suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6eb8a5812d75b39f51bb9dad639ebc3e38f4d21411360c52477041a2e41c206f",
-      "reviewed_at": 1792256638.7009652
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD/Vashmalle%20Song%20Thugs%20Of%20Hindostan%20-%20Amitabh%20Bachchan%20%20-%20%20Aamir%20Khan%20-%20Fresh%20Music%20HD.mp4",
-        "source_url": "https://archive.org/details/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
-        "title": "Vashmalle Song Thugs Of Hindostan Amitabh Bachchan Aamir Khan Fresh Music HD",
-        "description": "Thugs Of Hindostan Vashmalle",
-        "creator": "",
-        "license": "",
-        "subject": "Vashmalle",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 63.52,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 14.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The clip features Amitabh Bachchan dancing in a group scene from the movie Thugs of Hindostan, making it valid biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "24aa8bbf921103718782495e0b5452afb3939e8e63d936e6f4025ea3394765e0",
-      "reviewed_at": 1792256655.0035524
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano/Agneepath%20%281990%29%20Hindi.WEB.DL.1080p.x264.AAC.Arabic.ESub.BY%20Juleyano.ia.mp4",
-        "source_url": "https://archive.org/details/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
-        "title": "Amitabh Bachchan film collection",
-        "description": "Hindi Movie, Hindi Film,Bollywood, Amitabh Bachchan film collection Amitabh Bachchan, Rakhee, Amjad Khan, Bombay to Goa (1972) Ek Rishtaa The Bond of Love (2001) Aks (2001) Dev (2004) Barsaat Ki Ek Raat (1981) Mard (1985) Mohabbatein (2000) Kaalia (1981) Saat Hindustani ( 1969) Mrityudaata (1997) The Path of Fire -Agneepath (1990) Kaalia (1981) Aakhree Raasta (1986) Abhimaan (1973) Aks (2001) Kabhie Kabhie (1976) Cheeni Kum (2007) Hera Pheri (1976) Don (1978) Jaadugar (1989) Kaun Jeeta Kaun Haara (1987) Pyar Ki Kahani (1971) Parwana (1971) Sanjog (1971) Mili (1975) Mahaan (1983) Sholay (1975) Saudagar (1973) Namak Haraam (1973) Raaste Kaa Patthar (1972) Shahenshah (1988) Zanjeer (1973) Zameer (1975) Bandhe Haath (1973) Laawaris (1981) Andhaa Kaanoon (1983) Yaar Meri Zindagi ( 1973-2008 ) Benaam (1974) Gangaa Jamunaa Saraswathi (1988) Gehri Chaal (1973) Geraftaar (1985) Satte Pe Satta (1982) Eklavya The Royal Guard (2007) Suhaag (1979) Silsila (1981) Nastik (1983) Muqaddar Ka Sikandar ( 1978) Alaap (1977) Adalat (1976) Ek Nazar (1972) Do Anjaane (1976) Roti Kapada Aur Makaan (1974) Bemisal (1982) Ajooba (1991) Armaan (2003) Namak Halaal (1982) Yaarana (1981) Main Azaad Hoon (1989) Akayla (1991) Amar Akbar Anthony (1977) Trishul (1978) Kohram (1999) Do Aur Do Paanch (1980) The Great Gambler (1979) Mr Natwarlal (1979) Pukar (1983) Kaala Patthar (1979) Bade Miyan Chote Miyan (1998) Reshma Aur Shera (1971) Inquilaab (1984) Kasme Vaade (1978) Bansi Birju (1972) Majboor (1974) Bunty Aur Babli (2005) Manzil (1979) Aankhen (2002) Major Saab (1998) Hindustan Ki Kasam (1999) Khuda Gaw ['Hindi Movie', 'Hindi Film', 'Bollywood', 'Amitabh Bachchan', 'Rakhee', 'Amjad Khan']",
-        "creator": "juleyano",
-        "license": "",
-        "subject": "['Hindi Movie', 'Hindi Film', 'Bollywood', 'Amitabh Bachchan', 'Rakhee', 'Amjad Khan']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 10455.68,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 4021.03,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly feature actor Amitabh Bachchan in a scene from one of his classic films, serving as valid biographical illustration for a video about his life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b45eb8e1e093fef086b118b5e0ab0c574291cddca8c6a906ee9ffeb16864be54",
-      "reviewed_at": 1792256666.5290945
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD/Vashmalle%20Song%20Thugs%20Of%20Hindostan%20-%20Amitabh%20Bachchan%20%20-%20%20Aamir%20Khan%20-%20Fresh%20Music%20HD.mp4",
-        "source_url": "https://archive.org/details/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
-        "title": "Vashmalle Song Thugs Of Hindostan Amitabh Bachchan Aamir Khan Fresh Music HD",
-        "description": "Thugs Of Hindostan Vashmalle",
-        "creator": "",
-        "license": "",
-        "subject": "Vashmalle",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 63.52,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 24.81,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The sampled frames clearly feature Amitabh Bachchan performing in a song sequence from the movie Thugs of Hindostan, making it valid biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "cd4d46bb971d50a821a84843d9d0c7134c8a61cda7b7c4f3f9f6dcbd95b4b206",
-      "reviewed_at": 1792256683.0532756
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano/Agneepath%20%281990%29%20Hindi.WEB.DL.1080p.x264.AAC.Arabic.ESub.BY%20Juleyano.ia.mp4",
-        "source_url": "https://archive.org/details/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
-        "title": "Amitabh Bachchan film collection",
-        "description": "Hindi Movie, Hindi Film,Bollywood, Amitabh Bachchan film collection Amitabh Bachchan, Rakhee, Amjad Khan, Bombay to Goa (1972) Ek Rishtaa The Bond of Love (2001) Aks (2001) Dev (2004) Barsaat Ki Ek Raat (1981) Mard (1985) Mohabbatein (2000) Kaalia (1981) Saat Hindustani ( 1969) Mrityudaata (1997) The Path of Fire -Agneepath (1990) Kaalia (1981) Aakhree Raasta (1986) Abhimaan (1973) Aks (2001) Kabhie Kabhie (1976) Cheeni Kum (2007) Hera Pheri (1976) Don (1978) Jaadugar (1989) Kaun Jeeta Kaun Haara (1987) Pyar Ki Kahani (1971) Parwana (1971) Sanjog (1971) Mili (1975) Mahaan (1983) Sholay (1975) Saudagar (1973) Namak Haraam (1973) Raaste Kaa Patthar (1972) Shahenshah (1988) Zanjeer (1973) Zameer (1975) Bandhe Haath (1973) Laawaris (1981) Andhaa Kaanoon (1983) Yaar Meri Zindagi ( 1973-2008 ) Benaam (1974) Gangaa Jamunaa Saraswathi (1988) Gehri Chaal (1973) Geraftaar (1985) Satte Pe Satta (1982) Eklavya The Royal Guard (2007) Suhaag (1979) Silsila (1981) Nastik (1983) Muqaddar Ka Sikandar ( 1978) Alaap (1977) Adalat (1976) Ek Nazar (1972) Do Anjaane (1976) Roti Kapada Aur Makaan (1974) Bemisal (1982) Ajooba (1991) Armaan (2003) Namak Halaal (1982) Yaarana (1981) Main Azaad Hoon (1989) Akayla (1991) Amar Akbar Anthony (1977) Trishul (1978) Kohram (1999) Do Aur Do Paanch (1980) The Great Gambler (1979) Mr Natwarlal (1979) Pukar (1983) Kaala Patthar (1979) Bade Miyan Chote Miyan (1998) Reshma Aur Shera (1971) Inquilaab (1984) Kasme Vaade (1978) Bansi Birju (1972) Majboor (1974) Bunty Aur Babli (2005) Manzil (1979) Aankhen (2002) Major Saab (1998) Hindustan Ki Kasam (1999) Khuda Gaw ['Hindi Movie', 'Hindi Film', 'Bollywood', 'Amitabh Bachchan', 'Rakhee', 'Amjad Khan']",
-        "creator": "juleyano",
-        "license": "",
-        "subject": "['Hindi Movie', 'Hindi Film', 'Bollywood', 'Amitabh Bachchan', 'Rakhee', 'Amjad Khan']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 10455.68,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 6430.65,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7.0,
-        "reason": "The clip features genuine archival film footage starring Amitabh Bachchan alongside a co-star near a waterfall, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "87cc09cb629d8746025759880e4f93084c3b3d37034e7b95b76927602e6b8717",
-      "reviewed_at": 1792256726.5171716
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD/Vashmalle%20Song%20Thugs%20Of%20Hindostan%20-%20Amitabh%20Bachchan%20%20-%20%20Aamir%20Khan%20-%20Fresh%20Music%20HD.mp4",
-        "source_url": "https://archive.org/details/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
-        "title": "Vashmalle Song Thugs Of Hindostan Amitabh Bachchan Aamir Khan Fresh Music HD",
-        "description": "Thugs Of Hindostan Vashmalle",
-        "creator": "",
-        "license": "",
-        "subject": "Vashmalle",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 63.52,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 54.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The clip features real film footage of Amitabh Bachchan from Thugs of Hindostan, making it suitable for biographical illustration, though some frames contain title cards and motion graphics.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "68a44659ad881574cc42f60195000206bb799a30c37fff28131fd4d17620b57e",
-      "reviewed_at": 1792256741.3557446
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano/Agneepath%20%281990%29%20Hindi.WEB.DL.1080p.x264.AAC.Arabic.ESub.BY%20Juleyano.ia.mp4",
-        "source_url": "https://archive.org/details/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
-        "title": "Amitabh Bachchan film collection",
-        "description": "Hindi Movie, Hindi Film,Bollywood, Amitabh Bachchan film collection Amitabh Bachchan, Rakhee, Amjad Khan, Bombay to Goa (1972) Ek Rishtaa The Bond of Love (2001) Aks (2001) Dev (2004) Barsaat Ki Ek Raat (1981) Mard (1985) Mohabbatein (2000) Kaalia (1981) Saat Hindustani ( 1969) Mrityudaata (1997) The Path of Fire -Agneepath (1990) Kaalia (1981) Aakhree Raasta (1986) Abhimaan (1973) Aks (2001) Kabhie Kabhie (1976) Cheeni Kum (2007) Hera Pheri (1976) Don (1978) Jaadugar (1989) Kaun Jeeta Kaun Haara (1987) Pyar Ki Kahani (1971) Parwana (1971) Sanjog (1971) Mili (1975) Mahaan (1983) Sholay (1975) Saudagar (1973) Namak Haraam (1973) Raaste Kaa Patthar (1972) Shahenshah (1988) Zanjeer (1973) Zameer (1975) Bandhe Haath (1973) Laawaris (1981) Andhaa Kaanoon (1983) Yaar Meri Zindagi ( 1973-2008 ) Benaam (1974) Gangaa Jamunaa Saraswathi (1988) Gehri Chaal (1973) Geraftaar (1985) Satte Pe Satta (1982) Eklavya The Royal Guard (2007) Suhaag (1979) Silsila (1981) Nastik (1983) Muqaddar Ka Sikandar ( 1978) Alaap (1977) Adalat (1976) Ek Nazar (1972) Do Anjaane (1976) Roti Kapada Aur Makaan (1974) Bemisal (1982) Ajooba (1991) Armaan (2003) Namak Halaal (1982) Yaarana (1981) Main Azaad Hoon (1989) Akayla (1991) Amar Akbar Anthony (1977) Trishul (1978) Kohram (1999) Do Aur Do Paanch (1980) The Great Gambler (1979) Mr Natwarlal (1979) Pukar (1983) Kaala Patthar (1979) Bade Miyan Chote Miyan (1998) Reshma Aur Shera (1971) Inquilaab (1984) Kasme Vaade (1978) Bansi Birju (1972) Majboor (1974) Bunty Aur Babli (2005) Manzil (1979) Aankhen (2002) Major Saab (1998) Hindustan Ki Kasam (1999) Khuda Gaw ['Hindi Movie', 'Hindi Film', 'Bollywood', 'Amitabh Bachchan', 'Rakhee', 'Amjad Khan']",
-        "creator": "juleyano",
-        "license": "",
-        "subject": "['Hindi Movie', 'Hindi Film', 'Bollywood', 'Amitabh Bachchan', 'Rakhee', 'Amjad Khan']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 10455.68,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 7233.86,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The sampled frames clearly feature actor Amitabh Bachchan in archival film footage, perfectly matching the biographical context and narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d4d79aaf4dafcb9269871604884ac19f84100dd99d9219fa4c44c969f9c84ecd",
-      "reviewed_at": 1792256753.463225
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano/Agneepath%20%281990%29%20Hindi.WEB.DL.1080p.x264.AAC.Arabic.ESub.BY%20Juleyano.ia.mp4",
-        "source_url": "https://archive.org/details/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
-        "title": "Amitabh Bachchan film collection",
-        "description": "Hindi Movie, Hindi Film,Bollywood, Amitabh Bachchan film collection Amitabh Bachchan, Rakhee, Amjad Khan, Bombay to Goa (1972) Ek Rishtaa The Bond of Love (2001) Aks (2001) Dev (2004) Barsaat Ki Ek Raat (1981) Mard (1985) Mohabbatein (2000) Kaalia (1981) Saat Hindustani ( 1969) Mrityudaata (1997) The Path of Fire -Agneepath (1990) Kaalia (1981) Aakhree Raasta (1986) Abhimaan (1973) Aks (2001) Kabhie Kabhie (1976) Cheeni Kum (2007) Hera Pheri (1976) Don (1978) Jaadugar (1989) Kaun Jeeta Kaun Haara (1987) Pyar Ki Kahani (1971) Parwana (1971) Sanjog (1971) Mili (1975) Mahaan (1983) Sholay (1975) Saudagar (1973) Namak Haraam (1973) Raaste Kaa Patthar (1972) Shahenshah (1988) Zanjeer (1973) Zameer (1975) Bandhe Haath (1973) Laawaris (1981) Andhaa Kaanoon (1983) Yaar Meri Zindagi ( 1973-2008 ) Benaam (1974) Gangaa Jamunaa Saraswathi (1988) Gehri Chaal (1973) Geraftaar (1985) Satte Pe Satta (1982) Eklavya The Royal Guard (2007) Suhaag (1979) Silsila (1981) Nastik (1983) Muqaddar Ka Sikandar ( 1978) Alaap (1977) Adalat (1976) Ek Nazar (1972) Do Anjaane (1976) Roti Kapada Aur Makaan (1974) Bemisal (1982) Ajooba (1991) Armaan (2003) Namak Halaal (1982) Yaarana (1981) Main Azaad Hoon (1989) Akayla (1991) Amar Akbar Anthony (1977) Trishul (1978) Kohram (1999) Do Aur Do Paanch (1980) The Great Gambler (1979) Mr Natwarlal (1979) Pukar (1983) Kaala Patthar (1979) Bade Miyan Chote Miyan (1998) Reshma Aur Shera (1971) Inquilaab (1984) Kasme Vaade (1978) Bansi Birju (1972) Majboor (1974) Bunty Aur Babli (2005) Manzil (1979) Aankhen (2002) Major Saab (1998) Hindustan Ki Kasam (1999) Khuda Gaw ['Hindi Movie', 'Hindi Film', 'Bollywood', 'Amitabh Bachchan', 'Rakhee', 'Amjad Khan']",
-        "creator": "juleyano",
-        "license": "",
-        "subject": "['Hindi Movie', 'Hindi Film', 'Bollywood', 'Amitabh Bachchan', 'Rakhee', 'Amjad Khan']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 10455.68,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 9643.47,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames feature genuine archival film footage starring Amitabh Bachchan, making it usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4ed5cd21c66b48fcbf4cd720fca6d241626b20306f58a1c4788171e49e7d1eae",
-      "reviewed_at": 1792256776.511327
-    },
-    {
-      "person": "Freddie Mercury",
-      "source": {
-        "id": "archive:FreddieMS1",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/FreddieMS1/videoplayback.mp4",
-        "source_url": "https://archive.org/details/FreddieMS1",
-        "title": "Freddie Mercury S1E48",
-        "description": "Host A.J. Benza looks at the lives of Hollywood's fallen stars. #hollywoodmysteriesandscandals",
-        "creator": "",
-        "license": "",
-        "subject": "#hollywoodmysteriesandscandals",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1279.56,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 491.75,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Freddie Mercury is clearly visible in multiple archival frames within the segment, accompanied by biographical narration and commentary, making it valid biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a875ca4144558d4f08dfaf4eff3d859d69b49c01ef5fbc4e098d57fa2b6f2916",
-      "reviewed_at": 1792261064.0388582
-    },
-    {
-      "person": "Freddie Mercury",
-      "source": {
-        "id": "archive:FreddieMS1",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/FreddieMS1/videoplayback.mp4",
-        "source_url": "https://archive.org/details/FreddieMS1",
-        "title": "Freddie Mercury S1E48",
-        "description": "Host A.J. Benza looks at the lives of Hollywood's fallen stars. #hollywoodmysteriesandscandals",
-        "creator": "",
-        "license": "",
-        "subject": "#hollywoodmysteriesandscandals",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1279.56,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 783.81,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8.0,
-        "reason": "Freddie Mercury is clearly identifiable in frames 2 and 3 alongside archival interview footage, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "aa49d5398a6fef5db1dd1fcb8ebd60c1e1837430996fe8ae96b740624126a496",
-      "reviewed_at": 1792261086.8285
-    },
-    {
-      "person": "Freddie Mercury",
-      "source": {
-        "id": "archive:FreddieMS1",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/FreddieMS1/videoplayback.mp4",
-        "source_url": "https://archive.org/details/FreddieMS1",
-        "title": "Freddie Mercury S1E48",
-        "description": "Host A.J. Benza looks at the lives of Hollywood's fallen stars. #hollywoodmysteriesandscandals",
-        "creator": "",
-        "license": "",
-        "subject": "#hollywoodmysteriesandscandals",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1279.56,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 881.16,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video features genuine archival footage of Freddie Mercury performing alongside Brian May, directly illustrating his life and career as narrated.",
-        "usage": "direct_event"
-      },
-      "review_key": "195dad0825f79e793efd6e78c38f7889e1d945554e18cf9d0de72e0c5540c744",
-      "reviewed_at": 1792261100.8775444
-    },
-    {
-      "person": "Sylvester Stallone",
-      "source": {
-        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
-        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
-        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
-        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "creator": "ABC",
-        "license": "",
-        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1039.905506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 83.92,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly feature Sylvester Stallone in archival film and interview footage illustrating his career as Rocky, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "79f34bc19c9b0f873059f0cc6ac07ac831dc7c187958b7d1dbe953554c237162",
-      "reviewed_at": 1792319035.2033749
-    },
-    {
-      "person": "Sylvester Stallone",
-      "source": {
-        "id": "archive:Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01/Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01.mp4",
-        "source_url": "https://archive.org/details/Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01",
-        "title": "Legends Of Hollywood Sylvester Stallone TLC WOC 1995 01",
-        "description": "Legends Of Hollywood Sylvester Stallone TLC WOC 1995 01 ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1816.447967,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 975.55,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video clip features archival film footage of Sylvester Stallone (specifically from one of his action films like Rambo) in character in a jungle setting. He is clearly identifiable in multiple frames, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e0843dc6c3e67de3d0073b846f609d5fce51c9d744a1b2c99b49eef03d80ea00",
-      "reviewed_at": 1792319050.626999
-    },
-    {
-      "person": "Sylvester Stallone",
-      "source": {
-        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
-        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
-        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
-        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "creator": "ABC",
-        "license": "",
-        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1039.905506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 557.41,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows actual archival footage of Sylvester Stallone in a 1988 interview with Barbara Walters. He is clearly identifiable in multiple frames, making it useful biographical illustration despite the low vintage video quality.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d39b280f3e67d4b09d4cff223d35f9f33fe72170b41ce753a094d139ac70cccd",
-      "reviewed_at": 1792319054.5624774
-    },
-    {
       "person": "Sylvester Stallone",
       "source": {
         "id": "archive:Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01",
@@ -18573,6 +18139,440 @@
       },
       "review_key": "32c6d99d9a82f11514aa37967d65d912339b9f6abb9cc9dd0ab9e7a150baf137",
       "reviewed_at": 1793904214.3666775
+    },
+    {
+      "person": "Charlie Chaplin",
+      "source": {
+        "id": "archive:charlie-chaplin-final-speech-from-the-great-dictator",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/charlie-chaplin-final-speech-from-the-great-dictator/Charlie%20Chaplin%20-%20Final%20Speech%20from%20The%20Great%20Dictator-.ia.mp4",
+        "source_url": "https://archive.org/details/charlie-chaplin-final-speech-from-the-great-dictator",
+        "title": "Charlie Chaplin - Final Speech from The Great Dictator",
+        "description": "\"We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost...\" Speech",
+        "creator": "Charlie Chaplin",
+        "license": "",
+        "subject": "Speech",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.28,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 113.92,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Charlie Chaplin performing his iconic final speech from 'The Great Dictator', directly illustrating his life and cinematic work.",
+        "usage": "direct_event"
+      },
+      "review_key": "16e0da8b9f3ca9a34ff7d372d955cd587f6eccffe47a7f87f33ea90c7cb43149",
+      "reviewed_at": 1794324842.0744653
+    },
+    {
+      "person": "Charlie Chaplin",
+      "source": {
+        "id": "archive:charlie-chaplin-final-speech-from-the-great-dictator_202602",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/charlie-chaplin-final-speech-from-the-great-dictator_202602/Charlie%20Chaplin%20-%20Final%20Speech%20from%20The%20Great%20Dictator-.ia.mp4",
+        "source_url": "https://archive.org/details/charlie-chaplin-final-speech-from-the-great-dictator_202602",
+        "title": "Charlie Chaplin - Final Speech from The Great Dictator",
+        "description": "\"We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost...\" Speech",
+        "creator": "Charlie Chaplin",
+        "license": "",
+        "subject": "Speech",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.28,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 113.92,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The segment features genuine historical film footage of Charlie Chaplin himself starring in 'The Great Dictator', directly illustrating his life and career as an iconic filmmaker and actor.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "eb2c2174605cb6ee678270aec86e88d9cf3b89899785831e06ac410605718b2d",
+      "reviewed_at": 1794324853.2218518
+    },
+    {
+      "person": "Charlie Chaplin",
+      "source": {
+        "id": "archive:charlie-chaplin-final-speech-from-the-great-dictator",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/charlie-chaplin-final-speech-from-the-great-dictator/Charlie%20Chaplin%20-%20Final%20Speech%20from%20The%20Great%20Dictator-.ia.mp4",
+        "source_url": "https://archive.org/details/charlie-chaplin-final-speech-from-the-great-dictator",
+        "title": "Charlie Chaplin - Final Speech from The Great Dictator",
+        "description": "\"We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost...\" Speech",
+        "creator": "Charlie Chaplin",
+        "license": "",
+        "subject": "Speech",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.28,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly show Charlie Chaplin delivering his famous final speech from his film 'The Great Dictator', directly depicting him speaking in archival film footage.",
+        "usage": "direct_event"
+      },
+      "review_key": "eb098ba1620e613d4d78f78be3fd5a0e959f0feb9973ef78bac859bce43a8134",
+      "reviewed_at": 1794324862.0314753
+    },
+    {
+      "person": "Charlie Chaplin",
+      "source": {
+        "id": "archive:charlie-chaplin-final-speech-from-the-great-dictator_202602",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/charlie-chaplin-final-speech-from-the-great-dictator_202602/Charlie%20Chaplin%20-%20Final%20Speech%20from%20The%20Great%20Dictator-.ia.mp4",
+        "source_url": "https://archive.org/details/charlie-chaplin-final-speech-from-the-great-dictator_202602",
+        "title": "Charlie Chaplin - Final Speech from The Great Dictator",
+        "description": "\"We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost...\" Speech",
+        "creator": "Charlie Chaplin",
+        "license": "",
+        "subject": "Speech",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.28,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature Charlie Chaplin delivering his famous final speech from 'The Great Dictator', providing authentic archival footage of the subject.",
+        "usage": "direct_event"
+      },
+      "review_key": "2515d516fa0fb7712ed04313d773b11768a5399f7a193464674613b24e606f06",
+      "reviewed_at": 1794324877.2245634
+    },
+    {
+      "person": "Charlie Chaplin",
+      "source": {
+        "id": "archive:charlie-chaplin-final-speech-from-the-great-dictator",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/charlie-chaplin-final-speech-from-the-great-dictator/Charlie%20Chaplin%20-%20Final%20Speech%20from%20The%20Great%20Dictator-.ia.mp4",
+        "source_url": "https://archive.org/details/charlie-chaplin-final-speech-from-the-great-dictator",
+        "title": "Charlie Chaplin - Final Speech from The Great Dictator",
+        "description": "\"We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost...\" Speech",
+        "creator": "Charlie Chaplin",
+        "license": "",
+        "subject": "Speech",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.28,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 20.56,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly show Charlie Chaplin delivering his iconic final speech from 'The Great Dictator', making it authentic, direct historical footage of the subject.",
+        "usage": "direct_event"
+      },
+      "review_key": "0e6a349c6edbcb8ec835975a8bf0333b6a035feb9d75ebcb1bca5a313c126952",
+      "reviewed_at": 1794324890.5378723
+    },
+    {
+      "person": "Charlie Chaplin",
+      "source": {
+        "id": "archive:charlie-chaplin-final-speech-from-the-great-dictator_202602",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/charlie-chaplin-final-speech-from-the-great-dictator_202602/Charlie%20Chaplin%20-%20Final%20Speech%20from%20The%20Great%20Dictator-.ia.mp4",
+        "source_url": "https://archive.org/details/charlie-chaplin-final-speech-from-the-great-dictator_202602",
+        "title": "Charlie Chaplin - Final Speech from The Great Dictator",
+        "description": "\"We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost...\" Speech",
+        "creator": "Charlie Chaplin",
+        "license": "",
+        "subject": "Speech",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.28,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 20.56,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly show Charlie Chaplin delivering his famous final speech from 'The Great Dictator', making this direct and authentic archival footage of the subject.",
+        "usage": "direct_event"
+      },
+      "review_key": "cf6bfdd7a19e10946332bbe3215e9d43db66fec1a42bb8022d12ad8b240abef0",
+      "reviewed_at": 1794324909.8858685
+    },
+    {
+      "person": "Charlie Chaplin",
+      "source": {
+        "id": "archive:charlie-chaplin-final-speech-from-the-great-dictator",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/charlie-chaplin-final-speech-from-the-great-dictator/Charlie%20Chaplin%20-%20Final%20Speech%20from%20The%20Great%20Dictator-.ia.mp4",
+        "source_url": "https://archive.org/details/charlie-chaplin-final-speech-from-the-great-dictator",
+        "title": "Charlie Chaplin - Final Speech from The Great Dictator",
+        "description": "\"We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost...\" Speech",
+        "creator": "Charlie Chaplin",
+        "license": "",
+        "subject": "Speech",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.28,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 36.12,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature Charlie Chaplin delivering his iconic final speech from The Great Dictator, providing direct and authentic archival footage of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "59051a094e39cef4cb360e36804b5ff0106f627584e58fd9044781516c876101",
+      "reviewed_at": 1794324919.2603602
+    },
+    {
+      "person": "Charlie Chaplin",
+      "source": {
+        "id": "archive:charlie-chaplin-final-speech-from-the-great-dictator_202602",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/charlie-chaplin-final-speech-from-the-great-dictator_202602/Charlie%20Chaplin%20-%20Final%20Speech%20from%20The%20Great%20Dictator-.ia.mp4",
+        "source_url": "https://archive.org/details/charlie-chaplin-final-speech-from-the-great-dictator_202602",
+        "title": "Charlie Chaplin - Final Speech from The Great Dictator",
+        "description": "\"We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost...\" Speech",
+        "creator": "Charlie Chaplin",
+        "license": "",
+        "subject": "Speech",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.28,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 36.12,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames clearly show Charlie Chaplin delivering his famous final speech from The Great Dictator, providing direct archival footage of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d4201bc8af3f228ae905c04bc93b741aeb37709f3b86188e20b969995fd4f4aa",
+      "reviewed_at": 1794324928.0852926
+    },
+    {
+      "person": "Charlie Chaplin",
+      "source": {
+        "id": "archive:charlie-chaplin-final-speech-from-the-great-dictator",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/charlie-chaplin-final-speech-from-the-great-dictator/Charlie%20Chaplin%20-%20Final%20Speech%20from%20The%20Great%20Dictator-.ia.mp4",
+        "source_url": "https://archive.org/details/charlie-chaplin-final-speech-from-the-great-dictator",
+        "title": "Charlie Chaplin - Final Speech from The Great Dictator",
+        "description": "\"We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost...\" Speech",
+        "creator": "Charlie Chaplin",
+        "license": "",
+        "subject": "Speech",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.28,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 51.68,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature Charlie Chaplin himself delivering his famous speech from 'The Great Dictator', making this authentic and highly relevant archival footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ac27787641e029df8feb7bc5baae9cf55bb998ca88e556868ab8c9127df1a93b",
+      "reviewed_at": 1794324939.064068
+    },
+    {
+      "person": "Charlie Chaplin",
+      "source": {
+        "id": "archive:charlie-chaplin-final-speech-from-the-great-dictator_202602",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/charlie-chaplin-final-speech-from-the-great-dictator_202602/Charlie%20Chaplin%20-%20Final%20Speech%20from%20The%20Great%20Dictator-.ia.mp4",
+        "source_url": "https://archive.org/details/charlie-chaplin-final-speech-from-the-great-dictator_202602",
+        "title": "Charlie Chaplin - Final Speech from The Great Dictator",
+        "description": "\"We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost...\" Speech",
+        "creator": "Charlie Chaplin",
+        "license": "",
+        "subject": "Speech",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.28,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 51.68,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature Charlie Chaplin himself delivering his iconic final speech from 'The Great Dictator', providing direct and authentic footage matching the biographical subject and narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "812db3fc255d76fa32a6f94211e0bbf4ffd9c407ff8fd7e93c5e09e771a3bca6",
+      "reviewed_at": 1794324958.556784
+    },
+    {
+      "person": "Charlie Chaplin",
+      "source": {
+        "id": "archive:charlie-chaplin-final-speech-from-the-great-dictator",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/charlie-chaplin-final-speech-from-the-great-dictator/Charlie%20Chaplin%20-%20Final%20Speech%20from%20The%20Great%20Dictator-.ia.mp4",
+        "source_url": "https://archive.org/details/charlie-chaplin-final-speech-from-the-great-dictator",
+        "title": "Charlie Chaplin - Final Speech from The Great Dictator",
+        "description": "\"We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost...\" Speech",
+        "creator": "Charlie Chaplin",
+        "license": "",
+        "subject": "Speech",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.28,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 67.24,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature Charlie Chaplin delivering his famous speech from 'The Great Dictator', making it authentic primary source footage suitable for a biographical short.",
+        "usage": "direct_event"
+      },
+      "review_key": "8cbdfae1ba29b52f31fa4c7deb7db2123ff29b815788c1bccf8d2fcbefc93902",
+      "reviewed_at": 1794324974.4590445
+    },
+    {
+      "person": "Charlie Chaplin",
+      "source": {
+        "id": "archive:charlie-chaplin-final-speech-from-the-great-dictator_202602",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/charlie-chaplin-final-speech-from-the-great-dictator_202602/Charlie%20Chaplin%20-%20Final%20Speech%20from%20The%20Great%20Dictator-.ia.mp4",
+        "source_url": "https://archive.org/details/charlie-chaplin-final-speech-from-the-great-dictator_202602",
+        "title": "Charlie Chaplin - Final Speech from The Great Dictator",
+        "description": "\"We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost...\" Speech",
+        "creator": "Charlie Chaplin",
+        "license": "",
+        "subject": "Speech",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.28,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 67.24,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature Charlie Chaplin in his iconic role from 'The Great Dictator', making the footage authentic, directly relevant, and usable as primary archival material for a biography.",
+        "usage": "direct_event"
+      },
+      "review_key": "8f49ce0bcda7f44065916c4df9918ac4ba16d906b88a04a18b07ff0e0909be87",
+      "reviewed_at": 1794324993.0046372
+    },
+    {
+      "person": "Charlie Chaplin",
+      "source": {
+        "id": "archive:charlie-chaplin-final-speech-from-the-great-dictator",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/charlie-chaplin-final-speech-from-the-great-dictator/Charlie%20Chaplin%20-%20Final%20Speech%20from%20The%20Great%20Dictator-.ia.mp4",
+        "source_url": "https://archive.org/details/charlie-chaplin-final-speech-from-the-great-dictator",
+        "title": "Charlie Chaplin - Final Speech from The Great Dictator",
+        "description": "\"We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost...\" Speech",
+        "creator": "Charlie Chaplin",
+        "license": "",
+        "subject": "Speech",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.28,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 82.8,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature Charlie Chaplin performing his iconic final speech from his film 'The Great Dictator', directly matching the subject and narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "a8acb641021b37d6d791ddf6911ad3516d03c92b124eb8faf6a63ce9983c1373",
+      "reviewed_at": 1794325003.7496364
+    },
+    {
+      "person": "Charlie Chaplin",
+      "source": {
+        "id": "archive:charlie-chaplin-final-speech-from-the-great-dictator_202602",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/charlie-chaplin-final-speech-from-the-great-dictator_202602/Charlie%20Chaplin%20-%20Final%20Speech%20from%20The%20Great%20Dictator-.ia.mp4",
+        "source_url": "https://archive.org/details/charlie-chaplin-final-speech-from-the-great-dictator_202602",
+        "title": "Charlie Chaplin - Final Speech from The Great Dictator",
+        "description": "\"We think too much and feel too little. More than machinery we need humanity. More than cleverness we need kindness and gentleness. Without these qualities, life will be violent and all will be lost...\" Speech",
+        "creator": "Charlie Chaplin",
+        "license": "",
+        "subject": "Speech",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.28,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 82.8,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature genuine historical film footage of Charlie Chaplin starring in his film 'The Great Dictator', directly illustrating his life and cinematic work as described in the narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e4da60c7f59a1184111fe7a6326d25e2d3c227633ad5f5683501dad089320681",
+      "reviewed_at": 1794325014.7667027
     }
   ]
 }

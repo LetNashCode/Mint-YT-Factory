@@ -19369,6 +19369,126 @@
       "shot": 2,
       "query": "garlic skins flake you pop out fresh",
       "recorded_at": 1794325718
+    },
+    {
+      "asset_key": "pexels:video:13643105",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/13643105/13643105-hd_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "headlights catch fog your built car",
+      "recorded_at": 1794343040
+    },
+    {
+      "asset_key": "pexels:video:35603478",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35603478/15088002_720_1280_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "headlights catch fog glowing wall right front",
+      "recorded_at": 1794343042
+    },
+    {
+      "asset_key": "pexels:video:29615708",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/29615708/12744724_720_1280_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "headlights catch fog second ago road was",
+      "recorded_at": 1794343044
+    },
+    {
+      "asset_key": "pexels:video:35485871",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35485871/15032796_720_1280_23fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "headlights catch fog now you driving inside",
+      "recorded_at": 1794343045
+    },
+    {
+      "asset_key": "pexels:video:31059898",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/31059898/13274115_720_1280_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "headlights catch fog you not seeing",
+      "recorded_at": 1794343046
+    },
+    {
+      "asset_key": "pexels:video:16762623",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/16762623/16762623-hd_720_1280_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "headlights catch fog bouncing light straight back",
+      "recorded_at": 1794343047
+    },
+    {
+      "asset_key": "pexels:video:36946661",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/36946661/15651822_720_1280_30fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "headlights catch fog normal air lets light",
+      "recorded_at": 1794343049
+    },
+    {
+      "asset_key": "pexels:video:18359332",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/18359332/18359332-hd_720_1280_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "headlights catch fog but pack trillions microscopic",
+      "recorded_at": 1794343050
+    },
+    {
+      "asset_key": "pexels:video:35165834",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35165834/14896565_720_960_120fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "headlights catch fog you not lighting road",
+      "recorded_at": 1794343051
+    },
+    {
+      "asset_key": "pexels:video:16230105",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/16230105/16230105-hd_1366_580_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "headlights catch fog you blinding yourself your",
+      "recorded_at": 1794343051
+    },
+    {
+      "asset_key": "pexels:video:18866691",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/18866691/18866691-hd_1280_720_24fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "headlights catch fog pointing your lights lower",
+      "recorded_at": 1794343053
+    },
+    {
+      "asset_key": "pexels:video:29615714",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/29615714/12744742_720_1280_60fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "headlights catch fog lets you peek underneath",
+      "recorded_at": 1794343054
     }
   ]
 }

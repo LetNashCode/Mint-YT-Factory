@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why does a zipper catch",
-    "normalized": "why does a zipper catch",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794246414,
-    "recorded_at": 1794246414,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do pillows flatten",
     "normalized": "why do pillows flatten",
     "workflow": "publish",
@@ -3558,6 +3546,18 @@
     "status": "reserved",
     "reserved_at": 1794325563,
     "recorded_at": 1794325563,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do headlights catch fog beams",
+    "normalized": "why do headlights catch fog beams",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794342931,
+    "recorded_at": 1794342931,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

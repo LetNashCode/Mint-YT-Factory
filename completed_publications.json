@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789486480",
-    "video_id": "jsu8Xo7NUbE",
-    "topic": "Why do keys stick in locks",
-    "completed_at": 1789494523
-  },
-  {
     "workdir": "output/1789517314",
     "video_id": "4tcbCwaxx6g",
     "topic": "Why do door hinges squeak",
@@ -598,5 +592,11 @@
     "video_id": "dLiS_2LMOds",
     "topic": "Why do garlic skins flake off easily",
     "completed_at": 1794327221
+  },
+  {
+    "workdir": "output/1794343007",
+    "video_id": "s2B5LKFnpeA",
+    "topic": "Why do headlights catch fog beams",
+    "completed_at": 1794343749
   }
 ]

@@ -532,7 +532,7 @@ def synthesize(text, output):
     # directly into ONE continuous WAV. Do not write per-segment files, add
     # artificial gaps, crossfade, or run silence-compression on the waveform.
     generated = []
-    for result in pipeline(source, voice=VOICE, speed=1.0, split_pattern=r"\\n+"):
+    for result in pipeline(source, voice=VOICE, speed=1.0, split_pattern=r"\n+"):
         audio = result[2] if isinstance(result, tuple) else result.audio
         if audio is None:
             continue

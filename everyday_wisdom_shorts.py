@@ -521,7 +521,7 @@ def synthesize(text, output):
             continue
         if hasattr(chunk, "detach"):
             chunk = chunk.detach().cpu().numpy()
-        chunk = np.asarray(chunk, dtype=np.float32).reshape(-1)
+        chunk = np.asarray(chunk, dtype=np.float32).reshape(-1).copy()
         if not chunk.size:
             continue
 

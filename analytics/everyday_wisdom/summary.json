@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-10T12:59:42.476178+00:00",
-  "refresh_attempted_at": "2026-11-10T12:59:42.476178+00:00",
+  "generated_at": "2026-11-10T14:08:48.366363+00:00",
+  "refresh_attempted_at": "2026-11-10T14:08:48.366363+00:00",
   "refresh_status": "success",
-  "video_count": 22,
+  "video_count": 23,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 22,
@@ -13,12 +13,12 @@
     "comments": 0
   },
   "averages": {
-    "views": 286.45,
-    "likes": 2.27,
+    "views": 274.0,
+    "likes": 2.17,
     "comments": 0.0,
-    "average_view_percentage": 55.98,
-    "subscribers_gained": 0.27,
-    "shares": 0.14
+    "average_view_percentage": 53.55,
+    "subscribers_gained": 0.26,
+    "shares": 0.13
   },
   "top_videos": [
     {
@@ -950,13 +950,42 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
+    },
+    {
+      "topic": "childhood chores: making the bed, putting things back, turning off lights when leaving",
+      "video_id": "cqQWc4yBBK0",
+      "title": "Why We Always Had to Make Our Beds Every Morning",
+      "workflow": "everyday_wisdom",
+      "published_at": "2026-11-10T14:07:44Z",
+      "hook_text": "Growing up, I hated making my bed the second I rolled out of the covers",
+      "hook_type": "first_person_personal_discovery",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": 106,
+      "planned_duration_seconds": 47.0,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 0,
+      "views_after_24h": null,
+      "views_after_7d": null,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
     }
   ],
   "retention_objective": {
     "target_average_view_percentage": 70.0,
     "metric": "average_view_percentage",
     "eligible_video_count": 21,
-    "immature_or_missing_metric_count": 1,
+    "immature_or_missing_metric_count": 2,
     "videos_meeting_target_count": 4,
     "target_hit_rate_percentage": 19.05,
     "average_view_percentage": 58.64,
@@ -969,7 +998,7 @@
         "average_view_percentage": 39.24,
         "average_view_duration": 14.0,
         "views": 968,
-        "age_hours": 265.9,
+        "age_hours": 267.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -981,7 +1010,7 @@
         "average_view_percentage": 40.4,
         "average_view_duration": 13.0,
         "views": 112,
-        "age_hours": 548.8,
+        "age_hours": 550.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -993,7 +1022,7 @@
         "average_view_percentage": 43.75,
         "average_view_duration": 15.0,
         "views": 649,
-        "age_hours": 546.6,
+        "age_hours": 547.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1005,7 +1034,7 @@
         "average_view_percentage": 45.11,
         "average_view_duration": 15.0,
         "views": 308,
-        "age_hours": 210.8,
+        "age_hours": 211.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1017,7 +1046,7 @@
         "average_view_percentage": 45.45,
         "average_view_duration": 15.0,
         "views": 153,
-        "age_hours": 331.7,
+        "age_hours": 332.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1029,7 +1058,7 @@
         "average_view_percentage": 47.3,
         "average_view_duration": 17.0,
         "views": 20,
-        "age_hours": 361.1,
+        "age_hours": 362.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1041,7 +1070,7 @@
         "average_view_percentage": 47.55,
         "average_view_duration": 17.0,
         "views": 403,
-        "age_hours": 168.7,
+        "age_hours": 169.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1053,7 +1082,7 @@
         "average_view_percentage": 50.38,
         "average_view_duration": 15.0,
         "views": 1011,
-        "age_hours": 449.5,
+        "age_hours": 450.7,
         "target_met": false,
         "status": "below_target"
       },
@@ -1065,7 +1094,7 @@
         "average_view_percentage": 50.41,
         "average_view_duration": 16.0,
         "views": 88,
-        "age_hours": 427.2,
+        "age_hours": 428.3,
         "target_met": false,
         "status": "below_target"
       },
@@ -1077,7 +1106,7 @@
         "average_view_percentage": 51.09,
         "average_view_duration": 17.0,
         "views": 34,
-        "age_hours": 522.1,
+        "age_hours": 523.2,
         "target_met": false,
         "status": "below_target"
       }
@@ -1091,7 +1120,7 @@
         "average_view_percentage": 136.89,
         "average_view_duration": 53.0,
         "views": 399,
-        "age_hours": 520.2,
+        "age_hours": 521.3,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1103,7 +1132,7 @@
         "average_view_percentage": 108.86,
         "average_view_duration": 40.0,
         "views": 160,
-        "age_hours": 258.7,
+        "age_hours": 259.9,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1115,7 +1144,7 @@
         "average_view_percentage": 70.5,
         "average_view_duration": 24.0,
         "views": 257,
-        "age_hours": 554.5,
+        "age_hours": 555.7,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1127,7 +1156,7 @@
         "average_view_percentage": 70.46,
         "average_view_duration": 23.0,
         "views": 83,
-        "age_hours": 183.0,
+        "age_hours": 184.1,
         "target_met": true,
         "status": "goal_met"
       }

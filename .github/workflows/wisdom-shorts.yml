@@ -92,9 +92,19 @@ jobs:
           assert BACKGROUND_MUSIC_PATH.is_file(), f"Missing soundtrack: {BACKGROUND_MUSIC_PATH}"
           assert 0 < BACKGROUND_MUSIC_VOLUME < NARRATION_VOLUME <= 1
           audio_filter = build_audio_filter(40.0)
-          assert "[1:a]aresample=48000,volume=0.900[narration]" in audio_filter
-          assert "[2:a]aresample=48000,volume=0.100" in audio_filter
-          assert "[narration][music]amix=inputs=2:duration=first" in audio_filter
+          # Validate the actual configured mix, not stale hard-coded values.
+          # This keeps preflight in sync when narration/music levels are tuned.
+          expected_narration = f"[1:a]aresample=48000,volume={NARRATION_VOLUME:.3f}[narration]"
+          expected_music = f"[2:a]aresample=48000,volume={BACKGROUND_MUSIC_VOLUME:.3f},"
+          assert expected_narration in audio_filter, audio_filter
+          assert expected_music in audio_filter, audio_filter
+          assert "[narration][music]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a]" in audio_filter, audio_filter
+          assert NARRATION_VOLUME == 1.0, f"Narration must remain at full level, got {NARRATION_VOLUME}"
+          assert 0 < BACKGROUND_MUSIC_VOLUME <= 0.05, f"Background music must stay subtle, got {BACKGROUND_MUSIC_VOLUME}"
+          print(
+              f"Audio mix preflight passed: narration={NARRATION_VOLUME:.1%} | "
+              f"music={BACKGROUND_MUSIC_VOLUME:.1%}"
+          )
           print(f"Background music preflight passed: {BACKGROUND_MUSIC_PATH.name}")
           print("Production preflight passed.")
           PY

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-10T20:58:43.084152+00:00",
-  "refresh_attempted_at": "2026-11-10T20:58:43.084152+00:00",
+  "generated_at": "2026-11-10T21:29:34.681509+00:00",
+  "refresh_attempted_at": "2026-11-10T21:29:34.681509+00:00",
   "refresh_status": "success",
   "video_count": 26,
   "optimization_ready": true,
@@ -8,13 +8,13 @@
   "advanced_metrics_videos": 22,
   "reason": "",
   "totals": {
-    "views": 7971,
-    "likes": 71,
+    "views": 8227,
+    "likes": 72,
     "comments": 5
   },
   "averages": {
-    "views": 306.58,
-    "likes": 2.73,
+    "views": 316.42,
+    "likes": 2.77,
     "comments": 0.19,
     "average_view_percentage": 47.45,
     "subscribers_gained": 0.23,
@@ -96,7 +96,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 975,
+      "views": 995,
       "views_after_24h": null,
       "views_after_7d": null,
       "likes": 8,
@@ -106,7 +106,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.2308
+      "engagement_rate": 1.206
     },
     {
       "topic": "The household food-storage habit of wrapping leftovers in aluminum foil a specific way, and its practical roots in kitchen heat reflection rather than magic.",
@@ -154,7 +154,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 684,
+      "views": 700,
       "views_after_24h": null,
       "views_after_7d": null,
       "likes": 13,
@@ -164,7 +164,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 2.0468
+      "engagement_rate": 2.0
     },
     {
       "topic": "The historical and functional reason why golf club handles are wrapped in rubber or leather grips.",
@@ -388,7 +388,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 975,
+      "views": 995,
       "views_after_24h": null,
       "views_after_7d": null,
       "likes": 8,
@@ -398,7 +398,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.2308
+      "engagement_rate": 1.206
     },
     {
       "topic": "The household food-storage habit of wrapping leftovers in aluminum foil a specific way, and its practical roots in kitchen heat reflection rather than magic.",
@@ -446,7 +446,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 684,
+      "views": 700,
       "views_after_24h": null,
       "views_after_7d": null,
       "likes": 13,
@@ -456,7 +456,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 2.0468
+      "engagement_rate": 2.0
     },
     {
       "topic": "The historical and functional reason why golf club handles are wrapped in rubber or leather grips.",
@@ -660,6 +660,35 @@
       "subscribers_gained": 2,
       "subscribers_lost": 0,
       "engagement_rate": 2.6786
+    },
+    {
+      "topic": "The household rule of removing shoes at the front door, rooted in cleanliness, mid-century flooring care, and practical indoor comfort.",
+      "video_id": "YcjJVSIqQ34",
+      "title": "Why We Had to Take Off Our Shoes at the Door",
+      "workflow": "everyday_wisdom",
+      "published_at": "2026-11-10T18:03:32Z",
+      "hook_text": "Whenever I walked into a neighbor's house as a kid, my shoes came off instantly at the front door",
+      "hook_type": "first_person_personal_discovery",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": 109,
+      "planned_duration_seconds": 47.0,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 209,
+      "views_after_24h": null,
+      "views_after_7d": null,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.4785
     },
     {
       "topic": "visiting someone's home: knocking, greeting adults, offering help, saying thank you",
@@ -923,6 +952,35 @@
       "engagement_rate": 5.0
     },
     {
+      "topic": "The family dinner and gathering rule of not interrupting adult conversations, rooted in household listening habits, respect, and learning communication pacing.",
+      "video_id": "Ul6g0VPGgoo",
+      "title": "Why We Had to Wait to Speak When Grown-Ups Were Talking",
+      "workflow": "everyday_wisdom",
+      "published_at": "2026-11-10T20:58:15Z",
+      "hook_text": "Whenever I tried to jump into a grown-up conversation as a kid, my parents gently stopped me with a raised hand",
+      "hook_type": "first_person_personal_discovery",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": 80,
+      "planned_duration_seconds": 47.0,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 19,
+      "views_after_24h": null,
+      "views_after_7d": null,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
       "topic": "The family guest and household custom of clearing your own plate after dinner, rooted in shared hospitality, shared chores, and teaching practical manners.",
       "video_id": "FZhK-6JU-v8",
       "title": "Why We Had to Clear the Dinner Table First",
@@ -981,35 +1039,6 @@
       "engagement_rate": 0.0
     },
     {
-      "topic": "The household rule of removing shoes at the front door, rooted in cleanliness, mid-century flooring care, and practical indoor comfort.",
-      "video_id": "YcjJVSIqQ34",
-      "title": "Why We Had to Take Off Our Shoes at the Door",
-      "workflow": "everyday_wisdom",
-      "published_at": "2026-11-10T18:03:32Z",
-      "hook_text": "Whenever I walked into a neighbor's house as a kid, my shoes came off instantly at the front door",
-      "hook_type": "first_person_personal_discovery",
-      "hook_score": null,
-      "hook_score_components": {},
-      "script_word_count": 109,
-      "planned_duration_seconds": 47.0,
-      "actual_duration_seconds": null,
-      "video_width": null,
-      "video_height": null,
-      "resolution": "",
-      "creative_strategy": "",
-      "views": 8,
-      "views_after_24h": null,
-      "views_after_7d": null,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 0.0
-    },
-    {
       "topic": "The polite US social custom of guests taking home leftover food in plastic containers, and its practical roots in hospitality and household sharing.",
       "video_id": "A-XbQd90es8",
       "title": "Why Hosts Insist You Take Leftovers Home",
@@ -1037,35 +1066,6 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
-    },
-    {
-      "topic": "The family dinner and gathering rule of not interrupting adult conversations, rooted in household listening habits, respect, and learning communication pacing.",
-      "video_id": "Ul6g0VPGgoo",
-      "title": "Why We Had to Wait to Speak When Grown-Ups Were Talking",
-      "workflow": "everyday_wisdom",
-      "published_at": "2026-11-10T20:58:15Z",
-      "hook_text": "Whenever I tried to jump into a grown-up conversation as a kid, my parents gently stopped me with a raised hand",
-      "hook_type": "first_person_personal_discovery",
-      "hook_score": null,
-      "hook_score_components": {},
-      "script_word_count": 80,
-      "planned_duration_seconds": 47.0,
-      "actual_duration_seconds": null,
-      "video_width": null,
-      "video_height": null,
-      "resolution": "",
-      "creative_strategy": "",
-      "views": 0,
-      "views_after_24h": null,
-      "views_after_7d": null,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 0.0
     }
   ],
   "retention_objective": {
@@ -1085,7 +1085,7 @@
         "average_view_percentage": 39.24,
         "average_view_duration": 14.0,
         "views": 968,
-        "age_hours": 273.9,
+        "age_hours": 274.4,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1097,7 +1097,7 @@
         "average_view_percentage": 40.4,
         "average_view_duration": 13.0,
         "views": 112,
-        "age_hours": 556.8,
+        "age_hours": 557.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1109,7 +1109,7 @@
         "average_view_percentage": 43.75,
         "average_view_duration": 15.0,
         "views": 649,
-        "age_hours": 554.6,
+        "age_hours": 555.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1121,7 +1121,7 @@
         "average_view_percentage": 45.11,
         "average_view_duration": 15.0,
         "views": 308,
-        "age_hours": 218.8,
+        "age_hours": 219.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1133,7 +1133,7 @@
         "average_view_percentage": 45.45,
         "average_view_duration": 15.0,
         "views": 153,
-        "age_hours": 339.7,
+        "age_hours": 340.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1145,7 +1145,7 @@
         "average_view_percentage": 47.3,
         "average_view_duration": 17.0,
         "views": 20,
-        "age_hours": 369.1,
+        "age_hours": 369.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1157,7 +1157,7 @@
         "average_view_percentage": 49.67,
         "average_view_duration": 17.0,
         "views": 403,
-        "age_hours": 176.7,
+        "age_hours": 177.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1169,7 +1169,7 @@
         "average_view_percentage": 50.38,
         "average_view_duration": 15.0,
         "views": 1011,
-        "age_hours": 457.5,
+        "age_hours": 458.0,
         "target_met": false,
         "status": "below_target"
       },
@@ -1181,7 +1181,7 @@
         "average_view_percentage": 50.41,
         "average_view_duration": 16.0,
         "views": 88,
-        "age_hours": 435.1,
+        "age_hours": 435.7,
         "target_met": false,
         "status": "below_target"
       },
@@ -1193,7 +1193,7 @@
         "average_view_percentage": 51.09,
         "average_view_duration": 17.0,
         "views": 34,
-        "age_hours": 530.1,
+        "age_hours": 530.6,
         "target_met": false,
         "status": "below_target"
       }
@@ -1207,7 +1207,7 @@
         "average_view_percentage": 136.89,
         "average_view_duration": 53.0,
         "views": 399,
-        "age_hours": 528.2,
+        "age_hours": 528.7,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1219,7 +1219,7 @@
         "average_view_percentage": 108.86,
         "average_view_duration": 40.0,
         "views": 160,
-        "age_hours": 266.7,
+        "age_hours": 267.2,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1231,7 +1231,7 @@
         "average_view_percentage": 70.5,
         "average_view_duration": 24.0,
         "views": 257,
-        "age_hours": 562.5,
+        "age_hours": 563.0,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1243,7 +1243,7 @@
         "average_view_percentage": 70.46,
         "average_view_duration": 23.0,
         "views": 83,
-        "age_hours": 190.9,
+        "age_hours": 191.5,
         "target_met": true,
         "status": "goal_met"
       }

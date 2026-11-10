@@ -3538,5 +3538,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do metal cans dent smoothly",
+    "normalized": "why do metal cans dent smoothly",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794324459,
+    "recorded_at": 1794324459,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

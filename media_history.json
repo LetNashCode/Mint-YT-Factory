@@ -19199,6 +19199,86 @@
       "shot": 2,
       "query": "peanut butter jars proves your",
       "recorded_at": 1793854973
+    },
+    {
+      "asset_key": "pexels:video:3192360",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3192360/3192360-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "frying oils dropping wet piece food",
+      "recorded_at": 1794316285
+    },
+    {
+      "asset_key": "pexels:video:11580342",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/11580342/11580342-hd_720_1280_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "frying oils tiny droplet plunges beneath",
+      "recorded_at": 1794316290
+    },
+    {
+      "asset_key": "pixabay:video:377753",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2026/09/20/377753_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "frying oils close up",
+      "recorded_at": 1794316297
+    },
+    {
+      "asset_key": "pexels:video:8880960",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8880960/8880960-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "frying oils over sixteen hundred times",
+      "recorded_at": 1794316299
+    },
+    {
+      "asset_key": "pexels:video:7878258",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7878258/7878258-hd_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "frying oils turns into gas forms",
+      "recorded_at": 1794316299
+    },
+    {
+      "asset_key": "pexels:video:2922579",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/2922579/2922579-hd_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "frying oils bubbling calm surface slight",
+      "recorded_at": 1794316302
+    },
+    {
+      "asset_key": "pexels:video:10823654",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10823654/10823654-hd_1280_720_24fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "frying oils you hearing tiny underwater",
+      "recorded_at": 1794316303
+    },
+    {
+      "asset_key": "pexels:video:32436641",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/32436641/13834059_1280_720_60fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "frying oils break free",
+      "recorded_at": 1794316308
     }
   ]
 }

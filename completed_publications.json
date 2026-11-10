@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789412538",
-    "video_id": "PSZqFTg7654",
-    "topic": "Why do window panes rattle",
-    "completed_at": 1789414566
-  },
-  {
     "workdir": "output/1789456004",
     "video_id": "n1cShh98mo8",
     "topic": "Why do glasses fog up",
@@ -598,5 +592,11 @@
     "video_id": "amyGgBh-zEk",
     "topic": "Why do peanut butter jars separate",
     "completed_at": 1793856029
+  },
+  {
+    "workdir": "output/1794316006",
+    "video_id": "um2CwF087VA",
+    "topic": "Why do frying oils pop loudly",
+    "completed_at": 1794317358
   }
 ]

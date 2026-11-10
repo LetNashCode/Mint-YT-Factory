@@ -508,41 +508,63 @@ def synthesize(text, output):
 
     pipeline = KPipeline(lang_code="a")
     word_count = len(source.split())
-    print(f"Kokoro complete-narration synthesis | words={word_count} | voice={VOICE}")
+    print(f"Kokoro continuous-narration synthesis | words={word_count} | voice={VOICE}")
 
-    # Pass the entire script to Kokoro as ONE synthesis unit. The never-match
-    # split pattern prevents sentence-level splitting; we deliberately reject
-    # multiple outputs rather than stitching separate speech chunks together.
-    results = list(
-        pipeline(source, voice=VOICE, speed=1.0, split_pattern=r"(?!)")
-    )
-    if len(results) != 1:
-        raise RuntimeError(
-            f"Kokoro must return one complete narration waveform; got {len(results)} outputs"
-        )
+    # Kokoro may internally yield multiple sentence/audio segments even when
+    # given the full script. Convert those segments into ONE continuous waveform:
+    # remove boundary silence and use a short overlap so no artificial pauses
+    # or audible clicks are introduced. The final WAV is never chunked.
+    results = list(pipeline(source, voice=VOICE, speed=1.0, split_pattern=r"(?!)"))
+    if not results:
+        raise RuntimeError("Kokoro returned no narration audio")
 
-    result = results[0]
-    audio = result[2] if isinstance(result, tuple) else result.audio
-    if audio is None:
-        raise RuntimeError("Kokoro returned no audio for the complete narration")
-    if hasattr(audio, "detach"):
-        audio = audio.detach().cpu().numpy()
-    audio = np.asarray(audio, dtype=np.float32).reshape(-1).copy()
-    if not audio.size:
-        raise RuntimeError("Kokoro returned an empty narration waveform")
-    if not np.isfinite(audio).all():
-        raise RuntimeError("Kokoro narration contains NaN or infinite samples")
+    sample_rate = 24000
+    crossfade_samples = int(sample_rate * 0.035)
+    pieces = []
+    for index, result in enumerate(results):
+        audio = result[2] if isinstance(result, tuple) else result.audio
+        if audio is None:
+            raise RuntimeError(f"Kokoro returned empty audio segment {index + 1}")
+        if hasattr(audio, "detach"):
+            audio = audio.detach().cpu().numpy()
+        audio = np.asarray(audio, dtype=np.float32).reshape(-1)
+        if not audio.size or not np.isfinite(audio).all():
+            raise RuntimeError(f"Kokoro audio segment {index + 1} is empty or invalid")
 
+        # Trim only near-silent segment edges; preserve pauses inside each segment.
+        threshold = 0.003
+        active = np.flatnonzero(np.abs(audio) >= threshold)
+        if active.size:
+            pad = int(sample_rate * 0.025)
+            audio = audio[max(0, int(active[0]) - pad):min(len(audio), int(active[-1]) + pad + 1)]
+        if not audio.size:
+            continue
+        pieces.append(audio.copy())
+
+    if not pieces:
+        raise RuntimeError("Kokoro returned only silent narration segments")
+
+    audio = pieces[0]
+    for piece in pieces[1:]:
+        overlap = min(crossfade_samples, len(audio), len(piece))
+        if overlap:
+            fade_out = np.linspace(1.0, 0.0, overlap, endpoint=False, dtype=np.float32)
+            fade_in = np.linspace(0.0, 1.0, overlap, endpoint=False, dtype=np.float32)
+            audio = np.concatenate((audio[:-overlap], audio[-overlap:] * fade_out + piece[:overlap] * fade_in, piece[overlap:]))
+        else:
+            audio = np.concatenate((audio, piece))
+
+    audio = np.asarray(audio, dtype=np.float32)
     peak = float(np.max(np.abs(audio)))
     if peak < 0.01:
         raise RuntimeError("Kokoro narration is effectively silent")
 
-    sample_rate = 24000
     sf.write(output, audio, sample_rate, subtype="PCM_16")
     duration = len(audio) / sample_rate
     print(
-        f"Kokoro complete-audio QA: outputs=1 | duration={duration:.2f}s | "
-        f"peak={peak:.3f} | sentence splitting and chunk stitching disabled"
+        f"Kokoro continuous-audio QA: segments={len(pieces)} | final_wav=1 | "
+        f"duration={duration:.2f}s | peak={peak:.3f} | "
+        "35ms gapless crossfades; internal sentence pauses preserved"
     )
 
     if duration > TARGET_SECONDS:

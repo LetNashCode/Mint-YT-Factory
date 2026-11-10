@@ -456,8 +456,8 @@
       "source_url": "https://archive.org/details/APN_Arlington_s_Next_J.K._Rowling",
       "person": "J.K. Rowling",
       "start": 27.0,
-      "reason": "The video shows local news footage about school children's stories displayed in a cafe in Arlington, completely unrelated to J.K. Rowling. J.K. Rowling is neither visible nor is the footage relevant to her biography.",
-      "reviewed_at": 1791737335.5718768
+      "reason": "The footage features local community members and schoolchildren's stories in Arlington, and does not depict J.K. Rowling. It is an unrelated local news piece.",
+      "reviewed_at": 1794336261.1636965
     },
     "676f0993f2c12d593e57601b": {
       "kind": "segment_rejection",
@@ -465,8 +465,8 @@
       "source_url": "https://archive.org/details/APN_Arlington_s_Next_J.K._Rowling",
       "person": "J.K. Rowling",
       "start": 37.99,
-      "reason": "The video shows children in a library and school setting as part of a local news report on student authors, with no footage of J.K. Rowling. It lacks any historical or biographical connection to the subject.",
-      "reviewed_at": 1791737342.120628
+      "reason": "The footage shows unrelated children in a local library or school setting displaying stories, which has no connection to J.K. Rowling.",
+      "reviewed_at": 1794336280.049637
     },
     "6d921a7bfe7596151ea2a5b4": {
       "kind": "segment_rejection",
@@ -510,8 +510,8 @@
       "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
       "person": "J.K. Rowling",
       "start": 5.0,
-      "reason": "The footage shows generic Pride parade scenes and does not feature J.K. Rowling or any specific historical event related to her, making it unusable as biographical illustration.",
-      "reviewed_at": 1791737380.9065936
+      "reason": "The footage shows generic Pride parade scenes and text from a news segment about Pride Month and J.K. Rowling, but J.K. Rowling herself is not visible in any of the sampled frames and the footage lacks a concrete or direct historical connection to her biography.",
+      "reviewed_at": 1794336316.1487448
     },
     "7540627ef601a3b93923fbcf": {
       "kind": "segment_rejection",
@@ -519,8 +519,8 @@
       "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
       "person": "J.K. Rowling",
       "start": 16.83,
-      "reason": "The footage shows generic Pride Month imagery and title cards with no connection to J.K. Rowling aside from the source title, making it unusable as biographical illustration.",
-      "reviewed_at": 1791737386.097038
+      "reason": "The footage shows generic Pride flags and title cards from a news segment about Pride Month and J.K. Rowling, but J.K. Rowling is not visible anywhere in the sampled frames, and the context lacks a specific concrete connection to her biography beyond generic news B-roll.",
+      "reviewed_at": 1794336329.7644048
     },
     "b084188507ee88ef59a42281": {
       "kind": "segment_rejection",
@@ -528,8 +528,8 @@
       "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
       "person": "J.K. Rowling",
       "start": 20.59,
-      "reason": "The sampled frames depict an audience and a book signing event, but J.K. Rowling is not clearly visible in any of the frames (she is obscured or absent, while prankster Nimrod Kamer and attendees are shown). Therefore, the footage cannot be used as identity footage for J.K. Rowling.",
-      "reviewed_at": 1791737396.8299332
+      "reason": "The video shows a prankster at an event, but J.K. Rowling is not clearly visible in any of the frames, making it unsuitable for a biographical short.",
+      "reviewed_at": 1794336351.2029252
     },
     "703a65b33e2e8153f00d3c43": {
       "kind": "segment_rejection",
@@ -537,8 +537,8 @@
       "source_url": "https://archive.org/details/jk-rowling-contrapoints",
       "person": "J.K. Rowling",
       "start": 2896.99,
-      "reason": "The footage shows ContraPoints (Natalie Wynn) in a staged comedic/theatrical skit, not J.K. Rowling. While the video essay is about J.K. Rowling, the person depicted is not J.K. Rowling, making it unsuitable as identity footage or direct event footage for J.K. Rowling's biography.",
-      "reviewed_at": 1791737434.482635
+      "reason": "The footage features ContraPoints (Natalie Wynn) in a comedic/theatrical YouTube video essay, not J.K. Rowling. Therefore, it is unusable for a biography about J.K. Rowling.",
+      "reviewed_at": 1794336384.053258
     },
     "a9d9c56b7b82a8e88aab1a1c": {
       "kind": "segment_rejection",
@@ -546,8 +546,8 @@
       "source_url": "https://archive.org/details/jk-rowling-contrapoints",
       "person": "J.K. Rowling",
       "start": 4136.41,
-      "reason": "The footage features the YouTube creator ContraPoints (Natalie Wynn) dressed in a witch costume commenting on J.K. Rowling, not J.K. Rowling herself. Therefore, it does not contain the named subject.",
-      "reviewed_at": 1791737451.279493
+      "reason": "The video features Natalie Wynn (ContraPoints) in costume discussing J.K. Rowling, not J.K. Rowling herself. Therefore, the footage does not depict the named subject.",
+      "reviewed_at": 1794336397.6738207
     },
     "786f0c3e11f98fb7c06c2c61": {
       "kind": "segment_rejection",
@@ -573,8 +573,8 @@
       "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
       "person": "J.K. Rowling",
       "start": 51.76,
-      "reason": "The video shows prankster Nimrod Kamer interacting with attendees at a book signing, but J.K. Rowling herself is not visible in any of the sampled frames.",
-      "reviewed_at": 1791737510.0619812
+      "reason": "The sampled frames from the VICE video do not clearly show J.K. Rowling herself; they show a prankster (Nimrod Kamer) and fans at a book event, making the footage unusable for direct identity or event depiction of the subject.",
+      "reviewed_at": 1794336360.0105145
     },
     "c6f669ddb36c5cec44a36fab": {
       "kind": "segment_rejection",
@@ -12670,6 +12670,231 @@
       "start": 2342.14,
       "reason": "The footage shows Marlon Brando and Sophia Loren from Charlie Chaplin's film A Countess from Hong Kong. While Charlie Chaplin is not visible in the clip, it provides genuine historical context and film footage related to his career as a director.",
       "reviewed_at": 1794324831.7344348
+    },
+    "1003247ff99218e3e6be4554": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "person": "Tenzing Norgay",
+      "start": 1062.14,
+      "reason": "The footage shows Brian Blessed in a 1991 documentary about recreating George Mallory's climb, not Tenzing Norgay.",
+      "reviewed_at": 1794335584.788117
+    },
+    "323f460ecb20714794810c4c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "person": "Tenzing Norgay",
+      "start": 1150.24,
+      "reason": "The footage is from a 1991 documentary about recreating George Mallory's 1924 Everest climb, featuring modern mountaineers rather than historical footage of Tenzing Norgay himself. However, it provides genuine historical context and visual illustration of mountaineering on Everest, making it usable as biographical illustration.",
+      "reviewed_at": 1794335591.5853078
+    },
+    "02579155a5e7e5c0274f82ae": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ccxnewsmn-CCX_News_Reporter_Honored_with_Wilma_Rudolph_Courage_Award",
+      "source_url": "https://archive.org/details/ccxnewsmn-CCX_News_Reporter_Honored_with_Wilma_Rudolph_Courage_Award",
+      "person": "Wilma Rudolph",
+      "start": 33.92,
+      "reason": "The footage shows Sonya Goins receiving an award named after Wilma Rudolph, but Wilma Rudolph herself is not depicted in any of the sampled frames.",
+      "reviewed_at": 1794335686.1329632
+    },
+    "3f5b6c4902a6f85d509ddf3e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ccxnewsmn-CCX_News_Reporter_Honored_with_Wilma_Rudolph_Courage_Award",
+      "source_url": "https://archive.org/details/ccxnewsmn-CCX_News_Reporter_Honored_with_Wilma_Rudolph_Courage_Award",
+      "person": "Wilma Rudolph",
+      "start": 53.2,
+      "reason": "The footage shows Sonya Goins receiving an award named after Wilma Rudolph, but Wilma Rudolph herself is not depicted in the video.",
+      "reviewed_at": 1794335694.597483
+    },
+    "650c25ec45f18dff0fd621c8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ccpamd-Chautauquan_Wilma_Rudolph",
+      "source_url": "https://archive.org/details/ccpamd-Chautauquan_Wilma_Rudolph",
+      "person": "Wilma Rudolph",
+      "start": 41.48,
+      "reason": "The video features a modern dramatization/chautauqua performance portraying Wilma Rudolph by an actress, not actual archival footage of Wilma Rudolph herself.",
+      "reviewed_at": 1794335711.501364
+    },
+    "b35c3161cca40c45447d6d49": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ccpamd-Chautauquan_Wilma_Rudolph",
+      "source_url": "https://archive.org/details/ccpamd-Chautauquan_Wilma_Rudolph",
+      "person": "Wilma Rudolph",
+      "start": 59.71,
+      "reason": "The footage features an actress portraying Wilma Rudolph in a 2015 Chautauqua performance, not the actual historical figure Wilma Rudolph. Therefore, it is rejected as lookalike/reenactment content.",
+      "reviewed_at": 1794335724.1798863
+    },
+    "e52af684169480d86c48ae57": {
+      "kind": "segment_rejection",
+      "source_id": "archive:wktvmi-Krashawn_Martin_reads_Wilma_Unlimited_-_How_Wilma_Rudolph_Became_the_World_s_Fastest_Woman",
+      "source_url": "https://archive.org/details/wktvmi-Krashawn_Martin_reads_Wilma_Unlimited_-_How_Wilma_Rudolph_Became_the_World_s_Fastest_Woman",
+      "person": "Wilma Rudolph",
+      "start": 395.64,
+      "reason": "The footage shows a modern reader reading a children's book about Wilma Rudolph, not actual historical footage or a depiction of Wilma Rudolph herself.",
+      "reviewed_at": 1794335733.8278246
+    },
+    "0b92e107c8e79ef3cf1d0c75": {
+      "kind": "segment_rejection",
+      "source_id": "archive:wktvmi-Krashawn_Martin_reads_Wilma_Unlimited_-_How_Wilma_Rudolph_Became_the_World_s_Fastest_Woman",
+      "source_url": "https://archive.org/details/wktvmi-Krashawn_Martin_reads_Wilma_Unlimited_-_How_Wilma_Rudolph_Became_the_World_s_Fastest_Woman",
+      "person": "Wilma Rudolph",
+      "start": 563.06,
+      "reason": "The footage shows someone reading a children's picture book about Wilma Rudolph rather than actual historical or archival footage of the subject herself.",
+      "reviewed_at": 1794335739.9051466
+    },
+    "82138bd9655bffb912538ebc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "source_url": "https://archive.org/details/hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "person": "Wilma Rudolph",
+      "start": 308.52,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1794335744.088166
+    },
+    "483426fa85a1034ddfec8ea2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "source_url": "https://archive.org/details/hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "person": "Wilma Rudolph",
+      "start": 438.6,
+      "reason": "The video segment consists of animated children's book illustrations rather than actual filmed footage or genuine historical context. Therefore, it is not usable for a biography short.",
+      "reviewed_at": 1794335756.5397754
+    },
+    "8d82483bc8acdac9d5f88f45": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "source_url": "https://archive.org/details/hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "person": "Wilma Rudolph",
+      "start": 5.0,
+      "reason": "The video shows stock footage of children in a modern classroom setting and a reading of a children's book about Wilma Rudolph, but it does not feature any actual archival footage or historical representation of Wilma Rudolph herself.",
+      "reviewed_at": 1794335766.5094888
+    },
+    "92717da3d8932223c7f4c78e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mctvafmd-Sporting_Lives_-_Wilma_Rudolph_-_A_Chautauqua_Performance",
+      "source_url": "https://archive.org/details/mctvafmd-Sporting_Lives_-_Wilma_Rudolph_-_A_Chautauqua_Performance",
+      "person": "Wilma Rudolph",
+      "start": 1241.3,
+      "reason": "The video shows a modern Chautauqua performance/impersonation (Gwendolyn Briley-Strand portraying Wilma Rudolph in 2015), not historical archival footage of Wilma Rudolph herself.",
+      "reviewed_at": 1794335778.7408051
+    },
+    "8855b5cb8ef58fb9fdf49497": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mctvafmd-Sporting_Lives_-_Wilma_Rudolph_-_A_Chautauqua_Performance",
+      "source_url": "https://archive.org/details/mctvafmd-Sporting_Lives_-_Wilma_Rudolph_-_A_Chautauqua_Performance",
+      "person": "Wilma Rudolph",
+      "start": 1771.14,
+      "reason": "The video shows a modern Chautauqua performance or interview from 2015 with a performer portraying Wilma Rudolph and a host, rather than archival footage of the actual historical subject Wilma Rudolph.",
+      "reviewed_at": 1794335798.2350311
+    },
+    "12c9bcdcab01e22ea3435e6f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:is-harry-potter-anti-semitic-the-j.-k.-rowling-accusations",
+      "source_url": "https://archive.org/details/is-harry-potter-anti-semitic-the-j.-k.-rowling-accusations",
+      "person": "J.K. Rowling",
+      "start": 222.05,
+      "reason": "The sampled frames show Jon Stewart and other podcasters/streamers discussing topics related to Harry Potter, but J.K. Rowling is not visible in any of the frames, making the segment unusable for identity footage of the subject.",
+      "reviewed_at": 1794336418.3405046
+    },
+    "8e6c45f985b6a86ed36a54e2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:is-harry-potter-anti-semitic-the-j.-k.-rowling-accusations",
+      "source_url": "https://archive.org/details/is-harry-potter-anti-semitic-the-j.-k.-rowling-accusations",
+      "person": "J.K. Rowling",
+      "start": 294.4,
+      "reason": "The segment shows a Vtuber's livestream with a browser window displaying various images and search results, rather than genuine filmed archival footage or a direct biographical representation of J.K. Rowling.",
+      "reviewed_at": 1794336445.9794974
+    },
+    "7388cc6b1596a2f54762e71c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-984408293518008321",
+      "source_url": "https://archive.org/details/twitter-984408293518008321",
+      "person": "Yuri Gagarin",
+      "start": 5.0,
+      "reason": "The sampled frames feature Air Commodore Stewart being interviewed about Yuri Gagarin, but Yuri Gagarin himself is not visible in the footage.",
+      "reviewed_at": 1794336787.8221326
+    },
+    "1a29cba2d71bd08c4aaecd4e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-984408293518008321",
+      "source_url": "https://archive.org/details/twitter-984408293518008321",
+      "person": "Yuri Gagarin",
+      "start": 14.22,
+      "reason": "The video features an interview with Air Commodore Stewart discussing Yuri Gagarin, but Yuri Gagarin himself is not visible in the footage.",
+      "reviewed_at": 1794336802.9393017
+    },
+    "901bd3ac9b1be32f7a955953": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-1116744033815154689",
+      "source_url": "https://archive.org/details/twitter-1116744033815154689",
+      "person": "Yuri Gagarin",
+      "start": 88.01,
+      "reason": "The footage shows BBC News interviewing Air Commodore Stewart about Yuri Gagarin, but Yuri Gagarin himself is not visible in any of the frames.",
+      "reviewed_at": 1794336818.3072267
+    },
+    "21dd15ba0548c26347363fa7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-1116744033815154689",
+      "source_url": "https://archive.org/details/twitter-1116744033815154689",
+      "person": "Yuri Gagarin",
+      "start": 14.22,
+      "reason": "The footage shows Air Commodore Stewart being interviewed about Yuri Gagarin, but Yuri Gagarin himself is not visible in any of the sampled frames.",
+      "reviewed_at": 1794336826.5603552
+    },
+    "ceb5e266d64da122a933329f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jonas-edward-salk",
+      "source_url": "https://archive.org/details/jonas-edward-salk",
+      "person": "Jonas Salk",
+      "start": 60.85,
+      "reason": "The video segment consists of dramatized fictional footage/reenactment with actors portraying Jonas Salk rather than actual historical or archival footage of the real Jonas Salk.",
+      "reviewed_at": 1794337080.6143854
+    },
+    "f6d79c3b61bb46f5c9d7c82a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "person": "Kalpana Chawla",
+      "start": 36.51,
+      "reason": "The video features an interview with Dr. Don Wilson discussing Kalpana Chawla, with a photograph of Chawla visible in the background. While Chawla herself is not visibly present as a living subject in the footage, the interview provides biographical context and illustration related to her legacy.",
+      "reviewed_at": 1794337132.0505474
+    },
+    "259b94a846a31aec7be2284a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "person": "Kalpana Chawla",
+      "start": 5.0,
+      "reason": "The footage features a US Senator speaking at a podium and displaying a poster/photograph of the Space Shuttle Columbia crew, which includes Kalpana Chawla in still images rather than archival footage of Chawla herself engaged in biographical events.",
+      "reviewed_at": 1794337156.4349704
+    },
+    "e6d1fe7fd31ebdc96deb0db2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "person": "Kalpana Chawla",
+      "start": 35.87,
+      "reason": "The video shows a U.S. Senator speaking at a podium with a photograph of the Space Shuttle Columbia crew displayed in the background. Kalpana Chawla is not visibly present in the footage as a live participant; the only representation is a static photograph on a poster, which does not qualify as identity footage or usable direct/contextual moving footage of the subject.",
+      "reviewed_at": 1794337166.1667147
+    },
+    "f76bff81a3442aff83a3046f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "person": "Madam C.J. Walker",
+      "start": 154.52,
+      "reason": "The segment features archival images of historical documents and the Walker Building associated with Madam C.J. Walker, accompanied by commentary from her great-great-granddaughter, providing useful historical context and biographical illustration.",
+      "reviewed_at": 1794337237.2627552
+    },
+    "81414bcfdbc19ebf915c9cf7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "person": "Madam C.J. Walker",
+      "start": 115.4,
+      "reason": "Madam C.J. Walker died in 1919, so she cannot be present in this 2017 university event footage. The video features her descendant A'Lelia Bundles and other award recipients, not Madam C.J. Walker herself.",
+      "reviewed_at": 1794337250.9195666
     }
   }
 }

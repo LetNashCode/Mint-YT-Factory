@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-10T15:46:23.907783+00:00",
-  "refresh_attempted_at": "2026-11-10T15:46:23.907783+00:00",
+  "generated_at": "2026-11-10T19:00:53.988327+00:00",
+  "refresh_attempted_at": "2026-11-10T19:00:53.988327+00:00",
   "refresh_status": "success",
   "video_count": 39,
   "optimization_ready": true,
@@ -8,13 +8,13 @@
   "advanced_metrics_videos": 38,
   "reason": "",
   "totals": {
-    "views": 11873,
-    "likes": 219,
+    "views": 11930,
+    "likes": 222,
     "comments": 6
   },
   "averages": {
-    "views": 304.44,
-    "likes": 5.62,
+    "views": 305.9,
+    "likes": 5.69,
     "comments": 0.15,
     "average_view_percentage": 64.54,
     "subscribers_gained": 0.36,
@@ -271,7 +271,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 434,
-      "views_after_24h": 415,
+      "views_after_24h": 428,
       "views_after_7d": 432,
       "likes": 2,
       "comments": 0,
@@ -563,7 +563,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 434,
-      "views_after_24h": 415,
+      "views_after_24h": 428,
       "views_after_7d": 432,
       "likes": 2,
       "comments": 0,
@@ -737,7 +737,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 187,
-      "views_after_24h": 148,
+      "views_after_24h": 182,
       "views_after_7d": 187,
       "likes": 4,
       "comments": 0,
@@ -1066,6 +1066,35 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 3.4483
+    },
+    {
+      "topic": "Charlie Chaplin: Surviving extreme Victorian London poverty in workhouses to become cinema's first global icon.",
+      "video_id": "WaOWm8Lo7_I",
+      "title": "Before the Fame: Charlie Chaplin's Untold Struggle",
+      "workflow": "story",
+      "published_at": "2026-11-10T15:45:19Z",
+      "hook_text": "",
+      "hook_type": "",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": null,
+      "planned_duration_seconds": null,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 57,
+      "views_after_24h": null,
+      "views_after_7d": null,
+      "likes": 3,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 5.2632
     },
     {
       "topic": "James Cameron: Conceiving the terrifying cyborg antagonist of 'The Terminator' after experiencing a high fever and delirium while sick in Rome.",
@@ -1414,35 +1443,6 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
-    },
-    {
-      "topic": "Charlie Chaplin: Surviving extreme Victorian London poverty in workhouses to become cinema's first global icon.",
-      "video_id": "WaOWm8Lo7_I",
-      "title": "Before the Fame: Charlie Chaplin's Untold Struggle",
-      "workflow": "story",
-      "published_at": "2026-11-10T15:45:19Z",
-      "hook_text": "",
-      "hook_type": "",
-      "hook_score": null,
-      "hook_score_components": {},
-      "script_word_count": null,
-      "planned_duration_seconds": null,
-      "actual_duration_seconds": null,
-      "video_width": null,
-      "video_height": null,
-      "resolution": "",
-      "creative_strategy": "",
-      "views": 0,
-      "views_after_24h": null,
-      "views_after_7d": null,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 0.0
     }
   ],
   "retention_objective": {
@@ -1462,7 +1462,7 @@
         "average_view_percentage": 24.88,
         "average_view_duration": 11.0,
         "views": 23,
-        "age_hours": 236.5,
+        "age_hours": 239.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1474,7 +1474,7 @@
         "average_view_percentage": 26.56,
         "average_view_duration": 10.0,
         "views": 16,
-        "age_hours": 331.9,
+        "age_hours": 335.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1486,7 +1486,7 @@
         "average_view_percentage": 28.47,
         "average_view_duration": 12.0,
         "views": 193,
-        "age_hours": 664.6,
+        "age_hours": 667.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1498,7 +1498,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 354.3,
+        "age_hours": 357.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1510,7 +1510,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 107,
-        "age_hours": 452.6,
+        "age_hours": 455.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1522,7 +1522,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1408.2,
+        "age_hours": 1411.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1534,7 +1534,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1433.3,
+        "age_hours": 1436.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1546,7 +1546,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 550.2,
+        "age_hours": 553.4,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1558,7 +1558,7 @@
         "average_view_percentage": 40.42,
         "average_view_duration": 13.0,
         "views": 296,
-        "age_hours": 523.7,
+        "age_hours": 527.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1570,7 +1570,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1435.8,
+        "age_hours": 1439.0,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1584,7 +1584,7 @@
         "average_view_percentage": 597.81,
         "average_view_duration": 221.0,
         "views": 109,
-        "age_hours": 261.3,
+        "age_hours": 264.5,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1596,7 +1596,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 647.3,
+        "age_hours": 650.6,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1608,7 +1608,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 718.5,
+        "age_hours": 721.7,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1620,7 +1620,7 @@
         "average_view_percentage": 81.18,
         "average_view_duration": 30.0,
         "views": 11,
-        "age_hours": 334.6,
+        "age_hours": 337.9,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1632,7 +1632,7 @@
         "average_view_percentage": 78.09,
         "average_view_duration": 29.0,
         "views": 65,
-        "age_hours": 557.2,
+        "age_hours": 560.5,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1644,7 +1644,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 749.2,
+        "age_hours": 752.4,
         "target_met": true,
         "status": "goal_met"
       }

@@ -396,6 +396,7 @@ person, or setting relevant to that spoken beat. No generic filler such as
     max_attempts = 12
     retry_feedback = ""
     rejected_topics = []
+    phoneme_pipeline = None
     topic_lanes = [
         "family table rules: waiting until everyone is served, elbows, asking to be excused",
         "visiting someone's home: knocking, greeting adults, offering help, saying thank you",
@@ -453,8 +454,9 @@ person, or setting relevant to that spoken beat. No generic filler such as
                 raise RuntimeError(f"Narration word count {len(words)} outside {MIN_NARRATION_WORDS}-{MAX_NARRATION_WORDS}")
             # Validate the actual Kokoro phoneme budget before accepting the topic
             # or retiring it in history. This prevents a post-generation TTS failure.
-            from kokoro import KPipeline
-            phoneme_pipeline = KPipeline(lang_code="a")
+            if phoneme_pipeline is None:
+                from kokoro import KPipeline
+                phoneme_pipeline = KPipeline(lang_code="a")
             _, phoneme_tokens = phoneme_pipeline.g2p(story["narration"])
             phoneme_text = phoneme_pipeline.tokens_to_ps(phoneme_tokens)
             phoneme_count = len(phoneme_text)

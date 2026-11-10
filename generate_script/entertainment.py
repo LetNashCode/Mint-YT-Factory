@@ -10,7 +10,8 @@ import uuid
 from google import genai
 from google.genai import types
 
-MODEL_NAME = "gemini-flash-lite-latest"
+MODEL_NAME = os.getenv("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
+SECONDARY_MODEL_NAME = os.getenv("MINT_GEMINI_FALLBACK_MODEL", "gemini-3.8-flash")
 FALLBACK_MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 SCENE_COUNT = 6
 VISUALS_PER_SCENE = 2
@@ -304,6 +305,11 @@ VISUALS: every one of the 12 shots must represent a specific spoken beat. Return
             if not _is_quota_error(last_error) and "503" not in last_error and "unavailable" not in last_error.lower() and "high demand" not in last_error.lower():
                 print(f"⚠️ Script validation/generation retry {validation_attempts + 1}/{MAX_ATTEMPTS}: {last_error}", flush=True)
             quota_error=_is_quota_error(last_error)
+            model_unavailable = any(token in last_error.lower() for token in ("404", "not_found", "model is not found", "not supported for generatecontent", "is not found for api version"))
+            if model_unavailable and MODEL_NAME != SECONDARY_MODEL_NAME:
+                MODEL_NAME = SECONDARY_MODEL_NAME
+                print(f"🔁 Gemini model unavailable; switching to supported fallback: {MODEL_NAME}", flush=True)
+                continue
             transient=(quota_error or "503" in last_error or "unavailable" in last_error.lower() or "high demand" in last_error.lower())
             if quota_error and ENABLE_CPU_QWEN_FALLBACK:
                 print(f"🛟 Gemini quota exhausted; switching immediately to local Qwen: {FALLBACK_MODEL_NAME}", flush=True)

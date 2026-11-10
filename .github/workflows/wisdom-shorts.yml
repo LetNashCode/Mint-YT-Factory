@@ -10,6 +10,8 @@ permissions:
 
 env:
   MINT_WORKFLOW_PROFILE: wisdom
+  MINT_GEMINI_MODEL: gemini-3.5-flash-lite
+  MINT_GEMINI_FALLBACK_MODEL: gemini-3.8-flash
 
 concurrency:
   group: wisdom-shorts

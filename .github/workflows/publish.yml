@@ -17,6 +17,8 @@ concurrency:
 
 env:
   MINT_WORKFLOW_PROFILE: publish
+  MINT_GEMINI_MODEL: gemini-3.5-flash-lite
+  MINT_GEMINI_FALLBACK_MODEL: gemini-3.8-flash
   MINT_COMPETITOR_RESEARCH: "true"
   IMAGEMAGICK_BINARY: /usr/bin/convert
 

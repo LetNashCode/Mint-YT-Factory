@@ -509,7 +509,7 @@ def _patch_script_model_resilience(main):
     if getattr(original, "_mint_model_resilient", False):
         return
     globals_dict = getattr(original, "__globals__", {})
-    primary = "gemini-flash-lite-latest"
+    primary = os.getenv("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
     globals_dict["MODEL_NAME"] = primary
 
     def resilient(topic, config, research=None, extra_feedback=""):

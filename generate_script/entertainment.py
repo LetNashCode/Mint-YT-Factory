@@ -269,6 +269,7 @@ def _generate_with_qwen(prompt,topic,last_error=None):
             failures.append(f"{type(exc).__name__}: {exc}")
     raise RuntimeError("Qwen fallback failed: "+" | ".join(failures[-2:]))
 def generate_script(topic,config,research=None,extra_feedback=""):
+    global MODEL_NAME
     topic=_clean(topic)
     if not topic: raise RuntimeError("Topic is empty.")
     client=genai.Client(api_key=_api_key()); feedback="\n\nPRIOR FEEDBACK:\n"+_clean(extra_feedback) if extra_feedback else ""

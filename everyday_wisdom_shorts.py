@@ -508,63 +508,56 @@ def synthesize(text, output):
 
     pipeline = KPipeline(lang_code="a")
     word_count = len(source.split())
-    print(f"Kokoro continuous-narration synthesis | words={word_count} | voice={VOICE}")
+    print(f"Kokoro single-inference narration | words={word_count} | voice={VOICE}")
 
-    # Kokoro may internally yield multiple sentence/audio segments even when
-    # given the full script. Convert those segments into ONE continuous waveform:
-    # remove boundary silence and use a short overlap so no artificial pauses
-    # or audible clicks are introduced. The final WAV is never chunked.
-    results = list(pipeline(source, voice=VOICE, speed=1.0, split_pattern=r"(?!)"))
-    if not results:
-        raise RuntimeError("Kokoro returned no narration audio")
+    # IMPORTANT: Do not call KPipeline.__call__ here. Its English tokenizer
+    # automatically divides phonemes into <=510-character model windows.
+    # Phonemize the complete script, then invoke the model's token-level API
+    # exactly once. If the whole script exceeds Kokoro's hard context limit,
+    # fail and request a shorter script; never split, stitch, or crossfade.
+    _, tokens = pipeline.g2p(source)
+    phonemes = pipeline.tokens_to_ps(tokens)
+    if not phonemes:
+        raise RuntimeError("Kokoro produced no phonemes for the complete narration")
 
-    sample_rate = 24000
-    crossfade_samples = int(sample_rate * 0.035)
-    pieces = []
-    for index, result in enumerate(results):
-        audio = result[2] if isinstance(result, tuple) else result.audio
-        if audio is None:
-            raise RuntimeError(f"Kokoro returned empty audio segment {index + 1}")
-        if hasattr(audio, "detach"):
-            audio = audio.detach().cpu().numpy()
-        audio = np.asarray(audio, dtype=np.float32).reshape(-1)
-        if not audio.size or not np.isfinite(audio).all():
-            raise RuntimeError(f"Kokoro audio segment {index + 1} is empty or invalid")
+    max_phonemes = 510
+    if len(phonemes) > max_phonemes:
+        raise RuntimeError(
+            "Complete Wisdom narration exceeds Kokoro's single-inference limit: "
+            f"{len(phonemes)} phoneme characters (maximum {max_phonemes}). "
+            "Regenerate a shorter script; chunking is disabled."
+        )
 
-        # Trim only near-silent segment edges; preserve pauses inside each segment.
-        threshold = 0.003
-        active = np.flatnonzero(np.abs(audio) >= threshold)
-        if active.size:
-            pad = int(sample_rate * 0.025)
-            audio = audio[max(0, int(active[0]) - pad):min(len(audio), int(active[-1]) + pad + 1)]
-        if not audio.size:
-            continue
-        pieces.append(audio.copy())
+    results = list(
+        pipeline.generate_from_tokens(
+            phonemes, voice=VOICE, speed=1.0
+        )
+    )
+    if len(results) != 1:
+        raise RuntimeError(
+            f"Kokoro single-inference contract violated: expected 1 result, got {len(results)}"
+        )
 
-    if not pieces:
-        raise RuntimeError("Kokoro returned only silent narration segments")
+    audio = results[0].audio
+    if audio is None:
+        raise RuntimeError("Kokoro returned no audio for the complete narration")
+    if hasattr(audio, "detach"):
+        audio = audio.detach().cpu().numpy()
+    audio = np.asarray(audio, dtype=np.float32).reshape(-1).copy()
+    if not audio.size or not np.isfinite(audio).all():
+        raise RuntimeError("Kokoro returned an empty or invalid complete waveform")
 
-    audio = pieces[0]
-    for piece in pieces[1:]:
-        overlap = min(crossfade_samples, len(audio), len(piece))
-        if overlap:
-            fade_out = np.linspace(1.0, 0.0, overlap, endpoint=False, dtype=np.float32)
-            fade_in = np.linspace(0.0, 1.0, overlap, endpoint=False, dtype=np.float32)
-            audio = np.concatenate((audio[:-overlap], audio[-overlap:] * fade_out + piece[:overlap] * fade_in, piece[overlap:]))
-        else:
-            audio = np.concatenate((audio, piece))
-
-    audio = np.asarray(audio, dtype=np.float32)
     peak = float(np.max(np.abs(audio)))
     if peak < 0.01:
         raise RuntimeError("Kokoro narration is effectively silent")
 
+    sample_rate = 24000
     sf.write(output, audio, sample_rate, subtype="PCM_16")
     duration = len(audio) / sample_rate
     print(
-        f"Kokoro continuous-audio QA: segments={len(pieces)} | final_wav=1 | "
-        f"duration={duration:.2f}s | peak={peak:.3f} | "
-        "35ms gapless crossfades; internal sentence pauses preserved"
+        f"Kokoro single-inference QA: model_calls=1 | outputs=1 | "
+        f"phonemes={len(phonemes)}/{max_phonemes} | duration={duration:.2f}s | "
+        f"peak={peak:.3f} | chunking/stitching/crossfades=disabled"
     )
 
     if duration > TARGET_SECONDS:

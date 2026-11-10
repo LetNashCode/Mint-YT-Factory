@@ -508,66 +508,43 @@ def synthesize(text, output):
 
     pipeline = KPipeline(lang_code="a")
     word_count = len(source.split())
-    print(f"Kokoro single-pass narration | words={word_count} | voice={VOICE}")
+    print(f"Kokoro complete-narration synthesis | words={word_count} | voice={VOICE}")
 
-    # Submit the complete narration once; do not split into word-count chunks
-    # or insert artificial pauses between separately synthesized sections.
-    sample_rate = 24000
-    audio_parts = []
-    chunk_count = 0
-    for result in pipeline(source, voice=VOICE, speed=1.0, split_pattern=r"\n+"):
-        chunk = result[2] if isinstance(result, tuple) else result.audio
-        if chunk is None:
-            continue
-        if hasattr(chunk, "detach"):
-            chunk = chunk.detach().cpu().numpy()
-        chunk = np.asarray(chunk, dtype=np.float32).reshape(-1).copy()
-        if not chunk.size:
-            continue
+    # Pass the entire script to Kokoro as ONE synthesis unit. The never-match
+    # split pattern prevents sentence-level splitting; we deliberately reject
+    # multiple outputs rather than stitching separate speech chunks together.
+    results = list(
+        pipeline(source, voice=VOICE, speed=1.0, split_pattern=r"(?!)")
+    )
+    if len(results) != 1:
+        raise RuntimeError(
+            f"Kokoro must return one complete narration waveform; got {len(results)} outputs"
+        )
 
-        # Kokoro yields sentence-sized chunks. Keep the natural punctuation
-        # pause, but remove excessive generated edge silence that sounds like
-        # the narration has stopped mid-video.
-        peak_floor = 10 ** (-48.0 / 20.0)
-        active = np.flatnonzero(np.abs(chunk) >= peak_floor)
-        if active.size:
-            pad = int(0.08 * sample_rate)
-            start = max(0, int(active[0]) - pad)
-            end = min(len(chunk), int(active[-1]) + pad + 1)
-            chunk = chunk[start:end]
-        if not chunk.size:
-            continue
-
-        # Short fades prevent clicks at chunk boundaries; a controlled 120ms
-        # sentence gap preserves speech rhythm without long silent breaks.
-        fade = min(int(0.01 * sample_rate), len(chunk) // 2)
-        if fade:
-            chunk[:fade] *= np.linspace(0.0, 1.0, fade, dtype=np.float32)
-            chunk[-fade:] *= np.linspace(1.0, 0.0, fade, dtype=np.float32)
-        if audio_parts:
-            audio_parts.append(np.zeros(int(0.12 * sample_rate), dtype=np.float32))
-        audio_parts.append(chunk)
-        chunk_count += 1
-
-    if not audio_parts or chunk_count == 0:
+    result = results[0]
+    audio = result[2] if isinstance(result, tuple) else result.audio
+    if audio is None:
         raise RuntimeError("Kokoro returned no audio for the complete narration")
-
-    audio = np.concatenate(audio_parts)
+    if hasattr(audio, "detach"):
+        audio = audio.detach().cpu().numpy()
+    audio = np.asarray(audio, dtype=np.float32).reshape(-1).copy()
+    if not audio.size:
+        raise RuntimeError("Kokoro returned an empty narration waveform")
     if not np.isfinite(audio).all():
         raise RuntimeError("Kokoro narration contains NaN or infinite samples")
-    peak = float(np.max(np.abs(audio))) if audio.size else 0.0
+
+    peak = float(np.max(np.abs(audio)))
     if peak < 0.01:
         raise RuntimeError("Kokoro narration is effectively silent")
+
+    sample_rate = 24000
     sf.write(output, audio, sample_rate, subtype="PCM_16")
     duration = len(audio) / sample_rate
     print(
-        f"Kokoro audio stitch QA: chunks={chunk_count} | "
-        f"duration={duration:.2f}s | peak={peak:.3f} | "
-        "edge silence trimmed + 120ms sentence gaps"
+        f"Kokoro complete-audio QA: outputs=1 | duration={duration:.2f}s | "
+        f"peak={peak:.3f} | sentence splitting and chunk stitching disabled"
     )
-    # Narration is intentionally generated short enough to fit naturally.
-    # Do not time-compress speech: caption timestamps must reflect natural
-    # Kokoro delivery speed. The 47s ceiling gives the 45s target a small buffer.
+
     if duration > TARGET_SECONDS:
         raise RuntimeError(
             f"Narration synthesis exceeded 47s: {duration:.2f}s. "

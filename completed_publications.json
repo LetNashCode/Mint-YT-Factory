@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789456004",
-    "video_id": "n1cShh98mo8",
-    "topic": "Why do glasses fog up",
-    "completed_at": 1789458307
-  },
-  {
     "workdir": "output/1789486480",
     "video_id": "jsu8Xo7NUbE",
     "topic": "Why do keys stick in locks",
@@ -598,5 +592,11 @@
     "video_id": "um2CwF087VA",
     "topic": "Why do frying oils pop loudly",
     "completed_at": 1794317358
+  },
+  {
+    "workdir": "output/1794325655",
+    "video_id": "dLiS_2LMOds",
+    "topic": "Why do garlic skins flake off easily",
+    "completed_at": 1794327221
   }
 ]

@@ -23,6 +23,8 @@ permissions:
   actions: read
 env:
   MINT_WORKFLOW_PROFILE: story
+  MINT_GEMINI_MODEL: gemini-3.5-flash-lite
+  MINT_GEMINI_FALLBACK_MODEL: gemini-3.8-flash
 concurrency:
   group: mint-story-shorts
   cancel-in-progress: false

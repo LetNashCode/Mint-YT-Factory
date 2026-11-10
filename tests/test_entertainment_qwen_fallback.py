@@ -56,3 +56,33 @@ def test_qwen_fallback_does_not_mask_validation_errors(monkeypatch):
 
     assert client.calls == entertainment.MAX_ATTEMPTS
     assert qwen_calls == []
+
+
+
+def test_script_generator_switches_to_supported_model_on_model_404(monkeypatch):
+    class ModelFallbackClient:
+        def __init__(self):
+            self.calls = []
+            self.models = self
+
+        def generate_content(self, **kwargs):
+            self.calls.append(kwargs["model"])
+            if len(self.calls) == 1:
+                raise RuntimeError(
+                    "404 NOT_FOUND: model is not found for API version v1"
+                )
+            return type("Response", (), {"text": "{}"})()
+
+    client = ModelFallbackClient()
+    monkeypatch.setattr(entertainment.genai, "Client", lambda **kwargs: client)
+    monkeypatch.setattr(entertainment, "_api_key", lambda: "test-key")
+    monkeypatch.setattr(entertainment, "_parse", lambda value: {})
+    monkeypatch.setattr(entertainment, "_normalize", lambda data, topic: {"ok": True})
+    monkeypatch.setattr(entertainment.time, "sleep", lambda *_: None)
+    monkeypatch.setattr(entertainment, "MODEL_NAME", "gemini-3.5-flash-lite")
+    monkeypatch.setattr(entertainment, "SECONDARY_MODEL_NAME", "gemini-3.8-flash")
+
+    result = entertainment.generate_script("Why ice floats", {})
+
+    assert result == {"ok": True}
+    assert client.calls == ["gemini-3.5-flash-lite", "gemini-3.8-flash"]

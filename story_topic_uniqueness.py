@@ -84,9 +84,16 @@ def repair_pending_story() -> None:
 
     replacement = _replacement_from_candidates(used)
     if replacement is None:
-        raise RuntimeError(
-            f"Pending story is a duplicate ({pending_person}), and no unused replacement is available."
+        # A stale pending reservation must never block the entire scheduled run.
+        # The normal guarded selector can refill the candidate pool and choose a
+        # fresh unused subject; clearing only the invalid reservation preserves
+        # published history and the monotonic story counter.
+        _write_json(PENDING, {})
+        print(
+            f"🧹 Story uniqueness repair: cleared stale duplicate pending subject "
+            f"'{pending_person}'; normal topic selection will generate a fresh subject"
         )
+        return
 
     replacement_person = str(replacement["person"]).strip()
     replacement_format = str(

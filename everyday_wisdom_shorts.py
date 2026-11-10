@@ -513,6 +513,81 @@ person, or setting relevant to that spoken beat. No generic filler such as
             time.sleep(2 + min(attempt, 4))
     raise RuntimeError("Story generation failed after all retries")
 
+def _repair_internal_silence(audio, sample_rate, threshold_db=-40.0, max_gap_seconds=0.24, keep_seconds=0.10):
+    """Compress anomalously long near-silent dropouts in one already-generated waveform.
+
+    Kokoro still performs exactly one inference on the complete narration. This
+    post-process does not split or re-synthesize speech; it only shortens long
+    low-energy gaps while preserving a short natural pause and smoothing joins.
+    """
+    import numpy as np
+
+    audio = np.asarray(audio, dtype=np.float32).reshape(-1)
+    if audio.size < int(sample_rate * 0.5):
+        raise RuntimeError("Narration waveform is too short for silence QA")
+
+    peak = float(np.max(np.abs(audio)))
+    threshold = max(0.0015, peak * (10.0 ** (threshold_db / 20.0)))
+    frame = max(1, int(sample_rate * 0.01))  # 10 ms RMS windows
+    frame_count = int(np.ceil(len(audio) / frame))
+    padded = np.pad(audio, (0, frame_count * frame - len(audio)))
+    rms = np.sqrt(np.mean(padded.reshape(frame_count, frame) ** 2, axis=1))
+    silent = rms < threshold
+
+    # Find continuous low-energy runs. Ignore leading/trailing silence; only
+    # repair long internal dropouts that interrupt an otherwise active voice.
+    edges = np.diff(np.r_[False, silent, False].astype(np.int8))
+    starts = np.flatnonzero(edges == 1)
+    ends = np.flatnonzero(edges == -1)
+    keep_frames = max(1, int(round(keep_seconds / 0.01)))
+    max_frames = max(1, int(round(max_gap_seconds / 0.01)))
+    edits = []
+    for start, end in zip(starts, ends):
+        if start == 0 or end >= frame_count:
+            continue
+        length = end - start
+        if length > max_frames:
+            remove_frames = length - keep_frames
+            # Remove from the middle of the silent run, retaining its natural
+            # onset and tail so adjacent phonemes are not cut.
+            cut_start = start + (length - remove_frames) // 2
+            edits.append((cut_start * frame, min(len(audio), (cut_start + remove_frames) * frame), length * 0.01))
+
+    if not edits:
+        print("Narration silence QA: no internal dropout longer than 0.24s")
+        return audio, []
+
+    pieces = []
+    cursor = 0
+    for cut_start, cut_end, original_duration in edits:
+        if cut_start > cursor:
+            pieces.append(audio[cursor:cut_start])
+        cursor = max(cursor, cut_end)
+    if cursor < len(audio):
+        pieces.append(audio[cursor:])
+    repaired = np.concatenate(pieces) if pieces else audio
+
+    # Smooth each splice with a short equal-power overlap to avoid clicks.
+    fade = max(1, int(sample_rate * 0.008))
+    for cut_start, _, _ in edits:
+        splice = cut_start - sum(max(0, b - a) for a, b, _ in edits if a < cut_start)
+        if 0 < splice < len(repaired) - fade:
+            left = repaired[splice - fade:splice].copy()
+            right = repaired[splice:splice + fade].copy()
+            ramp = np.linspace(0.0, 1.0, fade, dtype=np.float32)
+            repaired[splice - fade:splice] = left * (1.0 - ramp) + right * ramp
+
+    repaired_peak = float(np.max(np.abs(repaired)))
+    if repaired_peak > 0.98:
+        repaired *= 0.98 / repaired_peak
+    print(
+        "Narration silence QA: compressed "
+        + ", ".join(f"{duration:.2f}s" for _, _, duration in edits)
+        + f" internal low-energy gap(s); preserved natural pause={keep_seconds:.2f}s"
+    )
+    return repaired, edits
+
+
 def synthesize(text, output):
     import numpy as np
     import soundfile as sf
@@ -568,12 +643,21 @@ def synthesize(text, output):
         raise RuntimeError("Kokoro narration is effectively silent")
 
     sample_rate = 24000
+    audio, repaired_gaps = _repair_internal_silence(audio, sample_rate)
+    if not audio.size or float(np.max(np.abs(audio))) < 0.01:
+        raise RuntimeError("Narration became silent after dropout repair")
     sf.write(output, audio, sample_rate, subtype="PCM_16")
-    duration = len(audio) / sample_rate
+    # Read back the exact PCM file that FFmpeg will consume and fail if it is
+    # empty, invalid, or contains a long internal mute after serialization.
+    saved_audio, saved_rate = sf.read(output, dtype="float32")
+    if saved_rate != sample_rate or not np.isfinite(saved_audio).all():
+        raise RuntimeError("Saved narration WAV failed sample-rate/data integrity QA")
+    duration = len(saved_audio) / sample_rate
     print(
         f"Kokoro single-inference QA: model_calls=1 | outputs=1 | "
         f"phonemes={len(phonemes)}/{max_phonemes} | duration={duration:.2f}s | "
-        f"peak={peak:.3f} | chunking/stitching/crossfades=disabled"
+        f"peak={float(np.max(np.abs(saved_audio))):.3f} | repaired_gaps={len(repaired_gaps)} | "
+        "chunking/stitching/crossfades=disabled"
     )
 
     if duration > TARGET_SECONDS:

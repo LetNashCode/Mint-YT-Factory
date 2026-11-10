@@ -26,8 +26,9 @@ PEXELS_URL = "https://api.pexels.com/videos/search"
 MODEL = os.getenv("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
 VOICE = os.getenv("WISDOM_KOKORO_VOICE", "af_heart")
 TARGET_SECONDS = 47.0
-MIN_NARRATION_WORDS = 100
-MAX_NARRATION_WORDS = 110
+MIN_NARRATION_WORDS = 78
+MAX_NARRATION_WORDS = 85
+MAX_KOKORO_PHONEMES = 510
 TOPIC_HISTORY_PATH = Path("everyday_wisdom_topic_history.json")
 MAX_HISTORY_FOR_PROMPT = 120
 WHISPER_MODEL = os.getenv("WISDOM_WHISPER_MODEL", "tiny.en")
@@ -353,7 +354,7 @@ Do not start every script with "My grandma used to say". Avoid repeating the sam
 opening structure used by recent Wisdom scripts.
 
 STORY SHAPE:
-- 100-110 spoken words total; target approximately 45 seconds at natural conversational delivery.
+- 78-85 spoken words total. Kokoro must synthesize the entire narration in ONE model inference; keep the complete phoneme string at or below 510 characters. Aim for a concise 35-40 second story with natural conversational delivery. Never split, chunk, stitch, or omit narration.
 - Open with an emotionally recognizable moment, tension, regret, surprise, or contradiction tied to the familiar custom. Make the first 1-2 sentences create a strong curiosity gap without clickbait.
 - Use first-person language naturally ("I", "my", "we", "our") throughout.
 - Build an emotional mini-story: relatable moment -> personal stakes or feeling -> genuine question -> evidence-supported explanation -> emotionally resonant payoff. Use concrete details and contrast (what I believed then vs. what I understand now), without inventing a dramatic biography.
@@ -450,6 +451,19 @@ person, or setting relevant to that spoken beat. No generic filler such as
                 raise RuntimeError("Incomplete story JSON or fewer than 16 narration-aligned visual queries")
             if not MIN_NARRATION_WORDS <= len(words) <= MAX_NARRATION_WORDS:
                 raise RuntimeError(f"Narration word count {len(words)} outside {MIN_NARRATION_WORDS}-{MAX_NARRATION_WORDS}")
+            # Validate the actual Kokoro phoneme budget before accepting the topic
+            # or retiring it in history. This prevents a post-generation TTS failure.
+            from kokoro import KPipeline
+            phoneme_pipeline = KPipeline(lang_code="a")
+            _, phoneme_tokens = phoneme_pipeline.g2p(story["narration"])
+            phoneme_text = phoneme_pipeline.tokens_to_ps(phoneme_tokens)
+            phoneme_count = len(phoneme_text)
+            print(f"Wisdom narration preflight: words={len(words)} | Kokoro phonemes={phoneme_count}/{MAX_KOKORO_PHONEMES}")
+            if phoneme_count > MAX_KOKORO_PHONEMES:
+                raise RuntimeError(
+                    f"Complete narration uses {phoneme_count} Kokoro phoneme characters; "
+                    f"single-inference maximum is {MAX_KOKORO_PHONEMES}. Rewrite shorter without removing the story payoff."
+                )
             if is_duplicate_topic(story, history):
                 raise RuntimeError(
                     f"Duplicate topic rejected across Wisdom/Publish history: {story['topic']} | key={story['topic_key']}"
@@ -477,8 +491,8 @@ person, or setting relevant to that spoken beat. No generic filler such as
                 "- Generate a genuinely different candidate in the specified next topic lane; do not rephrase any rejected subject.\n"
                 "- Prioritize a concrete family rule, household routine, or US social custom over a saying's origin.\n"
                 "- Do not assert that a habit is universal to American families; frame it as a familiar custom some families use.\n"
-                "- Aim for 103-108 spoken words so the narration safely lands inside the required 100-110 range. "
-                "Count narration words before returning JSON; if the draft is short, add a meaningful personal observation and practical takeaway, not filler.\n"
+                "- Aim for 80-83 spoken words and keep the complete Kokoro phoneme string at or below 510 characters. "
+                "The entire narration must fit ONE Kokoro inference. Count narration words before returning JSON; preserve the emotional progression and concrete payoff without filler.\n"
                 "- Keep all 3 search queries and 16-18 ordered visual queries.\n"
             )
             if rejected_topics:

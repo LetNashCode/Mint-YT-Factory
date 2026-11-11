@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-10T23:51:16.166172+00:00",
-  "refresh_attempted_at": "2026-11-10T23:51:16.166172+00:00",
+  "generated_at": "2026-11-11T00:05:11.332649+00:00",
+  "refresh_attempted_at": "2026-11-11T00:05:11.332649+00:00",
   "refresh_status": "success",
   "video_count": 28,
   "optimization_ready": true,
@@ -8,12 +8,12 @@
   "advanced_metrics_videos": 22,
   "reason": "",
   "totals": {
-    "views": 9016,
+    "views": 9145,
     "likes": 82,
     "comments": 5
   },
   "averages": {
-    "views": 322.0,
+    "views": 326.61,
     "likes": 2.93,
     "comments": 0.18,
     "average_view_percentage": 44.06,
@@ -154,7 +154,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 888,
+      "views": 962,
       "views_after_24h": null,
       "views_after_7d": null,
       "likes": 13,
@@ -164,7 +164,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.5766
+      "engagement_rate": 1.4553
     },
     {
       "topic": "The household rule of removing shoes at the front door, rooted in cleanliness, mid-century flooring care, and practical indoor comfort.",
@@ -183,7 +183,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 699,
+      "views": 715,
       "views_after_24h": null,
       "views_after_7d": null,
       "likes": 8,
@@ -193,7 +193,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.1445
+      "engagement_rate": 1.1189
     },
     {
       "topic": "The historical and functional reason why golf club handles are wrapped in rubber or leather grips.",
@@ -446,7 +446,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 888,
+      "views": 962,
       "views_after_24h": null,
       "views_after_7d": null,
       "likes": 13,
@@ -456,7 +456,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.5766
+      "engagement_rate": 1.4553
     },
     {
       "topic": "The household rule of removing shoes at the front door, rooted in cleanliness, mid-century flooring care, and practical indoor comfort.",
@@ -475,7 +475,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 699,
+      "views": 715,
       "views_after_24h": null,
       "views_after_7d": null,
       "likes": 8,
@@ -485,7 +485,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.1445
+      "engagement_rate": 1.1189
     },
     {
       "topic": "The historical and functional reason why golf club handles are wrapped in rubber or leather grips.",
@@ -749,6 +749,35 @@
       "engagement_rate": 3.268
     },
     {
+      "topic": "The family dinner and gathering rule of not interrupting adult conversations, rooted in household listening habits, respect, and learning communication pacing.",
+      "video_id": "Ul6g0VPGgoo",
+      "title": "Why We Had to Wait to Speak When Grown-Ups Were Talking",
+      "workflow": "everyday_wisdom",
+      "published_at": "2026-11-10T20:58:15Z",
+      "hook_text": "Whenever I tried to jump into a grown-up conversation as a kid, my parents gently stopped me with a raised hand",
+      "hook_type": "first_person_personal_discovery",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": 80,
+      "planned_duration_seconds": 47.0,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 115,
+      "views_after_24h": null,
+      "views_after_7d": null,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 1.7391
+    },
+    {
       "topic": "The historical safety regulations behind the amber indicator light on kitchen microwaves.",
       "video_id": "vOrZN3zUBdg",
       "title": "Why Do We Have an Orange Warning Light on Microwaves?",
@@ -776,35 +805,6 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 1.7857
-    },
-    {
-      "topic": "The family dinner and gathering rule of not interrupting adult conversations, rooted in household listening habits, respect, and learning communication pacing.",
-      "video_id": "Ul6g0VPGgoo",
-      "title": "Why We Had to Wait to Speak When Grown-Ups Were Talking",
-      "workflow": "everyday_wisdom",
-      "published_at": "2026-11-10T20:58:15Z",
-      "hook_text": "Whenever I tried to jump into a grown-up conversation as a kid, my parents gently stopped me with a raised hand",
-      "hook_type": "first_person_personal_discovery",
-      "hook_score": null,
-      "hook_score_components": {},
-      "script_word_count": 80,
-      "planned_duration_seconds": 47.0,
-      "actual_duration_seconds": null,
-      "video_width": null,
-      "video_height": null,
-      "resolution": "",
-      "creative_strategy": "",
-      "views": 93,
-      "views_after_24h": null,
-      "views_after_7d": null,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 2.1505
     },
     {
       "topic": "The household politeness rule of saying excuse me when passing in front of someone, rooted in mutual respect, personal space, and everyday consideration.",
@@ -894,6 +894,35 @@
       "engagement_rate": 2.4691
     },
     {
+      "topic": "The family rule of waiting for a pause before joining an ongoing adult conversation, rooted in listening habits, respect, and learning household communication pacing.",
+      "video_id": "taJrzGnGhpY",
+      "title": "Why We Had to Wait Our Turn in Conversation",
+      "workflow": "everyday_wisdom",
+      "published_at": "2026-11-10T21:54:18Z",
+      "hook_text": "Whenever the grown-ups were talking, my dad expected me to stand quietly and wait for a natural pause before I spoke",
+      "hook_type": "first_person_personal_discovery",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": 84,
+      "planned_duration_seconds": 47.0,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 46,
+      "views_after_24h": null,
+      "views_after_7d": null,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 2.1739
+    },
+    {
       "topic": "The family dinner custom of asking to be excused from the table, rooted in household manners, family pacing, and conversational respect.",
       "video_id": "BTy4q50qAE4",
       "title": "Why We Had to Ask to Be Excused From the Table",
@@ -950,35 +979,6 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
-    },
-    {
-      "topic": "The family rule of waiting for a pause before joining an ongoing adult conversation, rooted in listening habits, respect, and learning household communication pacing.",
-      "video_id": "taJrzGnGhpY",
-      "title": "Why We Had to Wait Our Turn in Conversation",
-      "workflow": "everyday_wisdom",
-      "published_at": "2026-11-10T21:54:18Z",
-      "hook_text": "Whenever the grown-ups were talking, my dad expected me to stand quietly and wait for a natural pause before I spoke",
-      "hook_type": "first_person_personal_discovery",
-      "hook_score": null,
-      "hook_score_components": {},
-      "script_word_count": 84,
-      "planned_duration_seconds": 47.0,
-      "actual_duration_seconds": null,
-      "video_width": null,
-      "video_height": null,
-      "resolution": "",
-      "creative_strategy": "",
-      "views": 31,
-      "views_after_24h": null,
-      "views_after_7d": null,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 3.2258
     },
     {
       "topic": "The household family fridge rule of writing names and dates on leftover containers, rooted in shared kitchen organization and household harmony.",
@@ -1113,7 +1113,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 0,
+      "views": 2,
       "views_after_24h": null,
       "views_after_7d": null,
       "likes": 0,
@@ -1143,7 +1143,7 @@
         "average_view_percentage": 39.24,
         "average_view_duration": 14.0,
         "views": 968,
-        "age_hours": 276.7,
+        "age_hours": 277.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1155,7 +1155,7 @@
         "average_view_percentage": 40.4,
         "average_view_duration": 13.0,
         "views": 112,
-        "age_hours": 559.7,
+        "age_hours": 559.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1167,7 +1167,7 @@
         "average_view_percentage": 43.75,
         "average_view_duration": 15.0,
         "views": 649,
-        "age_hours": 557.5,
+        "age_hours": 557.7,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1179,7 +1179,7 @@
         "average_view_percentage": 45.11,
         "average_view_duration": 15.0,
         "views": 308,
-        "age_hours": 221.7,
+        "age_hours": 221.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1191,7 +1191,7 @@
         "average_view_percentage": 45.45,
         "average_view_duration": 15.0,
         "views": 153,
-        "age_hours": 342.6,
+        "age_hours": 342.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1203,7 +1203,7 @@
         "average_view_percentage": 47.3,
         "average_view_duration": 17.0,
         "views": 20,
-        "age_hours": 372.0,
+        "age_hours": 372.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1215,7 +1215,7 @@
         "average_view_percentage": 49.67,
         "average_view_duration": 17.0,
         "views": 403,
-        "age_hours": 179.5,
+        "age_hours": 179.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1227,7 +1227,7 @@
         "average_view_percentage": 50.38,
         "average_view_duration": 15.0,
         "views": 1011,
-        "age_hours": 460.4,
+        "age_hours": 460.6,
         "target_met": false,
         "status": "below_target"
       },
@@ -1239,7 +1239,7 @@
         "average_view_percentage": 50.41,
         "average_view_duration": 16.0,
         "views": 88,
-        "age_hours": 438.0,
+        "age_hours": 438.3,
         "target_met": false,
         "status": "below_target"
       },
@@ -1251,7 +1251,7 @@
         "average_view_percentage": 51.09,
         "average_view_duration": 17.0,
         "views": 34,
-        "age_hours": 532.9,
+        "age_hours": 533.2,
         "target_met": false,
         "status": "below_target"
       }
@@ -1265,7 +1265,7 @@
         "average_view_percentage": 136.89,
         "average_view_duration": 53.0,
         "views": 399,
-        "age_hours": 531.1,
+        "age_hours": 531.3,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1277,7 +1277,7 @@
         "average_view_percentage": 108.86,
         "average_view_duration": 40.0,
         "views": 160,
-        "age_hours": 269.6,
+        "age_hours": 269.8,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1289,7 +1289,7 @@
         "average_view_percentage": 70.5,
         "average_view_duration": 24.0,
         "views": 257,
-        "age_hours": 565.4,
+        "age_hours": 565.6,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1301,7 +1301,7 @@
         "average_view_percentage": 70.46,
         "average_view_duration": 23.0,
         "views": 83,
-        "age_hours": 193.8,
+        "age_hours": 194.1,
         "target_met": true,
         "status": "goal_met"
       }

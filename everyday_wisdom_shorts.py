@@ -513,7 +513,7 @@ person, or setting relevant to that spoken beat. No generic filler such as
             time.sleep(2 + min(attempt, 4))
     raise RuntimeError("Story generation failed after all retries")
 
-def _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=0.75):
+def _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=0.25):
     """Find long near-silent runs inside narration; leading/trailing silence is allowed."""
     import numpy as np
 
@@ -1003,6 +1003,40 @@ def render(clips, audio, output, duration, narration):
         check=True,
     )
 
+
+def validate_final_audio(path):
+    """Decode the final MP4 audio and reject missing, clipped, or internally muted narration."""
+    import numpy as np
+    import soundfile as sf
+
+    decoded_path = RUN_ROOT / "final_audio_qa.wav"
+    subprocess.run(
+        [
+            "ffmpeg", "-y", "-v", "error", "-i", str(path),
+            "-map", "0:a:0", "-vn", "-ac", "1", "-ar", "24000",
+            "-c:a", "pcm_s16le", str(decoded_path),
+        ],
+        check=True,
+    )
+    audio, sample_rate = sf.read(decoded_path, dtype="float32")
+    if sample_rate != 24000 or audio.size == 0 or not np.isfinite(audio).all():
+        raise RuntimeError("Final MP4 audio failed decode/sample-rate/integrity QA")
+    peak = float(np.max(np.abs(audio)))
+    if peak < 0.01:
+        raise RuntimeError("Final MP4 audio is effectively silent")
+    gaps = _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=0.25)
+    if gaps:
+        formatted = ", ".join(f"{left:.2f}-{right:.2f}s" for left, right in gaps)
+        raise RuntimeError(
+            "Final MP4 audio contains internal near-silent gaps after FFmpeg encoding: "
+            + formatted
+        )
+    duration = len(audio) / float(sample_rate)
+    print(
+        f"Final MP4 audio QA passed | duration={duration:.2f}s | "
+        f"peak={peak:.3f} | internal_near_silent_gaps=0 | decoded AAC"
+    )
+
 def validate_final_video(path):
     """Fail closed unless Everyday Wisdom renders the agreed 4K/60 H.264 master."""
     result = subprocess.run(
@@ -1204,6 +1238,7 @@ def main():
 
     print(f"Final video ready: {video} ({video.stat().st_size} bytes)")
     validate_final_video(video)
+    validate_final_audio(video)
 
     video_id = upload(video, story)
 

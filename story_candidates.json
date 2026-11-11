@@ -1,1 +1,66 @@
-[]
+[
+  {
+    "format": "rise_from_nothing",
+    "person": "Kalpana Chawla",
+    "premise": "Breaking through deep-seated regional expectations in small-town India to become the first Indian-born woman to fly in space.",
+    "hook": "Growing up in Karnal, she watched airplanes fly overhead and vowed she would one day touch the stars, despite having no aerospace role models.",
+    "key_facts": [
+      "Graduated with an aeronautical engineering degree from Punjab Engineering College.",
+      "Emigrated to the United States in the 1980s to pursue advanced degrees at the University of Texas and University of Colorado.",
+      "Selected by NASA as an astronaut candidate in 1994.",
+      "Completed her first space flight aboard the Space Shuttle Columbia in 1997."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Viswanathan Anand",
+    "premise": "Rising from the chess clubs of Chennai to become India's first Grandmaster and a multi-time World Chess Champion.",
+    "hook": "He learned the complex rules of chess from his mother at age six in a house without a computer.",
+    "key_facts": [
+      "Became India's first Grandmaster in 1988 at the age of 18.",
+      "Won the World Chess Championship five times across different formats.",
+      "Known for his exceptionally fast calculation speed, earning him the nickname 'The Lightning Kid'.",
+      "Awarded India's second-highest civilian award, the Padma Vibhushan, in 2007."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Srinivasa Ramanujan",
+    "premise": "Mailing his unverified mathematical theorems from India to a prominent British mathematician in 1913.",
+    "hook": "A self-taught clerk mailed a packet of impossible mathematical formulas halfway across the world, risking complete rejection.",
+    "key_facts": [
+      "Had no formal university training in mathematics and worked as a shipping clerk in Madras.",
+      "Wrote unsolicited letters containing complex theorems to leading academics in Britain.",
+      "Recognized by G.H. Hardy at Cambridge University, who invited him to England in 1914.",
+      "Elected a Fellow of the Royal Society for his groundbreaking contributions to mathematical analysis."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Enzo Ferrari",
+    "premise": "Transitioning from racing driver and team manager to automobile manufacturer in post-war Italy.",
+    "hook": "He decided to sell his own road cars solely to fund his racing addiction, creating an accidental luxury empire.",
+    "key_facts": [
+      "Worked as a test driver and racing driver for Alfa Romeo during the 1920s.",
+      "Founded Scuderia Ferrari as a racing team in 1929 before building cars under his own name.",
+      "Released the first Ferrari-badged road car, the 125 S, in 1947.",
+      "Won numerous international motorsports championships, including early victories at Le Mans."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Yusaku Maezawa",
+    "premise": "Leaving traditional high school routines to move to the US, returning to Japan to build an online retail giant.",
+    "hook": "Instead of attending university, he packed his bags for California to listen to heavy metal records and collect independent music CDs.",
+    "key_facts": [
+      "Started a mail-order business importing imported music CDs upon returning to Japan.",
+      "Founded the online fashion retail platform Zozotown in 2004.",
+      "Became the first private passenger to orbit the Moon on a planned SpaceX mission."
+    ],
+    "source": "gemini_original"
+  }
+]

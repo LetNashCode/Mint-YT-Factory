@@ -2,409 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Sylvester Stallone",
-      "source": {
-        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
-        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
-        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
-        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "creator": "ABC",
-        "license": "",
-        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1039.905506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 241.75,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment shows genuine archival interview footage of Sylvester Stallone being interviewed by Barbara Walters in 1988. Sylvester Stallone is clearly visible and identifiable, making it highly relevant biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a378d1ab5a0dd79dc51b9b53842e5b47af1a6dd61149b3fca106d07a817bd63c",
-      "reviewed_at": 1792319083.595769
-    },
-    {
-      "person": "Sylvester Stallone",
-      "source": {
-        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
-        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
-        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
-        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "creator": "ABC",
-        "license": "",
-        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1039.905506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 320.66,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The clip features genuine archival interview footage of Sylvester Stallone being interviewed by Barbara Walters in 1988. He is clearly visible and identifiable throughout the sampled frames, making it suitable biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c3210eb46653769710bf710be9a10337511bb2bab6c15c0ebdf42796ac5b1738",
-      "reviewed_at": 1792319087.3365796
-    },
-    {
-      "person": "Sylvester Stallone",
-      "source": {
-        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
-        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
-        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
-        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "creator": "ABC",
-        "license": "",
-        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1039.905506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 399.58,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment features genuine archival interview footage of Sylvester Stallone being interviewed by Barbara Walters in 1988, making it suitable biographical illustration for a Short about his life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "71e186d83a85133a35b5c25f3f2ce207b6009c5a44d360d173c1beaba5b636fb",
-      "reviewed_at": 1792319092.6958635
-    },
-    {
-      "person": "Sylvester Stallone",
-      "source": {
-        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
-        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
-        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
-        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "creator": "ABC",
-        "license": "",
-        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1039.905506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 478.49,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The segment shows genuine archival interview footage of Sylvester Stallone with Barbara Walters from 1988, making it suitable biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "87b40e25132cf48201b2a22dbcbbe1bff9397935cd23ed05b19f1be969555cb8",
-      "reviewed_at": 1792319096.5219147
-    },
-    {
-      "person": "Sylvester Stallone",
-      "source": {
-        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
-        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
-        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
-        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "creator": "ABC",
-        "license": "",
-        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1039.905506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 636.33,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly feature Sylvester Stallone during an archival 1988 interview. It is genuine, usable interview footage suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6496652673d354afabcd56b0f5ca87efa69d6d1b005450ee491a9ade5957fc50",
-      "reviewed_at": 1792319100.1666784
-    },
-    {
-      "person": "Sylvester Stallone",
-      "source": {
-        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
-        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
-        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
-        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "creator": "ABC",
-        "license": "",
-        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1039.905506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 715.24,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video shows authentic archival footage of Sylvester Stallone being interviewed by Barbara Walters in 1988, making it suitable biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "36e2a7baf09a85135088e9df6972bf222fc74c8dd1c4955f37b73d35a71b7140",
-      "reviewed_at": 1792319104.032131
-    },
-    {
-      "person": "Sylvester Stallone",
-      "source": {
-        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
-        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
-        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
-        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "creator": "ABC",
-        "license": "",
-        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1039.905506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 794.16,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment features archival footage of Sylvester Stallone being interviewed by Barbara Walters in 1988, making it authentic and directly usable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c847b7d4e1653bd45d9cae8fd44b03043949f7bdad6c60cabfdb4427a954add7",
-      "reviewed_at": 1792319107.6735847
-    },
-    {
-      "person": "Sylvester Stallone",
-      "source": {
-        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
-        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
-        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
-        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "creator": "ABC",
-        "license": "",
-        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1039.905506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 873.07,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The clip features genuine archival interview footage of Sylvester Stallone being interviewed by Barbara Walters in 1988. Sylvester Stallone is clearly visible and identifiable in multiple frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ece49ada6427b4c361516e7eb997824e293a07527afc72ff4fac5bd844f5be94",
-      "reviewed_at": 1792319111.1889715
-    },
-    {
-      "person": "Jackie Robinson",
-      "source": {
-        "id": "archive:btvin-Jackie_Robinson",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/btvin-Jackie_Robinson/Jackie_Robinson.mp4",
-        "source_url": "https://archive.org/details/btvin-Jackie_Robinson",
-        "title": "Jackie Robinson",
-        "description": "This is a documentary about baseball legend Jackie Robinson and why he was a hero. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'Jackie Robinson', 'baseball', 'dodgers', '2021']",
-        "creator": "Bloomington",
-        "license": "",
-        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'Jackie Robinson', 'baseball', 'dodgers', '2021']",
-        "runtime": "00:03:15",
-        "direct_subject": true,
-        "duration_hint": 194.9,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 102.41,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The frames show authentic archival historical footage of Jackie Robinson and teammates in Brooklyn Dodgers uniforms in the dugout, supporting the narrative about his 1947 MLB debut and Rookie of the Year season.",
-        "usage": "direct_event"
-      },
-      "review_key": "5e02ffebdc2ef30ba6473c85333aba1f9cc4de624c8c7c9eb2f3b06eec51b849",
-      "reviewed_at": 1792343927.8393102
-    },
-    {
-      "person": "Carl Sagan",
-      "source": {
-        "id": "archive:vhsvault_Wogan_interviews_Carl_Sagan",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/vhsvault_Wogan_interviews_Carl_Sagan/Wogan_interviews_Carl_Sagan-WhW3_L8Vx2U.mp4",
-        "source_url": "https://archive.org/details/vhsvault_Wogan_interviews_Carl_Sagan",
-        "title": "Wogan interviews Carl Sagan",
-        "description": "From October 1985, Carl Sagan talks about the Star Wars missile defence initiative, and the likelihood of life on other planets. ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 512.76,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 273.56,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly feature Carl Sagan speaking during archival interview footage from 1985, making it a valid biographical illustration of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "db59db2d9baae63f3b60dd4018c6a9e0197247bf4908c96e9222cca2a550574f",
-      "reviewed_at": 1792344096.7254
-    },
-    {
-      "person": "Carl Sagan",
-      "source": {
-        "id": "archive:CarlSaganTalksAboutGod",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/CarlSaganTalksAboutGod/20110823CarlSaganTalksAboutGod.mp4",
-        "source_url": "https://archive.org/details/CarlSaganTalksAboutGod",
-        "title": "Carl Sagan Talks About God?",
-        "description": "Carl Sagan talks about a being visting from another dimension. Could that be God? ['Jesus Christ', 'astrophysics', 'time', 'dimensions']",
-        "creator": "elperfecto.com",
-        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
-        "subject": "['Jesus Christ', 'astrophysics', 'time', 'dimensions']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 127.594261,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 61.8,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video segment features genuine archival footage of Carl Sagan himself speaking directly to the camera and demonstrating concepts at a desk, perfectly matching the biographical subject and context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "77954b0d143d2b57b45eca596f8c9430e5d09199aedcd60c6d72dc54496ab027",
-      "reviewed_at": 1792344107.3474934
-    },
-    {
-      "person": "Carl Sagan",
-      "source": {
-        "id": "archive:vhsvault_Wogan_interviews_Carl_Sagan",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/vhsvault_Wogan_interviews_Carl_Sagan/Wogan_interviews_Carl_Sagan-WhW3_L8Vx2U.mp4",
-        "source_url": "https://archive.org/details/vhsvault_Wogan_interviews_Carl_Sagan",
-        "title": "Wogan interviews Carl Sagan",
-        "description": "From October 1985, Carl Sagan talks about the Star Wars missile defence initiative, and the likelihood of life on other planets. ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 512.76,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 43.37,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows real archival footage of Carl Sagan being interviewed by Terry Wogan in October 1985. Carl Sagan is clearly identifiable in the first two frames, fulfilling the requirement for identity footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5a7ef980b2ec5202e6a1f120991493f85a3f4249de89ab0eb3a97593a3d4cdec",
-      "reviewed_at": 1792344125.205257
-    },
-    {
-      "person": "Carl Sagan",
-      "source": {
-        "id": "archive:CarlSaganTalksAboutGod",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/CarlSaganTalksAboutGod/20110823CarlSaganTalksAboutGod.mp4",
-        "source_url": "https://archive.org/details/CarlSaganTalksAboutGod",
-        "title": "Carl Sagan Talks About God?",
-        "description": "Carl Sagan talks about a being visting from another dimension. Could that be God? ['Jesus Christ', 'astrophysics', 'time', 'dimensions']",
-        "creator": "elperfecto.com",
-        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
-        "subject": "['Jesus Christ', 'astrophysics', 'time', 'dimensions']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 127.594261,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The sampled frames clearly feature Carl Sagan himself speaking and demonstrating concepts in archival footage, making it directly relevant and high quality for a biographical short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2ccb17d2e110bba553f4155e579572893b519412b73cb6000f81be6d39a4d437",
-      "reviewed_at": 1792344130.341404
-    },
-    {
       "person": "Carl Sagan",
       "source": {
         "id": "archive:vhsvault_Wogan_interviews_Carl_Sagan",
@@ -1984,37 +1581,6 @@
       },
       "review_key": "c6602c7058fc5eda19d5ff1fd5690cda83df27895de9a8a944cc9036b844b73b",
       "reviewed_at": 1792350185.0283403
-    },
-    {
-      "person": "Louis Braille",
-      "source": {
-        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
-        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
-        "title": "Louis Braille ~ The Braille Alphabet",
-        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "creator": "",
-        "license": "",
-        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 864.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 462.84,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage shows a dramatic reconstruction or biographical reenactment depicting Louis Braille presenting his system to an authority figure, which serves as a relevant illustration for his life and invention.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "eef3861e54d713a12b4eb6eb2efd66a007e02e849458a67032e42513997a4b9b",
-      "reviewed_at": 1792439468.631329
     },
     {
       "person": "Diana Nyad",
@@ -13121,37 +12687,6 @@
     {
       "person": "Richard Feynman",
       "source": {
-        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
-        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
-        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
-        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
-        "creator": "",
-        "license": "",
-        "subject": "['Feynman', 'Richard Feynman']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 4009.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2156.24,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features genuine archival footage of Richard Feynman speaking and gesturing in an armchair interview format, perfectly matching the biographical subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a3b78c1c0d96bf3288e2faae3ea18a4217071b057b11ee0ef751691f3f543440",
-      "reviewed_at": 1793660312.1127284
-    },
-    {
-      "person": "Richard Feynman",
-      "source": {
         "id": "archive:horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993/Horizon%2018-09%20Feynman-The%20Pleasure%20Of%20Finding%20Things%20Out%20%5BRichard%20Feynman%5D%20%2823%20Nov%201981%29.mp4",
@@ -13179,37 +12714,6 @@
       },
       "review_key": "1a32f3034802974ccc1d21a1f62134e3b6411388ee8deb62e115f6a1954da1ce",
       "reviewed_at": 1793660321.7591202
-    },
-    {
-      "person": "Richard Feynman",
-      "source": {
-        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
-        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
-        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
-        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
-        "creator": "",
-        "license": "",
-        "subject": "['Feynman', 'Richard Feynman']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 4009.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features real archival footage of Richard Feynman speaking in an interview setting, making it highly relevant and usable as biographical illustration for a Short about him.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6227793a0df977a1adc68ffd3d16cc7a6ac4d62a2e41cfd28072fea39760a629",
-      "reviewed_at": 1793660328.2702117
     },
     {
       "person": "Richard Feynman",
@@ -13245,37 +12749,6 @@
     {
       "person": "Richard Feynman",
       "source": {
-        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
-        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
-        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
-        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
-        "creator": "",
-        "license": "",
-        "subject": "['Feynman', 'Richard Feynman']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 4009.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 312.32,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features genuine archival footage of Richard Feynman speaking and gesturing during an interview, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f8f8dbb17577fdada65f9fe0b135ad9bd3fe60b244349dc3ea20350519af7aa5",
-      "reviewed_at": 1793660358.8181324
-    },
-    {
-      "person": "Richard Feynman",
-      "source": {
         "id": "archive:horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993/Horizon%2018-09%20Feynman-The%20Pleasure%20Of%20Finding%20Things%20Out%20%5BRichard%20Feynman%5D%20%2823%20Nov%201981%29.mp4",
@@ -13307,37 +12780,6 @@
     {
       "person": "Richard Feynman",
       "source": {
-        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
-        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
-        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
-        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
-        "creator": "",
-        "license": "",
-        "subject": "['Feynman', 'Richard Feynman']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 4009.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 619.64,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows Richard Feynman speaking in an interview/discussion format, providing authentic biographical illustration suitable for a short video.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f2862d8e1c9c475db6eac347f8cef35de691bc9794228c1ceef4f9f684d0ee00",
-      "reviewed_at": 1793660378.894985
-    },
-    {
-      "person": "Richard Feynman",
-      "source": {
         "id": "archive:horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993/Horizon%2018-09%20Feynman-The%20Pleasure%20Of%20Finding%20Things%20Out%20%5BRichard%20Feynman%5D%20%2823%20Nov%201981%29.mp4",
@@ -13365,37 +12807,6 @@
       },
       "review_key": "fe6fce232dc21269bc7f5ea2bf8d31e579ea23198a8d22ca5680bf5a52be6b3a",
       "reviewed_at": 1793660387.4348283
-    },
-    {
-      "person": "Richard Feynman",
-      "source": {
-        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
-        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
-        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
-        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
-        "creator": "",
-        "license": "",
-        "subject": "['Feynman', 'Richard Feynman']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 4009.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 926.96,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment shows genuine archival interview footage of Richard Feynman sitting in a chair, clearly identifiable throughout all sampled frames, making it very suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f272f2bdb1fde67b15216edad84483edf72e891d5b98e12a79c4baca6bcd185e",
-      "reviewed_at": 1793660395.3402743
     },
     {
       "person": "Bob Ross",
@@ -13954,37 +13365,6 @@
       },
       "review_key": "b2d2ca7093ec1226407490cc190b2d333c108bbe3d2ba44daadec1cf650becaa",
       "reviewed_at": 1793661520.125832
-    },
-    {
-      "person": "Louis Braille",
-      "source": {
-        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
-        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
-        "title": "Louis Braille ~ The Braille Alphabet",
-        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "creator": "",
-        "license": "",
-        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 864.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 332.03,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features historical reconstruction/archival footage depicting Louis Braille as a young boy interacting with tactile objects and learning at the institute, with his face clearly visible in the final frame.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "bf4eaa2090cc4c6631481104a89113b4048e16a416fad535ac40c00a8537dfab",
-      "reviewed_at": 1793709910.3396072
     },
     {
       "person": "Tom Hanks",
@@ -14981,37 +14361,6 @@
     {
       "person": "Rajinikanth",
       "source": {
-        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
-        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
-        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
-        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
-        "creator": "TV 9",
-        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
-        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2104.166667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 1130.47,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly show the subject Rajinikanth hosting an interview segment, making him visible and identifiable as the interviewer/host.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "fcbfe229aad247d2fa88ea17389aa3d6183e85cac8d9f8807f4184fa73d10c06",
-      "reviewed_at": 1793797592.760547
-    },
-    {
-      "person": "Rajinikanth",
-      "source": {
         "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2802h55m20s-03h30m24s%29.mp4",
@@ -15039,37 +14388,6 @@
       },
       "review_key": "7a408adefce2f7e100125ead426eb76415cedfd424007ed3f83eaaa3f1a3f97f",
       "reviewed_at": 1793797723.6717827
-    },
-    {
-      "person": "Rajinikanth",
-      "source": {
-        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
-        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
-        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
-        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
-        "creator": "TV 9",
-        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
-        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2104.166667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 165.78,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The frames show Rajinikanth hosting an interview (seen on the left as the interviewer/anchor 'Rajini'), making him clearly visible and identifiable throughout the segment, which is suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2579df6e8e48aee9056a8c99d77c16e2c6d8225b4b0143deaf8ad7066aa6d4f7",
-      "reviewed_at": 1793797829.3661213
     },
     {
       "person": "Rajinikanth",
@@ -15105,37 +14423,6 @@
     {
       "person": "Rajinikanth",
       "source": {
-        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
-        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
-        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
-        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
-        "creator": "TV 9",
-        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
-        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2104.166667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 487.35,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8.0,
-        "reason": "The sampled frames clearly show the subject Rajinikanth hosting his TV show/interview (on the left side of the split screen), making it valid biographical footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f169eae2c18a1a0f9dbd91b1f60b123a2c8fafc15b6f1f4937ee2d115ed76344",
-      "reviewed_at": 1793797901.2777667
-    },
-    {
-      "person": "Rajinikanth",
-      "source": {
         "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2802h55m20s-03h30m24s%29.mp4",
@@ -15163,37 +14450,6 @@
       },
       "review_key": "8c9b18a4965ed6cd7446eb067c18e448662309db5a7d037c2958abe61628cb07",
       "reviewed_at": 1793797954.0009458
-    },
-    {
-      "person": "Rajinikanth",
-      "source": {
-        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
-        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
-        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
-        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
-        "creator": "TV 9",
-        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
-        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2104.166667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 648.13,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly show the subject Rajinikanth (journalist/interviewer hosting the show, visible on the left side) conducting an interview, making the footage authentic and usable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "84b9d7903b777a7a1255c6c9114fb6c6c110308fc54745b8ca268401fdf2ade0",
-      "reviewed_at": 1793797976.2614057
     },
     {
       "person": "Rajinikanth",
@@ -15287,37 +14543,6 @@
       },
       "review_key": "95ee2b65bb906d2dd8f0f3c8ca3d71f52d39396beb5a3a3b554d1bf49d562ea3",
       "reviewed_at": 1793798093.0544791
-    },
-    {
-      "person": "Rajinikanth",
-      "source": {
-        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
-        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
-        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
-        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
-        "creator": "TV 9",
-        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
-        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2104.166667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 1291.26,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly show the subject Rajinikanth (journalist/interviewer on the left) hosting an exclusive interview show titled 'KCR with Rajini' on TV9 Telugu, featuring politician KCR as the guest. This provides valid biographical illustration footage of Rajinikanth in his professional capacity.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3945414a23fb50e2869a1103f9971a9137bdcbc00160aa3e6affcc66408ad884",
-      "reviewed_at": 1793798116.5788386
     },
     {
       "person": "Louis Armstrong",
@@ -16965,37 +16190,6 @@
     {
       "person": "Satyajit Ray",
       "source": {
-        "id": "archive:aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2/Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2.mp4",
-        "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
-        "title": "Essential Cinema: The Films of Satyajit Ray, Part 2",
-        "description": "AFS ESSENTIAL CINEMA: FILMS OF SATYAJIT RAY For tickets and more information see: https://www.austinfilm.org/essential-cinema/essential-cinema-films-of-satyajit-ray October 2 - November 6, 2014 Thursdays at 7:30 PM *Please note, KAPURUSH is on Tuesday, October 14* AFS at the Marchesa (6226 Middle Fiskville Rd) The very first “foreign” film I remember seeing (films from Mexico and Britain didn’t fit into that category) was PATHER PANCHALI (1955), directed by Satyajit Ray. Though that black & white film I was transported into the life of a small boy in a rural village in India. Through his family was poor, they were very loving toward one another (except for the nagging old aunt). Hearing a language I had never experienced and seeing people living in an area I had only heard of in geography textbooks was so fascinating that I didn’t mind reading the film’s subtitles at all. I felt that an entirely new and wonderful world was being opened for me. I was very fortunate that the director offering me that gift was the very talented and humanistic Bengali director Satyajit Ray. Not only would I see the other two parts of his “Apu” trilogy – APARAJITO (1956) and APU (1959) – but I would be on the verge of seeing hundreds of magnificent films as the 1960s brought an unprecedented number of subtitled films from all over Europe, Asia, and Latin America. Global cinema was finally within my grasp and Satyajit Ray had been the gracious man who opened the door to the treasure house. Thus, he has always held a special place in my heart and memory. Aside from his world-famous trilogy and a f ['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2014']",
-        "creator": "Austin Film Society",
-        "license": "",
-        "subject": "['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2014']",
-        "runtime": "00:01:05",
-        "direct_subject": true,
-        "duration_hint": 64.553795,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 55.55,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "Satyajit Ray is clearly visible in the archival footage waving to a crowd, making this usable historical footage for a biography.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9554215de4cb02f8779b1acb71c530c6f926cb6d958a973c138a14b411fd8dd7",
-      "reviewed_at": 1794335886.488637
-    },
-    {
-      "person": "Satyajit Ray",
-      "source": {
         "id": "archive:dli.MoI.SatyajitRay_Eng",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/dli.MoI.SatyajitRay_Eng/SatyajitRay_Eng.mp4",
@@ -17519,192 +16713,6 @@
       },
       "review_key": "28ae04aa551a2b9a3c9ee8a706739a3d5fde5a2cd18c11d5ae67f7e7edabf6f6",
       "reviewed_at": 1794336133.4963858
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features real interview footage of Harrison Ford discussing his film Firewall, showing him clearly in multiple frames alongside promotional clips.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3f5ab94db65c5ebfef4194771d8e8084ed0c61617c79cd17f8ab1f8927a98bc6",
-      "reviewed_at": 1794336138.354272
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 212.63,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features genuine archival interview footage of Harrison Ford discussing his film 'Firewall', making it useful biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d770bdceefc51e6de44ef5a3af5b984a646de49547f4bbfdd69f696903ef0331",
-      "reviewed_at": 1794336149.3985171
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 304.91,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "Harrison Ford is clearly visible in the interview segment (frames 1-3), making it valid archival interview footage suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f2ac9428a6f62b3e64b79db5daabfe5da7efff90a7d7316de87a288a04640a82",
-      "reviewed_at": 1794336160.369708
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:PrideMonthShowedProgressExceptforJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/PrideMonthShowedProgressExceptforJKRowling/Pride%20Month%20Showed%20Progress%20%E2%80%94%20Except%20for%20J.K.%20Rowling%20%5BYSItxEJtW4s%5D.mp4",
-        "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
-        "title": "Pride Month Showed Progress — Except for J.K. Rowling",
-        "description": "The yearly tradition of companies and politicians falling over themselves to recognize queer people is here. Here's how the 50th anniversary of Pride Month was (and wasn't) celebrated this year. Subscribe to VICE News here: [URL REMOVED] Check out VICE News for more: [URL REMOVED] Follow VICE News here: Facebook: [URL REMOVED] Twitter: [URL REMOVED] Tumblr: [URL REMOVED] Instagram: [URL REMOVED] More videos from the VICE network: [URL REMOVED] ",
-        "creator": "VICE News",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 167.767768,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 52.31,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video segment contains real archival footage of J.K. Rowling appearing in multiple frames (e.g., red carpet and book holding), making her clearly visible and identifiable, suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "dfcbd75124680a3ec9d593cebb5a40368e4133371483559b430768d13aa13a50",
-      "reviewed_at": 1794336284.2815413
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 67.35,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "J.K. Rowling is clearly visible in the first four sampled frames participating in a panel/public event, making the footage usable for biographical illustration, even though the fifth frame shows a camera operator.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "99f3e18f39948ceff413beac0d40a89a659f2cc069b8486d797d91892d49700d",
-      "reviewed_at": 1794336293.8246424
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 36.18,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features real archival footage of J.K. Rowling at a book signing event (visible seated at the table in frames 4 and 5), making it usable as biographical illustration, despite comedic trolling content.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ce43a632a24f9dabee280a6bd9f0407a294c5bb8e1b95ddce5c0024747731f8a",
-      "reviewed_at": 1794336334.3968601
     },
     {
       "person": "Amelia Earhart",
@@ -18573,6 +17581,998 @@
       },
       "review_key": "ffe3bda22e4a71c82871e8bb0b28290641553407142712b90f87d25cf3dc65a3",
       "reviewed_at": 1794337239.3495946
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video segment contains interview footage featuring Harrison Ford discussing his work on the film Firewall, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7f39c694e9b57dfee0390f5f6569d8805cf513acc6193d5da16527702f35f856",
+      "reviewed_at": 1794437837.6876218
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 212.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real archival interview footage of Harrison Ford discussing his work, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a828a031ec6f0d5921f39aaba041898cd20c0aa54797ff6223749e75e9d49675",
+      "reviewed_at": 1794437841.9883873
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 304.91,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Harrison Ford is clearly visible in the interview footage (frames 1, 2, and 3), making it valid biographical illustration footage despite the animated intro/outro.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f498490e37c3362f90dbaff9ca344f971130ce0262258e6fe89dcc06fba5fb98",
+      "reviewed_at": 1794437846.295976
+    },
+    {
+      "person": "Grace Hopper",
+      "source": {
+        "id": "archive:btvin-Unsung_Hero_Grace_Hopper",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Unsung_Hero_Grace_Hopper/Unsung_Hero_Grace_Hopper.mp4",
+        "source_url": "https://archive.org/details/btvin-Unsung_Hero_Grace_Hopper",
+        "title": "Unsung Hero Grace Hopper",
+        "description": "This is a documentary about Grace Hopper and why she is an unsung hero. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'Grace Hopper', 'unsung hero', '2023']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'Grace Hopper', 'unsung hero', '2023']",
+        "runtime": "00:03:17",
+        "direct_subject": true,
+        "duration_hint": 196.666667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 103.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival footage showing Grace Hopper working on early computing machinery, which directly illustrates her life and historical work as narrated.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "52ddf1ee735d20669bbaf6402f5c4ddca4c7bedc551dc2ae43bc9263caf0d5e6",
+      "reviewed_at": 1794437945.9863698
+    },
+    {
+      "person": "Grace Hopper",
+      "source": {
+        "id": "archive:mhatca-Grace_Hopper_Computer_Pioneer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/mhatca-Grace_Hopper_Computer_Pioneer/Grace_Hopper_Computer_Pioneer.mp4",
+        "source_url": "https://archive.org/details/mhatca-Grace_Hopper_Computer_Pioneer",
+        "title": "Grace Hopper Computer Pioneer",
+        "description": "A lecture on Grace Hopper, computer pioneer. Recorded by producer Marty Cheek. ['Morgan Hill', 'California', 'Morgan Hill Access Television', 'MHAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Marty Cheek', '2018']",
+        "creator": "Morgan Hill Access Television",
+        "license": "",
+        "subject": "['Morgan Hill', 'California', 'Morgan Hill Access Television', 'MHAT', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Marty Cheek', '2018']",
+        "runtime": "00:54:10",
+        "direct_subject": true,
+        "duration_hint": 3249.94995,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2494.19,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The video features a lecturer discussing Grace Hopper, with archival inset footage showing Grace Hopper working with early computer technology, making it relevant biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0bd86cd4b160e77eeba0c0ff9b1ac1c0f8af4f87a2622307aebc28a2da6ae1fb",
+      "reviewed_at": 1794437985.888135
+    },
+    {
+      "person": "Grace Hopper",
+      "source": {
+        "id": "archive:btvin-Unsung_Hero_Grace_Hopper",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Unsung_Hero_Grace_Hopper/Unsung_Hero_Grace_Hopper.mp4",
+        "source_url": "https://archive.org/details/btvin-Unsung_Hero_Grace_Hopper",
+        "title": "Unsung Hero Grace Hopper",
+        "description": "This is a documentary about Grace Hopper and why she is an unsung hero. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'Grace Hopper', 'unsung hero', '2023']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'Grace Hopper', 'unsung hero', '2023']",
+        "runtime": "00:03:17",
+        "direct_subject": true,
+        "duration_hint": 196.666667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 19.05,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features archival footage and biographical illustration of Grace Hopper, with her face clearly visible in the later frames, making it suitable for a biography short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5f636b1b1c1f009782b49bcd3ff3cd654fd2dbb7856ad42ef24e4ed23cf0ee51",
+      "reviewed_at": 1794438018.1785176
+    },
+    {
+      "person": "Grace Hopper",
+      "source": {
+        "id": "archive:btvin-Unsung_Hero_Grace_Hopper",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Unsung_Hero_Grace_Hopper/Unsung_Hero_Grace_Hopper.mp4",
+        "source_url": "https://archive.org/details/btvin-Unsung_Hero_Grace_Hopper",
+        "title": "Unsung Hero Grace Hopper",
+        "description": "This is a documentary about Grace Hopper and why she is an unsung hero. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'Grace Hopper', 'unsung hero', '2023']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'Grace Hopper', 'unsung hero', '2023']",
+        "runtime": "00:03:17",
+        "direct_subject": true,
+        "duration_hint": 196.666667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 33.1,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The footage shows archival photos of Grace Hopper in the early frames followed by historical aerial footage, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3e56f1e61b9796b2808c9ec8d474f3023a0b250125d5b65f0d47eb9662174f08",
+      "reviewed_at": 1794438036.4393237
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2104.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1130.47,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames show Rajinikanth hosting a TV show/interview on TV9, making him clearly identifiable on screen as the interviewer/host.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8d4a542fa18315479f479f411cddaef3bb23f328de6871598f7be6c4b1bcbb0c",
+      "reviewed_at": 1794438186.434311
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-01h-45m-12s-02h-20m-16s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-01h-45m-12s-02h-20m-16s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2801h45m12s-02h20m16s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-01h-45m-12s-02h-20m-16s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part04of06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part04of06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part04of06",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part04of06",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2106.433333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1131.69,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage shows journalist Rajinikanth conducting an interview with KCR on a TV show. While Rajinikanth is visibly present as the interviewer in the split screen, the segment is primarily an interview setting rather than archival footage illustrating the actor Rajinikanth's biography, but it does feature the named person clearly.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cf187fc8ea1cccfe45c0bc4847fb935924c03a36255e0a415755d2fe2f076f1b",
+      "reviewed_at": 1794438277.9675004
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2104.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 165.78,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Rajinikanth hosting a TV interview show ('KCR with Rajini') where he is clearly visible on the left side of the split screen. This qualifies as genuine archival interview footage depicting the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8165f2a30ecffc55c6e87978aae2f58179937ce296ae1dceea57fbbbfff9f3c2",
+      "reviewed_at": 1794438287.8750706
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-01h-45m-12s-02h-20m-16s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-01h-45m-12s-02h-20m-16s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2801h45m12s-02h20m16s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-01h-45m-12s-02h-20m-16s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part04of06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part04of06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part04of06",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part04of06",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2106.433333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames clearly show the journalist/interviewer Rajinikanth conducting an interview with politician KCR, making it usable as biographical illustration footage of Rajinikanth's career as an interviewer/anchor.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "12340efc587b5927feb548b9b1a2e435765e734c1940b8114cd496d4dd3630a8",
+      "reviewed_at": 1794438295.193164
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2104.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 487.35,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Rajinikanth (left panel, serving as the interviewer/host) conducting an exclusive interview with KCR on a TV show. Rajinikanth is clearly visible and identifiable throughout the sampled segment.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "04aeac91c8749eadc21a83914e8c6de0d6ad2c2c23d661cae2a08ad5447771ad",
+      "reviewed_at": 1794438303.7121198
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2104.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 648.13,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames show journalist and TV anchor Rajinikanth hosting/conducting an exclusive interview on TV9, making it valid biographical footage of him at work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "76390c55751a485af2f6e0bbee1b453bbe7949f9a3e960d6b8877c58964e2683",
+      "reviewed_at": 1794438341.7889578
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2104.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1291.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Rajinikanth hosting a TV interview show ('KCR with Rajini'), making him clearly visible and identifiable on screen alongside the guest.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9ec3b1caf287b44e06bf4571ecb595036415dc8b5ff67990ab0c3df11faf5d8a",
+      "reviewed_at": 1794438357.3114948
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2104.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1612.82,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames show journalist Rajinikanth conducting an interview with politician KCR on a TV show, making him clearly visible and identifiable in the sampled frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6259834c1189a5416bc2fcb484066ee322b1a9b4e3fb290a501301c2f062d384",
+      "reviewed_at": 1794438372.7102191
+    },
+    {
+      "person": "Rajinikanth",
+      "source": {
+        "id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s/KCR%20Exclusive%20Interview%20With%20Rajinikanth%20Vellalacheruvu%20%20Live%20Show%20-%20TV9%2800h00m00s-00h35m04s%29.mp4",
+        "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+        "title": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06",
+        "description": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9#part 01 of 06 KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "creator": "TV 9",
+        "license": "https://creativecommons.org/licenses/by-nd/4.0/",
+        "subject": "KCR Exclusive Interview With Rajinikanth Vellalacheruvu Live Show TV 9",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2104.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1934.38,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Rajinikanth hosting a TV show (interviewing KCR), so the subject is visible and active on screen, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "32dada065e79143dfc709c7b5678a2190f01a13fe48b919fd31a6815f121b71d",
+      "reviewed_at": 1794438389.6540036
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/PrideMonthShowedProgressExceptforJKRowling/Pride%20Month%20Showed%20Progress%20%E2%80%94%20Except%20for%20J.K.%20Rowling%20%5BYSItxEJtW4s%5D.mp4",
+        "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+        "title": "Pride Month Showed Progress — Except for J.K. Rowling",
+        "description": "The yearly tradition of companies and politicians falling over themselves to recognize queer people is here. Here's how the 50th anniversary of Pride Month was (and wasn't) celebrated this year. Subscribe to VICE News here: [URL REMOVED] Check out VICE News for more: [URL REMOVED] Follow VICE News here: Facebook: [URL REMOVED] Twitter: [URL REMOVED] Tumblr: [URL REMOVED] Instagram: [URL REMOVED] More videos from the VICE network: [URL REMOVED] ",
+        "creator": "VICE News",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 167.767768,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly depict J.K. Rowling in archival footage and public appearances, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "63219ebd9c89c0e01f36934059acfec43e7174438b2746982d9c5d50ea934103",
+      "reviewed_at": 1794438538.9392183
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 67.35,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "J.K. Rowling is clearly visible in the first four sampled frames participating in a public event/book signing, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e23920ffe183da205172ff10db9464770fd6fab6f592cdb1af954393a0c38255",
+      "reviewed_at": 1794438547.8041573
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 36.18,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features real archival footage of J.K. Rowling at a book signing event, where she is clearly visible in multiple sampled frames (specifically frames 4 and 5 seated at the table). It provides direct historical context and biographical illustration.",
+        "usage": "direct_event"
+      },
+      "review_key": "d530b91b479c4757128c5aa6638727e97f0b9208c36118ffeac293455cb83a7f",
+      "reviewed_at": 1794438568.300016
+    },
+    {
+      "person": "Louis Braille",
+      "source": {
+        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
+        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+        "title": "Louis Braille ~ The Braille Alphabet",
+        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "creator": "",
+        "license": "",
+        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 864.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 332.03,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment depicts a dramatic reenactment illustrating Louis Braille's life, showing hands interacting with tactile learning objects and an actor portraying young Louis Braille handling the raised-dot system in a classroom setting, aligning well with the biographical narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5db6dbccfcd75217b0b7ea0f84c22e6a9842805f2abc3956b99e08587c17a608",
+      "reviewed_at": 1794438650.277248
+    },
+    {
+      "person": "Louis Braille",
+      "source": {
+        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
+        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+        "title": "Louis Braille ~ The Braille Alphabet",
+        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "creator": "",
+        "license": "",
+        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 864.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 462.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The footage features a dramatized historical reconstruction depicting Louis Braille presenting his system, which serves as suitable biographical illustration despite being a reenactment rather than actual historical recording.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fc3f9fee33b40ff08b38c5af675b77c185eab1dd164698d5cc63560152af0014",
+      "reviewed_at": 1794438664.5417488
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2156.24,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video shows actual archival footage of Richard Feynman speaking and gesturing in an interview setting, highly relevant for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "116f911ac97a7788fdca4ad4bc5317df436b07563bb49450f6ba3f4430099718",
+      "reviewed_at": 1794439030.6416457
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival interview footage of Richard Feynman speaking in a chair, making him clearly identifiable in the later frames, perfectly serving as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "da6d59447657515cb26d53bfd1dda65f8c068d8469e572442d002e99e06ce437",
+      "reviewed_at": 1794439036.7720087
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 312.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features Richard Feynman speaking and gesturing in an interview setting, serving as excellent biographical illustration for a video about him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c98ed916c188ee878e07d36f2cb7043f1ad58f289676a6a80eee52def0f048e7",
+      "reviewed_at": 1794439045.8689547
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 619.64,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival footage of Richard Feynman speaking and gesturing during an interview, making it highly relevant and usable as biographical illustration for a documentary short about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "06e9c64126e4fe0a17616fe1194ded95ce9f7dc0ad28d01d0e079751ada6f4cd",
+      "reviewed_at": 1794439056.414779
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 926.96,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features Richard Feynman speaking in an armchair interview, making it authentic archival video of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3f28ab0c17d06c5f388264df9559c826891ce59328cc17b1baa2cbe250883796",
+      "reviewed_at": 1794439065.4503415
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1234.28,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real archival interview footage of Richard Feynman speaking and gesturing in a chair, perfectly suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ba6fe12004399ba6255118e2dd13ebd14cd31961da9cd35f54c692f63fdc4e1b",
+      "reviewed_at": 1794439080.5484965
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1541.6,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features real archival footage of the named subject Richard Feynman speaking and gesturing in an interview setting, making it highly suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3a93531813af09ee443929ffd10adf008a5c7a4571053c43444dd78f7b1cf0ae",
+      "reviewed_at": 1794439092.1502533
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1848.92,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video shows authentic archival footage of Richard Feynman speaking and gesturing in an interview setting, making it highly usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4eb11c83636f063a16aa2688fc97568821b848d55fd1b42ca4b9405f9eff879e",
+      "reviewed_at": 1794439109.103446
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2463.56,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage shows authentic archival video of Richard Feynman being interviewed in a chair, making it suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2be4cbb37bd32939a8fa407fbe97190d622a2c53c667088e834e5ea240085739",
+      "reviewed_at": 1794439119.8756542
+    },
+    {
+      "person": "Richard Feynman",
+      "source": {
+        "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-complete-fun-to-imagine-with-richard-feynman/The%20complete%20FUN%20TO%20IMAGINE%20with%20Richard%20Feynman%20%5BP1ww1IXRfTA%5D.mp4",
+        "source_url": "https://archive.org/details/the-complete-fun-to-imagine-with-richard-feynman",
+        "title": "The Complete FUN TO IMAGINE With Richard Feynman",
+        "description": "The Complete FUN TO IMAGINE With Richard Feynman ['Feynman', 'Richard Feynman']",
+        "creator": "",
+        "license": "",
+        "subject": "['Feynman', 'Richard Feynman']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4009.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2770.88,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Richard Feynman speaking and gesturing in an interview setting, providing authentic archival footage suitable for a biography short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8377d209581ced0a997d5209d2654d8545c8f0b38b1ee8441b92275fea2ffbc4",
+      "reviewed_at": 1794439134.3857954
+    },
+    {
+      "person": "Satyajit Ray",
+      "source": {
+        "id": "archive:aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2/Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2.mp4",
+        "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
+        "title": "Essential Cinema: The Films of Satyajit Ray, Part 2",
+        "description": "AFS ESSENTIAL CINEMA: FILMS OF SATYAJIT RAY For tickets and more information see: https://www.austinfilm.org/essential-cinema/essential-cinema-films-of-satyajit-ray October 2 - November 6, 2014 Thursdays at 7:30 PM *Please note, KAPURUSH is on Tuesday, October 14* AFS at the Marchesa (6226 Middle Fiskville Rd) The very first “foreign” film I remember seeing (films from Mexico and Britain didn’t fit into that category) was PATHER PANCHALI (1955), directed by Satyajit Ray. Though that black & white film I was transported into the life of a small boy in a rural village in India. Through his family was poor, they were very loving toward one another (except for the nagging old aunt). Hearing a language I had never experienced and seeing people living in an area I had only heard of in geography textbooks was so fascinating that I didn’t mind reading the film’s subtitles at all. I felt that an entirely new and wonderful world was being opened for me. I was very fortunate that the director offering me that gift was the very talented and humanistic Bengali director Satyajit Ray. Not only would I see the other two parts of his “Apu” trilogy – APARAJITO (1956) and APU (1959) – but I would be on the verge of seeing hundreds of magnificent films as the 1960s brought an unprecedented number of subtitled films from all over Europe, Asia, and Latin America. Global cinema was finally within my grasp and Satyajit Ray had been the gracious man who opened the door to the treasure house. Thus, he has always held a special place in my heart and memory. Aside from his world-famous trilogy and a f ['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2014']",
+        "creator": "Austin Film Society",
+        "license": "",
+        "subject": "['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2014']",
+        "runtime": "00:01:05",
+        "direct_subject": true,
+        "duration_hint": 64.553795,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 55.55,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The archival footage includes historical film clips and actual footage featuring Satyajit Ray interacting with crowds, making it suitable and relevant as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ce13b0b0a65fa03fc7d9124027940ec0cdfcd1e6f874f346e462f3eec743102f",
+      "reviewed_at": 1794439244.9019856
     }
   ]
 }

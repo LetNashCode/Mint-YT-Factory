@@ -474,8 +474,8 @@
       "source_url": "https://archive.org/details/APN_Arlington_s_Next_J.K._Rowling",
       "person": "J.K. Rowling",
       "start": 5.0,
-      "reason": "The footage features Brenda Mahoney discussing local student author projects in Arlington, not J.K. Rowling. J.K. Rowling is neither visible nor is the segment about her life.",
-      "reviewed_at": 1791737349.256641
+      "reason": "The footage features a local news segment about Arlington Public Schools and a person named Brenda Mahoney, which has no connection to J.K. Rowling.",
+      "reviewed_at": 1794438525.453696
     },
     "f438425c0750e8d2ca8f04aa": {
       "kind": "segment_rejection",
@@ -483,8 +483,8 @@
       "source_url": "https://archive.org/details/APN_Arlington_s_Next_J.K._Rowling",
       "person": "J.K. Rowling",
       "start": 16.0,
-      "reason": "The video footage features a local news segment about Arlington Public Schools and local children's stories, featuring literacy coach Alessandra Magalhaes and young students. J.K. Rowling is neither visible nor connected to the segment beyond a metaphorical title in the news report, making it completely irrelevant for a J.K. Rowling biography.",
-      "reviewed_at": 1791737356.5282779
+      "reason": "The footage features local news interviews and children showcasing their stories in Arlington, with no connection or appearance of J.K. Rowling.",
+      "reviewed_at": 1794438533.256179
     },
     "61d5485d2ea7e04999f46ebd": {
       "kind": "segment_rejection",
@@ -492,8 +492,8 @@
       "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
       "person": "J.K. Rowling",
       "start": 87.8,
-      "reason": "The footage shows an unrelated political figure speaking at a podium with South African and Zambian flags, completely unrelated to J.K. Rowling.",
-      "reviewed_at": 1791737366.5610878
+      "reason": "The footage shows an unrelated political figure speaking at a podium, with no relation to J.K. Rowling.",
+      "reviewed_at": 1794438556.710535
     },
     "228f21da6f994d058c0959e8": {
       "kind": "segment_rejection",
@@ -501,8 +501,8 @@
       "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
       "person": "J.K. Rowling",
       "start": 123.28,
-      "reason": "J.K. Rowling is not visible in any of the sampled frames. The video shows unrelated news footage of Pride parades and an interview with Louise Melling from the ACLU, making it completely irrelevant to J.K. Rowling's biography.",
-      "reviewed_at": 1791737373.35868
+      "reason": "The video footage shows Pride parades and an interview with Louise Melling, but J.K. Rowling is never visible in any of the sampled frames. Therefore, it cannot be used as identity footage for J.K. Rowling.",
+      "reviewed_at": 1794438563.385707
     },
     "4dc6219800562ec484e6b7cf": {
       "kind": "segment_rejection",
@@ -555,8 +555,8 @@
       "source_url": "https://archive.org/details/jk-rowling-contrapoints",
       "person": "J.K. Rowling",
       "start": 5.0,
-      "reason": "The footage shows a cosplay/parody skit from a ContraPoints video (Natalie Wynn) dressed as a witch, not J.K. Rowling herself. Therefore, it is not authentic footage of the subject.",
-      "reviewed_at": 1791737466.1196299
+      "reason": "The footage features the YouTuber ContraPoints dressed in a witch costume, not J.K. Rowling. This is a lookalike/parody impersonation from a video essay and is entirely unsuitable as biography footage for J.K. Rowling.",
+      "reviewed_at": 1794438596.227786
     },
     "9f3e8379a5edb3168c2fc744": {
       "kind": "segment_rejection",
@@ -564,8 +564,8 @@
       "source_url": "https://archive.org/details/jk-rowling-contrapoints",
       "person": "J.K. Rowling",
       "start": 418.14,
-      "reason": "The footage features ContraPoints (Natalie Wynn) in a video essay, not J.K. Rowling herself. Therefore, the person is not visible and the footage is not usable as identity footage for J.K. Rowling.",
-      "reviewed_at": 1791737483.0354114
+      "reason": "The footage features ContraPoints (Natalie Wynn) in a video essay about J.K. Rowling, not J.K. Rowling herself. Therefore, the target person is not visible and the clip cannot be used as identity footage for J.K. Rowling.",
+      "reviewed_at": 1794438611.3994093
     },
     "f09a95e8b53ddeac80c62403": {
       "kind": "segment_rejection",
@@ -582,8 +582,8 @@
       "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
       "person": "J.K. Rowling",
       "start": 98.53,
-      "reason": "J.K. Rowling is not visible in the provided frames. The footage shows a prankster trolling an event, but J.K. Rowling herself does not clearly appear, making it unusable for direct biographical illustration.",
-      "reviewed_at": 1791737528.1136413
+      "reason": "Although this is real archival footage from a book signing event, J.K. Rowling herself is not clearly visible in any of the sampled frames (the blonde woman in the foreground is not J.K. Rowling, and the prankster Nimrod Kamer is visible). Therefore, identity footage requirements are not met.",
+      "reviewed_at": 1794438579.1032379
     },
     "b905f2c2d8375451e14dac95": {
       "kind": "segment_rejection",
@@ -12895,6 +12895,348 @@
       "start": 115.4,
       "reason": "Madam C.J. Walker died in 1919, so she cannot be present in this 2017 university event footage. The video features her descendant A'Lelia Bundles and other award recipients, not Madam C.J. Walker herself.",
       "reviewed_at": 1794337250.9195666
+    },
+    "1a5f8b7eabedf4a3d69b32de": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aetvva-The_Grace_Hopper_Center_Ribbon-Cutting_Ceremony-Q0_u2Bx6Jbc",
+      "source_url": "https://archive.org/details/aetvva-The_Grace_Hopper_Center_Ribbon-Cutting_Ceremony-Q0_u2Bx6Jbc",
+      "person": "Grace Hopper",
+      "start": 2792.61,
+      "reason": "The video shows a modern ribbon-cutting ceremony for 'Arlington Public Schools' in 2026, featuring an unidentified woman speaking at a podium. This is not Grace Hopper (who passed away in 1992), and the footage is chronologically and factually unrelated to Grace Hopper's life.",
+      "reviewed_at": 1794437889.7974427
+    },
+    "eb129c3d22da1de787071891": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aetvva-The_Grace_Hopper_Center_Ribbon-Cutting_Ceremony-Q0_u2Bx6Jbc",
+      "source_url": "https://archive.org/details/aetvva-The_Grace_Hopper_Center_Ribbon-Cutting_Ceremony-Q0_u2Bx6Jbc",
+      "person": "Grace Hopper",
+      "start": 3987.3,
+      "reason": "The footage shows an unrelated modern ribbon-cutting ceremony for Arlington Public Schools, which has no connection to Grace Hopper's life.",
+      "reviewed_at": 1794437895.547658
+    },
+    "eebf1c3c2547e4d6b5411488": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aetvva-Welcome_to_the_Grace_Hopper_Center_Teaser-yqoOpsODO4E",
+      "source_url": "https://archive.org/details/aetvva-Welcome_to_the_Grace_Hopper_Center_Teaser-yqoOpsODO4E",
+      "person": "Grace Hopper",
+      "start": 23.95,
+      "reason": "The video segment shows modern school footage and students discussing Arlington Public Schools programs (mentioning John Mercer Langston), completely unrelated to Grace Hopper.",
+      "reviewed_at": 1794437901.7088482
+    },
+    "ef1f7e0783c93dfba3d4378a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aetvva-Welcome_to_the_Grace_Hopper_Center_Teaser-yqoOpsODO4E",
+      "source_url": "https://archive.org/details/aetvva-Welcome_to_the_Grace_Hopper_Center_Teaser-yqoOpsODO4E",
+      "person": "Grace Hopper",
+      "start": 34.16,
+      "reason": "The video segment consists of modern school promotional content, channel branding, and subscribe title cards with no connection to Grace Hopper or historical context.",
+      "reviewed_at": 1794437908.0387466
+    },
+    "85dc24d9aa07a06496a6fa8a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aetvva-Apply_to_the_Grace_Hopper_Center_2026-27",
+      "source_url": "https://archive.org/details/aetvva-Apply_to_the_Grace_Hopper_Center_2026-27",
+      "person": "Grace Hopper",
+      "start": 128.62,
+      "reason": "The video footage shows modern students and teachers in a classroom setting (Grace Hopper Center promotional material), not Grace Hopper herself, and has no concrete historical connection to her life or work.",
+      "reviewed_at": 1794437921.4071002
+    },
+    "7cbc7b3ad283e1e7877926dc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aetvva-Apply_to_the_Grace_Hopper_Center_2026-27",
+      "source_url": "https://archive.org/details/aetvva-Apply_to_the_Grace_Hopper_Center_2026-27",
+      "person": "Grace Hopper",
+      "start": 181.6,
+      "reason": "The video footage shows modern high school students and equipment handling in a school setting, with no connection to Grace Hopper.",
+      "reviewed_at": 1794437927.066513
+    },
+    "cc257d8958654d3b58c115c1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aetvva-Welcome_to_the_Grace_Hopper_Center-ueqEssOZC2Y",
+      "source_url": "https://archive.org/details/aetvva-Welcome_to_the_Grace_Hopper_Center-ueqEssOZC2Y",
+      "person": "Grace Hopper",
+      "start": 167.06,
+      "reason": "The footage shows modern high school students and a contemporary school hallway at the Grace Hopper Center, with no connection to historical footage or biography of Grace Hopper herself.",
+      "reviewed_at": 1794437932.9197233
+    },
+    "16156957f827f09f16c30646": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aetvva-Welcome_to_the_Grace_Hopper_Center-ueqEssOZC2Y",
+      "source_url": "https://archive.org/details/aetvva-Welcome_to_the_Grace_Hopper_Center-ueqEssOZC2Y",
+      "person": "Grace Hopper",
+      "start": 236.52,
+      "reason": "The video segment features modern local school officials and community members in Arlington Public Schools, completely unrelated to Grace Hopper.",
+      "reviewed_at": 1794437940.015645
+    },
+    "1891cd32174c964dafb8aa5b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mhatca-Grace_Hopper_Computer_Pioneer",
+      "source_url": "https://archive.org/details/mhatca-Grace_Hopper_Computer_Pioneer",
+      "person": "Grace Hopper",
+      "start": 1747.43,
+      "reason": "The segment shows a contemporary lecturer discussing Grace Hopper, with archival footage inset in the corner illustrating early computing systems. Grace Hopper herself is not clearly visible in the footage, making it useful as biographical illustration/context rather than direct identity footage.",
+      "reviewed_at": 1794437981.0955513
+    },
+    "c41015e61f5f9d2f2d15aa4f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Unsung_Hero_Grace_Hopper",
+      "source_url": "https://archive.org/details/btvin-Unsung_Hero_Grace_Hopper",
+      "person": "Grace Hopper",
+      "start": 5.0,
+      "reason": "The sampled frames contain animated illustration and generic archival baby footage that cannot be verified as Grace Hopper, failing the requirements for genuine identity or concrete historical context.",
+      "reviewed_at": 1794438013.9927516
+    },
+    "81b05e539c41e8868c0c8532": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mhatca-Grace_Hopper_Computer_Pioneer",
+      "source_url": "https://archive.org/details/mhatca-Grace_Hopper_Computer_Pioneer",
+      "person": "Grace Hopper",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of title cards ('Morgan Hill Access TV presents' and 'A Cheeky Production') with no actual filmed footage or historical context related to Grace Hopper.",
+      "reviewed_at": 1794438023.8984008
+    },
+    "7c0e1d115d34f3611695445c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mhatca-Grace_Hopper_Computer_Pioneer",
+      "source_url": "https://archive.org/details/mhatca-Grace_Hopper_Computer_Pioneer",
+      "person": "Grace Hopper",
+      "start": 253.92,
+      "reason": "The footage shows an unidentified speaker giving a lecture or presentation, not Grace Hopper herself, making it unsuitable as identity footage for a biography.",
+      "reviewed_at": 1794438032.8655808
+    },
+    "3ad8215e4471c7331711c270": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Unsung_Hero_Grace_Hopper",
+      "source_url": "https://archive.org/details/btvin-Unsung_Hero_Grace_Hopper",
+      "person": "Grace Hopper",
+      "start": 47.15,
+      "reason": "The sampled frames depict a historic building and a portrait of a male historical figure, but the named subject Grace Hopper is not visible in any of the frames.",
+      "reviewed_at": 1794438049.3185236
+    },
+    "4b3b0051ef1cb45ab7a7d043": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Unsung_Hero_Grace_Hopper",
+      "source_url": "https://archive.org/details/btvin-Unsung_Hero_Grace_Hopper",
+      "person": "Grace Hopper",
+      "start": 61.21,
+      "reason": "The segment includes historical context footage and archival illustrations relevant to Grace Hopper's life and work, although Grace Hopper herself is only shown via a static photograph rather than moving identity footage.",
+      "reviewed_at": 1794438055.3568242
+    },
+    "45186e04b04735f804111965": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-20m-16s-02h-55m-20s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-20m-16s-02h-55m-20s",
+      "person": "Rajinikanth",
+      "start": 5.0,
+      "reason": "The sampled frames show an interview between an anchor/interviewer (named Rajinikanth) and politician KCR. The subject of the biography is the actor Rajinikanth, not the news anchor hosting this show, making this footage unusable for the biography.",
+      "reviewed_at": 1794438200.067525
+    },
+    "6e9475556795ddaf94c2ce29": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-20m-16s-02h-55m-20s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-20m-16s-02h-55m-20s",
+      "person": "Rajinikanth",
+      "start": 165.83,
+      "reason": "The frames show journalist Rajinikanth conducting an interview with politician KCR, but the subject of the biography is the actor Rajinikanth, making this footage completely irrelevant.",
+      "reviewed_at": 1794438207.7842531
+    },
+    "c84ec777d936ef65a35e2d35": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+      "person": "Rajinikanth",
+      "start": 1614.05,
+      "reason": "The frames show journalist Rajinikanth interviewing politician K. Chandrashekar Rao (KCR), not the actor Rajinikanth who is the subject of the biography.",
+      "reviewed_at": 1794438259.6345994
+    },
+    "bc6b308f52259cc270583ed5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-02h-55m-20s-03h-30m-24s",
+      "person": "Rajinikanth",
+      "start": 5.0,
+      "reason": "The frames show an interview between TV9 anchor Rajinikanth (left) and politician KCR (right). While the anchor shares the name 'Rajinikanth', he is an interviewer and news presenter, not the actor/subject 'Rajinikanth' specified in the narration. The footage does not depict the actor Rajinikanth's life, making it unusable for his biography.",
+      "reviewed_at": 1794438267.781374
+    },
+    "e0054b3ff6b77a10bb6fb93e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-01h-45m-12s-02h-20m-16s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-01h-45m-12s-02h-20m-16s",
+      "person": "Rajinikanth",
+      "start": 165.96,
+      "reason": "The video features journalist Rajinikanth hosting a TV show and interviewing politician KCR, but the subject of the biography is the famous actor Rajinikanth. The person visible in the footage is the interviewer, not the actor Rajinikanth.",
+      "reviewed_at": 1794438314.1579072
+    },
+    "40e3eb61d1eedb2877b0e6c5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-01h-45m-12s-02h-20m-16s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-01h-45m-12s-02h-20m-16s",
+      "person": "Rajinikanth",
+      "start": 326.91,
+      "reason": "The sampled frames show an interview featuring KCR and an interviewer named Rajinikanth (the host), but the named subject of the biography is the legendary actor Rajinikanth, not the news anchor hosting the show. Therefore, the person is not visible and the footage is not relevant.",
+      "reviewed_at": 1794438335.9366987
+    },
+    "a504e115162322ccf089f2f6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+      "person": "Rajinikanth",
+      "start": 969.69,
+      "reason": "The sampled frames show journalist Rajinikanth interviewing politician KCR, not the actor Rajinikanth.",
+      "reviewed_at": 1794438352.1304111
+    },
+    "ac4ffcffaade8f8a4665274e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+      "person": "Rajinikanth",
+      "start": 1452.04,
+      "reason": "The video shows actual filmed footage of a TV interview featuring the subject Rajinikanth (seated on the left desk), though the wide shot makes him very small and indistinct, limiting its usability for a biography short.",
+      "reviewed_at": 1794438366.5880697
+    },
+    "d9c283c860d942d530cb4077": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+      "source_url": "https://archive.org/details/kcr-exclusive-interview-with-rajinikanth-vellalacheruvu-live-show-tv-9-00h-00m-00s-00h-35m-04s",
+      "person": "Rajinikanth",
+      "start": 1773.6,
+      "reason": "The sampled frames show anchor/interviewer Rajinikanth hosting a show interviewing politician KCR, but the subject of the biography is the actor/politician Rajinikanth, who is not the person being depicted in the footage (the host shares the same name or is a different public figure, while the video is an interview with KCR). Thus, the subject is not visible and the footage is unusable for the biography of actor Rajinikanth.",
+      "reviewed_at": 1794438383.7380462
+    },
+    "3b87e13c2d22255350ab9be2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LeonardSusskind_2010X",
+      "source_url": "https://archive.org/details/LeonardSusskind_2010X",
+      "person": "Richard Feynman",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of TED logo animations, title cards, and promotional end screens, with no actual footage of Richard Feynman or historical context.",
+      "reviewed_at": 1794438904.9073544
+    },
+    "0927082e22892c87fc623c33": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LeonardSusskind_2010X",
+      "source_url": "https://archive.org/details/LeonardSusskind_2010X",
+      "person": "Richard Feynman",
+      "start": 71.74,
+      "reason": "The frames show physicist Leonard Susskind speaking about Richard Feynman at a TEDx event. Richard Feynman is not visible in the footage, making this biographical illustration rather than direct footage of the subject.",
+      "reviewed_at": 1794438914.6888387
+    },
+    "b0eb5d53c11461174ecb396e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LeonardSusskind_2011X",
+      "source_url": "https://archive.org/details/LeonardSusskind_2011X",
+      "person": "Richard Feynman",
+      "start": 5.0,
+      "reason": "The frames only show TED intro and title card graphics, containing no actual footage or depiction of Richard Feynman.",
+      "reviewed_at": 1794438930.0865188
+    },
+    "cc54ba04dd34a340729ed099": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LeonardSusskind_2011X",
+      "source_url": "https://archive.org/details/LeonardSusskind_2011X",
+      "person": "Richard Feynman",
+      "start": 138.49,
+      "reason": "The sampled frames show physicist Leonard Susskind delivering a talk about his friend Richard Feynman. While the person speaking and visible in the frames is Leonard Susskind (not Richard Feynman), it serves as valid biographical illustration/recounting of Feynman's life by a colleague.",
+      "reviewed_at": 1794438941.6055813
+    },
+    "d1b2f248e281fd5781532767": {
+      "kind": "segment_rejection",
+      "source_id": "archive:media.ccc.de-emf2018-143-richard-feynman-dick",
+      "source_url": "https://archive.org/details/media.ccc.de-emf2018-143-richard-feynman-dick",
+      "person": "Richard Feynman",
+      "start": 96.77,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1794438946.6621184
+    },
+    "565c0ea0fe859d45f68af452": {
+      "kind": "segment_rejection",
+      "source_id": "archive:media.ccc.de-emf2018-143-richard-feynman-dick",
+      "source_url": "https://archive.org/details/media.ccc.de-emf2018-143-richard-feynman-dick",
+      "person": "Richard Feynman",
+      "start": 188.53,
+      "reason": "The frames show a modern conference speaker (at Electromagnetic Field 2018) giving a talk about Richard Feynman, but Richard Feynman (who died in 1988) is not visible in the footage. Therefore, person_visible is false and it cannot be used as direct footage of the subject.",
+      "reviewed_at": 1794438953.8164716
+    },
+    "6a4a9996f44473ddd6e89904": {
+      "kind": "segment_rejection",
+      "source_id": "archive:media.ccc.de-emf2018-143-richard-feynman-dick",
+      "source_url": "https://archive.org/details/media.ccc.de-emf2018-143-richard-feynman-dick",
+      "person": "Richard Feynman",
+      "start": 280.3,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1794438957.336275
+    },
+    "add7c1421cec59899e968014": {
+      "kind": "segment_rejection",
+      "source_id": "archive:media.ccc.de-emf2018-143-richard-feynman-dick",
+      "source_url": "https://archive.org/details/media.ccc.de-emf2018-143-richard-feynman-dick",
+      "person": "Richard Feynman",
+      "start": 372.06,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1794438960.7844396
+    },
+    "af9b9dd37085cca53f088a8a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:media.ccc.de-emf2018-143-richard-feynman-dick",
+      "source_url": "https://archive.org/details/media.ccc.de-emf2018-143-richard-feynman-dick",
+      "person": "Richard Feynman",
+      "start": 463.83,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1794438963.8046093
+    },
+    "dbb7749cf507272f91b0748c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:media.ccc.de-emf2018-143-richard-feynman-dick",
+      "source_url": "https://archive.org/details/media.ccc.de-emf2018-143-richard-feynman-dick",
+      "person": "Richard Feynman",
+      "start": 555.6,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1794438967.0990386
+    },
+    "1893962a7410702e731a7457": {
+      "kind": "segment_rejection",
+      "source_id": "archive:media.ccc.de-emf2018-143-richard-feynman-dick",
+      "source_url": "https://archive.org/details/media.ccc.de-emf2018-143-richard-feynman-dick",
+      "person": "Richard Feynman",
+      "start": 739.13,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1794438970.6314526
+    },
+    "8ce9cd7b9e3612637aa25a8d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:media.ccc.de-emf2018-143-richard-feynman-dick",
+      "source_url": "https://archive.org/details/media.ccc.de-emf2018-143-richard-feynman-dick",
+      "person": "Richard Feynman",
+      "start": 830.9,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1794438973.9686038
+    },
+    "24d8e8319894164bc3957168": {
+      "kind": "segment_rejection",
+      "source_id": "archive:media.ccc.de-emf2018-143-richard-feynman-dick",
+      "source_url": "https://archive.org/details/media.ccc.de-emf2018-143-richard-feynman-dick",
+      "person": "Richard Feynman",
+      "start": 1014.43,
+      "reason": "The footage shows an unidentified speaker giving a presentation about Richard Feynman at an event, not Richard Feynman himself.",
+      "reviewed_at": 1794438987.0886004
+    },
+    "07d873b1ae80624aee55d53a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:how-richard-feynman-sees-a-flower",
+      "source_url": "https://archive.org/details/how-richard-feynman-sees-a-flower",
+      "person": "Richard Feynman",
+      "start": 34.72,
+      "reason": "The footage shows flowers and a bee in a natural setting, illustrating Richard Feynman's well-known 'Ode to a Flower' philosophy and perspective on beauty and science. The subject is not visible, but it serves as relevant biographical/thematic illustration.",
+      "reviewed_at": 1794438997.974386
+    },
+    "5a57af1327548019d0c6e986": {
+      "kind": "segment_rejection",
+      "source_id": "archive:how-richard-feynman-sees-a-flower",
+      "source_url": "https://archive.org/details/how-richard-feynman-sees-a-flower",
+      "person": "Richard Feynman",
+      "start": 14.91,
+      "reason": "The video features macro footage of flowers with overlaid subtitles narrating Richard Feynman's famous quote about seeing a flower, acting as biographical illustration since Feynman himself is not visible.",
+      "reviewed_at": 1794439016.3625996
     }
   }
 }

@@ -29,11 +29,17 @@ def _used_people(rows):
 def _topic_duplicate(person, topic, rows):
     person_key = _norm(person)
     topic_tokens = _tokens(topic)
+    # Use the same alias-tolerant identity keys as the Story uniqueness guard.
+    # This catches spelling/punctuation variants such as "A.P.J. Abdul Kalam"
+    # versus "APJ Abdul Kalam" before a stale reservation can be replayed.
+    from story_topic_uniqueness import _person_keys
+    candidate_keys = _person_keys(person)
     for row in rows:
         if not isinstance(row, dict):
             continue
         old_person = _norm(row.get("person"))
-        if person_key and old_person and person_key == old_person:
+        old_keys = _person_keys(row.get("person"))
+        if person_key and old_person and (person_key == old_person or candidate_keys & old_keys):
             return True
         old_topic = _tokens(row.get("topic"))
         if topic_tokens and old_topic:
@@ -53,6 +59,15 @@ def _reserved():
         return None
     rows = _history_rows()
     if _topic_duplicate(pending["person"], pending["topic"], rows):
+        # A reserved subject can become stale after another Story run records
+        # publication. Clear it before the uniqueness wrapper asks us again;
+        # otherwise this function replays the same reservation on every retry.
+        interactive_topics._save(PENDING, {})
+        print(
+            f"🧹 STORY TOPIC RESERVATION CLEARED: previously used person/topic "
+            f"| {pending.get('person')} — selecting a fresh subject",
+            flush=True,
+        )
         return None
     return pending
 

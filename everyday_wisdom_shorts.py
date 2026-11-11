@@ -547,85 +547,66 @@ def _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_se
 
 
 def synthesize(text, output):
+    """Use the exact shared narration pipeline used by Publish and Story Shorts."""
     import numpy as np
     import soundfile as sf
-    from kokoro import KPipeline
+    from tts import synthesize_narration
 
     source = clean(text, limit=3000)
     if not source:
         raise RuntimeError("Cannot synthesize empty Everyday Wisdom narration")
 
-    pipeline = KPipeline(lang_code="a")
-    word_count = len(source.split())
-    # Every attempt is a complete text request. Only one continuous WAV is
-    # written; no per-sentence files, artificial gaps, crossfades or compression.
-    # Retry complete synthesis if Kokoro itself emits a long internal dropout.
-    accepted = None
-    attempts = (1.00, 0.97, 1.03)
-    for attempt, speed in enumerate(attempts, start=1):
-        print(
-            f"Kokoro full-text narration request | attempt={attempt}/{len(attempts)} "
-            f"| words={word_count} | voice={VOICE} | speed={speed:.2f}x"
-        )
-        generated = []
-        for result in pipeline(source, voice=VOICE, speed=speed, split_pattern=r"\n+"):
-            audio = result[2] if isinstance(result, tuple) else result.audio
-            if audio is None:
-                continue
-            if hasattr(audio, "detach"):
-                audio = audio.detach().cpu().numpy()
-            audio = np.asarray(audio, dtype=np.float32).reshape(-1)
-            if audio.size:
-                generated.append(audio)
-
-        if not generated:
-            raise RuntimeError("Kokoro returned no audio for the complete narration")
-        audio = np.concatenate(generated)
-        if not audio.size or not np.isfinite(audio).all():
-            raise RuntimeError("Kokoro returned an empty or invalid narration waveform")
-        peak = float(np.max(np.abs(audio)))
-        if peak < 0.01:
-            raise RuntimeError("Kokoro narration is effectively silent")
-
-        gaps = _find_internal_voice_gaps(audio, 24000)
-        if gaps:
-            formatted = ", ".join(f"{left:.2f}-{right:.2f}s" for left, right in gaps)
-            print(
-                f"Kokoro voice-integrity QA rejected attempt {attempt}: "
-                f"{len(gaps)} internal near-silent gap(s): {formatted}"
-            )
-            continue
-        accepted = (audio, len(generated), speed, peak)
-        break
-
-    if accepted is None:
-        raise RuntimeError(
-            "Kokoro failed voice-integrity QA on all complete-text attempts; "
-            "refusing to render or publish narration with internal mute gaps."
-        )
-
-    audio, segment_count, accepted_speed, peak = accepted
-    sample_rate = 24000
-    sf.write(output, audio, sample_rate, subtype="PCM_16")
-    saved_audio, saved_rate = sf.read(output, dtype="float32")
-    if saved_rate != sample_rate or not np.isfinite(saved_audio).all():
-        raise RuntimeError("Saved narration WAV failed sample-rate/data integrity QA")
-    saved_gaps = _find_internal_voice_gaps(saved_audio, saved_rate)
-    if saved_gaps:
-        raise RuntimeError(f"Saved narration WAV contains internal mute gaps: {saved_gaps}")
-    if not saved_audio.size or float(np.max(np.abs(saved_audio))) < 0.01:
-        raise RuntimeError("Saved narration WAV is silent or empty")
-
-    duration = len(saved_audio) / sample_rate
+    # Match the shared workflows: pronunciation normalization, canonical
+    # full-text Kokoro API, shared WAV processing, adaptive speed handling,
+    # and the same final MP3 encoding. Keep Wisdom's 47s ceiling and do not
+    # add end padding; no chunk files, crossfades, or silence compression.
+    voice_config = {
+        "provider": "kokoro",
+        "voice_name": VOICE,
+        "kokoro_lang": "a",
+        "speed": 1.0,
+    }
     print(
-        f"Kokoro narration QA: full_text_requests<=3 | internal_segments={segment_count} | "
-        f"output_files=1 | duration={duration:.2f}s | speed={accepted_speed:.2f}x | "
-        f"peak={peak:.3f} | internal_voice_gaps=0 | single continuous WAV"
+        "Wisdom TTS: using shared tts.synthesize_narration "
+        "| provider=kokoro | voice=" + VOICE + " | target=47.00s"
+    )
+    synthesize_narration(
+        source,
+        {"voice": voice_config},
+        str(output),
+        target_duration=TARGET_SECONDS,
+        end_padding_seconds=0,
+    )
+
+    # QA the actual encoded MP3 after decoding it, not only Kokoro's raw WAV.
+    decoded_path = RUN_ROOT / "narration_tts_qa.wav"
+    subprocess.run(
+        [
+            "ffmpeg", "-y", "-v", "error", "-i", str(output),
+            "-vn", "-ac", "1", "-ar", "24000",
+            "-c:a", "pcm_s16le", str(decoded_path),
+        ],
+        check=True,
+    )
+    audio, sample_rate = sf.read(decoded_path, dtype="float32")
+    if sample_rate != 24000 or audio.size == 0 or not np.isfinite(audio).all():
+        raise RuntimeError("Shared TTS output failed decode/sample-rate/integrity QA")
+    peak = float(np.max(np.abs(audio)))
+    if peak < 0.01:
+        raise RuntimeError("Shared TTS output is effectively silent")
+    gaps = _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=0.25)
+    if gaps:
+        formatted = ", ".join(f"{left:.2f}-{right:.2f}s" for left, right in gaps)
+        raise RuntimeError("Shared TTS output contains internal near-silent gaps: " + formatted)
+
+    duration = len(audio) / float(sample_rate)
+    print(
+        f"Wisdom shared-TTS QA passed | duration={duration:.2f}s | "
+        f"peak={peak:.3f} | internal_voice_gaps=0 | encoded_mp3_decoded"
     )
     if duration > TARGET_SECONDS:
         raise RuntimeError(
-            f"Narration synthesis exceeded {TARGET_SECONDS:.0f}s: {duration:.2f}s. "
-            "Regenerate with a shorter narration; audio speed-up is disabled."
+            f"Narration synthesis exceeded {TARGET_SECONDS:.0f}s: {duration:.2f}s."
         )
     return duration
 

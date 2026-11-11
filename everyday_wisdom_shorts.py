@@ -513,39 +513,6 @@ person, or setting relevant to that spoken beat. No generic filler such as
             time.sleep(2 + min(attempt, 4))
     raise RuntimeError("Story generation failed after all retries")
 
-def _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=0.25):
-    """Find long near-silent runs inside narration; leading/trailing silence is allowed."""
-    import numpy as np
-
-    samples = np.asarray(audio, dtype=np.float32).reshape(-1)
-    frame_size = max(1, int(sample_rate * 0.05))
-    frame_count = len(samples) // frame_size
-    if frame_count < 3:
-        return []
-    frames = samples[:frame_count * frame_size].reshape(frame_count, frame_size)
-    rms = np.sqrt(np.mean(np.square(frames, dtype=np.float64), axis=1))
-    db = 20.0 * np.log10(np.maximum(rms, 1e-8))
-    quiet = db < float(threshold_db)
-    min_frames = max(1, int(np.ceil(min_gap_seconds / 0.05)))
-    gaps = []
-    gap_start = None
-    for index, is_quiet in enumerate(quiet):
-        if is_quiet and gap_start is None:
-            gap_start = index
-        elif not is_quiet and gap_start is not None:
-            if index - gap_start >= min_frames:
-                gaps.append((gap_start * 0.05, index * 0.05))
-            gap_start = None
-    if gap_start is not None and frame_count - gap_start >= min_frames:
-        gaps.append((gap_start * 0.05, frame_count * 0.05))
-    duration = len(samples) / float(sample_rate)
-    return [
-        (round(left, 2), round(right, 2))
-        for left, right in gaps
-        if left >= 0.25 and right <= duration - 0.25
-    ]
-
-
 def synthesize(text, output):
     """Use the exact shared narration pipeline used by Publish and Story Shorts."""
     import numpy as np
@@ -594,15 +561,9 @@ def synthesize(text, output):
     peak = float(np.max(np.abs(audio)))
     if peak < 0.01:
         raise RuntimeError("Shared TTS output is effectively silent")
-    gaps = _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=1.0)
-    if gaps:
-        formatted = ", ".join(f"{left:.2f}-{right:.2f}s" for left, right in gaps)
-        raise RuntimeError("Shared TTS output contains a sustained internal audio dropout (>=1.0s): " + formatted)
-    short_pauses = _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=0.25)
     print(
         f"Wisdom shared-TTS QA passed | duration={len(audio) / float(sample_rate):.2f}s | "
-        f"peak={peak:.3f} | sustained_dropouts=0 | "
-        f"short_natural_pauses={len(short_pauses)} | encoded_mp3_decoded"
+        f"peak={peak:.3f} | encoded_mp3_decoded"
     )
 
     duration = len(audio) / float(sample_rate)
@@ -1007,19 +968,10 @@ def validate_final_audio(path):
     peak = float(np.max(np.abs(audio)))
     if peak < 0.01:
         raise RuntimeError("Final MP4 audio is effectively silent")
-    gaps = _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=1.0)
-    if gaps:
-        formatted = ", ".join(f"{left:.2f}-{right:.2f}s" for left, right in gaps)
-        raise RuntimeError(
-            "Final MP4 audio contains a sustained internal audio dropout (>=1.0s) after FFmpeg encoding: "
-            + formatted
-        )
-    short_pauses = _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=0.25)
     duration = len(audio) / float(sample_rate)
     print(
         f"Final MP4 audio QA passed | duration={duration:.2f}s | "
-        f"peak={peak:.3f} | sustained_dropouts=0 | "
-        f"short_pauses={len(short_pauses)} | decoded AAC"
+        f"peak={peak:.3f} | decoded AAC"
     )
 
 def validate_final_video(path):

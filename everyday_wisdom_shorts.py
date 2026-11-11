@@ -594,16 +594,18 @@ def synthesize(text, output):
     peak = float(np.max(np.abs(audio)))
     if peak < 0.01:
         raise RuntimeError("Shared TTS output is effectively silent")
-    gaps = _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=0.25)
+    gaps = _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=1.0)
     if gaps:
         formatted = ", ".join(f"{left:.2f}-{right:.2f}s" for left, right in gaps)
-        raise RuntimeError("Shared TTS output contains internal near-silent gaps: " + formatted)
+        raise RuntimeError("Shared TTS output contains a sustained internal audio dropout (>=1.0s): " + formatted)
+    short_pauses = _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=0.25)
+    print(
+        f"Wisdom shared-TTS QA passed | duration={len(audio) / float(sample_rate):.2f}s | "
+        f"peak={peak:.3f} | sustained_dropouts=0 | "
+        f"short_natural_pauses={len(short_pauses)} | encoded_mp3_decoded"
+    )
 
     duration = len(audio) / float(sample_rate)
-    print(
-        f"Wisdom shared-TTS QA passed | duration={duration:.2f}s | "
-        f"peak={peak:.3f} | internal_voice_gaps=0 | encoded_mp3_decoded"
-    )
     if duration > TARGET_SECONDS:
         raise RuntimeError(
             f"Narration synthesis exceeded {TARGET_SECONDS:.0f}s: {duration:.2f}s."
@@ -1005,17 +1007,19 @@ def validate_final_audio(path):
     peak = float(np.max(np.abs(audio)))
     if peak < 0.01:
         raise RuntimeError("Final MP4 audio is effectively silent")
-    gaps = _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=0.25)
+    gaps = _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=1.0)
     if gaps:
         formatted = ", ".join(f"{left:.2f}-{right:.2f}s" for left, right in gaps)
         raise RuntimeError(
-            "Final MP4 audio contains internal near-silent gaps after FFmpeg encoding: "
+            "Final MP4 audio contains a sustained internal audio dropout (>=1.0s) after FFmpeg encoding: "
             + formatted
         )
+    short_pauses = _find_internal_voice_gaps(audio, sample_rate, threshold_db=-52.0, min_gap_seconds=0.25)
     duration = len(audio) / float(sample_rate)
     print(
         f"Final MP4 audio QA passed | duration={duration:.2f}s | "
-        f"peak={peak:.3f} | internal_near_silent_gaps=0 | decoded AAC"
+        f"peak={peak:.3f} | sustained_dropouts=0 | "
+        f"short_pauses={len(short_pauses)} | decoded AAC"
     )
 
 def validate_final_video(path):

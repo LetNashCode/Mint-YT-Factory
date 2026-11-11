@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-11T12:34:19.068733+00:00",
-  "refresh_attempted_at": "2026-11-11T12:34:19.068733+00:00",
+  "generated_at": "2026-11-11T18:27:35.012429+00:00",
+  "refresh_attempted_at": "2026-11-11T18:27:35.012429+00:00",
   "refresh_status": "success",
   "video_count": 39,
   "optimization_ready": true,
@@ -8,12 +8,12 @@
   "advanced_metrics_videos": 38,
   "reason": "",
   "totals": {
-    "views": 12112,
+    "views": 12124,
     "likes": 228,
     "comments": 6
   },
   "averages": {
-    "views": 310.56,
+    "views": 310.87,
     "likes": 5.85,
     "comments": 0.15,
     "average_view_percentage": 64.61,
@@ -678,7 +678,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 249,
+      "views": 250,
       "views_after_24h": 249,
       "views_after_7d": null,
       "likes": 3,
@@ -688,7 +688,7 @@
       "average_view_percentage": 63.99,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.2048
+      "engagement_rate": 1.2
     },
     {
       "topic": "Charlie Chaplin: Surviving extreme Victorian London poverty in workhouses to become cinema's first global icon.",
@@ -707,8 +707,8 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 239,
-      "views_after_24h": null,
+      "views": 250,
+      "views_after_24h": 250,
       "views_after_7d": null,
       "likes": 9,
       "comments": 0,
@@ -717,7 +717,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7657
+      "engagement_rate": 3.6
     },
     {
       "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
@@ -911,7 +911,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 107,
-      "views_after_24h": 96,
+      "views_after_24h": 97,
       "views_after_7d": 102,
       "likes": 0,
       "comments": 0,
@@ -1462,7 +1462,7 @@
         "average_view_percentage": 24.88,
         "average_view_duration": 11.0,
         "views": 23,
-        "age_hours": 257.3,
+        "age_hours": 263.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1474,7 +1474,7 @@
         "average_view_percentage": 26.56,
         "average_view_duration": 10.0,
         "views": 16,
-        "age_hours": 352.7,
+        "age_hours": 358.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1486,7 +1486,7 @@
         "average_view_percentage": 28.47,
         "average_view_duration": 12.0,
         "views": 193,
-        "age_hours": 685.4,
+        "age_hours": 691.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1498,7 +1498,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 375.1,
+        "age_hours": 381.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1510,7 +1510,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 107,
-        "age_hours": 473.4,
+        "age_hours": 479.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1522,7 +1522,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1429.0,
+        "age_hours": 1434.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1534,7 +1534,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1454.1,
+        "age_hours": 1460.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1546,7 +1546,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 571.0,
+        "age_hours": 576.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1558,7 +1558,7 @@
         "average_view_percentage": 40.42,
         "average_view_duration": 13.0,
         "views": 296,
-        "age_hours": 544.5,
+        "age_hours": 550.4,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1570,7 +1570,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1456.6,
+        "age_hours": 1462.5,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1584,7 +1584,7 @@
         "average_view_percentage": 597.81,
         "average_view_duration": 221.0,
         "views": 109,
-        "age_hours": 282.1,
+        "age_hours": 288.0,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1596,7 +1596,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 668.1,
+        "age_hours": 674.0,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1608,7 +1608,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 739.3,
+        "age_hours": 745.2,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1620,7 +1620,7 @@
         "average_view_percentage": 81.18,
         "average_view_duration": 30.0,
         "views": 11,
-        "age_hours": 355.4,
+        "age_hours": 361.3,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1632,7 +1632,7 @@
         "average_view_percentage": 78.09,
         "average_view_duration": 29.0,
         "views": 65,
-        "age_hours": 578.0,
+        "age_hours": 583.9,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1644,7 +1644,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 770.0,
+        "age_hours": 775.9,
         "target_met": true,
         "status": "goal_met"
       }

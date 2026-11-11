@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-11-11T21:44:43.439104+00:00",
-  "refresh_attempted_at": "2026-11-11T21:44:43.439104+00:00",
+  "generated_at": "2026-11-11T22:09:03.811567+00:00",
+  "refresh_attempted_at": "2026-11-11T22:09:03.811567+00:00",
   "refresh_status": "success",
-  "video_count": 30,
+  "video_count": 31,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 22,
   "reason": "",
   "totals": {
-    "views": 11000,
-    "likes": 89,
+    "views": 11035,
+    "likes": 90,
     "comments": 5
   },
   "averages": {
-    "views": 366.67,
-    "likes": 2.97,
-    "comments": 0.17,
-    "average_view_percentage": 41.12,
-    "subscribers_gained": 0.2,
+    "views": 355.97,
+    "likes": 2.9,
+    "comments": 0.16,
+    "average_view_percentage": 39.8,
+    "subscribers_gained": 0.19,
     "shares": 0.1
   },
   "top_videos": [
@@ -212,17 +212,17 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 784,
+      "views": 801,
       "views_after_24h": null,
       "views_after_7d": null,
-      "likes": 6,
+      "likes": 7,
       "comments": 0,
       "shares": 0,
       "average_view_duration": 0.0,
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.7653
+      "engagement_rate": 0.8739
     },
     {
       "topic": "The historical and functional reason why golf club handles are wrapped in rubber or leather grips.",
@@ -270,7 +270,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 535,
+      "views": 536,
       "views_after_24h": 535,
       "views_after_7d": null,
       "likes": 4,
@@ -280,7 +280,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.7477
+      "engagement_rate": 0.7463
     },
     {
       "topic": "The polite US social custom of returning borrowed casserole dishes, pie pans, or food containers with a small treat or extra food inside rather than giving them back empty, rooted in reciprocity, neig",
@@ -504,17 +504,17 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 784,
+      "views": 801,
       "views_after_24h": null,
       "views_after_7d": null,
-      "likes": 6,
+      "likes": 7,
       "comments": 0,
       "shares": 0,
       "average_view_duration": 0.0,
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.7653
+      "engagement_rate": 0.8739
     },
     {
       "topic": "The historical and functional reason why golf club handles are wrapped in rubber or leather grips.",
@@ -562,7 +562,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 535,
+      "views": 536,
       "views_after_24h": 535,
       "views_after_7d": null,
       "likes": 4,
@@ -572,7 +572,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.7477
+      "engagement_rate": 0.7463
     },
     {
       "topic": "The polite US social custom of returning borrowed casserole dishes, pie pans, or food containers with a small treat or extra food inside rather than giving them back empty, rooted in reciprocity, neig",
@@ -649,8 +649,8 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 368,
-      "views_after_24h": null,
+      "views": 361,
+      "views_after_24h": 361,
       "views_after_7d": null,
       "likes": 3,
       "comments": 0,
@@ -659,7 +659,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.8152
+      "engagement_rate": 0.831
     },
     {
       "topic": "The polite US social habit of holding doors open for people behind you, rooted in shared public courtesy, community awareness, and everyday consideration.",
@@ -1010,6 +1010,35 @@
       "engagement_rate": 0.0
     },
     {
+      "topic": "being a guest: bringing a dish, taking leftovers politely, helping clean up",
+      "video_id": "eNHuI8vm-pY",
+      "title": "Why Guests Always Cleared Their Plate",
+      "workflow": "everyday_wisdom",
+      "published_at": "2026-11-11T21:43:50Z",
+      "hook_text": "I used to feel awkward when my parents made me stand up and carry my dinner plate straight to the host's kitchen sink after a family party",
+      "hook_type": "first_person_personal_discovery",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": 83,
+      "planned_duration_seconds": 47.0,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 25,
+      "views_after_24h": null,
+      "views_after_7d": null,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
       "topic": "The household family fridge rule of writing names and dates on leftover containers, rooted in shared kitchen organization and household harmony.",
       "video_id": "k3bCvbapZkI",
       "title": "Why We Always Had to Label the Tupperware",
@@ -1113,7 +1142,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 7,
+      "views": 6,
       "views_after_24h": null,
       "views_after_7d": null,
       "likes": 0,
@@ -1155,16 +1184,16 @@
       "engagement_rate": 0.0
     },
     {
-      "topic": "being a guest: bringing a dish, taking leftovers politely, helping clean up",
-      "video_id": "eNHuI8vm-pY",
-      "title": "Why Guests Always Cleared Their Plate",
+      "topic": "The household family rule of standing back at the mailbox or driveway when the postal carrier or delivery driver arrived, rooted in neighborhood courtesy, safety, and mutual respect.",
+      "video_id": "Wm0a7MrkgR0",
+      "title": "Why We Always Had to Stand Back at the Mailbox",
       "workflow": "everyday_wisdom",
-      "published_at": "2026-11-11T21:43:50Z",
-      "hook_text": "I used to feel awkward when my parents made me stand up and carry my dinner plate straight to the host's kitchen sink after a family party",
+      "published_at": "2026-11-11T22:08:15Z",
+      "hook_text": "Whenever our mail carrier walked down the driveway, my mother always made us step back from the curb",
       "hook_type": "first_person_personal_discovery",
       "hook_score": null,
       "hook_score_components": {},
-      "script_word_count": 83,
+      "script_word_count": 85,
       "planned_duration_seconds": 47.0,
       "actual_duration_seconds": null,
       "video_width": null,
@@ -1188,7 +1217,7 @@
     "target_average_view_percentage": 70.0,
     "metric": "average_view_percentage",
     "eligible_video_count": 21,
-    "immature_or_missing_metric_count": 9,
+    "immature_or_missing_metric_count": 10,
     "videos_meeting_target_count": 4,
     "target_hit_rate_percentage": 19.05,
     "average_view_percentage": 58.75,
@@ -1201,7 +1230,7 @@
         "average_view_percentage": 39.24,
         "average_view_duration": 14.0,
         "views": 968,
-        "age_hours": 298.6,
+        "age_hours": 299.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1213,7 +1242,7 @@
         "average_view_percentage": 40.4,
         "average_view_duration": 13.0,
         "views": 112,
-        "age_hours": 581.6,
+        "age_hours": 582.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1225,7 +1254,7 @@
         "average_view_percentage": 43.75,
         "average_view_duration": 15.0,
         "views": 649,
-        "age_hours": 579.4,
+        "age_hours": 579.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1237,7 +1266,7 @@
         "average_view_percentage": 45.11,
         "average_view_duration": 15.0,
         "views": 308,
-        "age_hours": 243.5,
+        "age_hours": 244.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1249,7 +1278,7 @@
         "average_view_percentage": 45.45,
         "average_view_duration": 15.0,
         "views": 153,
-        "age_hours": 364.5,
+        "age_hours": 364.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1261,7 +1290,7 @@
         "average_view_percentage": 47.3,
         "average_view_duration": 17.0,
         "views": 20,
-        "age_hours": 393.9,
+        "age_hours": 394.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1273,7 +1302,7 @@
         "average_view_percentage": 49.67,
         "average_view_duration": 17.0,
         "views": 408,
-        "age_hours": 201.4,
+        "age_hours": 201.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1285,7 +1314,7 @@
         "average_view_percentage": 50.38,
         "average_view_duration": 15.0,
         "views": 1011,
-        "age_hours": 482.3,
+        "age_hours": 482.7,
         "target_met": false,
         "status": "below_target"
       },
@@ -1297,7 +1326,7 @@
         "average_view_percentage": 50.41,
         "average_view_duration": 16.0,
         "views": 88,
-        "age_hours": 459.9,
+        "age_hours": 460.3,
         "target_met": false,
         "status": "below_target"
       },
@@ -1309,7 +1338,7 @@
         "average_view_percentage": 51.09,
         "average_view_duration": 17.0,
         "views": 34,
-        "age_hours": 554.8,
+        "age_hours": 555.2,
         "target_met": false,
         "status": "below_target"
       }
@@ -1323,7 +1352,7 @@
         "average_view_percentage": 136.89,
         "average_view_duration": 53.0,
         "views": 399,
-        "age_hours": 552.9,
+        "age_hours": 553.3,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1335,7 +1364,7 @@
         "average_view_percentage": 108.86,
         "average_view_duration": 40.0,
         "views": 160,
-        "age_hours": 291.5,
+        "age_hours": 291.9,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1347,7 +1376,7 @@
         "average_view_percentage": 70.5,
         "average_view_duration": 24.0,
         "views": 257,
-        "age_hours": 587.3,
+        "age_hours": 587.7,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1359,7 +1388,7 @@
         "average_view_percentage": 70.46,
         "average_view_duration": 23.0,
         "views": 83,
-        "age_hours": 215.7,
+        "age_hours": 216.1,
         "target_met": true,
         "status": "goal_met"
       }

@@ -54,7 +54,9 @@ jobs:
             "numpy>=1.26.0" \
             "google-auth>=2.29.0" \
             "google-api-python-client>=2.130.0" \
-            "faster-whisper>=1.1.0"
+            "faster-whisper>=1.1.0" \
+            "moviepy==1.0.3" \
+            "Pillow<10"
 
       - name: Preflight production inputs
         env:

@@ -3480,30 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do pillows flatten",
-    "normalized": "why do pillows flatten",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794265754,
-    "recorded_at": 1794265754,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why does a keyboard click",
-    "normalized": "why does a keyboard click",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794266137,
-    "recorded_at": 1794266137,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why does a screen attract fingerprints",
     "normalized": "why does a screen attract fingerprints",
     "workflow": "publish",
@@ -3558,6 +3534,18 @@
     "status": "reserved",
     "reserved_at": 1794342931,
     "recorded_at": 1794342931,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why does a microwave hum",
+    "normalized": "why does a microwave hum",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794371536,
+    "recorded_at": 1794371536,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

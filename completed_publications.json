@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789517314",
-    "video_id": "4tcbCwaxx6g",
-    "topic": "Why do door hinges squeak",
-    "completed_at": 1789519139
-  },
-  {
     "workdir": "output/1789542410",
     "video_id": "EGhz9uxYOrY",
     "topic": "Why do old keys stick in locks",
@@ -598,5 +592,11 @@
     "video_id": "s2B5LKFnpeA",
     "topic": "Why do headlights catch fog beams",
     "completed_at": 1794343749
+  },
+  {
+    "workdir": "output/1794371638",
+    "video_id": "f4pHBKruW08",
+    "topic": "Why does a microwave hum",
+    "completed_at": 1794372680
   }
 ]

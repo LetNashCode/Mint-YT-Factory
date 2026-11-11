@@ -19489,6 +19489,106 @@
       "shot": 2,
       "query": "headlights catch fog lets you peek underneath",
       "recorded_at": 1794343054
+    },
+    {
+      "asset_key": "pexels:video:34789946",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34789946/14750198_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "microwave hum heavy vibration control",
+      "recorded_at": 1794371668
+    },
+    {
+      "asset_key": "pexels:video:12908875",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/12908875/12908875-hd_720_1280_24fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "microwave hum shaking your kitchen counter",
+      "recorded_at": 1794371670
+    },
+    {
+      "asset_key": "pixabay:video:142754",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/12/13/142754-780943398_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "microwave hum heating your leftover soup",
+      "recorded_at": 1794371673
+    },
+    {
+      "asset_key": "pixabay:video:11237",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/08/08/11237-228904642_medium.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "microwave hum inside metal box sits",
+      "recorded_at": 1794371674
+    },
+    {
+      "asset_key": "pixabay:video:307864",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2025/10/04/307864_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "microwave hum wrestling raw wall electricity",
+      "recorded_at": 1794371675
+    },
+    {
+      "asset_key": "pexels:video:36272555",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/36272555/15382013_1280_720_11fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "microwave hum alternating floods copper coils",
+      "recorded_at": 1794371676
+    },
+    {
+      "asset_key": "pexels:video:3444429",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3444429/3444429-hd_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "microwave hum making steel plates pull",
+      "recorded_at": 1794371677
+    },
+    {
+      "asset_key": "pexels:video:8090800",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8090800/8090800-hd_1280_720_24fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "microwave hum they literally slamming together",
+      "recorded_at": 1794371678
+    },
+    {
+      "asset_key": "pexels:video:8102986",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8102986/8102986-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "microwave hum famous your lunch",
+      "recorded_at": 1794371681
+    },
+    {
+      "asset_key": "pexels:video:39197838",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39197838/16679261_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "microwave hum singing along power grid",
+      "recorded_at": 1794371683
     }
   ]
 }

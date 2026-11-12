@@ -510,13 +510,17 @@ person, or setting relevant to that spoken beat. No generic filler such as
                     flush=True,
                 )
                 continue
+            if model_unavailable and model_index >= len(model_chain) - 1:
+                raise RuntimeError(
+                    f"Wisdom Gemini model unavailable on all configured models; last model {active_model}: {exc}"
+                ) from exc
             if transient:
                 model_failures[active_model] = model_failures.get(active_model, 0) + 1
                 if model_failures[active_model] >= 2:
                     raise RuntimeError(
                         f"Wisdom Gemini unavailable on all configured models; last model {active_model}: {exc}"
                     ) from exc
-            if not transient and story and (story.get("topic") or story.get("topic_key")):
+            if not transient and not model_unavailable and story and (story.get("topic") or story.get("topic_key")):
                 rejected = {
                     "topic": clean(story.get("topic"), 200),
                     "topic_key": clean(story.get("topic_key"), 120),

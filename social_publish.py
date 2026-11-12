@@ -5,7 +5,7 @@ Credentials are supplied only through environment variables / GitHub Actions sec
 
 Social policy:
   - YouTube is the primary publication and is handled by main.py.
-  - Each enabled Meta destination gets up to 3 total attempts (initial + 2 retries).
+  - Each enabled Meta destination gets up to 4 total attempts (initial + 3 retries).
   - A failure on Instagram never prevents Facebook from being attempted.
   - A failure on Facebook never prevents Instagram from being attempted.
   - In strict mode, the workflow fails only after all attempts for the failed
@@ -27,7 +27,7 @@ DEFAULT_API_VERSION = "v23.0"
 REQUEST_TIMEOUT = 180
 POLL_SECONDS = 5
 POLL_ATTEMPTS = 60
-MAX_SOCIAL_ATTEMPTS = 3
+MAX_SOCIAL_ATTEMPTS = 4
 
 
 def _env(name: str) -> str:
@@ -100,19 +100,25 @@ def prepare_social_video(video_path: str, output_dir: str, attempt: int = 1, for
         profile, level, bitrate, maxrate, preset = "main", "4.1", "8M", "10M", "medium"
     elif attempt == 2:
         profile, level, bitrate, maxrate, preset = "baseline", "4.0", "6M", "8M", "fast"
-    else:
+    elif attempt == 3:
         profile, level, bitrate, maxrate, preset = "baseline", "4.0", "5M", "7M", "fast"
+    else:
+        # Last-resort compatibility encode: lower bitrate, conservative GOP,
+        # stereo AAC and baseline H.264 for Meta's video processor.
+        profile, level, bitrate, maxrate, preset = "baseline", "4.0", "3M", "4M", "veryfast"
 
     tmp = out.with_name(f"social_reel.attempt{attempt}.tmp.mp4")
     cmd = [
         "ffmpeg", "-y", "-i", str(source),
-        "-vf", "scale=1080:1920:flags=lanczos",
+        "-map", "0:v:0", "-map", "0:a:0?",
+        "-vf", "scale=1080:1920:flags=lanczos,setsar=1",
         "-c:v", "libx264", "-preset", preset,
         "-pix_fmt", "yuv420p", "-profile:v", profile,
-        "-level:v", level, "-r", "30",
+        "-level:v", level, "-r", "30", "-fps_mode", "cfr",
+        "-g", "60", "-keyint_min", "60", "-sc_threshold", "0", "-bf", "0",
         "-b:v", bitrate, "-maxrate", maxrate, "-bufsize", "16M",
-        "-c:a", "aac", "-ar", "48000", "-b:a", "128k",
-        "-movflags", "+faststart",
+        "-c:a", "aac", "-ac", "2", "-ar", "44100", "-b:a", "128k",
+        "-metadata:s:v:0", "rotate=0", "-movflags", "+faststart",
         str(tmp),
     ]
     print(f"📱 Preparing Meta Reel derivative | attempt {attempt}/{MAX_SOCIAL_ATTEMPTS} | {profile} {level} | {bitrate} video")
@@ -124,6 +130,51 @@ def prepare_social_video(video_path: str, output_dir: str, attempt: int = 1, for
             pass
         raise RuntimeError("Social video transcode failed: " + (result.stderr or result.stdout)[-1500:])
 
+    # Validate the exact derivative before sending it to Meta. This catches
+    # unsupported codecs, dimensions, frame rates, missing audio and oversized
+    # files locally instead of returning a vague ProcessingFailedError.
+    probe = subprocess.run(
+        [
+            "ffprobe", "-v", "error", "-show_entries",
+            "stream=codec_type,codec_name,width,height,pix_fmt,r_frame_rate,sample_rate,channels",
+            "-show_entries", "format=duration,size", "-of", "json", str(tmp),
+        ],
+        capture_output=True, text=True,
+    )
+    if probe.returncode != 0:
+        tmp.unlink(missing_ok=True)
+        raise RuntimeError("Social derivative ffprobe failed: " + (probe.stderr or probe.stdout)[-1000:])
+    try:
+        metadata = json.loads(probe.stdout or "{}")
+        streams = metadata.get("streams") or []
+        video = next(s for s in streams if s.get("codec_type") == "video")
+        audio = next(s for s in streams if s.get("codec_type") == "audio")
+        duration = float((metadata.get("format") or {}).get("duration") or 0)
+        size = int((metadata.get("format") or {}).get("size") or tmp.stat().st_size)
+    except (ValueError, TypeError, StopIteration):
+        tmp.unlink(missing_ok=True)
+        raise RuntimeError("Social derivative failed the MP4 stream metadata check")
+    if (
+        video.get("codec_name") != "h264"
+        or (int(video.get("width") or 0), int(video.get("height") or 0)) != (1080, 1920)
+        or video.get("pix_fmt") != "yuv420p"
+        or audio.get("codec_name") != "aac"
+        or int(audio.get("channels") or 0) != 2
+        or not 3 <= duration <= 900
+        or size > 300 * 1024 * 1024
+    ):
+        tmp.unlink(missing_ok=True)
+        raise RuntimeError(
+            "Social derivative is not Meta-compatible: "
+            f"video={video.get('codec_name')} {video.get('width')}x{video.get('height')} "
+            f"{video.get('pix_fmt')} | audio={audio.get('codec_name')} "
+            f"{audio.get('channels')}ch | duration={duration:.2f}s | size={size}"
+        )
+    print(
+        f"🔎 Meta derivative validated: H.264 1080x1920 yuv420p + AAC stereo "
+        f"| {duration:.2f}s | {size / (1024 * 1024):.1f} MB",
+        flush=True,
+    )
     tmp.replace(out)
     return str(out)
 
@@ -158,6 +209,7 @@ def _upload_instagram(video_path: str, title: str, description: str, config: dic
         response = requests.post(
             upload_url, data=handle,
             headers={"Authorization": f"OAuth {token}", "offset": "0", "file_size": str(size),
+                     "Content-Length": str(size),
                      # Meta's resumable RUpload endpoint expects a binary body;
                      # video/mp4 here can trigger ProcessingFailedError before
                      # Instagram accepts the uploaded MP4 for processing.
@@ -247,7 +299,7 @@ def _save_publish_state(output_dir: str, state: dict) -> None:
 
 
 def _attempt_social(name: str, fn, video_path: str, title: str, description: str, config: dict, output_dir: str, state: dict) -> dict:
-    """Attempt one social destination up to three total times."""
+    """Attempt one social destination up to four total times."""
     previous = state.get(name) or {}
     if str(previous.get("status") or "").lower() == "published":
         print(f"♻️ {name.title()} already published; skipping duplicate upload.")
@@ -259,7 +311,7 @@ def _attempt_social(name: str, fn, video_path: str, title: str, description: str
             if attempt == 1:
                 social_video = prepare_social_video(video_path, output_dir, attempt=1, force=False)
             else:
-                print(f"🔁 {name.title()} retry {attempt - 1}/2 — regenerating Meta video derivative")
+                print(f"🔁 {name.title()} retry {attempt - 1}/3 — regenerating Meta video derivative")
                 social_video = prepare_social_video(video_path, output_dir, attempt=attempt, force=True)
             state["social_video"] = social_video
             _save_publish_state(output_dir, state)
@@ -284,7 +336,7 @@ def _attempt_social(name: str, fn, video_path: str, title: str, description: str
 
 
 def publish_social_reels(video_path: str, title: str, description: str, config: dict, output_dir: str) -> dict:
-    """Publish enabled Meta destinations with two retries per destination."""
+    """Publish enabled Meta destinations with three retries per destination."""
     state = _load_publish_state(output_dir)
 
     # main.py writes a compact top-level state immediately after YouTube upload.

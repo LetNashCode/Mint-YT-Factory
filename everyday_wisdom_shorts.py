@@ -24,6 +24,14 @@ VIDEO_DIR.mkdir(parents=True, exist_ok=True)
 PEXELS_URL = "https://api.pexels.com/videos/search"
 # Keep Everyday Wisdom on the same Gemini model as Publish Shorts, but isolated to this workflow.
 MODEL = os.getenv("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
+MODEL_CHAIN = tuple(dict.fromkeys(
+    name.strip() for name in (
+        MODEL,
+        os.getenv("MINT_GEMINI_FALLBACK_MODEL", "gemini-3.8-flash"),
+        os.getenv("MINT_GEMINI_TERTIARY_MODEL", "gemini-3.6-flash"),
+        os.getenv("MINT_GEMINI_QUATERNARY_MODEL", "gemini-3.1-pro-preview"),
+    ) if name and name.strip()
+))
 VOICE = os.getenv("WISDOM_KOKORO_VOICE", "af_heart")
 TARGET_SECONDS = 47.0
 MIN_NARRATION_WORDS = 78
@@ -292,6 +300,13 @@ def remember_topic(story):
     return entry
 
 def generate_story():
+    global MODEL
+    model_chain = list(MODEL_CHAIN) or [MODEL]
+    if MODEL not in model_chain:
+        model_chain.insert(0, MODEL)
+    model_index = model_chain.index(MODEL)
+    model_failures = {}
+    active_model = MODEL
     history = load_topic_history()
     used = history_strings(history)[-MAX_HISTORY_FOR_PROMPT:]
     history_block = (
@@ -393,7 +408,7 @@ person, or setting relevant to that spoken beat. No generic filler such as
 
     # More attempts are useful only when each one explores a meaningfully different
     # cultural lane. Avoid letting the model fall back to idiom etymology trivia.
-    max_attempts = 12
+    max_attempts = 16
     retry_feedback = ""
     rejected_topics = []
     phoneme_pipeline = None
@@ -419,9 +434,10 @@ person, or setting relevant to that spoken beat. No generic filler such as
             # a failed request can leave its underlying HTTP transport closed; using
             # the same live client for generation and editorial review also avoids
             # short-lived temporary clients in the review gate.
+            MODEL = active_model
             c = client()
             response = c.models.generate_content(
-                model=MODEL,
+                model=active_model,
                 contents=(
                     base_prompt
                     + "\n\nTOPIC LANE FOR THIS ATTEMPT: "
@@ -473,7 +489,34 @@ person, or setting relevant to that spoken beat. No generic filler such as
             story["editorial_scores"] = evaluate_story_quality(story, c)
             return story
         except Exception as exc:
-            if story and (story.get("topic") or story.get("topic_key")):
+            error_text = str(exc).lower()
+            transient = any(token in error_text for token in (
+                "503", "502", "500", "504", "unavailable", "high demand",
+                "temporarily", "resource_exhausted", "429",
+            ))
+            model_unavailable = any(token in error_text for token in (
+                "model not found", "not supported for generatecontent", "unknown model", "404",
+            ))
+            # Provider outages must not poison the topic ledger: retry the same
+            # content request on another model before rejecting the candidate.
+            if (transient or model_unavailable) and model_index < len(model_chain) - 1:
+                model_index += 1
+                active_model = model_chain[model_index]
+                MODEL = active_model
+                model_failures[active_model] = 0
+                print(
+                    f"🔁 Wisdom Gemini endpoint unavailable; switching to fallback "
+                    f"{model_index + 1}/{len(model_chain)}: {active_model}",
+                    flush=True,
+                )
+                continue
+            if transient:
+                model_failures[active_model] = model_failures.get(active_model, 0) + 1
+                if model_failures[active_model] >= 2:
+                    raise RuntimeError(
+                        f"Wisdom Gemini unavailable on all configured models; last model {active_model}: {exc}"
+                    ) from exc
+            if not transient and story and (story.get("topic") or story.get("topic_key")):
                 rejected = {
                     "topic": clean(story.get("topic"), 200),
                     "topic_key": clean(story.get("topic_key"), 120),

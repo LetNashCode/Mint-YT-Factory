@@ -584,8 +584,8 @@ def test_verifier_network_outage_fails_closed_after_three_attempts(monkeypatch):
     monkeypatch.setenv("STORY_GEMINI_NETWORK_RETRIES", "2")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
     calls = []
-    def post(*args, **kwargs):
-        calls.append(1)
+    def post(url, **kwargs):
+        calls.append(url)
         raise requests.ReadTimeout()
     monkeypatch.setattr(media.requests, "post", post)
     with pytest.raises(RuntimeError, match="network unavailable after 3 attempts on gemini-flash-lite-latest"):

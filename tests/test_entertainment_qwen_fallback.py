@@ -77,7 +77,7 @@ def test_script_generator_switches_to_supported_model_on_model_404(monkeypatch):
     monkeypatch.setattr(entertainment.genai, "Client", lambda **kwargs: client)
     monkeypatch.setattr(entertainment, "_api_key", lambda: "test-key")
     monkeypatch.setattr(entertainment, "_parse", lambda value: {})
-    monkeypatch.setattr(entertainment, "_normalize", lambda data, topic: {"ok": True})
+    monkeypatch.setattr(entertainment, "_normalize", lambda data, topic, **kwargs: {"ok": True})
     monkeypatch.setattr(entertainment.time, "sleep", lambda *_: None)
     monkeypatch.setattr(entertainment, "MODEL_NAME", "gemini-3.5-flash-lite")
     monkeypatch.setattr(entertainment, "SECONDARY_MODEL_NAME", "gemini-3.8-flash")

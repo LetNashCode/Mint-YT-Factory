@@ -158,7 +158,10 @@ def _upload_instagram(video_path: str, title: str, description: str, config: dic
         response = requests.post(
             upload_url, data=handle,
             headers={"Authorization": f"OAuth {token}", "offset": "0", "file_size": str(size),
-                     "Content-Type": "video/mp4"},
+                     # Meta's resumable RUpload endpoint expects a binary body;
+                     # video/mp4 here can trigger ProcessingFailedError before
+                     # Instagram accepts the uploaded MP4 for processing.
+                     "Content-Type": "application/octet-stream"},
             timeout=REQUEST_TIMEOUT,
         )
     if not response.ok:

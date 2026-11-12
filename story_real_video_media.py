@@ -37,7 +37,7 @@ QUOTA_DEFER_FILE = ".story_gemini_quota_deferred"
 VERIFIER_BUDGET_DEFER_FILE = story_gemini_budget.BUDGET_DEFER_FILE
 NETWORK_DEFER_FILE = ".story_gemini_network_deferred"
 DEFAULT_VERIFIER_REQUEST_BUDGET = story_gemini_budget.DEFAULT_MAX_REQUESTS
-GEMINI_MODEL = os.environ.get("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite").strip() or "gemini-3.5-flash-lite"
+GEMINI_MODEL = os.environ.get("MINT_GEMINI_MODEL", "gemini-flash-lite-latest").strip() or "gemini-3.5-flash-lite"
 GEMINI_FALLBACK_MODEL = (
     os.environ.get("STORY_GEMINI_FALLBACK_MODEL")
     or os.environ.get("MINT_GEMINI_FALLBACK_MODEL")
@@ -954,13 +954,17 @@ def verify(person, scene, item, samples):
             fallback_errors.append(f"{fallback}: {fallback_last_error}")
 
         detail = "; ".join(fallback_errors) or "no distinct fallback model configured"
-        Path(NETWORK_DEFER_FILE).write_text(
-            f"Story verifier unavailable after retries on {model}: {last_error}; {detail}.\n",
-            encoding="utf-8",
-        )
-        raise RuntimeError(
-            f"Story verifier unavailable after retries on {model}: {last_error}; {detail}"
-        )
+        if last_error == "network timeout":
+            failure_message = (
+                f"Story verifier network unavailable after {network_attempts} attempts on "
+                f"{model}; fallback attempts: {detail}"
+            )
+        else:
+            failure_message = (
+                f"Story verifier unavailable after retries on {model}: {last_error}; {detail}"
+            )
+        Path(NETWORK_DEFER_FILE).write_text(failure_message + "\\n", encoding="utf-8")
+        raise RuntimeError(failure_message)
 
     raise RuntimeError(
         f"Story verifier request failed on {model}: {last_error}"

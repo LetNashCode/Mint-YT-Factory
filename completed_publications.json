@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789542410",
-    "video_id": "EGhz9uxYOrY",
-    "topic": "Why do old keys stick in locks",
-    "completed_at": 1789544187
-  },
-  {
     "workdir": "output/1789551893",
     "video_id": "C8QfYGr9yEo",
     "topic": "Why do door handles sag over time",
@@ -598,5 +592,11 @@
     "video_id": "f4pHBKruW08",
     "topic": "Why does a microwave hum",
     "completed_at": 1794372680
+  },
+  {
+    "workdir": "output/1794497814",
+    "video_id": "ElOpt0WEg5g",
+    "topic": "Why do combs collect hair",
+    "completed_at": 1794499242
   }
 ]

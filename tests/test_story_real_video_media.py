@@ -165,6 +165,7 @@ def test_source_precheck_rejects_historical_person_noise():
 def test_verifier_retries_transient_503(monkeypatch, tmp_path):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+    monkeypatch.setenv("MINT_GEMINI_MODEL", "gemini-flash-lite-latest")
     monkeypatch.setenv("STORY_GEMINI_NETWORK_RETRIES", "1")
     monkeypatch.setenv("STORY_GEMINI_TRANSIENT_RETRIES", "3")
     monkeypatch.setenv("STORY_GEMINI_REQUEST_TIMEOUT", "15")
@@ -212,6 +213,7 @@ def test_verifier_retries_transient_503(monkeypatch, tmp_path):
 def test_verifier_network_timeout_creates_defer_marker(monkeypatch, tmp_path):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+    monkeypatch.setenv("MINT_GEMINI_MODEL", "gemini-flash-lite-latest")
     monkeypatch.setenv("STORY_GEMINI_NETWORK_RETRIES", "0")
     monkeypatch.setenv("STORY_GEMINI_REQUEST_TIMEOUT", "15")
     def timeout(*args, **kwargs):
@@ -561,6 +563,7 @@ def test_verified_sources_are_reused_before_unseen_sources(monkeypatch, tmp_path
 @pytest.mark.parametrize("failure", [requests.ReadTimeout, requests.ConnectionError])
 def test_verifier_network_failure_retries_same_publish_model(monkeypatch, failure):
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setenv("MINT_GEMINI_MODEL", "gemini-flash-lite-latest")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
     calls = []
     def post(url, **kwargs):
@@ -577,6 +580,7 @@ def test_verifier_network_failure_retries_same_publish_model(monkeypatch, failur
 
 def test_verifier_network_outage_fails_closed_after_three_attempts(monkeypatch):
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setenv("MINT_GEMINI_MODEL", "gemini-flash-lite-latest")
     monkeypatch.setenv("STORY_GEMINI_NETWORK_RETRIES", "2")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
     calls = []
@@ -596,6 +600,7 @@ def test_verifier_network_outage_fails_closed_after_three_attempts(monkeypatch):
 def test_story_verifier_uses_publish_shorts_gemini_model(monkeypatch):
     import stock_search
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setenv("MINT_GEMINI_MODEL", "gemini-flash-lite-latest")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
     calls = []
 
@@ -617,6 +622,7 @@ def test_story_verifier_uses_publish_shorts_gemini_model(monkeypatch):
 
 def test_story_verifier_uses_stable_fallback_after_primary_5xx(monkeypatch):
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setenv("MINT_GEMINI_MODEL", "gemini-flash-lite-latest")
     monkeypatch.setenv("STORY_GEMINI_TRANSIENT_RETRIES", "1")
     monkeypatch.setenv("STORY_GEMINI_FALLBACK_MODEL", "gemini-3.5-flash-lite")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
@@ -642,6 +648,7 @@ def test_story_verifier_uses_stable_fallback_after_primary_5xx(monkeypatch):
 
 def test_story_verifier_fallback_never_bypasses_daily_quota(monkeypatch):
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setenv("MINT_GEMINI_MODEL", "gemini-flash-lite-latest")
     monkeypatch.setenv("STORY_GEMINI_TRANSIENT_RETRIES", "0")
     monkeypatch.setenv("STORY_GEMINI_FALLBACK_MODEL", "gemini-3.5-flash-lite")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
@@ -693,6 +700,7 @@ def test_first_identity_sample_comes_from_middle_of_recording(monkeypatch, tmp_p
 @pytest.mark.parametrize("status", [429, 503])
 def test_quota_or_server_error_retries_same_publish_model(monkeypatch, status):
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setenv("MINT_GEMINI_MODEL", "gemini-flash-lite-latest")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
     calls = []
     def post(url, **kwargs):

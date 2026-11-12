@@ -387,7 +387,7 @@ def main() -> None:
             "STORY_TOPIC_ATTEMPTS", "20"
         ))))
     except (TypeError, ValueError):
-        max_story_attempts = 16
+        max_story_attempts = 20
     for attempt in range(1, max_story_attempts + 1):
         # A fresh subject needs up to the hard 14-clip minimum. Do not start
         # another full production attempt once the remaining run-wide budget

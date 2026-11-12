@@ -247,6 +247,7 @@ def _story_defer_failure(exc: Exception) -> bool:
     text = str(exc or "").lower()
     markers = (
         "story video providers unavailable",
+        "story media provider temporarily unavailable",
         "no unused story subject with real-video candidates",
         "story candidate pool is empty",
         "story visual verifier http 429",

@@ -292,7 +292,7 @@ def command(args, timeout=90):
     if result.returncode:
         # Do not print commands, signed media URLs or provider response bodies.
         stderr = result.stderr.decode("utf-8", "replace") if isinstance(result.stderr, bytes) else str(result.stderr or "")
-        status = re.search(r"(?i)\bHTTP(?:/\d(?:\.\d)?)?\s+(5\d\d)\b", stderr)
+        status = re.search(r"(?i)\bHTTP(?:/\d(?:\.\d)?)?\s+(429|5\d\d)\b", stderr)
         safe_status = f" HTTP {status.group(1)}" if status else ""
         raise RuntimeError(
             f"{Path(args[0]).name} failed (exit {result.returncode}){safe_status}"

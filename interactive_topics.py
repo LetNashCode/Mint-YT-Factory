@@ -103,7 +103,7 @@ RECENT PEOPLE TO AVOID:\n{chr(10).join('- '+x for x in people[-15:]) or '- none'
 def _ensure_pool():
     rows=_load(CANDIDATES,[]); history=_load_history(); used={_n(x.get("person","")) for x in history if isinstance(x,dict)}
     rows=[x for x in rows if isinstance(x,dict) and _n(x.get("person","")) not in used]
-    if len(rows)<5: rows.extend(_generate_candidates(10))
+    if len(rows)<8: rows.extend(_generate_candidates(20))
     seen=set(); clean=[]
     for row in rows:
         key=_n(row.get("person",""))

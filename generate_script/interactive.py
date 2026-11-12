@@ -9,7 +9,10 @@ import story_gemini_budget
 
 STORY_MIN_WORDS = 80
 STORY_MAX_WORDS = 120
-STORY_SCENE_WORD_BUDGETS = ((8,18),(7,22),(7,22),(7,22),(7,22),(7,22),(10,28))
+# A six-word beat is valid for a short visual scene; the overall narration
+# contract still enforces a complete 45-second story, so this avoids rejecting
+# otherwise sound scripts for a single concise transition.
+STORY_SCENE_WORD_BUDGETS = ((8,18),(6,22),(6,22),(6,22),(6,22),(6,22),(10,28))
 STORY_FORMATS = (
     {"name":"rise_from_nothing","direction":"Show the person before success, the obstacle, the decisive attempt, and the consequence. Never turn it into a generic motivational speech."},
     {"name":"one_decision","direction":"Build around one decision that changed the person's direction. Delay the consequence until late in the Short."},
@@ -270,8 +273,12 @@ Return the normal production JSON schema. Put the person's name in the topic/tit
     # Allow four bounded script attempts: the last failure can be a single
     # scene-count issue even after the total-word count has been corrected.
     # This remains a small fixed ceiling and does not relax the story contract.
-    story_attempts = 6
+    story_attempts = 8
     active_model = _base.MODEL_NAME
+    model_chain = list(getattr(_base, "MODEL_CHAIN", (active_model,)))
+    if active_model not in model_chain:
+        model_chain.insert(0, active_model)
+    model_index = model_chain.index(active_model)
     transient_backoff = (5, 10, 20, 30, 45)
     for attempt in range(story_attempts):
         try:
@@ -294,9 +301,11 @@ Return the normal production JSON schema. Put the person's name in the topic/tit
                 print("🛑 Gemini project/day quota exhausted — deferring Story Shorts generation without consuming the reserved subject.")
                 raise RuntimeError(f"{STORY_GEMINI_QUOTA_DEFERRED}: Gemini project/day quota is exhausted; Story Shorts will resume on the next successful run.") from exc
             transient = any(token in last_error.lower() for token in ("503", "502", "500", "504", "unavailable", "high demand", "temporarily"))
-            if transient and active_model != _base.SECONDARY_MODEL_NAME:
-                active_model = _base.SECONDARY_MODEL_NAME
-                print(f"🔁 Story Gemini primary model unavailable; switching to configured fallback: {active_model}", flush=True)
+            model_unavailable = any(token in last_error.lower() for token in ("model not found", "not supported for generatecontent", "unknown model", "404"))
+            if (transient or model_unavailable) and model_index < len(model_chain) - 1:
+                model_index += 1
+                active_model = model_chain[model_index]
+                print(f"🔁 Story Gemini endpoint unavailable; switching to fallback {model_index + 1}/{len(model_chain)}: {active_model}", flush=True)
                 continue
             if attempt+1<story_attempts:
                 delay = transient_backoff[min(attempt, len(transient_backoff)-1)] if transient else 2

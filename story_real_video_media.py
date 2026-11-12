@@ -524,7 +524,7 @@ def search_archive(person):
             file_urls = [
                 "https://archive.org/download/" + quote(identifier, safe="") +
                 "/" + quote(f["name"], safe="/")
-                for f in files[:5]
+                for f in files[:3]
             ]
             candidate["url"] = file_urls[0]
             candidate["alternate_urls"] = file_urls[1:]
@@ -564,27 +564,27 @@ def probe(path):
     reject_youtube_url(path)
     remote = str(path).startswith(("http://", "https://"))
     network_args = (
-        ["-rw_timeout", "30000000", "-reconnect", "1", "-reconnect_streamed", "1",
+        ["-rw_timeout", "20000000", "-reconnect", "1", "-reconnect_streamed", "1",
          "-reconnect_delay_max", "5", "-user_agent", UA]
         if remote else []
     )
     last_error = None
     data = None
-    for attempt in range(3):
+    for attempt in range(2):
         try:
             result = command(
                 ["ffprobe", "-v", "error", "-probesize", "30M", "-analyzeduration", "30M",
                  "-select_streams", "v:0", "-show_entries",
                  "stream=width,height,duration:format=duration", "-of", "json"]
                 + network_args + [str(path)],
-                timeout=75,
+                timeout=45,
             )
             data = json.loads(result.stdout)
             break
         except (RuntimeError, subprocess.TimeoutExpired, ValueError) as exc:
             last_error = exc
-            if attempt < 2 and remote:
-                time.sleep(1 + attempt * 2)
+            if attempt < 1 and remote:
+                time.sleep(1)
                 continue
             safe_reason = "network timeout" if isinstance(exc, subprocess.TimeoutExpired) else str(exc)
             raise RuntimeError(
@@ -615,7 +615,7 @@ def resolve(item):
         if url and url not in urls:
             urls.append(url)
     last_error = None
-    for index, url in enumerate(urls[:5], start=1):
+    for index, url in enumerate(urls[:3], start=1):
         try:
             reject_youtube_url(url)
             duration = probe(url)

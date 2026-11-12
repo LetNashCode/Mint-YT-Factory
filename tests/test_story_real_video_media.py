@@ -586,7 +586,11 @@ def test_verifier_network_outage_fails_closed_after_three_attempts(monkeypatch):
     monkeypatch.setattr(media.requests, "post", post)
     with pytest.raises(RuntimeError, match="network unavailable after 3 attempts on gemini-flash-lite-latest"):
         media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
-    assert len(calls) == 3
+    assert len(calls) == 9
+    assert sum("gemini-flash-lite-latest" in call for call in calls) == 3
+    assert sum("gemini-3.8-flash" in call for call in calls) == 2
+    assert sum("gemini-3.6-flash" in call for call in calls) == 2
+    assert sum("gemini-3.1-pro-preview" in call for call in calls) == 2
 
 
 def test_story_verifier_uses_publish_shorts_gemini_model(monkeypatch):

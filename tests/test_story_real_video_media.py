@@ -394,12 +394,13 @@ def test_verification_samples_the_rendered_opening_not_later_frames(monkeypatch)
 
 def test_unavailable_publish_model_uses_stable_fallback(monkeypatch):
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
-    monkeypatch.setenv("STORY_GEMINI_FALLBACK_MODEL", "gemini-3.5-flash-lite")
+    monkeypatch.setenv("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
+    monkeypatch.setenv("STORY_GEMINI_FALLBACK_MODEL", "gemini-3.8-flash")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
     calls = []
     def post(url, **kwargs):
         calls.append(url)
-        if "gemini-flash-lite-latest" in url:
+        if "gemini-3.5-flash-lite" in url:
             return SimpleNamespace(status_code=404, raise_for_status=lambda: None, json=lambda: {})
         return SimpleNamespace(
             status_code=200,
@@ -410,7 +411,7 @@ def test_unavailable_publish_model_uses_stable_fallback(monkeypatch):
     result = media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
     assert media.verification_passes(result)
     assert len(calls) == 2
-    assert "gemini-3.5-flash-lite" in calls[-1]
+    assert "gemini-3.8-flash" in calls[-1]
 
 @pytest.mark.parametrize("url", ["https://www.youtube.com/watch?v=abc", "https://youtu.be/abc",
     "https://www.youtube-nocookie.com/embed/abc", "https://rr1.googlevideo.com/videoplayback"])

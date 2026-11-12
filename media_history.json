@@ -19709,6 +19709,116 @@
       "shot": 2,
       "query": "combs collect hair weaves into accidental wool",
       "recorded_at": 1794497881
+    },
+    {
+      "asset_key": "pexels:video:4052925",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4052925/4052925-hd_1280_720_50fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "pillows every pillow starts out",
+      "recorded_at": 1794507502
+    },
+    {
+      "asset_key": "pexels:video:6654095",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6654095/6654095-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "pillows ends like folded cardboard",
+      "recorded_at": 1794507504
+    },
+    {
+      "asset_key": "pexels:video:4109497",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4109497/4109497-hd_1366_720_50fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "pillows you shake punch fold",
+      "recorded_at": 1794507507
+    },
+    {
+      "asset_key": "pexels:video:17041569",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/17041569/17041569-hd_720_1280_30fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "pillows but morning flat again",
+      "recorded_at": 1794507507
+    },
+    {
+      "asset_key": "pexels:video:7505288",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7505288/7505288-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "pillows fluff was solid stuffing",
+      "recorded_at": 1794507509
+    },
+    {
+      "asset_key": "pexels:video:6941198",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6941198/6941198-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "pillows every night your ten-pound",
+      "recorded_at": 1794507511
+    },
+    {
+      "asset_key": "pexels:video:6150663",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6150663/6150663-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "pillows squeezing every air bubble",
+      "recorded_at": 1794507513
+    },
+    {
+      "asset_key": "pexels:video:6541396",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6541396/6541396-hd_1280_720_50fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "pillows worse nighttime sweat acts",
+      "recorded_at": 1794507514
+    },
+    {
+      "asset_key": "pexels:video:7234022",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7234022/7234022-hd_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "pillows moisture coats fibers tangling",
+      "recorded_at": 1794507515
+    },
+    {
+      "asset_key": "pexels:video:6685562",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6685562/6685562-hd_1366_720_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "pillows you aren crushing feathers",
+      "recorded_at": 1794507518
+    },
+    {
+      "asset_key": "pexels:video:6941200",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6941200/6941200-hd_1366_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "pillows you suffocating air pockets",
+      "recorded_at": 1794507519
     }
   ]
 }

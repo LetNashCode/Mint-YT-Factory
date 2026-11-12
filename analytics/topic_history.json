@@ -3514,5 +3514,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do pillows flatten",
+    "normalized": "why do pillows flatten",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794507232,
+    "recorded_at": 1794507232,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

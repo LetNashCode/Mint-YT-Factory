@@ -963,7 +963,7 @@ def verify(person, scene, item, samples):
             failure_message = (
                 f"Story verifier unavailable after retries on {model}: {last_error}; {detail}"
             )
-        Path(NETWORK_DEFER_FILE).write_text(failure_message + "\\n", encoding="utf-8")
+        Path(NETWORK_DEFER_FILE).write_text(failure_message + "\n", encoding="utf-8")
         raise RuntimeError(failure_message)
 
     raise RuntimeError(

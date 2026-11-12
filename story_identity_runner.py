@@ -131,7 +131,7 @@ def _patch_story_video_topics() -> None:
         return
     def video_ready_topic():
         from story_topic_runtime import release_reservation
-        max_attempts = max(8, int(os.environ.get("STORY_TOPIC_ATTEMPTS", "16")))
+        max_attempts = max(8, int(os.environ.get("STORY_TOPIC_ATTEMPTS", "20")))
         for attempt in range(max_attempts):
             pillar, topic, person = original()
             person_key = _person_key(person)
@@ -384,7 +384,7 @@ def main() -> None:
     # quota/network/budget failures still defer immediately below.
     try:
         max_story_attempts = max(1, min(30, int(os.environ.get(
-            "STORY_TOPIC_ATTEMPTS", "16"
+            "STORY_TOPIC_ATTEMPTS", "20"
         ))))
     except (TypeError, ValueError):
         max_story_attempts = 16

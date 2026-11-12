@@ -884,6 +884,9 @@ def verify(person, scene, item, samples):
     raise RuntimeError(
         f"Story verifier request failed on {model}: {last_error}"
     )
+
+
+def validate_segments(groups, expected=14):
     if len(groups) != expected:
         raise RuntimeError(f"Expected {expected} real video segments, got {len(groups)}")
     intervals = {}

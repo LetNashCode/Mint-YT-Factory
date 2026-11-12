@@ -291,7 +291,12 @@ def command(args, timeout=90):
     result = subprocess.run(args, capture_output=True, timeout=timeout, check=False)
     if result.returncode:
         # Do not print commands, signed media URLs or provider response bodies.
-        raise RuntimeError(f"{Path(args[0]).name} failed (exit {result.returncode})")
+        stderr = result.stderr.decode("utf-8", "replace") if isinstance(result.stderr, bytes) else str(result.stderr or "")
+        status = re.search(r"(?i)\\bHTTP(?:/\\d(?:\\.\\d)?)?\\s+(5\\d\\d)\\b", stderr)
+        safe_status = f" HTTP {status.group(1)}" if status else ""
+        raise RuntimeError(
+            f"{Path(args[0]).name} failed (exit {result.returncode}){safe_status}"
+        )
     return result
 
 
@@ -581,7 +586,10 @@ def probe(path):
             if attempt < 2 and remote:
                 time.sleep(1 + attempt * 2)
                 continue
-            raise RuntimeError(f"Could not probe Story source after {attempt + 1} attempt(s): {type(exc).__name__}") from exc
+            safe_reason = "network timeout" if isinstance(exc, subprocess.TimeoutExpired) else str(exc)
+            raise RuntimeError(
+                f"Could not probe Story source after {attempt + 1} attempt(s): {safe_reason}"
+            ) from exc
     if data is None:
         raise RuntimeError(f"Could not probe Story source: {type(last_error).__name__ if last_error else 'unknown error'}")
     stream = (data.get("streams") or [{}])[0]
@@ -675,7 +683,10 @@ def extract(url, start, length, path):
             if attempt == 0 and remote:
                 time.sleep(2)
                 continue
-            raise RuntimeError(f"Story source interval extraction failed after {attempt + 1} attempt(s): {type(exc).__name__}") from exc
+            safe_reason = "network timeout" if isinstance(exc, subprocess.TimeoutExpired) else str(exc)
+            raise RuntimeError(
+                f"Story source interval extraction failed after {attempt + 1} attempt(s): {safe_reason}"
+            ) from exc
     raise RuntimeError(f"Story source interval extraction failed: {type(last_error).__name__ if last_error else 'unknown error'}")
 
 

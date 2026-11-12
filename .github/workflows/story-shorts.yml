@@ -66,7 +66,7 @@ jobs:
             echo "ℹ️ No previous Story render artifact available"
           fi
       - name: Compile Story Shorts runtime and quality gates
-        run: python -m py_compile retention_learning.py tts.py interactive_main.py interactive_topics.py interactive_analytics.py story_render_recovery.py story_social_resume.py story_youtube_metadata.py story_identity_runner.py story_visual_upgrade.py story_real_video_media.py story_qwen_vision_fallback.py story_archival_media.py story_media_quality.py story_topic_runtime.py story_topic_uniqueness.py story_stock_runtime.py story_topic_media_lock.py story_media_preflight.py story_gemini_budget.py final_video_quality_gate.py publication_state.py social_retry_state.py upload_youtube.py validate_video.py assemble.py
+        run: python -m py_compile retention_learning.py generate_script/entertainment.py generate_script/interactive.py social_publish.py tts.py interactive_main.py interactive_topics.py interactive_analytics.py story_render_recovery.py story_social_resume.py story_youtube_metadata.py story_identity_runner.py story_visual_upgrade.py story_real_video_media.py story_qwen_vision_fallback.py story_archival_media.py story_media_quality.py story_topic_runtime.py story_topic_uniqueness.py story_stock_runtime.py story_topic_media_lock.py story_media_preflight.py story_gemini_budget.py final_video_quality_gate.py publication_state.py social_retry_state.py upload_youtube.py validate_video.py assemble.py
       - name: Resume pending Story social publication
         id: resume
         env:

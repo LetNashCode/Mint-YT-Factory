@@ -549,8 +549,33 @@ def discover(person, audit):
 
 def probe(path):
     reject_youtube_url(path)
-    data = json.loads(command(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
-                               "stream=width,height,duration:format=duration", "-of", "json"] + (["-user_agent", UA] if str(path).startswith(("http://", "https://")) else []) + [str(path)], timeout=45).stdout)
+    remote = str(path).startswith(("http://", "https://"))
+    network_args = (
+        ["-rw_timeout", "30000000", "-reconnect", "1", "-reconnect_streamed", "1",
+         "-reconnect_delay_max", "5", "-user_agent", UA]
+        if remote else []
+    )
+    last_error = None
+    data = None
+    for attempt in range(3):
+        try:
+            result = command(
+                ["ffprobe", "-v", "error", "-probesize", "30M", "-analyzeduration", "30M",
+                 "-select_streams", "v:0", "-show_entries",
+                 "stream=width,height,duration:format=duration", "-of", "json"]
+                + network_args + [str(path)],
+                timeout=75,
+            )
+            data = json.loads(result.stdout)
+            break
+        except (RuntimeError, subprocess.TimeoutExpired, ValueError) as exc:
+            last_error = exc
+            if attempt < 2 and remote:
+                time.sleep(1 + attempt * 2)
+                continue
+            raise RuntimeError(f"Could not probe Story source after {attempt + 1} attempt(s): {type(exc).__name__}") from exc
+    if data is None:
+        raise RuntimeError(f"Could not probe Story source: {type(last_error).__name__ if last_error else 'unknown error'}")
     stream = (data.get("streams") or [{}])[0]
     durations = [stream.get("duration"), (data.get("format") or {}).get("duration")]
     duration = next((float(v) for v in durations if v not in (None, "N/A", "")), 0.0)
@@ -585,17 +610,39 @@ def windows(duration, length=8.0, limit=8):
 
 def extract(url, start, length, path):
     reject_youtube_url(url)
-    # Decode only the chosen interval and actually transcode WebM/OGV into MP4.
-    command(["ffmpeg", "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
-             "-rw_timeout", "20000000"] + (["-user_agent", UA] if str(url).startswith(("http://", "https://")) else []) + ["-ss", str(start), "-i", str(url), "-t", str(length),
-             "-map", "0:v:0", "-an", "-sn", "-dn", "-vf",
-             "scale=w='min(1920,iw)':h='min(1080,ih)':force_original_aspect_ratio=decrease:force_divisible_by=2,setsar=1",
-             "-c:v", "libx264", "-preset", "fast", "-crf", "19", "-pix_fmt", "yuv420p",
-             "-r", "30", "-movflags", "+faststart", str(path)], timeout=120)
-    actual = probe(path)
-    if actual < length - 0.25:
-        raise RuntimeError("Truncated source interval")
-    return actual
+    remote = str(url).startswith(("http://", "https://"))
+    network_args = (
+        ["-rw_timeout", "30000000", "-reconnect", "1", "-reconnect_streamed", "1",
+         "-reconnect_delay_max", "5", "-user_agent", UA]
+        if remote else []
+    )
+    # Retry transient Archive/Commons range-request failures before discarding
+    # an otherwise usable source. Only the selected eight-second interval is
+    # decoded; the full archive file is never downloaded for this fallback.
+    last_error = None
+    for attempt in range(2):
+        try:
+            command(
+                ["ffmpeg", "-nostdin", "-hide_banner", "-loglevel", "error", "-y"]
+                + network_args + ["-ss", str(start), "-i", str(url), "-t", str(length),
+                "-map", "0:v:0", "-an", "-sn", "-dn", "-vf",
+                "scale=w='min(1920,iw)':h='min(1080,ih)':force_original_aspect_ratio=decrease:force_divisible_by=2,setsar=1",
+                "-c:v", "libx264", "-preset", "fast", "-crf", "19", "-pix_fmt", "yuv420p",
+                "-r", "30", "-movflags", "+faststart", str(path)],
+                timeout=150,
+            )
+            actual = probe(path)
+            if actual < length - 0.25:
+                raise RuntimeError("Truncated source interval")
+            return actual
+        except (RuntimeError, subprocess.TimeoutExpired) as exc:
+            last_error = exc
+            Path(path).unlink(missing_ok=True)
+            if attempt == 0 and remote:
+                time.sleep(2)
+                continue
+            raise RuntimeError(f"Story source interval extraction failed after {attempt + 1} attempt(s): {type(exc).__name__}") from exc
+    raise RuntimeError(f"Story source interval extraction failed: {type(last_error).__name__ if last_error else 'unknown error'}")
 
 
 def frames(path, duration):

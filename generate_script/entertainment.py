@@ -12,6 +12,13 @@ from google.genai import types
 
 MODEL_NAME = os.getenv("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
 SECONDARY_MODEL_NAME = os.getenv("MINT_GEMINI_FALLBACK_MODEL", "gemini-3.8-flash")
+TERTIARY_MODEL_NAME = os.getenv("MINT_GEMINI_TERTIARY_MODEL", "gemini-3.6-flash")
+QUATERNARY_MODEL_NAME = os.getenv("MINT_GEMINI_QUATERNARY_MODEL", "gemini-3.1-pro-preview")
+MODEL_CHAIN = tuple(dict.fromkeys(
+    name.strip() for name in (
+        MODEL_NAME, SECONDARY_MODEL_NAME, TERTIARY_MODEL_NAME, QUATERNARY_MODEL_NAME
+    ) if name and name.strip()
+))
 FALLBACK_MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 SCENE_COUNT = 6
 VISUALS_PER_SCENE = 2
@@ -270,6 +277,10 @@ def _generate_with_qwen(prompt,topic,last_error=None):
     raise RuntimeError("Qwen fallback failed: "+" | ".join(failures[-2:]))
 def generate_script(topic,config,research=None,extra_feedback=""):
     global MODEL_NAME
+    model_chain = list(MODEL_CHAIN)
+    if MODEL_NAME not in model_chain:
+        model_chain.insert(0, MODEL_NAME)
+    model_index = model_chain.index(MODEL_NAME)
     topic=_clean(topic)
     if not topic: raise RuntimeError("Topic is empty.")
     client=genai.Client(api_key=_api_key()); feedback="\n\nPRIOR FEEDBACK:\n"+_clean(extra_feedback) if extra_feedback else ""
@@ -300,25 +311,21 @@ VISUALS: every one of the 12 shots must represent a specific spoken beat. Return
             response=client.models.generate_content(model=MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_build_schema(),temperature=0.85))
             text=getattr(response,"text",None)
             if not text: raise RuntimeError("Gemini returned an empty response.")
-            return _normalize(_parse(text),topic)
+            return _normalize(_parse(text),topic,enforce_word_contract=True)
         except Exception as error:
             last_error=f"{type(error).__name__}: {error}"
             if not _is_quota_error(last_error) and "503" not in last_error and "unavailable" not in last_error.lower() and "high demand" not in last_error.lower():
                 print(f"⚠️ Script validation/generation retry {validation_attempts + 1}/{MAX_ATTEMPTS}: {last_error}", flush=True)
             quota_error=_is_quota_error(last_error)
             model_unavailable = any(token in last_error.lower() for token in ("404", "not_found", "model is not found", "not supported for generatecontent", "is not found for api version"))
-            if model_unavailable and MODEL_NAME != SECONDARY_MODEL_NAME:
-                MODEL_NAME = SECONDARY_MODEL_NAME
-                print(f"🔁 Gemini model unavailable; switching to supported fallback: {MODEL_NAME}", flush=True)
-                continue
-            transient=(quota_error or "503" in last_error or "unavailable" in last_error.lower() or "high demand" in last_error.lower())
-            # A temporary outage on the primary model must not exhaust all
-            # retries against that same endpoint. Fail over once to the
-            # configured secondary model, then use bounded retries there.
-            if transient and not quota_error and MODEL_NAME != SECONDARY_MODEL_NAME:
-                MODEL_NAME = SECONDARY_MODEL_NAME
+            transient=(quota_error or "503" in last_error or "502" in last_error or "500" in last_error or "504" in last_error or "unavailable" in last_error.lower() or "high demand" in last_error.lower())
+            # Fail over through independent supported model IDs instead of
+            # repeatedly retrying a model that is returning 5xx/high-demand.
+            if (model_unavailable or (transient and not quota_error)) and model_index < len(model_chain) - 1:
+                model_index += 1
+                MODEL_NAME = model_chain[model_index]
                 transient_failures = 0
-                print(f"🔁 Gemini primary model unavailable; switching to configured fallback: {MODEL_NAME}", flush=True)
+                print(f"🔁 Gemini endpoint unavailable; switching to fallback {model_index + 1}/{len(model_chain)}: {MODEL_NAME}", flush=True)
                 continue
             if quota_error and ENABLE_CPU_QWEN_FALLBACK:
                 print(f"🛟 Gemini quota exhausted; switching immediately to local Qwen: {FALLBACK_MODEL_NAME}", flush=True)

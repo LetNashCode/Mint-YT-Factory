@@ -2,285 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Stan Lee",
-      "source": {
-        "id": "archive:bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576/bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576",
-        "title": "EXCLUSIVE CLIP: \"With Great Power: The Stan Lee Story\"",
-        "description": "In anticipation of its Marvel Heroes Weekend, a marathon of Marvel superhero movies running April 27 - 29, EPIX has provided CBR with an exclusive clip from its original documentary, \"With Great Power: The Stan Lee Story.\" In this clip, Lee looks back at his attempt to bring diversity to the Marvel Universe - and comic book readers - through the introduction of characters like the Black Panther and Falcon as well as the X-Men, a mutant group of teenage heros whom the world at large distrusted and feared. \"With Great Power: The Stan Lee Story\" debuts April 27 on EPIX. ['arts&culture', 'talk&interview', 'epix', 'stan lee', 'with great power the stan lee story', 'marvel comics', 'x-men', 'black panther']",
-        "creator": "",
-        "license": "",
-        "subject": "['arts&culture', 'talk&interview', 'epix', 'stan lee', 'with great power the stan lee story', 'marvel comics', 'x-men', 'black panther']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 65.498832,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video clip features authentic documentary footage and an interview with Stan Lee discussing his creation of diverse Marvel characters, supported by relevant archival imagery and comic covers.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5a46675f5545f06d8800fae86d180d1c07a2130ce62b3359185d2d84f055df8a",
-      "reviewed_at": 1792348681.6952229
-    },
-    {
-      "person": "Stan Lee",
-      "source": {
-        "id": "archive:bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576/bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576",
-        "title": "EXCLUSIVE CLIP: \"With Great Power: The Stan Lee Story\"",
-        "description": "In anticipation of its Marvel Heroes Weekend, a marathon of Marvel superhero movies running April 27 - 29, EPIX has provided CBR with an exclusive clip from its original documentary, \"With Great Power: The Stan Lee Story.\" In this clip, Lee looks back at his attempt to bring diversity to the Marvel Universe - and comic book readers - through the introduction of characters like the Black Panther and Falcon as well as the X-Men, a mutant group of teenage heros whom the world at large distrusted and feared. \"With Great Power: The Stan Lee Story\" debuts April 27 on EPIX. ['arts&culture', 'talk&interview', 'epix', 'stan lee', 'with great power the stan lee story', 'marvel comics', 'x-men', 'black panther']",
-        "creator": "",
-        "license": "",
-        "subject": "['arts&culture', 'talk&interview', 'epix', 'stan lee', 'with great power the stan lee story', 'marvel comics', 'x-men', 'black panther']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 65.498832,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 25.6,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment features archival documentary footage containing an interview with Stan Lee discussing his creation of characters like the X-Men, followed by relevant comic book illustrations.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b287c70b6e1c8170c3336595caf512183e1d6599d72dd051b328e72259dd1978",
-      "reviewed_at": 1792348712.7010803
-    },
-    {
-      "person": "Stan Lee",
-      "source": {
-        "id": "archive:bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861",
-        "title": "Stan Lee Goes MAD (TV)",
-        "description": "Stan Lee Goes MAD (TV) ['arts&culture', 'talk&interview', 'stan lee', 'mad tv', 'mad magazine', 'spider-man']",
-        "creator": "",
-        "license": "",
-        "subject": "['arts&culture', 'talk&interview', 'stan lee', 'mad tv', 'mad magazine', 'spider-man']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 326.333333,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 173.18,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage clearly shows Stan Lee speaking in an interview setting, providing valid biographical illustration for a video about his life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "01c1d8d5c34dddc07ebd742f4197e567a98d854c00288c38d5ced6c89f85efd8",
-      "reviewed_at": 1792348823.2766292
-    },
-    {
-      "person": "Stan Lee",
-      "source": {
-        "id": "archive:bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861",
-        "title": "Stan Lee Goes MAD (TV)",
-        "description": "Stan Lee Goes MAD (TV) ['arts&culture', 'talk&interview', 'stan lee', 'mad tv', 'mad magazine', 'spider-man']",
-        "creator": "",
-        "license": "",
-        "subject": "['arts&culture', 'talk&interview', 'stan lee', 'mad tv', 'mad magazine', 'spider-man']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 326.333333,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The clip features real archival footage of Stan Lee speaking into a microphone in frames 3 and 4, making him clearly identifiable, alongside animation related to MAD TV/Spider-Man.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5e08a9980563d41e26f49910f9bf94a6149f358d275d36d621fd0264b1041790",
-      "reviewed_at": 1792348828.9739578
-    },
-    {
-      "person": "Stan Lee",
-      "source": {
-        "id": "archive:bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861",
-        "title": "Stan Lee Goes MAD (TV)",
-        "description": "Stan Lee Goes MAD (TV) ['arts&culture', 'talk&interview', 'stan lee', 'mad tv', 'mad magazine', 'spider-man']",
-        "creator": "",
-        "license": "",
-        "subject": "['arts&culture', 'talk&interview', 'stan lee', 'mad tv', 'mad magazine', 'spider-man']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 326.333333,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 29.03,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Stan Lee is clearly visible in the first frame speaking into a microphone, though the remaining frames consist of static text overlays with graphic backgrounds. Still usable as biographical illustration footage of Stan Lee.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "caf1cda05c9568e0ce996a5b0489a7ce6fbec464c74edff83c3163f1cb89ca41",
-      "reviewed_at": 1792348844.6814864
-    },
-    {
-      "person": "Stan Lee",
-      "source": {
-        "id": "archive:bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861",
-        "title": "Stan Lee Goes MAD (TV)",
-        "description": "Stan Lee Goes MAD (TV) ['arts&culture', 'talk&interview', 'stan lee', 'mad tv', 'mad magazine', 'spider-man']",
-        "creator": "",
-        "license": "",
-        "subject": "['arts&culture', 'talk&interview', 'stan lee', 'mad tv', 'mad magazine', 'spider-man']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 326.333333,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 53.05,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Stan Lee is clearly visible throughout the sampled frames in an interview setting, providing good biographical illustration footage for a video about his life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "fa629d90eb9b45ebe623ee6c3327be6ab448ddbf5936e0bab3950c256236e212",
-      "reviewed_at": 1792348871.5342698
-    },
-    {
-      "person": "Stan Lee",
-      "source": {
-        "id": "archive:bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861",
-        "title": "Stan Lee Goes MAD (TV)",
-        "description": "Stan Lee Goes MAD (TV) ['arts&culture', 'talk&interview', 'stan lee', 'mad tv', 'mad magazine', 'spider-man']",
-        "creator": "",
-        "license": "",
-        "subject": "['arts&culture', 'talk&interview', 'stan lee', 'mad tv', 'mad magazine', 'spider-man']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 326.333333,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 77.08,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Stan Lee is clearly visible in the first frame speaking in an interview context, while subsequent frames show graphic text overlays from the Mad TV feature, making it usable biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5e053975c632ed888f0c482ad97a32e404f3d86e1766f886d03f4b47dbfc9623",
-      "reviewed_at": 1792348886.2711976
-    },
-    {
-      "person": "Stan Lee",
-      "source": {
-        "id": "archive:bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861",
-        "title": "Stan Lee Goes MAD (TV)",
-        "description": "Stan Lee Goes MAD (TV) ['arts&culture', 'talk&interview', 'stan lee', 'mad tv', 'mad magazine', 'spider-man']",
-        "creator": "",
-        "license": "",
-        "subject": "['arts&culture', 'talk&interview', 'stan lee', 'mad tv', 'mad magazine', 'spider-man']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 326.333333,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 101.1,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video features real archival footage of Stan Lee speaking in a studio setting, making it suitable as biographical illustration for a documentary short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c4c5b95c3b4ce85fde15f628c6ca1a161b4c74208516ec653a79a0dbb716426d",
-      "reviewed_at": 1792348939.4370005
-    },
-    {
-      "person": "Stan Lee",
-      "source": {
-        "id": "archive:bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131014-222324-Cbr-StanLeeGoesMADTV861",
-        "title": "Stan Lee Goes MAD (TV)",
-        "description": "Stan Lee Goes MAD (TV) ['arts&culture', 'talk&interview', 'stan lee', 'mad tv', 'mad magazine', 'spider-man']",
-        "creator": "",
-        "license": "",
-        "subject": "['arts&culture', 'talk&interview', 'stan lee', 'mad tv', 'mad magazine', 'spider-man']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 326.333333,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 125.13,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features real archival footage of Stan Lee speaking in an interview/recording setting about MAD magazine, making it suitable biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "32b8e449ff45bccdc8c203ac7795832778d9afc7e791e4f8b8c0a078e0febb73",
-      "reviewed_at": 1792348986.8070052
-    },
-    {
       "person": "Neil deGrasse Tyson",
       "source": {
         "id": "archive:Neil-deGrasse-Tyson",
@@ -8390,161 +8111,6 @@
     {
       "person": "Nadia Comaneci",
       "source": {
-        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
-        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
-        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
-        "creator": "",
-        "license": "",
-        "subject": "['TV', 'Sports', 'Olympics']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 753.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 403.27,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows Nadia Comaneci performing her famous gymnastics routine at the 1976 Olympics, directly illustrating her career and historical athletic achievements.",
-        "usage": "direct_event"
-      },
-      "review_key": "ba150e90e0a4d16dc8eadb705ac6305b50e48e8b95c6a6cb1e1f5cbcc1996df9",
-      "reviewed_at": 1793129816.6860175
-    },
-    {
-      "person": "Nadia Comaneci",
-      "source": {
-        "id": "archive:nadia-comaneci-die-turnerin-und-der-diktator-arte",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/nadia-comaneci-die-turnerin-und-der-diktator-arte/Nadia%20Comaneci%20-%20Die%20Turnerin%20und%20der%20Diktator%20-%20ARTE.ia.mp4",
-        "source_url": "https://archive.org/details/nadia-comaneci-die-turnerin-und-der-diktator-arte",
-        "title": "Nadia Comaneci - Die Turnerin und der Diktator",
-        "description": "Nadia Comaneci - Die Turnerin und der Diktator Nadia Comaneci - Die Turnerin und der Diktator",
-        "creator": "ARTE",
-        "license": "",
-        "subject": "Nadia Comaneci - Die Turnerin und der Diktator",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3369.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1811.69,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The archival video features authentic footage of gymnast Nadia Comaneci performing on the uneven bars, perfectly matching the biographical subject and narration.",
-        "usage": "direct_event"
-      },
-      "review_key": "e80a36a96013babbafdd0523bb49c7ea31503e482b285bdad0536cb5c4fb4c52",
-      "reviewed_at": 1793129832.7836404
-    },
-    {
-      "person": "Nadia Comaneci",
-      "source": {
-        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
-        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
-        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
-        "creator": "",
-        "license": "",
-        "subject": "['TV', 'Sports', 'Olympics']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 753.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 61.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage genuinely shows archival video of Nadia Comaneci at the 1976 Olympics, featuring her clearly in multiple frames with on-screen identification.",
-        "usage": "direct_event"
-      },
-      "review_key": "7d13f13d929168babe62769bd3ce296bcf4341c5085ef16a07aed5de5af5a780",
-      "reviewed_at": 1793129847.5035663
-    },
-    {
-      "person": "Nadia Comaneci",
-      "source": {
-        "id": "archive:nadia-comaneci-die-turnerin-und-der-diktator-arte",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/nadia-comaneci-die-turnerin-und-der-diktator-arte/Nadia%20Comaneci%20-%20Die%20Turnerin%20und%20der%20Diktator%20-%20ARTE.ia.mp4",
-        "source_url": "https://archive.org/details/nadia-comaneci-die-turnerin-und-der-diktator-arte",
-        "title": "Nadia Comaneci - Die Turnerin und der Diktator",
-        "description": "Nadia Comaneci - Die Turnerin und der Diktator Nadia Comaneci - Die Turnerin und der Diktator",
-        "creator": "ARTE",
-        "license": "",
-        "subject": "Nadia Comaneci - Die Turnerin und der Diktator",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3369.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video features genuine archival footage of Nadia Comaneci performing gymnastics on the uneven bars, perfectly matching the biographical context.",
-        "usage": "direct_event"
-      },
-      "review_key": "d24a64329974531014f3947929a9e0eb50b7522d54404271db1f37eb3d75391b",
-      "reviewed_at": 1793129866.0254624
-    },
-    {
-      "person": "Nadia Comaneci",
-      "source": {
-        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
-        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
-        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
-        "creator": "",
-        "license": "",
-        "subject": "['TV', 'Sports', 'Olympics']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 753.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 118.79,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video segment shows authentic historical archival footage of Nadia Comaneci performing gymnastics at the 1976 Olympics, with her clearly identifiable in the frames.",
-        "usage": "direct_event"
-      },
-      "review_key": "66ff928fa58c39ee96997da76f22e3796f80ec052d665af6e5882f4fcefdd708",
-      "reviewed_at": 1793129873.1082423
-    },
-    {
-      "person": "Nadia Comaneci",
-      "source": {
         "id": "archive:nadia-comaneci-die-turnerin-und-der-diktator-arte",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/nadia-comaneci-die-turnerin-und-der-diktator-arte/Nadia%20Comaneci%20-%20Die%20Turnerin%20und%20der%20Diktator%20-%20ARTE.ia.mp4",
@@ -8572,223 +8138,6 @@
       },
       "review_key": "7d43b6ecb3949c96a4d7f7adf7d6d02e3dbdcecdfa185a1cdba619bfc7718e3a",
       "reviewed_at": 1793129890.2797291
-    },
-    {
-      "person": "Nadia Comaneci",
-      "source": {
-        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
-        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
-        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
-        "creator": "",
-        "license": "",
-        "subject": "['TV', 'Sports', 'Olympics']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 753.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 175.69,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows Nadia Comaneci performing her famous gymnastics routine at the 1976 Olympics, directly depicting the historical event and her athletic achievements.",
-        "usage": "direct_event"
-      },
-      "review_key": "3eeff9977ec48c92b2ac0677f1c273e336b27754f5962dfdb0986b6d757965d6",
-      "reviewed_at": 1793129897.970112
-    },
-    {
-      "person": "Nadia Comaneci",
-      "source": {
-        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
-        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
-        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
-        "creator": "",
-        "license": "",
-        "subject": "['TV', 'Sports', 'Olympics']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 753.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 232.58,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows real historical archival video of Nadia Comaneci performing her gymnastics routine at the 1976 Olympics, perfectly matching the narration.",
-        "usage": "direct_event"
-      },
-      "review_key": "df8dbbe8534b8e2de1af99754f1043cedd3953365bb008f0bba2a1e7230406f6",
-      "reviewed_at": 1793129936.5909653
-    },
-    {
-      "person": "Nadia Comaneci",
-      "source": {
-        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
-        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
-        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
-        "creator": "",
-        "license": "",
-        "subject": "['TV', 'Sports', 'Olympics']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 753.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 289.48,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows archival material of a gymnast performing on the uneven bars at the Olympics, matching the biographical context of Nadia Comaneci's 1976 Olympic performance, although her face is not clearly discernible in these specific frames due to distance and movement.",
-        "usage": "direct_event"
-      },
-      "review_key": "a67325d97550e95fb94f0821ea228c0f6b2a559c4e52cfb4462b56e846a2d3c8",
-      "reviewed_at": 1793129941.946739
-    },
-    {
-      "person": "Nadia Comaneci",
-      "source": {
-        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
-        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
-        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
-        "creator": "",
-        "license": "",
-        "subject": "['TV', 'Sports', 'Olympics']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 753.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 346.37,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows archival video of Nadia Comaneci performing her historic uneven bars routine at the 1976 Olympics, perfectly matching the narration and context.",
-        "usage": "direct_event"
-      },
-      "review_key": "c94a666904eb7d69cf76d15992210d727c0ec0f6b6a6b037d0647fb9f8dd510a",
-      "reviewed_at": 1793129947.618978
-    },
-    {
-      "person": "Nadia Comaneci",
-      "source": {
-        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
-        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
-        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
-        "creator": "",
-        "license": "",
-        "subject": "['TV', 'Sports', 'Olympics']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 753.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 460.16,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows archival video of Nadia Comaneci performing her gymnastics routine at the 1976 Olympics, directly depicting the subject and her historical sporting achievements.",
-        "usage": "direct_event"
-      },
-      "review_key": "f1781c77614131cf3784eace87b6e1038270965653d5ea3a18044b3204d8cbf5",
-      "reviewed_at": 1793129985.1453483
-    },
-    {
-      "person": "Nadia Comaneci",
-      "source": {
-        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
-        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
-        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
-        "creator": "",
-        "license": "",
-        "subject": "['TV', 'Sports', 'Olympics']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 753.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 517.06,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The sampled frames show genuine archival footage of Nadia Comaneci performing her legendary routine on the uneven bars at the 1976 Olympics. She is clearly identifiable as the gymnast, making this direct historical footage of the narrated subject and event.",
-        "usage": "direct_event"
-      },
-      "review_key": "916ae634ff42c49d9da7911dabc4ddbce4e4175648d924a9bafe984f7768008c",
-      "reviewed_at": 1793129991.0697117
-    },
-    {
-      "person": "Nadia Comaneci",
-      "source": {
-        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
-        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
-        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
-        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
-        "creator": "",
-        "license": "",
-        "subject": "['TV', 'Sports', 'Olympics']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 753.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 573.95,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows authentic archival material of Nadia Comaneci competing at the 1976 Olympics, featuring her clearly in multiple frames as she performs on the balance beam.",
-        "usage": "direct_event"
-      },
-      "review_key": "f043942aff17bfb020227578070e7926088df77031f3d405c41a2ad2b3a0b904",
-      "reviewed_at": 1793129997.1134546
     },
     {
       "person": "Sylvia Earle",
@@ -16932,192 +16281,6 @@
       "reviewed_at": 1794337049.5279634
     },
     {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 52.26,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video segment clearly shows archival footage of Kalpana Chawla, the named subject, in astronaut gear and training attire. It is genuine historical video footage that directly illustrates her life and career as an astronaut.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6837983177b57a68a65a2bc5861549161d03976b090f498b5c0a729ff26ed0dd",
-      "reviewed_at": 1794337134.7985463
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 20.75,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled segment features Kalpana Chawla visibly present in archival photographic/video context alongside a colleague in the opening frames, providing biographical illustration for her life and legacy.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6ed2f3086631b6044d6a85ff0fe002c56eb48ea9dc5d1942ed6d615167839f61",
-      "reviewed_at": 1794337169.644805
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The segment includes archival portrait footage of astronaut Kalpana Chawla in the first three frames, followed by an interview related to her legacy in the last two frames, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7636f2231cb510daaa6fa22bd090784ee4726b62675af33bdca83329c2a558b9",
-      "reviewed_at": 1794337178.2087326
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 68.01,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9.0,
-        "reason": "The video features real archival footage showing Kalpana Chawla speaking at a podium and posing in her official NASA STS-87 crew portrait, directly illustrating her life and career as an astronaut.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "692cfa5de854a829f86d755e849c82c658b546ba185a5e4b351c31777bf46b12",
-      "reviewed_at": 1794337185.192009
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 99.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows real archival footage of astronauts in orange flight suits walking out, and Kalpana Chawla is visibly present and identifiable among the crew in several frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7cb454b426c75bbcdda602cf76335c4b9e309c93fd397424bd7ceefa056f03cd",
-      "reviewed_at": 1794337191.1319668
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 115.27,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The segment includes archival space crew footage featuring Kalpana Chawla clearly visible in the first two frames, followed by a retrospective interview discussing her legacy.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5b2c1ba11d94e3f3035b3df6a051c1e81c26ea06a30d7973983f81322e003b3b",
-      "reviewed_at": 1794337198.9550295
-    },
-    {
       "person": "Madam C.J. Walker",
       "source": {
         "id": "archive:yt_p3qjlLYszEI",
@@ -18573,6 +17736,875 @@
       },
       "review_key": "aaf759dcbcc1cfe6d486e6557fa7cbb80e838ce2f20a2b3ff3d98990218125e9",
       "reviewed_at": 1794491294.8143742
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 403.27,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows Nadia Comaneci performing her famous gymnastics routine at the 1976 Olympics, directly depicting her historical sporting achievements.",
+        "usage": "direct_event"
+      },
+      "review_key": "db4c35f5abb524d0faa88889f7c8e10c3f59ffb40d129e28a38a2d7bc870a631",
+      "reviewed_at": 1794497164.5575297
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:nadia-comaneci-die-turnerin-und-der-diktator-arte",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/nadia-comaneci-die-turnerin-und-der-diktator-arte/Nadia%20Comaneci%20-%20Die%20Turnerin%20und%20der%20Diktator%20-%20ARTE.ia.mp4",
+        "source_url": "https://archive.org/details/nadia-comaneci-die-turnerin-und-der-diktator-arte",
+        "title": "Nadia Comaneci - Die Turnerin und der Diktator",
+        "description": "Nadia Comaneci - Die Turnerin und der Diktator Nadia Comaneci - Die Turnerin und der Diktator",
+        "creator": "ARTE",
+        "license": "",
+        "subject": "Nadia Comaneci - Die Turnerin und der Diktator",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3369.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1811.69,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment shows archival footage of Nadia Comaneci performing on the uneven bars, which is directly relevant to her biography as a gymnast, though her face is only clearly identifiable in profile/briefly due to motion.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d98b6c9b4a698779f3a7e89ba06ec81bfe9cf21ddad44087e4434e0939299939",
+      "reviewed_at": 1794497185.0191488
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 61.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature archival footage of Nadia Comaneci competing at the 1976 Olympics, perfectly matching the subject and biographical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "d08c080732e6062d421f6e8aca48f355fe758df3ceaefb823ab23e55d18b698e",
+      "reviewed_at": 1794497190.1859915
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:nadia-comaneci-die-turnerin-und-der-diktator-arte",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/nadia-comaneci-die-turnerin-und-der-diktator-arte/Nadia%20Comaneci%20-%20Die%20Turnerin%20und%20der%20Diktator%20-%20ARTE.ia.mp4",
+        "source_url": "https://archive.org/details/nadia-comaneci-die-turnerin-und-der-diktator-arte",
+        "title": "Nadia Comaneci - Die Turnerin und der Diktator",
+        "description": "Nadia Comaneci - Die Turnerin und der Diktator Nadia Comaneci - Die Turnerin und der Diktator",
+        "creator": "ARTE",
+        "license": "",
+        "subject": "Nadia Comaneci - Die Turnerin und der Diktator",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3369.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video segment shows genuine archival footage of Nadia Comaneci performing gymnastics on the uneven bars, directly illustrating her athletic career.",
+        "usage": "direct_event"
+      },
+      "review_key": "f82af1671357eb57d5feff791fd939c823f0093e87334e1cb0b58cddf5aaa480",
+      "reviewed_at": 1794497208.9384263
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 118.79,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows authentic archival coverage of Nadia Comaneci performing at the 1976 Olympics, with her face clearly visible and identified by name/score in the frames.",
+        "usage": "direct_event"
+      },
+      "review_key": "bf44c1d320bd43c53adc605cc047715c22ea5a474b03c53834639496bede9643",
+      "reviewed_at": 1794497262.5426996
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:nadia-comaneci-die-turnerin-und-der-diktator-arte",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/nadia-comaneci-die-turnerin-und-der-diktator-arte/Nadia%20Comaneci%20-%20Die%20Turnerin%20und%20der%20Diktator%20-%20ARTE.ia.mp4",
+        "source_url": "https://archive.org/details/nadia-comaneci-die-turnerin-und-der-diktator-arte",
+        "title": "Nadia Comaneci - Die Turnerin und der Diktator",
+        "description": "Nadia Comaneci - Die Turnerin und der Diktator Nadia Comaneci - Die Turnerin und der Diktator",
+        "creator": "ARTE",
+        "license": "",
+        "subject": "Nadia Comaneci - Die Turnerin und der Diktator",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3369.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1037.39,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly show archival footage of Nadia Comaneci as a young gymnast wearing a Romania jacket during a medal ceremony or competition, perfectly matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4b93f8a43b65d082abd0de95e29e2ad91d0704d04969684105f84edba77d3b7f",
+      "reviewed_at": 1794497298.2814367
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 175.69,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows Nadia Comaneci performing her famous gymnastics routine at the 1976 Olympics, directly illustrating her career.",
+        "usage": "direct_event"
+      },
+      "review_key": "ce3c0d3ec62e5355ee35953855ebad93a758bfe425c47b2b50017e8e44284092",
+      "reviewed_at": 1794497304.2764955
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 232.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video features genuine archival footage of Nadia Comaneci competing at the 1976 Olympics, directly depicting her gymnastics routine.",
+        "usage": "direct_event"
+      },
+      "review_key": "8378ad56a3962e5601c7e5276ed135b2c7415f5c6c4be461872313d698085b09",
+      "reviewed_at": 1794497394.670809
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 289.48,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows Nadia Comaneci performing on the uneven bars at the 1976 Olympics, which directly matches the narration and depicts the actual historical subject and event.",
+        "usage": "direct_event"
+      },
+      "review_key": "a8f13735c0cec92fcd9e47b37ce0d42efbd75a98f684e765d6784f641a5c5b1e",
+      "reviewed_at": 1794497406.8857217
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 346.37,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The segment features genuine archival footage of Nadia Comaneci competing on the uneven bars during the 1976 Olympics, perfectly matching the narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "ae2ed958cc651184119fb555fd13e45f908c5dbec7559a7073a5cfec792d5e10",
+      "reviewed_at": 1794497415.5844514
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 460.16,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows archival moving images of Nadia Comaneci performing her famous gymnastics routine at the 1976 Olympics, directly illustrating her athletic career.",
+        "usage": "direct_event"
+      },
+      "review_key": "aec3f1c01123ee0ef82668f00cbe72e73fe3f28e196a2d4f6ec9da13c715afc8",
+      "reviewed_at": 1794497468.3079574
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 517.06,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows authentic archival archival video of Nadia Comaneci performing her famous gymnastics routine at the 1976 Olympics, perfectly matching the narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "d1670b8bb790fe72bb071aa90fd48fa32a2209ea36fc168f4b9751773392731c",
+      "reviewed_at": 1794497485.2515204
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 573.95,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Nadia Comaneci during her historic 1976 Olympics performance, making it authentic direct event coverage.",
+        "usage": "direct_event"
+      },
+      "review_key": "6fc8aed6f252bb6ac38fbcdc28147d7152ce2c2eda47d85f7571270c276902dc",
+      "reviewed_at": 1794497491.8268018
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video segment features real archival footage of the named subject, Kalpana Chawla, clearly visible wearing spacesuits and training/preparing for spaceflight missions.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bb9faa58c65524e4c4ce8a4264ca7deb1bdce0f78852031cc6358566c61ce8bc",
+      "reviewed_at": 1794497521.5502412
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:HSF-mov-sts107fd09b",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b_512kb.mp4",
+        "source_url": "https://archive.org/details/HSF-mov-sts107fd09b",
+        "title": "sts107fd09b",
+        "description": "Jan. 24, 2003 --- Members of the STS-107 red team -- Payload Specialist Ilan Ramon, Commander Rick Husband and Mission Specialist Kalpana Chawla -- work in the SPACEHAB Research Double Module. Chawla is working with the Combustion Module. ['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "creator": "NASA",
+        "license": "",
+        "subject": "['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 92.333333,
+        "identity_score": 10.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.mp4",
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.ogv"
+        ]
+      },
+      "start": 44.17,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows authentic NASA archival video from STS-107 featuring Kalpana Chawla working aboard the Space Shuttle, perfectly matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5b3e026f59b71cfcf5c9e628d8f30aed5965f71d9e434bb82874b90b22d41c34",
+      "reviewed_at": 1794497529.1157584
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 20.75,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Kalpana Chawla is clearly visible in the first two frames standing beside an alumnus/memorial display, and the subsequent frames show an interview discussing her legacy at UT Arlington. This serves as valid biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "daa107388c8b7b93df1b65467fa7d82c512112ba20df79e2f7c080c17beda031",
+      "reviewed_at": 1794497538.5327408
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:HSF-mov-sts107fd09b",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b_512kb.mp4",
+        "source_url": "https://archive.org/details/HSF-mov-sts107fd09b",
+        "title": "sts107fd09b",
+        "description": "Jan. 24, 2003 --- Members of the STS-107 red team -- Payload Specialist Ilan Ramon, Commander Rick Husband and Mission Specialist Kalpana Chawla -- work in the SPACEHAB Research Double Module. Chawla is working with the Combustion Module. ['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "creator": "NASA",
+        "license": "",
+        "subject": "['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 92.333333,
+        "identity_score": 10.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.mp4",
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.ogv"
+        ]
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows authentic archival NASA recording from STS-107 featuring Kalpana Chawla working inside the Spacehab module, aligning directly with her biography.",
+        "usage": "direct_event"
+      },
+      "review_key": "d0bfc45a44ec3f7b9bee1efc30d74f2deaad849180aa2207f3b7425e21c9a30e",
+      "reviewed_at": 1794497545.7664783
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features archival footage and interview segments commemorating Kalpana Chawla, with the subject clearly identifiable in initial frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "32b9766a1665784b68fcdb2afcf744c483ad61ffd2b6fa2ceab8ff827af2f8a8",
+      "reviewed_at": 1794497552.1210601
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:HSF-mov-sts107fd09b",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b_512kb.mp4",
+        "source_url": "https://archive.org/details/HSF-mov-sts107fd09b",
+        "title": "sts107fd09b",
+        "description": "Jan. 24, 2003 --- Members of the STS-107 red team -- Payload Specialist Ilan Ramon, Commander Rick Husband and Mission Specialist Kalpana Chawla -- work in the SPACEHAB Research Double Module. Chawla is working with the Combustion Module. ['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "creator": "NASA",
+        "license": "",
+        "subject": "['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 92.333333,
+        "identity_score": 10.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.mp4",
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.ogv"
+        ]
+      },
+      "start": 14.79,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows authentic archival NASA video from STS-107 inside the SPACEHAB module, depicting Kalpana Chawla working with the Combustion Module, directly supporting her biography.",
+        "usage": "direct_event"
+      },
+      "review_key": "8e2eac9345df2000fcbb78ad88f8df0c0972b7031a2a672322d6b428357d167e",
+      "reviewed_at": 1794497558.9114413
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 68.01,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment features archival footage and photographs of Kalpana Chawla, including her speaking at a podium and her official NASA astronaut crew portrait for STS-87, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6b4a5a8993ff7be8bce84d5c856f024ca85d7c0b145677b9cc45c53998b34587",
+      "reviewed_at": 1794497620.802274
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:HSF-mov-sts107fd09b",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b_512kb.mp4",
+        "source_url": "https://archive.org/details/HSF-mov-sts107fd09b",
+        "title": "sts107fd09b",
+        "description": "Jan. 24, 2003 --- Members of the STS-107 red team -- Payload Specialist Ilan Ramon, Commander Rick Husband and Mission Specialist Kalpana Chawla -- work in the SPACEHAB Research Double Module. Chawla is working with the Combustion Module. ['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "creator": "NASA",
+        "license": "",
+        "subject": "['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 92.333333,
+        "identity_score": 10.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.mp4",
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.ogv"
+        ]
+      },
+      "start": 24.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows archival video from STS-107 featuring Kalpana Chawla working aboard the space shuttle, which directly relates to her biography and spaceflight history.",
+        "usage": "direct_event"
+      },
+      "review_key": "bb1253a9795cf09d2063a774d424d95d9fbcd0aade9af584aedd946b49b6a68c",
+      "reviewed_at": 1794497671.1753957
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 99.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled footage shows real archival video of the STS-107 crew walking out in their orange spacesuits, with Kalpana Chawla clearly identifiable among them in the later frames, making it highly relevant biographical illustration for a video about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5a52a8812506fe49aa99d992ee8f05ef1234b680cdbef3858cca2dab59dd715e",
+      "reviewed_at": 1794497681.3616178
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:HSF-mov-sts107fd09b",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b_512kb.mp4",
+        "source_url": "https://archive.org/details/HSF-mov-sts107fd09b",
+        "title": "sts107fd09b",
+        "description": "Jan. 24, 2003 --- Members of the STS-107 red team -- Payload Specialist Ilan Ramon, Commander Rick Husband and Mission Specialist Kalpana Chawla -- work in the SPACEHAB Research Double Module. Chawla is working with the Combustion Module. ['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "creator": "NASA",
+        "license": "",
+        "subject": "['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 92.333333,
+        "identity_score": 10.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.mp4",
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.ogv"
+        ]
+      },
+      "start": 34.37,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10.0,
+        "reason": "The footage features genuine archival video from STS-107 showing Kalpana Chawla working aboard the SPACEHAB Research Double Module, directly illustrating her life and space mission.",
+        "usage": "direct_event"
+      },
+      "review_key": "e81eff2efc2203bb573831910beda7b7b55ae8f72b10a4f5d0785af99e04bded",
+      "reviewed_at": 1794497688.8944054
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 115.27,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames include genuine archival astronaut crew footage showing Kalpana Chawla clearly visible in the first two frames, alongside subsequent interview footage discussing her legacy.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3402e72ccf14e475a67b88020f373dc796f90a66d5ce7d4d1e4ac9ba4597c67f",
+      "reviewed_at": 1794497699.2315407
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:HSF-mov-sts107fd09b",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b_512kb.mp4",
+        "source_url": "https://archive.org/details/HSF-mov-sts107fd09b",
+        "title": "sts107fd09b",
+        "description": "Jan. 24, 2003 --- Members of the STS-107 red team -- Payload Specialist Ilan Ramon, Commander Rick Husband and Mission Specialist Kalpana Chawla -- work in the SPACEHAB Research Double Module. Chawla is working with the Combustion Module. ['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "creator": "NASA",
+        "license": "",
+        "subject": "['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 92.333333,
+        "identity_score": 10.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.mp4",
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.ogv"
+        ]
+      },
+      "start": 53.96,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows authentic archival material from STS-107 featuring Kalpana Chawla working inside the SPACEHAB module, directly illustrating her astronaut career.",
+        "usage": "direct_event"
+      },
+      "review_key": "b0ca22724aef776e2b901dfe0da99666b9415bbb9cb6d638f77f1968103998c9",
+      "reviewed_at": 1794497714.3935766
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:HSF-mov-sts107fd09b",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b_512kb.mp4",
+        "source_url": "https://archive.org/details/HSF-mov-sts107fd09b",
+        "title": "sts107fd09b",
+        "description": "Jan. 24, 2003 --- Members of the STS-107 red team -- Payload Specialist Ilan Ramon, Commander Rick Husband and Mission Specialist Kalpana Chawla -- work in the SPACEHAB Research Double Module. Chawla is working with the Combustion Module. ['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "creator": "NASA",
+        "license": "",
+        "subject": "['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 92.333333,
+        "identity_score": 10.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.mp4",
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.ogv"
+        ]
+      },
+      "start": 63.75,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly show archival footage of Kalpana Chawla working aboard the Spacehab Research Double Module during the STS-107 mission, accompanied by crewmate Ilan Ramon.",
+        "usage": "direct_event"
+      },
+      "review_key": "b0e214d7c9aa158cb73c157da773fcd27adb3889fb153d5cd3f794bedf8c4370",
+      "reviewed_at": 1794497740.095208
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:HSF-mov-sts107fd09b",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b_512kb.mp4",
+        "source_url": "https://archive.org/details/HSF-mov-sts107fd09b",
+        "title": "sts107fd09b",
+        "description": "Jan. 24, 2003 --- Members of the STS-107 red team -- Payload Specialist Ilan Ramon, Commander Rick Husband and Mission Specialist Kalpana Chawla -- work in the SPACEHAB Research Double Module. Chawla is working with the Combustion Module. ['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "creator": "NASA",
+        "license": "",
+        "subject": "['Who -- Ilan Ramon', 'Who -- Kalpana Chawla', 'What -- STS-107']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 92.333333,
+        "identity_score": 10.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.mp4",
+          "https://archive.org/download/HSF-mov-sts107fd09b/sts107fd09b.ogv"
+        ]
+      },
+      "start": 73.54,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video shows genuine archival footage from the STS-107 mission aboard the Spacehab module, featuring Kalpana Chawla working in the background alongside crewmate Ilan Ramon in the foreground.",
+        "usage": "direct_event"
+      },
+      "review_key": "4d2c65f680b9cf65227351c7967a39fb4e06b5b7b1eb2786517206c120d05d6e",
+      "reviewed_at": 1794497764.2780497
     }
   ]
 }

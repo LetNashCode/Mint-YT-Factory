@@ -1,10 +1,10 @@
 {
   "story_shorts": {
     "videos": 39,
-    "avg_views": 313.72,
+    "avg_views": 313.95,
     "avg_comments": 0.15,
     "avg_shares": 0.03,
-    "avg_likes": 6.03,
+    "avg_likes": 6.0,
     "avg_view_percentage": 64.61
   },
   "strange_turning_point": {
@@ -41,10 +41,10 @@
   },
   "before_they_were_famous": {
     "videos": 8,
-    "avg_views": 353.88,
+    "avg_views": 354.38,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
-    "avg_likes": 8.25,
+    "avg_likes": 8.12,
     "avg_view_percentage": 121.47
   }
 }

@@ -644,5 +644,18 @@
     "video_id": "WaOWm8Lo7_I",
     "workdir": "",
     "published_at": 1794325581
+  },
+  {
+    "topic": "Kalpana Chawla: Breaking through deep-seated regional expectations in small-town India to become the first Indian-born woman to fly in space.",
+    "normalized": "kalpana chawla breaking through deep seated regional expectations in small town india to become the first indian born woman to fly in space",
+    "workflow": "story",
+    "status": "reserved",
+    "reserved_at": 1794497518,
+    "recorded_at": 1794497518,
+    "metadata": {
+      "person": "Kalpana Chawla",
+      "pillar": "rise_from_nothing",
+      "source": "story_topic_selection"
+    }
   }
 ]

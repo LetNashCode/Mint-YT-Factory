@@ -1,19 +1,6 @@
 [
   {
     "format": "rise_from_nothing",
-    "person": "Kalpana Chawla",
-    "premise": "Breaking through deep-seated regional expectations in small-town India to become the first Indian-born woman to fly in space.",
-    "hook": "Growing up in Karnal, she watched airplanes fly overhead and vowed she would one day touch the stars, despite having no aerospace role models.",
-    "key_facts": [
-      "Graduated with an aeronautical engineering degree from Punjab Engineering College.",
-      "Emigrated to the United States in the 1980s to pursue advanced degrees at the University of Texas and University of Colorado.",
-      "Selected by NASA as an astronaut candidate in 1994.",
-      "Completed her first space flight aboard the Space Shuttle Columbia in 1997."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
     "person": "Viswanathan Anand",
     "premise": "Rising from the chess clubs of Chennai to become India's first Grandmaster and a multi-time World Chess Champion.",
     "hook": "He learned the complex rules of chess from his mother at age six in a house without a computer.",
@@ -22,19 +9,6 @@
       "Won the World Chess Championship five times across different formats.",
       "Known for his exceptionally fast calculation speed, earning him the nickname 'The Lightning Kid'.",
       "Awarded India's second-highest civilian award, the Padma Vibhushan, in 2007."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Nadia Comaneci",
-    "premise": "Achieving the first-ever perfect score in Olympic gymnastics despite primitive training facilities in communist Romania.",
-    "hook": "The scoreboard literally could not display her score because nobody believed a ten out of ten was possible.",
-    "key_facts": [
-      "Discovered by coach Béla Károlyi in Romania at age six",
-      "Competed at the 1976 Montreal Olympics at age 14",
-      "Scored seven maximum 10.0 marks during the competition",
-      "Won three individual gold medals at the games"
     ],
     "source": "gemini_original"
   }

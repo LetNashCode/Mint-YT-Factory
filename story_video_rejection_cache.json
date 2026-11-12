@@ -13246,6 +13246,51 @@
       "start": 5.0,
       "reason": "The clip features a split-screen interview with the interviewer on the left and Neil deGrasse Tyson on the right, but it contains a prominent 'COMING UP' overlay watermark at the bottom, which makes it unusable for a biography Short.",
       "reviewed_at": 1794491107.9469624
+    },
+    "319a93ef625116c44f1d8985": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ochisorii-nasul-si-gurita-from-nadia-comaneci-raluca-moianu-1",
+      "source_url": "https://archive.org/details/ochisorii-nasul-si-gurita-from-nadia-comaneci-raluca-moianu-1",
+      "person": "Nadia Comaneci",
+      "start": 5.0,
+      "reason": "The video segment consists entirely of abstract, kaleidoscopic digital tunnel animations with no relation to Nadia Comaneci, containing heavy watermarks and lacking any real footage of the subject or relevant historical context.",
+      "reviewed_at": 1794497148.6782722
+    },
+    "9aef24d35ec512776dc6a4cc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ochisorii-nasul-si-gurita-from-nadia-comaneci-raluca-moianu-1",
+      "source_url": "https://archive.org/details/ochisorii-nasul-si-gurita-from-nadia-comaneci-raluca-moianu-1",
+      "person": "Nadia Comaneci",
+      "start": 14.62,
+      "reason": "The video segment consists of abstract digital graphics, colorful glowing geometric animations, and heavy watermark text (\"www.BANDICAM.COM\"), rather than real historical footage or depictions of Nadia Comaneci.",
+      "reviewed_at": 1794497160.670614
+    },
+    "77d434bd6dbe2d9b80b15f0f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nadia-comaneci-die-turnerin-und-der-diktator-arte",
+      "source_url": "https://archive.org/details/nadia-comaneci-die-turnerin-und-der-diktator-arte",
+      "person": "Nadia Comaneci",
+      "start": 263.1,
+      "reason": "The segment contains archival historical footage related to political events in Romania and a modern interview, but Nadia Comaneci herself is not clearly visible in any of the sampled frames. It can serve as general biographical illustration context.",
+      "reviewed_at": 1794497281.32589
+    },
+    "35a843d74eaa9d43ff817679": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nadia-comaneci-die-turnerin-und-der-diktator-arte",
+      "source_url": "https://archive.org/details/nadia-comaneci-die-turnerin-und-der-diktator-arte",
+      "person": "Nadia Comaneci",
+      "start": 1295.49,
+      "reason": "The frames show a coach (Béla Károlyi) rather than the named subject Nadia Comaneci, and the middle frames are excessively blurry and dark.",
+      "reviewed_at": 1794497328.2289321
+    },
+    "4ff1bdfb5159f3d72c80a7f6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nadia-comaneci-die-turnerin-und-der-diktator-arte",
+      "source_url": "https://archive.org/details/nadia-comaneci-die-turnerin-und-der-diktator-arte",
+      "person": "Nadia Comaneci",
+      "start": 1553.59,
+      "reason": "The footage shows B-roll driving past rural houses and a church, serving as biographical illustration of Nadia Comaneci's homeland context, but the subject is not visible.",
+      "reviewed_at": 1794497391.2850854
     }
   }
 }

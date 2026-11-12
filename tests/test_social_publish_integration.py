@@ -27,7 +27,8 @@ def test_everyday_wisdom_publishes_meta_after_youtube_upload():
 def test_both_workflows_pass_meta_credentials_and_default_to_strict():
     publish = (ROOT / ".github/workflows/publish.yml").read_text(encoding="utf-8")
     wisdom = (ROOT / ".github/workflows/wisdom-shorts.yml").read_text(encoding="utf-8")
-    for workflow in (publish, wisdom):
+    story = (ROOT / ".github/workflows/story-shorts.yml").read_text(encoding="utf-8")
+    for workflow in (publish, wisdom, story):
         assert "secrets.INSTAGRAM_ACCOUNT_ID" in workflow
         assert "secrets.INSTAGRAM_ACCESS_TOKEN" in workflow
         assert "secrets.FACEBOOK_PAGE_ID" in workflow

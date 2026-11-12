@@ -6,7 +6,7 @@ from generate_script.interactive import (
 
 def test_story_scene_word_bands_remain_compatible_with_total_target():
     assert STORY_SCENE_WORD_BUDGETS == (
-        (8, 18), (7, 22), (7, 22), (7, 22), (7, 22), (7, 22), (10, 28)
+        (8, 18), (6, 22), (6, 22), (6, 22), (6, 22), (6, 22), (10, 28)
     )
 
 

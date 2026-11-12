@@ -17,8 +17,8 @@ SCENE_COUNT = 6
 VISUALS_PER_SCENE = 2
 SCENE_DURATIONS = [3, 5, 7, 7, 8, 8]
 MAX_ATTEMPTS = 3
-TRANSIENT_RETRIES = 3
-TRANSIENT_BACKOFF_SECONDS = (3, 8, 15)
+TRANSIENT_RETRIES = 4
+TRANSIENT_BACKOFF_SECONDS = (3, 8, 15, 30)
 ENABLE_CPU_QWEN_FALLBACK = os.environ.get("ENABLE_CPU_QWEN_FALLBACK", "0") == "1"
 _QWEN_TOKENIZER = None
 _QWEN_MODEL = None
@@ -312,6 +312,14 @@ VISUALS: every one of the 12 shots must represent a specific spoken beat. Return
                 print(f"🔁 Gemini model unavailable; switching to supported fallback: {MODEL_NAME}", flush=True)
                 continue
             transient=(quota_error or "503" in last_error or "unavailable" in last_error.lower() or "high demand" in last_error.lower())
+            # A temporary outage on the primary model must not exhaust all
+            # retries against that same endpoint. Fail over once to the
+            # configured secondary model, then use bounded retries there.
+            if transient and not quota_error and MODEL_NAME != SECONDARY_MODEL_NAME:
+                MODEL_NAME = SECONDARY_MODEL_NAME
+                transient_failures = 0
+                print(f"🔁 Gemini primary model unavailable; switching to configured fallback: {MODEL_NAME}", flush=True)
+                continue
             if quota_error and ENABLE_CPU_QWEN_FALLBACK:
                 print(f"🛟 Gemini quota exhausted; switching immediately to local Qwen: {FALLBACK_MODEL_NAME}", flush=True)
                 break

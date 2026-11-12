@@ -880,6 +880,10 @@ def verify(person, scene, item, samples):
         raise RuntimeError(
             f"Story verifier unavailable after retries on {model}: {last_error}; {detail}"
         )
+
+    raise RuntimeError(
+        f"Story verifier request failed on {model}: {last_error}"
+    )
     if len(groups) != expected:
         raise RuntimeError(f"Expected {expected} real video segments, got {len(groups)}")
     intervals = {}

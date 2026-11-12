@@ -783,7 +783,7 @@ def verify(person, scene, item, samples):
     except ValueError:
         network_retries = 1
     try:
-        transient_retries = max(0, int(os.environ.get("STORY_GEMINI_TRANSIENT_RETRIES", "5")))
+        transient_retries = max(0, int(os.environ.get("STORY_GEMINI_TRANSIENT_RETRIES", "1")))
     except ValueError:
         transient_retries = 3
     try:

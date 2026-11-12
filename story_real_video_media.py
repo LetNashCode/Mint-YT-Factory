@@ -730,7 +730,10 @@ def verify(person, scene, item, samples):
     # Start with the workflow-configured model; the bounded fallback chain below
     # is used only for provider/model availability failures, never to bypass a
     # daily/project quota or weaken the visual identity criteria.
-    requested_model = GEMINI_MODEL
+    requested_model = (
+        os.environ.get("MINT_GEMINI_MODEL", GEMINI_MODEL).strip()
+        or GEMINI_MODEL
+    )
     model = _VERIFIER_MODELS.get(requested_model, requested_model)
     prompt = (
         "Evaluate five ordered frames sampled across the FULL candidate video segment for a biography Short. "
@@ -884,9 +887,11 @@ def verify(person, scene, item, samples):
     ):
         fallback_models = []
         for candidate in (
-            GEMINI_FALLBACK_MODEL,
-            GEMINI_TERTIARY_MODEL,
-            GEMINI_QUATERNARY_MODEL,
+            os.environ.get("STORY_GEMINI_FALLBACK_MODEL")
+            or os.environ.get("MINT_GEMINI_FALLBACK_MODEL")
+            or GEMINI_FALLBACK_MODEL,
+            os.environ.get("MINT_GEMINI_TERTIARY_MODEL") or GEMINI_TERTIARY_MODEL,
+            os.environ.get("MINT_GEMINI_QUATERNARY_MODEL") or GEMINI_QUATERNARY_MODEL,
         ):
             candidate = str(candidate or "").strip()
             if candidate and candidate not in fallback_models and candidate not in {requested_model, model}:

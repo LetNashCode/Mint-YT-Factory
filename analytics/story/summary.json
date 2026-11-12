@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-11T23:21:35.452046+00:00",
-  "refresh_attempted_at": "2026-11-11T23:21:35.452046+00:00",
+  "generated_at": "2026-11-12T13:49:51.483518+00:00",
+  "refresh_attempted_at": "2026-11-12T13:49:51.483518+00:00",
   "refresh_status": "success",
   "video_count": 39,
   "optimization_ready": true,
@@ -8,13 +8,13 @@
   "advanced_metrics_videos": 38,
   "reason": "",
   "totals": {
-    "views": 12156,
-    "likes": 232,
+    "views": 12235,
+    "likes": 235,
     "comments": 6
   },
   "averages": {
-    "views": 311.69,
-    "likes": 5.95,
+    "views": 313.72,
+    "likes": 6.03,
     "comments": 0.15,
     "average_view_percentage": 64.61,
     "subscribers_gained": 0.36,
@@ -604,6 +604,35 @@
       "engagement_rate": 0.266
     },
     {
+      "topic": "Charlie Chaplin: Surviving extreme Victorian London poverty in workhouses to become cinema's first global icon.",
+      "video_id": "WaOWm8Lo7_I",
+      "title": "Before the Fame: Charlie Chaplin's Untold Struggle",
+      "workflow": "story",
+      "published_at": "2026-11-10T15:45:19Z",
+      "hook_text": "",
+      "hook_type": "",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": null,
+      "planned_duration_seconds": null,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 359,
+      "views_after_24h": 250,
+      "views_after_7d": null,
+      "likes": 16,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 4.4568
+    },
+    {
       "topic": "B-B King: The pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the Blues Boy.",
       "video_id": "-zuakI9IPVU",
       "title": "B-B King Lost Everything—Then Started Again",
@@ -621,7 +650,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 317,
-      "views_after_24h": 291,
+      "views_after_24h": 309,
       "views_after_7d": 317,
       "likes": 5,
       "comments": 0,
@@ -660,35 +689,6 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 1.0135
-    },
-    {
-      "topic": "Charlie Chaplin: Surviving extreme Victorian London poverty in workhouses to become cinema's first global icon.",
-      "video_id": "WaOWm8Lo7_I",
-      "title": "Before the Fame: Charlie Chaplin's Untold Struggle",
-      "workflow": "story",
-      "published_at": "2026-11-10T15:45:19Z",
-      "hook_text": "",
-      "hook_type": "",
-      "hook_score": null,
-      "hook_score_components": {},
-      "script_word_count": null,
-      "planned_duration_seconds": null,
-      "actual_duration_seconds": null,
-      "video_width": null,
-      "video_height": null,
-      "resolution": "",
-      "creative_strategy": "",
-      "views": 280,
-      "views_after_24h": 250,
-      "views_after_7d": null,
-      "likes": 13,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 4.6429
     },
     {
       "topic": "Luciano Pavarotti: Overcoming a severe pulmonary illness and years of rejection before becoming the world's most famous tenor.",
@@ -1462,7 +1462,7 @@
         "average_view_percentage": 24.88,
         "average_view_duration": 11.0,
         "views": 23,
-        "age_hours": 268.1,
+        "age_hours": 282.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1474,7 +1474,7 @@
         "average_view_percentage": 26.56,
         "average_view_duration": 10.0,
         "views": 16,
-        "age_hours": 363.5,
+        "age_hours": 378.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1486,7 +1486,7 @@
         "average_view_percentage": 28.47,
         "average_view_duration": 12.0,
         "views": 193,
-        "age_hours": 696.2,
+        "age_hours": 710.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1498,7 +1498,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 385.9,
+        "age_hours": 400.4,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1510,7 +1510,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 107,
-        "age_hours": 484.2,
+        "age_hours": 498.7,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1522,7 +1522,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1439.8,
+        "age_hours": 1454.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1534,7 +1534,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1464.9,
+        "age_hours": 1479.4,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1546,7 +1546,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 581.8,
+        "age_hours": 596.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1558,7 +1558,7 @@
         "average_view_percentage": 40.42,
         "average_view_duration": 13.0,
         "views": 296,
-        "age_hours": 555.3,
+        "age_hours": 569.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1570,7 +1570,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1467.4,
+        "age_hours": 1481.8,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1584,7 +1584,7 @@
         "average_view_percentage": 597.81,
         "average_view_duration": 221.0,
         "views": 109,
-        "age_hours": 292.9,
+        "age_hours": 307.3,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1596,7 +1596,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 678.9,
+        "age_hours": 693.4,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1608,7 +1608,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 750.1,
+        "age_hours": 764.6,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1620,7 +1620,7 @@
         "average_view_percentage": 81.18,
         "average_view_duration": 30.0,
         "views": 11,
-        "age_hours": 366.2,
+        "age_hours": 380.7,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1632,7 +1632,7 @@
         "average_view_percentage": 78.09,
         "average_view_duration": 29.0,
         "views": 65,
-        "age_hours": 588.8,
+        "age_hours": 603.3,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1644,7 +1644,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 780.8,
+        "age_hours": 795.2,
         "target_met": true,
         "status": "goal_met"
       }

@@ -26,40 +26,15 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Srinivasa Ramanujan",
-    "premise": "Mailing his unverified mathematical theorems from India to a prominent British mathematician in 1913.",
-    "hook": "A self-taught clerk mailed a packet of impossible mathematical formulas halfway across the world, risking complete rejection.",
+    "format": "impossible_odds",
+    "person": "Nadia Comaneci",
+    "premise": "Achieving the first-ever perfect score in Olympic gymnastics despite primitive training facilities in communist Romania.",
+    "hook": "The scoreboard literally could not display her score because nobody believed a ten out of ten was possible.",
     "key_facts": [
-      "Had no formal university training in mathematics and worked as a shipping clerk in Madras.",
-      "Wrote unsolicited letters containing complex theorems to leading academics in Britain.",
-      "Recognized by G.H. Hardy at Cambridge University, who invited him to England in 1914.",
-      "Elected a Fellow of the Royal Society for his groundbreaking contributions to mathematical analysis."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Enzo Ferrari",
-    "premise": "Transitioning from racing driver and team manager to automobile manufacturer in post-war Italy.",
-    "hook": "He decided to sell his own road cars solely to fund his racing addiction, creating an accidental luxury empire.",
-    "key_facts": [
-      "Worked as a test driver and racing driver for Alfa Romeo during the 1920s.",
-      "Founded Scuderia Ferrari as a racing team in 1929 before building cars under his own name.",
-      "Released the first Ferrari-badged road car, the 125 S, in 1947.",
-      "Won numerous international motorsports championships, including early victories at Le Mans."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Yusaku Maezawa",
-    "premise": "Leaving traditional high school routines to move to the US, returning to Japan to build an online retail giant.",
-    "hook": "Instead of attending university, he packed his bags for California to listen to heavy metal records and collect independent music CDs.",
-    "key_facts": [
-      "Started a mail-order business importing imported music CDs upon returning to Japan.",
-      "Founded the online fashion retail platform Zozotown in 2004.",
-      "Became the first private passenger to orbit the Moon on a planned SpaceX mission."
+      "Discovered by coach Béla Károlyi in Romania at age six",
+      "Competed at the 1976 Montreal Olympics at age 14",
+      "Scored seven maximum 10.0 marks during the competition",
+      "Won three individual gold medals at the games"
     ],
     "source": "gemini_original"
   }

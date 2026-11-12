@@ -13237,6 +13237,15 @@
       "start": 14.91,
       "reason": "The video features macro footage of flowers with overlaid subtitles narrating Richard Feynman's famous quote about seeing a flower, acting as biographical illustration since Feynman himself is not visible.",
       "reviewed_at": 1794439016.3625996
+    },
+    "c4d885e52dc3ad5f93aa0910": {
+      "kind": "segment_rejection",
+      "source_id": "archive:a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+      "source_url": "https://archive.org/details/a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+      "person": "Neil deGrasse Tyson",
+      "start": 5.0,
+      "reason": "The clip features a split-screen interview with the interviewer on the left and Neil deGrasse Tyson on the right, but it contains a prominent 'COMING UP' overlay watermark at the bottom, which makes it unusable for a biography Short.",
+      "reviewed_at": 1794491107.9469624
     }
   }
 }

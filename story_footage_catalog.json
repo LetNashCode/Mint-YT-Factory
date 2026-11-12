@@ -2,440 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Carl Sagan",
-      "source": {
-        "id": "archive:vhsvault_Wogan_interviews_Carl_Sagan",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/vhsvault_Wogan_interviews_Carl_Sagan/Wogan_interviews_Carl_Sagan-WhW3_L8Vx2U.mp4",
-        "source_url": "https://archive.org/details/vhsvault_Wogan_interviews_Carl_Sagan",
-        "title": "Wogan interviews Carl Sagan",
-        "description": "From October 1985, Carl Sagan talks about the Star Wars missile defence initiative, and the likelihood of life on other planets. ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 512.76,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 81.73,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features genuine archival interview footage of Carl Sagan from October 1985, clearly showing him speaking, which directly illustrates his life and public appearances.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c72c0a430184598bf45f1c63c3a09e67a9b6d690f00c44a6c53fc4755463619e",
-      "reviewed_at": 1792344162.3807487
-    },
-    {
-      "person": "Carl Sagan",
-      "source": {
-        "id": "archive:CarlSaganTalksAboutGod",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/CarlSaganTalksAboutGod/20110823CarlSaganTalksAboutGod.mp4",
-        "source_url": "https://archive.org/details/CarlSaganTalksAboutGod",
-        "title": "Carl Sagan Talks About God?",
-        "description": "Carl Sagan talks about a being visting from another dimension. Could that be God? ['Jesus Christ', 'astrophysics', 'time', 'dimensions']",
-        "creator": "elperfecto.com",
-        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
-        "subject": "['Jesus Christ', 'astrophysics', 'time', 'dimensions']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 127.594261,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 14.47,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features genuine archival footage of Carl Sagan presenting concepts about dimensions and physics, clearly showing him in the frames. It is well-suited as direct event footage for a biography short about him.",
-        "usage": "direct_event"
-      },
-      "review_key": "5aea93f9f89b8546f68491b516cdd5e67b5af0e9ea1d4ba60895be93876c4f0d",
-      "reviewed_at": 1792344188.363472
-    },
-    {
-      "person": "Carl Sagan",
-      "source": {
-        "id": "archive:vhsvault_Wogan_interviews_Carl_Sagan",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/vhsvault_Wogan_interviews_Carl_Sagan/Wogan_interviews_Carl_Sagan-WhW3_L8Vx2U.mp4",
-        "source_url": "https://archive.org/details/vhsvault_Wogan_interviews_Carl_Sagan",
-        "title": "Wogan interviews Carl Sagan",
-        "description": "From October 1985, Carl Sagan talks about the Star Wars missile defence initiative, and the likelihood of life on other planets. ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 512.76,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 120.1,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature Carl Sagan being interviewed on television in October 1985, matching the archival context and providing valid biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "08bb0ac20b2f2810b900b1486f88b2327853a7c7d7fea193fe2c4b8109a335fd",
-      "reviewed_at": 1792344195.5324044
-    },
-    {
-      "person": "Carl Sagan",
-      "source": {
-        "id": "archive:CarlSaganTalksAboutGod",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/CarlSaganTalksAboutGod/20110823CarlSaganTalksAboutGod.mp4",
-        "source_url": "https://archive.org/details/CarlSaganTalksAboutGod",
-        "title": "Carl Sagan Talks About God?",
-        "description": "Carl Sagan talks about a being visting from another dimension. Could that be God? ['Jesus Christ', 'astrophysics', 'time', 'dimensions']",
-        "creator": "elperfecto.com",
-        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
-        "subject": "['Jesus Christ', 'astrophysics', 'time', 'dimensions']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 127.594261,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 23.93,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video features genuine archival footage of Carl Sagan himself discussing dimensions and astrophysics, perfectly illustrating his life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0eef053531509be147c539b02ded7733cb2ea6c64adea98663c748f5f4731c31",
-      "reviewed_at": 1792344202.2818878
-    },
-    {
-      "person": "Carl Sagan",
-      "source": {
-        "id": "archive:vhsvault_Wogan_interviews_Carl_Sagan",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/vhsvault_Wogan_interviews_Carl_Sagan/Wogan_interviews_Carl_Sagan-WhW3_L8Vx2U.mp4",
-        "source_url": "https://archive.org/details/vhsvault_Wogan_interviews_Carl_Sagan",
-        "title": "Wogan interviews Carl Sagan",
-        "description": "From October 1985, Carl Sagan talks about the Star Wars missile defence initiative, and the likelihood of life on other planets. ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 512.76,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 158.46,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features genuine archival interview video of Carl Sagan speaking clearly and visibly throughout the sampled frames, perfectly suited for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "189b864b19a15570da139b4849430f9f765f3b8acd6f010c0a23aa34e4dc9c1b",
-      "reviewed_at": 1792344209.8669376
-    },
-    {
-      "person": "Carl Sagan",
-      "source": {
-        "id": "archive:CarlSaganTalksAboutGod",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/CarlSaganTalksAboutGod/20110823CarlSaganTalksAboutGod.mp4",
-        "source_url": "https://archive.org/details/CarlSaganTalksAboutGod",
-        "title": "Carl Sagan Talks About God?",
-        "description": "Carl Sagan talks about a being visting from another dimension. Could that be God? ['Jesus Christ', 'astrophysics', 'time', 'dimensions']",
-        "creator": "elperfecto.com",
-        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
-        "subject": "['Jesus Christ', 'astrophysics', 'time', 'dimensions']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 127.594261,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 33.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features authentic archival footage of Carl Sagan presenting concepts from Cosmos, clearly visible throughout the sampled frames and highly relevant as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a7667e7338591881a416e1ea25bbd02a011de60ed029efbb8233e55b2a6fb18b",
-      "reviewed_at": 1792344217.6055455
-    },
-    {
-      "person": "Carl Sagan",
-      "source": {
-        "id": "archive:vhsvault_Wogan_interviews_Carl_Sagan",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/vhsvault_Wogan_interviews_Carl_Sagan/Wogan_interviews_Carl_Sagan-WhW3_L8Vx2U.mp4",
-        "source_url": "https://archive.org/details/vhsvault_Wogan_interviews_Carl_Sagan",
-        "title": "Wogan interviews Carl Sagan",
-        "description": "From October 1985, Carl Sagan talks about the Star Wars missile defence initiative, and the likelihood of life on other planets. ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 512.76,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 196.83,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The sampled frames clearly feature Carl Sagan being interviewed on the Wogan show in 1985, making this authentic archival footage directly usable for his biography.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "59f6963344ce64163786d2350c3b572448614b0708a7da1ebf844600ce355ef0",
-      "reviewed_at": 1792344224.4504685
-    },
-    {
-      "person": "Carl Sagan",
-      "source": {
-        "id": "archive:CarlSaganTalksAboutGod",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/CarlSaganTalksAboutGod/20110823CarlSaganTalksAboutGod.mp4",
-        "source_url": "https://archive.org/details/CarlSaganTalksAboutGod",
-        "title": "Carl Sagan Talks About God?",
-        "description": "Carl Sagan talks about a being visting from another dimension. Could that be God? ['Jesus Christ', 'astrophysics', 'time', 'dimensions']",
-        "creator": "elperfecto.com",
-        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
-        "subject": "['Jesus Christ', 'astrophysics', 'time', 'dimensions']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 127.594261,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 42.86,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment features genuine archival footage of Carl Sagan speaking and demonstrating dimensions with props on a table, directly relevant to biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ddb30363b386a671a498dac1f60606e278bc561d6d415d43b751ba6f5cdadc89",
-      "reviewed_at": 1792344231.9810529
-    },
-    {
-      "person": "Carl Sagan",
-      "source": {
-        "id": "archive:vhsvault_Wogan_interviews_Carl_Sagan",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/vhsvault_Wogan_interviews_Carl_Sagan/Wogan_interviews_Carl_Sagan-WhW3_L8Vx2U.mp4",
-        "source_url": "https://archive.org/details/vhsvault_Wogan_interviews_Carl_Sagan",
-        "title": "Wogan interviews Carl Sagan",
-        "description": "From October 1985, Carl Sagan talks about the Star Wars missile defence initiative, and the likelihood of life on other planets. ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 512.76,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 235.2,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly feature Carl Sagan in genuine archival interview footage from 1985, suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "af0fe928778b4d9ccc7430107d4800161fd7751ae59537a805f68b3b99a0f910",
-      "reviewed_at": 1792344239.2958972
-    },
-    {
-      "person": "Carl Sagan",
-      "source": {
-        "id": "archive:CarlSaganTalksAboutGod",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/CarlSaganTalksAboutGod/20110823CarlSaganTalksAboutGod.mp4",
-        "source_url": "https://archive.org/details/CarlSaganTalksAboutGod",
-        "title": "Carl Sagan Talks About God?",
-        "description": "Carl Sagan talks about a being visting from another dimension. Could that be God? ['Jesus Christ', 'astrophysics', 'time', 'dimensions']",
-        "creator": "elperfecto.com",
-        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
-        "subject": "['Jesus Christ', 'astrophysics', 'time', 'dimensions']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 127.594261,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 52.33,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows authentic archival footage of Carl Sagan presenting and speaking about dimensions and physics, directly relevant to his biography.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "efd254ea24a51a6d5e0f58838534d247dbd93b6ec6e14f31be86370134a0e577",
-      "reviewed_at": 1792344246.12669
-    },
-    {
-      "person": "Stan Lee",
-      "source": {
-        "id": "archive:bliptv-20131031-021101-Cbr-StanLeePowersUpInLEGOMarvelSuperHeroes864",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131031-021101-Cbr-StanLeePowersUpInLEGOMarvelSuperHeroes864/bliptv-20131031-021101-Cbr-StanLeePowersUpInLEGOMarvelSuperHeroes864.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131031-021101-Cbr-StanLeePowersUpInLEGOMarvelSuperHeroes864",
-        "title": "Stan Lee Powers Up in LEGO Marvel Super Heroes",
-        "description": "The LEGO® Marvel Super Heroes are calling for back-up from a comic book legend, the one and only Stan Lee! Check out Stan Lee in LEGO form and his Marvel super skills in action as he joins the cast of more than 100 playable Super Heroes and Super Villains from the Marvel Universe. ['arts&culture', 'talk&interview', 'lego marvel super heroes', 'stan lee']",
-        "creator": "",
-        "license": "",
-        "subject": "['arts&culture', 'talk&interview', 'lego marvel super heroes', 'stan lee']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 61.561562,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 33.54,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video segment contains a mix of LEGO animation featuring a Stan Lee character and actual interview footage of Stan Lee himself in the final frame. While the LEGO portion is fictionalized imagery, the real interview footage qualifies as usable biographical illustration of Stan Lee discussing his work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0c8cb4d94a6fe4d84a3af5d36fea961e782625a703c6c3d980a66d1c9d980b85",
-      "reviewed_at": 1792348494.3731055
-    },
-    {
-      "person": "Stan Lee",
-      "source": {
-        "id": "archive:bliptv-20131014-025025-Cbr-StanLeeEBook114",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131014-025025-Cbr-StanLeeEBook114/bliptv-20131014-025025-Cbr-StanLeeEBook114.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131014-025025-Cbr-StanLeeEBook114",
-        "title": "Stan Lee eBook",
-        "description": "Stan Lee and some young readers discover the magic of Marvel's latest ebooks. ['arts&culture', 'talk&interview', 'stan lee', 'ebooks', 'marvel entertainment', 'the avengers']",
-        "creator": "",
-        "license": "",
-        "subject": "['arts&culture', 'talk&interview', 'stan lee', 'ebooks', 'marvel entertainment', 'the avengers']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 62.89623,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 44.12,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video features real archival footage of Stan Lee interacting with a digital ebook on a tablet, which fits biographical illustration use for his later life/projects.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "71d8501e94b804dc2a933c9fcb880da7eb98aad5d6c2f53b3e4d5978f84a84e4",
-      "reviewed_at": 1792348503.8853989
-    },
-    {
-      "person": "Stan Lee",
-      "source": {
-        "id": "archive:bliptv-20131014-025025-Cbr-StanLeeEBook114",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131014-025025-Cbr-StanLeeEBook114/bliptv-20131014-025025-Cbr-StanLeeEBook114.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131014-025025-Cbr-StanLeeEBook114",
-        "title": "Stan Lee eBook",
-        "description": "Stan Lee and some young readers discover the magic of Marvel's latest ebooks. ['arts&culture', 'talk&interview', 'stan lee', 'ebooks', 'marvel entertainment', 'the avengers']",
-        "creator": "",
-        "license": "",
-        "subject": "['arts&culture', 'talk&interview', 'stan lee', 'ebooks', 'marvel entertainment', 'the avengers']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 62.89623,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 53.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Stan Lee is clearly identifiable in the first two frames interacting with a Marvel ebook app on a tablet, though subsequent frames show an AR Spider-Man mask effect. The footage is real and relevant as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "447242785546297df857b41768fac880157cac914d89cf0588a1486689578bcd",
-      "reviewed_at": 1792348610.5015044
-    },
-    {
-      "person": "Stan Lee",
-      "source": {
-        "id": "archive:bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576/bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576",
-        "title": "EXCLUSIVE CLIP: \"With Great Power: The Stan Lee Story\"",
-        "description": "In anticipation of its Marvel Heroes Weekend, a marathon of Marvel superhero movies running April 27 - 29, EPIX has provided CBR with an exclusive clip from its original documentary, \"With Great Power: The Stan Lee Story.\" In this clip, Lee looks back at his attempt to bring diversity to the Marvel Universe - and comic book readers - through the introduction of characters like the Black Panther and Falcon as well as the X-Men, a mutant group of teenage heros whom the world at large distrusted and feared. \"With Great Power: The Stan Lee Story\" debuts April 27 on EPIX. ['arts&culture', 'talk&interview', 'epix', 'stan lee', 'with great power the stan lee story', 'marvel comics', 'x-men', 'black panther']",
-        "creator": "",
-        "license": "",
-        "subject": "['arts&culture', 'talk&interview', 'epix', 'stan lee', 'with great power the stan lee story', 'marvel comics', 'x-men', 'black panther']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 65.498832,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 35.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features genuine archival interview footage of Stan Lee discussing the creation of Marvel characters like the X-Men, alongside relevant comic book illustrations.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "38e5dc422a6a0e7254fe73a52b1ad1f5e436a4d82011e21db1642454ca7fa20d",
-      "reviewed_at": 1792348652.026777
-    },
-    {
       "person": "Stan Lee",
       "source": {
         "id": "archive:bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576",
@@ -17583,99 +17149,6 @@
       "reviewed_at": 1794337239.3495946
     },
     {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video segment contains interview footage featuring Harrison Ford discussing his work on the film Firewall, making it usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7f39c694e9b57dfee0390f5f6569d8805cf513acc6193d5da16527702f35f856",
-      "reviewed_at": 1794437837.6876218
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 212.63,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features real archival interview footage of Harrison Ford discussing his work, making it usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a828a031ec6f0d5921f39aaba041898cd20c0aa54797ff6223749e75e9d49675",
-      "reviewed_at": 1794437841.9883873
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 304.91,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "Harrison Ford is clearly visible in the interview footage (frames 1, 2, and 3), making it valid biographical illustration footage despite the animated intro/outro.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f498490e37c3362f90dbaff9ca344f971130ce0262258e6fe89dcc06fba5fb98",
-      "reviewed_at": 1794437846.295976
-    },
-    {
       "person": "Grace Hopper",
       "source": {
         "id": "archive:btvin-Unsung_Hero_Grace_Hopper",
@@ -18573,6 +18046,533 @@
       },
       "review_key": "ce13b0b0a65fa03fc7d9124027940ec0cdfcd1e6f874f346e462f3eec743102f",
       "reviewed_at": 1794439244.9019856
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment includes genuine footage of Harrison Ford being interviewed and clips from his film Firewall, making it useful biographical illustration despite some graphic overlays and title cards.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3f5ab94db65c5ebfef4194771d8e8084ed0c61617c79cd17f8ab1f8927a98bc6",
+      "reviewed_at": 1794490899.1975749
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 212.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Harrison Ford speaking in an interview setting, making it valid biographical illustration footage for a biography short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d770bdceefc51e6de44ef5a3af5b984a646de49547f4bbfdd69f696903ef0331",
+      "reviewed_at": 1794490935.8288505
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 304.91,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment features genuine interview footage of Harrison Ford discussing his work, which serves as valid biographical illustration material despite some animated cutaways.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f2ac9428a6f62b3e64b79db5daabfe5da7efff90a7d7316de87a288a04640a82",
+      "reviewed_at": 1794490961.252275
+    },
+    {
+      "person": "Neil deGrasse Tyson",
+      "source": {
+        "id": "archive:neil-degrasse-tyson-on-science-literacy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/neil-degrasse-tyson-on-science-literacy/Neil%20Degrasse%20Tyson%20-%20%27If%20you%27re%20scientifically%20literate%20the%20world%20looks%20very%20different%20to%20you%27%20%5B5gK2EEwzjPQ%5D%20c.mp4",
+        "source_url": "https://archive.org/details/neil-degrasse-tyson-on-science-literacy",
+        "title": "Neil Degrasse Tyson on science literacy",
+        "description": "Original YouTube link: https://www.youtube.com/watch?v=PrTTta55i5Q&t=1494s YouTube page description: Full interview link: Conversations at KCTS 9: Neil Degrasse Tyson (Airdate: July 3, 2009) https://www.youtube.com/watch?v=PrTTta55i5Q \"At least once a week, if not once a day, we might each ponder what cosmic truths lie undiscovered before us, perhaps awaiting the arrival of a clever thinker, an ingenious experiment, or an innovative space mission to reveal them. We might further ponder how those discoveries may one day transform life on Earth.\" ~Neil Tyson Also please check out the channel RevTyson for more NDT videos. https://www.youtube.com/user/revtyson ['science literacy', 'scientific literacy', 'citizenship', 'science', 'education', 'interview']",
+        "creator": "KCTS 9",
+        "license": "",
+        "subject": "['science literacy', 'scientific literacy', 'citizenship', 'science', 'education', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 61.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 33.3,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features genuine interview footage of Neil deGrasse Tyson from Conversations at KCTS 9, clearly showing him speaking and engaging in discussion, making it suitable biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "23b86e6af05c654b4b1b5cf9088f6b2f2da267eb6352b36e01f67af33372abef",
+      "reviewed_at": 1794491051.8734167
+    },
+    {
+      "person": "Neil deGrasse Tyson",
+      "source": {
+        "id": "archive:a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a-conversation-with-neil-de-grasse-tyson-04-23-2023/A%20Conversation%20with%20Neil%20deGrasse%20Tyson%2004-23-2023.mp4",
+        "source_url": "https://archive.org/details/a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "title": "Conversation with Neil DeGrasse Tyson",
+        "description": "\"Neil deGrasse Tyson is NOT afraid of Artificial Intelligence .\" ▪ Conversation with American astrophysicist Neil deGrasse Tyson - produced & published by Alex J. O'Connor on April 23rd, 2023. Timeline: 00:00 - Introduction 01:11 - Feeling Small in the Universe 09:55 - Is the World Ending? 14:35 - Artificial Intelligence 36:02 - \"Forbidden Twitter File\" 45:28 - Outro ['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "creator": "Neil deGrasse Tyson",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2767.6,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1487.71,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames clearly feature Neil deGrasse Tyson in a video interview setting, making it suitable as biographical illustration footage, although it shows a podcast conversation rather than historical archival footage of specific past events.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "78b1b7f72d172425c18396d5be5286c4fd1e662a096fee4cff271c1735959de3",
+      "reviewed_at": 1794491071.5175793
+    },
+    {
+      "person": "Neil deGrasse Tyson",
+      "source": {
+        "id": "archive:neil-degrasse-tyson-on-science-literacy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/neil-degrasse-tyson-on-science-literacy/Neil%20Degrasse%20Tyson%20-%20%27If%20you%27re%20scientifically%20literate%20the%20world%20looks%20very%20different%20to%20you%27%20%5B5gK2EEwzjPQ%5D%20c.mp4",
+        "source_url": "https://archive.org/details/neil-degrasse-tyson-on-science-literacy",
+        "title": "Neil Degrasse Tyson on science literacy",
+        "description": "Original YouTube link: https://www.youtube.com/watch?v=PrTTta55i5Q&t=1494s YouTube page description: Full interview link: Conversations at KCTS 9: Neil Degrasse Tyson (Airdate: July 3, 2009) https://www.youtube.com/watch?v=PrTTta55i5Q \"At least once a week, if not once a day, we might each ponder what cosmic truths lie undiscovered before us, perhaps awaiting the arrival of a clever thinker, an ingenious experiment, or an innovative space mission to reveal them. We might further ponder how those discoveries may one day transform life on Earth.\" ~Neil Tyson Also please check out the channel RevTyson for more NDT videos. https://www.youtube.com/user/revtyson ['science literacy', 'scientific literacy', 'citizenship', 'science', 'education', 'interview']",
+        "creator": "KCTS 9",
+        "license": "",
+        "subject": "['science literacy', 'scientific literacy', 'citizenship', 'science', 'education', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 61.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features authentic interview footage of Neil deGrasse Tyson discussing science literacy on Conversations at KCTS 9. He is clearly identifiable in all sampled frames, making it high-quality usable biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7e545d5565b38d962a9bc05277aae24edddadcaa9fe36e6db0d9a1b2c463af84",
+      "reviewed_at": 1794491082.4223866
+    },
+    {
+      "person": "Neil deGrasse Tyson",
+      "source": {
+        "id": "archive:a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a-conversation-with-neil-de-grasse-tyson-04-23-2023/A%20Conversation%20with%20Neil%20deGrasse%20Tyson%2004-23-2023.mp4",
+        "source_url": "https://archive.org/details/a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "title": "Conversation with Neil DeGrasse Tyson",
+        "description": "\"Neil deGrasse Tyson is NOT afraid of Artificial Intelligence .\" ▪ Conversation with American astrophysicist Neil deGrasse Tyson - produced & published by Alex J. O'Connor on April 23rd, 2023. Timeline: 00:00 - Introduction 01:11 - Feeling Small in the Universe 09:55 - Is the World Ending? 14:35 - Artificial Intelligence 36:02 - \"Forbidden Twitter File\" 45:28 - Outro ['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "creator": "Neil deGrasse Tyson",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2767.6,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 216.82,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The segment features real moving footage of Neil deGrasse Tyson participating in an interview/conversation, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c4beb95b8794bf898409e5fc330aea373bd4bc08244b0f33d58ff0f15f79d7a8",
+      "reviewed_at": 1794491115.491812
+    },
+    {
+      "person": "Neil deGrasse Tyson",
+      "source": {
+        "id": "archive:neil-degrasse-tyson-on-science-literacy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/neil-degrasse-tyson-on-science-literacy/Neil%20Degrasse%20Tyson%20-%20%27If%20you%27re%20scientifically%20literate%20the%20world%20looks%20very%20different%20to%20you%27%20%5B5gK2EEwzjPQ%5D%20c.mp4",
+        "source_url": "https://archive.org/details/neil-degrasse-tyson-on-science-literacy",
+        "title": "Neil Degrasse Tyson on science literacy",
+        "description": "Original YouTube link: https://www.youtube.com/watch?v=PrTTta55i5Q&t=1494s YouTube page description: Full interview link: Conversations at KCTS 9: Neil Degrasse Tyson (Airdate: July 3, 2009) https://www.youtube.com/watch?v=PrTTta55i5Q \"At least once a week, if not once a day, we might each ponder what cosmic truths lie undiscovered before us, perhaps awaiting the arrival of a clever thinker, an ingenious experiment, or an innovative space mission to reveal them. We might further ponder how those discoveries may one day transform life on Earth.\" ~Neil Tyson Also please check out the channel RevTyson for more NDT videos. https://www.youtube.com/user/revtyson ['science literacy', 'scientific literacy', 'citizenship', 'science', 'education', 'interview']",
+        "creator": "KCTS 9",
+        "license": "",
+        "subject": "['science literacy', 'scientific literacy', 'citizenship', 'science', 'education', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 61.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 14.43,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real archival footage of Neil deGrasse Tyson speaking in an interview from 2009, clearly showing him discussing science and cosmic topics relevant to his biography, though the video quality is slightly low.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d40a240962a18b79ba21c6d4a7649a7e3dc39a92586f1a04e3328c109ca3ef92",
+      "reviewed_at": 1794491125.8864799
+    },
+    {
+      "person": "Neil deGrasse Tyson",
+      "source": {
+        "id": "archive:a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a-conversation-with-neil-de-grasse-tyson-04-23-2023/A%20Conversation%20with%20Neil%20deGrasse%20Tyson%2004-23-2023.mp4",
+        "source_url": "https://archive.org/details/a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "title": "Conversation with Neil DeGrasse Tyson",
+        "description": "\"Neil deGrasse Tyson is NOT afraid of Artificial Intelligence .\" ▪ Conversation with American astrophysicist Neil deGrasse Tyson - produced & published by Alex J. O'Connor on April 23rd, 2023. Timeline: 00:00 - Introduction 01:11 - Feeling Small in the Universe 09:55 - Is the World Ending? 14:35 - Artificial Intelligence 36:02 - \"Forbidden Twitter File\" 45:28 - Outro ['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "creator": "Neil deGrasse Tyson",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2767.6,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 428.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage clearly shows Neil deGrasse Tyson speaking in an interview setting, making it suitable as biographical illustration for a segment about him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ef8b11b8788ef81b898f8b6bbe33752df45b5fbfba6671a042e956cf577d7e26",
+      "reviewed_at": 1794491148.8430123
+    },
+    {
+      "person": "Neil deGrasse Tyson",
+      "source": {
+        "id": "archive:neil-degrasse-tyson-on-science-literacy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/neil-degrasse-tyson-on-science-literacy/Neil%20Degrasse%20Tyson%20-%20%27If%20you%27re%20scientifically%20literate%20the%20world%20looks%20very%20different%20to%20you%27%20%5B5gK2EEwzjPQ%5D%20c.mp4",
+        "source_url": "https://archive.org/details/neil-degrasse-tyson-on-science-literacy",
+        "title": "Neil Degrasse Tyson on science literacy",
+        "description": "Original YouTube link: https://www.youtube.com/watch?v=PrTTta55i5Q&t=1494s YouTube page description: Full interview link: Conversations at KCTS 9: Neil Degrasse Tyson (Airdate: July 3, 2009) https://www.youtube.com/watch?v=PrTTta55i5Q \"At least once a week, if not once a day, we might each ponder what cosmic truths lie undiscovered before us, perhaps awaiting the arrival of a clever thinker, an ingenious experiment, or an innovative space mission to reveal them. We might further ponder how those discoveries may one day transform life on Earth.\" ~Neil Tyson Also please check out the channel RevTyson for more NDT videos. https://www.youtube.com/user/revtyson ['science literacy', 'scientific literacy', 'citizenship', 'science', 'education', 'interview']",
+        "creator": "KCTS 9",
+        "license": "",
+        "subject": "['science literacy', 'scientific literacy', 'citizenship', 'science', 'education', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 61.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 23.87,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features clear, authentic moving video of Neil deGrasse Tyson speaking in an archival interview from KCTS 9, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d67100c8cc6f5adef9284d9cd80c661d99139236511f46fc3868ce9b3f3556f3",
+      "reviewed_at": 1794491162.2264137
+    },
+    {
+      "person": "Neil deGrasse Tyson",
+      "source": {
+        "id": "archive:a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a-conversation-with-neil-de-grasse-tyson-04-23-2023/A%20Conversation%20with%20Neil%20deGrasse%20Tyson%2004-23-2023.mp4",
+        "source_url": "https://archive.org/details/a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "title": "Conversation with Neil DeGrasse Tyson",
+        "description": "\"Neil deGrasse Tyson is NOT afraid of Artificial Intelligence .\" ▪ Conversation with American astrophysicist Neil deGrasse Tyson - produced & published by Alex J. O'Connor on April 23rd, 2023. Timeline: 00:00 - Introduction 01:11 - Feeling Small in the Universe 09:55 - Is the World Ending? 14:35 - Artificial Intelligence 36:02 - \"Forbidden Twitter File\" 45:28 - Outro ['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "creator": "Neil deGrasse Tyson",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2767.6,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 640.45,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features real interview footage of Neil deGrasse Tyson speaking, making it suitable as biographical illustration for a segment about him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "935dc551497bc9699fd6f2628f58464fa3e4510cdd4869116b723fd076a6a6bc",
+      "reviewed_at": 1794491183.4753985
+    },
+    {
+      "person": "Neil deGrasse Tyson",
+      "source": {
+        "id": "archive:neil-degrasse-tyson-on-science-literacy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/neil-degrasse-tyson-on-science-literacy/Neil%20Degrasse%20Tyson%20-%20%27If%20you%27re%20scientifically%20literate%20the%20world%20looks%20very%20different%20to%20you%27%20%5B5gK2EEwzjPQ%5D%20c.mp4",
+        "source_url": "https://archive.org/details/neil-degrasse-tyson-on-science-literacy",
+        "title": "Neil Degrasse Tyson on science literacy",
+        "description": "Original YouTube link: https://www.youtube.com/watch?v=PrTTta55i5Q&t=1494s YouTube page description: Full interview link: Conversations at KCTS 9: Neil Degrasse Tyson (Airdate: July 3, 2009) https://www.youtube.com/watch?v=PrTTta55i5Q \"At least once a week, if not once a day, we might each ponder what cosmic truths lie undiscovered before us, perhaps awaiting the arrival of a clever thinker, an ingenious experiment, or an innovative space mission to reveal them. We might further ponder how those discoveries may one day transform life on Earth.\" ~Neil Tyson Also please check out the channel RevTyson for more NDT videos. https://www.youtube.com/user/revtyson ['science literacy', 'scientific literacy', 'citizenship', 'science', 'education', 'interview']",
+        "creator": "KCTS 9",
+        "license": "",
+        "subject": "['science literacy', 'scientific literacy', 'citizenship', 'science', 'education', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 61.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 42.73,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment shows real archival interview footage of Neil deGrasse Tyson participating in a discussion on science literacy, making it valid biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "df852086623a0afc77cbd9989959e5a1117bf895bb07f84c41afcb869c2d1019",
+      "reviewed_at": 1794491193.5146391
+    },
+    {
+      "person": "Neil deGrasse Tyson",
+      "source": {
+        "id": "archive:a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a-conversation-with-neil-de-grasse-tyson-04-23-2023/A%20Conversation%20with%20Neil%20deGrasse%20Tyson%2004-23-2023.mp4",
+        "source_url": "https://archive.org/details/a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "title": "Conversation with Neil DeGrasse Tyson",
+        "description": "\"Neil deGrasse Tyson is NOT afraid of Artificial Intelligence .\" ▪ Conversation with American astrophysicist Neil deGrasse Tyson - produced & published by Alex J. O'Connor on April 23rd, 2023. Timeline: 00:00 - Introduction 01:11 - Feeling Small in the Universe 09:55 - Is the World Ending? 14:35 - Artificial Intelligence 36:02 - \"Forbidden Twitter File\" 45:28 - Outro ['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "creator": "Neil deGrasse Tyson",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2767.6,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 852.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment shows real interview footage featuring Neil deGrasse Tyson clearly visible in multiple sampled frames, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a79d4e55586047b38651774626d506053954f5e99c7fd3812c3b2b5b242148da",
+      "reviewed_at": 1794491207.2974575
+    },
+    {
+      "person": "Neil deGrasse Tyson",
+      "source": {
+        "id": "archive:neil-degrasse-tyson-on-science-literacy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/neil-degrasse-tyson-on-science-literacy/Neil%20Degrasse%20Tyson%20-%20%27If%20you%27re%20scientifically%20literate%20the%20world%20looks%20very%20different%20to%20you%27%20%5B5gK2EEwzjPQ%5D%20c.mp4",
+        "source_url": "https://archive.org/details/neil-degrasse-tyson-on-science-literacy",
+        "title": "Neil Degrasse Tyson on science literacy",
+        "description": "Original YouTube link: https://www.youtube.com/watch?v=PrTTta55i5Q&t=1494s YouTube page description: Full interview link: Conversations at KCTS 9: Neil Degrasse Tyson (Airdate: July 3, 2009) https://www.youtube.com/watch?v=PrTTta55i5Q \"At least once a week, if not once a day, we might each ponder what cosmic truths lie undiscovered before us, perhaps awaiting the arrival of a clever thinker, an ingenious experiment, or an innovative space mission to reveal them. We might further ponder how those discoveries may one day transform life on Earth.\" ~Neil Tyson Also please check out the channel RevTyson for more NDT videos. https://www.youtube.com/user/revtyson ['science literacy', 'scientific literacy', 'citizenship', 'science', 'education', 'interview']",
+        "creator": "KCTS 9",
+        "license": "",
+        "subject": "['science literacy', 'scientific literacy', 'citizenship', 'science', 'education', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 61.166667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 52.17,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features a genuine interview with Neil deGrasse Tyson from KCTS 9, clearly showing him speaking in multiple frames, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "adbadc92950c4c8531ae3dbef6780b71d92b84b8ec0d3e1acf949bb56b8ffca7",
+      "reviewed_at": 1794491244.1691976
+    },
+    {
+      "person": "Neil deGrasse Tyson",
+      "source": {
+        "id": "archive:a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a-conversation-with-neil-de-grasse-tyson-04-23-2023/A%20Conversation%20with%20Neil%20deGrasse%20Tyson%2004-23-2023.mp4",
+        "source_url": "https://archive.org/details/a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "title": "Conversation with Neil DeGrasse Tyson",
+        "description": "\"Neil deGrasse Tyson is NOT afraid of Artificial Intelligence .\" ▪ Conversation with American astrophysicist Neil deGrasse Tyson - produced & published by Alex J. O'Connor on April 23rd, 2023. Timeline: 00:00 - Introduction 01:11 - Feeling Small in the Universe 09:55 - Is the World Ending? 14:35 - Artificial Intelligence 36:02 - \"Forbidden Twitter File\" 45:28 - Outro ['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "creator": "Neil deGrasse Tyson",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2767.6,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1064.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames clearly feature Neil deGrasse Tyson speaking in an interview setting. While it serves as biographical illustration rather than direct footage of a specific historical event being narrated, the footage is genuine, clear, and centers the subject properly.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "25dbea632a4ac3df959b4f3fde12b9c5fcea2c8c72a147bc57161e2400db0464",
+      "reviewed_at": 1794491260.9302208
+    },
+    {
+      "person": "Neil deGrasse Tyson",
+      "source": {
+        "id": "archive:a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a-conversation-with-neil-de-grasse-tyson-04-23-2023/A%20Conversation%20with%20Neil%20deGrasse%20Tyson%2004-23-2023.mp4",
+        "source_url": "https://archive.org/details/a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "title": "Conversation with Neil DeGrasse Tyson",
+        "description": "\"Neil deGrasse Tyson is NOT afraid of Artificial Intelligence .\" ▪ Conversation with American astrophysicist Neil deGrasse Tyson - produced & published by Alex J. O'Connor on April 23rd, 2023. Timeline: 00:00 - Introduction 01:11 - Feeling Small in the Universe 09:55 - Is the World Ending? 14:35 - Artificial Intelligence 36:02 - \"Forbidden Twitter File\" 45:28 - Outro ['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "creator": "Neil deGrasse Tyson",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2767.6,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1275.89,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Neil deGrasse Tyson participating in an interview/conversation podcast, making him clearly visible throughout the sampled frames. It provides biographical illustration material, though it features a split-screen with the interviewer.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5b63a45a4c3a4176e00072818ab4fd60abd7436bb241623fee7fec484973adb0",
+      "reviewed_at": 1794491276.1418655
+    },
+    {
+      "person": "Neil deGrasse Tyson",
+      "source": {
+        "id": "archive:a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a-conversation-with-neil-de-grasse-tyson-04-23-2023/A%20Conversation%20with%20Neil%20deGrasse%20Tyson%2004-23-2023.mp4",
+        "source_url": "https://archive.org/details/a-conversation-with-neil-de-grasse-tyson-04-23-2023",
+        "title": "Conversation with Neil DeGrasse Tyson",
+        "description": "\"Neil deGrasse Tyson is NOT afraid of Artificial Intelligence .\" ▪ Conversation with American astrophysicist Neil deGrasse Tyson - produced & published by Alex J. O'Connor on April 23rd, 2023. Timeline: 00:00 - Introduction 01:11 - Feeling Small in the Universe 09:55 - Is the World Ending? 14:35 - Artificial Intelligence 36:02 - \"Forbidden Twitter File\" 45:28 - Outro ['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "creator": "Neil deGrasse Tyson",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Neil deGrasse Tyson', 'Artificial Intelligence', 'Science', 'Scientist', 'Conversation', 'Interview', 'Technology', 'Video', 'YouTube', 'Internet', 'Ethics', 'Public Intellectual', 'Existence', 'Knowledge', 'Educational', 'Humanity', 'America', '720p', '2023']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2767.6,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1699.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real interview footage of Neil deGrasse Tyson speaking with an interviewer, making it usable as biographical illustration footage for a short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "aaf759dcbcc1cfe6d486e6557fa7cbb80e838ce2f20a2b3ff3d98990218125e9",
+      "reviewed_at": 1794491294.8143742
     }
   ]
 }

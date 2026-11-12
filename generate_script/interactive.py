@@ -156,7 +156,7 @@ def _retry_word_budget_guidance(last_error):
     if scene_match:
         scene, count, low, high = map(int, scene_match.groups())
         if count < low:
-            return targets[0] + f" Scene {scene} was underlength ({count}); add one concise, specific fact or action to that scene."
+            return targets[0] + f" Scene {scene} was underlength ({count}); rewrite it to 12–16 spoken words using one additional concrete, factual action or cause-and-effect detail. Do not pad with generic motivation."
         if count > high:
             return targets[0] + f" Scene {scene} was overlength ({count}); shorten that scene to its target band without changing other scenes unnecessarily."
     return targets[0] + " Verify the total and each scene count before returning the JSON."
@@ -270,7 +270,9 @@ Return the normal production JSON schema. Put the person's name in the topic/tit
     # Allow four bounded script attempts: the last failure can be a single
     # scene-count issue even after the total-word count has been corrected.
     # This remains a small fixed ceiling and does not relax the story contract.
-    story_attempts = 4
+    story_attempts = 6
+    active_model = _base.MODEL_NAME
+    transient_backoff = (5, 10, 20, 30, 45)
     for attempt in range(story_attempts):
         try:
             retry=""
@@ -278,7 +280,7 @@ Return the normal production JSON schema. Put the person's name in the topic/tit
                 budget_guidance = _retry_word_budget_guidance(last_error)
                 retry=f"\nRETRY {attempt+1}: Fix the reported validation error while preserving the strongest factual beats. {budget_guidance} Scene 1 must be a hard curiosity hook, not a biography opener. Scene 7 MUST be EXACTLY TWO spoken sentences: payoff first, loop callback second. The second sentence MUST echo TWO distinctive content words from Scene 1's FIRST sentence. Scene 7 must contain NO subscribe/follow CTA. Previous error: {last_error}"
             story_gemini_budget.consume("script_generation")
-            response=client.models.generate_content(model=_base.MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=_base.SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_base._build_schema(),temperature=.55))
+            response=client.models.generate_content(model=active_model,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=_base.SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_base._build_schema(),temperature=.55))
             raw=getattr(response,"text",None)
             if not raw: raise RuntimeError("Gemini returned an empty story script.")
             result=_normalize_story(_base._parse(raw),topic)
@@ -291,5 +293,13 @@ Return the normal production JSON schema. Put the person's name in the topic/tit
             if _is_gemini_quota_error(exc):
                 print("🛑 Gemini project/day quota exhausted — deferring Story Shorts generation without consuming the reserved subject.")
                 raise RuntimeError(f"{STORY_GEMINI_QUOTA_DEFERRED}: Gemini project/day quota is exhausted; Story Shorts will resume on the next successful run.") from exc
-            if attempt+1<story_attempts: print(f"⚠️ Story script attempt {attempt+1} rejected: {last_error}"); time.sleep(2)
+            transient = any(token in last_error.lower() for token in ("503", "502", "500", "504", "unavailable", "high demand", "temporarily"))
+            if transient and active_model != _base.SECONDARY_MODEL_NAME:
+                active_model = _base.SECONDARY_MODEL_NAME
+                print(f"🔁 Story Gemini primary model unavailable; switching to configured fallback: {active_model}", flush=True)
+                continue
+            if attempt+1<story_attempts:
+                delay = transient_backoff[min(attempt, len(transient_backoff)-1)] if transient else 2
+                print(f"⚠️ Story script attempt {attempt+1}/{story_attempts} rejected: {last_error}; retrying in {delay}s", flush=True)
+                time.sleep(delay)
     raise RuntimeError(f"STORY SCRIPT GENERATION FAILED after bounded retries. Last error: {last_error}")

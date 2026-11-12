@@ -177,6 +177,10 @@ def _patch_story_video_topics() -> None:
                     release_reservation(pillar, topic, person)
                     print(f"🚫 Story topic already used by another factory workflow; selecting another subject: {person}", flush=True)
                     continue
+                if _story_defer_failure(exc):
+                    raise RuntimeError(
+                        "Story media provider temporarily unavailable; preserving the reserved subject for retry"
+                    ) from exc
                 if not _story_media_failure(exc):
                     raise
                 if os.environ.get("STORY_PERSON", "").strip():
@@ -227,6 +231,11 @@ def _story_media_failure(exc: Exception) -> bool:
         "story video search budget exhausted",
         "no relevant downloadable archival media",
         "could not decode sample frame",
+        "could not probe story source",
+        "no accessible video file variant",
+        "story source interval extraction failed",
+        "ffprobe failed",
+        "ffmpeg failed",
         "source has no usable video stream",
         "truncated source interval",
     )
@@ -248,6 +257,13 @@ def _story_defer_failure(exc: Exception) -> bool:
         "story verifier unavailable after network retries/model fallback",
         "story verifier unavailable after retries",
         "story verifier network unavailable",
+        "network timeout",
+        "connection reset",
+        "connection timed out",
+        "temporary failure in name resolution",
+        "http 502",
+        "http 503",
+        "http 504",
         "story verifier request budget exhausted",
         "story gemini request budget exhausted",
     )

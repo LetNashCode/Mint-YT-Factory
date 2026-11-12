@@ -235,7 +235,6 @@ def _story_media_failure(exc: Exception) -> bool:
         "no accessible video file variant",
         "story source interval extraction failed",
         "ffprobe failed",
-        "ffmpeg failed",
         "source has no usable video stream",
         "truncated source interval",
     )

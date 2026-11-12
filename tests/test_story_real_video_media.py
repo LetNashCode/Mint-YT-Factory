@@ -600,7 +600,7 @@ def test_verifier_network_outage_fails_closed_after_three_attempts(monkeypatch):
 def test_story_verifier_uses_publish_shorts_gemini_model(monkeypatch):
     import stock_search
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
-    monkeypatch.setenv("MINT_GEMINI_MODEL", "gemini-flash-lite-latest")
+    monkeypatch.setenv("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
     calls = []
 
@@ -616,8 +616,8 @@ def test_story_verifier_uses_publish_shorts_gemini_model(monkeypatch):
     assert media.verification_passes(
         media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
     )
-    assert calls and all(stock_search.GEMINI_MODEL in call for call in calls)
-    assert media.GEMINI_MODEL == stock_search.GEMINI_MODEL == "gemini-flash-lite-latest"
+    assert calls and all("gemini-3.5-flash-lite" in call for call in calls)
+    assert media.GEMINI_MODEL == stock_search.GEMINI_MODEL
 
 
 def test_story_verifier_uses_stable_fallback_after_primary_5xx(monkeypatch):

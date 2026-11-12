@@ -502,19 +502,27 @@ def search_archive(person):
                 f for f in metadata.get("files", [])
                 if str(f.get("name", "")).lower().endswith((".mp4", ".ogv", ".webm"))
                 and "sample" not in str(f.get("name", "")).lower()
+                and (not f.get("size") or int(f.get("size") or 0) <= 1_000_000_000)
             ]
             if not files:
                 continue
+            # Archive items often contain multiple encodes. The largest MP4 is
+            # not always the most accessible; keep several valid variants and
+            # let ffprobe choose the first one that actually responds.
             files.sort(
                 key=lambda f: (
                     not str(f["name"]).lower().endswith(".mp4"),
+                    -min(int(f.get("width") or 0), int(f.get("height") or 0)),
                     -int(f.get("size") or 0),
                 )
             )
-            candidate["url"] = (
+            file_urls = [
                 "https://archive.org/download/" + quote(identifier, safe="") +
-                "/" + quote(files[0]["name"], safe="/")
-            )
+                "/" + quote(f["name"], safe="/")
+                for f in files[:5]
+            ]
+            candidate["url"] = file_urls[0]
+            candidate["alternate_urls"] = file_urls[1:]
             results.append(candidate)
             seen.add(identifier)
 
@@ -594,8 +602,34 @@ def reject_youtube_url(url):
 def resolve(item):
     if item.get("provider") == "YouTube":
         raise RuntimeError("YouTube downloads are disabled for Story Shorts")
-    reject_youtube_url(item["url"])
-    return item["url"], probe(item["url"])
+    urls = []
+    for url in [item.get("url"), *(item.get("alternate_urls") or [])]:
+        if url and url not in urls:
+            urls.append(url)
+    last_error = None
+    for index, url in enumerate(urls[:5], start=1):
+        try:
+            reject_youtube_url(url)
+            duration = probe(url)
+            item["url"] = url
+            if index > 1:
+                print(
+                    f"Story source variant fallback succeeded: {item.get('provider')} "
+                    f"variant {index}/{len(urls)}",
+                    flush=True,
+                )
+            return url, duration
+        except Exception as exc:
+            last_error = exc
+            print(
+                f"Story source variant unavailable: {item.get('provider')} "
+                f"variant {index}/{len(urls)} ({type(exc).__name__})",
+                flush=True,
+            )
+    raise RuntimeError(
+        f"No accessible video file variant for {item.get('provider')}: "
+        f"{type(last_error).__name__ if last_error else 'missing source URL'}"
+    )
 
 
 def windows(duration, length=8.0, limit=8):

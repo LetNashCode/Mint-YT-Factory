@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why does a keyboard click",
-    "normalized": "why does a keyboard click",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794517388,
-    "recorded_at": 1794517388,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do plastic rulers bend without breaking",
     "normalized": "why do plastic rulers bend without breaking",
     "workflow": "publish",
@@ -3522,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1794602420,
     "recorded_at": 1794602420,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do ceramic tiles feel cold",
+    "normalized": "why do ceramic tiles feel cold",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794608942,
+    "recorded_at": 1794608942,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

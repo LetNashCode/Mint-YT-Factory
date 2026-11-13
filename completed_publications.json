@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789580967",
-    "video_id": "HJDirMev1S0",
-    "topic": "Why do bubbles pop instantly",
-    "completed_at": 1789582748
-  },
-  {
     "workdir": "output/1789661327",
     "video_id": "0mCFqRB9Dsw",
     "topic": "Why soap bubbles form perfect spheres",
@@ -598,5 +592,11 @@
     "video_id": "k9kbbn2fMxI",
     "topic": "Why do plastic rulers bend without breaking",
     "completed_at": 1794547668
+  },
+  {
+    "workdir": "output/1794609000",
+    "video_id": "xgFUMhRwBlo",
+    "topic": "Why do ceramic tiles feel cold",
+    "completed_at": 1794610533
   }
 ]

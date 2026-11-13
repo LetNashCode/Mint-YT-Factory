@@ -20299,6 +20299,96 @@
       "shot": 2,
       "query": "bread crusts millions microscopic flavor explosions",
       "recorded_at": 1794602607
+    },
+    {
+      "asset_key": "pexels:video:40871328",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40871328/17469704_720_1280_50fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "ceramic tiles your warm bedroom rug",
+      "recorded_at": 1794609158
+    },
+    {
+      "asset_key": "pexels:video:4080107",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4080107/4080107-hd_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "ceramic tiles grab thermometer digital real-world",
+      "recorded_at": 1794609163
+    },
+    {
+      "asset_key": "pexels:video:40774459",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40774459/17415521_1280_720_60fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "ceramic tiles wood floor tile sit",
+      "recorded_at": 1794609163
+    },
+    {
+      "asset_key": "pexels:video:39089138",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39089138/16633671_720_1280_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "ceramic tiles your room thermometer proves",
+      "recorded_at": 1794609166
+    },
+    {
+      "asset_key": "pexels:video:5020610",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5020610/5020610-hd_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "ceramic tiles they match one burn",
+      "recorded_at": 1794609167
+    },
+    {
+      "asset_key": "pixabay:video:8625",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/04/10/8625-212638612_medium.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "ceramic tiles greedy heat thief",
+      "recorded_at": 1794609169
+    },
+    {
+      "asset_key": "pexels:video:4729560",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4729560/4729560-hd_1280_720_60fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "ceramic tiles sucks warmth right out",
+      "recorded_at": 1794609171
+    },
+    {
+      "asset_key": "pexels:video:7279838",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7279838/7279838-hd_1366_720_24fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "ceramic tiles wood holds onto its",
+      "recorded_at": 1794609172
+    },
+    {
+      "asset_key": "pixabay:video:27889",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/10/14/27889-366365856_medium.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "ceramic tiles but tile acts like",
+      "recorded_at": 1794609173
     }
   ]
 }

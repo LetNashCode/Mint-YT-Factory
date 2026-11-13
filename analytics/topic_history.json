@@ -3538,5 +3538,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do plastic rulers bend without breaking",
+    "normalized": "why do plastic rulers bend without breaking",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794545762,
+    "recorded_at": 1794545762,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

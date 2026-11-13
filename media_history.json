@@ -19939,6 +19939,126 @@
       "shot": 2,
       "query": "keyboard click you triggering micro mousetraps",
       "recorded_at": 1794517625
+    },
+    {
+      "asset_key": "pexels:video:14377592",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/14377592/14377592-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "plastic rulers bend wooden ruler hands",
+      "recorded_at": 1794546499
+    },
+    {
+      "asset_key": "pexels:video:5147933",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5147933/5147933-hd_1366_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "plastic rulers bend snap shatters instantly splintered",
+      "recorded_at": 1794546501
+    },
+    {
+      "asset_key": "pexels:video:8108750",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8108750/8108750-hd_720_1366_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "plastic rulers bend clear school",
+      "recorded_at": 1794546503
+    },
+    {
+      "asset_key": "pexels:video:5679037",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5679037/5679037-hd_1366_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "plastic rulers bend wobbles right back ruler",
+      "recorded_at": 1794546504
+    },
+    {
+      "asset_key": "pexels:video:20184480",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/20184480/20184480-hd_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "plastic rulers bend wood snaps because its",
+      "recorded_at": 1794546505
+    },
+    {
+      "asset_key": "pexels:video:855422",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/855422/855422-hd_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "plastic rulers bend crack under pressure grain",
+      "recorded_at": 1794546507
+    },
+    {
+      "asset_key": "pexels:video:32245122",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/32245122/13753874_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "plastic rulers bend made long polymer",
+      "recorded_at": 1794546508
+    },
+    {
+      "asset_key": "pexels:video:38891785",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/38891785/16536953_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "plastic rulers bend tangle together like bowl",
+      "recorded_at": 1794546509
+    },
+    {
+      "asset_key": "pexels:video:34679116",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34679116/14699320_720_1280_30fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "plastic rulers bend you bow curled",
+      "recorded_at": 1794546511
+    },
+    {
+      "asset_key": "pexels:video:14377591",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/14377591/14377591-hd_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "plastic rulers bend slide past each other",
+      "recorded_at": 1794546511
+    },
+    {
+      "asset_key": "pexels:video:16040147",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/16040147/16040147-hd_720_1280_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "plastic rulers bend release pressure tangled molecular",
+      "recorded_at": 1794546513
+    },
+    {
+      "asset_key": "pexels:video:14377328",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/14377328/14377328-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "plastic rulers bend perfectly straight unbroken ruler",
+      "recorded_at": 1794546514
     }
   ]
 }

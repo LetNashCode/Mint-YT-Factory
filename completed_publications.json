@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789562679",
-    "video_id": "dsNAPp4mz2w",
-    "topic": "Why do wet fingers wrinkle",
-    "completed_at": 1789563972
-  },
-  {
     "workdir": "output/1789580967",
     "video_id": "HJDirMev1S0",
     "topic": "Why do bubbles pop instantly",
@@ -598,5 +592,11 @@
     "video_id": "4qsKmYHLPg8",
     "topic": "Why do pillows flatten",
     "completed_at": 1794508503
+  },
+  {
+    "workdir": "output/1794546454",
+    "video_id": "k9kbbn2fMxI",
+    "topic": "Why do plastic rulers bend without breaking",
+    "completed_at": 1794547668
   }
 ]

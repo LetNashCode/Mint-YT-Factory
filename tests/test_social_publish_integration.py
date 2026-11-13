@@ -46,3 +46,21 @@ def test_instagram_reel_derivative_matches_meta_audio_and_mp4_container_requirem
     assert 'int(audio.get("sample_rate") or 0) != 48000' in source
     assert 'retry_delays = (15, 45, 90)' in source
     assert "Strict social publishing failed after {MAX_SOCIAL_ATTEMPTS} attempts" in source
+
+
+def test_story_pipeline_queues_youtube_upload_before_shared_meta_publisher():
+    source = (ROOT / "interactive_main.py").read_text(encoding="utf-8")
+    youtube_upload = source.index("result=upload_video(final,title,desc,config")
+    queue_save = source.index("_save_social_queue(", youtube_upload)
+    social_publish = source.index("publish_social_reels(final,title,desc,config,workdir)", queue_save)
+    queue_clear = source.index("_clear_social_queue()", social_publish)
+    assert youtube_upload < queue_save < social_publish < queue_clear
+    assert '"status": "complete"' in source
+
+
+def test_story_social_resume_uses_same_meta_publisher_and_keeps_queue_on_failure():
+    source = (ROOT / "story_social_resume.py").read_text(encoding="utf-8")
+    assert "from social_publish import publish_social_reels" in source
+    assert "publish_social_reels(final" in source
+    assert "QUEUE.unlink(missing_ok=True)" in source
+    assert source.index("if failures:") < source.index("QUEUE.unlink(missing_ok=True)")

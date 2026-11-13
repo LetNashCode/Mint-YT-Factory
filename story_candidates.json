@@ -1,14 +1,170 @@
 [
   {
-    "format": "rise_from_nothing",
-    "person": "Viswanathan Anand",
-    "premise": "Rising from the chess clubs of Chennai to become India's first Grandmaster and a multi-time World Chess Champion.",
-    "hook": "He learned the complex rules of chess from his mother at age six in a house without a computer.",
+    "format": "one_decision",
+    "person": "Jonas Salk",
+    "premise": "Choosing to test his polio vaccine on himself and his own family before mass clinical trials.",
+    "hook": "The polio epidemic terrified the world, and millions waited anxiously for a breakthrough while children filled iron lungs.",
     "key_facts": [
-      "Became India's first Grandmaster in 1988 at the age of 18.",
-      "Won the World Chess Championship five times across different formats.",
-      "Known for his exceptionally fast calculation speed, earning him the nickname 'The Lightning Kid'.",
-      "Awarded India's second-highest civilian award, the Padma Vibhushan, in 2007."
+      "Developed the first successful inactivated polio vaccine in the early 1950s.",
+      "Inoculated himself, his wife, and his children to prove the vaccine's safety prior to the 1954 trials.",
+      "Refused to patent the vaccine, asking 'Would you patent the sun?'",
+      "Field trials involving 1.8 million children proved the vaccine safe and effective in 1955."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Harrison Ford",
+    "premise": "Working as a master carpenter in Hollywood while struggling to get cast in major film roles.",
+    "hook": "Before he flew the Millennium Falcon, he built cabinets for George Lucas and was told he would never make it as an actor.",
+    "key_facts": [
+      "Moved to Los Angeles in 1964 and signed a weekly contract with Columbia Pictures.",
+      "Became a self-taught carpenter to support his wife and two young sons when acting work dried up.",
+      "Built a recording studio for Sergio Mendes and cabinets for Francis Ford Coppola.",
+      "Hired by George Lucas to build a doorway, which directly led to his audition for Star Wars."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "Keeping his entire 28-man crew alive for nearly two years after their ship was crushed by Antarctic ice.",
+    "hook": "Their ship was trapped, crushed, and sunk, leaving them stranded on floating ice packs a thousand miles from civilization.",
+    "key_facts": [
+      "The Endurance became trapped in pack ice in the Weddell Sea in 1915.",
+      "After the ship sank, the crew camped on floating ice floes for months.",
+      "Shackleton and five men made an 800-mile journey in a 22-foot lifeboat to South Georgia Island for rescue.",
+      "Every single member of the Imperial Trans-Antarctic Expedition survived."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Rajinikanth",
+    "premise": "Working as a bus conductor in Bangalore before rising to become one of Indian cinema's biggest superstars.",
+    "hook": "He handed out tickets on Bangalore city buses while dreaming of the stage.",
+    "key_facts": [
+      "Worked various jobs including carpentry and as a Bangalore Transport Service bus conductor.",
+      "Acted in amateur plays, notably mythological roles in Kannada productions.",
+      "Joined the Film and Television Institute of Madras in 1973 to study acting.",
+      "Made his cinematic debut in K. Balachander's Tamil film Apoorva Raangangal in 1975."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Yuri Gagarin",
+    "premise": "Accepting the perilous Vostok 1 assignment, knowing the mission's safety systems had barely been tested.",
+    "hook": "He climbed into a cramped metal sphere atop a ballistic missile, becoming the first human launched into the unknown.",
+    "key_facts": [
+      "Selected from a group of 20 Soviet Air Force fighter pilots for the Vostok program.",
+      "Flew aboard Vostok 1 on April 12, 1961, completing one orbit of Earth.",
+      "Ejected from the spacecraft at 20,000 feet as per the standard landing design of the time.",
+      "Became an international celebrity and hero following the successful historic flight."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Louis Braille",
+    "premise": "Inventing a revolutionary tactile reading system as a teenager after losing his sight in a childhood accident.",
+    "hook": "Blinded at age three by an awl in his father's harness shop, he spent his youth fighting for the right to read.",
+    "key_facts": [
+      "Blinded in his left eye by an accident and subsequently lost sight in both eyes due to sympathetic ophthalmia.",
+      "Entered the Royal Institution for Blind Youth in Paris in 1819.",
+      "Adapted Captain Charles Barbier's 'night writing' military code into a six-dot cell system.",
+      "Published the system in 1829, allowing blind individuals to read and write efficiently."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Percy Spencer",
+    "premise": "Inventing the microwave oven after a candy bar melted in his pocket while standing near a magnetron.",
+    "hook": "A physicist working on radar technology noticed a peanut cluster melting in his pocket and realized military tech could cook food.",
+    "key_facts": [
+      "Self-taught engineer who worked for Raytheon, becoming a leading expert in radar design.",
+      "Stood in front of an active magnetron tube during wartime research in 1945.",
+      "Noticed his peanut butter candy bar had liquefied.",
+      "Patented the microwave oven in 1945, with the first commercial model appearing in 1947."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Sarah Breedlove (Madam C.J. Walker)",
+    "premise": "Overcoming orphanhood and severe scalp ailments to build a cosmetics empire and become America's first self-made female millionaire.",
+    "hook": "Suffering from hair loss due to poor sanitation and lack of indoor plumbing, she formulated her own healing tonic.",
+    "key_facts": [
+      "Born on a cotton plantation in Delta, Louisiana, orphaned at age seven.",
+      "Worked for decades as a washerwoman before developing hair care products for Black women.",
+      "Founded Madam C.J. Walker Manufacturing Company in 1906.",
+      "Employed thousands of women as sales agents and became a prominent philanthropist."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Stanislav Petrov",
+    "premise": "Choosing to disobey protocol and report a nuclear warning signal as a false alarm during the height of the Cold War.",
+    "hook": "Computer screens flashed with incoming US ballistic missiles, and he had minutes to decide whether to launch a retaliatory strike.",
+    "key_facts": [
+      "Served as a lieutenant colonel in the Soviet Air Defense Forces in 1983.",
+      "The Oko nuclear early warning system falsely reported five American missiles launched from Montana.",
+      "Suspected a computer malfunction because the incoming count was too low for a first strike.",
+      "Reported the alert as a false alarm, averting a potential nuclear exchange."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Tenzing Norgay",
+    "premise": "Climbing to the roof of the world alongside Edmund Hillary after years of working as a high-altitude porter.",
+    "hook": "He carried heavy loads for foreign expeditions for decades before finally standing on the summit of Mount Everest.",
+    "key_facts": [
+      "Born in Tibet and grew up in Nepal as part of the Sherpa community.",
+      "Participated in multiple Everest expeditions throughout the 1930s and 1940s as a sirdar and porter.",
+      "Reached the summit of Everest with Edmund Hillary on May 29, 1953.",
+      "Named one of Time magazine's 100 most influential people of the 20th century."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Spencer Silver",
+    "premise": "Inventing a uniquely 'failed' low-tack adhesive that spent years looking for a purpose until a colleague needed a bookmark.",
+    "hook": "He created an adhesive that stuck lightly to surfaces without leaving residue, and everyone thought it was utterly useless.",
+    "key_facts": [
+      "Worked as a chemist at 3M developing stronger adhesives for aerospace applications in 1968.",
+      "Created a pressure-sensitive acrylate copolymer microsphere adhesive that could be repositioned.",
+      "Hosted internal seminars for five years trying to find an application for the sticky substance.",
+      "Colleague Art Fry used the adhesive in 1974 to anchor bookmarks in his church hymnal, leading to the Post-it Note."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Charles Lindbergh",
+    "premise": "Deciding to fly a single-engine monoplane across the treacherous Atlantic Ocean without a parachute or radio.",
+    "hook": "He stripped his custom aircraft of every ounce of excess weight—including the radio—to bet his life on a nonstop flight to Paris.",
+    "key_facts": [
+      "Flew the custom-built Spirit of St. Louis from Roosevelt Field, New York, to Paris in May 1927.",
+      "Completed the first solo nonstop transatlantic flight in 33.5 hours.",
+      "Flew without a forward-facing windshield, relying on a periscope to see ahead.",
+      "Became an instant global aviation icon upon landing at Le Bourget Airport."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Ruth Wakefield",
+    "premise": "Inventing the chocolate chip cookie because she ran out of baker's chocolate and substituted chopped Nestlé semi-sweet bars.",
+    "hook": "She expected the chocolate chunks to melt into the batter during baking, but instead, they held their shape to create a culinary revolution.",
+    "key_facts": [
+      "Owned and operated the Toll House Inn in Whitman, Massachusetts, during the 1930s.",
+      "Baked butter drop cookies for her guests in 1938 using chopped Nestlé chocolate bars.",
+      "Struck a deal with Nestlé in 1939 to print her recipe on product packaging in exchange for a lifetime supply of chocolate.",
+      "Created one of the most popular dessert recipes in American history by accident."
     ],
     "source": "gemini_original"
   }

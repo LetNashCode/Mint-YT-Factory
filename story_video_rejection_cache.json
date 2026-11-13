@@ -13291,6 +13291,33 @@
       "start": 1553.59,
       "reason": "The footage shows B-roll driving past rural houses and a church, serving as biographical illustration of Nadia Comaneci's homeland context, but the subject is not visible.",
       "reviewed_at": 1794497391.2850854
+    },
+    "8a8f53c984d74833f6768e59": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colbca-Black_History_Month_Spotlight_-_Sidney_Poitier",
+      "source_url": "https://archive.org/details/colbca-Black_History_Month_Spotlight_-_Sidney_Poitier",
+      "person": "Sidney Poitier",
+      "start": 25.26,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1794613246.855747
+    },
+    "37179403a21ede3e36046f13": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colbca-Black_History_Month_Spotlight_-_Sidney_Poitier",
+      "source_url": "https://archive.org/details/colbca-Black_History_Month_Spotlight_-_Sidney_Poitier",
+      "person": "Sidney Poitier",
+      "start": 36.05,
+      "reason": "The sampled frames consist entirely of title cards and graphic motion design elements with text about Sidney Poitier. The subject is not visibly present in any of the frames, and there is no actual filmed historical footage.",
+      "reviewed_at": 1794613253.5457737
+    },
+    "c563100f3da13b0b8e32b81f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colbca-Black_History_Month_Spotlight_-_Sidney_Poitier",
+      "source_url": "https://archive.org/details/colbca-Black_History_Month_Spotlight_-_Sidney_Poitier",
+      "person": "Sidney Poitier",
+      "start": 3.7,
+      "reason": "The video consists of a static photograph with added graphical elements, text overlays, and a quote, which violates the rule against using slideshows, title cards, and static photographs.",
+      "reviewed_at": 1794613258.4703388
     }
   }
 }

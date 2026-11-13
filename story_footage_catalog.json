@@ -2,99 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Neil deGrasse Tyson",
-      "source": {
-        "id": "archive:Neil-deGrasse-Tyson",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Neil-deGrasse-Tyson/EntrevistaANeilDegrasseTyson.mp4",
-        "source_url": "https://archive.org/details/Neil-deGrasse-Tyson",
-        "title": "Neil-deGrasse-Tyson",
-        "description": "Stephen Colbert entrevista a Neil deGrasse Tyson en la Montclair Kimberley Academy [Spanish]. ['Ciencia', 'Astronomia']",
-        "creator": "",
-        "license": "",
-        "subject": "['Ciencia', 'Astronomia']",
-        "runtime": "1:11:14",
-        "direct_subject": true,
-        "duration_hint": 4274.388889,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2299.06,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows actual filmed footage of Neil deGrasse Tyson participating in an interview/discussion panel on stage (with Stephen Colbert), making him clearly identifiable across the frames. It serves as biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b036167e621f68a0ba3b76c1806b50939c88bf1a09f3c7f9a663ca144f857365",
-      "reviewed_at": 1792349189.4704819
-    },
-    {
-      "person": "Diana Nyad",
-      "source": {
-        "id": "archive:DianaNyad_2011P",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DianaNyad_2011P/DianaNyad_2011P.mp4",
-        "source_url": "https://archive.org/details/DianaNyad_2011P",
-        "title": "Diana Nyad: Extreme swimming with the world's most dangerous jellyfish",
-        "description": "In the 1970s, Diana Nyad set long-distance swim records that are still unbroken. Thirty years later, at 60, she attempted her longest swim yet, from Cuba to Florida. In this funny, powerful talk at TEDMED, she talks about how to prepare mentally to achieve an extreme dream, and asks: What will YOU do with your wild, precious life? ['TEDTalks', 'TEDMED 2011', 'TED', 'Talks', 'culture', 'extreme sports', 'sports', 'success', '2011']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TEDMED 2011', 'TED', 'Talks', 'culture', 'extreme sports', 'sports', 'success', '2011']",
-        "runtime": "00:16:58",
-        "direct_subject": true,
-        "duration_hint": 1017.466667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 545.33,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features Diana Nyad speaking on stage at a TEDMED event, providing biographical illustration footage of her discussing her experiences and mindset.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9d9909bfc5a97dcd18dc87d48ff14aff8b627bc89127f455b220ddd88b8f5aa0",
-      "reviewed_at": 1792349315.9269073
-    },
-    {
-      "person": "Diana Nyad",
-      "source": {
-        "id": "archive:DianaNyad_2013W",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DianaNyad_2013W/DianaNyad_2013W.mp4",
-        "source_url": "https://archive.org/details/DianaNyad_2013W",
-        "title": "Diana Nyad: Never, ever give up",
-        "description": "In the pitch-black night, stung by jellyfish, choking on salt water, singing to herself, hallucinating … Diana Nyad just kept on swimming. And that's how she finally achieved her lifetime goal as an athlete: an extreme 100-mile swim from Cuba to Florida -- at age 64. Hear her story. ['TEDTalks', 'TED', 'Talks', 'aging', 'culture', 'extreme sports', 'TEDWomen 2013', '2013']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TED', 'Talks', 'aging', 'culture', 'extreme sports', 'TEDWomen 2013', '2013']",
-        "runtime": "00:15:35",
-        "direct_subject": true,
-        "duration_hint": 935.75,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 501.33,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The footage shows Diana Nyad speaking on stage at a TED talk, which provides valid biographical illustration footage of the subject. However, it is a speech/presentation rather than direct footage of her swimming or experiencing the events described in the narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "23d49073217ef127cf5623a4e411c30fad4e6ad93dbf69d9c3fcdf39e344792a",
-      "reviewed_at": 1792349328.220839
-    },
-    {
       "person": "Diana Nyad",
       "source": {
         "id": "archive:DianaNyad_2011P",
@@ -18605,6 +18512,102 @@
       },
       "review_key": "4d2c65f680b9cf65227351c7967a39fb4e06b5b7b1eb2786517206c120d05d6e",
       "reviewed_at": 1794497764.2780497
+    },
+    {
+      "person": "Sidney Poitier",
+      "source": {
+        "id": "archive:aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020/Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020.mp4",
+        "source_url": "https://archive.org/details/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+        "title": "Sidney Poitier: The Measure of a Man Trailer - Austin Film Society - Feb 2020",
+        "description": "Tickets: https://www.austinfilm.org/series/sidney-poitier-the-measure-of-a-man/ As an actor, director, activist and cultural force, Sidney Poitier has occupied a unique position in film history. As the first black male movie star he bore a special burden, which he carried with both grace and a sense of its gravity. We will be joined at select screenings by series programmer Mark D. Cunningham, associate professor at Austin Community College, for discussions about Poitier and his work. ['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2020']",
+        "creator": "Austin Film Society",
+        "license": "",
+        "subject": "['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2020']",
+        "runtime": "00:01:38",
+        "direct_subject": true,
+        "duration_hint": 97.831526,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": []
+      },
+      "start": 51.57,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features authentic film archive footage including Sidney Poitier visibly acting in his films (e.g., frames 1-3), serving as valid biographical illustration for a video about his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e53831b099fc74f5b126049943a7d741a02f03a65b4825c4930e6ff6d7634a31",
+      "reviewed_at": 1794613263.5156748
+    },
+    {
+      "person": "Sidney Poitier",
+      "source": {
+        "id": "archive:edge-of-the-city-1957-john-cassavetes-sidney-poitier",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/edge-of-the-city-1957-john-cassavetes-sidney-poitier/Edge%20of%20the%20City%201957%20John%20Cassavetes%2C%20Sidney%20Poitier.mp4",
+        "source_url": "https://archive.org/details/edge-of-the-city-1957-john-cassavetes-sidney-poitier",
+        "title": "Edge Of The City 1957 John Cassavetes, Sidney Poitier",
+        "description": "Axel Nordmann, an Army deserter, and Tommy Tyler, a relaxed freight car loader, have a burgeoning friendship, which is threatened by Charles Malik, an infamously repellent punk. Tragedy ensues... ['deserter', 'manslaughter']",
+        "creator": "",
+        "license": "",
+        "subject": "['deserter', 'manslaughter']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 5120.330368,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": []
+      },
+      "start": 2754.56,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features authentic historical film footage (Edge of the City, 1957) clearly showing Sidney Poitier as Tommy Tyler, perfectly matching the biographical subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0827a637609e76aac081c07c6fa657fed808981766d0b5e5d6f426da87229a9e",
+      "reviewed_at": 1794613270.6378152
+    },
+    {
+      "person": "Sidney Poitier",
+      "source": {
+        "id": "archive:aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020/Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020.mp4",
+        "source_url": "https://archive.org/details/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+        "title": "Sidney Poitier: The Measure of a Man Trailer - Austin Film Society - Feb 2020",
+        "description": "Tickets: https://www.austinfilm.org/series/sidney-poitier-the-measure-of-a-man/ As an actor, director, activist and cultural force, Sidney Poitier has occupied a unique position in film history. As the first black male movie star he bore a special burden, which he carried with both grace and a sense of its gravity. We will be joined at select screenings by series programmer Mark D. Cunningham, associate professor at Austin Community College, for discussions about Poitier and his work. ['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2020']",
+        "creator": "Austin Film Society",
+        "license": "",
+        "subject": "['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2020']",
+        "runtime": "00:01:38",
+        "direct_subject": true,
+        "duration_hint": 97.831526,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": []
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature genuine archival film footage of Sidney Poitier from various roles throughout his career, making it directly usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "aa7251bdfb4a782106f67af8096a9fcc51fe3991654b5b0da752b643aa09d8b1",
+      "reviewed_at": 1794613277.894783
     }
   ]
 }

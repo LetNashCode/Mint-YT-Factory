@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-11-12T18:52:12.825157+00:00",
-  "refresh_attempted_at": "2026-11-12T18:52:12.825157+00:00",
+  "generated_at": "2026-11-13T13:02:47.228169+00:00",
+  "refresh_attempted_at": "2026-11-13T13:02:47.228169+00:00",
   "refresh_status": "success",
   "video_count": 39,
   "optimization_ready": true,
   "live_metrics_ready": true,
-  "advanced_metrics_videos": 38,
+  "advanced_metrics_videos": 39,
   "reason": "",
   "totals": {
-    "views": 12270,
-    "likes": 234,
+    "views": 12278,
+    "likes": 236,
     "comments": 6
   },
   "averages": {
-    "views": 314.62,
-    "likes": 6.0,
+    "views": 314.82,
+    "likes": 6.05,
     "comments": 0.15,
-    "average_view_percentage": 64.61,
+    "average_view_percentage": 66.04,
     "subscribers_gained": 0.36,
     "shares": 0.03
   },
@@ -68,8 +68,8 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 1214,
-      "views_after_24h": 1212,
-      "views_after_7d": 1212,
+      "views_after_24h": 1214,
+      "views_after_7d": 1214,
       "likes": 43,
       "comments": 2,
       "shares": 1,
@@ -299,17 +299,17 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 394,
+      "views": 400,
       "views_after_24h": 250,
       "views_after_7d": null,
-      "likes": 15,
+      "likes": 17,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
+      "average_view_duration": 20.0,
+      "average_view_percentage": 55.55,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.8071
+      "engagement_rate": 4.25
     }
   ],
   "topic_performance": [
@@ -360,8 +360,8 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 1214,
-      "views_after_24h": 1212,
-      "views_after_7d": 1212,
+      "views_after_24h": 1214,
+      "views_after_7d": 1214,
       "likes": 43,
       "comments": 2,
       "shares": 1,
@@ -591,17 +591,17 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 394,
+      "views": 400,
       "views_after_24h": 250,
       "views_after_7d": null,
-      "likes": 15,
+      "likes": 17,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
+      "average_view_duration": 20.0,
+      "average_view_percentage": 55.55,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.8071
+      "engagement_rate": 4.25
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -650,7 +650,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 317,
-      "views_after_24h": 314,
+      "views_after_24h": 315,
       "views_after_7d": 317,
       "likes": 5,
       "comments": 0,
@@ -707,7 +707,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 250,
+      "views": 252,
       "views_after_24h": 249,
       "views_after_7d": 250,
       "likes": 3,
@@ -717,7 +717,7 @@
       "average_view_percentage": 63.99,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.2
+      "engagement_rate": 1.1905
     },
     {
       "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
@@ -824,7 +824,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 127,
-      "views_after_24h": 89,
+      "views_after_24h": 109,
       "views_after_7d": 126,
       "likes": 0,
       "comments": 0,
@@ -940,8 +940,8 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 93,
-      "views_after_24h": 87,
-      "views_after_7d": 87,
+      "views_after_24h": 91,
+      "views_after_7d": 91,
       "likes": 5,
       "comments": 0,
       "shares": 0,
@@ -1448,11 +1448,11 @@
   "retention_objective": {
     "target_average_view_percentage": 70.0,
     "metric": "average_view_percentage",
-    "eligible_video_count": 38,
-    "immature_or_missing_metric_count": 1,
+    "eligible_video_count": 39,
+    "immature_or_missing_metric_count": 0,
     "videos_meeting_target_count": 6,
-    "target_hit_rate_percentage": 15.79,
-    "average_view_percentage": 66.31,
+    "target_hit_rate_percentage": 15.38,
+    "average_view_percentage": 66.04,
     "videos_needing_improvement": [
       {
         "video_id": "RVBp08uabW0",
@@ -1462,7 +1462,7 @@
         "average_view_percentage": 24.88,
         "average_view_duration": 11.0,
         "views": 23,
-        "age_hours": 287.6,
+        "age_hours": 305.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1474,7 +1474,7 @@
         "average_view_percentage": 26.56,
         "average_view_duration": 10.0,
         "views": 16,
-        "age_hours": 383.0,
+        "age_hours": 401.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1486,7 +1486,7 @@
         "average_view_percentage": 28.47,
         "average_view_duration": 12.0,
         "views": 193,
-        "age_hours": 715.7,
+        "age_hours": 733.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1498,7 +1498,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 405.4,
+        "age_hours": 423.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1510,7 +1510,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 107,
-        "age_hours": 503.7,
+        "age_hours": 521.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1522,7 +1522,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1459.3,
+        "age_hours": 1477.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1534,7 +1534,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1484.4,
+        "age_hours": 1502.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1546,7 +1546,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 601.3,
+        "age_hours": 619.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1558,7 +1558,7 @@
         "average_view_percentage": 40.42,
         "average_view_duration": 13.0,
         "views": 296,
-        "age_hours": 574.8,
+        "age_hours": 593.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1570,7 +1570,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1486.9,
+        "age_hours": 1505.0,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1584,7 +1584,7 @@
         "average_view_percentage": 597.81,
         "average_view_duration": 221.0,
         "views": 109,
-        "age_hours": 312.4,
+        "age_hours": 330.6,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1596,7 +1596,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 698.4,
+        "age_hours": 716.6,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1608,7 +1608,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 769.6,
+        "age_hours": 787.8,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1620,7 +1620,7 @@
         "average_view_percentage": 81.18,
         "average_view_duration": 30.0,
         "views": 11,
-        "age_hours": 385.7,
+        "age_hours": 403.9,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1632,7 +1632,7 @@
         "average_view_percentage": 78.09,
         "average_view_duration": 29.0,
         "views": 65,
-        "age_hours": 608.3,
+        "age_hours": 626.5,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1644,7 +1644,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 800.3,
+        "age_hours": 818.5,
         "target_met": true,
         "status": "goal_met"
       }

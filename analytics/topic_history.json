@@ -3480,30 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do toaster slots collect crumbs",
-    "normalized": "why do toaster slots collect crumbs",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794499768,
-    "recorded_at": 1794499768,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do pillows flatten",
-    "normalized": "why do pillows flatten",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794507232,
-    "recorded_at": 1794507232,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why does a keyboard click",
     "normalized": "why does a keyboard click",
     "workflow": "publish",
@@ -3534,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1794584265,
     "recorded_at": 1794584265,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do bread crusts turn dark",
+    "normalized": "why do bread crusts turn dark",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794602420,
+    "recorded_at": 1794602420,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

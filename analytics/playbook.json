@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T16:01:06.632004+00:00",
+  "generated_at": "2026-11-13T21:14:23.559482+00:00",
   "video_count": 196,
   "learning_sample_size": 170,
   "learning_ready": true,
@@ -17,7 +17,7 @@
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 14.862,
+      "score": 15.177,
       "sample_size": 10
     }
   ],
@@ -37,14 +37,14 @@
     "Why ice cream gives you brain freeze"
   ],
   "avoid_topics": [
+    "Why do tea bags float",
+    "Why do socks roll up",
     "Why does a lock jam",
     "Why do aluminum foil sheets tear",
     "Why do plastic containers absorb smells",
     "Why do buttons pop off coats",
     "Why soda cans have indented bottoms",
-    "Why do ceramic mugs clink",
     "Why do envelopes taste sweet",
-    "Why does a microwave hum",
     "Why do apples squeak when polished",
     "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive."
   ],

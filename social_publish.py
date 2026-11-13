@@ -117,7 +117,11 @@ def prepare_social_video(video_path: str, output_dir: str, attempt: int = 1, for
         "-level:v", level, "-r", "30", "-fps_mode", "cfr",
         "-g", "60", "-keyint_min", "60", "-sc_threshold", "0", "-bf", "0",
         "-b:v", bitrate, "-maxrate", maxrate, "-bufsize", "16M",
-        "-c:a", "aac", "-ac", "2", "-ar", "44100", "-b:a", "128k",
+        # Meta's published Reels spec calls for AAC at 48 kHz. Disable MP4
+        # edit lists as some otherwise-valid files are rejected by rupload.
+        "-c:a", "aac", "-ac", "2", "-ar", "48000", "-b:a", "128k",
+        "-use_editlist", "0", "-video_track_timescale", "90000",
+        "-avoid_negative_ts", "make_zero",
         "-metadata:s:v:0", "rotate=0", "-movflags", "+faststart",
         str(tmp),
     ]
@@ -136,7 +140,7 @@ def prepare_social_video(video_path: str, output_dir: str, attempt: int = 1, for
     probe = subprocess.run(
         [
             "ffprobe", "-v", "error", "-show_entries",
-            "stream=codec_type,codec_name,width,height,pix_fmt,r_frame_rate,sample_rate,channels",
+            "stream=codec_type,codec_name,width,height,pix_fmt,r_frame_rate,sample_rate,channels,start_time",
             "-show_entries", "format=duration,size", "-of", "json", str(tmp),
         ],
         capture_output=True, text=True,
@@ -160,6 +164,7 @@ def prepare_social_video(video_path: str, output_dir: str, attempt: int = 1, for
         or video.get("pix_fmt") != "yuv420p"
         or audio.get("codec_name") != "aac"
         or int(audio.get("channels") or 0) != 2
+        or int(audio.get("sample_rate") or 0) != 48000
         or not 3 <= duration <= 900
         or size > 300 * 1024 * 1024
     ):
@@ -168,11 +173,12 @@ def prepare_social_video(video_path: str, output_dir: str, attempt: int = 1, for
             "Social derivative is not Meta-compatible: "
             f"video={video.get('codec_name')} {video.get('width')}x{video.get('height')} "
             f"{video.get('pix_fmt')} | audio={audio.get('codec_name')} "
-            f"{audio.get('channels')}ch | duration={duration:.2f}s | size={size}"
+            f"{audio.get('channels')}ch @ {audio.get('sample_rate')}Hz "
+            f"| duration={duration:.2f}s | size={size}"
         )
     print(
         f"🔎 Meta derivative validated: H.264 1080x1920 yuv420p + AAC stereo "
-        f"| {duration:.2f}s | {size / (1024 * 1024):.1f} MB",
+        f"| AAC 48kHz | {duration:.2f}s | {size / (1024 * 1024):.1f} MB",
         flush=True,
     )
     tmp.replace(out)
@@ -330,7 +336,10 @@ def _attempt_social(name: str, fn, video_path: str, title: str, description: str
             _save_publish_state(output_dir, state)
             print(f"⚠️ {name.title()} attempt {attempt}/{MAX_SOCIAL_ATTEMPTS} failed: {type(exc).__name__}: {exc}")
             if attempt < MAX_SOCIAL_ATTEMPTS:
-                time.sleep(3)
+                # A new container is created on every attempt. Give Meta's
+                # video processor time to recover between non-retriable 400s.
+                retry_delays = (15, 45, 90)
+                time.sleep(retry_delays[min(attempt - 1, len(retry_delays) - 1)])
 
     raise RuntimeError(f"{name.title()} failed after {MAX_SOCIAL_ATTEMPTS} attempts: {last_error}")
 

@@ -431,8 +431,14 @@ def publish_social_reels(video_path: str, title: str, description: str, config: 
         state["uploaded"] = True
         _save_publish_state(output_dir, state)
         if result["strict"]:
-            raise RuntimeError("Strict social publishing failed after 2 retries for: " + ", ".join(failures))
-        print("⚠️ Social publishing had failures after 2 retries but YouTube publication remains successful.")
+            raise RuntimeError(
+                f"Strict social publishing failed after {MAX_SOCIAL_ATTEMPTS} attempts "
+                f"({MAX_SOCIAL_ATTEMPTS - 1} retries) for: " + ", ".join(failures)
+            )
+        print(
+            f"⚠️ Social publishing had failures after {MAX_SOCIAL_ATTEMPTS} attempts "
+            "but YouTube publication remains successful."
+        )
         return result
 
     state["status"] = "uploaded"

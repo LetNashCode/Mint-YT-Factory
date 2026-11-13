@@ -3480,30 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do car tires make whistling sounds",
-    "normalized": "why do car tires make whistling sounds",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794461901,
-    "recorded_at": 1794461901,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do combs collect hair",
-    "normalized": "why do combs collect hair",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794497051,
-    "recorded_at": 1794497051,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do toaster slots collect crumbs",
     "normalized": "why do toaster slots collect crumbs",
     "workflow": "publish",
@@ -3546,6 +3522,18 @@
     "status": "reserved",
     "reserved_at": 1794545762,
     "recorded_at": 1794545762,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do jeans fade at the knees",
+    "normalized": "why do jeans fade at the knees",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794584265,
+    "recorded_at": 1794584265,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

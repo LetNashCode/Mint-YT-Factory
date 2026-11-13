@@ -20059,6 +20059,126 @@
       "shot": 2,
       "query": "plastic rulers bend perfectly straight unbroken ruler",
       "recorded_at": 1794546514
+    },
+    {
+      "asset_key": "pexels:video:8191011",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8191011/8191011-hd_1366_720_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "jeans fade knees your dark blue",
+      "recorded_at": 1794584637
+    },
+    {
+      "asset_key": "pexels:video:8190203",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8190203/8190203-hd_1366_720_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "jeans fade knees secretly hiding white interior",
+      "recorded_at": 1794584639
+    },
+    {
+      "asset_key": "pexels:video:8191335",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8191335/8191335-hd_1366_720_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "jeans fade knees notice light",
+      "recorded_at": 1794584641
+    },
+    {
+      "asset_key": "pexels:video:8191318",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8191318/8191318-hd_1366_720_30fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "jeans fade knees long before rest pant",
+      "recorded_at": 1794584642
+    },
+    {
+      "asset_key": "pexels:video:7792882",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7792882/7792882-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "jeans fade knees because denim thread isn",
+      "recorded_at": 1794584643
+    },
+    {
+      "asset_key": "pexels:video:6764158",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6764158/6764158-hd_720_1280_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "jeans fade knees indigo dye coats outer",
+      "recorded_at": 1794584644
+    },
+    {
+      "asset_key": "pexels:video:6769384",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6769384/6769384-hd_720_1280_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "jeans fade knees every time you bend",
+      "recorded_at": 1794584646
+    },
+    {
+      "asset_key": "pexels:video:7274866",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7274866/7274866-hd_720_1366_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "jeans fade knees rubbed against itself like",
+      "recorded_at": 1794584647
+    },
+    {
+      "asset_key": "pexels:video:4089536",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4089536/4089536-hd_1280_720_50fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "jeans fade knees relentless friction shaves off",
+      "recorded_at": 1794584648
+    },
+    {
+      "asset_key": "pexels:video:8555587",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8555587/8555587-hd_1366_720_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "jeans fade knees exposing pale cotton threads",
+      "recorded_at": 1794584649
+    },
+    {
+      "asset_key": "pexels:video:31141782",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/31141782/13306204_720_1280_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "jeans fade knees your faded aren",
+      "recorded_at": 1794584650
+    },
+    {
+      "asset_key": "pexels:video:9558195",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9558195/9558195-hd_1366_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "jeans fade knees you literally wearing away",
+      "recorded_at": 1794584651
     }
   ]
 }

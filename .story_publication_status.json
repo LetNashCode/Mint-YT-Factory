@@ -1,7 +1,20 @@
 {
-  "status": "youtube_uploaded",
+  "status": "complete",
   "video_id": "YmHJJN108rk",
   "youtube_url": "https://www.youtube.com/shorts/YmHJJN108rk",
-  "reason": "",
-  "updated_at": 1794498191
+  "platforms": {
+    "youtube": {
+      "status": "published",
+      "video_id": "YmHJJN108rk"
+    },
+    "instagram": {
+      "status": "published",
+      "media_id": "18018650327776294",
+      "container_id": "18505762861097136"
+    },
+    "facebook": {
+      "status": "published",
+      "video_id": "1117878720992823"
+    }
+  }
 }

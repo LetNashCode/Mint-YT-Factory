@@ -22615,5 +22615,17 @@
     "hook_type": "before_they_were_famous",
     "story_format": "before_they_were_famous",
     "published_at": "2026-11-10T15:45:19Z"
+  },
+  {
+    "video_id": "YmHJJN108rk",
+    "topic": "Kalpana Chawla: Breaking through deep-seated regional expectations in small-town India to become the first Indian-born woman to fly in space.",
+    "pillar": "rise_from_nothing",
+    "person": "Kalpana Chawla",
+    "title": "The Impossible Comeback: Kalpana Chawla",
+    "workdir": "output/interactive/1794497828",
+    "latest": {},
+    "snapshots": [],
+    "hook_type": "rise_from_nothing",
+    "story_format": "rise_from_nothing"
   }
 ]

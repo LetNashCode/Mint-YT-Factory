@@ -35,3 +35,14 @@ def test_both_workflows_pass_meta_credentials_and_default_to_strict():
         assert "secrets.FACEBOOK_PAGE_ACCESS_TOKEN" in workflow
         assert "vars.SOCIAL_PUBLISH_STRICT || 'true'" in workflow
     assert 'python -m py_compile everyday_wisdom_shorts.py social_publish.py youtube_analytics.py' in wisdom
+
+
+
+def test_instagram_reel_derivative_matches_meta_audio_and_mp4_container_requirements():
+    source = (ROOT / "social_publish.py").read_text(encoding="utf-8")
+    assert '"-ar", "48000"' in source
+    assert '"-use_editlist", "0"' in source
+    assert '"-movflags", "+faststart"' in source
+    assert 'int(audio.get("sample_rate") or 0) != 48000' in source
+    assert 'retry_delays = (15, 45, 90)' in source
+    assert "Strict social publishing failed after {MAX_SOCIAL_ATTEMPTS} attempts" in source

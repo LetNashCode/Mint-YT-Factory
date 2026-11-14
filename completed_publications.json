@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789677351",
-    "video_id": "YzN5OheBq98",
-    "topic": "Why do wet towels smell musty",
-    "completed_at": 1789679106
-  },
-  {
     "workdir": "output/1789715028",
     "video_id": "C4F8_u0D9kg",
     "topic": "Why do clothes shrink in dryers",
@@ -598,5 +592,11 @@
     "video_id": "noWBkl9aSHQ",
     "topic": "Why do felt tips squeak drawing",
     "completed_at": 1794614458
+  },
+  {
+    "workdir": "output/1794631739",
+    "video_id": "ZcZrhKwnzas",
+    "topic": "Why wet fingers make wine glasses sing",
+    "completed_at": 1794633339
   }
 ]

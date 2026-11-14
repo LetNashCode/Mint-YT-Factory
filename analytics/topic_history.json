@@ -3538,5 +3538,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why wet fingers make wine glasses sing",
+    "normalized": "why wet fingers make wine glasses sing",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794631663,
+    "recorded_at": 1794631663,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

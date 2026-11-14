@@ -20499,6 +20499,116 @@
       "shot": 2,
       "query": "felt tips squeak turning tiny friction stumbles",
       "recorded_at": 1794613440
+    },
+    {
+      "asset_key": "pexels:video:6628406",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6628406/6628406-hd_1366_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "fingers rub dry finger human",
+      "recorded_at": 1794631784
+    },
+    {
+      "asset_key": "pexels:video:7205211",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7205211/7205211-hd_720_1280_50fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "fingers you get boring squeak",
+      "recorded_at": 1794631786
+    },
+    {
+      "asset_key": "pexels:video:16478025",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/16478025/16478025-hd_1280_720_24fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "fingers add single drop water",
+      "recorded_at": 1794631787
+    },
+    {
+      "asset_key": "pexels:video:8888813",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8888813/8888813-hd_1366_720_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "fingers your skin grabs glass",
+      "recorded_at": 1794631787
+    },
+    {
+      "asset_key": "pexels:video:2849948",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/2849948/2849948-hd_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "fingers then grabs again over",
+      "recorded_at": 1794631788
+    },
+    {
+      "asset_key": "pexels:video:10678345",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10678345/10678345-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "fingers water acts like tiny",
+      "recorded_at": 1794631790
+    },
+    {
+      "asset_key": "pexels:video:8190207",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8190207/8190207-hd_1366_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "fingers keeping grab-and-release rhythm perfectly",
+      "recorded_at": 1794631791
+    },
+    {
+      "asset_key": "pexels:video:4090970",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4090970/4090970-hd_720_1280_50fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "fingers you not playing instrument",
+      "recorded_at": 1794631793
+    },
+    {
+      "asset_key": "pexels:video:5694303",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5694303/5694303-hd_1366_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "fingers you forcefully shaking entire",
+      "recorded_at": 1794631794
+    },
+    {
+      "asset_key": "pexels:video:8746663",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8746663/8746663-hd_1366_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "fingers rapid vibration chops through",
+      "recorded_at": 1794631797
+    },
+    {
+      "asset_key": "pexels:video:40318154",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40318154/17222660_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "fingers turning friction into gorgeous",
+      "recorded_at": 1794631798
     }
   ]
 }

@@ -644,5 +644,21 @@
     "video_id": "WaOWm8Lo7_I",
     "workdir": "",
     "published_at": 1794325581
+  },
+  {
+    "topic": "Diana, Princess of Wales: Deciding to walk through a cleared Angolan minefield in 1997 to force global attention onto the hidden horrors of landmines.",
+    "normalized": "diana princess of wales deciding to walk through a cleared angolan minefield in 1997 to force global attention onto the hidden horrors of landmines",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1794675784,
+    "recorded_at": 1794675784,
+    "metadata": {
+      "person": "Diana, Princess of Wales",
+      "pillar": "one_decision"
+    },
+    "title": "Diana, Princess of Wales: Deciding to walk through a cleared Angolan minefield in 1997 to force global attention onto the hidden horrors of landmines.",
+    "video_id": "wnckbCSFMG0",
+    "workdir": "",
+    "published_at": 1794676515
   }
 ]

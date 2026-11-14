@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-14T12:22:33.873079+00:00",
-  "refresh_attempted_at": "2026-11-14T12:22:33.873079+00:00",
+  "generated_at": "2026-11-14T17:15:17.919939+00:00",
+  "refresh_attempted_at": "2026-11-14T17:15:17.919939+00:00",
   "refresh_status": "success",
-  "video_count": 40,
+  "video_count": 41,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 39,
@@ -13,12 +13,12 @@
     "comments": 6
   },
   "averages": {
-    "views": 308.75,
-    "likes": 5.92,
+    "views": 301.22,
+    "likes": 5.78,
     "comments": 0.15,
-    "average_view_percentage": 64.24,
-    "subscribers_gained": 0.35,
-    "shares": 0.03
+    "average_view_percentage": 62.67,
+    "subscribers_gained": 0.34,
+    "shares": 0.02
   },
   "top_videos": [
     {
@@ -824,7 +824,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 127,
-      "views_after_24h": 113,
+      "views_after_24h": 115,
       "views_after_7d": 126,
       "likes": 0,
       "comments": 0,
@@ -1259,7 +1259,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 26,
-      "views_after_24h": 26,
+      "views_after_24h": 25,
       "views_after_7d": 26,
       "likes": 0,
       "comments": 0,
@@ -1472,13 +1472,42 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
+    },
+    {
+      "topic": "Diana, Princess of Wales: Deciding to walk through a cleared Angolan minefield in 1997 to force global attention onto the hidden horrors of landmines.",
+      "video_id": "wnckbCSFMG0",
+      "title": "The Untold Turning Point in Diana, Princess of Wales's Story",
+      "workflow": "story",
+      "published_at": "2026-11-14T17:14:30Z",
+      "hook_text": "",
+      "hook_type": "",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": null,
+      "planned_duration_seconds": null,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 0,
+      "views_after_24h": null,
+      "views_after_7d": null,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
     }
   ],
   "retention_objective": {
     "target_average_view_percentage": 70.0,
     "metric": "average_view_percentage",
     "eligible_video_count": 39,
-    "immature_or_missing_metric_count": 1,
+    "immature_or_missing_metric_count": 2,
     "videos_meeting_target_count": 6,
     "target_hit_rate_percentage": 15.38,
     "average_view_percentage": 65.89,
@@ -1491,7 +1520,7 @@
         "average_view_percentage": 24.88,
         "average_view_duration": 11.0,
         "views": 23,
-        "age_hours": 329.1,
+        "age_hours": 334.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1503,7 +1532,7 @@
         "average_view_percentage": 26.56,
         "average_view_duration": 10.0,
         "views": 16,
-        "age_hours": 424.5,
+        "age_hours": 429.4,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1515,7 +1544,7 @@
         "average_view_percentage": 28.47,
         "average_view_duration": 12.0,
         "views": 193,
-        "age_hours": 757.2,
+        "age_hours": 762.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1527,7 +1556,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 446.9,
+        "age_hours": 451.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1539,7 +1568,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 107,
-        "age_hours": 545.2,
+        "age_hours": 550.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1551,7 +1580,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1500.8,
+        "age_hours": 1505.7,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1563,7 +1592,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1525.9,
+        "age_hours": 1530.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1575,7 +1604,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 642.8,
+        "age_hours": 647.7,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1587,7 +1616,7 @@
         "average_view_percentage": 40.42,
         "average_view_duration": 13.0,
         "views": 296,
-        "age_hours": 616.3,
+        "age_hours": 621.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1599,7 +1628,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1528.4,
+        "age_hours": 1533.3,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1613,7 +1642,7 @@
         "average_view_percentage": 597.81,
         "average_view_duration": 221.0,
         "views": 109,
-        "age_hours": 353.9,
+        "age_hours": 358.8,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1625,7 +1654,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 739.9,
+        "age_hours": 744.8,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1637,7 +1666,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 811.1,
+        "age_hours": 816.0,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1649,7 +1678,7 @@
         "average_view_percentage": 81.18,
         "average_view_duration": 30.0,
         "views": 11,
-        "age_hours": 427.2,
+        "age_hours": 432.1,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1661,7 +1690,7 @@
         "average_view_percentage": 78.09,
         "average_view_duration": 29.0,
         "views": 65,
-        "age_hours": 649.8,
+        "age_hours": 654.7,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1673,7 +1702,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 841.8,
+        "age_hours": 846.7,
         "target_met": true,
         "status": "goal_met"
       }

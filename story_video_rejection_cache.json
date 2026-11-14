@@ -1715,8 +1715,8 @@
       "source_url": "https://archive.org/details/WHIT09JohnPareInt",
       "person": "Louis Braille",
       "start": 5.0,
-      "reason": "The footage shows John Pare speaking at a coin expo about a commemorative coin, not Louis Braille himself (who lived in the 19th century and cannot be present in 2009 modern video footage).",
-      "reviewed_at": 1791930624.0121024
+      "reason": "The video features an interview with John Pare discussing a commemorative coin for Louis Braille, but Louis Braille himself lived in the 19th century and is not visible in the footage. Therefore, it does not depict the subject.",
+      "reviewed_at": 1794675444.0579724
     },
     "2d27f3cca359db8fa7af4187": {
       "kind": "segment_rejection",
@@ -1724,8 +1724,8 @@
       "source_url": "https://archive.org/details/WHIT09JohnPareInt",
       "person": "Louis Braille",
       "start": 14.36,
-      "reason": "The video shows modern numismatic footage discussing a commemorative coin celebrating Louis Braille, featuring a modern speaker discussing the coin and close-ups of the coin design itself. Louis Braille is not personally visible (as he lived in the 19th century), but the footage provides valid biographical illustration related to his legacy.",
-      "reviewed_at": 1791930630.0204496
+      "reason": "The footage shows a commemorative coin related to Louis Braille and an interview about it, but does not feature Louis Braille himself (as he lived in the 19th century). It serves as biographical illustration for a segment about his legacy.",
+      "reviewed_at": 1794675449.7695465
     },
     "18f2fb35195567f2ba88b5a2": {
       "kind": "segment_rejection",
@@ -1760,8 +1760,8 @@
       "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
       "person": "Louis Braille",
       "start": 109.02,
-      "reason": "The frames show a static title card/graphic for a TV chapter membership rather than any archival footage or historical context related to Louis Braille.",
-      "reviewed_at": 1791930668.6452475
+      "reason": "The sampled frames show a static title card and logo for a television chapter ('Abled and on Air Is a Member of The National Academy of Television Arts & Sciences Boston/New England Chapter'), not actual filmed footage of Louis Braille or historical context depicting his life.",
+      "reviewed_at": 1794675468.6056318
     },
     "4b67baf5f3adc14a7cc344e2": {
       "kind": "segment_rejection",
@@ -1769,8 +1769,8 @@
       "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
       "person": "Louis Braille",
       "start": 213.04,
-      "reason": "The video shows a modern podcast studio discussing Louis Braille, but Louis Braille lived in the 19th century and is not visible in the footage. This is a modern discussion about him, making the footage unusable as direct historical context or footage of the subject.",
-      "reviewed_at": 1791930702.7090082
+      "reason": "The footage shows a modern podcast studio discussing the history of Louis Braille, but it does not depict Louis Braille himself (who lived in the 19th century) or any genuine historical context about his life.",
+      "reviewed_at": 1794675474.402542
     },
     "acd4bce84896acb86530c569": {
       "kind": "segment_rejection",
@@ -1787,8 +1787,8 @@
       "source_url": "https://archive.org/details/cunytv_BCSPA115",
       "person": "Louis Braille",
       "start": 5.0,
-      "reason": "The frames consist entirely of title cards and institutional graphics for Baruch College, presenting no actual historical footage or biographical content about Louis Braille.",
-      "reviewed_at": 1791930732.7248366
+      "reason": "The sampled frames consist entirely of title cards and institutional graphics for Baruch College, presenting no actual historical footage or biographical illustration of Louis Braille.",
+      "reviewed_at": 1794675480.8870618
     },
     "60dfae0a505f1233bd2faa01": {
       "kind": "segment_rejection",
@@ -1796,8 +1796,8 @@
       "source_url": "https://archive.org/details/cunytv_BCSPA115",
       "person": "Louis Braille",
       "start": 266.67,
-      "reason": "The footage shows modern braille production processes (transcription, embossing, and finishing) which relates to the legacy and impact of Louis Braille, serving as biographical illustration.",
-      "reviewed_at": 1791930750.599997
+      "reason": "The video segment shows archival documentary footage about modern braille production and equipment, illustrating the legacy and continuation of Louis Braille's invention, although Louis Braille himself is not visible as he lived centuries prior.",
+      "reviewed_at": 1794675503.3263338
     },
     "d8dc027abe4213e6ce04ddb3": {
       "kind": "segment_rejection",
@@ -2233,8 +2233,8 @@
       "source_url": "https://archive.org/details/dli.MoI.SatyajitRay_Eng",
       "person": "Satyajit Ray",
       "start": 4227.98,
-      "reason": "The footage shows archival documentary material related to Satyajit Ray's life and work, but the person visible in the frames is not Satyajit Ray himself. It serves as valid biographical illustration context.",
-      "reviewed_at": 1791931418.1666484
+      "reason": "The frames show an unidentified individual being interviewed or speaking, not Satyajit Ray himself. Therefore, the person is not visible and the footage is not usable.",
+      "reviewed_at": 1794675698.0227504
     },
     "61485a204df67a7773788f99": {
       "kind": "segment_rejection",
@@ -2242,8 +2242,8 @@
       "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
       "person": "Satyajit Ray",
       "start": 929.54,
-      "reason": "The sampled frames show static manuscript text and lack any moving or historical contextual footage depicting Satyajit Ray, rendering it unusable as identity or direct event footage.",
-      "reviewed_at": 1791931442.8148417
+      "reason": "The frames show static manuscript text and documents (a slideshow/documentary overlay) rather than moving filmed footage, and Satyajit Ray is not visible in any frame.",
+      "reviewed_at": 1794675619.7754307
     },
     "c3e7f8699b05a41dc895b9f3": {
       "kind": "segment_rejection",
@@ -2251,8 +2251,8 @@
       "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
       "person": "Satyajit Ray",
       "start": 1325.77,
-      "reason": "The footage displays Bengali text and poetry related to the subject's family background, serving as biographical illustration without showing Satyajit Ray himself.",
-      "reviewed_at": 1791931453.2839375
+      "reason": "The sampled frames show historical text in Bengali script being panned across, representing archival footage related to Satyajit Ray's family/documentary work, but Satyajit Ray himself is not visible in these frames, making it usable as biographical illustration context.",
+      "reviewed_at": 1794675629.9753304
     },
     "3d73a6ad3ba7480390bc1f57": {
       "kind": "segment_rejection",
@@ -2278,8 +2278,8 @@
       "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
       "person": "Satyajit Ray",
       "start": 35.33,
-      "reason": "The footage contains film clips and promotional title cards for Satyajit Ray's films, but Satyajit Ray himself is not clearly visible in any of the sampled frames, and it features heavy promotional text overlays.",
-      "reviewed_at": 1791931494.6542385
+      "reason": "The footage consists of promotional title cards, clips from feature films, and blurry archival footage that does not clearly depict Satyajit Ray himself, making it unsuitable as direct identity or contextual documentary footage for a biographical short.",
+      "reviewed_at": 1794675652.7592201
     },
     "e99219278670888b5cef5a17": {
       "kind": "segment_rejection",
@@ -2287,8 +2287,8 @@
       "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
       "person": "Satyajit Ray",
       "start": 45.44,
-      "reason": "The footage shows excerpts and scenes from Satyajit Ray's films (such as Nayak), serving as historical and biographical illustration of his cinematic work, though the director himself is not visible in the sampled frames.",
-      "reviewed_at": 1791931507.9304504
+      "reason": "The footage shows clips from Satyajit Ray's films (such as Nayak and Mahapurush) and promotional title cards, but the subject himself (Satyajit Ray) is not visible in any of the sampled frames.",
+      "reviewed_at": 1794675659.3288245
     },
     "2da206d067065c14b9751dcf": {
       "kind": "segment_rejection",
@@ -2296,8 +2296,8 @@
       "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_1",
       "person": "Satyajit Ray",
       "start": 36.36,
-      "reason": "The video features archival film clips from Satyajit Ray's cinematic works (such as Mahanagar and Charulata) illustrating his life and career, but the director himself is not visible in the frames.",
-      "reviewed_at": 1791931525.4838803
+      "reason": "The video segment contains archival film clips directed by Satyajit Ray (such as Mahanagar and Charulata), serving as useful biographical illustration for his work, although Satyajit Ray himself is not visible in the footage.",
+      "reviewed_at": 1794675716.49631
     },
     "a62864fb1980114afc50c11b": {
       "kind": "segment_rejection",
@@ -2305,8 +2305,8 @@
       "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_1",
       "person": "Satyajit Ray",
       "start": 46.81,
-      "reason": "The footage shows film clips from Satyajit Ray's works (such as Charulata and Kapurush) with promotional text overlaid. While directed by Satyajit Ray, the subject himself is not visible in the video segment, making it useful as biographical illustration of his cinematic work rather than direct footage of Ray.",
-      "reviewed_at": 1791931534.2191365
+      "reason": "The video shows clips from Satyajit Ray's films (such as Charulata and Kapurush) with promotional screening text overlays. While it depicts his work, Satyajit Ray himself is not visible in the footage, making it useful as biographical illustration of his films.",
+      "reviewed_at": 1794675722.7626026
     },
     "4640795cb008f18089032c05": {
       "kind": "segment_rejection",
@@ -2350,8 +2350,8 @@
       "source_url": "https://archive.org/details/Satyajit",
       "person": "Satyajit Ray",
       "start": 5.0,
-      "reason": "The footage consists of clips from Satyajit Ray's cinematic works (such as Apur Sansar / The World of Apu), which serve as excellent biographical illustration for a short about the famous filmmaker, even though Ray himself is not visible in the frames.",
-      "reviewed_at": 1791931582.7286472
+      "reason": "The video segment contains archival film scenes from a Satyajit Ray film (such as 'Days and Nights in the Forest'), serving as valid biographical illustration of his work as a filmmaker, although Ray himself is not visible in the footage.",
+      "reviewed_at": 1794675756.3011115
     },
     "27330522a1e3c7316baaccfd": {
       "kind": "segment_rejection",
@@ -2359,8 +2359,8 @@
       "source_url": "https://archive.org/details/Satyajit",
       "person": "Satyajit Ray",
       "start": 17.86,
-      "reason": "The video shows dramatic black-and-white film scenes/archival footage relevant to filmmaking and Indian cinema contexts, serving as biographical illustration for Satyajit Ray's work, although Ray himself is not clearly visible in the sampled frames.",
-      "reviewed_at": 1791931591.3434703
+      "reason": "The sampled frames show unrelated dramatic/archival cinematic clips and actors, but Satyajit Ray himself is not visible in the footage.",
+      "reviewed_at": 1794675764.0679424
     },
     "6ca9a8680d0b8008e158c61f": {
       "kind": "segment_rejection",
@@ -3853,8 +3853,8 @@
       "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
       "person": "Ernest Shackleton",
       "start": 880.79,
-      "reason": "The video segment contains archival documentary footage showing historical context relevant to Ernest Shackleton's expeditions (specifically ponies used during the Antarctic expeditions), but the subject Ernest Shackleton is not visible in the footage.",
-      "reviewed_at": 1792009508.204562
+      "reason": "The segment features archival documentary footage showing expedition scenes relevant to Ernest Shackleton's life and journeys (such as men handling ponies in Antarctica), though Shackleton himself is not clearly identifiable in the frames.",
+      "reviewed_at": 1794675378.1925514
     },
     "76fc088f52f7da653d162eb7": {
       "kind": "segment_rejection",
@@ -3925,8 +3925,8 @@
       "source_url": "https://archive.org/details/btvin-Louis_Braille",
       "person": "Louis Braille",
       "start": 14.59,
-      "reason": "The segment consists entirely of static portraits and animated illustrations rather than real archival footage or usable historical context.",
-      "reviewed_at": 1792009675.541963
+      "reason": "The sampled frames consist of static portraits and animated illustration/drawings rather than actual filmed footage of Louis Braille (who lived before the invention of motion pictures).",
+      "reviewed_at": 1794675531.9081259
     },
     "619776fc79aaf1ef05a13391": {
       "kind": "segment_rejection",
@@ -3934,8 +3934,8 @@
       "source_url": "https://archive.org/details/btvin-Louis_Braille",
       "person": "Louis Braille",
       "start": 24.18,
-      "reason": "The video consists entirely of illustrated/animated drawings and static sketches depicting Louis Braille's life rather than actual filmed footage, photographs, or genuine historical context.",
-      "reviewed_at": 1792009687.2245529
+      "reason": "The video segment consists entirely of digital illustrations and drawings rather than real filmed footage or historical context.",
+      "reviewed_at": 1794675539.2946596
     },
     "2ee796d0e57fe1315745a896": {
       "kind": "segment_rejection",
@@ -3961,8 +3961,8 @@
       "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
       "person": "Louis Braille",
       "start": 201.22,
-      "reason": "The footage shows historical embossed tactile writing (braille/raised letters) which directly illustrates the invention and work of Louis Braille, even though the person himself is not visible.",
-      "reviewed_at": 1792009735.3351426
+      "reason": "The footage shows historical embossed braille text and a book, providing valid contextual illustration for Louis Braille's invention, although Louis Braille himself is not visible in the frames.",
+      "reviewed_at": 1794675547.3564308
     },
     "7f5932ed0f1207c325696cb6": {
       "kind": "segment_rejection",
@@ -13498,6 +13498,87 @@
       "start": 272.95,
       "reason": "The footage shows contemporary students/podcasters in a studio setting discussing Amelia Earhart, not Amelia Earhart herself or genuine historical context depicting her life.",
       "reviewed_at": 1794658894.3860815
+    },
+    "4bfa9c793860b6019ac1d593": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalaCervantesArts",
+      "source_url": "https://archive.org/details/GalaCervantesArts",
+      "person": "Diana, Princess of Wales",
+      "start": 209.62,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1794675795.1901338
+    },
+    "3d1157be8b81061c99e1e524": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalaCervantesArts",
+      "source_url": "https://archive.org/details/GalaCervantesArts",
+      "person": "Diana, Princess of Wales",
+      "start": 297.31,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1794675798.838018
+    },
+    "c858b8d5f580a2241a9738b7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalaCervantesArts",
+      "source_url": "https://archive.org/details/GalaCervantesArts",
+      "person": "Diana, Princess of Wales",
+      "start": 5.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1794675800.7064848
+    },
+    "670cb0c861f2ee4c546215c1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalaCervantesArts",
+      "source_url": "https://archive.org/details/GalaCervantesArts",
+      "person": "Diana, Princess of Wales",
+      "start": 34.23,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1794675802.6127129
+    },
+    "3e697635ca521f6be6ffcfd4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalaCervantesArts",
+      "source_url": "https://archive.org/details/GalaCervantesArts",
+      "person": "Diana, Princess of Wales",
+      "start": 63.46,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1794675806.623059
+    },
+    "0612219f608cfba4899042d9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalaCervantesArts",
+      "source_url": "https://archive.org/details/GalaCervantesArts",
+      "person": "Diana, Princess of Wales",
+      "start": 92.69,
+      "reason": "The video segment shows a composer playing the piano (labeled as Álvaro Guevara y Vázquez) and does not feature Diana, Princess of Wales, nor does it provide relevant historical context for her biography.",
+      "reviewed_at": 1794675847.3313663
+    },
+    "f71af5fc833de1e3967fe28d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalaCervantesArts",
+      "source_url": "https://archive.org/details/GalaCervantesArts",
+      "person": "Diana, Princess of Wales",
+      "start": 121.92,
+      "reason": "The video consists of static photographs (slideshow format) with heavy copyright text overlays and animated logos, rather than actual filmed moving footage of Diana, Princess of Wales.",
+      "reviewed_at": 1794675855.84563
+    },
+    "4fbc2c0c7032992cfdcb17c2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:remebering-diana-princess-of-wales-life-vhs",
+      "source_url": "https://archive.org/details/remebering-diana-princess-of-wales-life-vhs",
+      "person": "Diana, Princess of Wales",
+      "start": 889.04,
+      "reason": "The footage features an interview with Penny Thornton, Diana's astrologer, providing biographical context and commentary about Diana, Princess of Wales. While Diana herself is not visible in the frames, it is valid documentary interview footage illustrating her life.",
+      "reviewed_at": 1794675948.9312801
+    },
+    "e8bc433100ad1d586e76f04f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:remebering-diana-princess-of-wales-life-vhs",
+      "source_url": "https://archive.org/details/remebering-diana-princess-of-wales-life-vhs",
+      "person": "Diana, Princess of Wales",
+      "start": 1110.05,
+      "reason": "The sampled frames show an interviewee speaking and archival footage of a man entering a building, but Diana, Princess of Wales, is not visible in any of the frames. The footage serves as biographical illustration for a documentary about her life.",
+      "reviewed_at": 1794675953.7977548
     }
   }
 }

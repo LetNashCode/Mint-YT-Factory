@@ -65,19 +65,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "Keeping all 27 crew members alive for nearly two years after their ship, the Endurance, was crushed by Antarctic pack ice.",
-    "hook": "After their ship sank beneath the frozen sea, they lived on floating ice floes for months with no radio, no rescue ship, and dwindling food.",
-    "key_facts": [
-      "The Endurance was trapped and crushed by Antarctic ice in 1915.",
-      "The crew camped on drifting ice packs for five months before sailing lifeboats to Elephant Island.",
-      "Shackleton and five men sailed an 22-foot lifeboat 800 miles across the stormy Southern Ocean to South Georgia Island for help.",
-      "Every single member of the stranded expedition survived."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "rise_from_nothing",
     "person": "Narayana Murthy",
     "premise": "Co-founding Infosys with just $250 borrowed from his wife, growing it into a global IT giant.",
@@ -90,18 +77,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Diana, Princess of Wales",
-    "premise": "Deciding to walk through a cleared Angolan minefield in 1997 to force global attention onto the hidden horrors of landmines.",
-    "hook": "She ignored intense political criticism and walked directly into an active danger zone to force world leaders to ban a deadly weapon.",
-    "key_facts": [
-      "Visited Huambo, Angola, in January 1997 with the Halo Trust to highlight civilian landmine casualties.",
-      "Her televised walk was heavily criticized by political opponents as a controversial distraction.",
-      "Her campaign directly contributed to the signing of the Ottawa Treaty banning anti-personnel landmines later that year."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "rise_from_nothing",
     "person": "Madam C.J. Walker",
     "premise": "Overcoming early orphanhood, poverty, and severe hair loss to build a massive hair care empire and become one of America's first self-made female millionaires.",
@@ -110,30 +85,6 @@
       "Born Sarah Breedlove on a cotton plantation in Louisiana, orphaned at age seven.",
       "Worked as a laundress for decades earning meager wages before launching her hair care line in 1905.",
       "Employed thousands of African American women as sales agents across the United States."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Satyajit Ray",
-    "premise": "Deciding to self-finance the final weeks of production for Pather Panchali by pawning his wife's jewelry and his personal book collection.",
-    "hook": "When institutional funding dried up completely, he risked everything he owned to finish his debut masterpiece.",
-    "key_facts": [
-      "Shot his debut film Pather Panchali (1955) intermittently over nearly three years using amateur actors and crew.",
-      "Pawned valuable family assets, including his wife's jewelry and rare art books, to pay for remaining film stock.",
-      "The film went on to win the Best Human Document award at the 1956 Cannes Film Festival."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Louis Braille",
-    "premise": "Inventing a revolutionary tactile reading system as a blind teenager against the resistance of sighted educators.",
-    "hook": "Blinded in a childhood accident, he took a military night-writing code and simplified it into six raised dots that schools initially banned.",
-    "key_facts": [
-      "Blinded in his father's harness-making workshop at age three after an accidental puncture wound.",
-      "Enrolled at the Royal Institution for Blind Youth in Paris, where books were printed in expensive, hard-to-read embossed raised letters.",
-      "Invented the six-dot Braille code at age 15, though it was only officially adopted in schools long after his death."
     ],
     "source": "gemini_original"
   }

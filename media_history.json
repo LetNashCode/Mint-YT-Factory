@@ -20389,6 +20389,116 @@
       "shot": 2,
       "query": "ceramic tiles but tile acts like",
       "recorded_at": 1794609173
+    },
+    {
+      "asset_key": "pexels:video:4569648",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4569648/4569648-hd_720_1366_50fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "felt tips squeak ear-splitting marker conical",
+      "recorded_at": 1794613427
+    },
+    {
+      "asset_key": "pexels:video:6185557",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6185557/6185557-hd_720_1280_50fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "felt tips squeak isn ink screaming skidding",
+      "recorded_at": 1794613429
+    },
+    {
+      "asset_key": "pexels:video:6248647",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6248647/6248647-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "felt tips squeak gliding softly leaves silent",
+      "recorded_at": 1794613430
+    },
+    {
+      "asset_key": "pexels:video:6261140",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6261140/6261140-hd_1366_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "felt tips squeak but push down hard",
+      "recorded_at": 1794613432
+    },
+    {
+      "asset_key": "pexels:video:4569386",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4569386/4569386-hd_1366_720_50fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "felt tips squeak tip not smooth plastic",
+      "recorded_at": 1794613433
+    },
+    {
+      "asset_key": "pexels:video:3992592",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3992592/3992592-hd_1366_720_50fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "felt tips squeak rubbing against raw wood",
+      "recorded_at": 1794613434
+    },
+    {
+      "asset_key": "pexels:video:6192156",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6192156/6192156-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "felt tips squeak instead sliding tip catches",
+      "recorded_at": 1794613434
+    },
+    {
+      "asset_key": "pexels:video:4569926",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4569926/4569926-hd_1366_720_50fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "felt tips squeak suddenly snaps loose",
+      "recorded_at": 1794613435
+    },
+    {
+      "asset_key": "pexels:video:4569385",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4569385/4569385-hd_720_1366_50fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "felt tips squeak catch-and-release stutter repeats hundreds",
+      "recorded_at": 1794613437
+    },
+    {
+      "asset_key": "pexels:video:10202752",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10202752/10202752-hd_1366_720_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "felt tips squeak your flexible paper acts",
+      "recorded_at": 1794613439
+    },
+    {
+      "asset_key": "pexels:video:11932762",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/11932762/11932762-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "felt tips squeak turning tiny friction stumbles",
+      "recorded_at": 1794613440
     }
   ]
 }

@@ -3526,5 +3526,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do felt tips squeak drawing",
+    "normalized": "why do felt tips squeak drawing",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794613252,
+    "recorded_at": 1794613252,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

@@ -20609,6 +20609,96 @@
       "shot": 2,
       "query": "fingers turning friction into gorgeous",
       "recorded_at": 1794631798
+    },
+    {
+      "asset_key": "pexels:video:30882744",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30882744/13204747_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "coins slide off leave heavy coin flat",
+      "recorded_at": 1794667372
+    },
+    {
+      "asset_key": "pexels:video:5651766",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5651766/5651766-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "coins slide off creeps right silver",
+      "recorded_at": 1794667373
+    },
+    {
+      "asset_key": "pexels:video:5305003",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5305003/5305003-hd_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "coins slide off nobody bumped there breeze",
+      "recorded_at": 1794667374
+    },
+    {
+      "asset_key": "pexels:video:31750564",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/31750564/13527202_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "coins slide off yet metal somehow wanders",
+      "recorded_at": 1794667374
+    },
+    {
+      "asset_key": "pexels:video:8370594",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8370594/8370594-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "coins slide off your table isn dead",
+      "recorded_at": 1794667376
+    },
+    {
+      "asset_key": "pexels:video:28410042",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/28410042/12377664_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "coins slide off humming appliances send invisible",
+      "recorded_at": 1794667377
+    },
+    {
+      "asset_key": "pexels:video:2548212",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/2548212/2548212-hd_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "coins slide off micro-vibrations act like tiny",
+      "recorded_at": 1794667379
+    },
+    {
+      "asset_key": "pexels:video:30882814",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30882814/13204788_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "coins slide off bouncing coin thousands times",
+      "recorded_at": 1794667379
+    },
+    {
+      "asset_key": "pexels:video:8369948",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8369948/8369948-hd_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "coins slide off every time metal pops",
+      "recorded_at": 1794667381
     }
   ]
 }

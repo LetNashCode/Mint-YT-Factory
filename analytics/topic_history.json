@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do plastic rulers bend without breaking",
-    "normalized": "why do plastic rulers bend without breaking",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794545762,
-    "recorded_at": 1794545762,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do jeans fade at the knees",
     "normalized": "why do jeans fade at the knees",
     "workflow": "publish",
@@ -3546,6 +3534,18 @@
     "status": "reserved",
     "reserved_at": 1794631663,
     "recorded_at": 1794631663,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do coins slide off tables",
+    "normalized": "why do coins slide off tables",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794666414,
+    "recorded_at": 1794666414,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

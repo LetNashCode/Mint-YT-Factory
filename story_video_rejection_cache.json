@@ -1697,8 +1697,8 @@
       "source_url": "https://archive.org/details/WHIT09JohnPareInt",
       "person": "Louis Braille",
       "start": 61.18,
-      "reason": "The footage shows a contemporary speaker (John Pare discussing a commemorative coin), not Louis Braille, who lived in the 19th century. Therefore, it cannot depict Louis Braille and is not usable for his biography.",
-      "reviewed_at": 1791930604.6495166
+      "reason": "The video shows a modern interview about a commemorative coin for Louis Braille, but Louis Braille lived in the 19th century and is not visible in the footage. Therefore, person_visible is false and direct_event cannot be claimed since this is modern numismatic footage rather than archival or direct depictions of Louis Braille's life.",
+      "reviewed_at": 1794658174.120574
     },
     "f8f30ef08e9afb8e6ec1669d": {
       "kind": "segment_rejection",
@@ -1706,8 +1706,8 @@
       "source_url": "https://archive.org/details/WHIT09JohnPareInt",
       "person": "Louis Braille",
       "start": 89.27,
-      "reason": "The video shows John Pare discussing a commemorative coin for Louis Braille, but Louis Braille lived in the 19th century and is not visible in this modern footage. The segment provides biographical illustration about the legacy of Braille.",
-      "reviewed_at": 1791930613.1733863
+      "reason": "The video features a modern interview about a commemorative coin and does not contain archival or biographical footage of Louis Braille (who lived in the 19th century). Therefore, it is unusable for a biography of Louis Braille.",
+      "reviewed_at": 1794658180.0414047
     },
     "a9badc69222495264132ef50": {
       "kind": "segment_rejection",
@@ -1734,7 +1734,7 @@
       "person": "Louis Braille",
       "start": 733.13,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791930649.2866573
+      "reviewed_at": 1794658197.061089
     },
     "35b34d4e789afa9aa3c0e278": {
       "kind": "segment_rejection",
@@ -1742,8 +1742,8 @@
       "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
       "person": "Louis Braille",
       "start": 1045.18,
-      "reason": "The video features a modern podcast host discussing the history of Louis Braille, but the subject of the biography (Louis Braille, who lived in the 19th century) is not visible in the footage. The segment shows a modern studio setting and cannot depict the historical figure directly.",
-      "reviewed_at": 1791930656.293012
+      "reason": "The footage shows modern podcasters discussing history in a studio setting, not Louis Braille himself or genuine historical context depicting his life.",
+      "reviewed_at": 1794658202.6241505
     },
     "d8261302307a68cdc77c6783": {
       "kind": "segment_rejection",
@@ -1751,8 +1751,8 @@
       "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
       "person": "Louis Braille",
       "start": 5.0,
-      "reason": "The video shows aerial shots of Montpelier, Vermont and podcast hosts, which has no connection to Louis Braille, a 19th-century French educator.",
-      "reviewed_at": 1791930661.9221182
+      "reason": "The footage shows modern aerial shots of Montpelier, Vermont, and a public access TV interview (Abled and on Air), which have no concrete historical connection to Louis Braille, a 19th-century French educator.",
+      "reviewed_at": 1794658208.8785305
     },
     "632899a98b1935f66abf4bd6": {
       "kind": "segment_rejection",
@@ -1778,8 +1778,8 @@
       "source_url": "https://archive.org/details/cunytv_BCSPA115",
       "person": "Louis Braille",
       "start": 2621.65,
-      "reason": "The video features C. Michael Mellor discussing Louis Braille in 2009. Louis Braille lived from 1809 to 1852, making contemporary footage of him impossible. Therefore, the person visible is not Louis Braille, and the segment cannot be used as direct identity footage.",
-      "reviewed_at": 1791930723.1693895
+      "reason": "The video shows a modern panel discussion/presentation about Louis Braille featuring guest C. Michael Mellor in 2009. Louis Braille lived from 1809 to 1852, so he cannot possibly be the person visible in the footage. Since Louis Braille is not visible and the footage is a modern archival event discussing him rather than direct historical footage of his life, it is not usable as biographical footage of the subject.",
+      "reviewed_at": 1794658223.9240186
     },
     "2bdb9fca7d90e5291f7be3c5": {
       "kind": "segment_rejection",
@@ -1814,8 +1814,8 @@
       "source_url": "https://archive.org/details/Evenement-6-Janvier-1852",
       "person": "Louis Braille",
       "start": 10.16,
-      "reason": "The video consists of generic still graphics, maps, compasses, and a portrait illustration overlaid with text, rather than real moving film footage or usable historical context.",
-      "reviewed_at": 1791930768.6913507
+      "reason": "The video segment consists entirely of a static illustration/slideshow featuring maps, compasses, and a portrait drawing, with text overlays. Louis Braille is not visibly present in moving footage, making it unsuitable for direct identity usage or valid archival context.",
+      "reviewed_at": 1794658233.8576012
     },
     "57b9e50eabd86f9941a64fe3": {
       "kind": "segment_rejection",
@@ -1823,8 +1823,8 @@
       "source_url": "https://archive.org/details/Evenement-6-Janvier-1852",
       "person": "Louis Braille",
       "start": 1.12,
-      "reason": "The video segment consists entirely of still graphical illustrations and text overlays rather than real filmed footage or usable historical context.",
-      "reviewed_at": 1791930776.7327783
+      "reason": "The segment consists of title cards and static graphical illustrations/portraits over a still background, lacking real filmed footage or moving archival material.",
+      "reviewed_at": 1794658243.606195
     },
     "20197b7c31edda286a3e53bd": {
       "kind": "segment_rejection",
@@ -1832,8 +1832,8 @@
       "source_url": "https://archive.org/details/btvin-Louis_Braille",
       "person": "Louis Braille",
       "start": 43.35,
-      "reason": "The frames show still illustrations, book covers, and a Braille alphabet chart rather than genuine filmed archival footage of Louis Braille.",
-      "reviewed_at": 1791930792.9700036
+      "reason": "The segment consists entirely of static illustrations, book covers, and text overlays rather than actual filmed footage of Louis Braille (who lived in the 19th century before moving film existed).",
+      "reviewed_at": 1794658252.6649806
     },
     "71e315a30a008c3e5b0c65a4": {
       "kind": "segment_rejection",
@@ -1841,8 +1841,8 @@
       "source_url": "https://archive.org/details/btvin-Louis_Braille",
       "person": "Louis Braille",
       "start": 62.53,
-      "reason": "The footage only shows a static plaque and a static bust of Louis Braille rather than real filmed footage or moving archival context featuring the person, making it unusable.",
-      "reviewed_at": 1791930799.752174
+      "reason": "The frames show static photographs of a plaque and a bust of Louis Braille, which violates the requirement for actual filmed footage and constitutes rejected slideshow or static photograph material.",
+      "reviewed_at": 1794658259.60656
     },
     "85cdd80bac7718f557e53025": {
       "kind": "segment_rejection",
@@ -3169,8 +3169,8 @@
       "source_url": "https://archive.org/details/jonas-edward-salk",
       "person": "Jonas Salk",
       "start": 5.0,
-      "reason": "The video segment consists of AI-generated dramatizations and lookalikes rather than authentic historical footage or identifiable identity footage of Jonas Salk.",
-      "reviewed_at": 1791993225.5436513
+      "reason": "The video segment features AI-generated or reenacted dramatized imagery rather than genuine historical footage of Jonas Salk. The actor depicting Salk does not authentically resemble him, and the visuals are synthetic recreations.",
+      "reviewed_at": 1794658132.076901
     },
     "43683c23261b794c89a81e2d": {
       "kind": "segment_rejection",
@@ -3178,8 +3178,8 @@
       "source_url": "https://archive.org/details/jonas-edward-salk",
       "person": "Jonas Salk",
       "start": 14.31,
-      "reason": "The footage consists of dramatized or AI-generated reenactments rather than genuine historical archival footage of Jonas Salk, making it unusable for a biographical short.",
-      "reviewed_at": 1791993243.3985705
+      "reason": "The video segment contains AI-generated or simulated imagery (reenactment/synthetic video) rather than actual archival footage or real filmed footage of Jonas Salk, making it unusable for a biographical short.",
+      "reviewed_at": 1794658146.358507
     },
     "e11cf91f479717140a31de6b": {
       "kind": "segment_rejection",
@@ -3187,8 +3187,8 @@
       "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
       "person": "Jonas Salk",
       "start": 5.0,
-      "reason": "The footage shows an interview with Dr. Peter Salk (son of Jonas Salk) and archival footage of patients and nurses, but Jonas Salk himself is not visibly present in the sampled frames, and the video layout features heavy website UI framing and text overlays making it unsuitable for a biographical Short.",
-      "reviewed_at": 1791993249.7077413
+      "reason": "The video features archival footage and an interview with Dr. Peter Salk (son of Jonas Salk) discussing the polio vaccine and historical context related to Jonas Salk's work. Jonas Salk himself is not visibly present in the frames, but the content provides genuine historical context and documentary footage related to the subject.",
+      "reviewed_at": 1794658101.305907
     },
     "64fc26632763467ed36dc720": {
       "kind": "segment_rejection",
@@ -3196,8 +3196,8 @@
       "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
       "person": "Jonas Salk",
       "start": 23.09,
-      "reason": "The video shows archival footage and an interview with Peter Salk (Jonas Salk's son), but Jonas Salk himself is not visibly present in the frames. Additionally, the formatting contains heavy webpage UI elements surrounding the video player, making it unsuitable for a clean biography Short.",
-      "reviewed_at": 1791993254.945122
+      "reason": "The video segment shows archival footage and an interview with Dr. Peter Salk (Jonas Salk's son), along with website UI framing and text overlays, but Jonas Salk himself is not visibly present in the sampled frames.",
+      "reviewed_at": 1794658109.0303602
     },
     "6c8aa8a433976b0990431371": {
       "kind": "segment_rejection",
@@ -3313,8 +3313,8 @@
       "source_url": "https://archive.org/details/GalahadOfEverest",
       "person": "Tenzing Norgay",
       "start": 621.67,
-      "reason": "The footage features actor Brian Blessed on an Everest recreation climb in 1991, not Tenzing Norgay. Therefore, it is neither identity footage nor usable historical context for Tenzing Norgay's biography.",
-      "reviewed_at": 1791993589.4279823
+      "reason": "The footage shows Brian Blessed reenacting a climb and shots of a mountain peak from a 1991 documentary, not Tenzing Norgay. Tenzing Norgay is neither visible nor is this actual historical footage of him.",
+      "reviewed_at": 1794658321.5153282
     },
     "fd4b5dd55141a3b87cfa2a88": {
       "kind": "segment_rejection",
@@ -3322,8 +3322,8 @@
       "source_url": "https://archive.org/details/GalahadOfEverest",
       "person": "Tenzing Norgay",
       "start": 885.95,
-      "reason": "The footage shows Brian Blessed and other climbers re-enacting an Everest climb in a 1991 documentary, not Tenzing Norgay. Tenzing Norgay is not visible in any frame.",
-      "reviewed_at": 1791993596.7665982
+      "reason": "The footage is from a 1991 documentary about Brian Blessed's recreation of George Mallory's 1924 climb, not actual historical footage of Tenzing Norgay. Tenzing Norgay is not visible in any of the frames.",
+      "reviewed_at": 1794658327.6534996
     },
     "159c8cf13c6ed726249306c3": {
       "kind": "segment_rejection",
@@ -3331,8 +3331,8 @@
       "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
       "person": "Tenzing Norgay",
       "start": 5.0,
-      "reason": "The sampled frames consist entirely of stock footage title cards and credit screens with no actual filmed footage of Tenzing Norgay or usable historical content.",
-      "reviewed_at": 1791993623.6113787
+      "reason": "The sampled frames consist entirely of stock footage title cards, distributor logos, and black frames, without showing Tenzing Norgay or any actual historical expedition footage.",
+      "reviewed_at": 1794658352.0844414
     },
     "079a9693c42cd6053d183767": {
       "kind": "segment_rejection",
@@ -3340,8 +3340,8 @@
       "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
       "person": "Tenzing Norgay",
       "start": 85.72,
-      "reason": "The archival segment shows historical footage and map tracing of the 1952 Swiss Mount Everest expedition in which Tenzing Norgay participated as a key climber. While Tenzing is not clearly identifiable in these specific frames, the footage provides valid biographical illustration of the expedition context.",
-      "reviewed_at": 1791993631.0742788
+      "reason": "The footage shows archival documentary material from the 1952 Swiss Mount Everest expedition, including landscape trekking and a map trace of the route, but Tenzing Norgay is not clearly identifiable in the frames.",
+      "reviewed_at": 1794658356.9707894
     },
     "fd18bfb42ceafb1b55fe5ab0": {
       "kind": "segment_rejection",
@@ -3772,8 +3772,8 @@
       "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
       "person": "Ernest Shackleton",
       "start": 1537.63,
-      "reason": "The footage shows aerial views of Antarctic ice and a contemporary interviewee discussing the subject, which serves as valid biographical illustration for Ernest Shackleton's expeditions, though Shackleton himself lived long before and is not visible.",
-      "reviewed_at": 1792009303.5137703
+      "reason": "The footage shows archival aerial views of Antarctic ice and mountains, which serves as relevant historical context and illustration for Ernest Shackleton's expeditions, even though Shackleton himself (who died in 1922) is not visible and the speaking interviewee is a modern commentator.",
+      "reviewed_at": 1794658456.9529312
     },
     "97cfcb61b262a2234ef8fcba": {
       "kind": "segment_rejection",
@@ -3781,8 +3781,8 @@
       "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
       "person": "Ernest Shackleton",
       "start": 2376.58,
-      "reason": "The video shows unrelated historical street footage and a modern or dramatized interview segment featuring an unidentified person sitting indoors, which has no connection to Ernest Shackleton or his Antarctic expeditions.",
-      "reviewed_at": 1792009337.824288
+      "reason": "The footage shows unrelated scenes (a city square and an unidentified person sitting indoors) that have no connection to Ernest Shackleton or his Antarctic expeditions.",
+      "reviewed_at": 1794658462.5599113
     },
     "6f74757dd2e95f5010267b98": {
       "kind": "segment_rejection",
@@ -3790,8 +3790,8 @@
       "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
       "person": "Ernest Shackleton",
       "start": 3392.97,
-      "reason": "The video footage shows an unidentified modern person in a garden setting, which bears no relation to Ernest Shackleton or his Antarctic expeditions.",
-      "reviewed_at": 1792009346.5943944
+      "reason": "The video features an unidentified speaker standing in a garden, which has no connection to Ernest Shackleton or Antarctic exploration.",
+      "reviewed_at": 1794658468.9553483
     },
     "deeb1899aa5a685555c4ecdb": {
       "kind": "segment_rejection",
@@ -3799,8 +3799,8 @@
       "source_url": "https://archive.org/details/shackletons-expedition",
       "person": "Ernest Shackleton",
       "start": 714.09,
-      "reason": "The segment shows documentary footage related to Antarctic exploration and a modern narrator discussing historical events, featuring archival imagery of Frank Worsley, but Ernest Shackleton is not visibly present in the sampled frames. It provides general historical context and documentary illustration.",
-      "reviewed_at": 1792009389.34684
+      "reason": "The footage shows a ship's mast, a modern documentary presenter (Simon Whistler), and a photograph of Frank Worsley. Ernest Shackleton is not visible in any of the sampled frames, and the presenter is not the historical subject.",
+      "reviewed_at": 1794658482.1275203
     },
     "5d17ee0b294808b774683aa9": {
       "kind": "segment_rejection",
@@ -3808,8 +3808,8 @@
       "source_url": "https://archive.org/details/shackletons-expedition",
       "person": "Ernest Shackleton",
       "start": 1017.98,
-      "reason": "The frames show a modern documentary host/presenter speaking to the camera, not the biographical subject Ernest Shackleton.",
-      "reviewed_at": 1792009404.0818574
+      "reason": "The frames show a modern documentary host/commentator (Simon Whistler), not the historical subject Ernest Shackleton. Therefore, person_visible is false and the footage is unusable for direct identity depiction.",
+      "reviewed_at": 1794658493.0517287
     },
     "7e694f6b31baf6a1cd24badc": {
       "kind": "segment_rejection",
@@ -3817,8 +3817,8 @@
       "source_url": "https://archive.org/details/antarctica-a-frozen-history",
       "person": "Ernest Shackleton",
       "start": 2964.33,
-      "reason": "The footage shows archival documentary shots of Antarctic landscapes (snow plains and rocky slopes) relevant to Ernest Shackleton's expeditions, but the subject himself is not visible. Thus, it serves as usable contextual biographical illustration.",
-      "reviewed_at": 1792009443.278493
+      "reason": "The footage shows authentic archival landscape shots of Antarctica, providing valid contextual visual illustration for the life and expeditions of Ernest Shackleton, even though the subject is not visibly present in the frames.",
+      "reviewed_at": 1794658551.9448729
     },
     "f736951d62c67c2511f7aa4e": {
       "kind": "segment_rejection",
@@ -3826,8 +3826,8 @@
       "source_url": "https://archive.org/details/antarctica-a-frozen-history",
       "person": "Ernest Shackleton",
       "start": 5.0,
-      "reason": "The footage shows generic archival scenery of Antarctica (icebergs and moonlit landscape) which serves as biographical illustration for Ernest Shackleton's expeditions, but the subject is not visible.",
-      "reviewed_at": 1792009471.8470612
+      "reason": "The footage shows genuine historical context of Antarctica (icebergs and landscape) relevant to Ernest Shackleton's expeditions, though Shackleton himself is not visible.",
+      "reviewed_at": 1794658536.0802803
     },
     "34a9a3dd07c6daab59ed9070": {
       "kind": "segment_rejection",
@@ -3835,8 +3835,8 @@
       "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
       "person": "Ernest Shackleton",
       "start": 5.0,
-      "reason": "The footage shows an old-style sailing ship and a map overlay, which does not depict Ernest Shackleton (who lived in the 20th century and sailed on ships like the Endurance, not this 16th/17th-century galleon). Therefore, the historical context is completely inaccurate for Shackleton.",
-      "reviewed_at": 1792009483.4177432
+      "reason": "The footage shows an old sailing ship and a historical map overlay, which illustrates maritime exploration themes relevant to Ernest Shackleton's expeditions, though Shackleton himself is not visible.",
+      "reviewed_at": 1794658444.2749145
     },
     "015f44fb649064d0febac13e": {
       "kind": "segment_rejection",
@@ -3844,8 +3844,8 @@
       "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
       "person": "Ernest Shackleton",
       "start": 661.84,
-      "reason": "The footage shows a dramatization or reenactment of an Antarctic explorer in cold-weather gear packing supplies, which provides historical context and biographical illustration for Ernest Shackleton's expeditions. However, the specific individual depicted is an actor or unidentified, meaning Shackleton himself is not visibly present.",
-      "reviewed_at": 1792009498.389348
+      "reason": "The footage depicts a dramatization or historical recreation of an explorer wearing period-accurate polar gear sitting amongst equipment boxes, serving as valid biographical illustration for Ernest Shackleton's expeditions. However, since the actual person Ernest Shackleton is not visibly identifiable in the frames, person_visible is false and usage is set to biographical_illustration.",
+      "reviewed_at": 1794658450.9831603
     },
     "8cdc734d5dd22d17544f35bb": {
       "kind": "segment_rejection",
@@ -3907,8 +3907,8 @@
       "source_url": "https://archive.org/details/cunytv_BCSPA115",
       "person": "Louis Braille",
       "start": 1836.66,
-      "reason": "The footage features C. Michael Mellor discussing Louis Braille and his biography, but the subject Louis Braille (who lived in the 19th century) is not visible in the archival lecture footage.",
-      "reviewed_at": 1792009600.6379213
+      "reason": "The footage shows C. Michael Mellor (author of a Louis Braille biography) speaking at an event, not Louis Braille himself (who lived in the 19th century). Since Louis Braille is not visible, this is usable only as biographical illustration regarding his biography.",
+      "reviewed_at": 1794658217.2863867
     },
     "b9dfae010a2939309761646a": {
       "kind": "segment_rejection",
@@ -3943,8 +3943,8 @@
       "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
       "person": "Louis Braille",
       "start": 5.0,
-      "reason": "The video segment starts with a generic television series title card (\"Great Moments in Science and Technology\") and transitions to unrelated basket weaving footage, lacking any direct connection or depiction of Louis Braille or his life.",
-      "reviewed_at": 1792009702.2066925
+      "reason": "The footage opens with a television title card sequence ('Great Moments in Science and Technology') and transitions to unrelated basket weaving, which has no direct connection to Louis Braille or his invention.",
+      "reviewed_at": 1794658272.6973534
     },
     "ca4259f18edf9086e35c1971": {
       "kind": "segment_rejection",
@@ -3952,8 +3952,8 @@
       "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
       "person": "Louis Braille",
       "start": 135.81,
-      "reason": "The footage shows an empty institutional hallway, serving as generic archival illustration for Louis Braille's life and education at the institute, though no specific historical event or person is depicted.",
-      "reviewed_at": 1792009725.6714594
+      "reason": "The video shows real archival moving footage of a long interior hallway/corridor, which can serve as generic B-roll (biographical illustration) for an institution like the Royal Institute for Blind Youth, even though Louis Braille is not visible.",
+      "reviewed_at": 1794658280.9083798
     },
     "7efff45a8ed449b3428083f6": {
       "kind": "segment_rejection",
@@ -13318,6 +13318,186 @@
       "start": 3.7,
       "reason": "The video consists of a static photograph with added graphical elements, text overlays, and a quote, which violates the rule against using slideshows, title cards, and static photographs.",
       "reviewed_at": 1794613258.4703388
+    },
+    "0297fa98dbc43118c18435d8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colbca-Black_History_Month_Spotlight_-_Sidney_Poitier",
+      "source_url": "https://archive.org/details/colbca-Black_History_Month_Spotlight_-_Sidney_Poitier",
+      "person": "Sidney Poitier",
+      "start": 14.48,
+      "reason": "The video segment consists entirely of static title cards and text overlays with parchment backgrounds rather than actual filmed footage of Sidney Poitier.",
+      "reviewed_at": 1794657726.8232505
+    },
+    "dc0607274c3003ba5ffccda0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:edge-of-the-city-1957-john-cassavetes-sidney-poitier",
+      "source_url": "https://archive.org/details/edge-of-the-city-1957-john-cassavetes-sidney-poitier",
+      "person": "Sidney Poitier",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of the MGM studio logo and very distant, dark, obstructed shots from a film scene where Sidney Poitier is not clearly identifiable, rendering the clip unusable for a biography short.",
+      "reviewed_at": 1794657744.3808746
+    },
+    "a8659fd6d689c8fc392b863a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:edge-of-the-city-1957-john-cassavetes-sidney-poitier",
+      "source_url": "https://archive.org/details/edge-of-the-city-1957-john-cassavetes-sidney-poitier",
+      "person": "Sidney Poitier",
+      "start": 397.79,
+      "reason": "The sampled frames from the video clip do not feature Sidney Poitier; instead, they show other actors in a scene from the film, making this segment unusable for depicting the subject.",
+      "reviewed_at": 1794657749.8933089
+    },
+    "9bf831baf655e9f2a91c0754": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+      "source_url": "https://archive.org/details/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+      "person": "Sidney Poitier",
+      "start": 70.2,
+      "reason": "The footage consists of a fast-paced compilation trailer for a film retrospective showing multiple different movies (In the Heat of the Night, Paris Blues, etc.) rather than a cohesive biographical segment, making it unusable for direct biographical illustration.",
+      "reviewed_at": 1794657787.333574
+    },
+    "4efe7f7b1d97167c5119810b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+      "source_url": "https://archive.org/details/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+      "person": "Sidney Poitier",
+      "start": 79.52,
+      "reason": "The clip contains trailer title cards and promotional text overlays throughout ('SIDNEY POITIER: THE MEASURES OF A MAN', 'SELECT SCREENINGS HOSTED BY...'), making it unusable as clean biographical illustration or direct archival footage for a Short.",
+      "reviewed_at": 1794657797.591343
+    },
+    "4f01c7a56b863a2707ff168a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mnn_601_1212",
+      "source_url": "https://archive.org/details/mnn_601_1212",
+      "person": "Sidney Poitier",
+      "start": 896.98,
+      "reason": "The frames depict an unidentified male speaker who is clearly not Sidney Poitier. Therefore, the person is not visible and the footage is unusable for a biography of Sidney Poitier.",
+      "reviewed_at": 1794657805.4977462
+    },
+    "5857b22f828218e8d1ce111a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mnn_601_1212",
+      "source_url": "https://archive.org/details/mnn_601_1212",
+      "person": "Sidney Poitier",
+      "start": 1279.26,
+      "reason": "The footage features an unidentified guest being interviewed on 'Inside New York', not Sidney Poitier, making it unusable for a biography about Poitier.",
+      "reviewed_at": 1794657812.0873199
+    },
+    "63e9dcd4b9eada3cd7a2de08": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mnn_601_1213",
+      "source_url": "https://archive.org/details/mnn_601_1213",
+      "person": "Sidney Poitier",
+      "start": 901.13,
+      "reason": "The video features an interview/discussion about Sidney Poitier, but Sidney Poitier himself is not visible in any of the sampled frames (the people shown are interviewers or guests discussing him). Therefore, it cannot be used as identity footage of the subject.",
+      "reviewed_at": 1794657819.8291104
+    },
+    "cbe72da83346a6ff1507ca3c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mnn_601_1213",
+      "source_url": "https://archive.org/details/mnn_601_1213",
+      "person": "Sidney Poitier",
+      "start": 1285.19,
+      "reason": "The sampled frames show an unidentified speaker being interviewed rather than Sidney Poitier himself, making this segment unusable for depicting the subject.",
+      "reviewed_at": 1794657825.869878
+    },
+    "6fb97257f75e4e55248ca16a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ao-mestre-com-carinho-1967-legendado-sidney-poitier",
+      "source_url": "https://archive.org/details/ao-mestre-com-carinho-1967-legendado-sidney-poitier",
+      "person": "Sidney Poitier",
+      "start": 5.0,
+      "reason": "The sampled frames only show the Columbia Pictures studio logo and an establishing shot of a street with no appearance of Sidney Poitier. Therefore, person_visible is false and the segment is unusable for a biography short.",
+      "reviewed_at": 1794657840.905952
+    },
+    "756d80e218c3a95412a0bd34": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Opera_s_Influence_on_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 92.77,
+      "reason": "The video features Jon Batiste playing a melodica, whereas the narration is about Louis Armstrong. Since Louis Armstrong is not visible and the footage depicts a different contemporary musician rather than historical context related to Armstrong, the segment is unusable.",
+      "reviewed_at": 1794658650.9235492
+    },
+    "e9543f5342c72ff8ffc2263c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Opera_s_Influence_on_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 112.27,
+      "reason": "The footage shows Jon Batiste performing at the Aspen Ideas Festival, not Louis Armstrong.",
+      "reviewed_at": 1794658657.1763241
+    },
+    "5e342fc55a24b69034ed6505": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "source_url": "https://archive.org/details/Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "person": "Louis Armstrong",
+      "start": 816.25,
+      "reason": "The footage shows a press conference announcing the expansion of Louis Armstrong International Airport in 2013, featuring public officials such as Bob Montgomery from Southwest Airlines. Louis Armstrong (the jazz musician) is deceased and not present, making this footage completely irrelevant for his biographical illustration.",
+      "reviewed_at": 1794658664.1165395
+    },
+    "86e7ffe9d7095f07fde4f7f9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "source_url": "https://archive.org/details/Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "person": "Louis Armstrong",
+      "start": 1086.66,
+      "reason": "The footage shows modern politicians announcing an airport expansion named after Louis Armstrong in 2013, but Louis Armstrong himself is not visible (he passed away in 1971), making this modern news footage irrelevant to a biographical short about him.",
+      "reviewed_at": 1794658670.2571943
+    },
+    "5c128707dcb1c8a0fdc95c51": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "person": "Louis Armstrong",
+      "start": 166.68,
+      "reason": "The video shows modern archival footage from 2015 of a political event at the Louis Armstrong International Airport. Louis Armstrong, who died in 1971, is not present and the footage only relates to him through the airport's naming.",
+      "reviewed_at": 1794658676.4117012
+    },
+    "2acedfeaab4557fd5bcaefed": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "person": "Louis Armstrong",
+      "start": 180.16,
+      "reason": "The sampled frames show only a local television network title card (Kenner KTV) and blank/black frames, with Louis Armstrong neither visible nor any relevant historical context depicted.",
+      "reviewed_at": 1794658680.8690894
+    },
+    "f0b7f2a33f09f336fa3e64b5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:pctca-Robby_s_World_007_-_Louis_Armstrong_Armstrong_Training_CPT",
+      "source_url": "https://archive.org/details/pctca-Robby_s_World_007_-_Louis_Armstrong_Armstrong_Training_CPT",
+      "person": "Louis Armstrong",
+      "start": 296.32,
+      "reason": "The video shows a modern podcast interview ('Robby's World') discussing a private gym in California, with no appearance of Louis Armstrong or historical context related to him.",
+      "reviewed_at": 1794658688.3734446
+    },
+    "a3ce7a68c0f0e8ac81fff0fd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:pctca-Robby_s_World_007_-_Louis_Armstrong_Armstrong_Training_CPT",
+      "source_url": "https://archive.org/details/pctca-Robby_s_World_007_-_Louis_Armstrong_Armstrong_Training_CPT",
+      "person": "Louis Armstrong",
+      "start": 441.98,
+      "reason": "The video features a modern podcast/public access interview about a gym ('Armstrong Training') and does not contain any historical or archival footage of the jazz musician Louis Armstrong.",
+      "reviewed_at": 1794658694.732963
+    },
+    "a4ccbc882adce4bbbd286ddc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 192.56,
+      "reason": "The footage shows modern students recording a podcast or youth media project in a studio, not Amelia Earhart or genuine historical context related to her life.",
+      "reviewed_at": 1794658886.8386993
+    },
+    "4fc859dfbbdf3690fe053052": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 272.95,
+      "reason": "The footage shows contemporary students/podcasters in a studio setting discussing Amelia Earhart, not Amelia Earhart herself or genuine historical context depicting her life.",
+      "reviewed_at": 1794658894.3860815
     }
   }
 }

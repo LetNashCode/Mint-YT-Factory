@@ -1,44 +1,5 @@
 [
   {
-    "format": "one_decision",
-    "person": "Jonas Salk",
-    "premise": "Choosing to test his polio vaccine on himself and his own family before mass clinical trials.",
-    "hook": "The polio epidemic terrified the world, and millions waited anxiously for a breakthrough while children filled iron lungs.",
-    "key_facts": [
-      "Developed the first successful inactivated polio vaccine in the early 1950s.",
-      "Inoculated himself, his wife, and his children to prove the vaccine's safety prior to the 1954 trials.",
-      "Refused to patent the vaccine, asking 'Would you patent the sun?'",
-      "Field trials involving 1.8 million children proved the vaccine safe and effective in 1955."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
-    "person": "Harrison Ford",
-    "premise": "Working as a master carpenter in Hollywood while struggling to get cast in major film roles.",
-    "hook": "Before he flew the Millennium Falcon, he built cabinets for George Lucas and was told he would never make it as an actor.",
-    "key_facts": [
-      "Moved to Los Angeles in 1964 and signed a weekly contract with Columbia Pictures.",
-      "Became a self-taught carpenter to support his wife and two young sons when acting work dried up.",
-      "Built a recording studio for Sergio Mendes and cabinets for Francis Ford Coppola.",
-      "Hired by George Lucas to build a doorway, which directly led to his audition for Star Wars."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "Keeping his entire 28-man crew alive for nearly two years after their ship was crushed by Antarctic ice.",
-    "hook": "Their ship was trapped, crushed, and sunk, leaving them stranded on floating ice packs a thousand miles from civilization.",
-    "key_facts": [
-      "The Endurance became trapped in pack ice in the Weddell Sea in 1915.",
-      "After the ship sank, the crew camped on floating ice floes for months.",
-      "Shackleton and five men made an 800-mile journey in a 22-foot lifeboat to South Georgia Island for rescue.",
-      "Every single member of the Imperial Trans-Antarctic Expedition survived."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "rise_from_nothing",
     "person": "Rajinikanth",
     "premise": "Working as a bus conductor in Bangalore before rising to become one of Indian cinema's biggest superstars.",
@@ -61,32 +22,6 @@
       "Flew aboard Vostok 1 on April 12, 1961, completing one orbit of Earth.",
       "Ejected from the spacecraft at 20,000 feet as per the standard landing design of the time.",
       "Became an international celebrity and hero following the successful historic flight."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Louis Braille",
-    "premise": "Inventing a revolutionary tactile reading system as a teenager after losing his sight in a childhood accident.",
-    "hook": "Blinded at age three by an awl in his father's harness shop, he spent his youth fighting for the right to read.",
-    "key_facts": [
-      "Blinded in his left eye by an accident and subsequently lost sight in both eyes due to sympathetic ophthalmia.",
-      "Entered the Royal Institution for Blind Youth in Paris in 1819.",
-      "Adapted Captain Charles Barbier's 'night writing' military code into a six-dot cell system.",
-      "Published the system in 1829, allowing blind individuals to read and write efficiently."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Percy Spencer",
-    "premise": "Inventing the microwave oven after a candy bar melted in his pocket while standing near a magnetron.",
-    "hook": "A physicist working on radar technology noticed a peanut cluster melting in his pocket and realized military tech could cook food.",
-    "key_facts": [
-      "Self-taught engineer who worked for Raytheon, becoming a leading expert in radar design.",
-      "Stood in front of an active magnetron tube during wartime research in 1945.",
-      "Noticed his peanut butter candy bar had liquefied.",
-      "Patented the microwave oven in 1945, with the first commercial model appearing in 1947."
     ],
     "source": "gemini_original"
   },
@@ -117,32 +52,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Tenzing Norgay",
-    "premise": "Climbing to the roof of the world alongside Edmund Hillary after years of working as a high-altitude porter.",
-    "hook": "He carried heavy loads for foreign expeditions for decades before finally standing on the summit of Mount Everest.",
-    "key_facts": [
-      "Born in Tibet and grew up in Nepal as part of the Sherpa community.",
-      "Participated in multiple Everest expeditions throughout the 1930s and 1940s as a sirdar and porter.",
-      "Reached the summit of Everest with Edmund Hillary on May 29, 1953.",
-      "Named one of Time magazine's 100 most influential people of the 20th century."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Spencer Silver",
-    "premise": "Inventing a uniquely 'failed' low-tack adhesive that spent years looking for a purpose until a colleague needed a bookmark.",
-    "hook": "He created an adhesive that stuck lightly to surfaces without leaving residue, and everyone thought it was utterly useless.",
-    "key_facts": [
-      "Worked as a chemist at 3M developing stronger adhesives for aerospace applications in 1968.",
-      "Created a pressure-sensitive acrylate copolymer microsphere adhesive that could be repositioned.",
-      "Hosted internal seminars for five years trying to find an application for the sticky substance.",
-      "Colleague Art Fry used the adhesive in 1974 to anchor bookmarks in his church hymnal, leading to the Post-it Note."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Charles Lindbergh",
     "premise": "Deciding to fly a single-engine monoplane across the treacherous Atlantic Ocean without a parachute or radio.",
@@ -156,15 +65,75 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Ruth Wakefield",
-    "premise": "Inventing the chocolate chip cookie because she ran out of baker's chocolate and substituted chopped Nestlé semi-sweet bars.",
-    "hook": "She expected the chocolate chunks to melt into the batter during baking, but instead, they held their shape to create a culinary revolution.",
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "Keeping all 27 crew members alive for nearly two years after their ship, the Endurance, was crushed by Antarctic pack ice.",
+    "hook": "After their ship sank beneath the frozen sea, they lived on floating ice floes for months with no radio, no rescue ship, and dwindling food.",
     "key_facts": [
-      "Owned and operated the Toll House Inn in Whitman, Massachusetts, during the 1930s.",
-      "Baked butter drop cookies for her guests in 1938 using chopped Nestlé chocolate bars.",
-      "Struck a deal with Nestlé in 1939 to print her recipe on product packaging in exchange for a lifetime supply of chocolate.",
-      "Created one of the most popular dessert recipes in American history by accident."
+      "The Endurance was trapped and crushed by Antarctic ice in 1915.",
+      "The crew camped on drifting ice packs for five months before sailing lifeboats to Elephant Island.",
+      "Shackleton and five men sailed an 22-foot lifeboat 800 miles across the stormy Southern Ocean to South Georgia Island for help.",
+      "Every single member of the stranded expedition survived."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Narayana Murthy",
+    "premise": "Co-founding Infosys with just $250 borrowed from his wife, growing it into a global IT giant.",
+    "hook": "He started a multinational tech powerhouse from a spare bedroom with a minuscule loan and a borrowed dining table.",
+    "key_facts": [
+      "Started Infosys in Pune, India, in 1981 with six other software engineers.",
+      "Relied on initial seed capital provided by his wife, Sudha Murthy, from her personal savings.",
+      "Pioneered the global delivery model for software services out of India."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Diana, Princess of Wales",
+    "premise": "Deciding to walk through a cleared Angolan minefield in 1997 to force global attention onto the hidden horrors of landmines.",
+    "hook": "She ignored intense political criticism and walked directly into an active danger zone to force world leaders to ban a deadly weapon.",
+    "key_facts": [
+      "Visited Huambo, Angola, in January 1997 with the Halo Trust to highlight civilian landmine casualties.",
+      "Her televised walk was heavily criticized by political opponents as a controversial distraction.",
+      "Her campaign directly contributed to the signing of the Ottawa Treaty banning anti-personnel landmines later that year."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Madam C.J. Walker",
+    "premise": "Overcoming early orphanhood, poverty, and severe hair loss to build a massive hair care empire and become one of America's first self-made female millionaires.",
+    "hook": "After losing her own hair to a scalp ailment, she formulated a homemade remedy on her kitchen floor and sold it door-to-door.",
+    "key_facts": [
+      "Born Sarah Breedlove on a cotton plantation in Louisiana, orphaned at age seven.",
+      "Worked as a laundress for decades earning meager wages before launching her hair care line in 1905.",
+      "Employed thousands of African American women as sales agents across the United States."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Satyajit Ray",
+    "premise": "Deciding to self-finance the final weeks of production for Pather Panchali by pawning his wife's jewelry and his personal book collection.",
+    "hook": "When institutional funding dried up completely, he risked everything he owned to finish his debut masterpiece.",
+    "key_facts": [
+      "Shot his debut film Pather Panchali (1955) intermittently over nearly three years using amateur actors and crew.",
+      "Pawned valuable family assets, including his wife's jewelry and rare art books, to pay for remaining film stock.",
+      "The film went on to win the Best Human Document award at the 1956 Cannes Film Festival."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Louis Braille",
+    "premise": "Inventing a revolutionary tactile reading system as a blind teenager against the resistance of sighted educators.",
+    "hook": "Blinded in a childhood accident, he took a military night-writing code and simplified it into six raised dots that schools initially banned.",
+    "key_facts": [
+      "Blinded in his father's harness-making workshop at age three after an accidental puncture wound.",
+      "Enrolled at the Royal Institution for Blind Youth in Paris, where books were printed in expensive, hard-to-read embossed raised letters.",
+      "Invented the six-dot Braille code at age 15, though it was only officially adopted in schools long after his death."
     ],
     "source": "gemini_original"
   }

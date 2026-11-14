@@ -19,316 +19,6 @@
         "identity_score": 13.0,
         "archival_signal": 1
       },
-      "start": 82.19,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Diana Nyad speaking on a TED stage, which serves as biographical illustration rather than direct event footage of her historical swims.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ba519e021a34b6405c1b421c61de0260fe81996911a5bca17ea14a12c9698fae",
-      "reviewed_at": 1792349370.693501
-    },
-    {
-      "person": "Diana Nyad",
-      "source": {
-        "id": "archive:DianaNyad_2013W",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DianaNyad_2013W/DianaNyad_2013W.mp4",
-        "source_url": "https://archive.org/details/DianaNyad_2013W",
-        "title": "Diana Nyad: Never, ever give up",
-        "description": "In the pitch-black night, stung by jellyfish, choking on salt water, singing to herself, hallucinating … Diana Nyad just kept on swimming. And that's how she finally achieved her lifetime goal as an athlete: an extreme 100-mile swim from Cuba to Florida -- at age 64. Hear her story. ['TEDTalks', 'TED', 'Talks', 'aging', 'culture', 'extreme sports', 'TEDWomen 2013', '2013']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TED', 'Talks', 'aging', 'culture', 'extreme sports', 'TEDWomen 2013', '2013']",
-        "runtime": "00:15:35",
-        "direct_subject": true,
-        "duration_hint": 935.75,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 75.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "Diana Nyad is clearly visible speaking on stage in this TedTalk segment, providing good biographical illustration footage about her life and accomplishments.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e1517bd7d45e4f72ec2edd91f35cf816785575c856f0a3f546327d029a696abb",
-      "reviewed_at": 1792349408.6698492
-    },
-    {
-      "person": "Diana Nyad",
-      "source": {
-        "id": "archive:DianaNyad_2011P",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DianaNyad_2011P/DianaNyad_2011P.mp4",
-        "source_url": "https://archive.org/details/DianaNyad_2011P",
-        "title": "Diana Nyad: Extreme swimming with the world's most dangerous jellyfish",
-        "description": "In the 1970s, Diana Nyad set long-distance swim records that are still unbroken. Thirty years later, at 60, she attempted her longest swim yet, from Cuba to Florida. In this funny, powerful talk at TEDMED, she talks about how to prepare mentally to achieve an extreme dream, and asks: What will YOU do with your wild, precious life? ['TEDTalks', 'TEDMED 2011', 'TED', 'Talks', 'culture', 'extreme sports', 'sports', 'success', '2011']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TEDMED 2011', 'TED', 'Talks', 'culture', 'extreme sports', 'sports', 'success', '2011']",
-        "runtime": "00:16:58",
-        "direct_subject": true,
-        "duration_hint": 1017.466667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 236.57,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The footage shows Diana Nyad speaking at a TEDMED event, clearly visible and identifiable throughout the frames. While it is a talk rather than direct historical footage of her swims, it serves as good biographical illustration of her talking about her career and extreme dreams.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d2072057ece46e78161f15663c8a70bcda83e393e95f1adb9c88caeaaab257c0",
-      "reviewed_at": 1792349454.1875346
-    },
-    {
-      "person": "Diana Nyad",
-      "source": {
-        "id": "archive:DianaNyad_2013W",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DianaNyad_2013W/DianaNyad_2013W.mp4",
-        "source_url": "https://archive.org/details/DianaNyad_2013W",
-        "title": "Diana Nyad: Never, ever give up",
-        "description": "In the pitch-black night, stung by jellyfish, choking on salt water, singing to herself, hallucinating … Diana Nyad just kept on swimming. And that's how she finally achieved her lifetime goal as an athlete: an extreme 100-mile swim from Cuba to Florida -- at age 64. Hear her story. ['TEDTalks', 'TED', 'Talks', 'aging', 'culture', 'extreme sports', 'TEDWomen 2013', '2013']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TED', 'Talks', 'aging', 'culture', 'extreme sports', 'TEDWomen 2013', '2013']",
-        "runtime": "00:15:35",
-        "direct_subject": true,
-        "duration_hint": 935.75,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 146.81,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage features Diana Nyad speaking on stage at a TED talk, which serves as valid biographical illustration for a video about her life and achievements, though it does not show her actual swim.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "60e0e894740a077feb5c0bb5986426d038161b01bdd44eb31e4d58e3b83031ed",
-      "reviewed_at": 1792349472.552094
-    },
-    {
-      "person": "Diana Nyad",
-      "source": {
-        "id": "archive:DianaNyad_2011P",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DianaNyad_2011P/DianaNyad_2011P.mp4",
-        "source_url": "https://archive.org/details/DianaNyad_2011P",
-        "title": "Diana Nyad: Extreme swimming with the world's most dangerous jellyfish",
-        "description": "In the 1970s, Diana Nyad set long-distance swim records that are still unbroken. Thirty years later, at 60, she attempted her longest swim yet, from Cuba to Florida. In this funny, powerful talk at TEDMED, she talks about how to prepare mentally to achieve an extreme dream, and asks: What will YOU do with your wild, precious life? ['TEDTalks', 'TEDMED 2011', 'TED', 'Talks', 'culture', 'extreme sports', 'sports', 'success', '2011']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TEDMED 2011', 'TED', 'Talks', 'culture', 'extreme sports', 'sports', 'success', '2011']",
-        "runtime": "00:16:58",
-        "direct_subject": true,
-        "duration_hint": 1017.466667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 390.95,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage shows Diana Nyad speaking at a TEDMED event, providing valid biographical illustration footage of the subject speaking about her life and swims, though not depicting the actual historical swims themselves.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9b3f503ec36c83cddff4fafdf63f5cb0048f373897d8f120b28b0c7bbca866d7",
-      "reviewed_at": 1792349504.7226748
-    },
-    {
-      "person": "Diana Nyad",
-      "source": {
-        "id": "archive:DianaNyad_2013W",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DianaNyad_2013W/DianaNyad_2013W.mp4",
-        "source_url": "https://archive.org/details/DianaNyad_2013W",
-        "title": "Diana Nyad: Never, ever give up",
-        "description": "In the pitch-black night, stung by jellyfish, choking on salt water, singing to herself, hallucinating … Diana Nyad just kept on swimming. And that's how she finally achieved her lifetime goal as an athlete: an extreme 100-mile swim from Cuba to Florida -- at age 64. Hear her story. ['TEDTalks', 'TED', 'Talks', 'aging', 'culture', 'extreme sports', 'TEDWomen 2013', '2013']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TED', 'Talks', 'aging', 'culture', 'extreme sports', 'TEDWomen 2013', '2013']",
-        "runtime": "00:15:35",
-        "direct_subject": true,
-        "duration_hint": 935.75,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 217.71,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage features Diana Nyad speaking on stage at a TED talk, which provides valid biographical identity footage of the subject. However, it is a speech/presentation rather than direct footage of her historical swim, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2f62e6180bb746561d94daecb197e4f68b0c70c264b965f3cb29a87d2b980e63",
-      "reviewed_at": 1792349516.7562718
-    },
-    {
-      "person": "Diana Nyad",
-      "source": {
-        "id": "archive:DianaNyad_2011P",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DianaNyad_2011P/DianaNyad_2011P.mp4",
-        "source_url": "https://archive.org/details/DianaNyad_2011P",
-        "title": "Diana Nyad: Extreme swimming with the world's most dangerous jellyfish",
-        "description": "In the 1970s, Diana Nyad set long-distance swim records that are still unbroken. Thirty years later, at 60, she attempted her longest swim yet, from Cuba to Florida. In this funny, powerful talk at TEDMED, she talks about how to prepare mentally to achieve an extreme dream, and asks: What will YOU do with your wild, precious life? ['TEDTalks', 'TEDMED 2011', 'TED', 'Talks', 'culture', 'extreme sports', 'sports', 'success', '2011']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TEDMED 2011', 'TED', 'Talks', 'culture', 'extreme sports', 'sports', 'success', '2011']",
-        "runtime": "00:16:58",
-        "direct_subject": true,
-        "duration_hint": 1017.466667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 468.14,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features Diana Nyad speaking directly on stage at TEDMED, providing clear identity footage suitable for a biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "40cc0d9b082724f5d139619eb349f04230997369ed60b52a250fbe920f23a2a8",
-      "reviewed_at": 1792349526.279763
-    },
-    {
-      "person": "Diana Nyad",
-      "source": {
-        "id": "archive:DianaNyad_2013W",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DianaNyad_2013W/DianaNyad_2013W.mp4",
-        "source_url": "https://archive.org/details/DianaNyad_2013W",
-        "title": "Diana Nyad: Never, ever give up",
-        "description": "In the pitch-black night, stung by jellyfish, choking on salt water, singing to herself, hallucinating … Diana Nyad just kept on swimming. And that's how she finally achieved her lifetime goal as an athlete: an extreme 100-mile swim from Cuba to Florida -- at age 64. Hear her story. ['TEDTalks', 'TED', 'Talks', 'aging', 'culture', 'extreme sports', 'TEDWomen 2013', '2013']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TED', 'Talks', 'aging', 'culture', 'extreme sports', 'TEDWomen 2013', '2013']",
-        "runtime": "00:15:35",
-        "direct_subject": true,
-        "duration_hint": 935.75,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 288.62,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features real archival footage of Diana Nyad speaking on stage at a TED talk, which serves as valid biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4a43d17f9b69b4db679277b0620d54a62f454a81fbee634bc78819ddf6d50f3e",
-      "reviewed_at": 1792349549.0127342
-    },
-    {
-      "person": "Diana Nyad",
-      "source": {
-        "id": "archive:DianaNyad_2011P",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DianaNyad_2011P/DianaNyad_2011P.mp4",
-        "source_url": "https://archive.org/details/DianaNyad_2011P",
-        "title": "Diana Nyad: Extreme swimming with the world's most dangerous jellyfish",
-        "description": "In the 1970s, Diana Nyad set long-distance swim records that are still unbroken. Thirty years later, at 60, she attempted her longest swim yet, from Cuba to Florida. In this funny, powerful talk at TEDMED, she talks about how to prepare mentally to achieve an extreme dream, and asks: What will YOU do with your wild, precious life? ['TEDTalks', 'TEDMED 2011', 'TED', 'Talks', 'culture', 'extreme sports', 'sports', 'success', '2011']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TEDMED 2011', 'TED', 'Talks', 'culture', 'extreme sports', 'sports', 'success', '2011']",
-        "runtime": "00:16:58",
-        "direct_subject": true,
-        "duration_hint": 1017.466667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 699.71,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage shows Diana Nyad speaking on stage at a TED event, which is genuine recorded identity footage, but it serves as biographical illustration rather than direct historical footage of her swims.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e7a362a550993ff6d1bf58d77100a27a42f53801b9ee769d1a3d037b2418b550",
-      "reviewed_at": 1792349569.637064
-    },
-    {
-      "person": "Diana Nyad",
-      "source": {
-        "id": "archive:DianaNyad_2013W",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DianaNyad_2013W/DianaNyad_2013W.mp4",
-        "source_url": "https://archive.org/details/DianaNyad_2013W",
-        "title": "Diana Nyad: Never, ever give up",
-        "description": "In the pitch-black night, stung by jellyfish, choking on salt water, singing to herself, hallucinating … Diana Nyad just kept on swimming. And that's how she finally achieved her lifetime goal as an athlete: an extreme 100-mile swim from Cuba to Florida -- at age 64. Hear her story. ['TEDTalks', 'TED', 'Talks', 'aging', 'culture', 'extreme sports', 'TEDWomen 2013', '2013']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TED', 'Talks', 'aging', 'culture', 'extreme sports', 'TEDWomen 2013', '2013']",
-        "runtime": "00:15:35",
-        "direct_subject": true,
-        "duration_hint": 935.75,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 359.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The sampled frames clearly feature Diana Nyad giving her TED talk about her swimming achievements, providing direct biographical footage of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "de9af5742ac31521ad24b211fe078be823a900e687bfa79f2514090e8675804f",
-      "reviewed_at": 1792349598.2749107
-    },
-    {
-      "person": "Diana Nyad",
-      "source": {
-        "id": "archive:DianaNyad_2011P",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DianaNyad_2011P/DianaNyad_2011P.mp4",
-        "source_url": "https://archive.org/details/DianaNyad_2011P",
-        "title": "Diana Nyad: Extreme swimming with the world's most dangerous jellyfish",
-        "description": "In the 1970s, Diana Nyad set long-distance swim records that are still unbroken. Thirty years later, at 60, she attempted her longest swim yet, from Cuba to Florida. In this funny, powerful talk at TEDMED, she talks about how to prepare mentally to achieve an extreme dream, and asks: What will YOU do with your wild, precious life? ['TEDTalks', 'TEDMED 2011', 'TED', 'Talks', 'culture', 'extreme sports', 'sports', 'success', '2011']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['TEDTalks', 'TEDMED 2011', 'TED', 'Talks', 'culture', 'extreme sports', 'sports', 'success', '2011']",
-        "runtime": "00:16:58",
-        "direct_subject": true,
-        "duration_hint": 1017.466667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
       "start": 776.9,
       "length": 8.0,
       "verification": {
@@ -6689,37 +6379,6 @@
       "reviewed_at": 1793048323.5796947
     },
     {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:antarctica-a-frozen-history",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/antarctica-a-frozen-history/Antarctica%20A%20Frozen%20History.mp4",
-        "source_url": "https://archive.org/details/antarctica-a-frozen-history",
-        "title": "Antarctica A Frozen History",
-        "description": "Historical documentary about the history of Antarctic Exploration in Antarctica narrated by actor Edward Herrmann. ['Antarctica A Frozen History', 'Antarctica', 'Antarctic Exploration', 'Sir Ernest Shackleton', 'Robert Falcon Scott', 'History', 'Edward Herrmann', 'Documentary']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['Antarctica A Frozen History', 'Antarctica', 'Antarctic Exploration', 'Sir Ernest Shackleton', 'Robert Falcon Scott', 'History', 'Edward Herrmann', 'Documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 5509.9044,
-        "identity_score": 10.0,
-        "archival_signal": 1
-      },
-      "start": 3809.86,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features archival photographs and historical footage showing Ernest Shackleton alongside members of his crew during his Antarctic expeditions, providing authentic visual context that directly aligns with the biographical narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "dc9e944666d4cbfe819b268fdcfa3417d497a87376e9842fb8f12a1c2443f9ae",
-      "reviewed_at": 1793048476.0085053
-    },
-    {
       "person": "Sachin Tendulkar",
       "source": {
         "id": "archive:sachinmrindia-scn",
@@ -11445,68 +11104,6 @@
       "reviewed_at": 1793659749.3502712
     },
     {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 254.12,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "Louis Armstrong is clearly visible and performing in frames 1, 2, and 5 (from the film Paris Blues, 1961), providing excellent archival footage illustrating his musical career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b09cea6abb0bf779739a2e36adc38435afff9c78678d00dd608be4d5a3c5cfca",
-      "reviewed_at": 1793660108.0588078
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 281.79,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Louis Armstrong playing the trumpet alongside Paul Newman in a scene from the 1961 film Paris Blues, making it authentic and directly relevant historical footage for a biographical short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "279108616e882b9d5ea6e43bea9223a0263f58bb480d40a9dc9fdad2d6f38021",
-      "reviewed_at": 1793660122.8015184
-    },
-    {
       "person": "Richard Feynman",
       "source": {
         "id": "archive:horizon-29-5-no-ordinary-genius-part-1-richard-feynman-25-jan-1993",
@@ -12747,68 +12344,6 @@
       "reviewed_at": 1793730588.1845515
     },
     {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Ernest Shackleton Documentaries Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 442.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The frames show historical footage of Ernest Shackleton and his expedition team during their Antarctic journey, directly depicting the subject and his historical context.",
-        "usage": "direct_event"
-      },
-      "review_key": "02ef616fe98df805259849b0c9564ef9e4c1c650af1b0415a7107af4497145cd",
-      "reviewed_at": 1793730833.7671328
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Shackleton Documentary Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 442.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The frames show authentic historical moving footage and photographs of Ernest Shackleton and his expedition team in Antarctica during their historic journey, directly depicting the subject and context.",
-        "usage": "direct_event"
-      },
-      "review_key": "790c5c7cd4fd4553c4f8cfc96422c22b35e5b1ffc9f02548f1b4e7c1ce22420e",
-      "reviewed_at": 1793730839.7432008
-    },
-    {
       "person": "George Lucas",
       "source": {
         "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
@@ -13365,254 +12900,6 @@
       },
       "review_key": "95ee2b65bb906d2dd8f0f3c8ca3d71f52d39396beb5a3a3b554d1bf49d562ea3",
       "reviewed_at": 1793798093.0544791
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 309.47,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Louis Armstrong is clearly visible playing the trumpet in the first frame, while subsequent frames show Paul Newman in the film Paris Blues (1961), featuring Armstrong in a cameo appearance. Useful biographical illustration of his film appearances.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2f0372837e710b0b48bcf700398bb9a7a06c26fb2fb825b00f68f004fa7d215b",
-      "reviewed_at": 1793798505.6431897
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 337.15,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The clip features genuine archival film footage from Paris Blues (1961) clearly showing Louis Armstrong performing on the trumpet with his band, making it highly relevant biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "626ca990fdcd48b53ba85af86e717deab3d02f7803371e03073de9ba99b7df69",
-      "reviewed_at": 1793798646.7403097
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 198.76,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features genuine historical film of Louis Armstrong performing, clearly identifiable in multiple frames, making it highly relevant and usable as biographical illustration for a Short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "dfab41a5faca90ed5350753c3967539fa5a019dc6d8f0c513aad8672b53a369b",
-      "reviewed_at": 1793798690.555576
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 32.68,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features authentic archival footage of Louis Armstrong performing in the 1961 film Paris Blues, making it highly relevant and usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f1559591f86725781a70477a6ce98e5892bddc6c2cc70de3d4a00fde39ac4360",
-      "reviewed_at": 1793798707.800406
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 60.36,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet in a vintage film setting, directly illustrating his musical career and matching the biographical narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "845455e1dcdf55a4a284e7e5c56aea7a1992b27228b78587cf9eddc8c0b06e10",
-      "reviewed_at": 1793798728.5962734
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 88.04,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Louis Armstrong performing on trumpet with a band in an archival clip from the 1961 film Paris Blues, perfectly illustrating his musical career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9c21f13d3e6baa581bc01645d4381c15b9d7dd9ca5d614e4ee54ae3d29d7e3d7",
-      "reviewed_at": 1793798767.7798645
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 143.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage features actual archival film of Louis Armstrong performing and making a cameo appearance in Paris Blues (1961), with Louis Armstrong clearly visible and identifiable in multiple sampled frames.",
-        "usage": "direct_event"
-      },
-      "review_key": "6201db8b1c21b24d40072acbc577e8d5158ce8cae263fa9b2639119f55f40b0f",
-      "reviewed_at": 1793798787.1194167
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 115.72,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly features Louis Armstrong performing on the trumpet (with Sidney Poitier and other musicians visible in later frames) from the 1961 film Paris Blues. This is authentic historical film footage of the named subject, highly relevant for a biographical short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3e6f2d8a2aa6435b8d8ebed675b8d03d2d4befa85c8e6fcbd4babcdde5b0b4ff",
-      "reviewed_at": 1793798830.7291641
     },
     {
       "person": "Louis Armstrong",
@@ -14855,130 +14142,6 @@
       "reviewed_at": 1794325014.7667027
     },
     {
-      "person": "Tenzing Norgay",
-      "source": {
-        "id": "archive:44754ManAgainstMountEverest",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
-        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
-        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
-        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
-        "creator": "",
-        "license": "",
-        "subject": "['Stock Footage', 'High Definition']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 538.657214,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 287.51,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features genuine historical archival footage from the 1952 Swiss Mount Everest expedition, clearly showing Tenzing Norgay among the climbers and team members on the mountain.",
-        "usage": "direct_event"
-      },
-      "review_key": "7eca39d68efc2dc12b32e6f84353fb899882a4380e37c6e03f0607fd980e63b1",
-      "reviewed_at": 1794335569.5348742
-    },
-    {
-      "person": "Tenzing Norgay",
-      "source": {
-        "id": "archive:44754ManAgainstMountEverest",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
-        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
-        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
-        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
-        "creator": "",
-        "license": "",
-        "subject": "['Stock Footage', 'High Definition']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 538.657214,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 126.07,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The archival footage clearly shows Tenzing Norgay in the first frame preparing food during the 1952 Swiss Mount Everest expedition, followed by members of the expedition. This directly illustrates his involvement in the historical climb.",
-        "usage": "direct_event"
-      },
-      "review_key": "ecac8827cb58138fc2410fe34d0a985f2614eab99c5f0442da173fd465fba58c",
-      "reviewed_at": 1794335595.097803
-    },
-    {
-      "person": "Tenzing Norgay",
-      "source": {
-        "id": "archive:44754ManAgainstMountEverest",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
-        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
-        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
-        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
-        "creator": "",
-        "license": "",
-        "subject": "['Stock Footage', 'High Definition']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 538.657214,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 247.15,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The archival segment features genuine historical footage from the 1952 Swiss Mount Everest expedition, clearly showing mountaineers and Tenzing Norgay in the fifth frame, directly illustrating his mountaineering career.",
-        "usage": "direct_event"
-      },
-      "review_key": "53e25cb3c2efb630a8a4973b924c02eca18ff8cccbed144190a549fc8d17be74",
-      "reviewed_at": 1794335617.9039977
-    },
-    {
-      "person": "Tenzing Norgay",
-      "source": {
-        "id": "archive:44754ManAgainstMountEverest",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
-        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
-        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
-        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
-        "creator": "",
-        "license": "",
-        "subject": "['Stock Footage', 'High Definition']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 538.657214,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 327.87,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The archival footage clearly shows Tenzing Norgay during the 1952 Swiss Mount Everest expedition, directly illustrating his life and historical achievements.",
-        "usage": "direct_event"
-      },
-      "review_key": "33534214eb74573b5083db8ef79381d726fc84ea87ec798d95ebf4b708c6bfd6",
-      "reviewed_at": 1794335630.8867543
-    },
-    {
       "person": "Satyajit Ray",
       "source": {
         "id": "archive:dli.MoI.SatyajitRay_Eng",
@@ -15225,471 +14388,6 @@
       },
       "review_key": "a66d724f403f19aaacac4dad097c75355ced348e55c45b9a8f2eed30d44473de",
       "reviewed_at": 1794335955.1843302
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 166.49,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features real archival interview footage of Harrison Ford discussing his film Firewall, making it valid and usable biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c5890d85fada2e99ba7d539c7c96c1bfcdcad0b10d6267ccb3be475d8ef058c8",
-      "reviewed_at": 1794336060.4843616
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 28.07,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video shows a genuine archival interview featuring Harrison Ford (seen from behind/side in the foreground and interacting with the interviewer), making it valid biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9153f0eb5b9741d852e5af43127b01a725b5435037a728e93d446fa005625d39",
-      "reviewed_at": 1794336072.182804
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 51.14,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7.0,
-        "reason": "The video segment shows real, high-quality interview footage of Harrison Ford discussing his film Firewall. He is clearly visible across all sampled frames, making it useful as biographical illustration for a biographical Short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6196758e00d1072472d6ed7fe7687588296a157a0ea19aebbe4eab0fb6b64673",
-      "reviewed_at": 1794336077.2860909
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 74.21,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features an interview with Harrison Ford discussing the film Firewall, with Ford clearly visible in the foreground of the interview setup alongside film clips.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "48f8b50fbe2d774e8f553c1e440ab0d9ac4c7bdbc8cdf3f02e944c5b06b2b62d",
-      "reviewed_at": 1794336082.0380788
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 97.28,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video segment features real archival interview footage of Harrison Ford discussing his film Firewall. Although some frames alternate to the interviewer, Harrison Ford is clearly identifiable in multiple frames, making it usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9329a192232cae9b7e7d3f54b8d8fd3346f770ca259333d450e8264a0711a20e",
-      "reviewed_at": 1794336085.5407386
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 120.35,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The clip features genuine interview footage of Harrison Ford speaking about his film Firewall, making it suitable biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0404641f78966118a9ee2ab10daa6ff50e9432ea9956c086a39090abc4a361a3",
-      "reviewed_at": 1794336101.1584804
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 143.42,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage shows Harrison Ford participating in an interview, which provides valid biographical illustration footage of the subject speaking about his work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "995717d1741d9abb061b81dee0ade473fbed325fbf0aec209508addccd217a46",
-      "reviewed_at": 1794336106.572175
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 189.56,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features real archival interview footage of Harrison Ford discussing his film Firewall, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "73edadc088902adcb223c1d8ab7f675f440bb16a20bf132cc23a4d13a9c74519",
-      "reviewed_at": 1794336119.9811354
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 258.77,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video shows actual interview footage of Harrison Ford discussing his film Firewall, making it usable as biographical illustration for a biography short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "cda90f4eabf9724af484a29deb52d6da332106d7d89af4e1ab25084d688fd5f0",
-      "reviewed_at": 1794336124.725489
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 281.84,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The clip features genuine archival interview footage of Harrison Ford discussing his film 'Firewall' with an interviewer, making it valid biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "28ae04aa551a2b9a3c9ee8a706739a3d5fde5a2cd18c11d5ae67f7e7edabf6f6",
-      "reviewed_at": 1794336133.4963858
-    },
-    {
-      "person": "Amelia Earhart",
-      "source": {
-        "id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH/tmpqw8fpuqb.mp4",
-        "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
-        "title": "“ THE NEWS PARADE ” 1937 CASTLE FILMS NEWSREEL SPANISH CIVIL WAR AMELIA EARHART LOST (Sound version) 4242",
-        "description": "This film is a Castle Films production from 1937, edited by Eugene W. Castle. Castle Films was founded in California in 1924 by former newsreel cameraman Eugene W. Castle, and in 1937 he launched the “The News Parade” series. This “News Parade” is composed of newsreels covering major news internationally in 1937, including the Spanish Civil War, rising tensions in Europe as the fascist leaders of Italy and Germany threaten democratic nations, natural disasters in the USA, politics, and cultural events. “The News Parade of The Year” text overlay (00:10). Credits (00:20). “Europe’s Powder Keg!” title banner (00:26). Footage of the Spanish Civil War and explosions (00:36). Artillery (00:48). Smoke clouds from explosions during Nationalist offensive against Republicans (00:49). Views of the Spanish rebellion forces in Madrid, Spain, led by General Francisco Franco (00:52). Soldiers carrying a body on a gurney (00:54). Farmers walking with their cattle (00:56). Civilians walking through the war-torn streets in Madrid (01:00). Madrid being bombed (01:11). Buildings on fire (01:16). “Worst London Cloud Burst in 27 Years” title banner (01:20). Footage of the flooded streets of London, England (01:31). “In the U. S. Storms and Floods Render Thousands Homeless” title banner (01:48). Footage of the floods in the South and Midwest in the U. S. (01:55) and locals sailing through residential neighborhoods to perform rescues (02:09). Footage of cars, horses, and cattle moving through flooded streets (02:21). “George VI Reviews Grand Fleet” title banner (02:34). George IV and Queen Elizabe ['Reviews Grand Fleet', 'Castle Films', 'The News Parade', 'News Parade', 'Spanish Civil War', 'The Year', 'Powder Keg', 'General Francisco Franco', 'Worst London Cloud Burst', 'Floods Render Thousands Homeless', 'Stock Footage', 'Periscope Film']",
-        "creator": "",
-        "license": "",
-        "subject": "['Reviews Grand Fleet', 'Castle Films', 'The News Parade', 'News Parade', 'Spanish Civil War', 'The Year', 'Powder Keg', 'General Francisco Franco', 'Worst London Cloud Burst', 'Floods Render Thousands Homeless', 'Stock Footage', 'Periscope Film']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 584.11176,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 268.13,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Amelia Earhart is clearly visible in the first two frames interacting with someone near an airplane, providing authentic archival footage suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e38257629cfa42c77476e2bb8839fe7db6836274c264f02a1cef4841b8ce4515",
-      "reviewed_at": 1794336524.1058104
-    },
-    {
-      "person": "Amelia Earhart",
-      "source": {
-        "id": "archive:42424-europes-powder-keg-vwr",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/42424-europes-powder-keg-vwr/42424%2BEuropes%2BPowder%2BKeg_vwr.mp4",
-        "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
-        "title": "“ THE NEWS PARADE ” 1937 CASTLE FILMS NEWSREEL SPANISH CIVIL WAR AMELIA EARHART LOST (Sound version)42424",
-        "description": "This film is a Castle Films production from 1937, edited by Eugene W. Castle. Castle Films was founded in California in 1924 by former newsreel cameraman Eugene W. Castle, and in 1937 he launched the “The News Parade” series. This “News Parade” is composed of newsreels covering major news internationally in 1937, including the Spanish Civil War, rising tensions in Europe as the fascist leaders of Italy and Germany threaten democratic nations, natural disasters in the USA, politics, and cultural events. “The News Parade of The Year” text overlay (00:10). Credits (00:20). “Europe’s Powder Keg!” title banner (00:26). Footage of the Spanish Civil War and explosions (00:36). Artillery (00:48). Smoke clouds from explosions during Nationalist offensive against Republicans (00:49). Views of the Spanish rebellion forces in Madrid, Spain, led by General Francisco Franco (00:52). Soldiers carrying a body on a gurney (00:54). Farmers walking with their cattle (00:56). Civilians walking through the war-torn streets in Madrid (01:00). Madrid being bombed (01:11). Buildings on fire (01:16). “Worst London Cloud Burst in 27 Years” title banner (01:20). Footage of the flooded streets of London, England (01:31). “In the U. S. Storms and Floods Render Thousands Homeless” title banner (01:48). Footage of the floods in the South and Midwest in the U. S. (01:55) and locals sailing through residential neighborhoods to perform rescues (02:09). Footage of cars, horses, and cattle moving through flooded streets (02:21). “George VI Reviews Grand Fleet” title banner (02:34). George IV and Queen Elizabe ['The News Parade', '1937m Castle Films', 'Newsreel', 'Spanish Civil War', 'Amelia Earhart', 'Europe', 'Stock Footage', 'Periscope FIlm']",
-        "creator": "PeriscopeFIlm",
-        "license": "",
-        "subject": "['The News Parade', '1937m Castle Films', 'Newsreel', 'Spanish Civil War', 'Amelia Earhart', 'Europe', 'Stock Footage', 'Periscope FIlm']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 584.11176,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 268.13,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9.0,
-        "reason": "The footage clearly shows Amelia Earhart in the initial frames interacting with someone before cutting to another person, providing genuine archival depiction for a biographical short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "872ccdaff7216bbce15bbbc3cec352b075ec4d20b5ddd7fb2bc37f925f6b1e59",
-      "reviewed_at": 1794336540.5279071
-    },
-    {
-      "person": "Amelia Earhart",
-      "source": {
-        "id": "archive:ADC-10127d",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ADC-10127d/ADC-10127d.mp4",
-        "source_url": "https://archive.org/details/ADC-10127d",
-        "title": "Pathe Newsreel: Amelia Earhart Londonderry, Ireland, 1932",
-        "description": "Extracted from U.S. Army Film \"General Marshall Is Sworn In As The New Secretary Of State, 02/21/1947\" National Archives description:\"Amelia Earhart acclaimed in England after her famous flight.\" National Archives Identifier: 23889 ['Newsreel', 'Earhart, Amelia, 1897-1937']",
-        "creator": "United States. Army",
-        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Newsreel', 'Earhart, Amelia, 1897-1937']",
-        "runtime": "0:35",
-        "direct_subject": true,
-        "duration_hint": 35.268602,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 14.5,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows authentic archival moving image of Amelia Earhart exiting an aircraft, matching the biographical narration and context.",
-        "usage": "direct_event"
-      },
-      "review_key": "6382fbdc5f17436d143735b466c44c220b4ea0722984f988411a0b347dfb7f94",
-      "reviewed_at": 1794336556.81134
-    },
-    {
-      "person": "Amelia Earhart",
-      "source": {
-        "id": "archive:ADC-10127d",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ADC-10127d/ADC-10127d.mp4",
-        "source_url": "https://archive.org/details/ADC-10127d",
-        "title": "Pathe Newsreel: Amelia Earhart Londonderry, Ireland, 1932",
-        "description": "Extracted from U.S. Army Film \"General Marshall Is Sworn In As The New Secretary Of State, 02/21/1947\" National Archives description:\"Amelia Earhart acclaimed in England after her famous flight.\" National Archives Identifier: 23889 ['Newsreel', 'Earhart, Amelia, 1897-1937']",
-        "creator": "United States. Army",
-        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Newsreel', 'Earhart, Amelia, 1897-1937']",
-        "runtime": "0:35",
-        "direct_subject": true,
-        "duration_hint": 35.268602,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2.73,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The archival footage clearly shows Amelia Earhart greeting crowds and climbing out of her aircraft, matching the biographical narration and historical context perfectly.",
-        "usage": "direct_event"
-      },
-      "review_key": "f481b1ede58a91b06f844f4bffd996a426aa5c310e24c97998f75a0f2e479fc3",
-      "reviewed_at": 1794336572.7186337
-    },
-    {
-      "person": "Amelia Earhart",
-      "source": {
-        "id": "archive:ADC-10127d",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ADC-10127d/ADC-10127d.mp4",
-        "source_url": "https://archive.org/details/ADC-10127d",
-        "title": "Pathe Newsreel: Amelia Earhart Londonderry, Ireland, 1932",
-        "description": "Extracted from U.S. Army Film \"General Marshall Is Sworn In As The New Secretary Of State, 02/21/1947\" National Archives description:\"Amelia Earhart acclaimed in England after her famous flight.\" National Archives Identifier: 23889 ['Newsreel', 'Earhart, Amelia, 1897-1937']",
-        "creator": "United States. Army",
-        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Newsreel', 'Earhart, Amelia, 1897-1937']",
-        "runtime": "0:35",
-        "direct_subject": true,
-        "duration_hint": 35.268602,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 26.27,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The archival newsreel footage clearly shows Amelia Earhart in Londonderry, Ireland in 1932, perfectly matching the narration and serving as direct, authentic historical footage of her life and accomplishments.",
-        "usage": "direct_event"
-      },
-      "review_key": "7398d08033c7cf6e8273c16b1ef1dff7ea80ec64b2aa0b24c998aac108228323",
-      "reviewed_at": 1794336597.6846166
     },
     {
       "person": "Yuri Gagarin",
@@ -16093,99 +14791,6 @@
       },
       "review_key": "9cfcac33db40b631f003e01021b911041421109ad869eefe2c43ade2b1027cdf",
       "reviewed_at": 1794336961.7058165
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 42.23,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video segment shows real archival footage of Jonas Salk administering a vaccination, which directly and accurately illustrates his life and work.",
-        "usage": "direct_event"
-      },
-      "review_key": "4dd8fec9b6d149429d0e214908e1636edf7069de31e99c8eba7abbaa287b0bc2",
-      "reviewed_at": 1794337024.1343195
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 23.62,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Jonas Salk in a laboratory setting handling scientific glassware, perfectly illustrating his life and work as the inventor of the polio vaccine.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9ac5dcfc66b046e6d32db96dfdc8556010338e61531e341c3d56bc5f8a5c3a6e",
-      "reviewed_at": 1794337039.314502
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 32.93,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Jonas Salk in a laboratory setting working with scientific equipment and bottles, fitting the biographical context of his scientific career and vaccine development.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "675c488c42ea3aadd5021ec3262fd486da8903213bdfc068dd45e62c0201e491",
-      "reviewed_at": 1794337049.5279634
     },
     {
       "person": "Madam C.J. Walker",
@@ -16715,68 +15320,6 @@
       "reviewed_at": 1794438568.300016
     },
     {
-      "person": "Louis Braille",
-      "source": {
-        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
-        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
-        "title": "Louis Braille ~ The Braille Alphabet",
-        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "creator": "",
-        "license": "",
-        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 864.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 332.03,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment depicts a dramatic reenactment illustrating Louis Braille's life, showing hands interacting with tactile learning objects and an actor portraying young Louis Braille handling the raised-dot system in a classroom setting, aligning well with the biographical narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5db6dbccfcd75217b0b7ea0f84c22e6a9842805f2abc3956b99e08587c17a608",
-      "reviewed_at": 1794438650.277248
-    },
-    {
-      "person": "Louis Braille",
-      "source": {
-        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
-        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
-        "title": "Louis Braille ~ The Braille Alphabet",
-        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "creator": "",
-        "license": "",
-        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 864.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 462.84,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The footage features a dramatized historical reconstruction depicting Louis Braille presenting his system, which serves as suitable biographical illustration despite being a reenactment rather than actual historical recording.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "fc3f9fee33b40ff08b38c5af675b77c185eab1dd164698d5cc63560152af0014",
-      "reviewed_at": 1794438664.5417488
-    },
-    {
       "person": "Richard Feynman",
       "source": {
         "id": "archive:the-complete-fun-to-imagine-with-richard-feynman",
@@ -17116,99 +15659,6 @@
       },
       "review_key": "ce13b0b0a65fa03fc7d9124027940ec0cdfcd1e6f874f346e462f3eec743102f",
       "reviewed_at": 1794439244.9019856
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The segment includes genuine footage of Harrison Ford being interviewed and clips from his film Firewall, making it useful biographical illustration despite some graphic overlays and title cards.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3f5ab94db65c5ebfef4194771d8e8084ed0c61617c79cd17f8ab1f8927a98bc6",
-      "reviewed_at": 1794490899.1975749
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 212.63,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Harrison Ford speaking in an interview setting, making it valid biographical illustration footage for a biography short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d770bdceefc51e6de44ef5a3af5b984a646de49547f4bbfdd69f696903ef0331",
-      "reviewed_at": 1794490935.8288505
-    },
-    {
-      "person": "Harrison Ford",
-      "source": {
-        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
-        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
-        "title": "Firewall interview with Harrison Ford",
-        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "creator": "Chuck the Movieguy",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
-        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 313.913914,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 304.91,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The segment features genuine interview footage of Harrison Ford discussing his work, which serves as valid biographical illustration material despite some animated cutaways.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f2ac9428a6f62b3e64b79db5daabfe5da7efff90a7d7316de87a288a04640a82",
-      "reviewed_at": 1794490961.252275
     },
     {
       "person": "Neil deGrasse Tyson",
@@ -18608,6 +17058,1564 @@
       },
       "review_key": "aa7251bdfb4a782106f67af8096a9fcc51fe3991654b5b0da752b643aa09d8b1",
       "reviewed_at": 1794613277.894783
+    },
+    {
+      "person": "Sidney Poitier",
+      "source": {
+        "id": "archive:aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020/Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020.mp4",
+        "source_url": "https://archive.org/details/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+        "title": "Sidney Poitier: The Measure of a Man Trailer - Austin Film Society - Feb 2020",
+        "description": "Tickets: https://www.austinfilm.org/series/sidney-poitier-the-measure-of-a-man/ As an actor, director, activist and cultural force, Sidney Poitier has occupied a unique position in film history. As the first black male movie star he bore a special burden, which he carried with both grace and a sense of its gravity. We will be joined at select screenings by series programmer Mark D. Cunningham, associate professor at Austin Community College, for discussions about Poitier and his work. ['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2020']",
+        "creator": "Austin Film Society",
+        "license": "",
+        "subject": "['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2020']",
+        "runtime": "00:01:38",
+        "direct_subject": true,
+        "duration_hint": 97.831526,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": []
+      },
+      "start": 14.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Sidney Poitier in archival film footage from his acting career, making it highly relevant and usable as biographical illustration for a Short about him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bff0314a9cf110b5579cb9c92f8947eea1dba3a420d7a76a4bc53e4df2c2f532",
+      "reviewed_at": 1794657753.4488504
+    },
+    {
+      "person": "Sidney Poitier",
+      "source": {
+        "id": "archive:aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020/Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020.mp4",
+        "source_url": "https://archive.org/details/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+        "title": "Sidney Poitier: The Measure of a Man Trailer - Austin Film Society - Feb 2020",
+        "description": "Tickets: https://www.austinfilm.org/series/sidney-poitier-the-measure-of-a-man/ As an actor, director, activist and cultural force, Sidney Poitier has occupied a unique position in film history. As the first black male movie star he bore a special burden, which he carried with both grace and a sense of its gravity. We will be joined at select screenings by series programmer Mark D. Cunningham, associate professor at Austin Community College, for discussions about Poitier and his work. ['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2020']",
+        "creator": "Austin Film Society",
+        "license": "",
+        "subject": "['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2020']",
+        "runtime": "00:01:38",
+        "direct_subject": true,
+        "duration_hint": 97.831526,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": []
+      },
+      "start": 23.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment contains authentic film clips featuring Sidney Poitier clearly visible in multiple frames (such as frames 1, 2, 3, and 5), directly illustrating his acting career and filmography for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9add2c0667349e545c32b47e65a0c749ae622ae5125dc37384cbe0b393416e1b",
+      "reviewed_at": 1794657759.9276445
+    },
+    {
+      "person": "Sidney Poitier",
+      "source": {
+        "id": "archive:aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020/Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020.mp4",
+        "source_url": "https://archive.org/details/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+        "title": "Sidney Poitier: The Measure of a Man Trailer - Austin Film Society - Feb 2020",
+        "description": "Tickets: https://www.austinfilm.org/series/sidney-poitier-the-measure-of-a-man/ As an actor, director, activist and cultural force, Sidney Poitier has occupied a unique position in film history. As the first black male movie star he bore a special burden, which he carried with both grace and a sense of its gravity. We will be joined at select screenings by series programmer Mark D. Cunningham, associate professor at Austin Community College, for discussions about Poitier and his work. ['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2020']",
+        "creator": "Austin Film Society",
+        "license": "",
+        "subject": "['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2020']",
+        "runtime": "00:01:38",
+        "direct_subject": true,
+        "duration_hint": 97.831526,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": []
+      },
+      "start": 32.94,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features authentic archival film footage of Sidney Poitier appearing in multiple scenes (frames 1, 2, and 5), making it highly relevant and usable as biographical illustration for a video about his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1837feb706ee59716b28366ee970c4dc1ce29169aab2730a911515686b5d005a",
+      "reviewed_at": 1794657765.5692563
+    },
+    {
+      "person": "Sidney Poitier",
+      "source": {
+        "id": "archive:aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020/Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020.mp4",
+        "source_url": "https://archive.org/details/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+        "title": "Sidney Poitier: The Measure of a Man Trailer - Austin Film Society - Feb 2020",
+        "description": "Tickets: https://www.austinfilm.org/series/sidney-poitier-the-measure-of-a-man/ As an actor, director, activist and cultural force, Sidney Poitier has occupied a unique position in film history. As the first black male movie star he bore a special burden, which he carried with both grace and a sense of its gravity. We will be joined at select screenings by series programmer Mark D. Cunningham, associate professor at Austin Community College, for discussions about Poitier and his work. ['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2020']",
+        "creator": "Austin Film Society",
+        "license": "",
+        "subject": "['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2020']",
+        "runtime": "00:01:38",
+        "direct_subject": true,
+        "duration_hint": 97.831526,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": []
+      },
+      "start": 42.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames feature genuine archival film footage starring Sidney Poitier (clearly identifiable in frames 5 as well as other scenes), making it directly relevant and usable as biographical illustration for a video about his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e8a84c68473a3afa2482af1d9672e720911700d9c2617ccaf45e09d0e25a53ce",
+      "reviewed_at": 1794657772.1615891
+    },
+    {
+      "person": "Sidney Poitier",
+      "source": {
+        "id": "archive:aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020/Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020.mp4",
+        "source_url": "https://archive.org/details/aufstx-Sidney_Poitier_-_The_Measure_of_a_Man_Trailer_Austin_Film_Society_Feb_2020",
+        "title": "Sidney Poitier: The Measure of a Man Trailer - Austin Film Society - Feb 2020",
+        "description": "Tickets: https://www.austinfilm.org/series/sidney-poitier-the-measure-of-a-man/ As an actor, director, activist and cultural force, Sidney Poitier has occupied a unique position in film history. As the first black male movie star he bore a special burden, which he carried with both grace and a sense of its gravity. We will be joined at select screenings by series programmer Mark D. Cunningham, associate professor at Austin Community College, for discussions about Poitier and his work. ['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2020']",
+        "creator": "Austin Film Society",
+        "license": "",
+        "subject": "['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2020']",
+        "runtime": "00:01:38",
+        "direct_subject": true,
+        "duration_hint": 97.831526,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": []
+      },
+      "start": 60.89,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features authentic film footage showing Sidney Poitier clearly in multiple frames from classic films, which serves as excellent biographical illustration for a video about his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f4adb49648ed012695c3f3267e1d5efba9c70aa921c36e007d2ffb88fc6607e7",
+      "reviewed_at": 1794657779.1250923
+    },
+    {
+      "person": "Sidney Poitier",
+      "source": {
+        "id": "archive:ao-mestre-com-carinho-1967-legendado-sidney-poitier",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ao-mestre-com-carinho-1967-legendado-sidney-poitier/AO%20MESTRE%20COM%20CARINHO%20%281967_legendado_Sidney%20Poitier%29.mp4",
+        "source_url": "https://archive.org/details/ao-mestre-com-carinho-1967-legendado-sidney-poitier",
+        "title": "AO MESTRE COM CARINHO ( 1967 Legendado Sidney Poitier)",
+        "description": "Filme Legendado Romance",
+        "creator": "Ana",
+        "license": "",
+        "subject": "Romance",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6300.335689,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": []
+      },
+      "start": 3389.95,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features authentic film footage from 'To Sir, with Love' (1967) clearly showing Sidney Poitier acting in his prominent role, making it valuable biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f08eacaeabdfea12a12e059aef29d02935837b26c2daa5c3b98742062f0cf556",
+      "reviewed_at": 1794657832.486969
+    },
+    {
+      "person": "Sidney Poitier",
+      "source": {
+        "id": "archive:ao-mestre-com-carinho-1967-legendado-sidney-poitier",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ao-mestre-com-carinho-1967-legendado-sidney-poitier/AO%20MESTRE%20COM%20CARINHO%20%281967_legendado_Sidney%20Poitier%29.mp4",
+        "source_url": "https://archive.org/details/ao-mestre-com-carinho-1967-legendado-sidney-poitier",
+        "title": "AO MESTRE COM CARINHO ( 1967 Legendado Sidney Poitier)",
+        "description": "Filme Legendado Romance",
+        "creator": "Ana",
+        "license": "",
+        "subject": "Romance",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6300.335689,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": []
+      },
+      "start": 488.56,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames feature genuine archival film footage from To Sir, with Love (1967) clearly showing the named subject Sidney Poitier present throughout the scene.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5ab160d401de556688337f35000d659fea8ce0d208d4c7ae3704f064cf9049d5",
+      "reviewed_at": 1794657845.9084246
+    },
+    {
+      "person": "Sidney Poitier",
+      "source": {
+        "id": "archive:ao-mestre-com-carinho-1967-legendado-sidney-poitier",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ao-mestre-com-carinho-1967-legendado-sidney-poitier/AO%20MESTRE%20COM%20CARINHO%20%281967_legendado_Sidney%20Poitier%29.mp4",
+        "source_url": "https://archive.org/details/ao-mestre-com-carinho-1967-legendado-sidney-poitier",
+        "title": "AO MESTRE COM CARINHO ( 1967 Legendado Sidney Poitier)",
+        "description": "Filme Legendado Romance",
+        "creator": "Ana",
+        "license": "",
+        "subject": "Romance",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6300.335689,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": []
+      },
+      "start": 972.13,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature Sidney Poitier in his iconic role from the film 'To Sir, with Love' (1967). The footage is genuine film footage depicting the named subject and serves as excellent biographical illustration for a Short about him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "04ec10c1d0540704253d3c5a51d4ce6267ccc8999c0a4cda2f01315aa39f4acc",
+      "reviewed_at": 1794657852.3175216
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 166.49,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage shows Harrison Ford clearly in an interview setting, making it suitable as biographical illustration for a Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a52d5b86c382f94dbb32fd3b11f37be1a80b67f252fd38a5f361f5ac986b410d",
+      "reviewed_at": 1794657930.6230464
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 28.07,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The sampled frames show an interview with Harrison Ford, whose back/profile is visible in the foreground while the interviewer is facing the camera. Although Ford's face is not fully visible in these specific frames, he is clearly identifiable as the subject of the interview in genuine archival footage usable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "47096380054379b1cde5caed5f5326e0eefc42f885e40fd2aebd47be7e629162",
+      "reviewed_at": 1794657934.5646348
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 51.14,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.5,
+        "reason": "The segment features genuine interview footage of Harrison Ford discussing his film Firewall. He is clearly visible throughout the sampled frames, making it useful as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ee36baa9543f565d590cec2da915477c234958337028bdfc7a5c9d876145d713",
+      "reviewed_at": 1794657939.490228
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 74.21,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video segment features archival interview footage of Harrison Ford with an interviewer, alongside movie clips. Harrison Ford is visible in the frames from behind/side profile and in the clip footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "30294f6ea3257dc7c3889748c8c08801c322b2a3de3c6379fdf1aba896dfe9f2",
+      "reviewed_at": 1794657943.7969122
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 97.28,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The footage shows real interview footage featuring Harrison Ford clearly identifiable in multiple frames, suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0bd9873bcbc73870db9c3de2d6fdff80edc1a365c4944e9e27918a8027838283",
+      "reviewed_at": 1794657947.897912
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 120.35,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features genuine interview footage of Harrison Ford talking about his work and life, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0aa267bed822d9b3075c0e811e16d068fb2b16810fb94008d3162889cd348d2e",
+      "reviewed_at": 1794657952.0954669
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 143.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Harrison Ford in an interview setting discussing his film Firewall, making it valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b4df17de168fec0007f081a1ff5de21cc7c05511f8b00b3a2d9b64d909d3b0af",
+      "reviewed_at": 1794657956.3309658
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 189.56,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The clip features genuine archival interview footage of Harrison Ford talking about his film Firewall. Although the interviewer is shown in later frames, Harrison Ford is clearly identifiable in the initial frames, making it useful biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ffcbe5131415d4950c898f1d020f2c206d81b8170c414b1f91dfe9e74d269c10",
+      "reviewed_at": 1794657960.4174805
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 258.77,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features real archival interview footage of Harrison Ford discussing his work on the movie Firewall, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7dfad07d61b6544b870e4109527ec71c9464de463d86c5f7240875f25e2b4a9f",
+      "reviewed_at": 1794657964.6335387
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 281.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "The footage features a genuine interview with Harrison Ford discussing his film Firewall, clearly identifying him in the first frame and showing him in conversation with the interviewer across the subsequent frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "21638a5596e52286aaee18e974dc555cf6cf20cacb8d60802d9966b61aae221d",
+      "reviewed_at": 1794657969.1770515
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Harrison Ford is clearly identifiable in the interview footage (frame 5 shows his profile/back of head and frame 2 shows his face clearly from the movie clip/interview context), making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d1931e3d66be7a0785956fc8e0b386df4aa3507fa642a2acf8e6181c4b31d1c7",
+      "reviewed_at": 1794657972.973542
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 212.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features Harrison Ford speaking in an interview setting, providing usable biographical illustration footage for a video about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "85f4446a6639bb8600299dd7076013f365d81f426de1debfb20b656b0ca3c899",
+      "reviewed_at": 1794657976.8980079
+    },
+    {
+      "person": "Harrison Ford",
+      "source": {
+        "id": "archive:ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0/Firewall_Harrison_Ford_512kb.mp4",
+        "source_url": "https://archive.org/details/ChucktheMovieguyFirewallinterviewwithHarrisonFord_0",
+        "title": "Firewall interview with Harrison Ford",
+        "description": "Firewall interview with Harrison Ford by Chuck the Movieguy ['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "creator": "Chuck the Movieguy",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+        "subject": "['Firewall', 'Harrison Ford', 'Chuck the Movieguy', 'movie guy', 'movies', 'soundtrack', 'interview']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 313.913914,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 304.91,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Harrison Ford is clearly visible and interviewed in archival footage discussing his work, making it useful biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5f92e10e06d72b793fba521fe7807d968adb2b2d1c5fc5054ceddbb542835053",
+      "reviewed_at": 1794657980.8042011
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 42.23,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Jonas Salk in a laboratory and administering a vaccination, providing direct visual evidence matching his biographical narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "2b219aa845f28e32dff94673c3602f6d3197b50c9a625bfaba05ba2810bdf275",
+      "reviewed_at": 1794658074.8251657
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:israel-wohltater-der-menschheit",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
+        "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+        "title": "Israel ist Wohltäter der Menschheit ( JONAS SALK )",
+        "description": "Israel ist nicht Gaza ; Kolonialismus ; Gewalt und Leid sondern Wohltäter der Menscheit. ( z.B.: Jonas Salk ) Israel is not Gaza; colonialism; violence and suffering but a benefactor of humanity. (e.g., Jonas Salk) Israël n’est pas Gaza ; colonialisme ; violence et souffrance mais bienfaiteur de l’humanité. (ex. : Jonas Salk) ['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "creator": "BBC ( England )",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 249.233333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 131.66,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment contains archival photographs and an interview with Dr. Peter Salk discussing his father Jonas Salk and the polio vaccine, making it relevant biographical and historical illustration footage, though the formatting includes website UI frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "dbdf6b579680738620ec59e669331fec6ab42f49b3301cb694c2c85ebb9ee366",
+      "reviewed_at": 1794658080.2395403
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 23.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Jonas Salk in a laboratory setting holding a vial, perfectly illustrating his scientific work and biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7e31bb44e4c8dde4f827f78239765d2f3fa868c8603f22d5338ef301df05b8b1",
+      "reviewed_at": 1794658093.266745
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 32.93,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Jonas Salk in a laboratory setting working with scientific equipment and chemicals, perfectly matching the biographical narration about his life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "dcd6c2710c7a2b49cd0457a812a3e9fce54d0cb8d7a0d02380e9dc34c90931fc",
+      "reviewed_at": 1794658118.9451745
+    },
+    {
+      "person": "Louis Braille",
+      "source": {
+        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
+        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+        "title": "Louis Braille ~ The Braille Alphabet",
+        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "creator": "",
+        "license": "",
+        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 864.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 332.03,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features dramatized historical footage depicting a young Louis Braille interacting with tactile learning objects and braille-like writing tools, fitting the biographical context well.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4412109b2361991db659c5d37f5cfb96255ae71ef58d9197838fbbf0d72e7633",
+      "reviewed_at": 1794658187.1653888
+    },
+    {
+      "person": "Louis Braille",
+      "source": {
+        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
+        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+        "title": "Louis Braille ~ The Braille Alphabet",
+        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "creator": "",
+        "license": "",
+        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 864.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 462.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features dramatized historical footage depicting Louis Braille as a young boy presenting his work and interacting with an adult figure, serving as relevant biographical illustration for his life and invention.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "62ae8d2f1666e33041bf598d808cf2e002f063c146cd5fed9f17ddfe034e6fc1",
+      "reviewed_at": 1794658264.2621825
+    },
+    {
+      "person": "Tenzing Norgay",
+      "source": {
+        "id": "archive:44754ManAgainstMountEverest",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
+        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
+        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
+        "creator": "",
+        "license": "",
+        "subject": "['Stock Footage', 'High Definition']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 538.657214,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 287.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment is authentic archival footage from the 1952 Swiss Mount Everest expedition, clearly showing Tenzing Norgay among the climbers in multiple frames, making it directly relevant to his biography.",
+        "usage": "direct_event"
+      },
+      "review_key": "620ae27efd5a71a0f9824b14abb0b831759bf743016e104b9ac0efb83c94b3ae",
+      "reviewed_at": 1794658311.5922065
+    },
+    {
+      "person": "Tenzing Norgay",
+      "source": {
+        "id": "archive:44754ManAgainstMountEverest",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
+        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
+        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
+        "creator": "",
+        "license": "",
+        "subject": "['Stock Footage', 'High Definition']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 538.657214,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 126.07,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled archival footage clearly shows Tenzing Norgay preparing food and participating in the 1952 Swiss Mount Everest expedition as described, providing authentic biographical illustration of his early mountaineering career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ec8586fdb0c1b00e69147b4971e0ac38f5cd3a52d268fed6bd4e68b0e8b2a0b4",
+      "reviewed_at": 1794658331.4403923
+    },
+    {
+      "person": "Tenzing Norgay",
+      "source": {
+        "id": "archive:44754ManAgainstMountEverest",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
+        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
+        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
+        "creator": "",
+        "license": "",
+        "subject": "['Stock Footage', 'High Definition']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 538.657214,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 247.15,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled archival footage clearly features Tenzing Norgay on the 1952 Swiss Mount Everest expedition, providing authentic historical context for his mountaineering career.",
+        "usage": "direct_event"
+      },
+      "review_key": "845d49514c4ea05a3f59b8979718332fcb611059080695c27db98ec9a798c61a",
+      "reviewed_at": 1794658337.7386398
+    },
+    {
+      "person": "Tenzing Norgay",
+      "source": {
+        "id": "archive:44754ManAgainstMountEverest",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
+        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
+        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
+        "creator": "",
+        "license": "",
+        "subject": "['Stock Footage', 'High Definition']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 538.657214,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 327.87,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The archival footage clearly shows Tenzing Norgay during the 1952 Swiss Mount Everest expedition, directly illustrating his life and mountaineering career.",
+        "usage": "direct_event"
+      },
+      "review_key": "d8ac2d3e9ad82622aedbd21e4634cf4b7e8b71c7fe1bd3070d1a688e9e6cc3d3",
+      "reviewed_at": 1794658345.2747958
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Ernest Shackleton Documentaries Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows authentic historical moving footage and photographs of Ernest Shackleton and his expedition team in Antarctica, directly depicting the subject and his expeditions.",
+        "usage": "direct_event"
+      },
+      "review_key": "840a528a724c91965fd4ee8439779af6b6a4fde4e8d46b8f3cda0886057d8731",
+      "reviewed_at": 1794658419.2956874
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames depict archival historical footage of Ernest Shackleton and his expedition team with their sled and flag in Antarctica, directly illustrating his life and expeditions.",
+        "usage": "direct_event"
+      },
+      "review_key": "9dd2a516605782011497a7f847b45107de97e7afe31ae872448905551dcbc1c9",
+      "reviewed_at": 1794658426.9061832
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Ernest Shackleton Documentaries Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 223.95,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment includes archival documentary footage featuring an expert talking about Ernest Shackleton, followed by authentic historical photographs depicting Shackleton as a child, providing relevant biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7dbabeca2418211e12343717792f19af6050c1d516f44f1943eef88bc38c12d5",
+      "reviewed_at": 1794658434.0511463
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:antarctica-a-frozen-history",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/antarctica-a-frozen-history/Antarctica%20A%20Frozen%20History.mp4",
+        "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+        "title": "Antarctica A Frozen History",
+        "description": "Historical documentary about the history of Antarctic Exploration in Antarctica narrated by actor Edward Herrmann. ['Antarctica A Frozen History', 'Antarctica', 'Antarctic Exploration', 'Sir Ernest Shackleton', 'Robert Falcon Scott', 'History', 'Edward Herrmann', 'Documentary']",
+        "creator": "Devon Geen",
+        "license": "",
+        "subject": "['Antarctica A Frozen History', 'Antarctica', 'Antarctic Exploration', 'Sir Ernest Shackleton', 'Robert Falcon Scott', 'History', 'Edward Herrmann', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 5509.9044,
+        "identity_score": 10.0,
+        "archival_signal": 1
+      },
+      "start": 3809.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment shows archival footage of Ernest Shackleton (visibly present centrally in polar gear in the early frames and on deck in later frames) with his crew during Antarctic expeditions, providing authentic historical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "6fdfc2cb678c71309a2c393e8f15a86d50bae1543b35816897d59ecfea9bf797",
+      "reviewed_at": 1794658515.5098796
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 254.12,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Louis Armstrong performing with his band in a scene from the 1961 film Paris Blues, directly illustrating his musical career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7a14e16184f4f97ff06f87761a9c0ea8d247c40c13d034357f011fd0656c67fb",
+      "reviewed_at": 1794658633.4324722
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 281.79,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video features authentic archival footage of Louis Armstrong playing the trumpet in the 1961 film Paris Blues, directly illustrating his musical career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "55a06f3ed5e05f80a2b2640b4f0d2aae511997f9cdcd4a68113d983e52615f43",
+      "reviewed_at": 1794658704.7120378
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 309.47,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Louis Armstrong is clearly visible in the first frame, followed by Paul Newman in the remaining frames from the film Paris Blues (1961), providing genuine archival footage illustrating Armstrong's career and appearances in cinema.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "aa8db54db58cb57ec304f8093b1fd88ac6d0e0ad77014b93e39bf1ea54c9d398",
+      "reviewed_at": 1794658718.2168043
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 337.15,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Louis Armstrong is clearly visible performing in archival footage from his cameo appearance in the 1961 film Paris Blues, perfectly illustrating his musical career for a biography short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f5b9dcc504e300e73c496592f402f087f0be9a0ab7862df55d05071a72fe18f4",
+      "reviewed_at": 1794658731.578153
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 198.76,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage features authentic archival film of Louis Armstrong performing in the 1961 film Paris Blues, directly showing him singing and playing music.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bd7eead589f6edc54782dc45c89431496f5b4f28a596b2653da31b816925c360",
+      "reviewed_at": 1794658743.9126978
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 32.68,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Louis Armstrong is clearly visible and identifiable playing the trumpet in frame 2, with additional appearance context in other frames during his cameo in Paris Blues (1961).",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "87dc79a38edf092d37907b0930be51f6eeda30be3ab55824998b3d7a9578d9a5",
+      "reviewed_at": 1794658755.6844451
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 60.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features authentic archival footage of Louis Armstrong playing the trumpet in the 1961 film Paris Blues, clearly showing him performing and serving as a great biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5bbc6b6866b6cee2a983edac80ebee9a0e8d2d665674cf2740c70018a4ab7989",
+      "reviewed_at": 1794658770.5572116
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 88.04,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features authentic archival film from Paris Blues (1961) clearly showing Louis Armstrong playing the trumpet live with his band, making it excellent biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "84ccb268772da7d8451abdc342805fd950692bbafd3d40014f65a05882da16ce",
+      "reviewed_at": 1794658782.8134353
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 143.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames feature genuine archival film footage from Paris Blues (1961), clearly showing Louis Armstrong performing in at least one frame alongside other musicians and actors, making it highly relevant and usable for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "751ef1a56eaa1eb0d677c58e3a5077607ad39cc5630cde6d1a4b9a8ac7224277",
+      "reviewed_at": 1794658794.705706
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 115.72,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features genuine historical film footage of Louis Armstrong performing on the trumpet (from Paris Blues, 1961), perfectly illustrating his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8e95bf5caa2b2c7a63794336e7bbd1eb928169990d4b9980c7dd18429ec55ca6",
+      "reviewed_at": 1794658807.0543756
+    },
+    {
+      "person": "Amelia Earhart",
+      "source": {
+        "id": "archive:42424-europes-powder-keg-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/42424-europes-powder-keg-vwr/42424%2BEuropes%2BPowder%2BKeg_vwr.mp4",
+        "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+        "title": "“ THE NEWS PARADE ” 1937 CASTLE FILMS NEWSREEL SPANISH CIVIL WAR AMELIA EARHART LOST (Sound version)42424",
+        "description": "This film is a Castle Films production from 1937, edited by Eugene W. Castle. Castle Films was founded in California in 1924 by former newsreel cameraman Eugene W. Castle, and in 1937 he launched the “The News Parade” series. This “News Parade” is composed of newsreels covering major news internationally in 1937, including the Spanish Civil War, rising tensions in Europe as the fascist leaders of Italy and Germany threaten democratic nations, natural disasters in the USA, politics, and cultural events. “The News Parade of The Year” text overlay (00:10). Credits (00:20). “Europe’s Powder Keg!” title banner (00:26). Footage of the Spanish Civil War and explosions (00:36). Artillery (00:48). Smoke clouds from explosions during Nationalist offensive against Republicans (00:49). Views of the Spanish rebellion forces in Madrid, Spain, led by General Francisco Franco (00:52). Soldiers carrying a body on a gurney (00:54). Farmers walking with their cattle (00:56). Civilians walking through the war-torn streets in Madrid (01:00). Madrid being bombed (01:11). Buildings on fire (01:16). “Worst London Cloud Burst in 27 Years” title banner (01:20). Footage of the flooded streets of London, England (01:31). “In the U. S. Storms and Floods Render Thousands Homeless” title banner (01:48). Footage of the floods in the South and Midwest in the U. S. (01:55) and locals sailing through residential neighborhoods to perform rescues (02:09). Footage of cars, horses, and cattle moving through flooded streets (02:21). “George VI Reviews Grand Fleet” title banner (02:34). George IV and Queen Elizabe ['The News Parade', '1937m Castle Films', 'Newsreel', 'Spanish Civil War', 'Amelia Earhart', 'Europe', 'Stock Footage', 'Periscope FIlm']",
+        "creator": "PeriscopeFIlm",
+        "license": "",
+        "subject": "['The News Parade', '1937m Castle Films', 'Newsreel', 'Spanish Civil War', 'Amelia Earhart', 'Europe', 'Stock Footage', 'Periscope FIlm']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 584.11176,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 268.13,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Amelia Earhart is clearly visible and identifiable in the first two frames, and the archival newsreel footage serves as authentic historical illustration for a biography Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cc65bae57dadf3df0c3d7118e1184503451ede59e4d165a65613668e4c1ba322",
+      "reviewed_at": 1794658899.7976406
+    },
+    {
+      "person": "Amelia Earhart",
+      "source": {
+        "id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH/tmpqw8fpuqb.mp4",
+        "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+        "title": "“ THE NEWS PARADE ” 1937 CASTLE FILMS NEWSREEL SPANISH CIVIL WAR AMELIA EARHART LOST (Sound version) 4242",
+        "description": "This film is a Castle Films production from 1937, edited by Eugene W. Castle. Castle Films was founded in California in 1924 by former newsreel cameraman Eugene W. Castle, and in 1937 he launched the “The News Parade” series. This “News Parade” is composed of newsreels covering major news internationally in 1937, including the Spanish Civil War, rising tensions in Europe as the fascist leaders of Italy and Germany threaten democratic nations, natural disasters in the USA, politics, and cultural events. “The News Parade of The Year” text overlay (00:10). Credits (00:20). “Europe’s Powder Keg!” title banner (00:26). Footage of the Spanish Civil War and explosions (00:36). Artillery (00:48). Smoke clouds from explosions during Nationalist offensive against Republicans (00:49). Views of the Spanish rebellion forces in Madrid, Spain, led by General Francisco Franco (00:52). Soldiers carrying a body on a gurney (00:54). Farmers walking with their cattle (00:56). Civilians walking through the war-torn streets in Madrid (01:00). Madrid being bombed (01:11). Buildings on fire (01:16). “Worst London Cloud Burst in 27 Years” title banner (01:20). Footage of the flooded streets of London, England (01:31). “In the U. S. Storms and Floods Render Thousands Homeless” title banner (01:48). Footage of the floods in the South and Midwest in the U. S. (01:55) and locals sailing through residential neighborhoods to perform rescues (02:09). Footage of cars, horses, and cattle moving through flooded streets (02:21). “George VI Reviews Grand Fleet” title banner (02:34). George IV and Queen Elizabe ['Reviews Grand Fleet', 'Castle Films', 'The News Parade', 'News Parade', 'Spanish Civil War', 'The Year', 'Powder Keg', 'General Francisco Franco', 'Worst London Cloud Burst', 'Floods Render Thousands Homeless', 'Stock Footage', 'Periscope Film']",
+        "creator": "",
+        "license": "",
+        "subject": "['Reviews Grand Fleet', 'Castle Films', 'The News Parade', 'News Parade', 'Spanish Civil War', 'The Year', 'Powder Keg', 'General Francisco Franco', 'Worst London Cloud Burst', 'Floods Render Thousands Homeless', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 584.11176,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 268.13,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Amelia Earhart is clearly visible interacting with someone in the first two frames, providing authentic archival footage for her biography, despite subsequent frames showing another person reading a letter.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7101f03683507cb664b49476086a3f6bfd698643b75cd86213899d1456f2d2c3",
+      "reviewed_at": 1794658908.7432172
+    },
+    {
+      "person": "Amelia Earhart",
+      "source": {
+        "id": "archive:ADC-10127d",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ADC-10127d/ADC-10127d.mp4",
+        "source_url": "https://archive.org/details/ADC-10127d",
+        "title": "Pathe Newsreel: Amelia Earhart Londonderry, Ireland, 1932",
+        "description": "Extracted from U.S. Army Film \"General Marshall Is Sworn In As The New Secretary Of State, 02/21/1947\" National Archives description:\"Amelia Earhart acclaimed in England after her famous flight.\" National Archives Identifier: 23889 ['Newsreel', 'Earhart, Amelia, 1897-1937']",
+        "creator": "United States. Army",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Newsreel', 'Earhart, Amelia, 1897-1937']",
+        "runtime": "0:35",
+        "direct_subject": true,
+        "duration_hint": 35.268602,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 14.5,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The archival footage clearly shows Amelia Earhart climbing out of her aircraft in 1932, perfectly matching the narration and providing direct historical evidence.",
+        "usage": "direct_event"
+      },
+      "review_key": "a76e634b0ee47a5a2d6dd0c91ff47146d6ecfd7d7b60b661426fec0724182443",
+      "reviewed_at": 1794658919.0009325
+    },
+    {
+      "person": "Amelia Earhart",
+      "source": {
+        "id": "archive:ADC-10127d",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ADC-10127d/ADC-10127d.mp4",
+        "source_url": "https://archive.org/details/ADC-10127d",
+        "title": "Pathe Newsreel: Amelia Earhart Londonderry, Ireland, 1932",
+        "description": "Extracted from U.S. Army Film \"General Marshall Is Sworn In As The New Secretary Of State, 02/21/1947\" National Archives description:\"Amelia Earhart acclaimed in England after her famous flight.\" National Archives Identifier: 23889 ['Newsreel', 'Earhart, Amelia, 1897-1937']",
+        "creator": "United States. Army",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Newsreel', 'Earhart, Amelia, 1897-1937']",
+        "runtime": "0:35",
+        "direct_subject": true,
+        "duration_hint": 35.268602,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2.73,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10.0,
+        "reason": "The footage clearly shows Amelia Earhart herself emerging from her plane after her historic flight, matching the historical context and narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "4f5eb6c61e6aee08a5418d5eda979f25577c6988fd90854a3f8bfd845869cf3b",
+      "reviewed_at": 1794658924.654701
+    },
+    {
+      "person": "Amelia Earhart",
+      "source": {
+        "id": "archive:ADC-10127d",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ADC-10127d/ADC-10127d.mp4",
+        "source_url": "https://archive.org/details/ADC-10127d",
+        "title": "Pathe Newsreel: Amelia Earhart Londonderry, Ireland, 1932",
+        "description": "Extracted from U.S. Army Film \"General Marshall Is Sworn In As The New Secretary Of State, 02/21/1947\" National Archives description:\"Amelia Earhart acclaimed in England after her famous flight.\" National Archives Identifier: 23889 ['Newsreel', 'Earhart, Amelia, 1897-1937']",
+        "creator": "United States. Army",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Newsreel', 'Earhart, Amelia, 1897-1937']",
+        "runtime": "0:35",
+        "direct_subject": true,
+        "duration_hint": 35.268602,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 26.27,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The archival newsreel footage clearly features Amelia Earhart in Londonderry, Ireland in 1932, directly depicting her life and historic aviation achievements.",
+        "usage": "direct_event"
+      },
+      "review_key": "37e5359af71474a0f0fd794561aeec646187885afc0f900146910df95c418c55",
+      "reviewed_at": 1794658930.083024
     }
   ]
 }

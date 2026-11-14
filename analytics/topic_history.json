@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do jeans fade at the knees",
-    "normalized": "why do jeans fade at the knees",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794584265,
-    "recorded_at": 1794584265,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do bread crusts turn dark",
     "normalized": "why do bread crusts turn dark",
     "workflow": "publish",
@@ -3546,6 +3534,18 @@
     "status": "reserved",
     "reserved_at": 1794666414,
     "recorded_at": 1794666414,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do shadows stretch out long",
+    "normalized": "why do shadows stretch out long",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794682339,
+    "recorded_at": 1794682339,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

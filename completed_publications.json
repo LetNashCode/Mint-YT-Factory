@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789715028",
-    "video_id": "C4F8_u0D9kg",
-    "topic": "Why do clothes shrink in dryers",
-    "completed_at": 1789716828
-  },
-  {
     "workdir": "output/1789734059",
     "video_id": "GnI0StxQwBs",
     "topic": "Why do zippers jam on fabric",
@@ -598,5 +592,11 @@
     "video_id": "ZcZrhKwnzas",
     "topic": "Why wet fingers make wine glasses sing",
     "completed_at": 1794633339
+  },
+  {
+    "workdir": "output/1794682404",
+    "video_id": "p5Xspv5AQ_k",
+    "topic": "Why do shadows stretch out long",
+    "completed_at": 1794683470
   }
 ]

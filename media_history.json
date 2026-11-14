@@ -20699,6 +20699,116 @@
       "shot": 1,
       "query": "coins slide off every time metal pops",
       "recorded_at": 1794667381
+    },
+    {
+      "asset_key": "pexels:video:6221350",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6221350/6221350-hd_1366_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "shadows into ten-foot giant long",
+      "recorded_at": 1794682479
+    },
+    {
+      "asset_key": "pexels:video:8576689",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8576689/8576689-hd_1280_720_60fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "shadows without gaining ounce sneaker",
+      "recorded_at": 1794682481
+    },
+    {
+      "asset_key": "pexels:video:34322767",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34322767/14541006_1280_720_50fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "shadows your afternoon shadow stretches",
+      "recorded_at": 1794682482
+    },
+    {
+      "asset_key": "pexels:video:40622225",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40622225/17354535_720_1280_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "shadows all about sun angle",
+      "recorded_at": 1794682484
+    },
+    {
+      "asset_key": "pexels:video:5521862",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5521862/5521862-hd_720_1280_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "shadows playing tricks geometry shadow",
+      "recorded_at": 1794682486
+    },
+    {
+      "asset_key": "pexels:video:8321084",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8321084/8321084-hd_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "shadows hold flashlight sideways your",
+      "recorded_at": 1794682487
+    },
+    {
+      "asset_key": "pexels:video:5712539",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5712539/5712539-hd_720_1280_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "shadows beam sweeps low tiny",
+      "recorded_at": 1794682487
+    },
+    {
+      "asset_key": "pexels:video:6945216",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6945216/6945216-hd_720_1280_30fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "shadows noon light crashes down",
+      "recorded_at": 1794682488
+    },
+    {
+      "asset_key": "pexels:video:29660258",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/29660258/12759694_1280_720_60fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "shadows but sun sinks toward",
+      "recorded_at": 1794682489
+    },
+    {
+      "asset_key": "pexels:video:5879298",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5879298/5879298-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "shadows low angle drags your",
+      "recorded_at": 1794682490
+    },
+    {
+      "asset_key": "pexels:video:19132729",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/19132729/19132729-hd_720_1280_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "shadows turning every afternoon stroll",
+      "recorded_at": 1794682491
     }
   ]
 }

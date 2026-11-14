@@ -1,18 +1,5 @@
 [
   {
-    "format": "rise_from_nothing",
-    "person": "Rajinikanth",
-    "premise": "Working as a bus conductor in Bangalore before rising to become one of Indian cinema's biggest superstars.",
-    "hook": "He handed out tickets on Bangalore city buses while dreaming of the stage.",
-    "key_facts": [
-      "Worked various jobs including carpentry and as a Bangalore Transport Service bus conductor.",
-      "Acted in amateur plays, notably mythological roles in Kannada productions.",
-      "Joined the Film and Television Institute of Madras in 1973 to study acting.",
-      "Made his cinematic debut in K. Balachander's Tamil film Apoorva Raangangal in 1975."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Yuri Gagarin",
     "premise": "Accepting the perilous Vostok 1 assignment, knowing the mission's safety systems had barely been tested.",
@@ -85,6 +72,138 @@
       "Born Sarah Breedlove on a cotton plantation in Louisiana, orphaned at age seven.",
       "Worked as a laundress for decades earning meager wages before launching her hair care line in 1905.",
       "Employed thousands of African American women as sales agents across the United States."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Pelé",
+    "premise": "How a young Brazilian boy practicing with a stuffed sock because he could not afford a football became a global icon.",
+    "hook": "He learned to master ball control using a rolled-up sock packed with rags on the dirt streets of Bauru.",
+    "key_facts": [
+      "Born Edson Arantes do Nascimento in Minas Gerais, Brazil.",
+      "Won his first FIFA World Cup at the age of 17 in Sweden in 1958.",
+      "Scored over 1,000 professional career goals during his storied football career."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Mary Kay Ash",
+    "premise": "Building a global cosmetic empire from scratch after facing systemic discrimination in the male-dominated corporate world of the 1960s.",
+    "hook": "After men were promoted over her for decades, she took her life savings of $5,000 to build a company run by women, for women.",
+    "key_facts": [
+      "Founded Mary Kay Cosmetics in 1963 with an initial investment of $5,000.",
+      "Pioneered a direct-sales model utilizing independent beauty consultants.",
+      "Built an enterprise generating billions in annual retail sales."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Jonas Salk",
+    "premise": "Choosing not to patent the polio vaccine, ensuring it remained freely accessible globally.",
+    "hook": "He was asked who owned the patent to the vaccine that saved millions, and his answer shocked the corporate world.",
+    "key_facts": [
+      "Developed the first safe and effective polio vaccine in the early 1950s.",
+      "Announced the vaccine's success publicly on national radio in 1955.",
+      "Chose not to patent the discovery, stating that the patent belonged to the people."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Tenzing Norgay",
+    "premise": "Overcoming extreme poverty and repeated failures on high-altitude expeditions to finally reach the roof of the world.",
+    "hook": "He spent decades carrying heavy loads up the world's highest mountains for others, until he finally stepped onto the summit of Everest himself.",
+    "key_facts": [
+      "Born into a family of yak herders in the Khumbu region of Nepal.",
+      "Participated in multiple Himalayan expeditions as a high-altitude porter and sirdar.",
+      "Reached the summit of Mount Everest alongside Edmund Hillary on May 29, 1953."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Dick Fosbury",
+    "premise": "Inventing a completely unorthodox, backward jumping technique that revolutionized high jumping forever.",
+    "hook": "Every high jumper in the world cleared the bar facing down, until a frustrated college student decided to jump backward over his head.",
+    "key_facts": [
+      "Pioneered the 'Fosbury Flop' technique at Oregon State University in the late 1960s.",
+      "Won the gold medal using his revolutionary technique at the 1968 Summer Olympics in Mexico City.",
+      "Permanently changed how modern athletes approach the high jump event."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "Keeping all twenty-seven members of his crew alive for nearly two years after their ship was crushed by Antarctic ice.",
+    "hook": "His ship was splintered and swallowed by Antarctic pack ice, stranding his crew on floating ice floes for 522 days with zero outside communication.",
+    "key_facts": [
+      "Led the Imperial Trans-Antarctic Expedition aboard the Endurance in 1914.",
+      "Navigated a 22-foot lifeboat across 800 miles of stormy Southern Ocean seas to reach South Georgia island.",
+      "Successfully rescued every single member of his stranded expedition crew."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Percy Spencer",
+    "premise": "Inventing the microwave oven after a candy bar melted in his pocket while working near a magnetron tube.",
+    "hook": "He was standing next to a military radar radar tube when the peanut cluster in his shirt pocket began to bubble and cook.",
+    "key_facts": [
+      "Worked as an engineer for the Raytheon Corporation during World War II.",
+      "Noticed that electromagnetic waves from a magnetron had melted a snack in his pocket.",
+      "Patented the first commercial microwave oven, known as the Radarange, in 1947."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Howard Schultz",
+    "premise": "Rising from a public housing project in Brooklyn to transform a small regional coffee bean shop into Starbucks.",
+    "hook": "He watched his father lose his job after a workplace injury, vowing to build a company that treated working people with dignity.",
+    "key_facts": [
+      "Grew up in the Bayview housing projects in Brooklyn, New York.",
+      "Joined Starbucks as the director of marketing when it had only a handful of stores.",
+      "Acquired the company in 1987 and expanded it into a global cafe franchise."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Wilbur Wright",
+    "premise": "Deciding to test wing-warping mechanics inspired by observing birds in flight to achieve controlled powered flight.",
+    "hook": "While watching pigeons maneuver in flight, two bicycle mechanics realized the secret to human flight was not brute engine power, but twisting wings.",
+    "key_facts": [
+      "Studied bird flight patterns to develop the concept of wing-warping for lateral control.",
+      "Conducted glider experiments in Kitty Hawk, North Carolina, between 1900 and 1903.",
+      "Achieved the first sustained, controlled powered heavier-than-air flight on December 17, 1903."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Junko Tabei",
+    "premise": "Overcoming a destructive avalanche and severe injuries to become the first woman to reach the summit of Mount Everest.",
+    "hook": "An avalanche crushed her base camp tent under feet of snow, but she refused to turn back until she stood on top of the world.",
+    "key_facts": [
+      "Formed the Ladies Climbing Club in Japan in 1969 to facilitate women's mountaineering expeditions.",
+      "Survived an avalanche at Camp II during her 1975 Everest ascent.",
+      "Reached the summit of Mount Everest on May 16, 1975."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Spencer Silver",
+    "premise": "Inventing a weak, reusable adhesive while trying to create a super-strong aerospace glue, leading years later to the Post-it Note.",
+    "hook": "He spent years trying to invent an industrial super-glue, but accidentally created a sticky substance that refused to stick permanently.",
+    "key_facts": [
+      "Developed a low-tack, pressure-sensitive adhesive at 3M laboratories in 1968.",
+      "Spent years promoting the unusual adhesive internally without a clear commercial application.",
+      "Partnered with Art Fry to adapt the adhesive into the globally successful Post-it Note."
     ],
     "source": "gemini_original"
   }

@@ -13579,6 +13579,51 @@
       "start": 1110.05,
       "reason": "The sampled frames show an interviewee speaking and archival footage of a man entering a building, but Diana, Princess of Wales, is not visible in any of the frames. The footage serves as biographical illustration for a documentary about her life.",
       "reviewed_at": 1794675953.7977548
+    },
+    "6fb89c1d9569bc615e024db0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "source_url": "https://archive.org/details/bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "person": "George Lucas",
+      "start": 5.0,
+      "reason": "The named person (George Lucas) is not visible in any of the sampled frames. The segment consists of archival footage of the Tuskegee Airmen and a red carpet interview, but George Lucas does not appear.",
+      "reviewed_at": 1794695195.827576
+    },
+    "7fa4f5fbe6d7ed3cce3aad83": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "source_url": "https://archive.org/details/bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "person": "George Lucas",
+      "start": 41.41,
+      "reason": "The sampled frames show an interviewer and members of the Tuskegee Airmen on a red carpet, but George Lucas is not visibly present in any of the five frames.",
+      "reviewed_at": 1794695201.9449053
+    },
+    "09f99c27f9ab7710646dd5ac": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FUHIKUBO-DIG-HERENSIA-2010-011",
+      "source_url": "https://archive.org/details/FUHIKUBO-DIG-HERENSIA-2010-011",
+      "person": "George Lucas",
+      "start": 5.0,
+      "reason": "The footage features unrelated local cultural archives from Bonaire and does not depict George Lucas.",
+      "reviewed_at": 1794695221.9816587
+    },
+    "66268a2bfdaaa17c2c4fb1ef": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FUHIKUBO-DIG-HERENSIA-2010-011",
+      "source_url": "https://archive.org/details/FUHIKUBO-DIG-HERENSIA-2010-011",
+      "person": "George Lucas",
+      "start": 257.39,
+      "reason": "The video features an interview with George Lucas Alberto, a different individual from the famous filmmaker George Lucas. This is a case of name mismatch and does not depict the correct subject.",
+      "reviewed_at": 1794695232.313612
+    },
+    "677239af1fbbe5ab4ba9d9fc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:g4tv.com-video27845",
+      "source_url": "https://archive.org/details/g4tv.com-video27845",
+      "person": "George Lucas",
+      "start": 5.0,
+      "reason": "The sampled frames show animated clips from Star Wars and title cards, with George Lucas not visible at all in the footage.",
+      "reviewed_at": 1794695258.9406629
     }
   }
 }

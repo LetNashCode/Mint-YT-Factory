@@ -3480,30 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why wet fingers make wine glasses sing",
-    "normalized": "why wet fingers make wine glasses sing",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794631663,
-    "recorded_at": 1794631663,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do coins slide off tables",
-    "normalized": "why do coins slide off tables",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794666414,
-    "recorded_at": 1794666414,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do shadows stretch out long",
     "normalized": "why do shadows stretch out long",
     "workflow": "publish",
@@ -3522,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1794717610,
     "recorded_at": 1794717610,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do zipper pulls jingle softly",
+    "normalized": "why do zipper pulls jingle softly",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794754668,
+    "recorded_at": 1794754668,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

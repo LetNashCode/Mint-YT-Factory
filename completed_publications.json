@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789751572",
-    "video_id": "u8NpzU_CEys",
-    "topic": "Why do buttons pop off coats",
-    "completed_at": 1789752719
-  },
-  {
     "workdir": "output/1789801057",
     "video_id": "V9ZI35kzwn0",
     "topic": "Why do zippers always jam on fabric",
@@ -598,5 +592,11 @@
     "video_id": "4lDyimfajWE",
     "topic": "Why do blue jeans fade at knees",
     "completed_at": 1794719045
+  },
+  {
+    "workdir": "output/1794754743",
+    "video_id": "-M7Y4yMVh_Y",
+    "topic": "Why do zipper pulls jingle softly",
+    "completed_at": 1794757163
   }
 ]

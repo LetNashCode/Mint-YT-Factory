@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do shadows stretch out long",
-    "normalized": "why do shadows stretch out long",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794682339,
-    "recorded_at": 1794682339,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do blue jeans fade at knees",
     "normalized": "why do blue jeans fade at knees",
     "workflow": "publish",
@@ -3510,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1794754668,
     "recorded_at": 1794754668,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do car tires make slapping sounds",
+    "normalized": "why do car tires make slapping sounds",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794770944,
+    "recorded_at": 1794770944,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

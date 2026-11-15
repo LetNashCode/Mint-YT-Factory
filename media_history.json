@@ -20809,6 +20809,76 @@
       "shot": 2,
       "query": "shadows turning every afternoon stroll",
       "recorded_at": 1794682491
+    },
+    {
+      "asset_key": "pixabay:video:20457",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/01/04/20457-309694537_medium.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "blue jeans fade not thighs cuffs jean",
+      "recorded_at": 1794717781
+    },
+    {
+      "asset_key": "pixabay:video:4753",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/08/22/4753-179739298_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "blue jeans fade two perfectly placed suns",
+      "recorded_at": 1794717782
+    },
+    {
+      "asset_key": "pixabay:video:23263",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/05/03/23263-334228232_medium.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "blue jeans fade every time your leg",
+      "recorded_at": 1794717785
+    },
+    {
+      "asset_key": "pixabay:video:12697",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/10/31/12697-241674141_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "blue jeans fade skin bone press fabric",
+      "recorded_at": 1794717786
+    },
+    {
+      "asset_key": "pixabay:video:21296",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/02/11/21296-316701410_medium.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "blue jeans fade indigo dye sits single",
+      "recorded_at": 1794717787
+    },
+    {
+      "asset_key": "pixabay:video:262484",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2025/03/04/262484_medium.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "blue jeans fade outside shell cotton threads",
+      "recorded_at": 1794717788
+    },
+    {
+      "asset_key": "pixabay:video:2142",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/02/13/2142-155246338_medium.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "blue jeans fade bright white cotton underneath",
+      "recorded_at": 1794717790
     }
   ]
 }

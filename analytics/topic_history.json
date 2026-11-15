@@ -3480,42 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do bread crusts turn dark",
-    "normalized": "why do bread crusts turn dark",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794602420,
-    "recorded_at": 1794602420,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do ceramic tiles feel cold",
-    "normalized": "why do ceramic tiles feel cold",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794608942,
-    "recorded_at": 1794608942,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do felt tips squeak drawing",
-    "normalized": "why do felt tips squeak drawing",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794613252,
-    "recorded_at": 1794613252,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why wet fingers make wine glasses sing",
     "normalized": "why wet fingers make wine glasses sing",
     "workflow": "publish",
@@ -3546,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1794682339,
     "recorded_at": 1794682339,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do blue jeans fade at knees",
+    "normalized": "why do blue jeans fade at knees",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1794717610,
+    "recorded_at": 1794717610,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

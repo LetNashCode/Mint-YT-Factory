@@ -13624,6 +13624,42 @@
       "start": 5.0,
       "reason": "The sampled frames show animated clips from Star Wars and title cards, with George Lucas not visible at all in the footage.",
       "reviewed_at": 1794695258.9406629
+    },
+    "71e7bda7092d020baa588eec": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "source_url": "https://archive.org/details/bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "person": "George Lucas",
+      "start": 77.82,
+      "reason": "The video segment shows Ne-Yo being interviewed on the red carpet, but George Lucas is not visible in any of the sampled frames.",
+      "reviewed_at": 1794746308.0836842
+    },
+    "0eec4f28e7c82148cf55f6d7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "source_url": "https://archive.org/details/bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "person": "George Lucas",
+      "start": 114.23,
+      "reason": "The sampled frames feature an interview with another individual (the filmmaker/actor associated with Red Tails), but George Lucas is not visible in any of the sampled frames despite being mentioned in the metadata.",
+      "reviewed_at": 1794746322.7898977
+    },
+    "423a648737d5e3fb20c5222f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FUHIKUBO-DIG-HERENSIA-2010-011",
+      "source_url": "https://archive.org/details/FUHIKUBO-DIG-HERENSIA-2010-011",
+      "person": "George Lucas",
+      "start": 509.77,
+      "reason": "The footage shows a different person named George Lucas Alberto in an interview in Bonaire, not the American filmmaker George Lucas requested in the prompt.",
+      "reviewed_at": 1794746368.7239704
+    },
+    "4bdd974fb8a53e8cf3cab018": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FUHIKUBO-DIG-HERENSIA-2010-011",
+      "source_url": "https://archive.org/details/FUHIKUBO-DIG-HERENSIA-2010-011",
+      "person": "George Lucas",
+      "start": 762.16,
+      "reason": "The footage features an individual named George Lucas Alberto in an oral history interview, but this is a completely different person from the famous American filmmaker George Lucas requested in the narration.",
+      "reviewed_at": 1794746398.0400207
     }
   }
 }

@@ -13660,6 +13660,42 @@
       "start": 762.16,
       "reason": "The footage features an individual named George Lucas Alberto in an oral history interview, but this is a completely different person from the famous American filmmaker George Lucas requested in the narration.",
       "reviewed_at": 1794746398.0400207
+    },
+    "efc243a1a30868d3429bbf54": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "source_url": "https://archive.org/details/bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "person": "George Lucas",
+      "start": 150.64,
+      "reason": "Although the video source mentions George Lucas in the description, George Lucas is not visible in any of the sampled frames; instead, the frames feature an interview with actor Nate Parker on the red carpet.",
+      "reviewed_at": 1794764335.8019114
+    },
+    "6ff66d001c3c6e85a5ecbc5b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "source_url": "https://archive.org/details/bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "person": "George Lucas",
+      "start": 187.05,
+      "reason": "The sampled frames show Ne-Yo being interviewed on the red carpet, but George Lucas is not visible in any of the frames.",
+      "reviewed_at": 1794764350.2644875
+    },
+    "9982dc60159240c93d5589f1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FUHIKUBO-DIG-HERENSIA-2010-011",
+      "source_url": "https://archive.org/details/FUHIKUBO-DIG-HERENSIA-2010-011",
+      "person": "George Lucas",
+      "start": 1014.55,
+      "reason": "The video features a different person named George Lucas Alberto (an interviewee in Bonaire), which is a mismatch for the famous American filmmaker George Lucas requested in the narration.",
+      "reviewed_at": 1794764387.5940356
+    },
+    "b4dc102771d96f7a5d922553": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FUHIKUBO-DIG-HERENSIA-2010-011",
+      "source_url": "https://archive.org/details/FUHIKUBO-DIG-HERENSIA-2010-011",
+      "person": "George Lucas",
+      "start": 1266.93,
+      "reason": "The footage shows an interview with George Lucas Alberto, a cultural figure from Bonaire, not the famous American filmmaker George Lucas. This is a mismatch in identity.",
+      "reviewed_at": 1794764407.9842856
     }
   }
 }

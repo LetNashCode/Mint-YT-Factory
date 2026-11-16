@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-15T19:29:54.224165+00:00",
+  "generated_at": "2026-11-16T04:37:03.417851+00:00",
   "video_count": 202,
-  "learning_sample_size": 173,
+  "learning_sample_size": 175,
   "learning_ready": true,
   "metrics_available": true,
   "comparative_learning_ready": true,
-  "advanced_metrics_videos": 173,
+  "advanced_metrics_videos": 175,
   "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {

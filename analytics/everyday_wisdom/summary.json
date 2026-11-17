@@ -1,12 +1,12 @@
 {
   "generated_at": "2026-11-16T13:03:04.515224+00:00",
-  "refresh_attempted_at": "2026-11-16T13:03:04.515224+00:00",
-  "refresh_status": "success",
+  "refresh_attempted_at": "2026-11-17T13:50:27.058711+00:00",
+  "refresh_status": "failed",
   "video_count": 36,
-  "optimization_ready": true,
-  "live_metrics_ready": true,
+  "optimization_ready": false,
+  "live_metrics_ready": false,
   "advanced_metrics_videos": 35,
-  "reason": "",
+  "reason": "Live YouTube statistics unavailable; displayed metrics are from the last successful refresh.",
   "totals": {
     "views": 15566,
     "likes": 136,

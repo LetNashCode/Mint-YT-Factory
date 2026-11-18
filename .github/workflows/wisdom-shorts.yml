@@ -10,10 +10,9 @@ permissions:
 
 env:
   MINT_WORKFLOW_PROFILE: wisdom
-  MINT_GEMINI_MODEL: gemini-3.5-flash-lite
-  MINT_GEMINI_FALLBACK_MODEL: gemini-3.8-flash
+  MINT_GEMINI_MODEL: gemini-3.8-flash
+  MINT_GEMINI_FALLBACK_MODEL: gemini-3.5-flash-lite
   MINT_GEMINI_TERTIARY_MODEL: gemini-3.6-flash
-  MINT_GEMINI_QUATERNARY_MODEL: gemini-3.1-pro-preview
 
 concurrency:
   group: wisdom-shorts
@@ -72,7 +71,7 @@ jobs:
           test -n "$YOUTUBE_TOKEN_JSON"
           test -s assets/music/blade_runner_2049.mp3
           ffprobe -v error -select_streams a:0 -show_entries stream=codec_type -of csv=p=0 assets/music/blade_runner_2049.mp3 | grep -qx audio
-          python -m py_compile retention_learning.py everyday_wisdom_shorts.py generate_script/entertainment.py social_publish.py youtube_analytics.py
+          python -m py_compile retention_learning.py everyday_wisdom_shorts.py tts.py generate_script/entertainment.py social_publish.py youtube_analytics.py
           python - <<'PY'
           import json
           import os
@@ -123,7 +122,8 @@ jobs:
           FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
           FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
           META_GRAPH_API_VERSION: ${{ vars.META_GRAPH_API_VERSION }}
-          SOCIAL_PUBLISH_STRICT: ${{ vars.SOCIAL_PUBLISH_STRICT || 'true' }}
+          # A Meta outage must not mark a confirmed YouTube upload as failed.
+          SOCIAL_PUBLISH_STRICT: 'false'
           WISDOM_KOKORO_VOICE: af_heart
         run: |
           set -euo pipefail

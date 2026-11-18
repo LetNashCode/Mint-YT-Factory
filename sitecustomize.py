@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import importlib.abc
 import importlib.machinery
+import os
 import sys
 
 
@@ -113,8 +114,8 @@ def _patch_video_quality(module):
 
 
 def _patch_stock_search(module):
-    module.GEMINI_MODEL = "gemini-flash-lite-latest"
-    module.GEMINI_FALLBACK_MODEL = None
+    module.GEMINI_MODEL = os.getenv("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
+    module.GEMINI_FALLBACK_MODEL = os.getenv("MINT_GEMINI_FALLBACK_MODEL", "gemini-3.8-flash")
 
     RECENT_MEDIA_COOLDOWN = 15
 
@@ -308,7 +309,7 @@ def _patch_stock_search(module):
         module.build_plan = normalize_plan
 
     print(
-        "🛡️ Stock-search Gemini: gemini-flash-lite-latest ONLY | "
+        "🛡️ Stock-search Gemini: {module.GEMINI_MODEL} | "
         f"media cooldown={RECENT_MEDIA_COOLDOWN} | topic lock=ON | scene variation=ON"
     )
 
@@ -325,8 +326,8 @@ def _patch_stock_media_resilient(module):
 
 
 def _patch_stock_query_expander(module):
-    module.GEMINI_MODEL = "gemini-flash-lite-latest"
-    module.GEMINI_FALLBACK_MODEL = None
+    module.GEMINI_MODEL = os.getenv("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
+    module.GEMINI_FALLBACK_MODEL = os.getenv("MINT_GEMINI_FALLBACK_MODEL", "gemini-3.8-flash")
 
 
 def _patch_riddle_interactive(module):

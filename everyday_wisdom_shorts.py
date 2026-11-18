@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 
 import requests
 from google import genai
+from google.genai import types
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 from google.oauth2.credentials import Credentials
@@ -52,7 +53,7 @@ def client():
     if not key:
         raise RuntimeError("GEMINI_API_KEY is missing")
     # Pin Gemini 3.x GenerateContent requests to the supported v1beta endpoint.
-    return genai.Client(api_key=key, http_options={"api_version": "v1beta"})
+    return genai.Client(api_key=key, http_options=types.HttpOptions(api_version="v1beta"))
 
 def normalize_topic(value):
     value = re.sub(r"[^a-z0-9\s]", " ", str(value or "").lower())

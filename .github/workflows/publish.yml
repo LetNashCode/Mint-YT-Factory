@@ -20,7 +20,6 @@ env:
   MINT_GEMINI_MODEL: gemini-3.5-flash-lite
   MINT_GEMINI_FALLBACK_MODEL: gemini-3.8-flash
   MINT_GEMINI_TERTIARY_MODEL: gemini-3.6-flash
-  MINT_GEMINI_QUATERNARY_MODEL: gemini-3.1-pro-preview
   MINT_COMPETITOR_RESEARCH: "true"
   IMAGEMAGICK_BINARY: /usr/bin/convert
 
@@ -74,8 +73,11 @@ jobs:
         run: |
           set -euo pipefail
           python - <<'PY'
-          import whisper, torch, moviepy, yaml, google.genai, ffmpeg, pytesseract, requests, soundfile, kokoro
+          import whisper, torch, moviepy, yaml, google.genai, ffmpeg, pytesseract, requests, soundfile, kokoro, os, stock_search
+          expected_model = os.environ.get("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
+          assert stock_search.GEMINI_MODEL == expected_model, f"Stock Gemini model override mismatch: {stock_search.GEMINI_MODEL!r} != {expected_model!r}"
           print("Python environment OK")
+          print("Stock Gemini model routing:", stock_search.GEMINI_MODEL)
           print("Torch:", torch.__version__)
           print("CUDA available:", torch.cuda.is_available())
           print("Tesseract:", pytesseract.get_tesseract_version())

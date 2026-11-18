@@ -75,7 +75,6 @@ jobs:
           python - <<'PY'
           import json
           import os
-          from google import genai
           from google.oauth2.credentials import Credentials
           from kokoro import KPipeline
 
@@ -84,14 +83,15 @@ jobs:
           if not credentials.refresh_token:
               raise SystemExit("YOUTUBE_TOKEN_JSON is missing refresh_token")
           KPipeline(lang_code="a")
-          genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
           from everyday_wisdom_shorts import (
               BACKGROUND_MUSIC_PATH,
               BACKGROUND_MUSIC_VOLUME,
               NARRATION_VOLUME,
               build_audio_filter,
+              client as wisdom_client,
           )
+          wisdom_client()  # Initialize with the same pinned v1beta endpoint used in production.
           assert BACKGROUND_MUSIC_PATH.is_file(), f"Missing soundtrack: {BACKGROUND_MUSIC_PATH}"
           assert 0 < BACKGROUND_MUSIC_VOLUME < NARRATION_VOLUME <= 1
           audio_filter = build_audio_filter(40.0)

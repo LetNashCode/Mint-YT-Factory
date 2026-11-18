@@ -13732,6 +13732,42 @@
       "start": 2024.09,
       "reason": "The video features an interview with a man named George Lucas Alberto in Bonaire, which is a completely different person from the American filmmaker George Lucas.",
       "reviewed_at": 1794994837.4120173
+    },
+    "396d9ab96a2d225d2865718e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "source_url": "https://archive.org/details/bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "person": "George Lucas",
+      "start": 332.68,
+      "reason": "The footage shows Giancarlo Esposito being interviewed on a red carpet, but George Lucas is not visible in any of the sampled frames.",
+      "reviewed_at": 1795009629.795216
+    },
+    "074735d30e2b17f60cabec92": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "source_url": "https://archive.org/details/bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "person": "George Lucas",
+      "start": 405.5,
+      "reason": "The sampled frames show an interviewer talking to someone else (an actor or crew member from Red Tails), but George Lucas is not visible in any of the five frames.",
+      "reviewed_at": 1795009644.5991302
+    },
+    "73197c9bc7132548d227f9a7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FUHIKUBO-DIG-HERENSIA-2010-011",
+      "source_url": "https://archive.org/details/FUHIKUBO-DIG-HERENSIA-2010-011",
+      "person": "George Lucas",
+      "start": 2276.48,
+      "reason": "The footage shows an interview with George Lucas Alberto (a local historian from Bonaire), but the subject of the biography is the American filmmaker George Lucas. This is a name mismatch.",
+      "reviewed_at": 1795009668.3301392
+    },
+    "c839b9913c5b0d9cca05067d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FUHIKUBO-DIG-HERENSIA-2010-011",
+      "source_url": "https://archive.org/details/FUHIKUBO-DIG-HERENSIA-2010-011",
+      "person": "George Lucas",
+      "start": 2781.25,
+      "reason": "The video features an interview with George Lucas Alberto, a cultural figure from Bonaire, but this person is entirely different from the famous American filmmaker George Lucas targeted by the biography narration.",
+      "reviewed_at": 1795009681.0137398
     }
   }
 }

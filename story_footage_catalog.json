@@ -18511,40 +18511,6 @@
     {
       "person": "George Lucas",
       "source": {
-        "id": "archive:g4tv.com-video27845",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/g4tv.com-video27845/as20080814_swijc_georgelucasinterview_flv.mp4",
-        "source_url": "https://archive.org/details/g4tv.com-video27845",
-        "title": "g4tv.com-video27845: George Lucas Interview",
-        "description": "The granddaddy of Star Wars himself, George Lucas, talks with us about 'Star Wars: The Clone Wars,' and the future of the Star Wars universe. ['G4TV.com videos', 'G4TV.com unpublic video ids']",
-        "creator": "G4TV.com",
-        "license": "",
-        "subject": "['G4TV.com videos', 'G4TV.com unpublic video ids']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 166.099433,
-        "identity_score": 13.0,
-        "archival_signal": 1,
-        "alternate_urls": [
-          "https://archive.org/download/g4tv.com-video27845/as20080814_swijc_georgelucasinterview_flv.ogv"
-        ]
-      },
-      "start": 86.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video segment features archival interview footage of George Lucas talking about Star Wars: The Clone Wars, mixed with clips from the animated series. George Lucas is clearly visible in frames 3 and 4.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e5150aec27b6d139316e6bc038d19388fac001d617a3bad51aab5366e0946da9",
-      "reviewed_at": 1794746400.7548735
-    },
-    {
-      "person": "George Lucas",
-      "source": {
         "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
@@ -18634,6 +18600,40 @@
       },
       "review_key": "54dbcd354c63e7fbd351c5bcaadd89dc54de26737378acbcfb04c55a906b77d6",
       "reviewed_at": 1794764414.8321993
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:g4tv.com-video27845",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/g4tv.com-video27845/as20080814_swijc_georgelucasinterview_flv.mp4",
+        "source_url": "https://archive.org/details/g4tv.com-video27845",
+        "title": "g4tv.com-video27845: George Lucas Interview",
+        "description": "The granddaddy of Star Wars himself, George Lucas, talks with us about 'Star Wars: The Clone Wars,' and the future of the Star Wars universe. ['G4TV.com videos', 'G4TV.com unpublic video ids']",
+        "creator": "G4TV.com",
+        "license": "",
+        "subject": "['G4TV.com videos', 'G4TV.com unpublic video ids']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 166.099433,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/g4tv.com-video27845/as20080814_swijc_georgelucasinterview_flv.ogv"
+        ]
+      },
+      "start": 86.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment includes genuine interview footage featuring George Lucas talking about Star Wars: The Clone Wars, mixed with animation clips from the show, making it useful as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "038bd0b916095104774f883f91dc56d0c34de1cbfb2121a5fefd4f22dca570d8",
+      "reviewed_at": 1794994843.194583
     }
   ]
 }

@@ -13,7 +13,7 @@ from google.genai import types
 MODEL_NAME = os.getenv("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
 SECONDARY_MODEL_NAME = os.getenv("MINT_GEMINI_FALLBACK_MODEL", "gemini-3.8-flash")
 TERTIARY_MODEL_NAME = os.getenv("MINT_GEMINI_TERTIARY_MODEL", "gemini-3.6-flash")
-QUATERNARY_MODEL_NAME = os.getenv("MINT_GEMINI_QUATERNARY_MODEL", "gemini-3.1-pro-preview")
+QUATERNARY_MODEL_NAME = os.getenv("MINT_GEMINI_QUATERNARY_MODEL", "")
 MODEL_CHAIN = tuple(dict.fromkeys(
     name.strip() for name in (
         MODEL_NAME, SECONDARY_MODEL_NAME, TERTIARY_MODEL_NAME, QUATERNARY_MODEL_NAME

@@ -309,7 +309,7 @@ def _patch_stock_search(module):
         module.build_plan = normalize_plan
 
     print(
-        "🛡️ Stock-search Gemini: {module.GEMINI_MODEL} | "
+        f"🛡️ Stock-search Gemini: {module.GEMINI_MODEL} | "
         f"media cooldown={RECENT_MEDIA_COOLDOWN} | topic lock=ON | scene variation=ON"
     )
 

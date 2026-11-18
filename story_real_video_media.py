@@ -881,12 +881,29 @@ def verify(person, scene, item, samples):
         if response.status_code < 200 or response.status_code >= 300:
             response.raise_for_status()
         try:
-            parts = response.json().get("candidates", [{}])[0].get("content", {}).get("parts", [])
-            result = json.loads("".join(p.get("text", "") for p in parts))
+            body = response.json()
+            candidates = body.get("candidates") or []
+            parts = candidates[0].get("content", {}).get("parts", []) if candidates else []
+            raw_verdict = "".join(
+                str(part.get("text", "")) for part in parts
+                if isinstance(part, dict)
+            ).strip()
+            result = json.loads(raw_verdict)
+            if not isinstance(result, dict):
+                raise ValueError("verdict is not a JSON object")
         except (ValueError, TypeError, AttributeError, IndexError):
-            raise RuntimeError("Story verifier returned invalid JSON response") from None
-        if not isinstance(result, dict):
-            raise RuntimeError("Story verifier returned a non-object JSON response")
+            # A 2xx response is not necessarily a usable verdict: Gemini can
+            # return an empty candidate, a safety/finish response, or malformed
+            # JSON. Treat this as a verifier availability failure, not as a
+            # footage rejection, and continue through the bounded model fallback.
+            try:
+                finish = (body.get("candidates") or [{}])[0].get("finishReason", "no_candidate")
+                block = (body.get("promptFeedback") or {}).get("blockReason", "")
+            except Exception:
+                finish, block = "unreadable_response", ""
+            last_error = f"invalid JSON response (finishReason={finish}, blockReason={block})"
+            print(f"Story verifier {model}: {last_error}; trying bounded fallback models", flush=True)
+            break
         _VERIFIER_MODELS[requested_model] = model
         return result
 
@@ -895,6 +912,7 @@ def verify(person, scene, item, samples):
     if (
         str(last_error).startswith("HTTP 5")
         or str(last_error) in {"HTTP 404", "HTTP 429", "network timeout"}
+        or str(last_error).startswith("invalid JSON response")
     ):
         fallback_models = []
         for candidate in (
@@ -955,6 +973,14 @@ def verify(person, scene, item, samples):
                         print(f"✅ Story verifier fallback succeeded: {fallback}", flush=True)
                         return result
                     fallback_last_error = "invalid JSON response"
+                    print(
+                        f"Story verifier fallback {fallback}: invalid JSON "
+                        f"(attempt {fallback_attempt + 1}/{fallback_retries + 1})",
+                        flush=True,
+                    )
+                    if fallback_attempt < fallback_retries:
+                        time.sleep(min(4, 2 ** fallback_attempt))
+                        continue
                     break
 
                 if fallback_response.status_code == 429 and _is_daily_quota_response(fallback_response):

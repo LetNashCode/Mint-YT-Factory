@@ -152,7 +152,7 @@ def _trim_trailing_silence(audio, sample_rate):
     return trimmed, removed
 
 
-def _generate_kokoro(text, voice_config, output_path):
+def _generate_kokoro(text, voice_config, output_path, preserve_silence=False):
     """Synthesize the entire narration in one Kokoro pipeline request."""
     if not KOKORO_ENABLED:
         raise RuntimeError("Kokoro is disabled")
@@ -200,9 +200,12 @@ def _generate_kokoro(text, voice_config, output_path):
     except Exception as error:
         raise RuntimeError(f"Kokoro single-request narration failed: {error}") from error
 
-    audio, removed_silence = _trim_trailing_silence(audio, KOKORO_SAMPLE_RATE)
-    if removed_silence > 0:
-        print(f"✂️ Trimmed {removed_silence:.2f}s of trailing TTS silence")
+    if preserve_silence:
+        print("🔒 Preserving all Kokoro silence and pause samples for this workflow")
+    else:
+        audio, removed_silence = _trim_trailing_silence(audio, KOKORO_SAMPLE_RATE)
+        if removed_silence > 0:
+            print(f"✂️ Trimmed {removed_silence:.2f}s of trailing TTS silence")
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
     sf.write(output_path, audio, KOKORO_SAMPLE_RATE, subtype="PCM_16")
     if not os.path.exists(output_path) or os.path.getsize(output_path) < 1024:
@@ -245,7 +248,7 @@ def _generate_edge(text, voice_config, output_path):
     return output_path
 
 
-def _synthesize_once(text, voice_config, out_path):
+def _synthesize_once(text, voice_config, out_path, preserve_silence=False):
     """Synthesize using the explicitly configured provider and voice.
 
     Publish Shorts has one canonical narrator in config.yaml. Recovery and
@@ -261,7 +264,7 @@ def _synthesize_once(text, voice_config, out_path):
         last_error = None
         for attempt in range(1, TTS_RETRIES + 1):
             try:
-                return _generate_kokoro(text, voice_config, out_path)
+                return _generate_kokoro(text, voice_config, out_path, preserve_silence=preserve_silence)
             except Exception as error:
                 last_error = error
                 print(
@@ -297,7 +300,7 @@ def _synthesize_once(text, voice_config, out_path):
         f"Unsupported TTS provider {provider!r}; refusing implicit provider fallback."
     )
 
-def synthesize_narration(text, config, out_path, target_duration=None, end_padding_seconds=NARRATION_END_PADDING_SECONDS):
+def synthesize_narration(text, config, out_path, target_duration=None, end_padding_seconds=NARRATION_END_PADDING_SECONDS, preserve_silence=False):
     original_text = clean_text(text)
     if not original_text:
         raise RuntimeError("Cannot synthesize empty narration")
@@ -318,7 +321,7 @@ def synthesize_narration(text, config, out_path, target_duration=None, end_paddi
     processed = None
     final_narration = None
     try:
-        _synthesize_once(tts_text, voice_config, raw_path)
+        _synthesize_once(tts_text, voice_config, raw_path, preserve_silence=preserve_silence)
         clip = AudioFileClip(raw_path)
         try:
             print(f"Raw narration duration: {clip.duration:.2f}s")

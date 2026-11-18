@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-11-18T09:57:22.479727+00:00",
-  "refresh_attempted_at": "2026-11-18T09:57:22.479727+00:00",
+  "generated_at": "2026-11-18T13:24:32.934480+00:00",
+  "refresh_attempted_at": "2026-11-18T13:24:32.934480+00:00",
   "refresh_status": "success",
-  "video_count": 37,
+  "video_count": 38,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 36,
   "reason": "",
   "totals": {
-    "views": 15581,
+    "views": 15584,
     "likes": 136,
     "comments": 5
   },
   "averages": {
-    "views": 421.11,
-    "likes": 3.68,
-    "comments": 0.14,
-    "average_view_percentage": 59.01,
-    "subscribers_gained": 0.35,
-    "shares": 0.22
+    "views": 410.11,
+    "likes": 3.58,
+    "comments": 0.13,
+    "average_view_percentage": 57.46,
+    "subscribers_gained": 0.34,
+    "shares": 0.21
   },
   "top_videos": [
     {
@@ -183,7 +183,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 1011,
+      "views": 1009,
       "views_after_24h": 991,
       "views_after_7d": null,
       "likes": 8,
@@ -193,7 +193,7 @@
       "average_view_percentage": 52.94,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 0.7913
+      "engagement_rate": 0.7929
     },
     {
       "topic": "The small American neighborhood custom of waving back when passing cars or neighbors drive by, rooted in friendly rural courtesy, mutual recognition, and community visibility.",
@@ -475,7 +475,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 1011,
+      "views": 1009,
       "views_after_24h": 991,
       "views_after_7d": null,
       "likes": 8,
@@ -485,7 +485,7 @@
       "average_view_percentage": 52.94,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 0.7913
+      "engagement_rate": 0.7929
     },
     {
       "topic": "The small American neighborhood custom of waving back when passing cars or neighbors drive by, rooted in friendly rural courtesy, mutual recognition, and community visibility.",
@@ -620,7 +620,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 657,
+      "views": 655,
       "views_after_24h": 574,
       "views_after_7d": null,
       "likes": 5,
@@ -630,7 +630,7 @@
       "average_view_percentage": 48.64,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.761
+      "engagement_rate": 0.7634
     },
     {
       "topic": "The historical and functional reason why golf club handles are wrapped in rubber or leather grips.",
@@ -650,7 +650,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 649,
-      "views_after_24h": 613,
+      "views_after_24h": 621,
       "views_after_7d": 648,
       "likes": 1,
       "comments": 0,
@@ -1329,6 +1329,35 @@
       "engagement_rate": 0.0
     },
     {
+      "topic": "The polite US social custom of greeting adult hosts with a firm handshake or direct greeting when entering a home, rooted in respect, family manners, and acknowledging the household.",
+      "video_id": "I7oJu-mhhfU",
+      "title": "Why We Always Had to Shake Hands With the Host",
+      "workflow": "everyday_wisdom",
+      "published_at": "2026-11-18T09:56:43Z",
+      "hook_text": "Whenever we stepped into someone's house as kids, my parents expected us to walk right up and shake the host's hand",
+      "hook_type": "first_person_personal_discovery",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": 84,
+      "planned_duration_seconds": 45.0,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 7,
+      "views_after_24h": null,
+      "views_after_7d": null,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
       "topic": "The polite US social custom of guests taking home leftover food in plastic containers, and its practical roots in hospitality and household sharing.",
       "video_id": "A-XbQd90es8",
       "title": "Why Hosts Insist You Take Leftovers Home",
@@ -1358,12 +1387,12 @@
       "engagement_rate": 0.0
     },
     {
-      "topic": "The polite US social custom of greeting adult hosts with a firm handshake or direct greeting when entering a home, rooted in respect, family manners, and acknowledging the household.",
-      "video_id": "I7oJu-mhhfU",
-      "title": "Why We Always Had to Shake Hands With the Host",
+      "topic": "household rules: putting things back in their designated place immediately after use",
+      "video_id": "5RSfT93lj2E",
+      "title": "Why We Always Had to Put Our Shoes Away Right Away",
       "workflow": "everyday_wisdom",
-      "published_at": "2026-11-18T09:56:43Z",
-      "hook_text": "Whenever we stepped into someone's house as kids, my parents expected us to walk right up and shake the host's hand",
+      "published_at": "2026-11-18T13:23:47Z",
+      "hook_text": "Whenever I kicked off my shoes by the front door, my mother made me walk them straight back to the closet",
       "hook_type": "first_person_personal_discovery",
       "hook_score": null,
       "hook_score_components": {},
@@ -1391,7 +1420,7 @@
     "target_average_view_percentage": 70.0,
     "metric": "average_view_percentage",
     "eligible_video_count": 35,
-    "immature_or_missing_metric_count": 2,
+    "immature_or_missing_metric_count": 3,
     "videos_meeting_target_count": 7,
     "target_hit_rate_percentage": 20.0,
     "average_view_percentage": 62.38,
@@ -1404,7 +1433,7 @@
         "average_view_percentage": 29.88,
         "average_view_duration": 10.0,
         "views": 1023,
-        "age_hours": 187.8,
+        "age_hours": 191.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1416,7 +1445,7 @@
         "average_view_percentage": 29.96,
         "average_view_duration": 8.0,
         "views": 34,
-        "age_hours": 94.2,
+        "age_hours": 97.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1428,7 +1457,7 @@
         "average_view_percentage": 39.01,
         "average_view_duration": 14.0,
         "views": 1011,
-        "age_hours": 183.9,
+        "age_hours": 187.4,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1440,7 +1469,7 @@
         "average_view_percentage": 39.24,
         "average_view_duration": 14.0,
         "views": 968,
-        "age_hours": 454.8,
+        "age_hours": 458.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1452,7 +1481,7 @@
         "average_view_percentage": 40.88,
         "average_view_duration": 13.0,
         "views": 113,
-        "age_hours": 737.8,
+        "age_hours": 741.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1464,7 +1493,7 @@
         "average_view_percentage": 43.75,
         "average_view_duration": 15.0,
         "views": 649,
-        "age_hours": 735.6,
+        "age_hours": 739.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1476,7 +1505,7 @@
         "average_view_percentage": 45.11,
         "average_view_duration": 15.0,
         "views": 308,
-        "age_hours": 399.8,
+        "age_hours": 403.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1488,7 +1517,7 @@
         "average_view_percentage": 45.45,
         "average_view_duration": 15.0,
         "views": 153,
-        "age_hours": 520.7,
+        "age_hours": 524.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1500,7 +1529,7 @@
         "average_view_percentage": 46.3,
         "average_view_duration": 12.0,
         "views": 598,
-        "age_hours": 181.0,
+        "age_hours": 184.4,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1512,7 +1541,7 @@
         "average_view_percentage": 46.95,
         "average_view_duration": 13.0,
         "views": 951,
-        "age_hours": 156.2,
+        "age_hours": 159.7,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1526,7 +1555,7 @@
         "average_view_percentage": 240.69,
         "average_view_duration": 72.0,
         "views": 502,
-        "age_hours": 155.8,
+        "age_hours": 159.3,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1538,7 +1567,7 @@
         "average_view_percentage": 136.89,
         "average_view_duration": 53.0,
         "views": 399,
-        "age_hours": 709.2,
+        "age_hours": 712.6,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1550,7 +1579,7 @@
         "average_view_percentage": 109.31,
         "average_view_duration": 25.0,
         "views": 18,
-        "age_hours": 178.1,
+        "age_hours": 181.6,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1562,7 +1591,7 @@
         "average_view_percentage": 108.86,
         "average_view_duration": 40.0,
         "views": 160,
-        "age_hours": 447.7,
+        "age_hours": 451.1,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1574,7 +1603,7 @@
         "average_view_percentage": 77.91,
         "average_view_duration": 20.0,
         "views": 116,
-        "age_hours": 117.4,
+        "age_hours": 120.8,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1586,7 +1615,7 @@
         "average_view_percentage": 70.5,
         "average_view_duration": 24.0,
         "views": 258,
-        "age_hours": 743.5,
+        "age_hours": 746.9,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1598,7 +1627,7 @@
         "average_view_percentage": 70.46,
         "average_view_duration": 23.0,
         "views": 83,
-        "age_hours": 371.9,
+        "age_hours": 375.4,
         "target_met": true,
         "status": "goal_met"
       }

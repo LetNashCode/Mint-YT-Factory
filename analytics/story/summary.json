@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-18T13:48:16.832512+00:00",
-  "refresh_attempted_at": "2026-11-18T13:48:16.832512+00:00",
+  "generated_at": "2026-11-18T16:58:27.220886+00:00",
+  "refresh_attempted_at": "2026-11-18T16:58:27.220886+00:00",
   "refresh_status": "success",
   "video_count": 41,
   "optimization_ready": true,
@@ -8,12 +8,12 @@
   "advanced_metrics_videos": 41,
   "reason": "",
   "totals": {
-    "views": 13783,
+    "views": 13784,
     "likes": 290,
     "comments": 8
   },
   "averages": {
-    "views": 336.17,
+    "views": 336.2,
     "likes": 7.07,
     "comments": 0.2,
     "average_view_percentage": 65.91,
@@ -1084,7 +1084,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 65,
+      "views": 66,
       "views_after_24h": 64,
       "views_after_7d": 64,
       "likes": 2,
@@ -1094,7 +1094,7 @@
       "average_view_percentage": 78.09,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 3.0769
+      "engagement_rate": 3.0303
     },
     {
       "topic": "Desmond Doss: Serving as a combat medic in World War II while refusing to touch a weapon due to religious convictions.",
@@ -1114,7 +1114,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 62,
-      "views_after_24h": 46,
+      "views_after_24h": 58,
       "views_after_7d": 62,
       "likes": 1,
       "comments": 0,
@@ -1317,8 +1317,8 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 25,
-      "views_after_24h": 16,
-      "views_after_7d": 16,
+      "views_after_24h": 17,
+      "views_after_7d": 17,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -1375,7 +1375,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 23,
-      "views_after_24h": 21,
+      "views_after_24h": 19,
       "views_after_7d": 22,
       "likes": 0,
       "comments": 0,
@@ -1520,7 +1520,7 @@
         "average_view_percentage": 24.88,
         "average_view_duration": 11.0,
         "views": 23,
-        "age_hours": 426.6,
+        "age_hours": 429.7,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1532,7 +1532,7 @@
         "average_view_percentage": 26.56,
         "average_view_duration": 10.0,
         "views": 16,
-        "age_hours": 521.9,
+        "age_hours": 525.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1544,7 +1544,7 @@
         "average_view_percentage": 28.13,
         "average_view_duration": 12.0,
         "views": 194,
-        "age_hours": 854.6,
+        "age_hours": 857.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1556,7 +1556,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 544.3,
+        "age_hours": 547.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1568,7 +1568,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 107,
-        "age_hours": 642.6,
+        "age_hours": 645.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1580,7 +1580,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1598.3,
+        "age_hours": 1601.4,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1592,7 +1592,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1623.3,
+        "age_hours": 1626.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1604,7 +1604,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 740.2,
+        "age_hours": 743.4,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1616,7 +1616,7 @@
         "average_view_percentage": 40.42,
         "average_view_duration": 13.0,
         "views": 296,
-        "age_hours": 713.8,
+        "age_hours": 716.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1628,7 +1628,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1625.8,
+        "age_hours": 1629.0,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1642,7 +1642,7 @@
         "average_view_percentage": 597.81,
         "average_view_duration": 221.0,
         "views": 109,
-        "age_hours": 451.3,
+        "age_hours": 454.5,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1654,7 +1654,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 837.4,
+        "age_hours": 840.5,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1666,7 +1666,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 908.5,
+        "age_hours": 911.7,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1678,7 +1678,7 @@
         "average_view_percentage": 81.18,
         "average_view_duration": 30.0,
         "views": 11,
-        "age_hours": 524.6,
+        "age_hours": 527.8,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1690,7 +1690,7 @@
         "average_view_percentage": 79.38,
         "average_view_duration": 33.0,
         "views": 1425,
-        "age_hours": 92.6,
+        "age_hours": 95.7,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1701,8 +1701,8 @@
         "workflow": "story",
         "average_view_percentage": 78.09,
         "average_view_duration": 29.0,
-        "views": 65,
-        "age_hours": 747.2,
+        "views": 66,
+        "age_hours": 750.4,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1714,7 +1714,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 939.2,
+        "age_hours": 942.4,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1726,7 +1726,7 @@
         "average_view_percentage": 70.93,
         "average_view_duration": 26.0,
         "views": 25,
-        "age_hours": 545.5,
+        "age_hours": 548.7,
         "target_met": true,
         "status": "goal_met"
       }

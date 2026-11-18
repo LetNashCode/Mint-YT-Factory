@@ -13768,6 +13768,42 @@
       "start": 2781.25,
       "reason": "The video features an interview with George Lucas Alberto, a cultural figure from Bonaire, but this person is entirely different from the famous American filmmaker George Lucas targeted by the biography narration.",
       "reviewed_at": 1795009681.0137398
+    },
+    "f8ed84ad4680b885cf7b45ea": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "source_url": "https://archive.org/details/bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "person": "George Lucas",
+      "start": 441.91,
+      "reason": "The sampled frames show an interviewer talking to an unidentified interviewee on a red carpet. George Lucas is mentioned in the video metadata, but he is not visible in any of the frames, making this segment unusable for depicting George Lucas.",
+      "reviewed_at": 1795029651.120212
+    },
+    "e67d20fc02795ab71c0307af": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "source_url": "https://archive.org/details/bliptv-20131014-234109-Blacktreetv-SpikeLeeGeorgeLucasOnTheRedCarpetForREDTAILSNYCPrem591",
+      "person": "George Lucas",
+      "start": 478.32,
+      "reason": "George Lucas is clearly visible in the first frames being interviewed on a red carpet/event setting, providing biographical illustration footage for a video about him.",
+      "reviewed_at": 1795029663.2556572
+    },
+    "1adf5e1148209efc820099e4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FUHIKUBO-DIG-HERENSIA-2010-011",
+      "source_url": "https://archive.org/details/FUHIKUBO-DIG-HERENSIA-2010-011",
+      "person": "George Lucas",
+      "start": 3033.64,
+      "reason": "The footage shows an interview with an older woman and an interviewer in Bonaire, but this is a different person sharing the name 'George Lucas Alberto' (local historical figure), not the American filmmaker George Lucas.",
+      "reviewed_at": 1795029736.7228084
+    },
+    "d9e14febd22402f2f3fab13e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FUHIKUBO-DIG-HERENSIA-2010-011",
+      "source_url": "https://archive.org/details/FUHIKUBO-DIG-HERENSIA-2010-011",
+      "person": "George Lucas",
+      "start": 3286.03,
+      "reason": "The sampled frames show a title card and credits for an unrelated local historical documentary ('Herensia' in Bonaire) featuring George Lucas Alberto, with no connection to the American filmmaker George Lucas.",
+      "reviewed_at": 1795029747.7127
     }
   }
 }

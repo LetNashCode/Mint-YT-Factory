@@ -18433,68 +18433,6 @@
         "identity_score": 13.0,
         "archival_signal": 2
       },
-      "start": 1022.26,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7.0,
-        "reason": "George Lucas is clearly visible and identifiable sitting on stage during an interview discussion, making this usable as biographical illustration footage despite being from a 2012 panel conversation.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "43e0959b149ffc8c35acffe0183d0afd18ac594f0a2a4cedfad6bd16f5389d4f",
-      "reviewed_at": 1794695207.1623971
-    },
-    {
-      "person": "George Lucas",
-      "source": {
-        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
-        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
-        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "runtime": "00:31:43",
-        "direct_subject": true,
-        "duration_hint": 1903.2,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 295.65,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video features real archival footage of George Lucas participating in a stage conversation at the Aspen Institute in 2012, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "eb45e6e1475cdc6c0e11d72a4027e657dd30bfeb7cfdb417662456a41790687f",
-      "reviewed_at": 1794695244.2523348
-    },
-    {
-      "person": "George Lucas",
-      "source": {
-        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
-        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
-        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "runtime": "00:31:43",
-        "direct_subject": true,
-        "duration_hint": 1903.2,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
       "start": 440.97,
       "length": 8.0,
       "verification": {
@@ -18604,6 +18542,37 @@
     {
       "person": "George Lucas",
       "source": {
+        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
+        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
+        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "runtime": "00:31:43",
+        "direct_subject": true,
+        "duration_hint": 1903.2,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 1022.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "The footage features George Lucas participating in an on-stage conversation/interview, making it valid biographical illustration of his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0e8def9a2da84df7738271229da85ea945877b61a0a5b969e7f6b7365f4f72ac",
+      "reviewed_at": 1795029668.5177126
+    },
+    {
+      "person": "George Lucas",
+      "source": {
         "id": "archive:g4tv.com-video27845",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/g4tv.com-video27845/as20080814_swijc_georgelucasinterview_flv.mp4",
@@ -18628,12 +18597,43 @@
         "person_visible": true,
         "real_footage": true,
         "usable": true,
-        "relevance": 7,
-        "reason": "The segment includes genuine interview footage featuring George Lucas talking about Star Wars: The Clone Wars, mixed with animation clips from the show, making it useful as biographical illustration.",
+        "relevance": 8,
+        "reason": "The segment features genuine archival interview footage of George Lucas discussing Star Wars: The Clone Wars, making it valid biographical illustration material.",
         "usage": "biographical_illustration"
       },
-      "review_key": "038bd0b916095104774f883f91dc56d0c34de1cbfb2121a5fefd4f22dca570d8",
-      "reviewed_at": 1794994843.194583
+      "review_key": "f8d3d2c7379a45f267a4e17df1b1e2c68e499fe7de6e9fcbe340aba70533579e",
+      "reviewed_at": 1795029752.7124221
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
+        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
+        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "runtime": "00:31:43",
+        "direct_subject": true,
+        "duration_hint": 1903.2,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 295.65,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real archival footage of George Lucas participating in a panel discussion/interview alongside Michael Eisner. George Lucas is clearly visible and identifiable throughout the sampled frames, making it suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "eee1fefd226ab168c2c4e97dbbe6c648453883d04de6f432c5d2a5192a8d0917",
+      "reviewed_at": 1795029761.280184
     }
   ]
 }

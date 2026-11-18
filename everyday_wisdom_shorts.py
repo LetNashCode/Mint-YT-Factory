@@ -23,17 +23,16 @@ VIDEO_DIR.mkdir(parents=True, exist_ok=True)
 
 PEXELS_URL = "https://api.pexels.com/videos/search"
 # Keep Everyday Wisdom on the same Gemini model as Publish Shorts, but isolated to this workflow.
-MODEL = os.getenv("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
+MODEL = os.getenv("MINT_GEMINI_MODEL", "gemini-3.8-flash")
 MODEL_CHAIN = tuple(dict.fromkeys(
     name.strip() for name in (
         MODEL,
-        os.getenv("MINT_GEMINI_FALLBACK_MODEL", "gemini-3.8-flash"),
+        os.getenv("MINT_GEMINI_FALLBACK_MODEL", "gemini-3.5-flash-lite"),
         os.getenv("MINT_GEMINI_TERTIARY_MODEL", "gemini-3.6-flash"),
-        os.getenv("MINT_GEMINI_QUATERNARY_MODEL", "gemini-3.1-pro-preview"),
     ) if name and name.strip()
 ))
 VOICE = os.getenv("WISDOM_KOKORO_VOICE", "af_heart")
-TARGET_SECONDS = 47.0
+TARGET_SECONDS = 45.0
 MIN_NARRATION_WORDS = 78
 MAX_NARRATION_WORDS = 85
 MAX_KOKORO_PHONEMES = 510
@@ -52,7 +51,8 @@ def client():
     key = os.getenv("GEMINI_API_KEY", "").strip()
     if not key:
         raise RuntimeError("GEMINI_API_KEY is missing")
-    return genai.Client(api_key=key)
+    # Pin Gemini 3.x GenerateContent requests to the supported v1beta endpoint.
+    return genai.Client(api_key=key, http_options={"api_version": "v1beta"})
 
 def normalize_topic(value):
     value = re.sub(r"[^a-z0-9\s]", " ", str(value or "").lower())
@@ -572,7 +572,7 @@ def synthesize(text, output):
 
     # Match the shared workflows: pronunciation normalization, canonical
     # full-text Kokoro API, shared WAV processing, adaptive speed handling,
-    # and the same final MP3 encoding. Keep Wisdom's 47s ceiling and do not
+    # and the same final MP3 encoding. Keep Wisdom's 45s ceiling and do not
     # add end padding; no chunk files, crossfades, or silence compression.
     voice_config = {
         "provider": "kokoro",
@@ -582,7 +582,7 @@ def synthesize(text, output):
     }
     print(
         "Wisdom TTS: using shared tts.synthesize_narration "
-        "| provider=kokoro | voice=" + VOICE + " | target=47.00s"
+        "| provider=kokoro | voice=" + VOICE + " | target=45.00s"
     )
     synthesize_narration(
         source,
@@ -590,6 +590,7 @@ def synthesize(text, output):
         str(output),
         target_duration=TARGET_SECONDS,
         end_padding_seconds=0,
+        preserve_silence=True,
     )
 
     # QA the actual encoded MP3 after decoding it, not only Kokoro's raw WAV.
@@ -1208,7 +1209,7 @@ def main():
     audio = RUN_ROOT / "narration.wav"
     duration = synthesize(story["narration"], audio)
     if duration > TARGET_SECONDS:
-        raise RuntimeError(f"Narration exceeds 40-second target after synthesis: {duration:.2f}s")
+        raise RuntimeError(f"Narration exceeds 45-second target after synthesis: {duration:.2f}s")
     print(f"Narration ready: {duration:.2f}s")
 
     clips = download_stock(story["visual_queries"], duration)

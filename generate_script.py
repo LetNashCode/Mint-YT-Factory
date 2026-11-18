@@ -22,11 +22,12 @@ from google import genai
 from google.genai import types
 from publish_short_intelligence import score_hook
 
-MODEL_NAME = "gemini-flash-lite-latest"
+MODEL_NAME = os.getenv("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
+REQUEST_TIMEOUT_MS = int(os.getenv("MINT_GEMINI_REQUEST_TIMEOUT_MS", "90000"))
 SCENE_COUNT = 6
 VISUALS_PER_SCENE = 2
 SCENE_DURATIONS = [3, 5, 7, 7, 8, 8]
-MAX_ATTEMPTS = 5
+MAX_ATTEMPTS = 4
 
 CAMERAS = {"close_up", "medium", "wide", "macro", "top_down", "side", "aerial", "orbit"}
 ANIMATIONS = {"zoom_in", "zoom_out", "pan_left", "pan_right", "rotate", "parallax", "highlight", "hold"}
@@ -1052,7 +1053,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
     if not topic:
         raise RuntimeError("Topic is empty.")
 
-    client = genai.Client(api_key=_api_key())
+    client = genai.Client(api_key=_api_key(), http_options=types.HttpOptions(timeout=REQUEST_TIMEOUT_MS))
     last_error = None
     retry_feedback = extra_feedback
     try:

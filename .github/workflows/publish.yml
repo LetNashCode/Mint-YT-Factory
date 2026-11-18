@@ -75,10 +75,14 @@ jobs:
           set -euo pipefail
           python - <<'PY'
           import whisper, torch, moviepy, yaml, google.genai, ffmpeg, pytesseract, requests, soundfile, kokoro, os, stock_search
+          from generate_script.entertainment import MODEL_CHAIN
           expected_model = os.environ.get("MINT_GEMINI_MODEL", "gemini-3.5-flash-lite")
           assert stock_search.GEMINI_MODEL == expected_model, f"Stock Gemini model override mismatch: {stock_search.GEMINI_MODEL!r} != {expected_model!r}"
+          assert "gemini-3.1-pro-preview" not in MODEL_CHAIN, f"Retired Gemini model remains in script chain: {MODEL_CHAIN!r}"
+          assert all(MODEL_CHAIN), f"Empty Gemini model in script chain: {MODEL_CHAIN!r}"
           print("Python environment OK")
           print("Stock Gemini model routing:", stock_search.GEMINI_MODEL)
+          print("Publish script model chain:", " -> ".join(MODEL_CHAIN))
           print("Torch:", torch.__version__)
           print("CUDA available:", torch.cuda.is_available())
           print("Tesseract:", pytesseract.get_tesseract_version())

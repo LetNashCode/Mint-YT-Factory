@@ -3480,48 +3480,12 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do blue jeans fade at knees",
-    "normalized": "why do blue jeans fade at knees",
+    "topic": "Why do coffee stirs float upright",
+    "normalized": "why do coffee stirs float upright",
     "workflow": "publish",
     "status": "reserved",
-    "reserved_at": 1794717610,
-    "recorded_at": 1794717610,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do zipper pulls jingle softly",
-    "normalized": "why do zipper pulls jingle softly",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794754668,
-    "recorded_at": 1794754668,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do car tires make slapping sounds",
-    "normalized": "why do car tires make slapping sounds",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794770944,
-    "recorded_at": 1794770944,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do chalkboards squeak horribly loud",
-    "normalized": "why do chalkboards squeak horribly loud",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794803776,
-    "recorded_at": 1794803776,
+    "reserved_at": 1794980883,
+    "recorded_at": 1794980883,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

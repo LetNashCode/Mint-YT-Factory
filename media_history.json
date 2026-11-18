@@ -20939,6 +20939,106 @@
       "shot": 2,
       "query": "zipper pulls jingle keeping your jamming",
       "recorded_at": 1794755183
+    },
+    {
+      "asset_key": "pexels:video:39584329",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39584329/16871763_720_1280_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "coffee stirs drop plastic stirrer",
+      "recorded_at": 1794981255
+    },
+    {
+      "asset_key": "pexels:video:40422378",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40422378/17272983_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "coffee stirs refuses behave stirrer popping",
+      "recorded_at": 1794981256
+    },
+    {
+      "asset_key": "pexels:video:6890262",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6890262/6890262-hd_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "coffee stirs instead tipping over floating",
+      "recorded_at": 1794981258
+    },
+    {
+      "asset_key": "pixabay:video:50959",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/09/27/50959-462807798_medium.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "coffee stirs here secret thin stirrer",
+      "recorded_at": 1794981260
+    },
+    {
+      "asset_key": "pexels:video:27738691",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/27738691/12214975_720_1280_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "coffee stirs molded tiny hollow tubes",
+      "recorded_at": 1794981262
+    },
+    {
+      "asset_key": "pixabay:video:81175",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/07/12/81175-575252148_medium.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "coffee stirs instant you plunge into",
+      "recorded_at": 1794981263
+    },
+    {
+      "asset_key": "pixabay:video:46989",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/08/12/46989-449623829_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "coffee stirs hot liquid rushes into",
+      "recorded_at": 1794981264
+    },
+    {
+      "asset_key": "pexels:video:39611012",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39611012/16883322_720_1280_60fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "coffee stirs heat expands trapped air",
+      "recorded_at": 1794981266
+    },
+    {
+      "asset_key": "pexels:video:34777714",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34777714/14743882_720_1280_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "coffee stirs turning upper half stirrer",
+      "recorded_at": 1794981267
+    },
+    {
+      "asset_key": "pexels:video:39657069",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39657069/16905588_720_1280_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "coffee stirs liquid-filled bottom acts like",
+      "recorded_at": 1794981268
     }
   ]
 }

@@ -1170,3 +1170,48 @@ def test_source_is_blocked_after_rejections_even_after_one_accepted_clip(monkeyp
     # One accepted clip plus four consecutive rejected clips must block the source
     # instead of allowing an unbounded verifier loop on the same recording.
     assert len(calls) == 5
+
+def test_verifier_recovers_from_malformed_primary_and_fallback_json(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+    monkeypatch.setenv("MINT_GEMINI_MODEL", "gemini-primary-test")
+    monkeypatch.setenv("STORY_GEMINI_FALLBACK_MODEL", "gemini-fallback-test")
+    monkeypatch.setenv("MINT_GEMINI_TERTIARY_MODEL", "gemini-tertiary-test")
+    monkeypatch.setenv("STORY_GEMINI_FALLBACK_RETRIES", "1")
+    monkeypatch.setenv("STORY_GEMINI_REQUEST_TIMEOUT", "15")
+    monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
+
+    class Response:
+        def __init__(self, payload):
+            self.status_code = 200
+            self._payload = payload
+        def json(self):
+            return self._payload
+        def raise_for_status(self):
+            return None
+
+    malformed_empty = {"candidates": []}
+    malformed_text = {"candidates": [{"content": {"parts": [{"text": "not-json"}]}}]}
+    good_payload = {"candidates": [{"content": {"parts": [{"text": json.dumps(GOOD)}]}}]}
+    responses = [Response(malformed_empty), Response(malformed_text), Response(good_payload)]
+    urls = []
+
+    def post(url, **kwargs):
+        urls.append(url)
+        return responses.pop(0)
+
+    monkeypatch.setattr(media.requests, "post", post)
+    monkeypatch.setattr(media.time, "sleep", lambda *_args: None)
+
+    result = media.verify(
+        "Nelson Mandela",
+        {"narration": "A biography moment"},
+        candidate(),
+        ["a", "b", "c"],
+    )
+
+    assert result == GOOD
+    assert len(urls) == 3
+    assert "gemini-primary-test" in urls[0]
+    assert "gemini-fallback-test" in urls[1]
+    assert "gemini-fallback-test" in urls[2]

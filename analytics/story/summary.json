@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-19T14:19:13.012124+00:00",
-  "refresh_attempted_at": "2026-11-19T14:19:13.012124+00:00",
+  "generated_at": "2026-11-19T19:31:46.008470+00:00",
+  "refresh_attempted_at": "2026-11-19T19:31:46.008470+00:00",
   "refresh_status": "success",
   "video_count": 41,
   "optimization_ready": true,
@@ -8,12 +8,12 @@
   "advanced_metrics_videos": 41,
   "reason": "",
   "totals": {
-    "views": 13789,
+    "views": 13792,
     "likes": 290,
     "comments": 8
   },
   "averages": {
-    "views": 336.32,
+    "views": 336.39,
     "likes": 7.07,
     "comments": 0.2,
     "average_view_percentage": 65.88,
@@ -67,7 +67,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 1225,
+      "views": 1226,
       "views_after_24h": 1224,
       "views_after_7d": 1224,
       "likes": 44,
@@ -77,7 +77,7 @@
       "average_view_percentage": 44.54,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7551
+      "engagement_rate": 3.752
     },
     {
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
@@ -271,7 +271,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 720,
-      "views_after_24h": 188,
+      "views_after_24h": 286,
       "views_after_7d": 719,
       "likes": 8,
       "comments": 1,
@@ -359,7 +359,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 1225,
+      "views": 1226,
       "views_after_24h": 1224,
       "views_after_7d": 1224,
       "likes": 44,
@@ -369,7 +369,7 @@
       "average_view_percentage": 44.54,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7551
+      "engagement_rate": 3.752
     },
     {
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
@@ -563,7 +563,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 720,
-      "views_after_24h": 188,
+      "views_after_24h": 286,
       "views_after_7d": 719,
       "likes": 8,
       "comments": 1,
@@ -736,7 +736,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 255,
+      "views": 256,
       "views_after_24h": 249,
       "views_after_7d": 250,
       "likes": 3,
@@ -746,7 +746,7 @@
       "average_view_percentage": 62.71,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.1765
+      "engagement_rate": 1.1719
     },
     {
       "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
@@ -824,7 +824,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 141,
-      "views_after_24h": 117,
+      "views_after_24h": 127,
       "views_after_7d": 141,
       "likes": 1,
       "comments": 0,
@@ -1055,9 +1055,9 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 67,
+      "views": 68,
       "views_after_24h": 64,
-      "views_after_7d": null,
+      "views_after_7d": 68,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -1065,7 +1065,7 @@
       "average_view_percentage": 53.57999999999999,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.4925
+      "engagement_rate": 1.4706
     },
     {
       "topic": "Sylvester Stallone: Writing the script for Rocky while living in extreme poverty and refusing to sell it unless he played the lead role.",
@@ -1317,8 +1317,8 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 25,
-      "views_after_24h": 21,
-      "views_after_7d": 21,
+      "views_after_24h": 22,
+      "views_after_7d": 22,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -1520,7 +1520,7 @@
         "average_view_percentage": 24.88,
         "average_view_duration": 11.0,
         "views": 23,
-        "age_hours": 451.1,
+        "age_hours": 456.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1532,7 +1532,7 @@
         "average_view_percentage": 26.56,
         "average_view_duration": 10.0,
         "views": 16,
-        "age_hours": 546.4,
+        "age_hours": 551.7,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1544,7 +1544,7 @@
         "average_view_percentage": 28.13,
         "average_view_duration": 12.0,
         "views": 194,
-        "age_hours": 879.1,
+        "age_hours": 884.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1556,7 +1556,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 568.8,
+        "age_hours": 574.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1568,7 +1568,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 107,
-        "age_hours": 667.2,
+        "age_hours": 672.4,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1580,7 +1580,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1622.8,
+        "age_hours": 1628.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1592,7 +1592,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1647.9,
+        "age_hours": 1653.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1604,7 +1604,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 764.8,
+        "age_hours": 770.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1616,7 +1616,7 @@
         "average_view_percentage": 40.42,
         "average_view_duration": 13.0,
         "views": 296,
-        "age_hours": 738.3,
+        "age_hours": 743.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1628,7 +1628,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1650.3,
+        "age_hours": 1655.5,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1642,7 +1642,7 @@
         "average_view_percentage": 597.81,
         "average_view_duration": 221.0,
         "views": 109,
-        "age_hours": 475.8,
+        "age_hours": 481.0,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1654,7 +1654,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 861.9,
+        "age_hours": 867.1,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1666,7 +1666,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 933.0,
+        "age_hours": 938.3,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1678,7 +1678,7 @@
         "average_view_percentage": 81.18,
         "average_view_duration": 30.0,
         "views": 11,
-        "age_hours": 549.2,
+        "age_hours": 554.4,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1690,7 +1690,7 @@
         "average_view_percentage": 78.49,
         "average_view_duration": 32.0,
         "views": 1430,
-        "age_hours": 117.1,
+        "age_hours": 122.3,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1702,7 +1702,7 @@
         "average_view_percentage": 78.09,
         "average_view_duration": 29.0,
         "views": 66,
-        "age_hours": 771.8,
+        "age_hours": 777.0,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1714,7 +1714,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 963.7,
+        "age_hours": 968.9,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1726,7 +1726,7 @@
         "average_view_percentage": 70.93,
         "average_view_duration": 26.0,
         "views": 25,
-        "age_hours": 570.0,
+        "age_hours": 575.3,
         "target_met": true,
         "status": "goal_met"
       }

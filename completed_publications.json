@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789819283",
-    "video_id": "O1G5xgFhPLk",
-    "topic": "Why does a toilet swirl",
-    "completed_at": 1789820532
-  },
-  {
     "workdir": "output/1789836242",
     "video_id": "m7BbEPN1154",
     "topic": "Why sinks drain without swirling",
@@ -598,5 +592,11 @@
     "video_id": "7yS8fe935ok",
     "topic": "Why do coffee stirs float upright",
     "completed_at": 1794982479
+  },
+  {
+    "workdir": "output/1795107069",
+    "video_id": "uDgL6ZuVztE",
+    "topic": "Why do leather shoes squeak softly",
+    "completed_at": 1795109792
   }
 ]

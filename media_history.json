@@ -21039,6 +21039,116 @@
       "shot": 1,
       "query": "coffee stirs liquid-filled bottom acts like",
       "recorded_at": 1794981268
+    },
+    {
+      "asset_key": "pexels:video:40305015",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40305015/17217669_1280_720_60fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "leather shoes squeak start chirping like angry",
+      "recorded_at": 1795107308
+    },
+    {
+      "asset_key": "pexels:video:40728669",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40728669/17397934_720_1280_60fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "leather shoes squeak you wipe soles but",
+      "recorded_at": 1795107359
+    },
+    {
+      "asset_key": "pexels:video:40305012",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40305012/17217607_1280_720_60fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "leather shoes squeak sound coming inside shoe",
+      "recorded_at": 1795107378
+    },
+    {
+      "asset_key": "pexels:video:8994744",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8994744/8994744-hd_720_1280_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "leather shoes squeak aren one",
+      "recorded_at": 1795107391
+    },
+    {
+      "asset_key": "pexels:video:40318156",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40318156/17222756_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "leather shoes squeak they built stacked layers",
+      "recorded_at": 1795107404
+    },
+    {
+      "asset_key": "pexels:video:5321384",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5321384/5321384-hd_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "leather shoes squeak every time your step",
+      "recorded_at": 1795107998
+    },
+    {
+      "asset_key": "pexels:video:8865208",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8865208/8865208-hd_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "leather shoes squeak rub against each other",
+      "recorded_at": 1795108010
+    },
+    {
+      "asset_key": "pexels:video:40318152",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40318152/17222860_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "leather shoes squeak two dry smooth surfaces",
+      "recorded_at": 1795108078
+    },
+    {
+      "asset_key": "pexels:video:40318161",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40318161/17222598_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "leather shoes squeak micro-friction playing tiny squeaky",
+      "recorded_at": 1795108092
+    },
+    {
+      "asset_key": "pexels:video:7709461",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7709461/7709461-hd_1366_720_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "leather shoes squeak your aren broken",
+      "recorded_at": 1795108097
+    },
+    {
+      "asset_key": "pexels:video:6548931",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6548931/6548931-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "leather shoes squeak tiny sprinkle powder between",
+      "recorded_at": 1795108120
     }
   ]
 }

@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do coffee stirs float upright",
-    "normalized": "why do coffee stirs float upright",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1794980883,
-    "recorded_at": 1794980883,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do toast crumbs scatter everywhere",
     "normalized": "why do toast crumbs scatter everywhere",
     "workflow": "publish",
@@ -3534,6 +3522,18 @@
     "status": "reserved",
     "reserved_at": 1795067256,
     "recorded_at": 1795067256,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do leather shoes squeak softly",
+    "normalized": "why do leather shoes squeak softly",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795106793,
+    "recorded_at": 1795106793,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

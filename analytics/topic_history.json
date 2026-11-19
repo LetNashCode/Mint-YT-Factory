@@ -3480,42 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do toast crumbs scatter everywhere",
-    "normalized": "why do toast crumbs scatter everywhere",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795021064,
-    "recorded_at": 1795021064,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do ice cream cones drip fast",
-    "normalized": "why do ice cream cones drip fast",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795034594,
-    "recorded_at": 1795034594,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why does a screen attract fingerprints",
-    "normalized": "why does a screen attract fingerprints",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795037663,
-    "recorded_at": 1795037663,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do wet clothes cling tight",
     "normalized": "why do wet clothes cling tight",
     "workflow": "publish",
@@ -3534,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1795106793,
     "recorded_at": 1795106793,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do plastic grocery bags tangle together",
+    "normalized": "why do plastic grocery bag tangle together",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795124730,
+    "recorded_at": 1795124730,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

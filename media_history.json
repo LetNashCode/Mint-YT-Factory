@@ -21149,6 +21149,126 @@
       "shot": 2,
       "query": "leather shoes squeak tiny sprinkle powder between",
       "recorded_at": 1795108120
+    },
+    {
+      "asset_key": "pexels:video:3755345",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3755345/3755345-hd_1366_720_50fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "plastic grocery bags toss smooth",
+      "recorded_at": 1795125263
+    },
+    {
+      "asset_key": "pexels:video:34988876",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34988876/14823497_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "plastic grocery bags they magically knot themselves",
+      "recorded_at": 1795125272
+    },
+    {
+      "asset_key": "pexels:video:39221980",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39221980/16690548_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "plastic grocery bags feels like they secretly",
+      "recorded_at": 1795125277
+    },
+    {
+      "asset_key": "pexels:video:39240098",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39240098/16698823_1280_720_60fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "plastic grocery bags but nobody sneaking into",
+      "recorded_at": 1795125280
+    },
+    {
+      "asset_key": "pexels:video:7152397",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7152397/7152397-hd_720_1280_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "plastic grocery bags magic static electricity sticky",
+      "recorded_at": 1795125284
+    },
+    {
+      "asset_key": "pexels:video:10039847",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10039847/10039847-hd_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "plastic grocery bags smooth easily steals",
+      "recorded_at": 1795125287
+    },
+    {
+      "asset_key": "pexels:video:9323305",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9323305/9323305-hd_720_1280_24fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "plastic grocery bags crinkled handles act like",
+      "recorded_at": 1795125291
+    },
+    {
+      "asset_key": "pexels:video:5381646",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5381646/5381646-hd_1366_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "plastic grocery bags static pulls lightweight",
+      "recorded_at": 1795125294
+    },
+    {
+      "asset_key": "pexels:video:34322135",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34322135/14540754_1280_720_50fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "plastic grocery bags you reach grab one",
+      "recorded_at": 1795125297
+    },
+    {
+      "asset_key": "pexels:video:39240107",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39240107/16698816_1280_720_60fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "plastic grocery bags its charged armhooks drag",
+      "recorded_at": 1795125300
+    },
+    {
+      "asset_key": "pexels:video:33942093",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/33942093/14402778_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "plastic grocery bags you not fighting stubborn",
+      "recorded_at": 1795125303
+    },
+    {
+      "asset_key": "pexels:video:8657801",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8657801/8657801-hd_1366_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "plastic grocery bags you pulling microscopic zipper",
+      "recorded_at": 1795125306
     }
   ]
 }

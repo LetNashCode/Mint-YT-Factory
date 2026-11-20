@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789888964",
-    "video_id": "1jydj_W6f5E",
-    "topic": "Why toilet water flushes in different directions",
-    "completed_at": 1789891216
-  },
-  {
     "workdir": "output/1789907674",
     "video_id": "KyPsiJLNwv4",
     "topic": "Why does a spoon feel colder",
@@ -598,5 +592,11 @@
     "video_id": "UTcsOOXIPJo",
     "topic": "Why do plastic grocery bags tangle together",
     "completed_at": 1795126241
+  },
+  {
+    "workdir": "output/1795153014",
+    "video_id": "Cd4w4zV41OY",
+    "topic": "Why do paper receipts fade in light",
+    "completed_at": 1795154496
   }
 ]

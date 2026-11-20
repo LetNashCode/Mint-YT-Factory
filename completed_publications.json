@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789907674",
-    "video_id": "KyPsiJLNwv4",
-    "topic": "Why does a spoon feel colder",
-    "completed_at": 1789908891
-  },
-  {
     "workdir": "output/1789923516",
     "video_id": "Lk9PwfWHZmQ",
     "topic": "Why does soap get slippery",
@@ -598,5 +592,11 @@
     "video_id": "Cd4w4zV41OY",
     "topic": "Why do paper receipts fade in light",
     "completed_at": 1795154496
+  },
+  {
+    "workdir": "output/1795192237",
+    "video_id": "9CbOSx4gtps",
+    "topic": "Why do desk drawers stick when pulled",
+    "completed_at": 1795193204
   }
 ]

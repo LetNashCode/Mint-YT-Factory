@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do wet clothes cling tight",
-    "normalized": "why do wet clothes cling tight",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795067256,
-    "recorded_at": 1795067256,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do leather shoes squeak softly",
     "normalized": "why do leather shoes squeak softly",
     "workflow": "publish",
@@ -3522,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1795152925,
     "recorded_at": 1795152925,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do desk drawers stick when pulled",
+    "normalized": "why do desk drawers stick when pulled",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795191731,
+    "recorded_at": 1795191731,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

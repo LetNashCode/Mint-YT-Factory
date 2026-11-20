@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do leather shoes squeak softly",
-    "normalized": "why do leather shoes squeak softly",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795106793,
-    "recorded_at": 1795106793,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do plastic grocery bags tangle together",
     "normalized": "why do plastic grocery bag tangle together",
     "workflow": "publish",
@@ -3522,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1795191731,
     "recorded_at": 1795191731,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do car steering wheels feel sticky",
+    "normalized": "why do car steering wheels feel sticky",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795210078,
+    "recorded_at": 1795210078,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

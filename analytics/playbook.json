@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-20T16:46:48.983047+00:00",
-  "video_count": 207,
+  "generated_at": "2026-11-20T21:52:01.960024+00:00",
+  "video_count": 208,
   "learning_sample_size": 177,
   "learning_ready": true,
   "metrics_available": true,
@@ -29,12 +29,12 @@
     "Why do clothes shrink in dryers",
     "Why do metal faucets drip slowly",
     "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
+    "Why do coffee stirs float upright",
     "Why do earbuds tangle in pockets",
     "Why paperclips float on water",
     "Stephen King: The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
     "Why window glass warps reflections",
-    "Why ceiling fans gather dust on top",
-    "Why ice cream gives you brain freeze"
+    "Why ceiling fans gather dust on top"
   ],
   "avoid_topics": [
     "Why do tea bags float",
@@ -48,7 +48,7 @@
     "Why do apples squeak when polished",
     "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive."
   ],
-  "used_topic_count": 207,
+  "used_topic_count": 208,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

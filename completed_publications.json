@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789923516",
-    "video_id": "Lk9PwfWHZmQ",
-    "topic": "Why does soap get slippery",
-    "completed_at": 1789924497
-  },
-  {
     "workdir": "output/1789937358",
     "video_id": "0XJL8KBfy1A",
     "topic": "Why wet fingers wrinkle in water",
@@ -598,5 +592,11 @@
     "video_id": "9CbOSx4gtps",
     "topic": "Why do desk drawers stick when pulled",
     "completed_at": 1795193204
+  },
+  {
+    "workdir": "output/1795210156",
+    "video_id": "YC3JOCDbOj8",
+    "topic": "Why do car steering wheels feel sticky",
+    "completed_at": 1795211517
   }
 ]

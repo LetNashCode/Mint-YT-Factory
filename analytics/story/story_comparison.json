@@ -5,7 +5,7 @@
     "avg_comments": 0.2,
     "avg_shares": 0.02,
     "avg_likes": 7.07,
-    "avg_view_percentage": 65.88
+    "avg_view_percentage": 65.9
   },
   "strange_turning_point": {
     "videos": 10,
@@ -25,7 +25,7 @@
   },
   "rise_from_nothing": {
     "videos": 8,
-    "avg_views": 380.38,
+    "avg_views": 380.5,
     "avg_comments": 0.25,
     "avg_shares": 0.12,
     "avg_likes": 8.25,
@@ -33,11 +33,11 @@
   },
   "one_decision": {
     "videos": 9,
-    "avg_views": 467.33,
+    "avg_views": 467.22,
     "avg_comments": 0.44,
     "avg_shares": 0.0,
     "avg_likes": 9.33,
-    "avg_view_percentage": 50.9
+    "avg_view_percentage": 50.98
   },
   "before_they_were_famous": {
     "videos": 8,

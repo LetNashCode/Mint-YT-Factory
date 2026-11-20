@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-20T14:00:38.943334+00:00",
-  "refresh_attempted_at": "2026-11-20T14:00:38.943334+00:00",
+  "generated_at": "2026-11-20T19:29:44.986445+00:00",
+  "refresh_attempted_at": "2026-11-20T19:29:44.986445+00:00",
   "refresh_status": "success",
   "video_count": 41,
   "optimization_ready": true,
@@ -8,12 +8,12 @@
   "advanced_metrics_videos": 41,
   "reason": "",
   "totals": {
-    "views": 13792,
+    "views": 13791,
     "likes": 290,
     "comments": 8
   },
   "averages": {
-    "views": 336.39,
+    "views": 336.37,
     "likes": 7.07,
     "comments": 0.2,
     "average_view_percentage": 65.9,
@@ -38,7 +38,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 1429,
+      "views": 1428,
       "views_after_24h": 1244,
       "views_after_7d": null,
       "likes": 53,
@@ -48,7 +48,7 @@
       "average_view_percentage": 79.2,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
-      "engagement_rate": 3.8488
+      "engagement_rate": 3.8515
     },
     {
       "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
@@ -271,7 +271,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 720,
-      "views_after_24h": 696,
+      "views_after_24h": 717,
       "views_after_7d": 719,
       "likes": 8,
       "comments": 1,
@@ -330,7 +330,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 1429,
+      "views": 1428,
       "views_after_24h": 1244,
       "views_after_7d": null,
       "likes": 53,
@@ -340,7 +340,7 @@
       "average_view_percentage": 79.2,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
-      "engagement_rate": 3.8488
+      "engagement_rate": 3.8515
     },
     {
       "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
@@ -563,7 +563,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 720,
-      "views_after_24h": 696,
+      "views_after_24h": 717,
       "views_after_7d": 719,
       "likes": 8,
       "comments": 1,
@@ -911,7 +911,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 109,
-      "views_after_24h": 107,
+      "views_after_24h": 108,
       "views_after_7d": 109,
       "likes": 0,
       "comments": 0,
@@ -1520,7 +1520,7 @@
         "average_view_percentage": 24.88,
         "average_view_duration": 11.0,
         "views": 23,
-        "age_hours": 474.8,
+        "age_hours": 480.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1532,7 +1532,7 @@
         "average_view_percentage": 26.56,
         "average_view_duration": 10.0,
         "views": 16,
-        "age_hours": 570.1,
+        "age_hours": 575.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1544,7 +1544,7 @@
         "average_view_percentage": 28.13,
         "average_view_duration": 12.0,
         "views": 194,
-        "age_hours": 902.8,
+        "age_hours": 908.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1556,7 +1556,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 592.5,
+        "age_hours": 598.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1568,7 +1568,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 107,
-        "age_hours": 690.8,
+        "age_hours": 696.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1580,7 +1580,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1646.5,
+        "age_hours": 1652.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1592,7 +1592,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1671.5,
+        "age_hours": 1677.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1604,7 +1604,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 788.4,
+        "age_hours": 793.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1616,7 +1616,7 @@
         "average_view_percentage": 40.42,
         "average_view_duration": 13.0,
         "views": 296,
-        "age_hours": 762.0,
+        "age_hours": 767.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1628,7 +1628,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1674.0,
+        "age_hours": 1679.5,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1642,7 +1642,7 @@
         "average_view_percentage": 597.81,
         "average_view_duration": 221.0,
         "views": 109,
-        "age_hours": 499.5,
+        "age_hours": 505.0,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1654,7 +1654,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 885.6,
+        "age_hours": 891.0,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1666,7 +1666,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 956.7,
+        "age_hours": 962.2,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1678,7 +1678,7 @@
         "average_view_percentage": 81.18,
         "average_view_duration": 30.0,
         "views": 11,
-        "age_hours": 572.9,
+        "age_hours": 578.3,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1689,8 +1689,8 @@
         "workflow": "story",
         "average_view_percentage": 79.2,
         "average_view_duration": 33.0,
-        "views": 1429,
-        "age_hours": 140.8,
+        "views": 1428,
+        "age_hours": 146.3,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1702,7 +1702,7 @@
         "average_view_percentage": 78.09,
         "average_view_duration": 29.0,
         "views": 66,
-        "age_hours": 795.4,
+        "age_hours": 800.9,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1714,7 +1714,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 987.4,
+        "age_hours": 992.9,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1726,7 +1726,7 @@
         "average_view_percentage": 70.93,
         "average_view_duration": 26.0,
         "views": 25,
-        "age_hours": 593.7,
+        "age_hours": 599.2,
         "target_met": true,
         "status": "goal_met"
       }

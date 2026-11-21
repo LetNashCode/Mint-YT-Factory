@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do plastic grocery bags tangle together",
-    "normalized": "why do plastic grocery bag tangle together",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795124730,
-    "recorded_at": 1795124730,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do paper receipts fade in light",
     "normalized": "why do paper receipts fade in light",
     "workflow": "publish",
@@ -3522,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1795210078,
     "recorded_at": 1795210078,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do bedsheets twist in sleep",
+    "normalized": "why do bedsheets twist in sleep",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795238956,
+    "recorded_at": 1795238956,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

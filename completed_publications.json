@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789937358",
-    "video_id": "0XJL8KBfy1A",
-    "topic": "Why wet fingers wrinkle in water",
-    "completed_at": 1789938930
-  },
-  {
     "workdir": "output/1789941819",
     "video_id": "5EpvRbTwZgE",
     "topic": "Why do sponges hold water",
@@ -598,5 +592,11 @@
     "video_id": "YC3JOCDbOj8",
     "topic": "Why do car steering wheels feel sticky",
     "completed_at": 1795211517
+  },
+  {
+    "workdir": "output/1795239018",
+    "video_id": "Oexj2QYiATE",
+    "topic": "Why do bedsheets twist in sleep",
+    "completed_at": 1795240423
   }
 ]

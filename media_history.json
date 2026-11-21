@@ -21819,6 +21819,106 @@
       "shot": 1,
       "query": "static electricity shocks moment your hand glides",
       "recorded_at": 1795275499
+    },
+    {
+      "asset_key": "pexels:video:7754476",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7754476/7754476-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "shampoo you wash your hair",
+      "recorded_at": 1795292231
+    },
+    {
+      "asset_key": "pexels:video:6529518",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6529518/6529518-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "shampoo somehow exact strawberry cloud",
+      "recorded_at": 1795292236
+    },
+    {
+      "asset_key": "pexels:video:3996980",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3996980/3996980-hd_1366_720_50fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "shampoo cologne evaporates lunchtime yet",
+      "recorded_at": 1795292243
+    },
+    {
+      "asset_key": "pexels:video:3996969",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3996969/3996969-hd_720_1366_50fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "shampoo scent isn floating around",
+      "recorded_at": 1795292246
+    },
+    {
+      "asset_key": "pexels:video:3996975",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3996975/3996975-hd_1366_720_50fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "shampoo trapped inside microscopic oil",
+      "recorded_at": 1795292252
+    },
+    {
+      "asset_key": "pexels:video:13177212",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/13177212/13177212-hd_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "shampoo water slides right off",
+      "recorded_at": 1795292254
+    },
+    {
+      "asset_key": "pexels:video:3996976",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3996976/3996976-hd_720_1366_50fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "shampoo shampoos engineered heavy base",
+      "recorded_at": 1795292255
+    },
+    {
+      "asset_key": "pexels:video:3996972",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3996972/3996972-hd_1366_720_50fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "shampoo specifically designed stick around",
+      "recorded_at": 1795292256
+    },
+    {
+      "asset_key": "pexels:video:4834394",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4834394/4834394-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "shampoo you basically wearing invisible",
+      "recorded_at": 1795292257
+    },
+    {
+      "asset_key": "pexels:video:8830106",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8830106/8830106-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "shampoo disguised clean hair texture",
+      "recorded_at": 1795292257
     }
   ]
 }

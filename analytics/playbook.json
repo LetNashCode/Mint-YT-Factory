@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-21T16:05:54.219810+00:00",
-  "video_count": 210,
-  "learning_sample_size": 177,
+  "generated_at": "2026-11-21T20:42:02.936758+00:00",
+  "video_count": 211,
+  "learning_sample_size": 179,
   "learning_ready": true,
   "metrics_available": true,
   "comparative_learning_ready": true,
-  "advanced_metrics_videos": 177,
+  "advanced_metrics_videos": 179,
   "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -28,8 +28,8 @@
     "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
     "Why do clothes shrink in dryers",
     "Why do metal faucets drip slowly",
-    "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
     "Why do coffee stirs float upright",
+    "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
     "Why do earbuds tangle in pockets",
     "Why paperclips float on water",
     "Stephen King: The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
@@ -48,7 +48,7 @@
     "Why do apples squeak when polished",
     "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive."
   ],
-  "used_topic_count": 210,
+  "used_topic_count": 211,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

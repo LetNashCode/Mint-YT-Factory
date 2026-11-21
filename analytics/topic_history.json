@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do desk drawers stick when pulled",
-    "normalized": "why do desk drawers stick when pulled",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795191731,
-    "recorded_at": 1795191731,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do car steering wheels feel sticky",
     "normalized": "why do car steering wheels feel sticky",
     "workflow": "publish",
@@ -3522,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1795275179,
     "recorded_at": 1795275179,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why does shampoo smell linger",
+    "normalized": "why does shampoo smell linger",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795292084,
+    "recorded_at": 1795292084,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

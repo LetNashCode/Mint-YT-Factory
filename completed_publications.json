@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789941819",
-    "video_id": "5EpvRbTwZgE",
-    "topic": "Why do sponges hold water",
-    "completed_at": 1789943325
-  },
-  {
     "workdir": "output/1789949316",
     "video_id": "OpAmVrIoqOQ",
     "topic": "Why does an egg shell crack",
@@ -598,5 +592,11 @@
     "video_id": "Oexj2QYiATE",
     "topic": "Why do bedsheets twist in sleep",
     "completed_at": 1795240423
+  },
+  {
+    "workdir": "output/1795275380",
+    "video_id": "xsDKlCTc2RM",
+    "topic": "Why static electricity shocks hit door handles",
+    "completed_at": 1795277149
   }
 ]

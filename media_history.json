@@ -21719,6 +21719,106 @@
       "shot": 2,
       "query": "bedsheets twist sleep turning your peaceful bed",
       "recorded_at": 1795239308
+    },
+    {
+      "asset_key": "pexels:video:10186941",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10186941/10186941-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "static electricity shocks you reach out touch",
+      "recorded_at": 1795275445
+    },
+    {
+      "asset_key": "pexels:video:29874792",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/29874792/12826613_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "static electricity shocks tiny spark stings your",
+      "recorded_at": 1795275453
+    },
+    {
+      "asset_key": "pexels:video:28054511",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/28054511/12292165_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "static electricity shocks you were shuffling across",
+      "recorded_at": 1795275465
+    },
+    {
+      "asset_key": "pexels:video:35046889",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35046889/14846123_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "static electricity shocks every step you take",
+      "recorded_at": 1795275468
+    },
+    {
+      "asset_key": "pexels:video:34907789",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34907789/14788054_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "static electricity shocks collecting them your body",
+      "recorded_at": 1795275477
+    },
+    {
+      "asset_key": "pexels:video:34906545",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34906545/14787671_720_1280_30fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "static electricity shocks your body turns into",
+      "recorded_at": 1795275481
+    },
+    {
+      "asset_key": "pexels:video:35048185",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35048185/14846688_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "static electricity shocks holding thousands restless volts",
+      "recorded_at": 1795275485
+    },
+    {
+      "asset_key": "pexels:video:6738879",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6738879/6738879-hd_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "static electricity shocks air usually keeps charges",
+      "recorded_at": 1795275493
+    },
+    {
+      "asset_key": "pexels:video:6473437",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6473437/6473437-hd_1366_720_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "static electricity shocks but cold brass handle",
+      "recorded_at": 1795275496
+    },
+    {
+      "asset_key": "pexels:video:10186936",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10186936/10186936-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "static electricity shocks moment your hand glides",
+      "recorded_at": 1795275499
     }
   ]
 }

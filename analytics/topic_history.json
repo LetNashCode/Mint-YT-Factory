@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do paper receipts fade in light",
-    "normalized": "why do paper receipts fade in light",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795152925,
-    "recorded_at": 1795152925,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do desk drawers stick when pulled",
     "normalized": "why do desk drawers stick when pulled",
     "workflow": "publish",
@@ -3522,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1795238956,
     "recorded_at": 1795238956,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why static electricity shocks hit door handles",
+    "normalized": "why static electricity shocks hit door handles",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795275179,
+    "recorded_at": 1795275179,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

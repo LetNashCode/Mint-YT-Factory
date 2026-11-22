@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1789993416",
-    "video_id": "m1JXrmNVcnU",
-    "topic": "Why do socks disappear",
-    "completed_at": 1789994466
-  },
-  {
     "workdir": "output/1790014988",
     "video_id": "sYI31oCC-Fw",
     "topic": "Why clothes shrink in dryers",
@@ -598,5 +592,11 @@
     "video_id": "vNu3xrS0S6M",
     "topic": "Why does shampoo smell linger",
     "completed_at": 1795293719
+  },
+  {
+    "workdir": "output/1795323328",
+    "video_id": "iVVk__cOsoE",
+    "topic": "Why do yellow traffic lights feel longer",
+    "completed_at": 1795324690
   }
 ]

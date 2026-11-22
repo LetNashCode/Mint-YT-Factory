@@ -21919,6 +21919,126 @@
       "shot": 2,
       "query": "shampoo disguised clean hair texture",
       "recorded_at": 1795292257
+    },
+    {
+      "asset_key": "pexels:video:17041886",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/17041886/17041886-hd_1280_720_60fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "yellow traffic lights three second glowing",
+      "recorded_at": 1795323383
+    },
+    {
+      "asset_key": "pexels:video:33825909",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/33825909/14356237_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "yellow traffic lights light feels like",
+      "recorded_at": 1795323386
+    },
+    {
+      "asset_key": "pexels:video:39573529",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39573529/16866616_720_1280_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "yellow traffic lights you slam brakes your",
+      "recorded_at": 1795323389
+    },
+    {
+      "asset_key": "pexels:video:15483566",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/15483566/15483566-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "yellow traffic lights every tick clock drags",
+      "recorded_at": 1795323393
+    },
+    {
+      "asset_key": "pexels:video:37252006",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/37252006/15781291_1280_720_60fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "yellow traffic lights your brain shifts into",
+      "recorded_at": 1795323395
+    },
+    {
+      "asset_key": "pexels:video:3999410",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3999410/3999410-hd_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "yellow traffic lights flooding your system adrenaline",
+      "recorded_at": 1795323437
+    },
+    {
+      "asset_key": "pexels:video:6415591",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6415591/6415591-hd_1280_720_50fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "yellow traffic lights think like notebook crammed",
+      "recorded_at": 1795323440
+    },
+    {
+      "asset_key": "pexels:video:30787814",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30787814/13168549_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "yellow traffic lights more details make book",
+      "recorded_at": 1795323444
+    },
+    {
+      "asset_key": "pexels:video:30787610",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30787610/13168505_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "yellow traffic lights clock outside not moving",
+      "recorded_at": 1795323447
+    },
+    {
+      "asset_key": "pexels:video:8088525",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8088525/8088525-hd_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "yellow traffic lights your brain playing back",
+      "recorded_at": 1795323450
+    },
+    {
+      "asset_key": "pexels:video:39488455",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39488455/16821226_1280_720_50fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "yellow traffic lights every second feels stretched",
+      "recorded_at": 1795323452
+    },
+    {
+      "asset_key": "pexels:video:11876030",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/11876030/11876030-hd_720_1280_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "yellow traffic lights remember your mind simply",
+      "recorded_at": 1795323456
     }
   ]
 }

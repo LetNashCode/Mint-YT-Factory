@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-22T13:13:28.513888+00:00",
-  "refresh_attempted_at": "2026-11-22T13:13:28.513888+00:00",
+  "generated_at": "2026-11-22T18:20:05.255473+00:00",
+  "refresh_attempted_at": "2026-11-22T18:20:05.255473+00:00",
   "refresh_status": "success",
   "video_count": 41,
   "optimization_ready": true,
@@ -45,7 +45,7 @@
       "comments": 2,
       "shares": 0,
       "average_view_duration": 33.0,
-      "average_view_percentage": 79.2,
+      "average_view_percentage": 79.17,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
       "engagement_rate": 3.8515
@@ -337,7 +337,7 @@
       "comments": 2,
       "shares": 0,
       "average_view_duration": 33.0,
-      "average_view_percentage": 79.2,
+      "average_view_percentage": 79.17,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
       "engagement_rate": 3.8515
@@ -1375,8 +1375,8 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 24,
-      "views_after_24h": 22,
-      "views_after_7d": 22,
+      "views_after_24h": 23,
+      "views_after_7d": 23,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -1520,7 +1520,7 @@
         "average_view_percentage": 24.88,
         "average_view_duration": 11.0,
         "views": 24,
-        "age_hours": 522.0,
+        "age_hours": 527.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1532,7 +1532,7 @@
         "average_view_percentage": 26.56,
         "average_view_duration": 10.0,
         "views": 16,
-        "age_hours": 617.3,
+        "age_hours": 622.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1544,7 +1544,7 @@
         "average_view_percentage": 28.13,
         "average_view_duration": 12.0,
         "views": 194,
-        "age_hours": 950.0,
+        "age_hours": 955.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1556,7 +1556,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 639.8,
+        "age_hours": 644.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1568,7 +1568,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 107,
-        "age_hours": 738.1,
+        "age_hours": 743.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1580,7 +1580,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1693.7,
+        "age_hours": 1698.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1592,7 +1592,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1718.8,
+        "age_hours": 1723.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1604,7 +1604,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 835.7,
+        "age_hours": 840.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1616,7 +1616,7 @@
         "average_view_percentage": 40.42,
         "average_view_duration": 13.0,
         "views": 296,
-        "age_hours": 809.2,
+        "age_hours": 814.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1628,7 +1628,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1721.2,
+        "age_hours": 1726.3,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1642,7 +1642,7 @@
         "average_view_percentage": 597.81,
         "average_view_duration": 221.0,
         "views": 109,
-        "age_hours": 546.7,
+        "age_hours": 551.8,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1654,7 +1654,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 932.8,
+        "age_hours": 937.9,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1666,7 +1666,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 1003.9,
+        "age_hours": 1009.1,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1678,7 +1678,7 @@
         "average_view_percentage": 81.18,
         "average_view_duration": 30.0,
         "views": 11,
-        "age_hours": 620.1,
+        "age_hours": 625.2,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1687,10 +1687,10 @@
         "title": "The Untold Turning Point in Diana, Princess of Wales's Story",
         "topic": "Diana, Princess of Wales: Deciding to walk through a cleared Angolan minefield in 1997 to force global attention onto the hidden horrors of landmines.",
         "workflow": "story",
-        "average_view_percentage": 79.2,
+        "average_view_percentage": 79.17,
         "average_view_duration": 33.0,
         "views": 1428,
-        "age_hours": 188.0,
+        "age_hours": 193.1,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1702,7 +1702,7 @@
         "average_view_percentage": 74.66,
         "average_view_duration": 28.0,
         "views": 66,
-        "age_hours": 842.7,
+        "age_hours": 847.8,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1714,7 +1714,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 1034.6,
+        "age_hours": 1039.7,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1726,7 +1726,7 @@
         "average_view_percentage": 70.93,
         "average_view_duration": 26.0,
         "views": 25,
-        "age_hours": 641.0,
+        "age_hours": 646.1,
         "target_met": true,
         "status": "goal_met"
       }

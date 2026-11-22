@@ -3480,30 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do bedsheets twist in sleep",
-    "normalized": "why do bedsheets twist in sleep",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795238956,
-    "recorded_at": 1795238956,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why static electricity shocks hit door handles",
-    "normalized": "why static electricity shocks hit door handles",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795275179,
-    "recorded_at": 1795275179,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why does shampoo smell linger",
     "normalized": "why does shampoo smell linger",
     "workflow": "publish",
@@ -3522,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1795323256,
     "recorded_at": 1795323256,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "How do soda bubbles cling to glass",
+    "normalized": "how do soda bubble cling to glass",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795361708,
+    "recorded_at": 1795361708,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

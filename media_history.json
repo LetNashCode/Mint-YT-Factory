@@ -22039,6 +22039,66 @@
       "shot": 2,
       "query": "yellow traffic lights remember your mind simply",
       "recorded_at": 1795323456
+    },
+    {
+      "asset_key": "pexels:video:3557240",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3557240/3557240-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "soda bubbles cling watch little rebels inner",
+      "recorded_at": 1795362811
+    },
+    {
+      "asset_key": "pexels:video:8608630",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8608630/8608630-hd_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "soda bubbles cling your naked eye glass",
+      "recorded_at": 1795362813
+    },
+    {
+      "asset_key": "pexels:video:4178359",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4178359/4178359-hd_1272_720_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "soda bubbles cling but under microscope rugged",
+      "recorded_at": 1795362814
+    },
+    {
+      "asset_key": "pexels:video:10020411",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10020411/10020411-hd_1366_720_30fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "soda bubbles cling watching glass",
+      "recorded_at": 1795362816
+    },
+    {
+      "asset_key": "pixabay:video:3741",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/07/08/3741-174188012_medium.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "soda bubbles cling them anchor nucleation sites",
+      "recorded_at": 1795362818
+    },
+    {
+      "asset_key": "pixabay:video:93286",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/10/25/93286-639372399_medium.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "soda bubbles cling tiny imperfections give gas",
+      "recorded_at": 1795362818
     }
   ]
 }

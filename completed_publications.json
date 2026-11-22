@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1790014988",
-    "video_id": "sYI31oCC-Fw",
-    "topic": "Why clothes shrink in dryers",
-    "completed_at": 1790016351
-  },
-  {
     "workdir": "output/1790016954",
     "video_id": "PiD7mhMb_Y8",
     "topic": "Why popcorn pops into shapes",
@@ -598,5 +592,11 @@
     "video_id": "iVVk__cOsoE",
     "topic": "Why do yellow traffic lights feel longer",
     "completed_at": 1795324690
+  },
+  {
+    "workdir": "output/1795362704",
+    "video_id": "DmXgC-7kU0g",
+    "topic": "How do soda bubbles cling to glass",
+    "completed_at": 1795364096
   }
 ]

@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-22T16:15:00.377199+00:00",
-  "video_count": 213,
-  "learning_sample_size": 179,
+  "generated_at": "2026-11-22T20:45:43.998081+00:00",
+  "video_count": 214,
+  "learning_sample_size": 181,
   "learning_ready": true,
   "metrics_available": true,
   "comparative_learning_ready": true,
-  "advanced_metrics_videos": 179,
+  "advanced_metrics_videos": 181,
   "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -26,6 +26,7 @@
   "creative_strategy_results": [],
   "winning_topics": [
     "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
+    "Why do desk drawers stick when pulled",
     "Why do clothes shrink in dryers",
     "Why do metal faucets drip slowly",
     "Why do coffee stirs float upright",
@@ -33,8 +34,7 @@
     "Why do earbuds tangle in pockets",
     "Why paperclips float on water",
     "Stephen King: The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
-    "Why window glass warps reflections",
-    "Why ceiling fans gather dust on top"
+    "Why window glass warps reflections"
   ],
   "avoid_topics": [
     "Why do tea bags float",
@@ -48,7 +48,7 @@
     "Why do apples squeak when polished",
     "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive."
   ],
-  "used_topic_count": 213,
+  "used_topic_count": 214,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

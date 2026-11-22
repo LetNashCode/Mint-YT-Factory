@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why does shampoo smell linger",
-    "normalized": "why does shampoo smell linger",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795292084,
-    "recorded_at": 1795292084,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do yellow traffic lights feel longer",
     "normalized": "why do yellow traffic lights feel longer",
     "workflow": "publish",
@@ -3510,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1795361708,
     "recorded_at": 1795361708,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why does bread crack",
+    "normalized": "why does bread crack",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795379312,
+    "recorded_at": 1795379312,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

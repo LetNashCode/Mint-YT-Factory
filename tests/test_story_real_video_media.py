@@ -591,11 +591,11 @@ def test_verifier_network_outage_fails_closed_after_three_attempts(monkeypatch):
     monkeypatch.setattr(media.requests, "post", post)
     with pytest.raises(RuntimeError, match="network unavailable after 3 attempts on gemini-flash-lite-latest"):
         media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
-    assert len(calls) == 9
+    assert len(calls) == 7
     assert sum("gemini-flash-lite-latest" in call for call in calls) == 3
     assert sum("gemini-3.8-flash" in call for call in calls) == 2
     assert sum("gemini-3.6-flash" in call for call in calls) == 2
-    assert sum("gemini-3.1-pro-preview" in call for call in calls) == 2
+    assert all("gemini-3.1-pro-preview" not in call for call in calls)
 
 
 def test_story_verifier_uses_publish_shorts_gemini_model(monkeypatch):
@@ -1170,6 +1170,38 @@ def test_source_is_blocked_after_rejections_even_after_one_accepted_clip(monkeyp
     # One accepted clip plus four consecutive rejected clips must block the source
     # instead of allowing an unbounded verifier loop on the same recording.
     assert len(calls) == 5
+
+def test_safety_block_rejects_candidate_without_model_fallback(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+    monkeypatch.setenv("MINT_GEMINI_MODEL", "gemini-primary-test")
+    monkeypatch.setenv("STORY_GEMINI_FALLBACK_MODEL", "gemini-fallback-test")
+    monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
+
+    response = SimpleNamespace(
+        status_code=200,
+        json=lambda: {
+            "candidates": [],
+            "promptFeedback": {"blockReason": "PROHIBITED_CONTENT"},
+        },
+        raise_for_status=lambda: None,
+    )
+    calls = []
+    def post(url, **kwargs):
+        calls.append(url)
+        return response
+
+    monkeypatch.setattr(media.requests, "post", post)
+    verdict = media.verify(
+        "Nelson Mandela",
+        {"narration": "A biography moment"},
+        candidate(),
+        ["a", "b", "c"],
+    )
+    assert len(calls) == 1
+    assert verdict["usable"] is False
+    assert not media.verification_passes(verdict)
+
 
 def test_verifier_recovers_from_malformed_primary_and_fallback_json(monkeypatch, tmp_path):
     monkeypatch.chdir(tmp_path)

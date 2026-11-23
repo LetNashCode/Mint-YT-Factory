@@ -22199,6 +22199,106 @@
       "shot": 2,
       "query": "bread snaps under tension creating",
       "recorded_at": 1795379548
+    },
+    {
+      "asset_key": "pexels:video:18059549",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/18059549/18059549-hd_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "pine needles you vacuum five times",
+      "recorded_at": 1795412241
+    },
+    {
+      "asset_key": "pexels:video:27775384",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/27775384/12221305_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "pine needles yet stay",
+      "recorded_at": 1795412246
+    },
+    {
+      "asset_key": "pexels:video:37187991",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/37187991/15754135_720_1280_24fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "pine needles drags carpet fibers acting",
+      "recorded_at": 1795412255
+    },
+    {
+      "asset_key": "pexels:video:4630977",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4630977/4630977-hd_1280_720_60fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "pine needles under extreme close-up",
+      "recorded_at": 1795412260
+    },
+    {
+      "asset_key": "pixabay:video:142579",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/12/11/142579-780232342_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "pine needles they packed thousands microscopic",
+      "recorded_at": 1795412264
+    },
+    {
+      "asset_key": "pixabay:video:35953",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/04/14/35953-409185246_medium.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "pine needles slide your finger toward",
+      "recorded_at": 1795412268
+    },
+    {
+      "asset_key": "pexels:video:1649451",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/1649451/1649451-hd_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "pine needles slide backward tiny ridges",
+      "recorded_at": 1795412271
+    },
+    {
+      "asset_key": "pexels:video:40351589",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40351589/17240367_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "pine needles carpet loops act like",
+      "recorded_at": 1795412276
+    },
+    {
+      "asset_key": "pexels:video:24403485",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/24403485/11896073_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "pine needles tug straight you wedge",
+      "recorded_at": 1795412284
+    },
+    {
+      "asset_key": "pexels:video:27861202",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/27861202/12246548_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "pine needles brushing sideways unveils secret",
+      "recorded_at": 1795412288
     }
   ]
 }

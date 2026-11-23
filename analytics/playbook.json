@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-22T20:45:43.998081+00:00",
-  "video_count": 214,
+  "generated_at": "2026-11-23T06:01:10.531944+00:00",
+  "video_count": 215,
   "learning_sample_size": 181,
   "learning_ready": true,
   "metrics_available": true,
@@ -48,7 +48,7 @@
     "Why do apples squeak when polished",
     "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive."
   ],
-  "used_topic_count": 214,
+  "used_topic_count": 215,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

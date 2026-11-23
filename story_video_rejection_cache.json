@@ -13804,6 +13804,87 @@
       "start": 3286.03,
       "reason": "The sampled frames show a title card and credits for an unrelated local historical documentary ('Herensia' in Bonaire) featuring George Lucas Alberto, with no connection to the American filmmaker George Lucas.",
       "reviewed_at": 1795029747.7127
+    },
+    "84df3dd28dac8f5df1ceec29": {
+      "kind": "segment_rejection",
+      "source_id": "archive:g4tv.com-video27845",
+      "source_url": "https://archive.org/details/g4tv.com-video27845",
+      "person": "George Lucas",
+      "start": 16.7,
+      "reason": "Gemini safety filter did not return a verifiable verdict",
+      "reviewed_at": 1795462981.8370361
+    },
+    "3ae70945c7e3d9a3c3d9311a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:g4tv.com-video27845",
+      "source_url": "https://archive.org/details/g4tv.com-video27845",
+      "person": "George Lucas",
+      "start": 40.1,
+      "reason": "The video segment shows clips from Star Wars featuring fictional characters (Anakin Skywalker and Obi-Wan Kenobi), but George Lucas is not visible in any of the sampled frames.",
+      "reviewed_at": 1795463093.1518474
+    },
+    "2067a9b66532d0a4e4367af0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:g4tv.com-video27845",
+      "source_url": "https://archive.org/details/g4tv.com-video27845",
+      "person": "George Lucas",
+      "start": 51.8,
+      "reason": "The frames show animated clips from Star Wars: The Clone Wars rather than actual filmed footage of George Lucas or relevant archival biographical material.",
+      "reviewed_at": 1795463117.8357065
+    },
+    "2d444545d6483ba440280be1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+      "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+      "person": "George Lucas",
+      "start": 1603.55,
+      "reason": "The video features real archival footage of George Lucas participating in a panel conversation/interview on stage. While it is legitimate identity footage, it serves as general biographical illustration for a biography Short rather than depicting a specific direct historical event.",
+      "reviewed_at": 1795463239.8372188
+    },
+    "2f30d47a33e08f8182539694": {
+      "kind": "segment_rejection",
+      "source_id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+      "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+      "person": "George Lucas",
+      "start": 1894.2,
+      "reason": "The segment shows actual filmed interview footage of George Lucas on stage with Michael Eisner, making it valid biographical identity footage, though it has moderate relevance as it is a staged discussion rather than depicting historical events directly.",
+      "reviewed_at": 1795463256.1251514
+    },
+    "1363de09733b00e04c946670": {
+      "kind": "segment_rejection",
+      "source_id": "archive:pele-le-roi-tele-sahel-4-15-2026-incomplete",
+      "source_url": "https://archive.org/details/pele-le-roi-tele-sahel-4-15-2026-incomplete",
+      "person": "Pelé",
+      "start": 5.0,
+      "reason": "blank/near-blank frames",
+      "reviewed_at": 1795463362.690446
+    },
+    "cd2313905a62c463de25a7c2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:pele-le-roi-tele-sahel-4-15-2026-incomplete",
+      "source_url": "https://archive.org/details/pele-le-roi-tele-sahel-4-15-2026-incomplete",
+      "person": "Pelé",
+      "start": 491.36,
+      "reason": "The first frame shows an interviewee speaking into a microphone, but it is not Pelé. The subsequent frames show historical football match footage in black and white. While the footage is genuine and relates to football, Pelé himself is not clearly identifiable in the sampled frames, making this useful historical context rather than direct identity footage.",
+      "reviewed_at": 1795463402.0332205
+    },
+    "cb14361a78c785d397265899": {
+      "kind": "segment_rejection",
+      "source_id": "archive:pele-le-roi-tele-sahel-4-15-2026-incomplete",
+      "source_url": "https://archive.org/details/pele-le-roi-tele-sahel-4-15-2026-incomplete",
+      "person": "Pelé",
+      "start": 977.73,
+      "reason": "The footage shows archival scenes related to Mexico 70 celebrations and crowds, but Pelé is not clearly visible in any of the sampled frames, making it useful as biographical illustration of the era rather than direct event footage of the subject.",
+      "reviewed_at": 1795463424.7873785
+    },
+    "17a42d83799e660d2bcf3d22": {
+      "kind": "segment_rejection",
+      "source_id": "archive:pele-video",
+      "source_url": "https://archive.org/details/pele-video",
+      "person": "Pelé",
+      "start": 127.0,
+      "reason": "The footage shows archival black-and-white soccer match footage and a stadium, which relates to Pelé's career, but Pelé is not clearly identifiable in the wide shots provided.",
+      "reviewed_at": 1795463456.965997
     }
   }
 }

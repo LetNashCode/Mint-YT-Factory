@@ -660,5 +660,21 @@
     "video_id": "wnckbCSFMG0",
     "workdir": "",
     "published_at": 1794676515
+  },
+  {
+    "topic": "Pelé: How a young Brazilian boy practicing with a stuffed sock because he could not afford a football became a global icon.",
+    "normalized": "pel how a young brazilian boy practicing with a stuffed sock because he could not afford a football became a global icon",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1795463335,
+    "recorded_at": 1795463335,
+    "metadata": {
+      "person": "Pelé",
+      "pillar": "strange_turning_point"
+    },
+    "title": "Pelé: How a young Brazilian boy practicing with a stuffed sock because he could not afford a football became a global icon.",
+    "video_id": "r6wjuSPWuLI",
+    "workdir": "",
+    "published_at": 1795464540
   }
 ]

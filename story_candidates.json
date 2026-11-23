@@ -76,18 +76,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Pelé",
-    "premise": "How a young Brazilian boy practicing with a stuffed sock because he could not afford a football became a global icon.",
-    "hook": "He learned to master ball control using a rolled-up sock packed with rags on the dirt streets of Bauru.",
-    "key_facts": [
-      "Born Edson Arantes do Nascimento in Minas Gerais, Brazil.",
-      "Won his first FIFA World Cup at the age of 17 in Sweden in 1958.",
-      "Scored over 1,000 professional career goals during his storied football career."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "rise_from_nothing",
     "person": "Mary Kay Ash",
     "premise": "Building a global cosmetic empire from scratch after facing systemic discrimination in the male-dominated corporate world of the 1960s.",
@@ -192,18 +180,6 @@
       "Formed the Ladies Climbing Club in Japan in 1969 to facilitate women's mountaineering expeditions.",
       "Survived an avalanche at Camp II during her 1975 Everest ascent.",
       "Reached the summit of Mount Everest on May 16, 1975."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Spencer Silver",
-    "premise": "Inventing a weak, reusable adhesive while trying to create a super-strong aerospace glue, leading years later to the Post-it Note.",
-    "hook": "He spent years trying to invent an industrial super-glue, but accidentally created a sticky substance that refused to stick permanently.",
-    "key_facts": [
-      "Developed a low-tack, pressure-sensitive adhesive at 3M laboratories in 1968.",
-      "Spent years promoting the unusual adhesive internally without a clear commercial application.",
-      "Partnered with Art Fry to adapt the adhesive into the globally successful Post-it Note."
     ],
     "source": "gemini_original"
   }

@@ -44,7 +44,8 @@ GEMINI_FALLBACK_MODEL = (
     or "gemini-3.8-flash"
 ).strip()
 GEMINI_TERTIARY_MODEL = os.environ.get("MINT_GEMINI_TERTIARY_MODEL", "gemini-3.6-flash").strip()
-GEMINI_QUATERNARY_MODEL = os.environ.get("MINT_GEMINI_QUATERNARY_MODEL", "gemini-3.1-pro-preview").strip()
+# No implicit retired/preview model: only explicitly configured stable fallbacks run.
+GEMINI_QUATERNARY_MODEL = os.environ.get("MINT_GEMINI_QUATERNARY_MODEL", "").strip()
 
 PRECHECK_CACHE_FILE = Path("story_video_rejection_cache.json")
 PRECHECK_CACHE_VERSION = 4  # stores deterministic source exclusions and interval-level visual rejections
@@ -901,6 +902,23 @@ def verify(person, scene, item, samples):
                 block = (body.get("promptFeedback") or {}).get("blockReason", "")
             except Exception:
                 finish, block = "unreadable_response", ""
+            # A safety block is a content-level refusal, not a broken model.
+            # Treat this candidate as unverified/rejected and move on to another
+            # source; do not burn quota by sending the same frames to every model.
+            if str(block).upper() in {"PROHIBITED_CONTENT", "SAFETY"} or str(finish).upper() == "SAFETY":
+                print(
+                    f"Story verifier {model}: safety-blocked candidate "
+                    f"(finishReason={finish}, blockReason={block}); rejecting this source",
+                    flush=True,
+                )
+                return {
+                    "person_visible": False,
+                    "real_footage": False,
+                    "usable": False,
+                    "relevance": 0,
+                    "reason": "Gemini safety filter did not return a verifiable verdict",
+                    "usage": "biographical_illustration",
+                }
             last_error = f"invalid JSON response (finishReason={finish}, blockReason={block})"
             print(f"Story verifier {model}: {last_error}; trying bounded fallback models", flush=True)
             break

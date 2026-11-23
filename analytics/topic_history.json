@@ -3520,8 +3520,8 @@
     "normalized": "why does cheese melt",
     "workflow": "publish",
     "status": "reserved",
-    "reserved_at": 1795476206,
-    "recorded_at": 1795476206,
+    "reserved_at": 1795476007,
+    "recorded_at": 1795476007,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

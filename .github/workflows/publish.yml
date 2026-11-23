@@ -1,6 +1,12 @@
 name: Publish Short
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/publish.yml"
+      - "generate_script/entertainment.py"
+      - "tests/test_publish_gemini_retries.py"
   schedule:
     - cron: "0 0 * * *" # 5:30 AM IST
     - cron: "30 7 * * *" # 1:00 PM IST
@@ -25,7 +31,25 @@ env:
   IMAGEMAGICK_BINARY: /usr/bin/convert
 
 jobs:
+  publish-quality-check:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install focused test dependencies
+        run: python -m pip install --upgrade pytest google-genai
+      - name: Compile Publish Shorts script generator
+        run: python -m py_compile generate_script/entertainment.py
+      - name: Test Publish Shorts Gemini retry and model rotation
+        run: pytest -q tests/test_publish_gemini_retries.py
+
   publish:
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:

@@ -88,7 +88,7 @@ jobs:
       - name: Test Story verifier recovery from malformed Gemini responses
         run: |
           python -m pip install pytest
-          pytest -q tests/test_story_real_video_media.py -k malformed_primary
+          pytest -q tests/test_story_real_video_media.py -k "malformed_primary or safety_block or network_outage"
       - name: Resume pending Story social publication
         id: resume
         env:

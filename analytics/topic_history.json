@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "How do soda bubbles cling to glass",
-    "normalized": "how do soda bubble cling to glass",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795361708,
-    "recorded_at": 1795361708,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why does bread crack",
     "normalized": "why does bread crack",
     "workflow": "publish",
@@ -3510,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1795412064,
     "recorded_at": 1795412064,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do wooden spoons stain from soup",
+    "normalized": "why do wooden spoons stain from soup",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795462231,
+    "recorded_at": 1795462231,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

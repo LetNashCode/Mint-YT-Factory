@@ -52,8 +52,12 @@ def client():
     key = os.getenv("GEMINI_API_KEY", "").strip()
     if not key:
         raise RuntimeError("GEMINI_API_KEY is missing")
-    # Pin Gemini 3.x GenerateContent requests to the supported v1beta endpoint.
-    return genai.Client(api_key=key, http_options=types.HttpOptions(api_version="v1beta"))
+    # Pin Gemini 3.x GenerateContent requests to v1beta and bound network
+    # waits so transient stalls return to the retry/failover logic promptly.
+    return genai.Client(
+        api_key=key,
+        http_options=types.HttpOptions(api_version="v1beta", timeout=90_000),
+    )
 
 def normalize_topic(value):
     value = re.sub(r"[^a-z0-9\s]", " ", str(value or "").lower())

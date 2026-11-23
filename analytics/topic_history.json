@@ -3514,5 +3514,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why does a mug leave a ring",
+    "normalized": "why does a mug leave a ring",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795463043,
+    "recorded_at": 1795463043,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

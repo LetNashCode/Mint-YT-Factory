@@ -19,7 +19,8 @@ permissions:
   actions: read
 
 concurrency:
-  group: mint-publish-short
+  # Keep code-only regression checks independent of long production runs.
+  group: mint-publish-short-${{ github.event_name == 'push' && 'ci' || 'production' }}
   cancel-in-progress: false
 
 env:

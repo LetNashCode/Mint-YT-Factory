@@ -582,6 +582,8 @@ def test_verifier_network_failure_retries_same_publish_model(monkeypatch, failur
 def test_verifier_network_outage_fails_closed_after_three_attempts(monkeypatch):
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
     monkeypatch.setenv("MINT_GEMINI_MODEL", "gemini-flash-lite-latest")
+    monkeypatch.setenv("MINT_GEMINI_FALLBACK_MODEL", "gemini-3.8-flash")
+    monkeypatch.setenv("MINT_GEMINI_TERTIARY_MODEL", "gemini-3.6-flash")
     monkeypatch.setenv("STORY_GEMINI_NETWORK_RETRIES", "2")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
     calls = []

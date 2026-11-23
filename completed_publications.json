@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1790128392",
-    "video_id": "0MU6mfFL6B4",
-    "topic": "Why soap removes grease",
-    "completed_at": 1790129548
-  },
-  {
     "workdir": "output/1790143464",
     "video_id": "-KQEjuvHoSk",
     "topic": "Why window glass rattles in the wind",
@@ -598,5 +592,11 @@
     "video_id": "n_D1Aa10B1Y",
     "topic": "Why do pine needles stick to carpets",
     "completed_at": 1795413665
+  },
+  {
+    "workdir": "output/1795476763",
+    "video_id": "kptpnarLrzo",
+    "topic": "Why does cheese melt",
+    "completed_at": 1795477928
   }
 ]

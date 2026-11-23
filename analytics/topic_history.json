@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why does bread crack",
-    "normalized": "why does bread crack",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795379312,
-    "recorded_at": 1795379312,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do pine needles stick to carpets",
     "normalized": "why do pine needles stick to carpets",
     "workflow": "publish",
@@ -3522,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1795463043,
     "recorded_at": 1795463043,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why does cheese melt",
+    "normalized": "why does cheese melt",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795476206,
+    "recorded_at": 1795476206,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

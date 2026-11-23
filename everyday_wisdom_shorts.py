@@ -306,7 +306,11 @@ def generate_story():
     if MODEL not in model_chain:
         model_chain.insert(0, MODEL)
     model_index = model_chain.index(MODEL)
-    model_failures = {}
+    # Provider 503/429/temporary outages are operational failures, not bad
+    # story candidates. Rotate across the configured models and retry with
+    # bounded backoff before the workflow gives up.
+    transient_provider_failures = 0
+    transient_backoff_seconds = (15, 30, 45, 60, 90, 120, 180, 180)
     active_model = MODEL
     history = load_topic_history()
     used = history_strings(history)[-MAX_HISTORY_FOR_PROMPT:]
@@ -498,29 +502,45 @@ person, or setting relevant to that spoken beat. No generic filler such as
             model_unavailable = any(token in error_text for token in (
                 "model not found", "not supported for generatecontent", "unknown model", "404",
             ))
-            # Provider outages must not poison the topic ledger: retry the same
-            # content request on another model before rejecting the candidate.
-            if (transient or model_unavailable) and model_index < len(model_chain) - 1:
+            # A transient provider outage is not a rejected story. Rotate through
+            # every configured model, then keep cycling with increasing backoff.
+            # This also retries editorial-review 503s without burning a topic lane.
+            if transient:
+                transient_provider_failures += 1
+                if transient_provider_failures > len(transient_backoff_seconds):
+                    raise RuntimeError(
+                        f"Wisdom Gemini remained unavailable after "
+                        f"{transient_provider_failures - 1} bounded retries; "
+                        f"last model {active_model}: {exc}"
+                    ) from exc
+
+                model_index = (model_index + 1) % len(model_chain)
+                active_model = model_chain[model_index]
+                MODEL = active_model
+                delay = transient_backoff_seconds[transient_provider_failures - 1]
+                print(
+                    f"⏳ Wisdom Gemini temporary outage; retry "
+                    f"{transient_provider_failures}/{len(transient_backoff_seconds)} "
+                    f"on {active_model} in {delay}s",
+                    flush=True,
+                )
+                time.sleep(delay)
+                continue
+
+            if model_unavailable and model_index < len(model_chain) - 1:
                 model_index += 1
                 active_model = model_chain[model_index]
                 MODEL = active_model
-                model_failures[active_model] = 0
                 print(
-                    f"🔁 Wisdom Gemini endpoint unavailable; switching to fallback "
+                    f"🔁 Wisdom Gemini model unavailable; switching to "
                     f"{model_index + 1}/{len(model_chain)}: {active_model}",
                     flush=True,
                 )
                 continue
-            if model_unavailable and model_index >= len(model_chain) - 1:
+            if model_unavailable:
                 raise RuntimeError(
                     f"Wisdom Gemini model unavailable on all configured models; last model {active_model}: {exc}"
                 ) from exc
-            if transient:
-                model_failures[active_model] = model_failures.get(active_model, 0) + 1
-                if model_failures[active_model] >= 2:
-                    raise RuntimeError(
-                        f"Wisdom Gemini unavailable on all configured models; last model {active_model}: {exc}"
-                    ) from exc
             if not transient and not model_unavailable and story and (story.get("topic") or story.get("topic_key")):
                 rejected = {
                     "topic": clean(story.get("topic"), 200),

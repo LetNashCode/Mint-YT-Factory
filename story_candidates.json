@@ -1,18 +1,5 @@
 [
   {
-    "format": "one_decision",
-    "person": "Yuri Gagarin",
-    "premise": "Accepting the perilous Vostok 1 assignment, knowing the mission's safety systems had barely been tested.",
-    "hook": "He climbed into a cramped metal sphere atop a ballistic missile, becoming the first human launched into the unknown.",
-    "key_facts": [
-      "Selected from a group of 20 Soviet Air Force fighter pilots for the Vostok program.",
-      "Flew aboard Vostok 1 on April 12, 1961, completing one orbit of Earth.",
-      "Ejected from the spacecraft at 20,000 feet as per the standard landing design of the time.",
-      "Became an international celebrity and hero following the successful historic flight."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "rise_from_nothing",
     "person": "Sarah Breedlove (Madam C.J. Walker)",
     "premise": "Overcoming orphanhood and severe scalp ailments to build a cosmetics empire and become America's first self-made female millionaire.",
@@ -60,18 +47,6 @@
       "Started Infosys in Pune, India, in 1981 with six other software engineers.",
       "Relied on initial seed capital provided by his wife, Sudha Murthy, from her personal savings.",
       "Pioneered the global delivery model for software services out of India."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "Madam C.J. Walker",
-    "premise": "Overcoming early orphanhood, poverty, and severe hair loss to build a massive hair care empire and become one of America's first self-made female millionaires.",
-    "hook": "After losing her own hair to a scalp ailment, she formulated a homemade remedy on her kitchen floor and sold it door-to-door.",
-    "key_facts": [
-      "Born Sarah Breedlove on a cotton plantation in Louisiana, orphaned at age seven.",
-      "Worked as a laundress for decades earning meager wages before launching her hair care line in 1905.",
-      "Employed thousands of African American women as sales agents across the United States."
     ],
     "source": "gemini_original"
   },

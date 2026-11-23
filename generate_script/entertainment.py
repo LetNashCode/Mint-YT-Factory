@@ -321,8 +321,8 @@ VISUALS: every one of the 12 shots must represent a specific spoken beat. Return
             transient=(quota_error or "503" in last_error or "502" in last_error or "500" in last_error or "504" in last_error or "unavailable" in last_error.lower() or "high demand" in last_error.lower())
             # A 404/unsupported-model response is a routing problem: move to
             # the next configured model without wasting the transient retry budget.
-            if model_unavailable and len(model_chain) > 1:
-                model_index = (model_index + 1) % len(model_chain)
+            if model_unavailable and model_index < len(model_chain) - 1:
+                model_index += 1
                 MODEL_NAME = model_chain[model_index]
                 print(f"🔁 Gemini model unavailable; switching to configured model {model_index + 1}/{len(model_chain)}: {MODEL_NAME}", flush=True)
                 continue

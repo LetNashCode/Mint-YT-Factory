@@ -7,6 +7,7 @@ on:
       - ".github/workflows/publish.yml"
       - "generate_script/entertainment.py"
       - "tests/test_publish_gemini_retries.py"
+      - "tests/test_entertainment_qwen_fallback.py"
   schedule:
     - cron: "0 0 * * *" # 5:30 AM IST
     - cron: "30 7 * * *" # 1:00 PM IST
@@ -28,6 +29,7 @@ env:
   MINT_GEMINI_TERTIARY_MODEL: gemini-3.6-flash
   MINT_GEMINI_REQUEST_TIMEOUT_MS: "90000"
   MINT_COMPETITOR_RESEARCH: "true"
+  ENABLE_CPU_QWEN_FALLBACK: "1"
   IMAGEMAGICK_BINARY: /usr/bin/convert
 
 jobs:
@@ -46,7 +48,7 @@ jobs:
       - name: Compile Publish Shorts script generator
         run: python -m py_compile generate_script/entertainment.py
       - name: Test Publish Shorts Gemini retry and model rotation
-        run: pytest -q tests/test_publish_gemini_retries.py
+        run: pytest -q tests/test_publish_gemini_retries.py tests/test_entertainment_qwen_fallback.py
 
   publish:
     if: github.event_name != 'push'
@@ -104,6 +106,7 @@ jobs:
           assert stock_search.GEMINI_MODEL == expected_model, f"Stock Gemini model override mismatch: {stock_search.GEMINI_MODEL!r} != {expected_model!r}"
           assert "gemini-3.1-pro-preview" not in MODEL_CHAIN, f"Retired Gemini model remains in script chain: {MODEL_CHAIN!r}"
           assert all(MODEL_CHAIN), f"Empty Gemini model in script chain: {MODEL_CHAIN!r}"
+          assert os.environ.get("ENABLE_CPU_QWEN_FALLBACK") == "1", "Publish Shorts local Qwen recovery must be enabled"
           print("Python environment OK")
           print("Stock Gemini model routing:", stock_search.GEMINI_MODEL)
           print("Publish script model chain:", " -> ".join(MODEL_CHAIN))

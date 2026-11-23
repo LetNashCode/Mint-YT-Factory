@@ -86,3 +86,39 @@ def test_script_generator_switches_to_supported_model_on_model_404(monkeypatch):
 
     assert result == {"ok": True}
     assert client.calls == ["gemini-3.5-flash-lite", "gemini-3.8-flash"]
+
+
+def test_qwen_fallback_activates_after_transient_gemini_503(monkeypatch):
+    class TransientGeminiClient:
+        def __init__(self):
+            self.calls = []
+            self.models = self
+
+        def generate_content(self, **kwargs):
+            self.calls.append(kwargs["model"])
+            raise RuntimeError("503 UNAVAILABLE: model is experiencing high demand")
+
+    client = TransientGeminiClient()
+    monkeypatch.setattr(entertainment.genai, "Client", lambda **kwargs: client)
+    monkeypatch.setattr(entertainment, "_api_key", lambda: "test-key")
+    monkeypatch.setattr(entertainment, "ENABLE_CPU_QWEN_FALLBACK", True)
+    monkeypatch.setattr(entertainment, "MODEL_CHAIN", ("primary", "fallback", "tertiary"))
+    monkeypatch.setattr(entertainment, "MODEL_NAME", "primary")
+    monkeypatch.setattr(entertainment, "TRANSIENT_RETRIES", 2)
+    monkeypatch.setattr(entertainment.time, "sleep", lambda *_: None)
+
+    expected = {"scene_plan": [{"scene": 1}]}
+    qwen_calls = []
+
+    def qwen(prompt, topic, last_error=None):
+        qwen_calls.append((topic, last_error))
+        return expected
+
+    monkeypatch.setattr(entertainment, "_generate_with_qwen", qwen)
+
+    result = entertainment.generate_script("Why ice floats", {})
+
+    assert result is expected
+    assert client.calls == ["primary", "fallback", "tertiary"]
+    assert len(qwen_calls) == 1
+    assert "503" in qwen_calls[0][1]

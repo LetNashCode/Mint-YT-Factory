@@ -24,8 +24,8 @@ SCENE_COUNT = 6
 VISUALS_PER_SCENE = 2
 SCENE_DURATIONS = [3, 5, 7, 7, 8, 8]
 MAX_ATTEMPTS = 3
-TRANSIENT_RETRIES = 4
-TRANSIENT_BACKOFF_SECONDS = (3, 8, 15, 30)
+TRANSIENT_RETRIES = 8
+TRANSIENT_BACKOFF_SECONDS = (3, 8, 15, 30, 45, 60, 60, 60)
 ENABLE_CPU_QWEN_FALLBACK = os.environ.get("ENABLE_CPU_QWEN_FALLBACK", "0") == "1"
 _QWEN_TOKENIZER = None
 _QWEN_MODEL = None
@@ -319,13 +319,12 @@ VISUALS: every one of the 12 shots must represent a specific spoken beat. Return
             quota_error=_is_quota_error(last_error)
             model_unavailable = any(token in last_error.lower() for token in ("404", "not_found", "model is not found", "not supported for generatecontent", "is not found for api version"))
             transient=(quota_error or "503" in last_error or "502" in last_error or "500" in last_error or "504" in last_error or "unavailable" in last_error.lower() or "high demand" in last_error.lower())
-            # Fail over through independent supported model IDs instead of
-            # repeatedly retrying a model that is returning 5xx/high-demand.
-            if (model_unavailable or (transient and not quota_error)) and model_index < len(model_chain) - 1:
-                model_index += 1
+            # A 404/unsupported-model response is a routing problem: move to
+            # the next configured model without wasting the transient retry budget.
+            if model_unavailable and len(model_chain) > 1:
+                model_index = (model_index + 1) % len(model_chain)
                 MODEL_NAME = model_chain[model_index]
-                transient_failures = 0
-                print(f"🔁 Gemini endpoint unavailable; switching to fallback {model_index + 1}/{len(model_chain)}: {MODEL_NAME}", flush=True)
+                print(f"🔁 Gemini model unavailable; switching to configured model {model_index + 1}/{len(model_chain)}: {MODEL_NAME}", flush=True)
                 continue
             if quota_error and ENABLE_CPU_QWEN_FALLBACK:
                 print(f"🛟 Gemini quota exhausted; switching immediately to local Qwen: {FALLBACK_MODEL_NAME}", flush=True)
@@ -335,7 +334,15 @@ VISUALS: every one of the 12 shots must represent a specific spoken beat. Return
                     break
                 delay=TRANSIENT_BACKOFF_SECONDS[min(transient_failures,len(TRANSIENT_BACKOFF_SECONDS)-1)]
                 transient_failures += 1
-                print(f"⏳ Gemini transient failure; retry {transient_failures}/{TRANSIENT_RETRIES}", flush=True)
+                # Rotate across the configured model chain on every transient
+                # failure. Keep one shared retry budget so repeated 503s cannot
+                # cause an unbounded loop, but do not strand the run on the
+                # final model after a single pass through the chain.
+                if not quota_error and len(model_chain) > 1:
+                    model_index = (model_index + 1) % len(model_chain)
+                    MODEL_NAME = model_chain[model_index]
+                    print(f"🔁 Gemini transient outage; next retry uses model {model_index + 1}/{len(model_chain)}: {MODEL_NAME}", flush=True)
+                print(f"⏳ Gemini transient failure; retry {transient_failures}/{TRANSIENT_RETRIES} after {delay}s", flush=True)
                 time.sleep(delay)
                 continue
             validation_attempts += 1

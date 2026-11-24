@@ -1398,8 +1398,8 @@
       "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
       "person": "Madam C.J. Walker",
       "start": 60.2,
-      "reason": "The video shows an audience and a speaker (A'Lelia Bundles, her great-great-granddaughter), but Madam C.J. Walker herself passed away in 1919 and cannot appear in this 2017 event footage. Therefore, the subject is not visible, making it unusable for direct representation of Madam C.J. Walker.",
-      "reviewed_at": 1791930087.8408713
+      "reason": "The video footage shows an audience and a speaker at a 2017 university event about Madam C.J. Walker, but Madam C.J. Walker herself died in 1919 and is not visible in the footage. The person speaking is her great-great-granddaughter A'Lelia Bundles, not Madam C.J. Walker.",
+      "reviewed_at": 1795534978.253942
     },
     "79b79ece94d475ce5b482728": {
       "kind": "segment_rejection",
@@ -1407,8 +1407,8 @@
       "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
       "person": "Madam C.J. Walker",
       "start": 87.8,
-      "reason": "The footage shows A'Lelia Bundles (great-great-granddaughter of Madam C.J. Walker) speaking at an event, not Madam C.J. Walker herself, making it unsuitable as direct historical footage of the subject.",
-      "reviewed_at": 1791930103.6430278
+      "reason": "The video features A'Lelia Bundles (the great-great-granddaughter and biographer of Madam C.J. Walker) speaking at an event, not Madam C.J. Walker herself. While genuine modern footage, it does not depict the historical subject.",
+      "reviewed_at": 1795534994.6888251
     },
     "7bb8aebead567e6bf2b30963": {
       "kind": "segment_rejection",
@@ -1435,7 +1435,7 @@
       "person": "Madam C.J. Walker",
       "start": 43.65,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791930129.7268999
+      "reviewed_at": 1795534998.3543584
     },
     "2202fb0c0f839769093fdfa4": {
       "kind": "segment_rejection",
@@ -1443,8 +1443,8 @@
       "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
       "person": "Madam C.J. Walker",
       "start": 62.97,
-      "reason": "The video segment shows static photographs and quote graphics of Mary McLeod Bethune and Booker T. Washington, but does not feature Madam C.J. Walker or actual moving archival footage of her.",
-      "reviewed_at": 1791930138.6960917
+      "reason": "The video features static photographs and quotes of other historical figures (Mary McLeod Bethune and Booker T. Washington), not Madam C.J. Walker.",
+      "reviewed_at": 1795535007.5841448
     },
     "a31070a7861c92eb7d715ac5": {
       "kind": "segment_rejection",
@@ -1452,8 +1452,8 @@
       "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
       "person": "Madam C.J. Walker",
       "start": 5.0,
-      "reason": "The video consists of static graphic title cards and quotes featuring other historical figures such as Nelson Mandela, and does not contain actual moving footage or usable historical context depicting Madam C.J. Walker.",
-      "reviewed_at": 1791930144.5755801
+      "reason": "The video consists of static graphic title cards and quotes featuring different historical figures (such as Nelson Mandela), and does not contain moving footage or usable identity footage of Madam C.J. Walker.",
+      "reviewed_at": 1795535020.7721968
     },
     "cb358db40c76a72ed2bfc7d7": {
       "kind": "segment_rejection",
@@ -1479,8 +1479,8 @@
       "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
       "person": "Madam C.J. Walker",
       "start": 19.95,
-      "reason": "The segment features archival footage of the 1917 convention related to Madam C.J. Walker's life and historical context, alongside an interview with her great-great-granddaughter A'Lelia Bundles. Madam C.J. Walker herself is not clearly identifiable in the footage, making it biographical illustration rather than direct identity footage, but it provides genuine and usable historical context.",
-      "reviewed_at": 1791930172.30827
+      "reason": "The segment features historical archival footage related to Madam C.J. Walker (such as the 1917 convention group photo) and commentary from her great-great-granddaughter A'Lelia Bundles. While Madam Walker herself is deceased and not interviewed, the archival and contextual footage directly illustrates her life and history.",
+      "reviewed_at": 1795535050.3149464
     },
     "606d1095465f0290b883b24b": {
       "kind": "segment_rejection",
@@ -3574,8 +3574,8 @@
       "source_url": "https://archive.org/details/GalahadOfEverest",
       "person": "Tenzing Norgay",
       "start": 5.0,
-      "reason": "The footage shows archival documentary scenes of Everest expeditions and pack animals, but Tenzing Norgay is not clearly identifiable in any of the frames. It serves as biographical illustration for Himalayan climbing context.",
-      "reviewed_at": 1792008411.8922386
+      "reason": "The footage shows scenic mountain views and expedition porters/pack animals, which provides general historical context for Himalayan mountaineering, but Tenzing Norgay is not visibly identifiable in the frames.",
+      "reviewed_at": 1795535560.5079944
     },
     "6852c3463088288329561945": {
       "kind": "segment_rejection",
@@ -3583,8 +3583,8 @@
       "source_url": "https://archive.org/details/GalahadOfEverest",
       "person": "Tenzing Norgay",
       "start": 93.1,
-      "reason": "The footage shows Brian Blessed reenacting George Mallory's climb in 1991, not Tenzing Norgay. Tenzing Norgay is not visible in the frames.",
-      "reviewed_at": 1792008425.6459818
+      "reason": "The footage shows Brian Blessed recreating a 1924 climb in a 1991 documentary, not Tenzing Norgay himself.",
+      "reviewed_at": 1795535614.6622326
     },
     "2554683f1cefeb68d2eb04a7": {
       "kind": "segment_rejection",
@@ -3763,8 +3763,8 @@
       "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
       "person": "Ernest Shackleton",
       "start": 223.95,
-      "reason": "The segment features an interview with an expert (Harry King) discussing Ernest Shackleton, followed by historical photograph illustration of Shackleton as a child. While Shackleton is not visibly present in the interview frame, the segment provides valid biographical illustration context for a documentary short.",
-      "reviewed_at": 1792009280.7683766
+      "reason": "The footage includes archival photographs depicting a young Ernest Shackleton as a child alongside documentary interview footage, serving as biographical illustration for his life story.",
+      "reviewed_at": 1795535226.6425397
     },
     "ea70a5daaedbebee4c6f81e5": {
       "kind": "segment_rejection",
@@ -4195,8 +4195,8 @@
       "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
       "person": "Tenzing Norgay",
       "start": 489.3,
-      "reason": "The archival footage shows mountain climbing scenes from the 1952 Swiss expedition which Tenzing Norgay participated in, providing authentic historical context for his mountaineering career, even though he is not clearly identifiable as an individual in these specific distant or obscured frames.",
-      "reviewed_at": 1792100729.619765
+      "reason": "The archival footage shows authentic historical scenes from the 1952 Swiss Mount Everest expedition in which Tenzing Norgay participated, providing valid contextual footage of the climb, although Tenzing is not clearly identifiable in the frames due to distance and gear.",
+      "reviewed_at": 1795535736.903192
     },
     "5eb4010f0d28e16c69fcd197": {
       "kind": "segment_rejection",
@@ -4204,8 +4204,8 @@
       "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
       "person": "Tenzing Norgay",
       "start": 529.66,
-      "reason": "The sampled frames consist of title cards, black screens, and stock footage distributor end cards rather than usable historical or identity footage of Tenzing Norgay.",
-      "reviewed_at": 1792100734.8535001
+      "reason": "The sampled frames consist entirely of ending title cards, black screens, and stock footage licensing text overlays rather than actual historical footage of the subject.",
+      "reviewed_at": 1795535768.6416762
     },
     "a8389dde3153f34a3b69d863": {
       "kind": "segment_rejection",
@@ -4465,8 +4465,8 @@
       "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
       "person": "Ernest Shackleton",
       "start": 5.0,
-      "reason": "The footage shows an old-style sailing ship on water and a vintage map overlay, which does not accurately represent Ernest Shackleton's early 20th-century polar expedition ship (the Endurance), making it historically inaccurate and unusable biographical illustration.",
-      "reviewed_at": 1792101485.189468
+      "reason": "The footage shows a historic sailing ship at sea framed with an old map overlay, which serves as biographical illustration for Ernest Shackleton's polar explorations, though Shackleton himself is not visible.",
+      "reviewed_at": 1795535231.557818
     },
     "a16ded99d243090e61950c1b": {
       "kind": "segment_rejection",
@@ -4474,8 +4474,8 @@
       "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
       "person": "Ernest Shackleton",
       "start": 5.0,
-      "reason": "The frames show a title card and a bust/statue of General Gordon ('Gordon of Khartoum'), not Ernest Shackleton. Therefore, the subject is not visible and the footage is irrelevant to Shackleton.",
-      "reviewed_at": 1792101494.4782345
+      "reason": "The footage shows a sculpture or death mask of General Charles George Gordon ('Gordon of Khartoum'), not Ernest Shackleton. Therefore, it is misidentified, irrelevant to Shackleton's biography, and unusable.",
+      "reviewed_at": 1795535296.0330157
     },
     "b2b823bf3d181ffdd8496e6d": {
       "kind": "segment_rejection",
@@ -4483,8 +4483,8 @@
       "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
       "person": "Ernest Shackleton",
       "start": 343.8,
-      "reason": "The footage shows a statue and monuments in an unspecified Middle Eastern or colonial context, which has no connection to Ernest Shackleton or his Antarctic expeditions.",
-      "reviewed_at": 1792101500.5106165
+      "reason": "The footage shows unrelated monuments and statues (such as a camel statue and modern obelisk) in an urban setting, which has no connection to Ernest Shackleton or Antarctic exploration.",
+      "reviewed_at": 1795535301.2842348
     },
     "83db6a52b42992a250bb3140": {
       "kind": "segment_rejection",
@@ -4492,8 +4492,8 @@
       "source_url": "https://archive.org/details/shackletons-expedition",
       "person": "Ernest Shackleton",
       "start": 5.0,
-      "reason": "The footage shows modern aerial and satellite views of Antarctica, icebergs, and coastal landscapes. While Ernest Shackleton is not visible, this serves as biographical illustration footage depicting the setting of his Antarctic expeditions.",
-      "reviewed_at": 1792101513.8098826
+      "reason": "The footage shows aerial and landscape views of Antarctica, which provides relevant historical and geographical context for Ernest Shackleton's expeditions, although Shackleton himself is not visible.",
+      "reviewed_at": 1795535323.1925857
     },
     "8258c1d46341bee9d5cb881f": {
       "kind": "segment_rejection",
@@ -4501,8 +4501,8 @@
       "source_url": "https://archive.org/details/shackletons-expedition",
       "person": "Ernest Shackleton",
       "start": 106.3,
-      "reason": "The video consists entirely of still photographs and landscape stock footage rather than actual moving archival film footage of Ernest Shackleton, making it unusable for genuine identity or direct event footage.",
-      "reviewed_at": 1792101526.1155968
+      "reason": "The segment consists entirely of static historical photographs and modern landscape stock footage, violating the requirement for moving archival footage and rejecting static photos.",
+      "reviewed_at": 1795535332.7747896
     },
     "2e9fe979b3f86714f347d2b6": {
       "kind": "segment_rejection",
@@ -4510,8 +4510,8 @@
       "source_url": "https://archive.org/details/antarctica-a-frozen-history",
       "person": "Ernest Shackleton",
       "start": 427.76,
-      "reason": "The footage shows an old wreckage or boat remnant on an Antarctic shore, serving as biographical illustration for Ernest Shackleton's expeditions, though Shackleton himself is not visible.",
-      "reviewed_at": 1792101564.6033292
+      "reason": "The footage shows archival documentary imagery of an old wooden boat hull on an Antarctic shore, which provides authentic historical context for Ernest Shackleton's expeditions, even though Shackleton himself is not visible in the frames.",
+      "reviewed_at": 1795535370.4369113
     },
     "10447595efeaad3d5f893d87": {
       "kind": "segment_rejection",
@@ -4519,8 +4519,8 @@
       "source_url": "https://archive.org/details/antarctica-a-frozen-history",
       "person": "Ernest Shackleton",
       "start": 850.52,
-      "reason": "The footage shows men pulling sledges through a blizzard in Antarctica, which serves as historical context and illustration for Ernest Shackleton's expeditions, although Shackleton himself is not clearly distinguishable among the figures in heavy polar gear.",
-      "reviewed_at": 1792101587.718775
+      "reason": "The footage shows historical reenactment/documentary footage of men hauling sledges across the Antarctic snow, providing relevant biographical context for Ernest Shackleton's expeditions, though Shackleton himself is not clearly distinguishable among the heavily bundled explorers.",
+      "reviewed_at": 1795535392.4798088
     },
     "d100b0826758e0215c11fc6d": {
       "kind": "segment_rejection",
@@ -4528,8 +4528,8 @@
       "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
       "person": "Ernest Shackleton",
       "start": 1099.74,
-      "reason": "The footage features an interview discussing Ernest Shackleton and shots of Antarctic ice, but the historical subject Ernest Shackleton (who died in 1922) is not personally visible in the frames.",
-      "reviewed_at": 1792101595.3657475
+      "reason": "The sampled frames show a modern speaking commentator (who is not Ernest Shackleton, who lived in the late 19th/early 20th century) followed by generic Antarctic landscape footage. Since Shackleton is not visible and the speaking segment features a contemporary talking head, this footage is not usable as direct identity footage or reliable historical context for Shackleton.",
+      "reviewed_at": 1795535284.694469
     },
     "89da4a8b2307f7a400c980f6": {
       "kind": "segment_rejection",
@@ -4537,8 +4537,8 @@
       "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
       "person": "Ernest Shackleton",
       "start": 1318.69,
-      "reason": "The frames show geographical maps and satellite-style imagery of Antarctica (Vahsel Bay, Weddell Sea, McMurdo Sound) relevant to Ernest Shackleton's expeditions, serving as useful biographical illustration despite the subject not being visible.",
-      "reviewed_at": 1792101599.7327993
+      "reason": "The footage shows geographical maps/satellite imagery of Antarctica with labels like Vahsel Bay and McMurdo Sound, which provides contextual geographical illustration for Ernest Shackleton's expeditions, though the person is not visible.",
+      "reviewed_at": 1795535290.5671327
     },
     "3750fc661e11146ccd11a6e1": {
       "kind": "segment_rejection",
@@ -6833,8 +6833,8 @@
       "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
       "person": "Madam C.J. Walker",
       "start": 5.0,
-      "reason": "The sampled frames consist entirely of static historical photographs and product packaging rather than moving historical footage, rendering it unusable as video content.",
-      "reviewed_at": 1792675889.5590832
+      "reason": "The segment consists entirely of static photographs of the Walker Manufacturing Company building and product packaging, with no moving historical footage or clear identification of Madam C.J. Walker in motion.",
+      "reviewed_at": 1795535041.9570763
     },
     "1fa01f6c1240019f7739a026": {
       "kind": "segment_rejection",
@@ -13885,6 +13885,177 @@
       "start": 127.0,
       "reason": "The footage shows archival black-and-white soccer match footage and a stadium, which relates to Pelé's career, but Pelé is not clearly identifiable in the wide shots provided.",
       "reviewed_at": 1795463456.965997
+    },
+    "7961566aa46c8f609b867fd0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:054-vm-111103-dd-sky-clouds-bach-to-wagner",
+      "source_url": "https://archive.org/details/054-vm-111103-dd-sky-clouds-bach-to-wagner",
+      "person": "Mary Kay Ash",
+      "start": 151.87,
+      "reason": "The video shows generic time-lapse footage of clouds and sky, completely unrelated to Mary Kay Ash beyond a mention in source metadata.",
+      "reviewed_at": 1795535788.7972374
+    },
+    "a32b2880bf42cf86fa42f13c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:054-vm-111103-dd-sky-clouds-bach-to-wagner",
+      "source_url": "https://archive.org/details/054-vm-111103-dd-sky-clouds-bach-to-wagner",
+      "person": "Mary Kay Ash",
+      "start": 214.82,
+      "reason": "The footage consists entirely of generic stock shots of clouds and sunsets with no connection to Mary Kay Ash other than being paired with a quote in a slideshow.",
+      "reviewed_at": 1795535798.1127117
+    },
+    "fa52f206b81e20d6ac9ceb8d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:AlamedaSheriffsbeating2015Nov",
+      "source_url": "https://archive.org/details/AlamedaSheriffsbeating2015Nov",
+      "person": "Stanislav Petrov",
+      "start": 418.32,
+      "reason": "The footage depicts a completely different Stanislav Petrov (an American man who was beaten by police in Alameda County in 2015) rather than the historical Soviet lieutenant colonel Stanislav Petrov who averted nuclear war in 1983. Mismatch of subject.",
+      "reviewed_at": 1795535881.770945
+    },
+    "03403ad96dbc1c4a7b5a07c9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:AlamedaSheriffsbeating2015Nov",
+      "source_url": "https://archive.org/details/AlamedaSheriffsbeating2015Nov",
+      "person": "Stanislav Petrov",
+      "start": 64.05,
+      "reason": "The frames consist of low-resolution, distant nighttime security camera footage where individuals are unidentifiable silhouettes. Additionally, this 2015 surveillance footage of a California police incident is not suitable biographical footage for Stanislav Petrov.",
+      "reviewed_at": 1795535958.3629513
+    },
+    "88833e9b37fda7ed918b4c65": {
+      "kind": "segment_rejection",
+      "source_id": "archive:AlamedaSheriffsbeating2015Nov",
+      "source_url": "https://archive.org/details/AlamedaSheriffsbeating2015Nov",
+      "person": "Stanislav Petrov",
+      "start": 123.09,
+      "reason": "The named target (Soviet officer Stanislav Petrov) is not present; the footage is low-resolution, distant surveillance of a 2015 police incident involving a different individual of the same name, making it unusable.",
+      "reviewed_at": 1795536033.8076277
+    },
+    "af3a84a3d5e8152bf4f61d2c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Wright_Bros",
+      "source_url": "https://archive.org/details/Wright_Bros",
+      "person": "Wilbur Wright",
+      "start": 2983.07,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795536106.5384698
+    },
+    "7f692db95f80f717e74baa38": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Wright_Bros",
+      "source_url": "https://archive.org/details/Wright_Bros",
+      "person": "Wilbur Wright",
+      "start": 4259.38,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795536109.1622732
+    },
+    "8219134d14f19245b1b48ee5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Wright_Bros",
+      "source_url": "https://archive.org/details/Wright_Bros",
+      "person": "Wilbur Wright",
+      "start": 5.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795536110.9219034
+    },
+    "624f241ba3aa7c0acdd198b0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Wright_Bros",
+      "source_url": "https://archive.org/details/Wright_Bros",
+      "person": "Wilbur Wright",
+      "start": 430.44,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795536113.484681
+    },
+    "10e5c0da9f10041a82b43226": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Wright_Bros",
+      "source_url": "https://archive.org/details/Wright_Bros",
+      "person": "Wilbur Wright",
+      "start": 855.88,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795536116.0410905
+    },
+    "bb4ac4cacd0e729ca8d5cc49": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Wright_Bros",
+      "source_url": "https://archive.org/details/Wright_Bros",
+      "person": "Wilbur Wright",
+      "start": 1281.32,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795536118.2349296
+    },
+    "bdf0ed10a0daa0ef3fdd83fa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Wright_Bros",
+      "source_url": "https://archive.org/details/Wright_Bros",
+      "person": "Wilbur Wright",
+      "start": 1706.75,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795536120.8605573
+    },
+    "84fcdb6c7123c63e1da30957": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Wright_Bros",
+      "source_url": "https://archive.org/details/Wright_Bros",
+      "person": "Wilbur Wright",
+      "start": 2132.19,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795536123.5272195
+    },
+    "036c0695cee381a91f5f4faa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Wright_Bros",
+      "source_url": "https://archive.org/details/Wright_Bros",
+      "person": "Wilbur Wright",
+      "start": 2557.63,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795536126.1738346
+    },
+    "6f55b99ebe146b23b2932959": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Wright_Bros",
+      "source_url": "https://archive.org/details/Wright_Bros",
+      "person": "Wilbur Wright",
+      "start": 3408.51,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795536129.8353658
+    },
+    "458e90efb74edf6d9dc6d060": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Wright_Bros",
+      "source_url": "https://archive.org/details/Wright_Bros",
+      "person": "Wilbur Wright",
+      "start": 3833.95,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795536133.7816002
+    },
+    "08da92ff4ce143e02567e935": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Wright_Bros",
+      "source_url": "https://archive.org/details/Wright_Bros",
+      "person": "Wilbur Wright",
+      "start": 4684.82,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795536136.216787
+    },
+    "fe9c9f0822cf237f68736ab0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Wright_Bros",
+      "source_url": "https://archive.org/details/Wright_Bros",
+      "person": "Wilbur Wright",
+      "start": 5110.26,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795536138.3662026
+    },
+    "3eac344736605295058e2334": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Wright_Bros",
+      "source_url": "https://archive.org/details/Wright_Bros",
+      "person": "Wilbur Wright",
+      "start": 5535.7,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795536140.8911204
     }
   }
 }

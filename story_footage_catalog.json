@@ -19,192 +19,6 @@
         "identity_score": 13.0,
         "archival_signal": 1
       },
-      "start": 3482.95,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames contain genuine archival documentary footage depicting Jim Henson clearly visible among colleagues/collaborators, making it highly relevant and usable for a biographical short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1e6afa61ca4a24578ec6d5ad27e5c2c8e11f79ff7f9a2dcd38b2455e927d4c1e",
-      "reviewed_at": 1792526614.060798
-    },
-    {
-      "person": "Jim Henson",
-      "source": {
-        "id": "archive:jim-henson-documentaries",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jim-henson-documentaries/Jim%20Henson%20Idea%20Man.mp4",
-        "source_url": "https://archive.org/details/jim-henson-documentaries",
-        "title": "Jim Henson Documentaries",
-        "description": "Biographical documentaries about the life and legacy of Muppets creator Jim Henson. ['Jim Henson', 'Biography', 'Documentary', 'Muppets', 'Frank Oz', 'Jane Henson', 'Caroll Spinney', 'Lisa Henson', 'Cheryl Henson', 'Brian Henson', 'John Henson', 'Heather Henson']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['Jim Henson', 'Biography', 'Documentary', 'Muppets', 'Frank Oz', 'Jane Henson', 'Caroll Spinney', 'Lisa Henson', 'Cheryl Henson', 'Brian Henson', 'John Henson', 'Heather Henson']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6473.049917,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 501.85,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features authentic archival footage of Jim Henson performing early puppetry, along with documentary footage illustrating his life and career, making it highly relevant and usable for a biography short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5fc0be13ddfb10ba3d4d476c636e1358a045b7740896d713a9cb5a43ef2aaebf",
-      "reviewed_at": 1792526783.2010977
-    },
-    {
-      "person": "Jim Henson",
-      "source": {
-        "id": "archive:jim-henson-documentaries",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jim-henson-documentaries/Jim%20Henson%20Idea%20Man.mp4",
-        "source_url": "https://archive.org/details/jim-henson-documentaries",
-        "title": "Jim Henson Documentaries",
-        "description": "Biographical documentaries about the life and legacy of Muppets creator Jim Henson. ['Jim Henson', 'Biography', 'Documentary', 'Muppets', 'Frank Oz', 'Jane Henson', 'Caroll Spinney', 'Lisa Henson', 'Cheryl Henson', 'Brian Henson', 'John Henson', 'Heather Henson']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['Jim Henson', 'Biography', 'Documentary', 'Muppets', 'Frank Oz', 'Jane Henson', 'Caroll Spinney', 'Lisa Henson', 'Cheryl Henson', 'Brian Henson', 'John Henson', 'Heather Henson']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6473.049917,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 998.7,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The segment features genuine archival footage of a young Jim Henson performing and working with his early puppets, clearly showing him in frames 2 through 5. It directly illustrates his early career and life as requested.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "dfe8a1ea808d8768b7877fa52b28adfb9b24fcdfba40e68bcaec3d627fc3e9af",
-      "reviewed_at": 1792526807.3732264
-    },
-    {
-      "person": "Jim Henson",
-      "source": {
-        "id": "archive:tv-am-interview-1983",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tv-am-interview-1983/TV-am%20Interview%201983.mp4",
-        "source_url": "https://archive.org/details/tv-am-interview-1983",
-        "title": "Jim Henson \"The Dark Crystal\" TV Am Interview 1983",
-        "description": "Jim Henson and Frank Oz are interviewed about their recent movie, The Dark Crystal. They bring with them the Aughra puppet. Sourced from YouTube, TV-AM archive. https://www.youtube.com/watch?v=B_TCf0ANFHA The Dark Crystal",
-        "creator": "Jim Henson",
-        "license": "",
-        "subject": "The Dark Crystal",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 244.44,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 58.18,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Jim Henson is clearly visible in the second and third frames during a 1983 TV-AM interview about The Dark Crystal. The footage is real and serves as good biographical illustration, although later frames cut away to another speaker.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "fbc63f5cec730786705c99db208364d53d664e0aa178315b4f6724fb6ab69e4f",
-      "reviewed_at": 1792526826.8248508
-    },
-    {
-      "person": "Jim Henson",
-      "source": {
-        "id": "archive:jim-henson-documentaries",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jim-henson-documentaries/Jim%20Henson%20Idea%20Man.mp4",
-        "source_url": "https://archive.org/details/jim-henson-documentaries",
-        "title": "Jim Henson Documentaries",
-        "description": "Biographical documentaries about the life and legacy of Muppets creator Jim Henson. ['Jim Henson', 'Biography', 'Documentary', 'Muppets', 'Frank Oz', 'Jane Henson', 'Caroll Spinney', 'Lisa Henson', 'Cheryl Henson', 'Brian Henson', 'John Henson', 'Heather Henson']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['Jim Henson', 'Biography', 'Documentary', 'Muppets', 'Frank Oz', 'Jane Henson', 'Caroll Spinney', 'Lisa Henson', 'Cheryl Henson', 'Brian Henson', 'John Henson', 'Heather Henson']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6473.049917,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 1992.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled archival video segment clearly features Jim Henson along with collaborators, serving as excellent biographical illustration for a documentary short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8de1b0138243b04cfacd8d3070ec2aad55e8f6e45110dd199b67ffff2e15a1df",
-      "reviewed_at": 1792526917.980463
-    },
-    {
-      "person": "Jim Henson",
-      "source": {
-        "id": "archive:tv-am-interview-1983",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tv-am-interview-1983/TV-am%20Interview%201983.mp4",
-        "source_url": "https://archive.org/details/tv-am-interview-1983",
-        "title": "Jim Henson \"The Dark Crystal\" TV Am Interview 1983",
-        "description": "Jim Henson and Frank Oz are interviewed about their recent movie, The Dark Crystal. They bring with them the Aughra puppet. Sourced from YouTube, TV-AM archive. https://www.youtube.com/watch?v=B_TCf0ANFHA The Dark Crystal",
-        "creator": "Jim Henson",
-        "license": "",
-        "subject": "The Dark Crystal",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 244.44,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 75.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The segment features real archival interview footage of Jim Henson (alongside Frank Oz and the Aughra puppet from The Dark Crystal), making it authentic biographical illustration despite the presence of timecode overlays.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d523b77185055ed50039780ceaf6eafbbd2442afbb5e8370d5730389db76324f",
-      "reviewed_at": 1792526930.379569
-    },
-    {
-      "person": "Jim Henson",
-      "source": {
-        "id": "archive:jim-henson-documentaries",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jim-henson-documentaries/Jim%20Henson%20Idea%20Man.mp4",
-        "source_url": "https://archive.org/details/jim-henson-documentaries",
-        "title": "Jim Henson Documentaries",
-        "description": "Biographical documentaries about the life and legacy of Muppets creator Jim Henson. ['Jim Henson', 'Biography', 'Documentary', 'Muppets', 'Frank Oz', 'Jane Henson', 'Caroll Spinney', 'Lisa Henson', 'Cheryl Henson', 'Brian Henson', 'John Henson', 'Heather Henson']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['Jim Henson', 'Biography', 'Documentary', 'Muppets', 'Frank Oz', 'Jane Henson', 'Caroll Spinney', 'Lisa Henson', 'Cheryl Henson', 'Brian Henson', 'John Henson', 'Heather Henson']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6473.049917,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
       "start": 2489.25,
       "length": 8.0,
       "verification": {
@@ -13243,37 +13057,6 @@
       "reviewed_at": 1794336961.7058165
     },
     {
-      "person": "Madam C.J. Walker",
-      "source": {
-        "id": "archive:yt_p3qjlLYszEI",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/yt_p3qjlLYszEI/p3qjlLYszEI.mp4",
-        "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
-        "title": "US National Archives - Madam C.J. Walker in the National Archives (YouTube)",
-        "description": "Downloaded from US National Archives Youtube channel on 2025-02-05 12:03:02 https://youtube.com/watch?v=p3qjlLYszEI -------- Madam C.J. Walker, one of the great American entrepreneurs of the early 20th century, was born to former slaves and grew up in destitution. In this Inside the Vaults video short, her great-great granddaughter, A'Lelia Bundles, tells Madam Walker's story with help from documents in the National Archives. Bundles, a former broadcast network news executive and President of the Foundation for the National Archives, is the author of \"On Her Own Ground: The Life and Times of Madam C.J. Walker.\" She drew on documents in the Archives to depict the Louisiana plantation on which Madam Walker was born, Walker's early life as an orphan and washerwoman, and ultimately her triumph as one of the creators of the modern hair care and cosmetics industry. Bundles also found some surprises in the Archives: Madam Walker's philanthropy and civil rights activism led to her being targeted by the federal government as a \"subversive negro.\" For more information about Madam Walker, visit http://www.madamcjwalker.com. Inside the Vaults includes highlights from the National Archives in the Washington, DC, area and from the Presidential libraries and regional archives nationwide. These shorts present behind-the-scenes exclusives and offer surprising stories about the National Archives treasures. See more from Inside the Vaults at http://bit.ly/LzQNae. ",
-        "creator": "US National Archives",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 208.374833,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 169.47,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment includes archival footage depicting Madam C.J. Walker (seated in the car in historical photos) alongside documentary commentary from her great-great-granddaughter, providing high-quality historical context and direct biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ffe3bda22e4a71c82871e8bb0b28290641553407142712b90f87d25cf3dc65a3",
-      "reviewed_at": 1794337239.3495946
-    },
-    {
       "person": "Grace Hopper",
       "source": {
         "id": "archive:btvin-Unsung_Hero_Grace_Hopper",
@@ -16293,161 +16076,6 @@
       "reviewed_at": 1794658264.2621825
     },
     {
-      "person": "Tenzing Norgay",
-      "source": {
-        "id": "archive:44754ManAgainstMountEverest",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
-        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
-        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
-        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
-        "creator": "",
-        "license": "",
-        "subject": "['Stock Footage', 'High Definition']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 538.657214,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 287.51,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment is authentic archival footage from the 1952 Swiss Mount Everest expedition, clearly showing Tenzing Norgay among the climbers in multiple frames, making it directly relevant to his biography.",
-        "usage": "direct_event"
-      },
-      "review_key": "620ae27efd5a71a0f9824b14abb0b831759bf743016e104b9ac0efb83c94b3ae",
-      "reviewed_at": 1794658311.5922065
-    },
-    {
-      "person": "Tenzing Norgay",
-      "source": {
-        "id": "archive:44754ManAgainstMountEverest",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
-        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
-        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
-        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
-        "creator": "",
-        "license": "",
-        "subject": "['Stock Footage', 'High Definition']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 538.657214,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 126.07,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled archival footage clearly shows Tenzing Norgay preparing food and participating in the 1952 Swiss Mount Everest expedition as described, providing authentic biographical illustration of his early mountaineering career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ec8586fdb0c1b00e69147b4971e0ac38f5cd3a52d268fed6bd4e68b0e8b2a0b4",
-      "reviewed_at": 1794658331.4403923
-    },
-    {
-      "person": "Tenzing Norgay",
-      "source": {
-        "id": "archive:44754ManAgainstMountEverest",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
-        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
-        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
-        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
-        "creator": "",
-        "license": "",
-        "subject": "['Stock Footage', 'High Definition']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 538.657214,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 247.15,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled archival footage clearly features Tenzing Norgay on the 1952 Swiss Mount Everest expedition, providing authentic historical context for his mountaineering career.",
-        "usage": "direct_event"
-      },
-      "review_key": "845d49514c4ea05a3f59b8979718332fcb611059080695c27db98ec9a798c61a",
-      "reviewed_at": 1794658337.7386398
-    },
-    {
-      "person": "Tenzing Norgay",
-      "source": {
-        "id": "archive:44754ManAgainstMountEverest",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
-        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
-        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
-        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
-        "creator": "",
-        "license": "",
-        "subject": "['Stock Footage', 'High Definition']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 538.657214,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 327.87,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The archival footage clearly shows Tenzing Norgay during the 1952 Swiss Mount Everest expedition, directly illustrating his life and mountaineering career.",
-        "usage": "direct_event"
-      },
-      "review_key": "d8ac2d3e9ad82622aedbd21e4634cf4b7e8b71c7fe1bd3070d1a688e9e6cc3d3",
-      "reviewed_at": 1794658345.2747958
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:antarctica-a-frozen-history",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/antarctica-a-frozen-history/Antarctica%20A%20Frozen%20History.mp4",
-        "source_url": "https://archive.org/details/antarctica-a-frozen-history",
-        "title": "Antarctica A Frozen History",
-        "description": "Historical documentary about the history of Antarctic Exploration in Antarctica narrated by actor Edward Herrmann. ['Antarctica A Frozen History', 'Antarctica', 'Antarctic Exploration', 'Sir Ernest Shackleton', 'Robert Falcon Scott', 'History', 'Edward Herrmann', 'Documentary']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['Antarctica A Frozen History', 'Antarctica', 'Antarctic Exploration', 'Sir Ernest Shackleton', 'Robert Falcon Scott', 'History', 'Edward Herrmann', 'Documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 5509.9044,
-        "identity_score": 10.0,
-        "archival_signal": 1
-      },
-      "start": 3809.86,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment shows archival footage of Ernest Shackleton (visibly present centrally in polar gear in the early frames and on deck in later frames) with his crew during Antarctic expeditions, providing authentic historical context.",
-        "usage": "direct_event"
-      },
-      "review_key": "6fdfc2cb678c71309a2c393e8f15a86d50bae1543b35816897d59ecfea9bf797",
-      "reviewed_at": 1794658515.5098796
-    },
-    {
       "person": "Louis Armstrong",
       "source": {
         "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
@@ -16911,68 +16539,6 @@
       },
       "review_key": "37e5359af71474a0f0fd794561aeec646187885afc0f900146910df95c418c55",
       "reviewed_at": 1794658930.083024
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Shackleton Documentary Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 442.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The segment features genuine historical archival footage of Ernest Shackleton and his expedition team with their sledge and flag in Antarctica during the Nimrod Expedition, directly illustrating his life and achievements.",
-        "usage": "direct_event"
-      },
-      "review_key": "501572c8055d5d62774339e98c2cf5aa5f619f378fefdb6e3abc3c855c33bdcf",
-      "reviewed_at": 1794675316.6749568
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Ernest Shackleton Documentaries Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 442.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The sampled archival footage genuinely depicts Ernest Shackleton and his expedition team during their Antarctic exploration, showing historical photographic/moving image context directly relevant to his biography.",
-        "usage": "direct_event"
-      },
-      "review_key": "2e3e68caadaa4836af7085c9e26888d8c4d2d7f12fb2da3d89b155e68dbe6062",
-      "reviewed_at": 1794675370.934672
     },
     {
       "person": "Ernest Shackleton",
@@ -18651,6 +18217,446 @@
       },
       "review_key": "870b3ba37ffbc850f55f9a8f034cc27af870acfc127a54d2f412d7f206af0f81",
       "reviewed_at": 1795463598.0581481
+    },
+    {
+      "person": "Madam C.J. Walker",
+      "source": {
+        "id": "archive:yt_p3qjlLYszEI",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/yt_p3qjlLYszEI/p3qjlLYszEI.mp4",
+        "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+        "title": "US National Archives - Madam C.J. Walker in the National Archives (YouTube)",
+        "description": "Downloaded from US National Archives Youtube channel on 2025-02-05 12:03:02 https://youtube.com/watch?v=p3qjlLYszEI -------- Madam C.J. Walker, one of the great American entrepreneurs of the early 20th century, was born to former slaves and grew up in destitution. In this Inside the Vaults video short, her great-great granddaughter, A'Lelia Bundles, tells Madam Walker's story with help from documents in the National Archives. Bundles, a former broadcast network news executive and President of the Foundation for the National Archives, is the author of \"On Her Own Ground: The Life and Times of Madam C.J. Walker.\" She drew on documents in the Archives to depict the Louisiana plantation on which Madam Walker was born, Walker's early life as an orphan and washerwoman, and ultimately her triumph as one of the creators of the modern hair care and cosmetics industry. Bundles also found some surprises in the Archives: Madam Walker's philanthropy and civil rights activism led to her being targeted by the federal government as a \"subversive negro.\" For more information about Madam Walker, visit http://www.madamcjwalker.com. Inside the Vaults includes highlights from the National Archives in the Washington, DC, area and from the Presidential libraries and regional archives nationwide. These shorts present behind-the-scenes exclusives and offer surprising stories about the National Archives treasures. See more from Inside the Vaults at http://bit.ly/LzQNae. ",
+        "creator": "US National Archives",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 208.374833,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 169.47,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features genuine archival footage and a documentary interview discussing Madam C.J. Walker. While the first frame shows her great-great-granddaughter (A'Lelia Bundles) speaking, subsequent frames display historical photographs of Madam C.J. Walker herself in an automobile, making the footage authentic and relevant biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f8d0bc3fbd955ae84b1df6022e7274c641a048bd2a8fc1a20913aec4243b721b",
+      "reviewed_at": 1795534875.047031
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows authentic historical documentary footage and photographs featuring Ernest Shackleton and his team in polar gear during their expedition, perfectly matching the narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "5720314f3f62a915b132d4c20024d5227e23830d066e2dd78625dda3be8ea5d5",
+      "reviewed_at": 1795535104.7401366
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Ernest Shackleton Documentaries Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames depict authentic historical footage of Ernest Shackleton and his expedition team in Antarctica, directly illustrating his life and expeditions.",
+        "usage": "direct_event"
+      },
+      "review_key": "5eea33bbe82b4064ec61112c7535a7f22d273beb922db2ae8a0611c8e16f4ff0",
+      "reviewed_at": 1795535110.2537854
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 223.95,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment includes archival documentary footage featuring an expert talking about Ernest Shackleton, followed by a historical photograph showing a young Ernest Shackleton as a boy, serving as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ce1c997934a4834b018881a0a6d58a63dd0fe5a899b9ea96baf5b3a3ebd4a6d4",
+      "reviewed_at": 1795535115.1208487
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:antarctica-a-frozen-history",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/antarctica-a-frozen-history/Antarctica%20A%20Frozen%20History.mp4",
+        "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+        "title": "Antarctica A Frozen History",
+        "description": "Historical documentary about the history of Antarctic Exploration in Antarctica narrated by actor Edward Herrmann. ['Antarctica A Frozen History', 'Antarctica', 'Antarctic Exploration', 'Sir Ernest Shackleton', 'Robert Falcon Scott', 'History', 'Edward Herrmann', 'Documentary']",
+        "creator": "Devon Geen",
+        "license": "",
+        "subject": "['Antarctica A Frozen History', 'Antarctica', 'Antarctic Exploration', 'Sir Ernest Shackleton', 'Robert Falcon Scott', 'History', 'Edward Herrmann', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 5509.9044,
+        "identity_score": 10.0,
+        "archival_signal": 1
+      },
+      "start": 3809.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features archival documentary footage showing Ernest Shackleton (visibly identifiable as the central figure standing prominently in cold-weather gear in the group shots) and his crew, providing authentic historical context for his Antarctic expeditions.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "920236b292512c920fecc04ced1328159db2115b3fba3212f9d83d9f5dcdc4c8",
+      "reviewed_at": 1795535351.1849525
+    },
+    {
+      "person": "Tenzing Norgay",
+      "source": {
+        "id": "archive:44754ManAgainstMountEverest",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
+        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
+        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
+        "creator": "",
+        "license": "",
+        "subject": "['Stock Footage', 'High Definition']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 538.657214,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 287.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment shows authentic historical archival footage from the 1952 Swiss Mount Everest expedition, including Tenzing Norgay clearly visible amongst the climbing team in the sampled frames. This directly illustrates his early mountaineering career and participation in the historic expedition prior to his 1953 summit.",
+        "usage": "direct_event"
+      },
+      "review_key": "cc735e0def65c078b2117ec1494ce31ffc36cb715d6869f2d9ae761972e1dd14",
+      "reviewed_at": 1795535426.617376
+    },
+    {
+      "person": "Tenzing Norgay",
+      "source": {
+        "id": "archive:44754ManAgainstMountEverest",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
+        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
+        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
+        "creator": "",
+        "license": "",
+        "subject": "['Stock Footage', 'High Definition']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 538.657214,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 126.07,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled archival footage clearly shows Tenzing Norgay in the first frame preparing food outdoors during the 1952 Swiss Mount Everest expedition, followed by fellow expedition members, directly illustrating his early historical mountaineering career and context.",
+        "usage": "direct_event"
+      },
+      "review_key": "b55f682ff18453632e67eba111fd4f5b016d02b05397a1926e65dcf1983e3ef6",
+      "reviewed_at": 1795535617.625799
+    },
+    {
+      "person": "Tenzing Norgay",
+      "source": {
+        "id": "archive:44754ManAgainstMountEverest",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
+        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
+        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
+        "creator": "",
+        "license": "",
+        "subject": "['Stock Footage', 'High Definition']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 538.657214,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 247.15,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled archival footage shows authentic historical documentary footage of the 1952 Swiss Mount Everest expedition, with Tenzing Norgay clearly identifiable in close-up frames (such as frame 5), directly illustrating his mountaineering career and participation in the expedition.",
+        "usage": "direct_event"
+      },
+      "review_key": "461e20eceffd495f7d07502bcd34b8c2a0a81db77857f8e8400d8e767045894d",
+      "reviewed_at": 1795535622.9548523
+    },
+    {
+      "person": "Tenzing Norgay",
+      "source": {
+        "id": "archive:44754ManAgainstMountEverest",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
+        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
+        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
+        "creator": "",
+        "license": "",
+        "subject": "['Stock Footage', 'High Definition']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 538.657214,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 327.87,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival footage clearly shows Tenzing Norgay during the 1952 Swiss Mount Everest expedition, directly illustrating a key historical event in his life and mountaineering career.",
+        "usage": "direct_event"
+      },
+      "review_key": "bc249e48305e8f6745ec6c5ea9a8918ef96d89cded0a36c9365f1b0305c0bb7f",
+      "reviewed_at": 1795535633.0221593
+    },
+    {
+      "person": "Tenzing Norgay",
+      "source": {
+        "id": "archive:44754ManAgainstMountEverest",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
+        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
+        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
+        "creator": "",
+        "license": "",
+        "subject": "['Stock Footage', 'High Definition']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 538.657214,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 166.43,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The footage includes historical documentary footage of Tenzing Norgay (visible in the first frame alongside locals during the 1952 Swiss expedition) and authentic mountain landscape views matching the narration, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "63c994ddba4baa2d4dde7a32fe959bcdf67d740c85102d953ddb8050484b9fea",
+      "reviewed_at": 1795535642.4656847
+    },
+    {
+      "person": "Tenzing Norgay",
+      "source": {
+        "id": "archive:44754ManAgainstMountEverest",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
+        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
+        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
+        "creator": "",
+        "license": "",
+        "subject": "['Stock Footage', 'High Definition']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 538.657214,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 408.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The archival footage shows mountain climbing scenes from the 1952 Swiss expedition in which Tenzing Norgay participated, but Tenzing's face is not clearly identifiable in the sampled frames. Therefore, person_visible is false, but it is valid historical context depicting the event.",
+        "usage": "direct_event"
+      },
+      "review_key": "03cd403e110466d30a35dbe2be3ade085032039291e099f7dc1db3fb7011add0",
+      "reviewed_at": 1795535649.8959582
+    },
+    {
+      "person": "Tenzing Norgay",
+      "source": {
+        "id": "archive:44754ManAgainstMountEverest",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
+        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
+        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
+        "creator": "",
+        "license": "",
+        "subject": "['Stock Footage', 'High Definition']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 538.657214,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 448.94,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The footage shows authentic archival material from the 1952 Swiss Mount Everest expedition in which Tenzing Norgay participated as a climber. While Tenzing's face is obscured by heavy expedition gear and hoods, making individual facial identification uncertain across the frames, the footage depicts the exact historical expedition and context described in the narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "fbd130f99392d87c2796eaa409421d38a0ba7b31972fe1a2bf529e098d4a3e2e",
+      "reviewed_at": 1795535656.600267
+    },
+    {
+      "person": "Stanislav Petrov",
+      "source": {
+        "id": "archive:AlamedaSheriffsbeating2015Nov",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AlamedaSheriffsbeating2015Nov/alameda_county_sheriff_beating_in_san_francisco_video.mp4",
+        "source_url": "https://archive.org/details/AlamedaSheriffsbeating2015Nov",
+        "title": "Alameda Sheriff's Deputies Lied in Reports About Beating of Stanislav Petrov",
+        "description": "* \" Big Surprise: Alameda Sheriff's Deputies Lied in Reports About Beating of Stanislav Petrov \" (2016-03-29, via Indybay.org Newswire) [ archive.is/h1GtX ]: It was almost the perfect cover-up of a serious violent crime by a dozen or so pigs from the Alameda County Sheriff's Office. In their official reports, posted below, Deputies Luis Santamaria and Paul Wieber claimed they beat Stanislav Petrov senseless on November 12, 2015, because they feared for their lives and their baton strikes \"appeared to have little effect.\" That might have been the end of the story, as it usually is when police pummel or kill someone out of public view. But this time there was video of the beating the pigs couldn't bury — and anyone who has seen it knows better. Other pigs lied about the incident, too. One who arrived on the scene after the beating dutifully played a role in the cover-up by reporting that Stanislav continued to act violently. Separately, it has now come out that one of the pigs present after the beating actually robbed Stanislav after the beating and gave his gold chain, his cigarettes, some change and some other stuff to a homeless man who had witnessed the beating, presumably as a payoff to stay quiet. On top of all that, almost all of the deputies had their body cameras turned off, although Alameda Sheriff Greg Ahern says Wieber accidentally activated his body camera and that a second video of the beating exists. Accidentally. At least three of these pigs are now on \"paid administrative leave,\" the two beaters and now the robber. For Luis Santamaria and Paul Wieber, that's  ['USA', 'Police', 'fascism']",
+        "creator": "",
+        "license": "",
+        "subject": "['USA', 'Police', 'fascism']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 781.5993,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/AlamedaSheriffsbeating2015Nov/alameda_county_sheriff_beating_in_san_francisco_video.ogv"
+        ]
+      },
+      "start": 595.46,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The surveillance footage depicts the real-world scene of the police incident involving Stanislav Petrov, providing direct event context. However, the individuals in the background are too far away and low-resolution to clearly identify Stanislav Petrov in any frame.",
+        "usage": "direct_event"
+      },
+      "review_key": "554fcc461cee5656f73e79260121cdcffa38c81374f4f2d683b4581fe971e7fc",
+      "reviewed_at": 1795535884.4731762
+    },
+    {
+      "person": "Stanislav Petrov",
+      "source": {
+        "id": "archive:AlamedaSheriffsbeating2015Nov",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AlamedaSheriffsbeating2015Nov/alameda_county_sheriff_beating_in_san_francisco_video.mp4",
+        "source_url": "https://archive.org/details/AlamedaSheriffsbeating2015Nov",
+        "title": "Alameda Sheriff's Deputies Lied in Reports About Beating of Stanislav Petrov",
+        "description": "* \" Big Surprise: Alameda Sheriff's Deputies Lied in Reports About Beating of Stanislav Petrov \" (2016-03-29, via Indybay.org Newswire) [ archive.is/h1GtX ]: It was almost the perfect cover-up of a serious violent crime by a dozen or so pigs from the Alameda County Sheriff's Office. In their official reports, posted below, Deputies Luis Santamaria and Paul Wieber claimed they beat Stanislav Petrov senseless on November 12, 2015, because they feared for their lives and their baton strikes \"appeared to have little effect.\" That might have been the end of the story, as it usually is when police pummel or kill someone out of public view. But this time there was video of the beating the pigs couldn't bury — and anyone who has seen it knows better. Other pigs lied about the incident, too. One who arrived on the scene after the beating dutifully played a role in the cover-up by reporting that Stanislav continued to act violently. Separately, it has now come out that one of the pigs present after the beating actually robbed Stanislav after the beating and gave his gold chain, his cigarettes, some change and some other stuff to a homeless man who had witnessed the beating, presumably as a payoff to stay quiet. On top of all that, almost all of the deputies had their body cameras turned off, although Alameda Sheriff Greg Ahern says Wieber accidentally activated his body camera and that a second video of the beating exists. Accidentally. At least three of these pigs are now on \"paid administrative leave,\" the two beaters and now the robber. For Luis Santamaria and Paul Wieber, that's  ['USA', 'Police', 'fascism']",
+        "creator": "",
+        "license": "",
+        "subject": "['USA', 'Police', 'fascism']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 781.5993,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/AlamedaSheriffsbeating2015Nov/alameda_county_sheriff_beating_in_san_francisco_video.ogv"
+        ]
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "usage": "direct_event",
+        "reason": "This is real security camera footage capturing the actual 2015 police beating incident involving Stanislav Petrov. While the subject is not clearly identifiable due to the distance and low resolution of the surveillance camera, it directly depicts the historical event."
+      },
+      "review_key": "a8b40b227cdf7fcf748ec5aafebe22d90f314b0441f11751095a9ce438bdb14b",
+      "reviewed_at": 1795535936.520899
     }
   ]
 }

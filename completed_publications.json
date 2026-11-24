@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1790155468",
-    "video_id": "WCgkgIIl0W0",
-    "topic": "Why do old keys stick",
-    "completed_at": 1790157201
-  },
-  {
     "workdir": "output/1790198130",
     "video_id": "mO9SGSmhSQo",
     "topic": "Why do mirrors flip horizontally",
@@ -598,5 +592,11 @@
     "video_id": "ioBW8LBEnDw",
     "topic": "Why do permanent markers smell strong",
     "completed_at": 1795509679
+  },
+  {
+    "workdir": "output/1795547072",
+    "video_id": "MMmmxJwmxqU",
+    "topic": "Why do pill bottles pop open",
+    "completed_at": 1795548595
   }
 ]

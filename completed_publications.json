@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1790143464",
-    "video_id": "-KQEjuvHoSk",
-    "topic": "Why window glass rattles in the wind",
-    "completed_at": 1790145282
-  },
-  {
     "workdir": "output/1790155468",
     "video_id": "WCgkgIIl0W0",
     "topic": "Why do old keys stick",
@@ -598,5 +592,11 @@
     "video_id": "TaRpmoVgcO4",
     "topic": "Why does cheese melt",
     "completed_at": 1795477942
+  },
+  {
+    "workdir": "output/1795508153",
+    "video_id": "ioBW8LBEnDw",
+    "topic": "Why do permanent markers smell strong",
+    "completed_at": 1795509679
   }
 ]

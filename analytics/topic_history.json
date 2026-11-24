@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do pine needles stick to carpets",
-    "normalized": "why do pine needles stick to carpets",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795412064,
-    "recorded_at": 1795412064,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do wooden spoons stain from soup",
     "normalized": "why do wooden spoons stain from soup",
     "workflow": "publish",
@@ -3534,6 +3522,18 @@
     "status": "reserved",
     "reserved_at": 1795482594,
     "recorded_at": 1795482594,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do permanent markers smell strong",
+    "normalized": "why do permanent markers smell strong",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795508041,
+    "recorded_at": 1795508041,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

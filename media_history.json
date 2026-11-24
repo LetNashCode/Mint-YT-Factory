@@ -22409,6 +22409,106 @@
       "shot": 2,
       "query": "cheese while mozzarella stretches perfectly",
       "recorded_at": 1795476617
+    },
+    {
+      "asset_key": "pexels:video:8852464",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8852464/8852464-hd_1280_720_60fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "permanent markers intense chemical wall instantly",
+      "recorded_at": 1795508232
+    },
+    {
+      "asset_key": "pexels:video:8251963",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8251963/8251963-hd_1280_720_24fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "permanent markers liquid ink wildly trying",
+      "recorded_at": 1795508242
+    },
+    {
+      "asset_key": "pixabay:video:4952",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/09/05/4952-181538531_medium.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "permanent markers water-based pens dry paper",
+      "recorded_at": 1795508248
+    },
+    {
+      "asset_key": "pexels:video:6339858",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6339858/6339858-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "permanent markers but rely",
+      "recorded_at": 1795508252
+    },
+    {
+      "asset_key": "pexels:video:35990830",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35990830/15261196_720_1280_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "permanent markers instant you write aggressive",
+      "recorded_at": 1795508256
+    },
+    {
+      "asset_key": "pexels:video:12760956",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/12760956/12760956-hd_720_1280_24fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "permanent markers launch straight into surrounding",
+      "recorded_at": 1795508261
+    },
+    {
+      "asset_key": "pixabay:video:1103",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2015/10/19/1103-143052501_medium.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "permanent markers they sprint away like",
+      "recorded_at": 1795508266
+    },
+    {
+      "asset_key": "pexels:video:7146890",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7146890/7146890-hd_720_1280_24fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "permanent markers abandoning dark pigment trapped",
+      "recorded_at": 1795508273
+    },
+    {
+      "asset_key": "pexels:video:32493322",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/32493322/13855779_720_1280_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "permanent markers literally solvent rapid escape",
+      "recorded_at": 1795508300
+    },
+    {
+      "asset_key": "pexels:video:7605380",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7605380/7605380-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "permanent markers your drawing dries seconds",
+      "recorded_at": 1795508304
     }
   ]
 }

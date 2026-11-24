@@ -2,347 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Jim Henson",
-      "source": {
-        "id": "archive:jim-henson-documentaries",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jim-henson-documentaries/Jim%20Henson%20Idea%20Man.mp4",
-        "source_url": "https://archive.org/details/jim-henson-documentaries",
-        "title": "Jim Henson Documentaries",
-        "description": "Biographical documentaries about the life and legacy of Muppets creator Jim Henson. ['Jim Henson', 'Biography', 'Documentary', 'Muppets', 'Frank Oz', 'Jane Henson', 'Caroll Spinney', 'Lisa Henson', 'Cheryl Henson', 'Brian Henson', 'John Henson', 'Heather Henson']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['Jim Henson', 'Biography', 'Documentary', 'Muppets', 'Frank Oz', 'Jane Henson', 'Caroll Spinney', 'Lisa Henson', 'Cheryl Henson', 'Brian Henson', 'John Henson', 'Heather Henson']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6473.049917,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2489.25,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment includes authentic archival footage featuring Jim Henson speaking in an interview/documentary segment (frames 2 and 3) as well as clips of his work with Muppets (Bert and Ernie), making it highly relevant and usable for a biographical Short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "950cfeaf4efe94f50d4a045da836fd1ac2237635ade7839dd6442bb68eeda984",
-      "reviewed_at": 1792526971.249919
-    },
-    {
-      "person": "Jim Henson",
-      "source": {
-        "id": "archive:jim-henson-documentaries",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jim-henson-documentaries/Jim%20Henson%20Idea%20Man.mp4",
-        "source_url": "https://archive.org/details/jim-henson-documentaries",
-        "title": "Jim Henson Documentaries",
-        "description": "Biographical documentaries about the life and legacy of Muppets creator Jim Henson. ['Jim Henson', 'Biography', 'Documentary', 'Muppets', 'Frank Oz', 'Jane Henson', 'Caroll Spinney', 'Lisa Henson', 'Cheryl Henson', 'Brian Henson', 'John Henson', 'Heather Henson']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['Jim Henson', 'Biography', 'Documentary', 'Muppets', 'Frank Oz', 'Jane Henson', 'Caroll Spinney', 'Lisa Henson', 'Cheryl Henson', 'Brian Henson', 'John Henson', 'Heather Henson']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6473.049917,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2986.1,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Jim Henson in his workspace during archival recording, making it authentic and highly relevant biographical illustration for a video about his life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8ad726ea435ec277fbd17f49c6b912e7f98e23dbf000173875845a8e7188f5ee",
-      "reviewed_at": 1792526999.0139432
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:twitter-1338797197635145728",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
-        "source_url": "https://archive.org/details/twitter-1338797197635145728",
-        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
-        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 243.785208,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 75.7,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features real archival footage of Audrey Hepburn being interviewed on Wogan in 1989, making it highly relevant and usable as biographical illustration for her life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9a9c0327c9342cb6cac832d1234742db2dc841be7f5a50d0f560f2d11725802d",
-      "reviewed_at": 1792527124.3595839
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:sabrina-audrey-hepburn",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sabrina-audrey-hepburn/Sabrina%20Audrey%20Hepburn.mp4",
-        "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
-        "title": "Sabrina Audrey Hepburn",
-        "description": "(From Wiki) Sabrina Fairchild is the young daughter of the Larrabee family's chauffeur, Thomas, and has been in love with David Larrabee all her life. David is a three-times-married playboy who has never paid attention to Sabrina because to him she was still a child. 1954 American romantic comedy-drama film directed by Billy Wilder, adapted for the screen by Wilder, Samuel A. Taylor, and Ernest Lehman[4] from Taylor's 1953 play Sabrina Fair. The picture stars Humphrey Bogart, Audrey Hepburn and William Holden. This was Wilder's last film released by Paramount Pictures, ending a 12-year business relationship between Wilder and the company. ['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
-        "creator": "",
-        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6833.666667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 529.59,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment features genuine film footage from Sabrina (1954), clearly showing Audrey Hepburn acting in character, which serves as valid biographical illustration for her career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "cd118fee0b245279c9f7ee1eafd920bf9a6ff5c4bfadedfe79de8062c96fdb77",
-      "reviewed_at": 1792527176.412501
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:twitter-1338797197635145728",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
-        "source_url": "https://archive.org/details/twitter-1338797197635145728",
-        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
-        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 243.785208,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 128.73,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features real archival footage of Audrey Hepburn visible across multiple frames during a television appearance and photo shoot, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "59622173b4c944ceb714fcf8d6fc79f675609cc0d0bec04b1c1828cb61f0f2af",
-      "reviewed_at": 1792527185.9080527
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:sabrina-audrey-hepburn",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sabrina-audrey-hepburn/Sabrina%20Audrey%20Hepburn.mp4",
-        "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
-        "title": "Sabrina Audrey Hepburn",
-        "description": "(From Wiki) Sabrina Fairchild is the young daughter of the Larrabee family's chauffeur, Thomas, and has been in love with David Larrabee all her life. David is a three-times-married playboy who has never paid attention to Sabrina because to him she was still a child. 1954 American romantic comedy-drama film directed by Billy Wilder, adapted for the screen by Wilder, Samuel A. Taylor, and Ernest Lehman[4] from Taylor's 1953 play Sabrina Fair. The picture stars Humphrey Bogart, Audrey Hepburn and William Holden. This was Wilder's last film released by Paramount Pictures, ending a 12-year business relationship between Wilder and the company. ['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
-        "creator": "",
-        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6833.666667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2103.36,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The clip features genuine archival film footage from Sabrina (1954), clearly showing Audrey Hepburn in several frames alongside William Holden, perfectly illustrating her acting career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ab0e798b0a8da31f6f123877aea1c7358819b6b289cb108408a3d2891511d951",
-      "reviewed_at": 1792527207.1330545
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:twitter-1338797197635145728",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
-        "source_url": "https://archive.org/details/twitter-1338797197635145728",
-        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
-        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 243.785208,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows authentic archival video of Audrey Hepburn being interviewed on Wogan in 1989. She is clearly visible throughout the clip, making it ideal biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c4685c1a0b55f21e1cd45fbcb6399bd2097e91a8232b3533ad95b0c9c234cc69",
-      "reviewed_at": 1792527214.9498787
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:sabrina-audrey-hepburn",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sabrina-audrey-hepburn/Sabrina%20Audrey%20Hepburn.mp4",
-        "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
-        "title": "Sabrina Audrey Hepburn",
-        "description": "(From Wiki) Sabrina Fairchild is the young daughter of the Larrabee family's chauffeur, Thomas, and has been in love with David Larrabee all her life. David is a three-times-married playboy who has never paid attention to Sabrina because to him she was still a child. 1954 American romantic comedy-drama film directed by Billy Wilder, adapted for the screen by Wilder, Samuel A. Taylor, and Ernest Lehman[4] from Taylor's 1953 play Sabrina Fair. The picture stars Humphrey Bogart, Audrey Hepburn and William Holden. This was Wilder's last film released by Paramount Pictures, ending a 12-year business relationship between Wilder and the company. ['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
-        "creator": "",
-        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6833.666667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 3152.54,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled segment features authentic film footage from Sabrina (1954), clearly showing Audrey Hepburn dancing in several of the frames, making it valid biographical illustration footage of her acting career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b62a6c507c833e1fc6b5d7b01740254015e23d029824ff0407af387dab24ce80",
-      "reviewed_at": 1792527236.52313
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:twitter-1338797197635145728",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
-        "source_url": "https://archive.org/details/twitter-1338797197635145728",
-        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
-        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 243.785208,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 22.68,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature archival interview footage of Audrey Hepburn on Wogan in 1989, making it highly relevant and usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "329452c460cc8f55bbe58f6823a9b51315e900b9195e6860979c4f829c30eff5",
-      "reviewed_at": 1792527249.088812
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:sabrina-audrey-hepburn",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sabrina-audrey-hepburn/Sabrina%20Audrey%20Hepburn.mp4",
-        "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
-        "title": "Sabrina Audrey Hepburn",
-        "description": "(From Wiki) Sabrina Fairchild is the young daughter of the Larrabee family's chauffeur, Thomas, and has been in love with David Larrabee all her life. David is a three-times-married playboy who has never paid attention to Sabrina because to him she was still a child. 1954 American romantic comedy-drama film directed by Billy Wilder, adapted for the screen by Wilder, Samuel A. Taylor, and Ernest Lehman[4] from Taylor's 1953 play Sabrina Fair. The picture stars Humphrey Bogart, Audrey Hepburn and William Holden. This was Wilder's last film released by Paramount Pictures, ending a 12-year business relationship between Wilder and the company. ['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
-        "creator": "",
-        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6833.666667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 4201.72,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "Audrey Hepburn is clearly visible in the sampled frames (frames 4 and 5) from the film Sabrina, making this genuine usable archival identity and biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "515ed0f4ac6ade459a8d5ae0d407f17ca58d1962438d562a80e2bc58cdfdbccb",
-      "reviewed_at": 1792527273.949677
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:twitter-1338797197635145728",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
-        "source_url": "https://archive.org/details/twitter-1338797197635145728",
-        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
-        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 243.785208,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 40.35,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features genuine archival interview footage of Audrey Hepburn on Wogan in 1989. Audrey Hepburn is clearly visible and identifiable in multiple sampled frames, making this excellent biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "acbd7b141088b59131b6f8808c913ed28e50afcae5f89320025ca4e1e76e1ac0",
-      "reviewed_at": 1792527290.7259655
-    },
-    {
       "person": "Audrey Hepburn",
       "source": {
         "id": "archive:sabrina-audrey-hepburn",
@@ -8419,316 +8078,6 @@
       "reviewed_at": 1793387755.6415985
     },
     {
-      "person": "Narayana Murthy",
-      "source": {
-        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
-        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
-        "title": "Chai with Manjula - Narayana Murthy",
-        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "creator": "KMVT15 Community Media",
-        "license": "",
-        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "runtime": "00:28:57",
-        "direct_subject": true,
-        "duration_hint": 1737.203871,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 932.88,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video shows Narayana Murthy speaking at an event, providing genuine biographical footage of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1faa5ab4479c2f8f839e320ca6b7fb6037146a90339a998b6c18bf17fe88ecc5",
-      "reviewed_at": 1793387934.887633
-    },
-    {
-      "person": "Narayana Murthy",
-      "source": {
-        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
-        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
-        "title": "Chai with Manjula - Narayana Murthy",
-        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "creator": "KMVT15 Community Media",
-        "license": "",
-        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "runtime": "00:28:57",
-        "direct_subject": true,
-        "duration_hint": 1737.203871,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 270.11,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment shows genuine interview footage of Narayana Murthy sitting on a couch and speaking during 'Chai with Manjula'. He is clearly identifiable in multiple frames, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4ed40303443a9f0f62001bd9a66d4043dcb792e2443a0c005d4802a18ec171c9",
-      "reviewed_at": 1793387982.7993956
-    },
-    {
-      "person": "Narayana Murthy",
-      "source": {
-        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
-        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
-        "title": "Chai with Manjula - Narayana Murthy",
-        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "creator": "KMVT15 Community Media",
-        "license": "",
-        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "runtime": "00:28:57",
-        "direct_subject": true,
-        "duration_hint": 1737.203871,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 402.66,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly show Narayana Murthy participating in an interview, making the footage valid biographical illustration with good visual and audio quality.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "447ab11d2b72bedf7da344670ab1d17090d5ae1b57b2df9f0f25325e22c2021c",
-      "reviewed_at": 1793388006.9942338
-    },
-    {
-      "person": "Narayana Murthy",
-      "source": {
-        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
-        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
-        "title": "Chai with Manjula - Narayana Murthy",
-        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "creator": "KMVT15 Community Media",
-        "license": "",
-        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "runtime": "00:28:57",
-        "direct_subject": true,
-        "duration_hint": 1737.203871,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 667.77,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment clearly shows Narayana Murthy speaking at an event, making it useful as biographical illustration footage for a short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9ab98f01029c4941a808b2a0acc34a7288d19459219ebe297712775ada9bb7ba",
-      "reviewed_at": 1793388016.9295812
-    },
-    {
-      "person": "Narayana Murthy",
-      "source": {
-        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
-        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
-        "title": "Chai with Manjula - Narayana Murthy",
-        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "creator": "KMVT15 Community Media",
-        "license": "",
-        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "runtime": "00:28:57",
-        "direct_subject": true,
-        "duration_hint": 1737.203871,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 800.32,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7.5,
-        "reason": "The frames clearly show Narayana Murthy speaking at an event, providing valid biographical footage. However, the framing is slightly dark and static, and a watermark ('Chai with Manjula') is present, though it does not completely ruin usability.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "597740aebe8f4729b7aaf08c3ff7835a23842759b189aadb5f18422e51d85b15",
-      "reviewed_at": 1793388023.5118911
-    },
-    {
-      "person": "Narayana Murthy",
-      "source": {
-        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
-        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
-        "title": "Chai with Manjula - Narayana Murthy",
-        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "creator": "KMVT15 Community Media",
-        "license": "",
-        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "runtime": "00:28:57",
-        "direct_subject": true,
-        "duration_hint": 1737.203871,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1065.43,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features real archival footage of Narayana Murthy speaking at an event, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6c23adb0295f09d03a571a41e21dca1f13dfedafc03b846b3e3d8ba32c7ae174",
-      "reviewed_at": 1793388029.6086137
-    },
-    {
-      "person": "Narayana Murthy",
-      "source": {
-        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
-        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
-        "title": "Chai with Manjula - Narayana Murthy",
-        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "creator": "KMVT15 Community Media",
-        "license": "",
-        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "runtime": "00:28:57",
-        "direct_subject": true,
-        "duration_hint": 1737.203871,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1197.99,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video segment features real, usable archival footage of Narayana Murthy speaking at an event, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "eab004553a8a3de66b839fae57c663a63a506db25922036ab229abdc4649f890",
-      "reviewed_at": 1793388034.3091614
-    },
-    {
-      "person": "Narayana Murthy",
-      "source": {
-        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
-        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
-        "title": "Chai with Manjula - Narayana Murthy",
-        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "creator": "KMVT15 Community Media",
-        "license": "",
-        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "runtime": "00:28:57",
-        "direct_subject": true,
-        "duration_hint": 1737.203871,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1330.54,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment clearly shows Narayana Murthy speaking at an event, making it genuine biographical footage suitable for illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "60c59346782080dc155108eebbaf8af0a9aee3bc716203cf657745bc059f0fa8",
-      "reviewed_at": 1793388053.8185005
-    },
-    {
-      "person": "Narayana Murthy",
-      "source": {
-        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
-        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
-        "title": "Chai with Manjula - Narayana Murthy",
-        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "creator": "KMVT15 Community Media",
-        "license": "",
-        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "runtime": "00:28:57",
-        "direct_subject": true,
-        "duration_hint": 1737.203871,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1463.1,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video shows actual filmed footage of Narayana Murthy speaking at an event, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "bdcdd7a6e9eb4305e1a85d51f0f1fe5a07173d984be419b5422aafc2dcd44b8e",
-      "reviewed_at": 1793388075.059765
-    },
-    {
-      "person": "Narayana Murthy",
-      "source": {
-        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
-        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
-        "title": "Chai with Manjula - Narayana Murthy",
-        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "creator": "KMVT15 Community Media",
-        "license": "",
-        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
-        "runtime": "00:28:57",
-        "direct_subject": true,
-        "duration_hint": 1737.203871,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1595.65,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly feature Narayana Murthy speaking at an event, matching the biographical subject and providing genuine footage for illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "de57b562d4bfe3fb340b8dece24ec3dc5e56c68a48db5b5730557be886da4b25",
-      "reviewed_at": 1793388083.6811106
-    },
-    {
       "person": "Bismillah Khan",
       "source": {
         "id": "archive:dli.MoI.films.009027",
@@ -15921,130 +15270,6 @@
       "reviewed_at": 1794657980.8042011
     },
     {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 42.23,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Jonas Salk in a laboratory and administering a vaccination, providing direct visual evidence matching his biographical narration.",
-        "usage": "direct_event"
-      },
-      "review_key": "2b219aa845f28e32dff94673c3602f6d3197b50c9a625bfaba05ba2810bdf275",
-      "reviewed_at": 1794658074.8251657
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:israel-wohltater-der-menschheit",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
-        "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
-        "title": "Israel ist Wohltäter der Menschheit ( JONAS SALK )",
-        "description": "Israel ist nicht Gaza ; Kolonialismus ; Gewalt und Leid sondern Wohltäter der Menscheit. ( z.B.: Jonas Salk ) Israel is not Gaza; colonialism; violence and suffering but a benefactor of humanity. (e.g., Jonas Salk) Israël n’est pas Gaza ; colonialisme ; violence et souffrance mais bienfaiteur de l’humanité. (ex. : Jonas Salk) ['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
-        "creator": "BBC ( England )",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 249.233333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 131.66,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment contains archival photographs and an interview with Dr. Peter Salk discussing his father Jonas Salk and the polio vaccine, making it relevant biographical and historical illustration footage, though the formatting includes website UI frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "dbdf6b579680738620ec59e669331fec6ab42f49b3301cb694c2c85ebb9ee366",
-      "reviewed_at": 1794658080.2395403
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 23.62,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Jonas Salk in a laboratory setting holding a vial, perfectly illustrating his scientific work and biography.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7e31bb44e4c8dde4f827f78239765d2f3fa868c8603f22d5338ef301df05b8b1",
-      "reviewed_at": 1794658093.266745
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 32.93,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Jonas Salk in a laboratory setting working with scientific equipment and chemicals, perfectly matching the biographical narration about his life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "dcd6c2710c7a2b49cd0457a812a3e9fce54d0cb8d7a0d02380e9dc34c90931fc",
-      "reviewed_at": 1794658118.9451745
-    },
-    {
       "person": "Louis Braille",
       "source": {
         "id": "archive:LouisBrailleAndTheBrailleAlphabet",
@@ -18657,6 +17882,791 @@
       },
       "review_key": "a8b40b227cdf7fcf748ec5aafebe22d90f314b0441f11751095a9ce438bdb14b",
       "reviewed_at": 1795535936.520899
+    },
+    {
+      "person": "Charles Lindbergh",
+      "source": {
+        "id": "archive:23534alindberghsflightandreturn",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/23534alindberghsflightandreturn/23534a%20Lindberghs%20Flight%20And%20Return.mp4",
+        "source_url": "https://archive.org/details/23534alindberghsflightandreturn",
+        "title": "CHARLES LINDBERGH NEWSREELS TRANS-ATLANTIC FLIGHT 23534",
+        "description": "Made for sale to the home market in the late 1920s, these silent newsreels show Charles LIndbergh preparing to leave on his epic Trans-Atlantic flight in 1927. The film includes good luck greetings from Lindy's mother and even his rival, Commander Byrd. At the 4:30 mark, a second newsreel shows Lindy returning to the United States aboard the cruiser USS Memphis, with his aircraft in a box on the deck. The Memphis arrives at the Washington Navy Yard, and Lindy is greeted by his mother and whisked away to a meeting with President Calvin Coolidge (9:55). We encourage viewers to add comments and, especially, to provide additional information about our videos by adding a comment! See something interesting? Tell people what it is and what they can see by writing something for example like: \"01:00:12:00 -- President Roosevelt is seen meeting with Winston Churchill at the Quebec Conference.\" This film is part of the Periscope Film LLC archive, one of the largest historic military, transportation, and aviation stock footage collections in the USA. Entirely film backed, this material is available for licensing in 24p HD and 2k. For more information visit http://www.PeriscopeFilm.com ['CHarles Lindbergh', 'Newsreel', '1920', 'Commander Byrd', 'Trans Atlantic Flight', 'Stock Footage']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['CHarles Lindbergh', 'Newsreel', '1920', 'Commander Byrd', 'Trans Atlantic Flight', 'Stock Footage']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 674.722222,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": []
+      },
+      "start": 513.25,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames show genuine historical newsreel footage of Charles Lindbergh arriving back in the United States aboard the USS Memphis in 1927, perfectly matching the narration and historical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "b113a0b804e93f35fe61a32bcd6ec9b2c53595d9ee2ddaa20361a4c3b5d8ce49",
+      "reviewed_at": 1795554476.035319
+    },
+    {
+      "person": "Charles Lindbergh",
+      "source": {
+        "id": "archive:xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr/XD31031%2BCharles%2BLindbergh%2BArrives%2Bin%2BNew%2BYork%2BCity%2Bmos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "title": "CHARLES LINDBERGH'S RETURN TO AMERICA FROM EUROPE NEWSREEL SPIRIT OF ST. LOUIS (SILENT) XD31031",
+        "description": "This silent untitled black-and-white newsreel film by International Newsreel depicts Captain Charles Lindbergh as he returns to the United States after his famous journey from Long Island to Paris and is awarded the first Distinguished Flying Cross by President Calvin Coolidge. Lindbergh's nonstop solo flight across the Atlantic on May 20-21, 1927 made aeronautical history when he flew his monoplane, Spirit of St. Louis, “thirty-three-and-one-half” non-stop hours in the air. During his homecoming, Lindbergh was first greeted in Washington D.C. with a celebratory parade before being awarded the first ever Distinguished Flying Cross on June 11, 1927. Over the next several months, the Spirit of St.Louis and Lindbergh went on to tour over eighty-two cities in forty-eight states as well as make other ceremonial visits, some of which are seen in this film. United States Navy USS Memphis (CL-13) Omaha-class light cruiser sails along the Potomac River (0:06). Crowds assemble along Alexandria Waterfront, camera pans pier (0:14). U.S. Naval Torpedo Station (today Torpedo Factory Art Center) (0:18). American flag waves in wind in foreground, background of Navy ships sailing along Potomac (0:26). US Navy officers in white uniforms stand on upper decks of USS Memphis (0:38). USS Memphis pulls into pier at Washington Navy Yard in Washington D.C. (0:44). Cameramen, news correspondents rush towards docking ship with cameras in tow (0:54). Captain Charles Lindbergh salutes and waves to crowd from ship (0:57). Lindbergh’s mother, Evangeline Lindbergh, escorted onto ship by Navy officers for  ['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 579.941618,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": []
+      },
+      "start": 309.74,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival footage clearly shows Charles Lindbergh during his homecoming tour in 1927, making it direct historical footage of the subject.",
+        "usage": "direct_event"
+      },
+      "review_key": "34050ca464ba8a5fd4305a58dc05972545631029f31a0d53f22663ac41335487",
+      "reviewed_at": 1795554533.2096043
+    },
+    {
+      "person": "Charles Lindbergh",
+      "source": {
+        "id": "archive:xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr/XD31031%2BCharles%2BLindbergh%2BArrives%2Bin%2BNew%2BYork%2BCity%2Bmos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "title": "CHARLES LINDBERGH'S RETURN TO AMERICA FROM EUROPE NEWSREEL SPIRIT OF ST. LOUIS (SILENT) XD31031",
+        "description": "This silent untitled black-and-white newsreel film by International Newsreel depicts Captain Charles Lindbergh as he returns to the United States after his famous journey from Long Island to Paris and is awarded the first Distinguished Flying Cross by President Calvin Coolidge. Lindbergh's nonstop solo flight across the Atlantic on May 20-21, 1927 made aeronautical history when he flew his monoplane, Spirit of St. Louis, “thirty-three-and-one-half” non-stop hours in the air. During his homecoming, Lindbergh was first greeted in Washington D.C. with a celebratory parade before being awarded the first ever Distinguished Flying Cross on June 11, 1927. Over the next several months, the Spirit of St.Louis and Lindbergh went on to tour over eighty-two cities in forty-eight states as well as make other ceremonial visits, some of which are seen in this film. United States Navy USS Memphis (CL-13) Omaha-class light cruiser sails along the Potomac River (0:06). Crowds assemble along Alexandria Waterfront, camera pans pier (0:14). U.S. Naval Torpedo Station (today Torpedo Factory Art Center) (0:18). American flag waves in wind in foreground, background of Navy ships sailing along Potomac (0:26). US Navy officers in white uniforms stand on upper decks of USS Memphis (0:38). USS Memphis pulls into pier at Washington Navy Yard in Washington D.C. (0:44). Cameramen, news correspondents rush towards docking ship with cameras in tow (0:54). Captain Charles Lindbergh salutes and waves to crowd from ship (0:57). Lindbergh’s mother, Evangeline Lindbergh, escorted onto ship by Navy officers for  ['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 579.941618,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": []
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The sampled frames show archival footage of naval ships and escort aircraft related to Charles Lindbergh's return, but Charles Lindbergh himself is not clearly visible in any of the five sampled frames. Therefore, person_visible is false and usage is direct_event.",
+        "usage": "direct_event"
+      },
+      "review_key": "5a9e671fb62bc6c3015de34c711271dc86cb990cc11665bd45ab059402f89a4a",
+      "reviewed_at": 1795554569.0484312
+    },
+    {
+      "person": "Charles Lindbergh",
+      "source": {
+        "id": "archive:xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr/XD31031%2BCharles%2BLindbergh%2BArrives%2Bin%2BNew%2BYork%2BCity%2Bmos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "title": "CHARLES LINDBERGH'S RETURN TO AMERICA FROM EUROPE NEWSREEL SPIRIT OF ST. LOUIS (SILENT) XD31031",
+        "description": "This silent untitled black-and-white newsreel film by International Newsreel depicts Captain Charles Lindbergh as he returns to the United States after his famous journey from Long Island to Paris and is awarded the first Distinguished Flying Cross by President Calvin Coolidge. Lindbergh's nonstop solo flight across the Atlantic on May 20-21, 1927 made aeronautical history when he flew his monoplane, Spirit of St. Louis, “thirty-three-and-one-half” non-stop hours in the air. During his homecoming, Lindbergh was first greeted in Washington D.C. with a celebratory parade before being awarded the first ever Distinguished Flying Cross on June 11, 1927. Over the next several months, the Spirit of St.Louis and Lindbergh went on to tour over eighty-two cities in forty-eight states as well as make other ceremonial visits, some of which are seen in this film. United States Navy USS Memphis (CL-13) Omaha-class light cruiser sails along the Potomac River (0:06). Crowds assemble along Alexandria Waterfront, camera pans pier (0:14). U.S. Naval Torpedo Station (today Torpedo Factory Art Center) (0:18). American flag waves in wind in foreground, background of Navy ships sailing along Potomac (0:26). US Navy officers in white uniforms stand on upper decks of USS Memphis (0:38). USS Memphis pulls into pier at Washington Navy Yard in Washington D.C. (0:44). Cameramen, news correspondents rush towards docking ship with cameras in tow (0:54). Captain Charles Lindbergh salutes and waves to crowd from ship (0:57). Lindbergh’s mother, Evangeline Lindbergh, escorted onto ship by Navy officers for  ['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 579.941618,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": []
+      },
+      "start": 92.07,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The archival footage clearly shows Charles Lindbergh during his homecoming parade in an open-top car, perfectly matching the biographical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "d98ee1c8d8be209cca25a2f7c758668dfbf36bc581ff23152bccdcf998e87f7b",
+      "reviewed_at": 1795554584.2967584
+    },
+    {
+      "person": "Charles Lindbergh",
+      "source": {
+        "id": "archive:xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr/XD31031%2BCharles%2BLindbergh%2BArrives%2Bin%2BNew%2BYork%2BCity%2Bmos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "title": "CHARLES LINDBERGH'S RETURN TO AMERICA FROM EUROPE NEWSREEL SPIRIT OF ST. LOUIS (SILENT) XD31031",
+        "description": "This silent untitled black-and-white newsreel film by International Newsreel depicts Captain Charles Lindbergh as he returns to the United States after his famous journey from Long Island to Paris and is awarded the first Distinguished Flying Cross by President Calvin Coolidge. Lindbergh's nonstop solo flight across the Atlantic on May 20-21, 1927 made aeronautical history when he flew his monoplane, Spirit of St. Louis, “thirty-three-and-one-half” non-stop hours in the air. During his homecoming, Lindbergh was first greeted in Washington D.C. with a celebratory parade before being awarded the first ever Distinguished Flying Cross on June 11, 1927. Over the next several months, the Spirit of St.Louis and Lindbergh went on to tour over eighty-two cities in forty-eight states as well as make other ceremonial visits, some of which are seen in this film. United States Navy USS Memphis (CL-13) Omaha-class light cruiser sails along the Potomac River (0:06). Crowds assemble along Alexandria Waterfront, camera pans pier (0:14). U.S. Naval Torpedo Station (today Torpedo Factory Art Center) (0:18). American flag waves in wind in foreground, background of Navy ships sailing along Potomac (0:26). US Navy officers in white uniforms stand on upper decks of USS Memphis (0:38). USS Memphis pulls into pier at Washington Navy Yard in Washington D.C. (0:44). Cameramen, news correspondents rush towards docking ship with cameras in tow (0:54). Captain Charles Lindbergh salutes and waves to crowd from ship (0:57). Lindbergh’s mother, Evangeline Lindbergh, escorted onto ship by Navy officers for  ['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 579.941618,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": []
+      },
+      "start": 179.14,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival newsreel footage authentically shows Charles Lindbergh during his homecoming events and award ceremony in 1927, fitting the biographical narrative well.",
+        "usage": "direct_event"
+      },
+      "review_key": "74ffa625e114712f3983f1b02b602e97cc05cd6232cb520abd722c5a6ec8ec17",
+      "reviewed_at": 1795554599.9159343
+    },
+    {
+      "person": "Charles Lindbergh",
+      "source": {
+        "id": "archive:xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr/XD31031%2BCharles%2BLindbergh%2BArrives%2Bin%2BNew%2BYork%2BCity%2Bmos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "title": "CHARLES LINDBERGH'S RETURN TO AMERICA FROM EUROPE NEWSREEL SPIRIT OF ST. LOUIS (SILENT) XD31031",
+        "description": "This silent untitled black-and-white newsreel film by International Newsreel depicts Captain Charles Lindbergh as he returns to the United States after his famous journey from Long Island to Paris and is awarded the first Distinguished Flying Cross by President Calvin Coolidge. Lindbergh's nonstop solo flight across the Atlantic on May 20-21, 1927 made aeronautical history when he flew his monoplane, Spirit of St. Louis, “thirty-three-and-one-half” non-stop hours in the air. During his homecoming, Lindbergh was first greeted in Washington D.C. with a celebratory parade before being awarded the first ever Distinguished Flying Cross on June 11, 1927. Over the next several months, the Spirit of St.Louis and Lindbergh went on to tour over eighty-two cities in forty-eight states as well as make other ceremonial visits, some of which are seen in this film. United States Navy USS Memphis (CL-13) Omaha-class light cruiser sails along the Potomac River (0:06). Crowds assemble along Alexandria Waterfront, camera pans pier (0:14). U.S. Naval Torpedo Station (today Torpedo Factory Art Center) (0:18). American flag waves in wind in foreground, background of Navy ships sailing along Potomac (0:26). US Navy officers in white uniforms stand on upper decks of USS Memphis (0:38). USS Memphis pulls into pier at Washington Navy Yard in Washington D.C. (0:44). Cameramen, news correspondents rush towards docking ship with cameras in tow (0:54). Captain Charles Lindbergh salutes and waves to crowd from ship (0:57). Lindbergh’s mother, Evangeline Lindbergh, escorted onto ship by Navy officers for  ['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 579.941618,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": []
+      },
+      "start": 222.67,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival newsreel footage shows authentic historical coverage of Charles Lindbergh during his 1927 homecoming celebrations and awards ceremony, with Lindbergh clearly visible in the earlier frames standing at the podium.",
+        "usage": "direct_event"
+      },
+      "review_key": "53766eb3218d1c6183cd260ab1056dcff218875f4a0d701e422db4d485c019e9",
+      "reviewed_at": 1795554606.787539
+    },
+    {
+      "person": "Charles Lindbergh",
+      "source": {
+        "id": "archive:xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr/XD31031%2BCharles%2BLindbergh%2BArrives%2Bin%2BNew%2BYork%2BCity%2Bmos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "title": "CHARLES LINDBERGH'S RETURN TO AMERICA FROM EUROPE NEWSREEL SPIRIT OF ST. LOUIS (SILENT) XD31031",
+        "description": "This silent untitled black-and-white newsreel film by International Newsreel depicts Captain Charles Lindbergh as he returns to the United States after his famous journey from Long Island to Paris and is awarded the first Distinguished Flying Cross by President Calvin Coolidge. Lindbergh's nonstop solo flight across the Atlantic on May 20-21, 1927 made aeronautical history when he flew his monoplane, Spirit of St. Louis, “thirty-three-and-one-half” non-stop hours in the air. During his homecoming, Lindbergh was first greeted in Washington D.C. with a celebratory parade before being awarded the first ever Distinguished Flying Cross on June 11, 1927. Over the next several months, the Spirit of St.Louis and Lindbergh went on to tour over eighty-two cities in forty-eight states as well as make other ceremonial visits, some of which are seen in this film. United States Navy USS Memphis (CL-13) Omaha-class light cruiser sails along the Potomac River (0:06). Crowds assemble along Alexandria Waterfront, camera pans pier (0:14). U.S. Naval Torpedo Station (today Torpedo Factory Art Center) (0:18). American flag waves in wind in foreground, background of Navy ships sailing along Potomac (0:26). US Navy officers in white uniforms stand on upper decks of USS Memphis (0:38). USS Memphis pulls into pier at Washington Navy Yard in Washington D.C. (0:44). Cameramen, news correspondents rush towards docking ship with cameras in tow (0:54). Captain Charles Lindbergh salutes and waves to crowd from ship (0:57). Lindbergh’s mother, Evangeline Lindbergh, escorted onto ship by Navy officers for  ['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 579.941618,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": []
+      },
+      "start": 266.2,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival footage clearly shows Charles Lindbergh participating in a ceremonial event (laying a wreath) during his 1927 homecoming tour, directly illustrating his life and post-flight honors.",
+        "usage": "direct_event"
+      },
+      "review_key": "332fa811685a4fd380976788d207776d8af7152c6b79f3ec954fe31dfb6987bb",
+      "reviewed_at": 1795554614.4679968
+    },
+    {
+      "person": "Charles Lindbergh",
+      "source": {
+        "id": "archive:xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr/XD31031%2BCharles%2BLindbergh%2BArrives%2Bin%2BNew%2BYork%2BCity%2Bmos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "title": "CHARLES LINDBERGH'S RETURN TO AMERICA FROM EUROPE NEWSREEL SPIRIT OF ST. LOUIS (SILENT) XD31031",
+        "description": "This silent untitled black-and-white newsreel film by International Newsreel depicts Captain Charles Lindbergh as he returns to the United States after his famous journey from Long Island to Paris and is awarded the first Distinguished Flying Cross by President Calvin Coolidge. Lindbergh's nonstop solo flight across the Atlantic on May 20-21, 1927 made aeronautical history when he flew his monoplane, Spirit of St. Louis, “thirty-three-and-one-half” non-stop hours in the air. During his homecoming, Lindbergh was first greeted in Washington D.C. with a celebratory parade before being awarded the first ever Distinguished Flying Cross on June 11, 1927. Over the next several months, the Spirit of St.Louis and Lindbergh went on to tour over eighty-two cities in forty-eight states as well as make other ceremonial visits, some of which are seen in this film. United States Navy USS Memphis (CL-13) Omaha-class light cruiser sails along the Potomac River (0:06). Crowds assemble along Alexandria Waterfront, camera pans pier (0:14). U.S. Naval Torpedo Station (today Torpedo Factory Art Center) (0:18). American flag waves in wind in foreground, background of Navy ships sailing along Potomac (0:26). US Navy officers in white uniforms stand on upper decks of USS Memphis (0:38). USS Memphis pulls into pier at Washington Navy Yard in Washington D.C. (0:44). Cameramen, news correspondents rush towards docking ship with cameras in tow (0:54). Captain Charles Lindbergh salutes and waves to crowd from ship (0:57). Lindbergh’s mother, Evangeline Lindbergh, escorted onto ship by Navy officers for  ['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 579.941618,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": []
+      },
+      "start": 353.27,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The archival video clearly depicts Charles Lindbergh during his homecoming and award ceremony in Washington D.C., matching the biographical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "751c67a05334d82c3d8d503666b5b953bcb737eea6b27d436f07c3c98e3c1147",
+      "reviewed_at": 1795554621.1531274
+    },
+    {
+      "person": "Charles Lindbergh",
+      "source": {
+        "id": "archive:xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr/XD31031%2BCharles%2BLindbergh%2BArrives%2Bin%2BNew%2BYork%2BCity%2Bmos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "title": "CHARLES LINDBERGH'S RETURN TO AMERICA FROM EUROPE NEWSREEL SPIRIT OF ST. LOUIS (SILENT) XD31031",
+        "description": "This silent untitled black-and-white newsreel film by International Newsreel depicts Captain Charles Lindbergh as he returns to the United States after his famous journey from Long Island to Paris and is awarded the first Distinguished Flying Cross by President Calvin Coolidge. Lindbergh's nonstop solo flight across the Atlantic on May 20-21, 1927 made aeronautical history when he flew his monoplane, Spirit of St. Louis, “thirty-three-and-one-half” non-stop hours in the air. During his homecoming, Lindbergh was first greeted in Washington D.C. with a celebratory parade before being awarded the first ever Distinguished Flying Cross on June 11, 1927. Over the next several months, the Spirit of St.Louis and Lindbergh went on to tour over eighty-two cities in forty-eight states as well as make other ceremonial visits, some of which are seen in this film. United States Navy USS Memphis (CL-13) Omaha-class light cruiser sails along the Potomac River (0:06). Crowds assemble along Alexandria Waterfront, camera pans pier (0:14). U.S. Naval Torpedo Station (today Torpedo Factory Art Center) (0:18). American flag waves in wind in foreground, background of Navy ships sailing along Potomac (0:26). US Navy officers in white uniforms stand on upper decks of USS Memphis (0:38). USS Memphis pulls into pier at Washington Navy Yard in Washington D.C. (0:44). Cameramen, news correspondents rush towards docking ship with cameras in tow (0:54). Captain Charles Lindbergh salutes and waves to crowd from ship (0:57). Lindbergh’s mother, Evangeline Lindbergh, escorted onto ship by Navy officers for  ['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 579.941618,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": []
+      },
+      "start": 396.81,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The archival newsreel footage clearly shows Charles Lindbergh during his return to America after his historic transatlantic flight, appearing prominently in several frames (such as frames 4 and 5) participating in celebratory events. The footage is authentic, of good quality, and directly depicts the biographical subject.",
+        "usage": "direct_event"
+      },
+      "review_key": "a8ea631c308cb07ae2cc6a9fef85bb87f24d107a5d467c5016a196c7f7abf9b3",
+      "reviewed_at": 1795554632.058441
+    },
+    {
+      "person": "Charles Lindbergh",
+      "source": {
+        "id": "archive:xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr/XD31031%2BCharles%2BLindbergh%2BArrives%2Bin%2BNew%2BYork%2BCity%2Bmos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+        "title": "CHARLES LINDBERGH'S RETURN TO AMERICA FROM EUROPE NEWSREEL SPIRIT OF ST. LOUIS (SILENT) XD31031",
+        "description": "This silent untitled black-and-white newsreel film by International Newsreel depicts Captain Charles Lindbergh as he returns to the United States after his famous journey from Long Island to Paris and is awarded the first Distinguished Flying Cross by President Calvin Coolidge. Lindbergh's nonstop solo flight across the Atlantic on May 20-21, 1927 made aeronautical history when he flew his monoplane, Spirit of St. Louis, “thirty-three-and-one-half” non-stop hours in the air. During his homecoming, Lindbergh was first greeted in Washington D.C. with a celebratory parade before being awarded the first ever Distinguished Flying Cross on June 11, 1927. Over the next several months, the Spirit of St.Louis and Lindbergh went on to tour over eighty-two cities in forty-eight states as well as make other ceremonial visits, some of which are seen in this film. United States Navy USS Memphis (CL-13) Omaha-class light cruiser sails along the Potomac River (0:06). Crowds assemble along Alexandria Waterfront, camera pans pier (0:14). U.S. Naval Torpedo Station (today Torpedo Factory Art Center) (0:18). American flag waves in wind in foreground, background of Navy ships sailing along Potomac (0:26). US Navy officers in white uniforms stand on upper decks of USS Memphis (0:38). USS Memphis pulls into pier at Washington Navy Yard in Washington D.C. (0:44). Cameramen, news correspondents rush towards docking ship with cameras in tow (0:54). Captain Charles Lindbergh salutes and waves to crowd from ship (0:57). Lindbergh’s mother, Evangeline Lindbergh, escorted onto ship by Navy officers for  ['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['International Newsreel', 'Captain Charles Lindbergh', 'Charles Lindbergh', 'United States Navy', 'USS Memphis', 'Potomac River', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 579.941618,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": []
+      },
+      "start": 440.34,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival newsreel footage clearly depicts Charles Lindbergh during public events and celebrations related to his historic flight, making it highly relevant and usable for a biographical Short.",
+        "usage": "direct_event"
+      },
+      "review_key": "b07ad96dac29661c1b93107b4bf5b5b4f8f6db7ea6c1fcc956ede8c4460bf722",
+      "reviewed_at": 1795554642.5427856
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 42.23,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Jonas Salk in a laboratory and clinical setting interacting with a patient, perfectly illustrating his work on the polio vaccine.",
+        "usage": "direct_event"
+      },
+      "review_key": "3767329e81213c03c0cacc58c24787bf85b06e863ec101247a115bf3c33dd6d1",
+      "reviewed_at": 1795554871.4079554
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:israel-wohltater-der-menschheit",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
+        "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+        "title": "Israel ist Wohltäter der Menschheit ( JONAS SALK )",
+        "description": "Israel ist nicht Gaza ; Kolonialismus ; Gewalt und Leid sondern Wohltäter der Menscheit. ( z.B.: Jonas Salk ) Israel is not Gaza; colonialism; violence and suffering but a benefactor of humanity. (e.g., Jonas Salk) Israël n’est pas Gaza ; colonialisme ; violence et souffrance mais bienfaiteur de l’humanité. (ex. : Jonas Salk) ['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "creator": "BBC ( England )",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 249.233333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 131.66,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features archival photographs of Jonas Salk with his family and authentic interview footage of his son, Dr. Peter Salk, discussing Jonas Salk's achievements for BBC News, making it highly relevant biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b23fdf1148bc31c9190ec6b77107d9c69041f6fb81034ee662f5bdcec7eebb65",
+      "reviewed_at": 1795554880.4726794
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 23.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Jonas Salk in a laboratory setting working with scientific equipment and a vial, perfectly matching the biographical subject and narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "4a99e4607fab0625d76fa13029616c06d7493bcf4ee44163270fa35754e2223e",
+      "reviewed_at": 1795554893.13635
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:israel-wohltater-der-menschheit",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
+        "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+        "title": "Israel ist Wohltäter der Menschheit ( JONAS SALK )",
+        "description": "Israel ist nicht Gaza ; Kolonialismus ; Gewalt und Leid sondern Wohltäter der Menscheit. ( z.B.: Jonas Salk ) Israel is not Gaza; colonialism; violence and suffering but a benefactor of humanity. (e.g., Jonas Salk) Israël n’est pas Gaza ; colonialisme ; violence et souffrance mais bienfaiteur de l’humanité. (ex. : Jonas Salk) ['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "creator": "BBC ( England )",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 249.233333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 41.19,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival footage and interview context regarding Jonas Salk, with his son Dr. Peter Salk speaking about him and historical imagery of Jonas Salk in the lab visible in the sampled frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6d3a804744830fa4837c77a5ede12030188d0dfbe8d3be7cd3996f4932ee37a1",
+      "reviewed_at": 1795554899.1763856
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 32.93,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Jonas Salk in a laboratory setting working with scientific equipment and bottles, matching the biographical context and narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6eeea22c2b864846231ac894b966fd5eb13a7c1f18720ae744e44e5883793596",
+      "reviewed_at": 1795554910.918563
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 932.88,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Narayana Murthy speaking at an event, providing genuine biographical illustration footage that matches the subject and context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "804dd2a5702657fa008867f81497654f7aaf8821d0e9fe0d62b2a729f6546fb8",
+      "reviewed_at": 1795555028.578304
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 270.11,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The segment features an interview with Narayana Murthy, showing him clearly across all sampled frames during a discussion on a talk show. Suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "001bec9f62afb95e93794357b115e7ee7019fc81169425afe6c3963743f1f227",
+      "reviewed_at": 1795555105.6234765
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 402.66,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features an interview with Narayana Murthy discussing his life and philanthropic work, providing valid biographical illustration footage where he is clearly visible.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1ae2467ba2dc68be8008b7de000bbde9557ab16f5de88d0203976301a4c820dd",
+      "reviewed_at": 1795555117.884705
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 667.77,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly show Narayana Murthy speaking at an event, making the footage authentic and directly usable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f9b99f9a484d92c8de4da8c2e7adf9c702bd0443401cb69e25d4ed8277ae829f",
+      "reviewed_at": 1795555128.6081507
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 800.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video shows actual speaking/address footage of Narayana Murthy, making it usable as biographical illustration despite lower visual quality and a watermark.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "479e5b9523ba017fac9bd15d43ce437dd879aab92f398d63b0a67e4bbb19d996",
+      "reviewed_at": 1795555133.7583504
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1065.43,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real archival footage of Narayana Murthy speaking at an event, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6c2ff162e328cce32daefcd9a8fbe59bc9d3b93419039870034a1a9d053d6e0b",
+      "reviewed_at": 1795555138.2342973
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1197.99,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Narayana Murthy speaking in an interview setting, providing valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "293937b2e103cc36aec597d0cf78120bc2f4b4fb8ffa8ef18475f86e659a309c",
+      "reviewed_at": 1795555143.2928815
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1330.54,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The footage shows real, moving video of Narayana Murthy speaking at an event. However, it features a small watermark in the bottom right corner and the lighting is dark, making it usable as biographical illustration rather than prime direct event footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "002e6edbb3602fe7c3a255c7414d398b01b35ee2127bad4ca59bee6db2d71f0d",
+      "reviewed_at": 1795555147.909856
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1463.1,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment shows genuine footage of Narayana Murthy speaking at an event, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "926fe06d62602299b4d4c703fed96c71dda5650f0ea9c2db60f5816beb298f3f",
+      "reviewed_at": 1795555153.915942
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1595.65,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real archival footage of Narayana Murthy speaking at an event, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8122b8c526356149af9af2d8459329a12f19740d31acf99f7aeb6b1e7ea107d3",
+      "reviewed_at": 1795555158.2693787
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-24T16:03:55.240445+00:00",
-  "refresh_attempted_at": "2026-11-24T16:03:55.240445+00:00",
+  "generated_at": "2026-11-24T21:20:26.402179+00:00",
+  "refresh_attempted_at": "2026-11-24T21:20:26.402179+00:00",
   "refresh_status": "success",
   "video_count": 42,
   "optimization_ready": true,
@@ -8,15 +8,15 @@
   "advanced_metrics_videos": 41,
   "reason": "",
   "totals": {
-    "views": 14028,
+    "views": 14056,
     "likes": 298,
     "comments": 9
   },
   "averages": {
-    "views": 334.0,
+    "views": 334.67,
     "likes": 7.1,
     "comments": 0.21,
-    "average_view_percentage": 64.19,
+    "average_view_percentage": 64.05,
     "subscribers_gained": 0.4,
     "shares": 0.02
   },
@@ -737,7 +737,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 261,
-      "views_after_24h": 249,
+      "views_after_24h": 250,
       "views_after_7d": 250,
       "likes": 3,
       "comments": 0,
@@ -765,8 +765,8 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 225,
-      "views_after_24h": null,
+      "views": 253,
+      "views_after_24h": 253,
       "views_after_7d": null,
       "likes": 8,
       "comments": 1,
@@ -775,7 +775,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 4.0
+      "engagement_rate": 3.5573
     },
     {
       "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
@@ -888,7 +888,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 24.0,
-      "average_view_percentage": 62.36000000000001,
+      "average_view_percentage": 61.22,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -1322,8 +1322,8 @@
       "likes": 0,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 26.0,
-      "average_view_percentage": 70.93,
+      "average_view_duration": 25.0,
+      "average_view_percentage": 68.95,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -1409,8 +1409,8 @@
       "likes": 0,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 11.0,
-      "average_view_percentage": 24.88,
+      "average_view_duration": 9.0,
+      "average_view_percentage": 22.02,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -1537,19 +1537,19 @@
     "metric": "average_view_percentage",
     "eligible_video_count": 41,
     "immature_or_missing_metric_count": 1,
-    "videos_meeting_target_count": 8,
-    "target_hit_rate_percentage": 19.51,
-    "average_view_percentage": 65.76,
+    "videos_meeting_target_count": 7,
+    "target_hit_rate_percentage": 17.07,
+    "average_view_percentage": 65.61,
     "videos_needing_improvement": [
       {
         "video_id": "RVBp08uabW0",
         "title": "The Untold Turning Point in M. S. Dhoni's Story",
         "topic": "M. S. Dhoni: A ticket collector from a small railway town rising through domestic cricket to become India's most successful captain.",
         "workflow": "story",
-        "average_view_percentage": 24.88,
-        "average_view_duration": 11.0,
+        "average_view_percentage": 22.02,
+        "average_view_duration": 9.0,
         "views": 24,
-        "age_hours": 572.8,
+        "age_hours": 578.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1561,7 +1561,7 @@
         "average_view_percentage": 26.56,
         "average_view_duration": 10.0,
         "views": 16,
-        "age_hours": 668.2,
+        "age_hours": 673.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1573,7 +1573,7 @@
         "average_view_percentage": 28.13,
         "average_view_duration": 12.0,
         "views": 194,
-        "age_hours": 1000.9,
+        "age_hours": 1006.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1585,7 +1585,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 690.6,
+        "age_hours": 695.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1597,7 +1597,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 107,
-        "age_hours": 788.9,
+        "age_hours": 794.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1609,7 +1609,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1744.5,
+        "age_hours": 1749.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1621,7 +1621,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1769.6,
+        "age_hours": 1774.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1633,7 +1633,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 886.5,
+        "age_hours": 891.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1645,7 +1645,7 @@
         "average_view_percentage": 40.42,
         "average_view_duration": 13.0,
         "views": 296,
-        "age_hours": 860.0,
+        "age_hours": 865.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1657,7 +1657,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1772.1,
+        "age_hours": 1777.3,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1671,7 +1671,7 @@
         "average_view_percentage": 597.81,
         "average_view_duration": 221.0,
         "views": 109,
-        "age_hours": 597.6,
+        "age_hours": 602.8,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1683,7 +1683,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 983.6,
+        "age_hours": 988.9,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1695,7 +1695,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 1054.8,
+        "age_hours": 1060.1,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1707,7 +1707,7 @@
         "average_view_percentage": 81.18,
         "average_view_duration": 30.0,
         "views": 11,
-        "age_hours": 670.9,
+        "age_hours": 676.2,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1719,7 +1719,7 @@
         "average_view_percentage": 79.17,
         "average_view_duration": 33.0,
         "views": 1428,
-        "age_hours": 238.8,
+        "age_hours": 244.1,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1731,7 +1731,7 @@
         "average_view_percentage": 74.66,
         "average_view_duration": 28.0,
         "views": 66,
-        "age_hours": 893.5,
+        "age_hours": 898.8,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1743,19 +1743,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 1085.5,
-        "target_met": true,
-        "status": "goal_met"
-      },
-      {
-        "video_id": "2W0svCSK8r0",
-        "title": "The Untold Turning Point in Temple Grandin's Story",
-        "topic": "Temple Grandin: Transforming her lived experience with autism into a revolutionary career redesigning humane livestock handling facilities.",
-        "workflow": "story",
-        "average_view_percentage": 70.93,
-        "average_view_duration": 26.0,
-        "views": 29,
-        "age_hours": 691.8,
+        "age_hours": 1090.7,
         "target_met": true,
         "status": "goal_met"
       }

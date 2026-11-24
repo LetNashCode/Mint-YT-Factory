@@ -664,7 +664,7 @@
       "person": "Narayana Murthy",
       "start": 1278.28,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791737782.8030539
+      "reviewed_at": 1795555051.7202542
     },
     "d2ac9ee41414b8de062935fa": {
       "kind": "segment_rejection",
@@ -673,7 +673,7 @@
       "person": "Narayana Murthy",
       "start": 1823.97,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791737784.9911263
+      "reviewed_at": 1795555053.0139017
     },
     "89e53df3265f0519b840bac2": {
       "kind": "segment_rejection",
@@ -681,8 +681,8 @@
       "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
       "person": "Narayana Murthy",
       "start": 5.0,
-      "reason": "The frames depict R. Narayana Murthy (an Indian actor/filmmaker) in a movie scene, not the biography subject Narayana Murthy (co-founder of Infosys).",
-      "reviewed_at": 1791737788.5398605
+      "reason": "The frames show R. Narayana Murthy (an actor/director), not the billionaire industrialist Narayana Murthy. The segment consists of a static music video/audio jukebox title card with heavy text overlays, making it unusable as real biographical footage for the subject.",
+      "reviewed_at": 1795555056.402071
     },
     "8ca6affdb3f2c764e6c6110b": {
       "kind": "segment_rejection",
@@ -691,7 +691,7 @@
       "person": "Narayana Murthy",
       "start": 186.9,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791737790.2756052
+      "reviewed_at": 1795555057.6660023
     },
     "2653ab27a769fd5244738453": {
       "kind": "segment_rejection",
@@ -700,7 +700,7 @@
       "person": "Narayana Murthy",
       "start": 368.79,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791737791.7330494
+      "reviewed_at": 1795555058.8424523
     },
     "8d10d1537ecfa3f08711adfa": {
       "kind": "segment_rejection",
@@ -709,7 +709,7 @@
       "person": "Narayana Murthy",
       "start": 550.69,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791737793.4032226
+      "reviewed_at": 1795555060.149437
     },
     "4860846f15e7b0e7693a6757": {
       "kind": "segment_rejection",
@@ -718,7 +718,7 @@
       "person": "Narayana Murthy",
       "start": 732.59,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791737794.775349
+      "reviewed_at": 1795555061.5448742
     },
     "6e824feaae4448c4dee29253": {
       "kind": "segment_rejection",
@@ -727,7 +727,7 @@
       "person": "Narayana Murthy",
       "start": 914.49,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791737796.2832341
+      "reviewed_at": 1795555062.8890476
     },
     "ae109584585a00ad58680ec3": {
       "kind": "segment_rejection",
@@ -736,7 +736,7 @@
       "person": "Narayana Murthy",
       "start": 1096.38,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791737797.7772813
+      "reviewed_at": 1795555064.2896824
     },
     "d92227d53b69c0cf36d0f01f": {
       "kind": "segment_rejection",
@@ -745,7 +745,7 @@
       "person": "Narayana Murthy",
       "start": 1460.18,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791737799.5051448
+      "reviewed_at": 1795555065.621574
     },
     "6c80df7d11b9587492ede4cb": {
       "kind": "segment_rejection",
@@ -754,7 +754,7 @@
       "person": "Narayana Murthy",
       "start": 1642.08,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791737801.0328696
+      "reviewed_at": 1795555066.9115682
     },
     "8191ef28c077a15faf8c6331": {
       "kind": "segment_rejection",
@@ -763,7 +763,7 @@
       "person": "Narayana Murthy",
       "start": 2005.87,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791737802.4739504
+      "reviewed_at": 1795555068.279862
     },
     "9130e2a6db6b3f7d6e069d33": {
       "kind": "segment_rejection",
@@ -772,7 +772,7 @@
       "person": "Narayana Murthy",
       "start": 2187.77,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791737804.1495032
+      "reviewed_at": 1795555069.570716
     },
     "e67a93694afa867ca6f53757": {
       "kind": "segment_rejection",
@@ -781,7 +781,7 @@
       "person": "Narayana Murthy",
       "start": 2369.67,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791737806.009055
+      "reviewed_at": 1795555070.8583684
     },
     "d0e48eea312cd235fde52f33": {
       "kind": "segment_rejection",
@@ -789,8 +789,8 @@
       "source_url": "https://archive.org/details/Chai_with_Manjula_-_Akshaya_Patra",
       "person": "Narayana Murthy",
       "start": 923.9,
-      "reason": "The sampled frames show an interview program ('Chai with Manjula') featuring an interviewer and a guest, but Narayana Murthy is not visible in any of the frames.",
-      "reviewed_at": 1791737812.1155798
+      "reason": "The sampled frames show an interview show ('Chai with Manjula') discussing Akshaya Patra. Narayana Murthy is neither visible in the frames nor is this footage of him; it is an interview with other individuals.",
+      "reviewed_at": 1795555084.6778693
     },
     "010b5e2fcf0ccecc4b662143": {
       "kind": "segment_rejection",
@@ -799,7 +799,7 @@
       "person": "Narayana Murthy",
       "start": 1317.71,
       "reason": "static frames/no detectable motion",
-      "reviewed_at": 1791737823.3727303
+      "reviewed_at": 1795555087.3522959
     },
     "7d7f289594ebbbae45e7774a": {
       "kind": "segment_rejection",
@@ -807,8 +807,8 @@
       "source_url": "https://archive.org/details/Chai_with_Manjula_-_Akshaya_Patra",
       "person": "Narayana Murthy",
       "start": 5.0,
-      "reason": "The video segment shows the host/interviewer (Manjula) of the program 'Chai with Manjula' and opening title sequences, but the named subject Narayana Murthy is not visible in any of the sampled frames.",
-      "reviewed_at": 1791737831.9592168
+      "reason": "The segment shows the intro and host of the interview show 'Chai with Manjula', but Narayana Murthy is not visible in any of the sampled frames.",
+      "reviewed_at": 1795555102.4413662
     },
     "0103e2237fdae2347a2828ad": {
       "kind": "segment_rejection",
@@ -834,8 +834,8 @@
       "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
       "person": "Narayana Murthy",
       "start": 5.0,
-      "reason": "The sampled frames show only a title card sequence ('Chai with Manjula') with a teapot and flowers. The named subject, Narayana Murthy, is not visible in any of the frames, making this segment unusable as identity footage.",
-      "reviewed_at": 1791737851.0026712
+      "reason": "The frames only show title cards and introductory graphics for the show 'Chai with Manjula'. The subject, Narayana Murthy, is not visible in any of the sampled frames.",
+      "reviewed_at": 1795555165.8997486
     },
     "34d19df808e8a8083e3ee164": {
       "kind": "segment_rejection",
@@ -843,8 +843,8 @@
       "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
       "person": "Narayana Murthy",
       "start": 535.22,
-      "reason": "The sampled frames show the interviewer (Manjula) talking, but the subject Narayana Murthy is not visible in any of the frames.",
-      "reviewed_at": 1791737890.5518398
+      "reason": "The frames show an interviewer or another person speaking, but Narayana Murthy is not visible in any of the sampled frames.",
+      "reviewed_at": 1795555173.5250688
     },
     "fbacdd18b953c023294760fa": {
       "kind": "segment_rejection",
@@ -3691,8 +3691,8 @@
       "source_url": "https://archive.org/details/jonas-edward-salk",
       "person": "Jonas Salk",
       "start": 51.54,
-      "reason": "The provided video frames consist of AI-generated or simulated imagery rather than authentic archival footage of Jonas Salk, making it unusable for a biographical short.",
-      "reviewed_at": 1792008833.438282
+      "reason": "The footage consists of AI-generated or dramatic recreation imagery rather than authentic archival footage of Jonas Salk.",
+      "reviewed_at": 1795554961.1838598
     },
     "783ca14f6a27782e58b55864": {
       "kind": "segment_rejection",
@@ -3700,8 +3700,8 @@
       "source_url": "https://archive.org/details/jonas-edward-salk",
       "person": "Jonas Salk",
       "start": 70.16,
-      "reason": "The sampled frames depict AI-generated or synthetic imagery (such as a simulated old television set showing a generated depiction of Jonas Salk), which violates the requirement for real filmed historical footage.",
-      "reviewed_at": 1792008856.0626013
+      "reason": "The frames show AI-generated or synthetic imagery depicting Jonas Salk rather than genuine historical archive footage or photographs, and feature a distracting television graphic overlay (\"VJAY TV\").",
+      "reviewed_at": 1795554972.0456386
     },
     "b2dcd7e415b30be428c1e197": {
       "kind": "segment_rejection",
@@ -4447,8 +4447,8 @@
       "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
       "person": "Jonas Salk",
       "start": 59.28,
-      "reason": "The footage is embedded within a screen recording of a web page article, surrounded by web UI elements, text, and bad layout formatting making it unusable for vertical short video.",
-      "reviewed_at": 1792101383.6185277
+      "reason": "The segment includes archival footage of laboratory work and scientific research related to polio and vaccine development, offering relevant historical context for Jonas Salk's work, though Salk himself is not visibly filmed in the archival footage frames (only his son is interviewed in frame 1).",
+      "reviewed_at": 1795554920.9774501
     },
     "d1b37a5f1383eb713d7ce8e2": {
       "kind": "segment_rejection",
@@ -4690,8 +4690,8 @@
       "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
       "person": "Jonas Salk",
       "start": 95.47,
-      "reason": "The video features Dr. Peter Salk (Jonas Salk's son) speaking in an interview, not Jonas Salk himself. Additionally, the video layout contains heavy webpage borders and text overlays.",
-      "reviewed_at": 1792140123.1701496
+      "reason": "The footage features Peter Salk (Jonas Salk's son) speaking in an interview and archival B-roll, but Jonas Salk himself is not visibly present in the sampled frames. Furthermore, the video is heavily letterboxed with website elements and article text overlaid, making it unsuitable for a clean biography Short.",
+      "reviewed_at": 1795554932.156304
     },
     "3638c160721e0b5ce0517802": {
       "kind": "segment_rejection",
@@ -8472,8 +8472,8 @@
       "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
       "person": "Jonas Salk",
       "start": 204.04,
-      "reason": "The footage shows Dr. Peter Salk (Jonas Salk's son), not Jonas Salk himself, speaking about his father in a BBC documentary clip. Therefore, Jonas Salk is not visibly present in the frames.",
-      "reviewed_at": 1792863009.1231794
+      "reason": "The person visible in the footage is Dr. Peter Salk (Jonas Salk's son), not Jonas Salk himself. Additionally, the video is presented as a screen recording of a BBC webpage with heavy UI framing, making it unsuitable for a biography short.",
+      "reviewed_at": 1795554878.991353
     },
     "63e6817711bca3dfce3cfc1a": {
       "kind": "segment_rejection",
@@ -14056,6 +14056,259 @@
       "start": 5535.7,
       "reason": "static frames/no detectable motion",
       "reviewed_at": 1795536140.8911204
+    },
+    "9173b1eecedd544d440a5e31": {
+      "kind": "segment_rejection",
+      "source_id": "archive:16jpye8DoTSKc7bGHF9T3d3StBih2a",
+      "source_url": "https://archive.org/details/16jpye8DoTSKc7bGHF9T3d3StBih2a",
+      "person": "Wilbur Wright",
+      "start": 949.33,
+      "reason": "The footage shows archival NASA rocket/space flight footage from 1962, completely unrelated to Wilbur Wright's life or history.",
+      "reviewed_at": 1795554342.065863
+    },
+    "4fe321b8757ee40f18e6fffe": {
+      "kind": "segment_rejection",
+      "source_id": "archive:16jpye8DoTSKc7bGHF9T3d3StBih2a",
+      "source_url": "https://archive.org/details/16jpye8DoTSKc7bGHF9T3d3StBih2a",
+      "person": "Wilbur Wright",
+      "start": 1354.05,
+      "reason": "The footage shows radar equipment and a map of Florida and the Caribbean from a 1962 NASA documentary about Project Mercury. Wilbur Wright is not visible and has no direct chronological or historical connection to this 1962 space program footage.",
+      "reviewed_at": 1795554348.4707336
+    },
+    "1eb3dee62c3a6c6b18644387": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NasaConnect-Twm-TheWrightBrothers",
+      "source_url": "https://archive.org/details/NasaConnect-Twm-TheWrightBrothers",
+      "person": "Wilbur Wright",
+      "start": 191.57,
+      "reason": "The video shows an interview segment with a modern NASA presenter and a guest expert discussing the Wright brothers, but Wilbur Wright (who lived from 1867 to 1912) is not visible in any of the frames.",
+      "reviewed_at": 1795554361.2285254
+    },
+    "9099893288ebf0fe779e7b33": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NasaConnect-Twm-TheWrightBrothers",
+      "source_url": "https://archive.org/details/NasaConnect-Twm-TheWrightBrothers",
+      "person": "Wilbur Wright",
+      "start": 271.53,
+      "reason": "The footage shows a close-up of a hand holding a vintage bicycle inner tube box, providing historical context relevant to Wilbur Wright's early bicycle shop business, although Wilbur Wright himself is not visible in the frames.",
+      "reviewed_at": 1795554382.3030384
+    },
+    "45ec4ba3908446434bc26481": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NasaConnect-ProblemSolving-TheWrightMath",
+      "source_url": "https://archive.org/details/NasaConnect-ProblemSolving-TheWrightMath",
+      "person": "Wilbur Wright",
+      "start": 921.0,
+      "reason": "The frames show animated educational graphics about kites and math formulas, completely unrelated to archival or biographical footage of Wilbur Wright.",
+      "reviewed_at": 1795554404.2614436
+    },
+    "eabd1573925bf4626a23ce70": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NasaConnect-ProblemSolving-TheWrightMath",
+      "source_url": "https://archive.org/details/NasaConnect-ProblemSolving-TheWrightMath",
+      "person": "Wilbur Wright",
+      "start": 1313.57,
+      "reason": "The footage contains animated instructional graphics about physics and pressure (balloons and nails) with no relation to Wilbur Wright's biography or actual archival footage.",
+      "reviewed_at": 1795554410.277351
+    },
+    "665fc4320b0041b5fc23a6ea": {
+      "source_id": "commons:174246912",
+      "source_url": "https://commons.wikimedia.org/wiki/File:F-139_Charles_Lindbergh_Celebration_in_San_Diego_(5906232392).webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "bbc8b2ae544f5cf7b153b0ee": {
+      "source_id": "commons:174246559",
+      "source_url": "https://commons.wikimedia.org/wiki/File:F-140_Charles_Lindbergh_Celebration_in_San_Diego_(5905686935).webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "de6f02981cd644fdb9ade76e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:23534alindberghsflightandreturn",
+      "source_url": "https://archive.org/details/23534alindberghsflightandreturn",
+      "person": "Charles Lindbergh",
+      "start": 360.77,
+      "reason": "The sampled frames show archival newsreel footage related to Charles Lindbergh's return, featuring a ship and intertitle cards, but Lindbergh himself is not clearly visible in these specific frames.",
+      "reviewed_at": 1795554472.4830115
+    },
+    "616acabc5da261653a165110": {
+      "kind": "segment_rejection",
+      "source_id": "archive:40304lindynewsreelsmosvwr",
+      "source_url": "https://archive.org/details/40304lindynewsreelsmosvwr",
+      "person": "Charles Lindbergh",
+      "start": 105.0,
+      "reason": "The archival newsreel footage shows historical events related to Charles Lindbergh's reception in New York City (City Hall), featuring a large crowd and title cards, but Charles Lindbergh himself is not clearly identifiable in the sampled frames.",
+      "reviewed_at": 1795554489.1589146
+    },
+    "4949f0e6b8abc578bdc289bd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:40304lindynewsreelsmosvwr",
+      "source_url": "https://archive.org/details/40304lindynewsreelsmosvwr",
+      "person": "Charles Lindbergh",
+      "start": 147.86,
+      "reason": "The archival footage shows period scenes of ticker-tape parades and crowds celebrating, consistent with the events following Charles Lindbergh's transatlantic flight, but Lindbergh himself is not clearly distinguishable in the sampled frames.",
+      "reviewed_at": 1795554499.1773112
+    },
+    "9de51a0b71e0387cbdd9f801": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charles-lindbergh-speech-iowa-1941",
+      "source_url": "https://archive.org/details/charles-lindbergh-speech-iowa-1941",
+      "person": "Charles Lindbergh",
+      "start": 297.89,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795554502.2363882
+    },
+    "f0987eee4494608b231f0e0d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charles-lindbergh-speech-iowa-1941",
+      "source_url": "https://archive.org/details/charles-lindbergh-speech-iowa-1941",
+      "person": "Charles Lindbergh",
+      "start": 423.41,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795554503.9841063
+    },
+    "63ef3ee857dfdc9c6179ffea": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charles-lindbergh-speech-iowa-1941",
+      "source_url": "https://archive.org/details/charles-lindbergh-speech-iowa-1941",
+      "person": "Charles Lindbergh",
+      "start": 5.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795554505.2567923
+    },
+    "dcf76195e5deb032dd37f236": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charles-lindbergh-speech-iowa-1941",
+      "source_url": "https://archive.org/details/charles-lindbergh-speech-iowa-1941",
+      "person": "Charles Lindbergh",
+      "start": 46.84,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795554507.2199414
+    },
+    "6e3899a43b9e7d350019b1f7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charles-lindbergh-speech-iowa-1941",
+      "source_url": "https://archive.org/details/charles-lindbergh-speech-iowa-1941",
+      "person": "Charles Lindbergh",
+      "start": 88.68,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795554510.0015192
+    },
+    "3826ad9c301fc3ddbdceec4d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charles-lindbergh-speech-iowa-1941",
+      "source_url": "https://archive.org/details/charles-lindbergh-speech-iowa-1941",
+      "person": "Charles Lindbergh",
+      "start": 130.52,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795554511.7963412
+    },
+    "f305113993efc175125ed353": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charles-lindbergh-speech-iowa-1941",
+      "source_url": "https://archive.org/details/charles-lindbergh-speech-iowa-1941",
+      "person": "Charles Lindbergh",
+      "start": 172.36,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795554513.7921638
+    },
+    "d806ba1b7585fdd507f7bd17": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charles-lindbergh-speech-iowa-1941",
+      "source_url": "https://archive.org/details/charles-lindbergh-speech-iowa-1941",
+      "person": "Charles Lindbergh",
+      "start": 214.21,
+      "reason": "The video segment shows a static graphic of a 'Defend America First' sign for the first four frames, followed by a wide historical photograph of an audience and rally. Charles Lindbergh is not clearly identifiable in the sampled frames, but the archival context relates to his 1941 speech and the America First movement. Therefore, it is usable as biographical illustration rather than direct identity or direct event footage.",
+      "reviewed_at": 1795554517.834305
+    },
+    "a274472dd5e42c87d974fc64": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charles-lindbergh-speech-iowa-1941",
+      "source_url": "https://archive.org/details/charles-lindbergh-speech-iowa-1941",
+      "person": "Charles Lindbergh",
+      "start": 256.05,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795554519.6953163
+    },
+    "e66805d697cf1857db1ff5cf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charles-lindbergh-speech-iowa-1941",
+      "source_url": "https://archive.org/details/charles-lindbergh-speech-iowa-1941",
+      "person": "Charles Lindbergh",
+      "start": 339.73,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795554521.212636
+    },
+    "a325c79854224645543a409c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charles-lindbergh-speech-iowa-1941",
+      "source_url": "https://archive.org/details/charles-lindbergh-speech-iowa-1941",
+      "person": "Charles Lindbergh",
+      "start": 381.57,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795554522.794067
+    },
+    "cfe2e0e63d937510d59216db": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charles-lindbergh-speech-iowa-1941",
+      "source_url": "https://archive.org/details/charles-lindbergh-speech-iowa-1941",
+      "person": "Charles Lindbergh",
+      "start": 465.25,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795554524.969809
+    },
+    "1d7d30e1d9ef6677a569d831": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charles-lindbergh-speech-iowa-1941",
+      "source_url": "https://archive.org/details/charles-lindbergh-speech-iowa-1941",
+      "person": "Charles Lindbergh",
+      "start": 507.09,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795554526.7875113
+    },
+    "404ea6b2ca82d6eccad937b4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charles-lindbergh-speech-iowa-1941",
+      "source_url": "https://archive.org/details/charles-lindbergh-speech-iowa-1941",
+      "person": "Charles Lindbergh",
+      "start": 548.93,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795554528.6400323
+    },
+    "e0b1aa411a07bfd19cb5d89b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:23534alindberghsflightandreturn",
+      "source_url": "https://archive.org/details/23534alindberghsflightandreturn",
+      "person": "Charles Lindbergh",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of title cards and stock footage watermarks rather than actual filmed footage of Charles Lindbergh.",
+      "reviewed_at": 1795554550.829362
+    },
+    "b33ce2bb79bffe87922ff80a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:23534alindberghsflightandreturn",
+      "source_url": "https://archive.org/details/23534alindberghsflightandreturn",
+      "person": "Charles Lindbergh",
+      "start": 55.82,
+      "reason": "The footage shows archival moving images of an airplane in flight (representing Charles Lindbergh's aviation context) and a historical title card mentioning him, though Lindbergh himself is not clearly visible in these specific frames.",
+      "reviewed_at": 1795554566.000683
+    },
+    "4890c86597ef161d139ea000": {
+      "kind": "segment_rejection",
+      "source_id": "archive:xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+      "source_url": "https://archive.org/details/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+      "person": "Charles Lindbergh",
+      "start": 48.53,
+      "reason": "The archival newsreel footage shows the USS Memphis and crowds gathered at the pier during Charles Lindbergh's return, providing valid historical context for his homecoming, even though Lindbergh is not clearly identifiable in these specific sampled frames.",
+      "reviewed_at": 1795554580.656033
+    },
+    "9783dda8b9326b5b69d555de": {
+      "kind": "segment_rejection",
+      "source_id": "archive:xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+      "source_url": "https://archive.org/details/xd-31031-charles-lindbergh-arrivesin-new-york-citymos-vwr",
+      "person": "Charles Lindbergh",
+      "start": 135.6,
+      "reason": "The archival footage shows a large crowd gathered for Charles Lindbergh's homecoming parade and events in 1927. While Charles Lindbergh himself is not clearly identifiable among the distant crowds and viewing platforms in these specific frames, the footage provides authentic historical context depicting the mass gatherings celebrating his historic flight.",
+      "reviewed_at": 1795554596.0632026
     }
   }
 }

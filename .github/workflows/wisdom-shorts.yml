@@ -112,6 +112,11 @@ jobs:
           print("Production preflight passed.")
           PY
 
+      - name: Test Wisdom offline recovery
+        run: |
+          set -euo pipefail
+          python -m pytest -q tests/test_wisdom_outage_fallback.py
+
       - name: Run Everyday Wisdom Short
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

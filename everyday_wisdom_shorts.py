@@ -354,6 +354,19 @@ def build_outage_fallback_story(history):
             continue
         if not re.search(r"\b(I|I'm|I've|I'd|my|me|we|our|ours)\b", story["narration"], re.I):
             continue
+        # Preserve the same single-inference Kokoro phoneme ceiling as AI drafts.
+        from kokoro import KPipeline
+        fallback_pipeline = KPipeline(lang_code="a")
+        _, fallback_tokens = fallback_pipeline.g2p(story["narration"])
+        fallback_phonemes = fallback_pipeline.tokens_to_ps(fallback_tokens)
+        if len(fallback_phonemes) > MAX_KOKORO_PHONEMES:
+            print(
+                f"Skipping offline fallback {story['topic']}: "
+                f"{len(fallback_phonemes)} phoneme characters exceeds "
+                f"{MAX_KOKORO_PHONEMES}",
+                flush=True,
+            )
+            continue
         story["editorial_scores"] = {
             "fallback": "curated_offline_story",
             "review": "pre-reviewed editorial fallback; Gemini unavailable",

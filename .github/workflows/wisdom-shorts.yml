@@ -47,6 +47,7 @@ jobs:
           set -euo pipefail
           python -m pip install --upgrade pip
           python -m pip install \
+            "pytest>=8.0.0" \
             "google-genai>=1.30.0" \
             "requests>=2.31.0" \
             "kokoro>=0.9.4" \

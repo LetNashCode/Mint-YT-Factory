@@ -304,6 +304,72 @@ def remember_topic(story):
     print(f"Topic history updated: {entry['topic']} | key={entry['topic_key']}")
     return entry
 
+
+def build_outage_fallback_story(history):
+    """Return a reviewed, deterministic Wisdom story when every Gemini model is down.
+
+    This is deliberately a small editorial fallback library, not a generic AI
+    rewrite. Each entry is a complete first-person story with a cautious,
+    non-universal explanation and narration-aligned stock searches.
+    """
+    candidates = [
+        {
+            "title": "Why We Wait Until Everyone Is Served",
+            "topic": "Waiting until everyone is served before eating",
+            "topic_key": "waiting until everyone is served",
+            "narration": "I used to think waiting for everyone before eating was just an old-fashioned rule. When I was hungry, those extra minutes felt unnecessary. But I finally understood what that pause was really doing. It gave the person cooking time to sit down, and it made sure nobody felt left out. Not every family follows the same custom, but the message is simple: a meal feels different when we make room for everyone. That small wait can say, you belong here.",
+            "search_queries": ["family dinner table setting", "home cooked meal serving", "family sitting down dinner"],
+            "visual_queries": ["empty family dinner table", "hands placing dinner plates", "steam rising from casserole", "person serving roasted vegetables", "chair pulled toward table", "family members arriving home", "hands passing serving bowl", "plates being filled at dinner", "person waiting beside table", "family gathering around table", "older adult sitting at table", "everyone holding dinner plates", "shared meal close up", "hands passing bread basket", "family eating together", "warm dining room evening"],
+        },
+        {
+            "title": "Why We Knock Before Opening a Door",
+            "topic": "Knocking before entering a closed room",
+            "topic_key": "knocking before entering",
+            "narration": "I once thought knocking on a closed door was just about manners. Then I realized how different a room feels when someone enters without warning. A knock gives the other person a moment to finish a thought, get dressed, or simply say come in. Families may have different rules, but the courtesy is the same: privacy matters even at home. I still knock, because respect is not only for strangers. Sometimes it begins with the people who know us best.",
+            "search_queries": ["hand knocking wooden door", "quiet hallway closed door", "person waiting outside room"],
+            "visual_queries": ["closed bedroom door hallway", "hand approaching wooden door", "knuckles gently tapping door", "door handle in close up", "person waiting in hallway", "quiet home corridor", "person reading inside room", "desk lamp beside book", "person pausing at doorway", "door opening slightly", "family home interior", "child knocking on door", "parent answering doorway", "person closing door gently", "peaceful private bedroom", "warm hallway evening light"],
+        },
+        {
+            "title": "Why We Save Leftovers for Later",
+            "topic": "Saving leftovers instead of wasting food",
+            "topic_key": "saving leftovers for later",
+            "narration": "I used to see leftovers as the part of dinner nobody wanted. Then I watched how carefully someone packed them away, making sure tomorrow's lunch was already taken care of. It was not about being cheap or refusing a treat. It was a practical way to respect the work, money, and ingredients behind a meal. Every household handles food differently, but saving what is still good can turn one evening's effort into another day's comfort. I understand that habit much better now.",
+            "search_queries": ["packing dinner leftovers container", "home kitchen storing food", "leftover meal refrigerator"],
+            "visual_queries": ["family dinner dishes table", "serving spoon beside casserole", "leftover vegetables on plate", "person opening food container", "glass storage containers kitchen", "hands packing leftover dinner", "container lid closing securely", "leftovers placed refrigerator shelf", "refrigerator door closing", "lunch container on counter", "person preparing next day lunch", "rice and vegetables lunchbox", "kitchen counter morning light", "person taking lunch bag", "homemade meal on table", "clean kitchen after dinner"],
+        },
+        {
+            "title": "Why We Bring Something When We Visit",
+            "topic": "Bringing a small offering when visiting someone's home",
+            "topic_key": "bringing a small gift when visiting",
+            "narration": "I used to wonder why people brought something along when they were invited over. It could be flowers, dessert, or just a little snack. I thought the host had already planned everything, so why add more? Then I understood it was never really about the item. It was a small way to recognize the effort someone made to welcome us. Not every visit needs a gift, of course. But showing up with thoughtfulness can make hospitality feel shared, not one-sided.",
+            "search_queries": ["guest bringing flowers home", "dessert gift visiting friends", "welcoming guests front door"],
+            "visual_queries": ["person holding small flower bouquet", "dessert box on kitchen counter", "guest walking toward front door", "hand holding wrapped gift", "doorbell beside doorway", "host opening front door", "guests greeting at entrance", "flowers placed in glass vase", "dessert being unwrapped", "plates arranged on table", "host preparing refreshments", "friends sitting in living room", "coffee cups on table", "shared dessert close up", "warm home gathering", "guests saying goodbye doorway"],
+        },
+    ]
+    for story in candidates:
+        if is_duplicate_topic(story, history):
+            continue
+        words = re.findall(r"\b[\w'-]+\b", story["narration"])
+        if not MIN_NARRATION_WORDS <= len(words) <= MAX_NARRATION_WORDS:
+            continue
+        if not re.search(r"\b(I|I'm|I've|I'd|my|me|we|our|ours)\b", story["narration"], re.I):
+            continue
+        story["editorial_scores"] = {
+            "fallback": "curated_offline_story",
+            "review": "pre-reviewed editorial fallback; Gemini unavailable",
+        }
+        story["generation_mode"] = "curated_offline_fallback"
+        print(
+            f"⚠️ Gemini unavailable; using curated Wisdom fallback: "
+            f"{story['topic']} ({len(words)} words)",
+            flush=True,
+        )
+        return story
+    raise RuntimeError(
+        "Gemini is unavailable and every curated Wisdom fallback topic is already "
+        "used or failed the narration word-count/voice checks. Refusing to publish a duplicate."
+    )
+
 def generate_story():
     global MODEL
     model_chain = list(MODEL_CHAIN) or [MODEL]
@@ -512,11 +578,13 @@ person, or setting relevant to that spoken beat. No generic filler such as
             if transient:
                 transient_provider_failures += 1
                 if transient_provider_failures > len(transient_backoff_seconds):
-                    raise RuntimeError(
-                        f"Wisdom Gemini remained unavailable after "
-                        f"{transient_provider_failures - 1} bounded retries; "
-                        f"last model {active_model}: {exc}"
-                    ) from exc
+                    print(
+                        f"⚠️ All configured Gemini models remained unavailable "
+                        f"after {transient_provider_failures - 1} bounded retries. "
+                        "Switching to the curated offline Wisdom library.",
+                        flush=True,
+                    )
+                    return build_outage_fallback_story(history)
 
                 model_index = (model_index + 1) % len(model_chain)
                 active_model = model_chain[model_index]

@@ -6,10 +6,10 @@ import everyday_wisdom_shorts as wisdom
 def test_curated_outage_fallback_is_complete_and_tts_compatible(monkeypatch):
     monkeypatch.setattr(wisdom, "is_duplicate_topic", lambda story, history: False)
     story = wisdom.build_outage_fallback_story([])
-    words = re.findall(r"\\b[\\w'-]+\\b", story["narration"])
+    words = re.findall(r"\b[\w'-]+\b", story["narration"])
 
     assert 78 <= len(words) <= 85
-    assert re.search(r"\\b(I|I'm|I've|I'd|my|me|we|our|ours)\\b", story["narration"], re.I)
+    assert re.search(r"\b(I|I'm|I've|I'd|my|me|we|our|ours)\b", story["narration"], re.I)
     assert len(story["search_queries"]) == 3
     assert len(story["visual_queries"]) == 16
     assert story["generation_mode"] == "curated_offline_fallback"

@@ -2,434 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:sabrina-audrey-hepburn",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sabrina-audrey-hepburn/Sabrina%20Audrey%20Hepburn.mp4",
-        "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
-        "title": "Sabrina Audrey Hepburn",
-        "description": "(From Wiki) Sabrina Fairchild is the young daughter of the Larrabee family's chauffeur, Thomas, and has been in love with David Larrabee all her life. David is a three-times-married playboy who has never paid attention to Sabrina because to him she was still a child. 1954 American romantic comedy-drama film directed by Billy Wilder, adapted for the screen by Wilder, Samuel A. Taylor, and Ernest Lehman[4] from Taylor's 1953 play Sabrina Fair. The picture stars Humphrey Bogart, Audrey Hepburn and William Holden. This was Wilder's last film released by Paramount Pictures, ending a 12-year business relationship between Wilder and the company. ['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
-        "creator": "",
-        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6833.666667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 4726.31,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features authentic historical film footage from Sabrina (1954), clearly showing Audrey Hepburn alongside Humphrey Bogart, perfectly illustrating her acting career and life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5bb8f27fc11dbb2a64674ced66da6589aa878696c6a8905cf13ab01b5fa6455f",
-      "reviewed_at": 1792527306.8124108
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:twitter-1338797197635145728",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
-        "source_url": "https://archive.org/details/twitter-1338797197635145728",
-        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
-        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 243.785208,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 58.03,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature archival interview footage of Audrey Hepburn, making it authentic and usable biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ff63eeda5cb3e309fe948b8429f42e822a50e47ee2d730cbdff907374bb912f6",
-      "reviewed_at": 1792527329.8482552
-    },
-    {
-      "person": "Audrey Hepburn",
-      "source": {
-        "id": "archive:twitter-1338797197635145728",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
-        "source_url": "https://archive.org/details/twitter-1338797197635145728",
-        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
-        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 243.785208,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 93.38,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features genuine archival footage of Audrey Hepburn being interviewed on Wogan in 1989. Audrey Hepburn is clearly visible and identifiable in multiple frames, making it excellent biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9b3ffe3da7e14db54aee2ecbe442f2145686e1ce908971cec489e3eda01d3316",
-      "reviewed_at": 1792527356.7093892
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
-        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
-        "title": "The Rebellious Life of Mrs. Rosa Parks",
-        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 4454.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features archival footage clearly showing Rosa Parks in several sampled frames, serving as excellent biographical illustration for a short about her life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3ec9f44b1331e87d5fc798ba961ef827829834f138dc09a0dee6a2f7d78b408b",
-      "reviewed_at": 1792675113.024595
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
-        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
-        "title": "The Rebellious Life of Mrs. Rosa Parks",
-        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2674.71,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features historical dramatic/archival footage depicting Rosa Parks on a bus and interactions with police, aligning directly with her biography and the narrated context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "52db62cfccd23a18f4de392dbf754cbfbb33b12a291c073c20dd0a5e883d3bc8",
-      "reviewed_at": 1792675223.9095755
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
-        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
-        "title": "The Rebellious Life of Mrs. Rosa Parks",
-        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 4899.47,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames feature genuine archival video of Rosa Parks in an interview/discussion setting, directly illustrating her life and biography.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "41701c2ae269a527a9a6a4f0f4ec5962ffc969a535d1dfffba1a5b3ad0e417fe",
-      "reviewed_at": 1792675258.1975675
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
-        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
-        "title": "The Rebellious Life of Mrs. Rosa Parks",
-        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5344.42,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Rosa Parks seated in a church setting holding a candle, providing authentic biographical illustration material for a documentary about her life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "dddb2729612a6d94e130253225592d1079c4266dea91631d867614a4a98591c7",
-      "reviewed_at": 1792675289.682213
-    },
-    {
-      "person": "A.P.J. Abdul Kalam",
-      "source": {
-        "id": "commons:82812902",
-        "provider": "Wikimedia Commons",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
-        "title": "File:En.Wikipedia-VideoWiki-A. P. J. Abdul Kalam.webm",
-        "description": "Wikipedia:VideoWiki/A._P._J._Abdul_Kalam",
-        "creator": "See script and authors listed in details below.",
-        "license": "Public domain",
-        "direct_subject": false,
-        "identity_score": 10.0,
-        "duration_hint": 258.269
-      },
-      "start": 192.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage shows A.P.J. Abdul Kalam speaking at a podium, which serves as valid archival/biographical illustration for a video about his life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3d9ffe2a70a45c0071ffe35161ec05acc40fdbe0f8a0af09b00dafb5f9df95ab",
-      "reviewed_at": 1792675517.0458317
-    },
-    {
-      "person": "A.P.J. Abdul Kalam",
-      "source": {
-        "id": "commons:82812902",
-        "provider": "Wikimedia Commons",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
-        "title": "File:En.Wikipedia-VideoWiki-A. P. J. Abdul Kalam.webm",
-        "description": "Wikipedia:VideoWiki/A._P._J._Abdul_Kalam",
-        "creator": "See script and authors listed in details below.",
-        "license": "Public domain",
-        "direct_subject": false,
-        "identity_score": 10.0,
-        "duration_hint": 258.269
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8.0,
-        "reason": "The sampled frames clearly feature A.P.J. Abdul Kalam speaking in archival footage, making it suitable and usable as biographical illustration for a Short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b278218c8198e1e00a99783b11919c8624eae9b162be54e4b877419621a27f61",
-      "reviewed_at": 1792675546.0348196
-    },
-    {
-      "person": "Madam C.J. Walker",
-      "source": {
-        "id": "archive:yt_p3qjlLYszEI",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/yt_p3qjlLYszEI/p3qjlLYszEI.mp4",
-        "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
-        "title": "US National Archives - Madam C.J. Walker in the National Archives (YouTube)",
-        "description": "Downloaded from US National Archives Youtube channel on 2025-02-05 12:03:02 https://youtube.com/watch?v=p3qjlLYszEI -------- Madam C.J. Walker, one of the great American entrepreneurs of the early 20th century, was born to former slaves and grew up in destitution. In this Inside the Vaults video short, her great-great granddaughter, A'Lelia Bundles, tells Madam Walker's story with help from documents in the National Archives. Bundles, a former broadcast network news executive and President of the Foundation for the National Archives, is the author of \"On Her Own Ground: The Life and Times of Madam C.J. Walker.\" She drew on documents in the Archives to depict the Louisiana plantation on which Madam Walker was born, Walker's early life as an orphan and washerwoman, and ultimately her triumph as one of the creators of the modern hair care and cosmetics industry. Bundles also found some surprises in the Archives: Madam Walker's philanthropy and civil rights activism led to her being targeted by the federal government as a \"subversive negro.\" For more information about Madam Walker, visit http://www.madamcjwalker.com. Inside the Vaults includes highlights from the National Archives in the Washington, DC, area and from the Presidential libraries and regional archives nationwide. These shorts present behind-the-scenes exclusives and offer surprising stories about the National Archives treasures. See more from Inside the Vaults at http://bit.ly/LzQNae. ",
-        "creator": "US National Archives",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 208.374833,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 154.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The segment features archival documents, historical images of the Walker Building, and an interview with A'Lelia Bundles (the great-great granddaughter of Madam C.J. Walker), providing biographical illustration and historical context about Madam C.J. Walker's legacy.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "db1f7c6dcb0387b21dd035889d33c74b5f6e5e5273472317ac02ea53b835ac42",
-      "reviewed_at": 1792675693.2550569
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:israel-wohltater-der-menschheit",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
-        "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
-        "title": "Israel ist Wohltäter der Menschheit ( JONAS SALK )",
-        "description": "Israel ist nicht Gaza ; Kolonialismus ; Gewalt und Leid sondern Wohltäter der Menscheit. ( z.B.: Jonas Salk ) Israel is not Gaza; colonialism; violence and suffering but a benefactor of humanity. (e.g., Jonas Salk) Israël n’est pas Gaza ; colonialisme ; violence et souffrance mais bienfaiteur de l’humanité. (ex. : Jonas Salk) ['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
-        "creator": "BBC ( England )",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 249.233333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 204.04,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The frames show Dr. Peter Salk (Jonas Salk's son) speaking about his father's achievements in archival BBC footage. While Jonas Salk himself is not the person visible in the frames, the video provides biographical illustration and context regarding his legacy, though the framing and website UI make it less than ideal for direct identity footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "94672da7867bbaf9a3d82ad06bbcede0df89a844f7e31cb845ab9c27908c22ef",
-      "reviewed_at": 1792676684.6002665
-    },
-    {
-      "person": "Colonel Sanders",
-      "source": {
-        "id": "archive:rth_24344699_1200K",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/rth_24344699_1200K/rth_24344699_1200K.mp4",
-        "source_url": "https://archive.org/details/rth_24344699_1200K",
-        "title": "The BlazeTV Highlights: Colonel Sanders",
-        "description": "Glenn explains why KFC is the perfect example of the American dream... ['theblaze', 'gbtv', 'beck_archive', 'The BlazeTV Highlights', 'Glenn Beck', 'American Dream', 'Radio Program', 'Shareable PlayOnFacebook', 'highlight', 'THEBLAZE_SHORT_FEATURE', 'MEDIA_ARCHIVE', 'Embeddable', 'THEBLAZE_RTH']",
-        "creator": "TheBlaze",
-        "license": "",
-        "subject": "['theblaze', 'gbtv', 'beck_archive', 'The BlazeTV Highlights', 'Glenn Beck', 'American Dream', 'Radio Program', 'Shareable PlayOnFacebook', 'highlight', 'THEBLAZE_SHORT_FEATURE', 'MEDIA_ARCHIVE', 'Embeddable', 'THEBLAZE_RTH']",
-        "runtime": "00:09:55",
-        "direct_subject": true,
-        "duration_hint": 595.728467,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 318.24,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The sampled frames feature Colonel Sanders in archival footage/photograph displayed on screen, along with the talk show host discussing the subject. While part of the segment shows the host talking, the target historical figure is clearly visible in the initial frames, making it usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b9554b1fc6578b6b555a95f6e1543289c6a50a7c0db9e0cd67c0cdabde4f5907",
-      "reviewed_at": 1792677950.5518787
-    },
-    {
-      "person": "Colonel Sanders",
-      "source": {
-        "id": "archive:colonel-sanders-americas-chicken-king_202503",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/colonel-sanders-americas-chicken-king_202503/Colonel%20Sanders%20-%20America%27s%20Chicken%20King.mp4",
-        "source_url": "https://archive.org/details/colonel-sanders-americas-chicken-king_202503",
-        "title": "Colonel Sanders: America's Chicken King",
-        "description": "Harland Sanders finds wealth and fame in later life after he begins serving his personal recipe for chicken to his customers. KFC, Kentucky Fried Chicken, Harland Sanders, Colonel Sanders, Fast Food",
-        "creator": "Biography",
-        "license": "",
-        "subject": "KFC, Kentucky Fried Chicken, Harland Sanders, Colonel Sanders, Fast Food",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2771.471471,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2126.13,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features real archival footage of Colonel Sanders preparing chicken in a kitchen, directly matching the biography narration.",
-        "usage": "direct_event"
-      },
-      "review_key": "c4b31c032c39dfd351ec6121124acdf5b5743bb7c85a00d0726239ba0edc2304",
-      "reviewed_at": 1792677987.506657
-    },
-    {
-      "person": "Satyen Bose",
-      "source": {
-        "id": "archive:dli.MoI.films.111",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/dli.MoI.films.111/Dr%20Satyen%20Bose.ia.mp4",
-        "source_url": "https://archive.org/details/dli.MoI.films.111",
-        "title": "Dr. Satyen Bose",
-        "description": "['In January 1974, Calcutta celebrated the 50th Anniversary of the Bose Statistics. In 1924, at the age of thirty Dr. Satyen Bosemade an original contribution to theoretical Physics. This biographical film, informs the viewer about the life story of the great scientist, to whom Rabindra Nath Tagore dedicated his work Viswa Parichaya way back in 1937. The Bangiya Vigyan Parishad was founded by Dr. Bose in 1948. In 1958 he became National Professor. A world-renowned scientist, Dr. Bose was also a great humanist. Dr. Bose died on February 4, 1974. Director: Gopal Sanyal', 'From the Government of India, Ministry of Information, Films Division'] GoI Films",
-        "creator": "Ministry of Information, Films Division",
-        "license": "",
-        "subject": "GoI Films",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1138.2,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 610.34,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment shows genuine historical archival footage featuring Satyen Bose seated at a desk surrounded by colleagues/students, fitting biographical illustration of his life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1ac632e3cf214e6cc1522b5743e2bcff09ed878df97889d0dd42b2a4b4accaa0",
-      "reviewed_at": 1792694148.0473497
-    },
-    {
       "person": "Satyen Bose",
       "source": {
         "id": "archive:dli.MoI.films.111",
@@ -18667,6 +18239,496 @@
       },
       "review_key": "8122b8c526356149af9af2d8459329a12f19740d31acf99f7aeb6b1e7ea107d3",
       "reviewed_at": 1795555158.2693787
+    },
+    {
+      "person": "Kishore Kumar",
+      "source": {
+        "id": "archive:AiseNaMujheTumDekhoKishoreKumarSongDevAnandZeenatAmanDarlingDarling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AiseNaMujheTumDekhoKishoreKumarSongDevAnandZeenatAmanDarlingDarling/Aise%20Na%20Mujhe%20Tum%20Dekho%20%20Kishore%20Kumar%20Song%20%20Dev%20Anand%20%20Zeenat%20Aman%20%20%28Darling%20Darling%29.mp4",
+        "source_url": "https://archive.org/details/AiseNaMujheTumDekhoKishoreKumarSongDevAnandZeenatAmanDarlingDarling",
+        "title": "R D Burman & Kishore kumar hits-1",
+        "description": "R D Burman & Kishore kumar hits-1 R D Burman & Kishore kumar hits-1",
+        "creator": "",
+        "license": "",
+        "subject": "R D Burman & Kishore kumar hits-1",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 239.138872,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/AiseNaMujheTumDekhoKishoreKumarSongDevAnandZeenatAmanDarlingDarling/Aaj%20Tu%20Gair%20Sahi%20-%20Rajesh%20Khanna%20-%20Salma%20Agha%20-%20Oonche%20Log%20--%20Kishore%20Kumar.mp4",
+          "https://archive.org/download/AiseNaMujheTumDekhoKishoreKumarSongDevAnandZeenatAmanDarlingDarling/Aaye%20Tum%20Yaad%20Mujhe%20MILI%20-%20Kishore%20Kumar-%20Anand.mp4"
+        ]
+      },
+      "start": 126.23,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment shows archival film footage featuring Kishore Kumar singing/acting outdoors with a co-star, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "37850dc68e49117cffa0d02ede2bff8033f2b01f16c69c520533d8d904fc9bd5",
+      "reviewed_at": 1795651155.6450727
+    },
+    {
+      "person": "Kishore Kumar",
+      "source": {
+        "id": "archive:half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_5.mp4",
+        "source_url": "https://archive.org/details/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "title": "Half-Ticket(1962)[Kishore Kumar & Madhubala]",
+        "description": "Half-Ticket(1962) Black & White version Studio-Moserbaer ['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "creator": "Kalidas",
+        "license": "",
+        "subject": "['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "runtime": "125 minutes(Moserbaer DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1221.4202,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_6.mp4",
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_3.mp4"
+        ]
+      },
+      "start": 655.15,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Kishore Kumar performing in archival film footage from 'Half-Ticket' (1962), making it authentic and directly usable biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f143f03229565d1a004c608054a45204e8b7a279fdaf02c2140f329a85e0c62f",
+      "reviewed_at": 1795651170.1149852
+    },
+    {
+      "person": "Kishore Kumar",
+      "source": {
+        "id": "archive:half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_5.mp4",
+        "source_url": "https://archive.org/details/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "title": "Half-Ticket(1962)[Kishore Kumar & Madhubala]",
+        "description": "Half-Ticket(1962) Black & White version Studio-Moserbaer ['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "creator": "Kalidas",
+        "license": "",
+        "subject": "['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "runtime": "125 minutes(Moserbaer DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1221.4202,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_6.mp4",
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_3.mp4"
+        ]
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Kishore Kumar (along with others) acting in a scene from the classic Hindi film 'Half Ticket' (1962), making it valid archival/biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "139b4494bb2c36eb507bfe145dcc1f0596bbd30effc08ea4d9290e8f0f224619",
+      "reviewed_at": 1795651208.743108
+    },
+    {
+      "person": "Kishore Kumar",
+      "source": {
+        "id": "archive:half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_5.mp4",
+        "source_url": "https://archive.org/details/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "title": "Half-Ticket(1962)[Kishore Kumar & Madhubala]",
+        "description": "Half-Ticket(1962) Black & White version Studio-Moserbaer ['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "creator": "Kalidas",
+        "license": "",
+        "subject": "['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "runtime": "125 minutes(Moserbaer DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1221.4202,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_6.mp4",
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_3.mp4"
+        ]
+      },
+      "start": 97.88,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The clip features archival footage from the classic 1962 film Half Ticket starring Kishore Kumar, showing him on screen performing. This provides good biographical illustration of his cinematic career, though the video quality is low and black-and-white.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b4978cd58b0d412a1d1d38c250e431e10f0793e1b6112dbc18f1ec5209366f51",
+      "reviewed_at": 1795651242.1980624
+    },
+    {
+      "person": "Kishore Kumar",
+      "source": {
+        "id": "archive:half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_5.mp4",
+        "source_url": "https://archive.org/details/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "title": "Half-Ticket(1962)[Kishore Kumar & Madhubala]",
+        "description": "Half-Ticket(1962) Black & White version Studio-Moserbaer ['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "creator": "Kalidas",
+        "license": "",
+        "subject": "['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "runtime": "125 minutes(Moserbaer DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1221.4202,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_6.mp4",
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_3.mp4"
+        ]
+      },
+      "start": 190.76,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The segment features genuine historical film footage from the movie 'Half-Ticket (1962)' showing Kishore Kumar clearly visible alongside Madhubala, suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "84dde795eab8cf02d9d319431fe499519b3aba68a5f16ee3d4e9a2416f07679a",
+      "reviewed_at": 1795651249.8399868
+    },
+    {
+      "person": "Kishore Kumar",
+      "source": {
+        "id": "archive:half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_5.mp4",
+        "source_url": "https://archive.org/details/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "title": "Half-Ticket(1962)[Kishore Kumar & Madhubala]",
+        "description": "Half-Ticket(1962) Black & White version Studio-Moserbaer ['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "creator": "Kalidas",
+        "license": "",
+        "subject": "['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "runtime": "125 minutes(Moserbaer DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1221.4202,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_6.mp4",
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_3.mp4"
+        ]
+      },
+      "start": 283.64,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features archival film footage from the 1962 movie 'Half-Ticket', in which the subject Kishore Kumar is clearly visible and identifiable alongside Madhubala in multiple frames, directly serving as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "491ab729fa5ab31dcd5e1ffb24597f6a90c6a922f636ef126f9e66ae53637a33",
+      "reviewed_at": 1795651256.6662076
+    },
+    {
+      "person": "Kishore Kumar",
+      "source": {
+        "id": "archive:half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_5.mp4",
+        "source_url": "https://archive.org/details/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "title": "Half-Ticket(1962)[Kishore Kumar & Madhubala]",
+        "description": "Half-Ticket(1962) Black & White version Studio-Moserbaer ['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "creator": "Kalidas",
+        "license": "",
+        "subject": "['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "runtime": "125 minutes(Moserbaer DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1221.4202,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_6.mp4",
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_3.mp4"
+        ]
+      },
+      "start": 376.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames clearly feature Kishore Kumar alongside Madhubala in archival film footage from 'Half-Ticket' (1962), making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a7e1e95aadb52b737fff4b1d34a7981c89937206c5da306a704cc9af577bb2e5",
+      "reviewed_at": 1795651278.671937
+    },
+    {
+      "person": "Kishore Kumar",
+      "source": {
+        "id": "archive:half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_5.mp4",
+        "source_url": "https://archive.org/details/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "title": "Half-Ticket(1962)[Kishore Kumar & Madhubala]",
+        "description": "Half-Ticket(1962) Black & White version Studio-Moserbaer ['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "creator": "Kalidas",
+        "license": "",
+        "subject": "['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "runtime": "125 minutes(Moserbaer DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1221.4202,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_6.mp4",
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_3.mp4"
+        ]
+      },
+      "start": 469.39,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features authentic archival film footage from 'Half-Ticket' (1962) clearly showing Kishore Kumar acting alongside Madhubala, making it suitable biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4ce1bb8b6a236836a911a04edcfd558f746e798a08273537ee1c8afccbb3f473",
+      "reviewed_at": 1795651285.0144
+    },
+    {
+      "person": "Kishore Kumar",
+      "source": {
+        "id": "archive:half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_5.mp4",
+        "source_url": "https://archive.org/details/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "title": "Half-Ticket(1962)[Kishore Kumar & Madhubala]",
+        "description": "Half-Ticket(1962) Black & White version Studio-Moserbaer ['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "creator": "Kalidas",
+        "license": "",
+        "subject": "['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "runtime": "125 minutes(Moserbaer DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1221.4202,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_6.mp4",
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_3.mp4"
+        ]
+      },
+      "start": 562.27,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features actual historical film footage of Kishore Kumar acting and dancing alongside Madhubala in the classic film Half-Ticket (1962), making it suitable biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ab9c6d6785b523b9240417400976e56c0bbfd3638915ccf63d810a4a3df9f825",
+      "reviewed_at": 1795651291.3524153
+    },
+    {
+      "person": "Kishore Kumar",
+      "source": {
+        "id": "archive:half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_5.mp4",
+        "source_url": "https://archive.org/details/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "title": "Half-Ticket(1962)[Kishore Kumar & Madhubala]",
+        "description": "Half-Ticket(1962) Black & White version Studio-Moserbaer ['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "creator": "Kalidas",
+        "license": "",
+        "subject": "['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "runtime": "125 minutes(Moserbaer DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1221.4202,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_6.mp4",
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_3.mp4"
+        ]
+      },
+      "start": 748.03,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features genuine archival film footage from the 1962 movie 'Half-Ticket', clearly showing the subject Kishore Kumar alongside Madhubala. It serves as excellent biographical illustration for a video about his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "616aecaaba1656b96ec1066b29d9446c08a6f22303c7b923616d2e66ea3b8dd9",
+      "reviewed_at": 1795651299.4011288
+    },
+    {
+      "person": "Kishore Kumar",
+      "source": {
+        "id": "archive:half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_5.mp4",
+        "source_url": "https://archive.org/details/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "title": "Half-Ticket(1962)[Kishore Kumar & Madhubala]",
+        "description": "Half-Ticket(1962) Black & White version Studio-Moserbaer ['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "creator": "Kalidas",
+        "license": "",
+        "subject": "['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "runtime": "125 minutes(Moserbaer DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1221.4202,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_6.mp4",
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_3.mp4"
+        ]
+      },
+      "start": 840.91,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames feature genuine historical film footage from 'Half-Ticket (1962)' showing Kishore Kumar seated across a table with Madhubala. While it illustrates his career as an actor rather than a specific narrated event, it provides valid biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f3d4f11a2179e250f79febc158696ee74cb8c9deb3e0d3f034b55cadcdde4c81",
+      "reviewed_at": 1795651308.0062466
+    },
+    {
+      "person": "Kishore Kumar",
+      "source": {
+        "id": "archive:half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_5.mp4",
+        "source_url": "https://archive.org/details/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "title": "Half-Ticket(1962)[Kishore Kumar & Madhubala]",
+        "description": "Half-Ticket(1962) Black & White version Studio-Moserbaer ['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "creator": "Kalidas",
+        "license": "",
+        "subject": "['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "runtime": "125 minutes(Moserbaer DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1221.4202,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_6.mp4",
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_3.mp4"
+        ]
+      },
+      "start": 933.78,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "The segment features genuine archival film footage from Half-Ticket (1962) where Kishore Kumar is clearly identifiable in the later frames, serving as biographical illustration of his acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f8229f239e3074e1c55900005ddc9b79cd0522451839b7a281359b390e31a339",
+      "reviewed_at": 1795651314.4607217
+    },
+    {
+      "person": "Kishore Kumar",
+      "source": {
+        "id": "archive:half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_5.mp4",
+        "source_url": "https://archive.org/details/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "title": "Half-Ticket(1962)[Kishore Kumar & Madhubala]",
+        "description": "Half-Ticket(1962) Black & White version Studio-Moserbaer ['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "creator": "Kalidas",
+        "license": "",
+        "subject": "['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "runtime": "125 minutes(Moserbaer DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1221.4202,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_6.mp4",
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_3.mp4"
+        ]
+      },
+      "start": 1026.66,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video segment features archival footage from the classic 1962 film 'Half-Ticket', clearly showing Kishore Kumar performing in the early frames, followed by Madhubala. This provides authentic visual illustration for a biography of Kishore Kumar.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2a6b4e35d7ee862935ccc1d989111ba1b761859bd0348430837c02d16825e2fd",
+      "reviewed_at": 1795651320.5771132
+    },
+    {
+      "person": "Kishore Kumar",
+      "source": {
+        "id": "archive:half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_5.mp4",
+        "source_url": "https://archive.org/details/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film",
+        "title": "Half-Ticket(1962)[Kishore Kumar & Madhubala]",
+        "description": "Half-Ticket(1962) Black & White version Studio-Moserbaer ['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "creator": "Kalidas",
+        "license": "",
+        "subject": "['Kishore Kumar', 'Madhubala', 'Hindi Comedy Movie', 'Hindi Comedy Film', 'Classic Hindi Film', 'Classic Hindi Movie. Half-Ticket(1962)', 'Geeta Dutt', 'Lata Mangeshkar', 'Salil Chowdhury']",
+        "runtime": "125 minutes(Moserbaer DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1221.4202,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_6.mp4",
+          "https://archive.org/download/half-ticket-1962-kishore-kumar-madhubala-kalidas-classic-hindi-comedy-film/VTS_03_3.mp4"
+        ]
+      },
+      "start": 1119.54,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Kishore Kumar performing in archival film footage from Half-Ticket (1962), making it authentic and directly usable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1f8254c98f3c22607e1e65f238f757bb79ceef0cb9802f0160be1b81caf06a27",
+      "reviewed_at": 1795651327.4658477
     }
   ]
 }

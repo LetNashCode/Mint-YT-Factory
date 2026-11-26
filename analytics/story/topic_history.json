@@ -676,5 +676,21 @@
     "video_id": "r6wjuSPWuLI",
     "workdir": "",
     "published_at": 1795464540
+  },
+  {
+    "topic": "Kishore Kumar: Lacking formal classical music training, Kishore Kumar taught himself to sing and yodel by listening to imported Austrian records while taking minor acting roles in Bombay.",
+    "normalized": "kishore kumar lacking formal classical music training kishore kumar taught himself to sing and yodel by listening to imported austrian records while taking minor acting roles in bombay",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1795650947,
+    "recorded_at": 1795650947,
+    "metadata": {
+      "person": "Kishore Kumar",
+      "pillar": "before_they_were_famous"
+    },
+    "title": "Kishore Kumar: Lacking formal classical music training, Kishore Kumar taught himself to sing and yodel by listening to imported Austrian records while taking minor acting roles in Bombay.",
+    "video_id": "YC058qZkzHY",
+    "workdir": "",
+    "published_at": 1795651910
   }
 ]

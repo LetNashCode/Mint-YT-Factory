@@ -14309,6 +14309,294 @@
       "start": 135.6,
       "reason": "The archival footage shows a large crowd gathered for Charles Lindbergh's homecoming parade and events in 1927. While Charles Lindbergh himself is not clearly identifiable among the distant crowds and viewing platforms in these specific frames, the footage provides authentic historical context depicting the mass gatherings celebrating his historic flight.",
       "reviewed_at": 1795554596.0632026
+    },
+    "f3cdade4c64c7df62d6ab70c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta_202106",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta_202106",
+      "person": "Kishore Kumar",
+      "start": 99.77,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650949.6181726
+    },
+    "50e32870795ca5ea3f02d8ec": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta_202106",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta_202106",
+      "person": "Kishore Kumar",
+      "start": 140.38,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650950.96353
+    },
+    "dd60b53b10a28a13ef6e9cb1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta_202106",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta_202106",
+      "person": "Kishore Kumar",
+      "start": 5.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650951.947327
+    },
+    "604bae8d53a7dde207a35f0b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta_202106",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta_202106",
+      "person": "Kishore Kumar",
+      "start": 18.54,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650953.2679536
+    },
+    "4308d76ca759272b3e135b5f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta_202106",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta_202106",
+      "person": "Kishore Kumar",
+      "start": 32.08,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650954.5587869
+    },
+    "a67b1dcd84e354f76e25c038": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta_202106",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta_202106",
+      "person": "Kishore Kumar",
+      "start": 45.62,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650956.030941
+    },
+    "0e70cb46dc8d9c24682c2003": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta_202106",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta_202106",
+      "person": "Kishore Kumar",
+      "start": 59.15,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650957.3252025
+    },
+    "9e9f75dee12ad54765cd53c5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta_202106",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta_202106",
+      "person": "Kishore Kumar",
+      "start": 72.69,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650958.703476
+    },
+    "2f7bceea72d8207ebc5f4bdc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta_202106",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta_202106",
+      "person": "Kishore Kumar",
+      "start": 86.23,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650960.0258045
+    },
+    "81aa21ceb2c86bfc8c3938fe": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta_202106",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta_202106",
+      "person": "Kishore Kumar",
+      "start": 113.31,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650961.3973527
+    },
+    "2f65b5d5e959c0974eb210fc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta_202106",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta_202106",
+      "person": "Kishore Kumar",
+      "start": 126.85,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650962.7222686
+    },
+    "da03e40d949623e14abc2d79": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta_202106",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta_202106",
+      "person": "Kishore Kumar",
+      "start": 153.92,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650964.0465496
+    },
+    "f46ef14e7bc480c3fde60ddb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta_202106",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta_202106",
+      "person": "Kishore Kumar",
+      "start": 167.46,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650965.4625063
+    },
+    "93ecc5253f0965e0cbab94d3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta_202106",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta_202106",
+      "person": "Kishore Kumar",
+      "start": 181.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650966.8713412
+    },
+    "987b30aa05fe3a2d9816b19c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta",
+      "person": "Kishore Kumar",
+      "start": 99.77,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650969.0924418
+    },
+    "4715a6c7d809dcf1c9958b02": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta",
+      "person": "Kishore Kumar",
+      "start": 140.38,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650972.1074789
+    },
+    "d11cdf323d4bea8fc8f320ca": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta",
+      "person": "Kishore Kumar",
+      "start": 5.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650973.4040644
+    },
+    "9cbf24e3ee54987f6da7795d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta",
+      "person": "Kishore Kumar",
+      "start": 18.54,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650974.727792
+    },
+    "8398489d1d9938acaa529cae": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta",
+      "person": "Kishore Kumar",
+      "start": 32.08,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650976.1869774
+    },
+    "338642500cf66873cd0e861f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta",
+      "person": "Kishore Kumar",
+      "start": 45.62,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650978.7068148
+    },
+    "97974415f2495bacc59f4c33": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta",
+      "person": "Kishore Kumar",
+      "start": 59.15,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650980.4325674
+    },
+    "4c7cce0b095eca8aa27040b9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta",
+      "person": "Kishore Kumar",
+      "start": 72.69,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650981.989071
+    },
+    "9e675e79f6b29fa334b1d5dd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta",
+      "person": "Kishore Kumar",
+      "start": 86.23,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650984.0274367
+    },
+    "76091499cf961015959689f3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta",
+      "person": "Kishore Kumar",
+      "start": 113.31,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650985.8578186
+    },
+    "5596fafbcf195afb38ccdcd8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta",
+      "person": "Kishore Kumar",
+      "start": 126.85,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650988.2224827
+    },
+    "d2c70614c237bd995cce31b9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta",
+      "person": "Kishore Kumar",
+      "start": 153.92,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650990.0761898
+    },
+    "2e90c55475c05a8566735c2c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta",
+      "person": "Kishore Kumar",
+      "start": 167.46,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650991.8369944
+    },
+    "fb4a7ce646fbf465d3c85ba3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kishore-kumar-tu-rutha-dil-tuta",
+      "source_url": "https://archive.org/details/kishore-kumar-tu-rutha-dil-tuta",
+      "person": "Kishore Kumar",
+      "start": 181.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795650993.7029448
+    },
+    "64b307e5c6c24b34608fb579": {
+      "kind": "segment_rejection",
+      "source_id": "archive:not-kishore-kumar-granddaughter",
+      "source_url": "https://archive.org/details/not-kishore-kumar-granddaughter",
+      "person": "Kishore Kumar",
+      "start": 33.58,
+      "reason": "The footage shows Ananya Sabnis, a local singer falsely viral as Kishore Kumar's granddaughter, not Kishore Kumar himself.",
+      "reviewed_at": 1795651139.2647793
+    },
+    "7857c1b07b92d96c3e33a207": {
+      "kind": "segment_rejection",
+      "source_id": "archive:not-kishore-kumar-granddaughter",
+      "source_url": "https://archive.org/details/not-kishore-kumar-granddaughter",
+      "person": "Kishore Kumar",
+      "start": 52.63,
+      "reason": "The video features a local singer (Ananya Sabnis) falsely claimed to be Kishore Kumar's granddaughter. Kishore Kumar is not visible in the footage, and the content is irrelevant and misleading regarding a biography of Kishore Kumar.",
+      "reviewed_at": 1795651148.1463878
+    },
+    "5bb5741e34c2d58859905c9a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:AiseNaMujheTumDekhoKishoreKumarSongDevAnandZeenatAmanDarlingDarling",
+      "source_url": "https://archive.org/details/AiseNaMujheTumDekhoKishoreKumarSongDevAnandZeenatAmanDarlingDarling",
+      "person": "Kishore Kumar",
+      "start": 5.0,
+      "reason": "The sampled frames feature actor Dev Anand and another person in a song sequence, but not the named subject Kishore Kumar, making it unusable for direct identity footage.",
+      "reviewed_at": 1795651185.7955341
+    },
+    "1caf6b5ba464c3e40fe5a22f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:AiseNaMujheTumDekhoKishoreKumarSongDevAnandZeenatAmanDarlingDarling",
+      "source_url": "https://archive.org/details/AiseNaMujheTumDekhoKishoreKumarSongDevAnandZeenatAmanDarlingDarling",
+      "person": "Kishore Kumar",
+      "start": 22.32,
+      "reason": "The sampled frames show archival footage featuring actors in a movie scene, but Kishore Kumar is not clearly identifiable as the performer visible in the frames (actors are dancing/running on steps, but Kishore Kumar was primarily a playback singer and not the actor shown). Therefore, person_visible is false.",
+      "reviewed_at": 1795651206.1536841
     }
   }
 }

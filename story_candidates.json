@@ -1,1 +1,197 @@
-[]
+[
+  {
+    "format": "impossible_odds",
+    "person": "Muhammad Ali",
+    "premise": "Challenging the undefeated George Foreman in 1974, Ali devised the rope-a-dope strategy to reclaim the world heavyweight championship against overwhelming physical odds.",
+    "hook": "Every ringside expert thought he was stepping into the ring for a beating, until he leaned against the ropes and absorbed everything Foreman had.",
+    "key_facts": [
+      "Fought George Foreman in Kinshasa, Zaire, on October 30, 1974.",
+      "Foreman was undefeated with 40 wins, 37 by knockout.",
+      "Ali stayed against the ropes to absorb blows and tire Foreman out.",
+      "Won by knockout in the eighth round to reclaim the heavyweight crown."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Satyajit Ray",
+    "premise": "An advertising illustrator with no film experience pawned personal assets and used an amateur cast to create Pather Panchali, transforming Indian cinema.",
+    "hook": "He had no prior directing credits, no studio backing, and had to pause filming for months when the money ran out, but his debut ended up winning at Cannes.",
+    "key_facts": [
+      "Worked as a graphic designer for a British advertising agency before filmmaking.",
+      "Pawned his wife's jewelry and life insurance to finance early shooting.",
+      "Shot 'Pather Panchali' intermittently over nearly three years with an untrained crew.",
+      "Won the 'Best Human Document' award at the 1956 Cannes Film Festival."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Buster Keaton",
+    "premise": "Keaton risked his life during the filming of Steamboat Bill, Jr. by standing in the exact spot where a real two-ton building wall dropped over him.",
+    "hook": "A single misplaced step of two inches would have crushed him instantly, yet he insisted on doing the stunt without a double or trick camera.",
+    "key_facts": [
+      "Filmed the climax of 'Steamboat Bill, Jr.' in 1928 during personal and financial distress.",
+      "Used a genuine building facade weighing an estimated two tons.",
+      "Cleared the falling frame through a single second-story window opening with only inches of tolerance.",
+      "Refused a stunt double and performed the sequence in a single continuous take."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Milkha Singh",
+    "premise": "Displaced and orphaned during the 1947 Partition, Milkha Singh joined the Indian Army, discovered athletics, and became a record-setting international sprinter.",
+    "hook": "He arrived in Delhi as a penniless refugee fleeing violence, yet a decade later he was breaking Commonwealth track records.",
+    "key_facts": [
+      "Lost both parents during the Partition of 1947 and fled to Delhi.",
+      "Enlisted in the Indian Army's Electrical Mechanical Engineering corps after three failed attempts.",
+      "Introduced to organized running while stationed with the Army in 1951.",
+      "Won gold in the 400 meters at the 1958 Cardiff Commonwealth Games."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "J. Robert Oppenheimer",
+    "premise": "Directing the Manhattan Project to conclusion, Oppenheimer watched the Trinity test detonate and realized the irrevocable shift in human warfare.",
+    "hook": "The dawn flash in the New Mexico desert turned an academic physicist into the father of an age he subsequently warned the world against.",
+    "key_facts": [
+      "Directed the Los Alamos Laboratory starting in 1943 to develop the atomic bomb.",
+      "Oversaw the first successful nuclear detonation at the Trinity site on July 16, 1945.",
+      "Recalled thinking of Hindu scripture after the test: 'Now I am become Death, the destroyer of worlds.'",
+      "Later lobbied for international regulation of nuclear energy to prevent arms proliferation."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Walt Disney",
+    "premise": "After losing the legal rights to his first hit character, Oswald the Lucky Rabbit, Disney drafted Mickey Mouse on a return train ride, starting a media empire.",
+    "hook": "He arrived in New York to negotiate a budget raise and left with his lead character stolen and most of his staff poached.",
+    "key_facts": [
+      "Lost the intellectual property rights to 'Oswald the Lucky Rabbit' to distributor Charles Mintz in 1928.",
+      "Refused a contract that stripped his creative independence.",
+      "Co-created Mickey Mouse alongside animator Ub Iwerks during and after the train ride back to California.",
+      "Synchronized sound into 'Steamboat Willie' in 1928, creating a global animation hit."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Homi J. Bhabha",
+    "premise": "While stranded in India during World War II, Cambridge-trained physicist Bhabha decided not to return to the West, choosing instead to build India's scientific infrastructure.",
+    "hook": "Instead of returning to an established European research post, he sent a single letter in 1944 that laid the groundwork for Indian nuclear science.",
+    "key_facts": [
+      "Stranded in India in 1939 due to the outbreak of World War II while on vacation from Cambridge.",
+      "Wrote to the Sir Dorabji Tata Trust in 1944 proposing an indigenous research institute.",
+      "Founded the Tata Institute of Fundamental Research (TIFR) in 1945.",
+      "Architected India's three-stage nuclear power program."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Bessie Coleman",
+    "premise": "Barred from American aviation schools due to race and gender, Coleman learned French, traveled abroad, and earned the world's first international pilot license by an African American woman.",
+    "hook": "Every flight school in the United States slammed the door in her face, so she learned a foreign language at night just to apply overseas.",
+    "key_facts": [
+      "Worked as a manicurist in Chicago while saving money for flight school.",
+      "Enrolled in French language classes because American schools rejected her applications.",
+      "Trained at the Caudron Brothers' school in Le Crotoy, France.",
+      "Earned an international pilot license from the Fédération Aéronautique Internationale in 1921."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Alan Shepard",
+    "premise": "Sitting atop an unstable Redstone booster after hours of mechanical delays, Shepard endured intense physiological pressure to become the first American in space.",
+    "hook": "Strapped into a tiny capsule for four hours while engineers debated sensor glitches, he finally barked over the radio to just fix the problem and light the candle.",
+    "key_facts": [
+      "Selected as one of NASA's original Mercury Seven astronauts in 1959.",
+      "Waited over four hours inside Freedom 7 atop the launch pad due to weather and technical checks.",
+      "Launched on a 15-minute suborbital flight on May 5, 1961, reaching an altitude of 116 miles.",
+      "Became the first American in space, less than a month after Yuri Gagarin's orbital flight."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Ravi Shankar",
+    "premise": "Torn between international touring as a dancer and mastering classical music, Shankar gave up his glamorous Parisian lifestyle to undergo grueling training under guru Allauddin Khan.",
+    "hook": "He was already touring the capitals of Europe in custom suits when he gave it all up to shave his head and practice sitar sixteen hours a day in a remote village.",
+    "key_facts": [
+      "Toured Europe as a dancer and musician in his brother Uday Shankar's troupe during the 1930s.",
+      "Met multi-instrumentalist Allauddin Khan in 1935 and abandoned stage life to become his disciple.",
+      "Moved to the small town of Maihar in 1938 for intensive traditional training.",
+      "Introduced Indian classical music to mainstream Western audiences in the 1960s."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Louis Armstrong",
+    "premise": "Arrested at age eleven and sent to a colored waif's home, Armstrong was handed a cornet that transformed him into one of the founding architects of jazz.",
+    "hook": "A celebratory gunshot fired into the air on New Year's Eve landed an impoverished New Orleans kid in detention—where he picked up a cornet for the first time.",
+    "key_facts": [
+      "Arrested on December 31, 1912, for firing a pistol into the air to celebrate New Year's.",
+      "Sent to the Colored Waif's Home for Boys, where music director Peter Davis taught him the cornet.",
+      "Mentored by King Oliver in New Orleans before moving to Chicago in 1922.",
+      "Revolutionized jazz phrasing and solo performance with his Hot Five and Hot Seven recordings."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Jacques Cousteau",
+    "premise": "A devastating car crash shattered Cousteau's dream of becoming a naval aviator, forcing him into ocean swimming for rehabilitation and igniting his life's passion.",
+    "hook": "He was training to be a French naval aviator until a highway wreck broke both arms, sending him into the Mediterranean to rebuild his strength.",
+    "key_facts": [
+      "Graduated from the French Naval Academy and was training as a pilot in 1936.",
+      "Suffered a severe car accident that broke both of his arms and ended his aviation career.",
+      "Began swimming daily in the Mediterranean Sea to rehabilitate his damaged muscles.",
+      "Co-invented the open-circuit underwater breathing apparatus, the Aqua-Lung, with Émile Gagnan in 1943."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Chuck Yeager",
+    "premise": "Two days before attempting to break the sound barrier, Yeager broke two ribs in a horse-riding accident and used a broom handle to lock the cockpit hatch.",
+    "hook": "He couldn't even lift his arm to lock the plane's hatch from the inside, so he sneaked a sawed-off broom handle into the cockpit to break the sound barrier.",
+    "key_facts": [
+      "Broke two ribs during a horseback fall two nights before the planned flight in October 1947.",
+      "Visited a civilian doctor in town to keep the injury hidden from Air Force medical officers.",
+      "Used a ten-inch broomstick lever provided by project engineer Jack Ridley to secure the hatch.",
+      "Flew the Bell X-1 past Mach 1 on October 14, 1947, becoming the first person to exceed the speed of sound."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Vikram Sarabhai",
+    "premise": "To establish India's space program, Sarabhai chose a quiet fishing village in Kerala and personally convinced the local church community to surrender their cathedral.",
+    "hook": "Instead of waiting for an industrial complex to be built, he walked into a Sunday church service to ask the parish for their building as a launch facility.",
+    "key_facts": [
+      "Selected Thumba, Kerala, in 1962 because it sat right on the Earth's magnetic equator.",
+      "Met the Bishop of Thiruvananthapuram to request St. Mary Magdalene Church as the program's operations base.",
+      "The bishop addressed the congregation on Sunday, and the parishioners agreed to relocate.",
+      "Launched India's first sounding rocket (Nike-Apache) from the church grounds on November 21, 1963."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Jesse Owens",
+    "premise": "One foul away from elimination in the 1936 Olympic long jump trials, Owens was advised by his German rival Luz Long to adjust his takeoff mark, securing his historic gold.",
+    "hook": "After two straight fouls, his chief German rival walked up, gave him technical advice, and helped him win gold right under Adolf Hitler's gaze.",
+    "key_facts": [
+      "Fouled his first two attempts in the preliminary round of the long jump at the 1936 Berlin Olympics.",
+      "German competitor Luz Long suggested he move his takeoff point several inches back from the board to avoid another foul.",
+      "Owens qualified easily on his final attempt and won the gold medal with an Olympic record jump of 8.06 meters.",
+      "Long was the first to congratulate Owens openly in front of the stadium crowd."
+    ],
+    "source": "gemini_original"
+  }
+]

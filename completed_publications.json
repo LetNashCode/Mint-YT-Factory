@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1790254331",
-    "video_id": "mIt9g3KWNZ4",
-    "topic": "Why do seatbelts lock",
-    "completed_at": 1790256234
-  },
-  {
     "workdir": "output/1790272791",
     "video_id": "dSxr_VPkpus",
     "topic": "Why do steering wheels lock",
@@ -598,5 +592,11 @@
     "video_id": "PIDwZh-y_ac",
     "topic": "Why does a screen attract fingerprints",
     "completed_at": 1795652052
+  },
+  {
+    "workdir": "output/1795676372",
+    "video_id": "hm8lCsdt1zg",
+    "topic": "Why do rubber boots leave scuff marks",
+    "completed_at": 1795677810
   }
 ]

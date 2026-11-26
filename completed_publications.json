@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1790198130",
-    "video_id": "mO9SGSmhSQo",
-    "topic": "Why do mirrors flip horizontally",
-    "completed_at": 1790199294
-  },
-  {
     "workdir": "output/1790254331",
     "video_id": "mIt9g3KWNZ4",
     "topic": "Why do seatbelts lock",
@@ -598,5 +592,11 @@
     "video_id": "MMmmxJwmxqU",
     "topic": "Why do pill bottles pop open",
     "completed_at": 1795548595
+  },
+  {
+    "workdir": "output/1795650487",
+    "video_id": "PIDwZh-y_ac",
+    "topic": "Why does a screen attract fingerprints",
+    "completed_at": 1795652052
   }
 ]

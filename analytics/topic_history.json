@@ -3480,72 +3480,12 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do wooden spoons stain from soup",
-    "normalized": "why do wooden spoons stain from soup",
+    "topic": "Why does a screen attract fingerprints",
+    "normalized": "why does a screen attract fingerprints",
     "workflow": "publish",
     "status": "reserved",
-    "reserved_at": 1795462231,
-    "recorded_at": 1795462231,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why does a mug leave a ring",
-    "normalized": "why does a mug leave a ring",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795463043,
-    "recorded_at": 1795463043,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why does cheese melt",
-    "normalized": "why does cheese melt",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795476007,
-    "recorded_at": 1795476007,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why does a keyboard click",
-    "normalized": "why does a keyboard click",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795482594,
-    "recorded_at": 1795482594,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do permanent markers smell strong",
-    "normalized": "why do permanent markers smell strong",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795508041,
-    "recorded_at": 1795508041,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do pill bottles pop open",
-    "normalized": "why do pill bottles pop open",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795546958,
-    "recorded_at": 1795546958,
+    "reserved_at": 1795650422,
+    "recorded_at": 1795650422,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

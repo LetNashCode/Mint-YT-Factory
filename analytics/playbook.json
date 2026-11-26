@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-25T22:42:45.902232+00:00",
-  "video_count": 218,
-  "learning_sample_size": 182,
+  "generated_at": "2026-11-26T00:14:16.719253+00:00",
+  "video_count": 219,
+  "learning_sample_size": 188,
   "learning_ready": true,
   "metrics_available": true,
   "comparative_learning_ready": true,
-  "advanced_metrics_videos": 182,
+  "advanced_metrics_videos": 188,
   "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -31,10 +31,10 @@
     "Why do metal faucets drip slowly",
     "Why do coffee stirs float upright",
     "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
-    "Why do yellow traffic lights feel longer",
     "Why do leather shoes squeak softly",
     "Why do earbuds tangle in pockets",
-    "Why paperclips float on water"
+    "Why paperclips float on water",
+    "Stephen King: The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon."
   ],
   "avoid_topics": [
     "Why do tea bags float",
@@ -48,7 +48,7 @@
     "Why do apples squeak when polished",
     "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive."
   ],
-  "used_topic_count": 218,
+  "used_topic_count": 219,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

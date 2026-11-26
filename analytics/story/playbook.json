@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T15:48:28.203499+00:00",
+  "generated_at": "2026-11-26T20:07:09.879399+00:00",
   "video_count": 44,
   "learning_sample_size": 30,
   "learning_ready": true,
@@ -17,7 +17,7 @@
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 21.206,
+      "score": 21.14,
       "sample_size": 8
     }
   ],
@@ -35,7 +35,7 @@
     "Luciano Pavarotti: Overcoming a severe pulmonary illness and years of rejection before becoming the world's most famous tenor."
   ],
   "avoid_topics": [
-    "Mary Kom: From a Farmer's Daughter in Rural Manipur to Six-Time World Boxing Champion.",
+    "Pelé: How a young Brazilian boy practicing with a stuffed sock because he could not afford a football became a global icon.",
     "Jim Carrey: Dropping Out at Age 15 to Work as a Factory Janitor in Canada.",
     "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
     "Carl Sagan: The choice to include Earth sounds and music on a golden record aboard Voyager spacecraft, risking ridicule from orthodox scientists.",

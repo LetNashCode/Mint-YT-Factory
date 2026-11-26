@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-26T15:48:28.046204+00:00",
-  "refresh_attempted_at": "2026-11-26T15:48:28.046204+00:00",
+  "generated_at": "2026-11-26T20:07:09.738902+00:00",
+  "refresh_attempted_at": "2026-11-26T20:07:09.738902+00:00",
   "refresh_status": "success",
   "video_count": 44,
   "optimization_ready": true,
@@ -8,15 +8,15 @@
   "advanced_metrics_videos": 42,
   "reason": "",
   "totals": {
-    "views": 14160,
+    "views": 14163,
     "likes": 300,
     "comments": 9
   },
   "averages": {
-    "views": 321.82,
+    "views": 321.89,
     "likes": 6.82,
     "comments": 0.2,
-    "average_view_percentage": 62.12,
+    "average_view_percentage": 62.09,
     "subscribers_gained": 0.39,
     "shares": 0.02
   },
@@ -621,7 +621,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 399,
-      "views_after_24h": 359,
+      "views_after_24h": 368,
       "views_after_7d": 399,
       "likes": 17,
       "comments": 0,
@@ -743,7 +743,7 @@
       "comments": 1,
       "shares": 0,
       "average_view_duration": 18.0,
-      "average_view_percentage": 43.17,
+      "average_view_percentage": 41.9,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 3.3708
@@ -772,7 +772,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 22.0,
-      "average_view_percentage": 62.16,
+      "average_view_percentage": 62.11,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 1.1321
@@ -1026,7 +1026,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 85,
+      "views": 86,
       "views_after_24h": null,
       "views_after_7d": null,
       "likes": 2,
@@ -1036,7 +1036,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 2.3529
+      "engagement_rate": 2.3256
     },
     {
       "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
@@ -1242,6 +1242,35 @@
       "engagement_rate": 0.0
     },
     {
+      "topic": "Morgan Freeman: Spending years serving in the United States Air Force before getting his big break on television and film.",
+      "video_id": "3FgMmn1g8Ks",
+      "title": "Before the Fame: Morgan Freeman's Untold Struggle",
+      "workflow": "story",
+      "published_at": "2026-10-15T09:43:37Z",
+      "hook_text": "",
+      "hook_type": "",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": null,
+      "planned_duration_seconds": null,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 36,
+      "views_after_24h": 35,
+      "views_after_7d": 35,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 25.0,
+      "average_view_percentage": 58.71999999999999,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 2.7778
+    },
+    {
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
       "video_id": "jn4q2CUZJGI",
       "title": "The Untold Turning Point in Alexander Fleming's Story",
@@ -1266,35 +1295,6 @@
       "shares": 0,
       "average_view_duration": 32.0,
       "average_view_percentage": 71.81,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 2.8571
-    },
-    {
-      "topic": "Morgan Freeman: Spending years serving in the United States Air Force before getting his big break on television and film.",
-      "video_id": "3FgMmn1g8Ks",
-      "title": "Before the Fame: Morgan Freeman's Untold Struggle",
-      "workflow": "story",
-      "published_at": "2026-10-15T09:43:37Z",
-      "hook_text": "",
-      "hook_type": "",
-      "hook_score": null,
-      "hook_score_components": {},
-      "script_word_count": null,
-      "planned_duration_seconds": null,
-      "actual_duration_seconds": null,
-      "video_width": null,
-      "video_height": null,
-      "resolution": "",
-      "creative_strategy": "",
-      "views": 35,
-      "views_after_24h": 35,
-      "views_after_7d": 35,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 25.0,
-      "average_view_percentage": 58.71999999999999,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 2.8571
@@ -1577,7 +1577,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 0,
+      "views": 1,
       "views_after_24h": null,
       "views_after_7d": null,
       "likes": 0,
@@ -1597,7 +1597,7 @@
     "immature_or_missing_metric_count": 2,
     "videos_meeting_target_count": 7,
     "target_hit_rate_percentage": 16.67,
-    "average_view_percentage": 65.08,
+    "average_view_percentage": 65.05,
     "videos_needing_improvement": [
       {
         "video_id": "RVBp08uabW0",
@@ -1607,7 +1607,7 @@
         "average_view_percentage": 22.02,
         "average_view_duration": 9.0,
         "views": 24,
-        "age_hours": 620.6,
+        "age_hours": 624.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1619,7 +1619,7 @@
         "average_view_percentage": 26.56,
         "average_view_duration": 10.0,
         "views": 16,
-        "age_hours": 715.9,
+        "age_hours": 720.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1631,7 +1631,7 @@
         "average_view_percentage": 28.13,
         "average_view_duration": 12.0,
         "views": 194,
-        "age_hours": 1048.6,
+        "age_hours": 1052.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1643,7 +1643,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 738.3,
+        "age_hours": 742.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1655,7 +1655,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 107,
-        "age_hours": 836.6,
+        "age_hours": 841.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1667,7 +1667,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1792.3,
+        "age_hours": 1796.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1679,7 +1679,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1817.3,
+        "age_hours": 1821.7,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1691,7 +1691,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 934.2,
+        "age_hours": 938.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1703,7 +1703,7 @@
         "average_view_percentage": 40.42,
         "average_view_duration": 13.0,
         "views": 296,
-        "age_hours": 907.8,
+        "age_hours": 912.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1715,7 +1715,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1819.8,
+        "age_hours": 1824.1,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1729,7 +1729,7 @@
         "average_view_percentage": 597.81,
         "average_view_duration": 221.0,
         "views": 109,
-        "age_hours": 645.3,
+        "age_hours": 649.6,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1741,7 +1741,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 1031.4,
+        "age_hours": 1035.7,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1753,7 +1753,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 1102.5,
+        "age_hours": 1106.8,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1765,7 +1765,7 @@
         "average_view_percentage": 81.18,
         "average_view_duration": 30.0,
         "views": 11,
-        "age_hours": 718.7,
+        "age_hours": 723.0,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1777,7 +1777,7 @@
         "average_view_percentage": 79.17,
         "average_view_duration": 33.0,
         "views": 1428,
-        "age_hours": 286.6,
+        "age_hours": 290.9,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1789,7 +1789,7 @@
         "average_view_percentage": 74.66,
         "average_view_duration": 28.0,
         "views": 66,
-        "age_hours": 941.2,
+        "age_hours": 945.6,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1801,7 +1801,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 1133.2,
+        "age_hours": 1137.5,
         "target_met": true,
         "status": "goal_met"
       }

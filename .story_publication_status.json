@@ -1,20 +1,6 @@
 {
-  "status": "complete",
-  "video_id": "UhE0lUU-Piw",
-  "youtube_url": "https://www.youtube.com/shorts/UhE0lUU-Piw",
-  "platforms": {
-    "youtube": {
-      "status": "published",
-      "video_id": "UhE0lUU-Piw"
-    },
-    "instagram": {
-      "status": "published",
-      "media_id": "18140134381643529",
-      "container_id": "18508314730097136"
-    },
-    "facebook": {
-      "status": "published",
-      "video_id": "1153828307404358"
-    }
-  }
+  "status": "deferred",
+  "video_id": "",
+  "youtube_url": "",
+  "reason": "Gemini daily/project quota is exhausted; no final video was created or uploaded."
 }

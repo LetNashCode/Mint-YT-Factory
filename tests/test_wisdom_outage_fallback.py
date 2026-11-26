@@ -39,7 +39,7 @@ def test_curated_outage_fallback_skips_used_topics(monkeypatch):
 
     def duplicate(story, history):
         calls.append(story["topic_key"])
-        return story["topic_key"] != "waiting until everyone is served"
+        return story["topic_key"] == "waiting until everyone is served"
 
     monkeypatch.setattr(wisdom, "is_duplicate_topic", duplicate)
     story = wisdom.build_outage_fallback_story([])

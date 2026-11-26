@@ -692,5 +692,21 @@
     "video_id": "YC058qZkzHY",
     "workdir": "",
     "published_at": 1795651910
+  },
+  {
+    "topic": "J. Robert Oppenheimer: Directing the Manhattan Project to conclusion, Oppenheimer watched the Trinity test detonate and realized the irrevocable shift in human warfare.",
+    "normalized": "j robert oppenheimer directing the manhattan project to conclusion oppenheimer watched the trinity test detonate and realized the irrevocable shift in human warfare",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1795706684,
+    "recorded_at": 1795706684,
+    "metadata": {
+      "person": "J. Robert Oppenheimer",
+      "pillar": "strange_turning_point"
+    },
+    "title": "J. Robert Oppenheimer: Directing the Manhattan Project to conclusion, Oppenheimer watched the Trinity test detonate and realized the irrevocable shift in human warfare.",
+    "video_id": "UhE0lUU-Piw",
+    "workdir": "",
+    "published_at": 1795708104
   }
 ]

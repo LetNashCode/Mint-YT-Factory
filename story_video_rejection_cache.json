@@ -14597,6 +14597,823 @@
       "start": 22.32,
       "reason": "The sampled frames show archival footage featuring actors in a movie scene, but Kishore Kumar is not clearly identifiable as the performer visible in the frames (actors are dancing/running on steps, but Kishore Kumar was primarily a playback singer and not the actor shown). Therefore, person_visible is false.",
       "reviewed_at": 1795651206.1536841
+    },
+    "cf29593db6f7c6f402d3cfab": {
+      "kind": "segment_rejection",
+      "source_id": "archive:2359779-chuck-yeager-eerste-mens-door-de-geluidsbarriere",
+      "source_url": "https://archive.org/details/2359779-chuck-yeager-eerste-mens-door-de-geluidsbarriere",
+      "person": "Chuck Yeager",
+      "start": 13.32,
+      "reason": "The footage shows archival clips of the Bell X-1 rocket plane in flight and cockpit instrument views, but Chuck Yeager's face is not clearly visible in any of the sampled frames. Since person_visible is false, direct_event is required, but the clip is merely illustrative archival footage rather than a direct depiction of the narrated historical event by the subject himself.",
+      "reviewed_at": 1795704982.9154696
+    },
+    "882ff700417a3ab1556da669": {
+      "kind": "segment_rejection",
+      "source_id": "archive:40844c-chuck-yeager-sound-barrier-flight-vwr",
+      "source_url": "https://archive.org/details/40844c-chuck-yeager-sound-barrier-flight-vwr",
+      "person": "Chuck Yeager",
+      "start": 5.0,
+      "reason": "The sampled frames consist of distributor title cards, stock footage text overlays, and a nearly black frame, failing to show Chuck Yeager or usable historical footage of the subject.",
+      "reviewed_at": 1795705004.7210982
+    },
+    "1c89af3d12112935cc48fa80": {
+      "kind": "segment_rejection",
+      "source_id": "archive:40844c-chuck-yeager-sound-barrier-flight-vwr",
+      "source_url": "https://archive.org/details/40844c-chuck-yeager-sound-barrier-flight-vwr",
+      "person": "Chuck Yeager",
+      "start": 66.9,
+      "reason": "The sampled frames consist entirely of blank dark screens and distributor copyright title cards with no usable historical footage or subject visibility.",
+      "reviewed_at": 1795705038.9718826
+    },
+    "6564490bb68e93367464cf45": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-right-stuff-credents-justitiam-amv",
+      "source_url": "https://archive.org/details/the-right-stuff-credents-justitiam-amv",
+      "person": "Chuck Yeager",
+      "start": 117.0,
+      "reason": "The footage consists of dramatized/archival clips from the film 'The Right Stuff' depicting cockpit gauges and an actor portraying a pilot in flight gear, representing Chuck Yeager's historical flight. Since the real Chuck Yeager is not visibly identifiable in the frames, person_visible is false, but the footage serves as usable historical context and biographical illustration.",
+      "reviewed_at": 1795705050.1624954
+    },
+    "761f51989736137f1fa592b5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-right-stuff-credents-justitiam-amv",
+      "source_url": "https://archive.org/details/the-right-stuff-credents-justitiam-amv",
+      "person": "Chuck Yeager",
+      "start": 165.0,
+      "reason": "The clip consists of fictional film dramatization (from The Right Stuff) rather than actual historical footage of Chuck Yeager, making it unusable for a biographical short.",
+      "reviewed_at": 1795705058.4637632
+    },
+    "a403a5ec54f9946159d2cb54": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cocnh-Celebrating_Alan_Shepard_First_in_Space_60th_Anniversary",
+      "source_url": "https://archive.org/details/cocnh-Celebrating_Alan_Shepard_First_in_Space_60th_Anniversary",
+      "person": "Alan Shepard",
+      "start": 143.76,
+      "reason": "The segment features archival and museum footage related to Alan Shepard and space history, but Alan Shepard himself is not visible in the sampled frames (the people shown are modern interviewees/speakers). It serves as usable biographical illustration.",
+      "reviewed_at": 1795705172.9976676
+    },
+    "d4b7cf9202de8b51a2f2bb88": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cocnh-Celebrating_Alan_Shepard_First_in_Space_60th_Anniversary",
+      "source_url": "https://archive.org/details/cocnh-Celebrating_Alan_Shepard_First_in_Space_60th_Anniversary",
+      "person": "Alan Shepard",
+      "start": 203.23,
+      "reason": "The video features an interview/commentary format discussing Alan Shepard and his historical significance from the McAuliffe-Shepard Discovery Center, providing biographical context rather than showing Alan Shepard himself.",
+      "reviewed_at": 1795705179.410785
+    },
+    "c8a0eb4093176695ba334813": {
+      "kind": "segment_rejection",
+      "source_id": "archive:50444aTheRaceToSpace",
+      "source_url": "https://archive.org/details/50444aTheRaceToSpace",
+      "person": "Alan Shepard",
+      "start": 5.0,
+      "reason": "The segment consists entirely of stock footage title cards, licensing information screens, and black frames. Alan Shepard is not visible, and the clip fails to provide usable historical context or biographical illustration.",
+      "reviewed_at": 1795705193.4764352
+    },
+    "660202bdd284f0f56ea81529": {
+      "kind": "segment_rejection",
+      "source_id": "archive:50444aTheRaceToSpace",
+      "source_url": "https://archive.org/details/50444aTheRaceToSpace",
+      "person": "Alan Shepard",
+      "start": 92.23,
+      "reason": "The footage shows archival documentary scenes of medical examinations of chimpanzees in preparation for Project Mercury. While Alan Shepard is not visible, this is genuine historical context related to the early Mercury space program.",
+      "reviewed_at": 1795705201.350747
+    },
+    "bda4f74c2f62a50f6870004e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nasa_tv-Alan_Shepard_-_Ambassador_of_Exploration",
+      "source_url": "https://archive.org/details/nasa_tv-Alan_Shepard_-_Ambassador_of_Exploration",
+      "person": "Alan Shepard",
+      "start": 222.19,
+      "reason": "The frames show archive footage featuring Louise Shepard (his wife) and an unidentified interviewee, but Alan Shepard himself is not visible in any of the sampled frames.",
+      "reviewed_at": 1795705247.2991235
+    },
+    "c4535370caa2aa55a7283968": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nasa_tv-Alan_Shepard_-_Ambassador_of_Exploration",
+      "source_url": "https://archive.org/details/nasa_tv-Alan_Shepard_-_Ambassador_of_Exploration",
+      "person": "Alan Shepard",
+      "start": 526.26,
+      "reason": "The clip features archival footage of astronauts on the moon and a speaker discussing Alan Shepard, providing biographical illustration and historical context, though Shepard's face is not distinctly identifiable inside space suits in the archival clips.",
+      "reviewed_at": 1795705287.5737226
+    },
+    "48e85dd098b97e684e87a179": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colbca-Women_s_History_Month_Spotlight_-_Bessie_Coleman",
+      "source_url": "https://archive.org/details/colbca-Women_s_History_Month_Spotlight_-_Bessie_Coleman",
+      "person": "Bessie Coleman",
+      "start": 13.76,
+      "reason": "The video consists of static photographs and text slides presented in a slideshow format, which violates the requirement rejecting slideshows and static imagery.",
+      "reviewed_at": 1795705328.3137128
+    },
+    "eef7627f2cd024137ab7838d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colbca-Women_s_History_Month_Spotlight_-_Bessie_Coleman",
+      "source_url": "https://archive.org/details/colbca-Women_s_History_Month_Spotlight_-_Bessie_Coleman",
+      "person": "Bessie Coleman",
+      "start": 24.93,
+      "reason": "The sampled frames contain static photographs/graphics and channel title cards rather than genuine moving archival film footage of Bessie Coleman, making it unsuitable for a biography short.",
+      "reviewed_at": 1795705336.8664887
+    },
+    "b13b16e3462bf90a9e2ed719": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cccomd-Bessie_Coleman",
+      "source_url": "https://archive.org/details/cccomd-Bessie_Coleman",
+      "person": "Bessie Coleman",
+      "start": 22.63,
+      "reason": "The segment consists entirely of static historical photographs shown with digital motion effects, which does not qualify as real moving footage or valid archival film.",
+      "reviewed_at": 1795705343.9273643
+    },
+    "2e611515967a894bab191fad": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cccomd-Bessie_Coleman",
+      "source_url": "https://archive.org/details/cccomd-Bessie_Coleman",
+      "person": "Bessie Coleman",
+      "start": 32.28,
+      "reason": "The first frame shows archival photographs of Bessie Coleman, but the remaining frames transition to generic projector light effects and government credits/title cards with no further actual footage of the subject.",
+      "reviewed_at": 1795705349.6699338
+    },
+    "599a3f6dd88be23cee5410e5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:desotx-The_Unsung_Bessie_Coleman_Black_History_Month",
+      "source_url": "https://archive.org/details/desotx-The_Unsung_Bessie_Coleman_Black_History_Month",
+      "person": "Bessie Coleman",
+      "start": 61.46,
+      "reason": "The segment consists entirely of a slideshow of static photographs and historical newspaper clippings, which is rejected per instructions.",
+      "reviewed_at": 1795705356.630609
+    },
+    "1557d9924c68479465953e0d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:desotx-The_Unsung_Bessie_Coleman_Black_History_Month",
+      "source_url": "https://archive.org/details/desotx-The_Unsung_Bessie_Coleman_Black_History_Month",
+      "person": "Bessie Coleman",
+      "start": 89.7,
+      "reason": "The segment consists entirely of a static slideshow collage of historical photographs and text documents, which is explicitly rejected per instructions.",
+      "reviewed_at": 1795705365.1019778
+    },
+    "af942be070f324c09da2f303": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Bessie_Coleman_An_American_Aviator",
+      "source_url": "https://archive.org/details/btvin-Bessie_Coleman_An_American_Aviator",
+      "person": "Bessie Coleman",
+      "start": 97.18,
+      "reason": "The footage shows historical aircraft and a museum replica model ('Queen Bess') relevant to Bessie Coleman's aviation career, though Coleman herself is not clearly visible in the sampled frames. It serves as valid historical context for a biography.",
+      "reviewed_at": 1795705385.4275792
+    },
+    "9984963a83ca1ae0dded301d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Bessie_Coleman_An_American_Aviator",
+      "source_url": "https://archive.org/details/btvin-Bessie_Coleman_An_American_Aviator",
+      "person": "Bessie Coleman",
+      "start": 136.69,
+      "reason": "The footage shows modern airline staff and contemporary airport scenes, which have no historical connection to Bessie Coleman (who died in 1926).",
+      "reviewed_at": 1795705399.7360196
+    },
+    "9dde47da573616b05229bc78": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Black_History_Month_Moment_-_Jazmin_Byers_Simpson_presents_Bessie_Coleman",
+      "source_url": "https://archive.org/details/Black_History_Month_Moment_-_Jazmin_Byers_Simpson_presents_Bessie_Coleman",
+      "person": "Bessie Coleman",
+      "start": 113.44,
+      "reason": "The video features a presenter (Jazmin Byers Simpson) speaking in a studio setting, accompanied by historical photographs of Bessie Coleman in inset windows. While Bessie Coleman herself is not visibly present in the moving footage, the speaker and archival photo adequately serve as biographical illustration for a segment about Bessie Coleman.",
+      "reviewed_at": 1795705411.867609
+    },
+    "d3d5c16e114a987fa2d0dc37": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Black_History_Month_Moment_-_Jazmin_Byers_Simpson_presents_Bessie_Coleman",
+      "source_url": "https://archive.org/details/Black_History_Month_Moment_-_Jazmin_Byers_Simpson_presents_Bessie_Coleman",
+      "person": "Bessie Coleman",
+      "start": 159.91,
+      "reason": "The video shows a modern presenter/speaker discussing Bessie Coleman in a studio setting, which serves as biographical illustration footage rather than actual historical footage of Bessie Coleman herself.",
+      "reviewed_at": 1795705417.2887352
+    },
+    "850f46bc0d9026ca288b97b1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Bessie_Coleman_the_American_Aviator",
+      "source_url": "https://archive.org/details/btvin-Bessie_Coleman_the_American_Aviator",
+      "person": "Bessie Coleman",
+      "start": 5.0,
+      "reason": "The sampled frames consist of still photographs combined with digital zoom effects rather than genuine moving archival footage.",
+      "reviewed_at": 1795705422.8153684
+    },
+    "547184ca2f21e2014bb166d2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Bessie_Coleman_the_American_Aviator",
+      "source_url": "https://archive.org/details/btvin-Bessie_Coleman_the_American_Aviator",
+      "person": "Bessie Coleman",
+      "start": 23.75,
+      "reason": "The footage shows archival scenes of cotton pickers and rural settings relevant to Bessie Coleman's early life background, but Bessie Coleman herself is not identifiable in the frames. It serves as general biographical illustration.",
+      "reviewed_at": 1795705430.1062586
+    },
+    "302dded84c5d7a2f69acb892": {
+      "kind": "segment_rejection",
+      "source_id": "archive:61824LandscapesOfSilence8mmMos",
+      "source_url": "https://archive.org/details/61824LandscapesOfSilence8mmMos",
+      "person": "Jacques Cousteau",
+      "start": 351.56,
+      "reason": "The footage shows authentic archival underwater scenes from Jacques Cousteau's 1947 documentary 'Silent Landscapes'. While Cousteau himself is not visible in these frames, the clip serves as valid historical context illustrating his early underwater filmmaking work.",
+      "reviewed_at": 1795705482.2979205
+    },
+    "36240a2111e3bce5b754f799": {
+      "kind": "segment_rejection",
+      "source_id": "archive:61824LandscapesOfSilence8mmMos",
+      "source_url": "https://archive.org/details/61824LandscapesOfSilence8mmMos",
+      "person": "Jacques Cousteau",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of title cards ('Film-Office' and 'Paysages du Silence') without showing Jacques Cousteau or any actual filmed historical action/context, making it unsuitable as direct video footage.",
+      "reviewed_at": 1795705508.309399
+    },
+    "d66bd2d387104d0bc31064ee": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
+      "source_url": "https://archive.org/details/Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
+      "person": "Jacques Cousteau",
+      "start": 5.0,
+      "reason": "The footage shows archival underwater documentary footage featuring a diver and an octopus from Jacques Cousteau's production, but the specific identity of Jacques Cousteau is not clearly discernible from the masked diver in the frames.",
+      "reviewed_at": 1795705521.1039042
+    },
+    "9c9eb65c531f147ac6e68b24": {
+      "kind": "segment_rejection",
+      "source_id": "archive:61824LandscapesOfSilence8mmMos",
+      "source_url": "https://archive.org/details/61824LandscapesOfSilence8mmMos",
+      "person": "Jacques Cousteau",
+      "start": 104.02,
+      "reason": "The footage shows archival underwater diving scenes from Jacques Cousteau's 1947 documentary 'Silent Landscapes'. Although Cousteau is wearing a diving mask and breathing apparatus making his face unidentifiable in the frames, the footage is genuine historical context depicting the exact subject matter of his early work.",
+      "reviewed_at": 1795705537.908125
+    },
+    "b5f48739e54d2c2e35ea3f32": {
+      "kind": "segment_rejection",
+      "source_id": "archive:61824LandscapesOfSilence8mmMos",
+      "source_url": "https://archive.org/details/61824LandscapesOfSilence8mmMos",
+      "person": "Jacques Cousteau",
+      "start": 153.53,
+      "reason": "The footage shows archival underwater diving scenes from Jacques Cousteau's 1947 documentary 'Silent Landscapes'. While Cousteau's face is not clearly identifiable among the divers wearing scuba gear, the footage directly illustrates his pioneering underwater filmmaking and diving work mentioned in the narration.",
+      "reviewed_at": 1795705546.4215677
+    },
+    "a068b8d8f4c95193f189a8e7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
+      "source_url": "https://archive.org/details/Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
+      "person": "Jacques Cousteau",
+      "start": 1759.34,
+      "reason": "The footage shows archival documentary material of a diver interacting with an octopus from 'The Undersea World of Jacques Cousteau', serving as excellent biographical illustration of his work, although Jacques Cousteau himself is not clearly identifiable in these specific frames.",
+      "reviewed_at": 1795705560.3352835
+    },
+    "d03c949c4cedb7999dd1b00a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
+      "source_url": "https://archive.org/details/Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
+      "person": "Jacques Cousteau",
+      "start": 2344.12,
+      "reason": "The footage is authentic archival material from Jacques Cousteau's documentary series depicting underwater marine life and diving, perfectly illustrating his career and work without explicitly showing his unmasked face.",
+      "reviewed_at": 1795705566.5777652
+    },
+    "0ada5c999e14217e60aeda2e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:whales_201705",
+      "source_url": "https://archive.org/details/whales_201705",
+      "person": "Jacques Cousteau",
+      "start": 1658.91,
+      "reason": "The archival footage shows activities from Jacques Cousteau's documentary series (Calypso crew handling equipment and tracking whales), which serves as valid biographical illustration of his work, although Cousteau himself is not clearly distinguishable in the frames.",
+      "reviewed_at": 1795705573.1059446
+    },
+    "390f6bbbf4fb301c42875534": {
+      "kind": "segment_rejection",
+      "source_id": "archive:whales_201705",
+      "source_url": "https://archive.org/details/whales_201705",
+      "person": "Jacques Cousteau",
+      "start": 5.0,
+      "reason": "The footage shows authentic underwater expedition scenes from Jacques Cousteau's documentary series (The Undersea World of Jacques Cousteau), featuring underwater equipment and marine life, serving as valid biographical illustration of his work.",
+      "reviewed_at": 1795705599.9971035
+    },
+    "6e4f8f8a0ca115e8d8d34567": {
+      "kind": "segment_rejection",
+      "source_id": "archive:whales_201705",
+      "source_url": "https://archive.org/details/whales_201705",
+      "person": "Jacques Cousteau",
+      "start": 477.54,
+      "reason": "The footage shows authentic archival material from Jacques Cousteau's documentary work on the Calypso, illustrating his expeditions, but Cousteau himself is not clearly identifiable in the frames.",
+      "reviewed_at": 1795705616.2459269
+    },
+    "29bbdb0784d89123421d0efb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:whales_201705",
+      "source_url": "https://archive.org/details/whales_201705",
+      "person": "Jacques Cousteau",
+      "start": 713.82,
+      "reason": "The video shows archival footage related to Jacques Cousteau's documentary work on whales (showing ocean and a crew member working from a boat), but Jacques Cousteau himself is not clearly identifiable in the frames. Therefore, person_visible is false and usage is biographical_illustration.",
+      "reviewed_at": 1795705623.489897
+    },
+    "8acdf048c53f5e392ffdbdfb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jesseowensadolfhitler",
+      "source_url": "https://archive.org/details/jesseowensadolfhitler",
+      "person": "Jesse Owens",
+      "start": 289.77,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795705689.4628158
+    },
+    "18e26757290c16aa8831351a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jesseowensadolfhitler",
+      "source_url": "https://archive.org/details/jesseowensadolfhitler",
+      "person": "Jesse Owens",
+      "start": 411.82,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795705692.0438263
+    },
+    "b85a04b0c4b11f88fb4458f3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jesseowensadolfhitler",
+      "source_url": "https://archive.org/details/jesseowensadolfhitler",
+      "person": "Jesse Owens",
+      "start": 5.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795705694.4961417
+    },
+    "ed735ab11898e134c61369f3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jesseowensadolfhitler",
+      "source_url": "https://archive.org/details/jesseowensadolfhitler",
+      "person": "Jesse Owens",
+      "start": 86.36,
+      "reason": "The sampled frames feature a portrait of Jesse Owens initially, but the rest of the clip shows other individuals (such as Luz Long and German athletes) without Jesse Owens being present in the moving footage.",
+      "reviewed_at": 1795705762.2444847
+    },
+    "3e96c76c7cce4ad95256d2d7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jesseowensadolfhitler",
+      "source_url": "https://archive.org/details/jesseowensadolfhitler",
+      "person": "Jesse Owens",
+      "start": 127.05,
+      "reason": "The candidate segment consists of static photographs with digital zoom/pan effects, which violates the requirement against static photographs.",
+      "reviewed_at": 1795705795.817253
+    },
+    "eab341c64694b3c94b257662": {
+      "kind": "segment_rejection",
+      "source_id": "archive:wptvca-Black_History_Month_-_Jesse_Owens",
+      "source_url": "https://archive.org/details/wptvca-Black_History_Month_-_Jesse_Owens",
+      "person": "Jesse Owens",
+      "start": 3.01,
+      "reason": "The segment consists of static photographs and title cards rather than moving footage of Jesse Owens, making it unusable as authentic archival video footage.",
+      "reviewed_at": 1795705800.599484
+    },
+    "ca0a0cd87cb51ab6d6f1a182": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colbca-Black_History_Month_Spotlight_-_Jesse_Owens",
+      "source_url": "https://archive.org/details/colbca-Black_History_Month_Spotlight_-_Jesse_Owens",
+      "person": "Jesse Owens",
+      "start": 25.26,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795705811.8934076
+    },
+    "8dd6edffb5710470f0463edd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colbca-Black_History_Month_Spotlight_-_Jesse_Owens",
+      "source_url": "https://archive.org/details/colbca-Black_History_Month_Spotlight_-_Jesse_Owens",
+      "person": "Jesse Owens",
+      "start": 36.05,
+      "reason": "The segment consists entirely of title cards and motion graphics with text overlay about Jesse Owens, containing no actual filmed footage or recognizable imagery of the subject.",
+      "reviewed_at": 1795705820.7305372
+    },
+    "e03a515a4aaa7e6212fa0b6d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colbca-Black_History_Month_Spotlight_-_Jesse_Owens",
+      "source_url": "https://archive.org/details/colbca-Black_History_Month_Spotlight_-_Jesse_Owens",
+      "person": "Jesse Owens",
+      "start": 3.7,
+      "reason": "The sampled frames consist of a static graphic/slideshow presentation with a cutout photograph of Jesse Owens and overlay text, rather than genuine filmed archival footage or moving historical footage.",
+      "reviewed_at": 1795705825.4759948
+    },
+    "077bc8e0a1342faa279f0951": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hctv23va-HCTV_Celebrates_Black_History_Month_-_Jesse_Owens",
+      "source_url": "https://archive.org/details/hctv23va-HCTV_Celebrates_Black_History_Month_-_Jesse_Owens",
+      "person": "Jesse Owens",
+      "start": 26.61,
+      "reason": "The sampled frames show local public access television hosts and title cards (\"HCTV Celebrates\"), but the target subject Jesse Owens is not visible as actual filmed identity footage (only a static photo of Owens appears in the background graphic). Therefore, the segment is not usable as primary identity footage.",
+      "reviewed_at": 1795705833.2322063
+    },
+    "5078b2dcd050c341d3864ab4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hctv23va-HCTV_Celebrates_Black_History_Month_-_Jesse_Owens",
+      "source_url": "https://archive.org/details/hctv23va-HCTV_Celebrates_Black_History_Month_-_Jesse_Owens",
+      "person": "Jesse Owens",
+      "start": 37.45,
+      "reason": "The sampled frames consist entirely of title cards and production credits ('Black History Month' text and crew lists) with no actual historical footage or depiction of Jesse Owens.",
+      "reviewed_at": 1795705840.5858316
+    },
+    "5f6f566ec1c818815d6bb6d7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Black_History_Month_Jesse_Owens_and_His_Lasting_Impact_on_Phoenix",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Month_Jesse_Owens_and_His_Lasting_Impact_on_Phoenix",
+      "person": "Jesse Owens",
+      "start": 5.0,
+      "reason": "The frames include static photographs of Jesse Owens and exterior building shots, but lack continuous moving archival identity footage of the subject in action, making it unsuitable as real film footage.",
+      "reviewed_at": 1795705865.7678761
+    },
+    "9a1da85da28c35c48843d83d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Black_History_Month_Jesse_Owens_and_His_Lasting_Impact_on_Phoenix",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Month_Jesse_Owens_and_His_Lasting_Impact_on_Phoenix",
+      "person": "Jesse Owens",
+      "start": 46.65,
+      "reason": "The segment shows B-roll footage of a neighborhood and house associated with Jesse Owens in Phoenix, along with an interview of a neighbor and a static photograph of Jesse Owens. Jesse Owens himself is not visibly present as moving footage in the video, but the segment provides valid biographical context and illustration.",
+      "reviewed_at": 1795705891.2639208
+    },
+    "1ebd42e555cfa397cfcea08c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Black_History_Month_Jesse_Owens_and_His_Lasting_Impact_on_Phoenix",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Month_Jesse_Owens_and_His_Lasting_Impact_on_Phoenix",
+      "person": "Jesse Owens",
+      "start": 57.06,
+      "reason": "The segment shows archival objects related to Jesse Owens, including a signed postcard and his four Olympic gold medals displayed in a case as mentioned in the narration, but Jesse Owens himself is not visibly present in the footage.",
+      "reviewed_at": 1795705899.507945
+    },
+    "678a4341d6c8cb0025f49253": {
+      "kind": "segment_rejection",
+      "source_id": "archive:qatvma-Black_History_Month_-_Jesse_Owens",
+      "source_url": "https://archive.org/details/qatvma-Black_History_Month_-_Jesse_Owens",
+      "person": "Jesse Owens",
+      "start": 11.63,
+      "reason": "The video consists entirely of static photographs, title cards, and text overlays rather than real moving historical footage or valid video clips.",
+      "reviewed_at": 1795705906.7126296
+    },
+    "c5d745dbd6f83aafd0eb4d31": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvnj-Visiting_Writers_Series_Interviews_with_Ravi_Shankar_and_James_Hoch",
+      "source_url": "https://archive.org/details/btvnj-Visiting_Writers_Series_Interviews_with_Ravi_Shankar_and_James_Hoch",
+      "person": "Ravi Shankar",
+      "start": 837.31,
+      "reason": "The sampled frames and metadata show an interview between Suzanne Parker and James Hoch; Ravi Shankar is not present in the video segment.",
+      "reviewed_at": 1795705985.316853
+    },
+    "f5b751db814ca906245e1693": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvnj-Visiting_Writers_Series_Interviews_with_Ravi_Shankar_and_James_Hoch",
+      "source_url": "https://archive.org/details/btvnj-Visiting_Writers_Series_Interviews_with_Ravi_Shankar_and_James_Hoch",
+      "person": "Ravi Shankar",
+      "start": 1194.02,
+      "reason": "The video features an interview with Suzanne Parker, James Hoch, and a poet named Ravi Shankar, but the subject Ravi Shankar (the legendary Indian musician) is not present in this video; the poet Ravi Shankar is shown/discussed instead, making this a mismatch for the target biographical subject.",
+      "reviewed_at": 1795705992.0050082
+    },
+    "3cbe298c7e6ea6fc3a7c1bdd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:RaviShankarTalksAboutIndianMusic",
+      "source_url": "https://archive.org/details/RaviShankarTalksAboutIndianMusic",
+      "person": "Ravi Shankar",
+      "start": 5.0,
+      "reason": "The sampled frames show title cards and B-roll of a shrine/interior without featuring Ravi Shankar, making it unusable as identity footage.",
+      "reviewed_at": 1795706068.9620647
+    },
+    "2aac8ce81d53e707d856a5a0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:RaviShankarTalksAboutIndianMusic",
+      "source_url": "https://archive.org/details/RaviShankarTalksAboutIndianMusic",
+      "person": "Ravi Shankar",
+      "start": 91.64,
+      "reason": "The video shows an artisan crafting a sitar, which provides relevant historical context and illustration for a biography about Ravi Shankar, even though Ravi Shankar himself is not visible in the footage.",
+      "reviewed_at": 1795706076.4517975
+    },
+    "ab326394ddd2266628adc72f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.RaviShankar_Eng",
+      "source_url": "https://archive.org/details/dli.MoI.RaviShankar_Eng",
+      "person": "Ravi Shankar",
+      "start": 245.36,
+      "reason": "The frames show a title card animation with text and graphics, with no actual filmed footage of the named subject Ravi Shankar or usable historical context.",
+      "reviewed_at": 1795706091.0949628
+    },
+    "5eec8f905d2690a041bc33d1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.RaviShankar_Eng",
+      "source_url": "https://archive.org/details/dli.MoI.RaviShankar_Eng",
+      "person": "Ravi Shankar",
+      "start": 365.54,
+      "reason": "The footage shows archival documentary scenes of people in an audience/gathering holding or reacting, but Ravi Shankar himself is not clearly visible in the sampled frames, serving as general biographical illustration for a documentary.",
+      "reviewed_at": 1795706102.8141203
+    },
+    "901764a4a43bb1eb18612358": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcamma-Author_Talks_-_Correctional_with_Dr._Ravi_Shankar",
+      "source_url": "https://archive.org/details/hcamma-Author_Talks_-_Correctional_with_Dr._Ravi_Shankar",
+      "person": "Ravi Shankar",
+      "start": 1005.59,
+      "reason": "The video shows a man reading a book at an author talk, but the footage is extremely static and poor quality with minimal movement, making it unsuitable for a dynamic biographical short.",
+      "reviewed_at": 1795706113.8461957
+    },
+    "ab2c7bca286b1d4681ce3366": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcamma-Author_Talks_-_Correctional_with_Dr._Ravi_Shankar",
+      "source_url": "https://archive.org/details/hcamma-Author_Talks_-_Correctional_with_Dr._Ravi_Shankar",
+      "person": "Ravi Shankar",
+      "start": 1434.41,
+      "reason": "The video shows the subject Ravi Shankar reading from his book during an author talk. While it is modern public access footage rather than historical archival footage illustrating his life, it clearly features the subject and is usable as biographical illustration.",
+      "reviewed_at": 1795706142.3526735
+    },
+    "dfc19688fd5ac2ca7108cb18": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bcmca-Ravi_Shankar_Power_of_Meditation",
+      "source_url": "https://archive.org/details/bcmca-Ravi_Shankar_Power_of_Meditation",
+      "person": "Ravi Shankar",
+      "start": 905.23,
+      "reason": "The video segment shows an interviewer (Debra Ponemon) speaking with a guest, but the named subject Ravi Shankar does not appear in any of the sampled frames.",
+      "reviewed_at": 1795706150.1372044
+    },
+    "54760ab067411151b919571d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bcmca-Ravi_Shankar_Power_of_Meditation",
+      "source_url": "https://archive.org/details/bcmca-Ravi_Shankar_Power_of_Meditation",
+      "person": "Ravi Shankar",
+      "start": 1291.04,
+      "reason": "The sampled frames show an interviewer (Debra Ponemon) speaking, not Ravi Shankar. The subject is not visible anywhere in the footage.",
+      "reviewed_at": 1795706158.7755969
+    },
+    "2e7e655ef36370ce6cc9e714": {
+      "kind": "segment_rejection",
+      "source_id": "commons:83032173",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-Homi_J._Bhabha.webm",
+      "person": "Homi J. Bhabha",
+      "start": 143.71,
+      "reason": "The sampled frames consist of static photographs, collages of historical war imagery, and architectural stills, rather than actual moving archival footage depicting Homi J. Bhabha.",
+      "reviewed_at": 1795706174.7049885
+    },
+    "afd3a65d6ba94607ce1c57f5": {
+      "kind": "segment_rejection",
+      "source_id": "commons:83032173",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-Homi_J._Bhabha.webm",
+      "person": "Homi J. Bhabha",
+      "start": 203.16,
+      "reason": "The video segment consists entirely of static photographs and satellite imagery, lacking real moving footage or any appearance of Homi J. Bhabha.",
+      "reviewed_at": 1795706186.8239043
+    },
+    "1030d820565e1b782329c666": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.007991",
+      "source_url": "https://archive.org/details/dli.MoI.films.007991",
+      "person": "Vikram Sarabhai",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of title cards and text intros ('films division presents' and biographical quotes), with no actual footage of Vikram Sarabhai or concrete historical context.",
+      "reviewed_at": 1795706211.7673833
+    },
+    "8c28b63370a2933f017635f2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.007991",
+      "source_url": "https://archive.org/details/dli.MoI.films.007991",
+      "person": "Vikram Sarabhai",
+      "start": 200.03,
+      "reason": "The footage is from a biographical documentary about Vikram Sarabhai, but the person seated at the table and the children approaching are actors in a dramatic recreation/illustration rather than documentary footage of Vikram Sarabhai himself. It serves as biographical illustration.",
+      "reviewed_at": 1795706221.3298159
+    },
+    "feb063661633f649167b28f0": {
+      "kind": "segment_rejection",
+      "source_id": "commons:125993153",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Integrated_Main_Parachute_Airdrop_Test.webm",
+      "person": "Vikram Sarabhai",
+      "start": 5.0,
+      "reason": "The footage shows a parachute airdrop test conducted in November 2022, which is long after Vikram Sarabhai's death in 1971. Therefore, it has no historical relevance to his life or work.",
+      "reviewed_at": 1795706237.0877998
+    },
+    "e53ee279de524e93c3ac92e7": {
+      "kind": "segment_rejection",
+      "source_id": "commons:125993153",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Integrated_Main_Parachute_Airdrop_Test.webm",
+      "person": "Vikram Sarabhai",
+      "start": 15.59,
+      "reason": "The footage shows a parachute airdrop test conducted by the Vikram Sarabhai Space Centre in November 2022, which is over fifty years after Vikram Sarabhai's death in 1971. It has no direct connection to his life or biographical events.",
+      "reviewed_at": 1795706249.5179362
+    },
+    "f8f8e6ddc080cbbbe237c782": {
+      "kind": "segment_rejection",
+      "source_id": "commons:83398160",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-Vikram_Sarabhai.webm",
+      "person": "Vikram Sarabhai",
+      "start": 32.58,
+      "reason": "The video segment consists of unrelated software/data plot demonstrations and a static exterior photo of a building, with no actual footage or images of Vikram Sarabhai.",
+      "reviewed_at": 1795706260.6528952
+    },
+    "20c6ac751f36063a05ae651b": {
+      "kind": "segment_rejection",
+      "source_id": "commons:83398160",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-Vikram_Sarabhai.webm",
+      "person": "Vikram Sarabhai",
+      "start": 46.37,
+      "reason": "The footage shows static exterior shots of a research laboratory building associated with Vikram Sarabhai, followed by dark/blurry motion footage, serving as biographical illustration of his scientific setting without depicting the person directly.",
+      "reviewed_at": 1795706268.0978398
+    },
+    "153a06ade95ef359eb200e9f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:milkha-singh-lifes-distraction-to-ultimate-success",
+      "source_url": "https://archive.org/details/milkha-singh-lifes-distraction-to-ultimate-success",
+      "person": "Milkha Singh",
+      "start": 32.3,
+      "reason": "The frames depict a dramatization or fictionalized biopic scene (an actor portraying Milkha Singh) rather than genuine archival footage of the real Milkha Singh, and the sequence includes black and blank frames.",
+      "reviewed_at": 1795706337.2672164
+    },
+    "bad263345c11caa6abcf9b04": {
+      "kind": "segment_rejection",
+      "source_id": "archive:milkha-singh-lifes-distraction-to-ultimate-success",
+      "source_url": "https://archive.org/details/milkha-singh-lifes-distraction-to-ultimate-success",
+      "person": "Milkha Singh",
+      "start": 41.4,
+      "reason": "The sampled frames contain clips from a biographical feature film (dramatized acting, not real archival footage or Milkha Singh himself) as well as slideshow/newspaper cuttings. Therefore, it is not genuine archival footage of Milkha Singh.",
+      "reviewed_at": 1795706347.5495234
+    },
+    "1095b3e9eb575449a03fd063": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.136",
+      "source_url": "https://archive.org/details/dli.MoI.films.136",
+      "person": "Milkha Singh",
+      "start": 5.0,
+      "reason": "The sampled frames only show title cards and the Films Division logo, lacking any actual filmed footage of Milkha Singh or usable historical context.",
+      "reviewed_at": 1795706356.0072832
+    },
+    "92cc9edabbd6c66eb703a2bd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.136",
+      "source_url": "https://archive.org/details/dli.MoI.films.136",
+      "person": "Milkha Singh",
+      "start": 132.09,
+      "reason": "The footage shows archival scenes of rural life in Punjab, India, which serves as biographical illustration for Milkha Singh's background, although Milkha Singh himself is not clearly identifiable in the sampled frames.",
+      "reviewed_at": 1795706376.9737668
+    },
+    "9f125e99ef75b934a8f55f17": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.136",
+      "source_url": "https://archive.org/details/dli.MoI.films.136",
+      "person": "Milkha Singh",
+      "start": 259.18,
+      "reason": "The archival footage illustrates Milkha Singh's life and athletic background, specifically showing reenacted or archival shots of a young person walking barefoot on a dirt path, but Milkha Singh himself is not clearly identifiable as an adult subject in these frames.",
+      "reviewed_at": 1795706420.5906348
+    },
+    "6a6f336d4a41cb621b8ff19c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.136",
+      "source_url": "https://archive.org/details/dli.MoI.films.136",
+      "person": "Milkha Singh",
+      "start": 576.9,
+      "reason": "The footage shows archival medals and awards associated with Milkha Singh, providing biographical illustration, but the subject himself is not visible in any frame.",
+      "reviewed_at": 1795706456.8214886
+    },
+    "813d7fd9dae92f5f6b45c15b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.136",
+      "source_url": "https://archive.org/details/dli.MoI.films.136",
+      "person": "Milkha Singh",
+      "start": 640.45,
+      "reason": "The archival footage shows athletes competing on a running track and crowds cheering, which matches the biographical context of Milkha Singh's career as an athlete. However, Milkha Singh is not clearly identifiable as an individual in the wide shots provided, making it usable as historical context (biographical illustration) rather than direct identity footage.",
+      "reviewed_at": 1795706473.1951427
+    },
+    "f7f06be6c57b4bd73e6f2461": {
+      "source_id": "commons:181063918",
+      "source_url": "https://commons.wikimedia.org/wiki/File:The_Shindig_(1930).webm",
+      "reason": "strong metadata exclusion: cartoon"
+    },
+    "75157e0daf06b327690c3b1f": {
+      "source_id": "commons:181063931",
+      "source_url": "https://commons.wikimedia.org/wiki/File:The_Chain_Gang_(1930).webm",
+      "reason": "strong metadata exclusion: cartoon"
+    },
+    "8a1db614666161c2ff48410e": {
+      "source_id": "commons:142989419",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Alice_Gets_In_Dutch_(1924).webm",
+      "reason": "strong metadata exclusion: cartoon"
+    },
+    "f78f7dd8bc34aba356090bde": {
+      "source_id": "commons:33883143",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Newman_Laugh-O-Gram_(1921).webm",
+      "reason": "strong metadata exclusion: animated"
+    },
+    "fc505bb009119a9371d9e010": {
+      "source_id": "commons:143545706",
+      "source_url": "https://commons.wikimedia.org/wiki/File:The_Gallopin%27_Gaucho_(1928).webm",
+      "reason": "strong metadata exclusion: animated"
+    },
+    "ec94c575d7242c46caebdc2c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:MoonLandingHoaxApolloPresidentKennedyWaltDisneyBullshitMoonHoax",
+      "source_url": "https://archive.org/details/MoonLandingHoaxApolloPresidentKennedyWaltDisneyBullshitMoonHoax",
+      "person": "Walt Disney",
+      "start": 52.8,
+      "reason": "The footage shows abstract lighting equipment/searchlights and does not depict Walt Disney or any concrete historical context relevant to his biography.",
+      "reviewed_at": 1795706525.3699539
+    },
+    "4c0d902deea7fa6841db25be": {
+      "kind": "segment_rejection",
+      "source_id": "archive:MoonLandingHoaxApolloPresidentKennedyWaltDisneyBullshitMoonHoax",
+      "source_url": "https://archive.org/details/MoonLandingHoaxApolloPresidentKennedyWaltDisneyBullshitMoonHoax",
+      "person": "Walt Disney",
+      "start": 81.48,
+      "reason": "The footage shows archival space program material with sensationalist conspiracy text overlay ('Walt Disney Bullshit'), but Walt Disney himself is not visible, and the content is not usable or relevant for a serious biographical short.",
+      "reviewed_at": 1795706532.1391497
+    },
+    "1384b5a737886fe912d356d6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:MoonLandingHoaxApollo16AstronautCharlieAdmitsApolloIsmoonHoax",
+      "source_url": "https://archive.org/details/MoonLandingHoaxApollo16AstronautCharlieAdmitsApolloIsmoonHoax",
+      "person": "Walt Disney",
+      "start": 21.65,
+      "reason": "The frames show an interview with Apollo astronaut Charlie Duke discussing the moon landing, not Walt Disney. Walt Disney is neither visible nor is the footage depicting his life or work.",
+      "reviewed_at": 1795706535.7958376
+    },
+    "7d37511bdad815d2aae4dc74": {
+      "kind": "segment_rejection",
+      "source_id": "archive:MoonLandingHoaxApollo16AstronautCharlieAdmitsApolloIsmoonHoax",
+      "source_url": "https://archive.org/details/MoonLandingHoaxApollo16AstronautCharlieAdmitsApolloIsmoonHoax",
+      "person": "Walt Disney",
+      "start": 30.88,
+      "reason": "The video features an interview clip of an astronaut discussing the moon landing and title cards/text overlays, but does not feature Walt Disney. Walt Disney is deceased long before this 2007 documentary footage was filmed, and the segment contains no genuine historical footage of Disney himself.",
+      "reviewed_at": 1795706538.9847631
+    },
+    "6980fcdd5ef74b44f2b84c5a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:MoonLandingHoaxApolloSongwaltDisneyPlayMoonHoax",
+      "source_url": "https://archive.org/details/MoonLandingHoaxApolloSongwaltDisneyPlayMoonHoax",
+      "person": "Walt Disney",
+      "start": 41.44,
+      "reason": "The video contains conspiracy theory footage regarding the Apollo moon landing and mentions Walt Disney only in a derogatory, unrelated context. Walt Disney is not visible in any frame, and the footage is unusable for a biographical short.",
+      "reviewed_at": 1795706546.5785398
+    },
+    "08949c4c8efabd0dd48bf701": {
+      "kind": "segment_rejection",
+      "source_id": "archive:MoonLandingHoaxApolloSongwaltDisneyPlayMoonHoax",
+      "source_url": "https://archive.org/details/MoonLandingHoaxApolloSongwaltDisneyPlayMoonHoax",
+      "person": "Walt Disney",
+      "start": 59.66,
+      "reason": "The footage shows NASA control room personnel and contains unrelated conspiracy text overlay, with Walt Disney neither visible nor having any direct historical connection to the clip's content.",
+      "reviewed_at": 1795706554.3289413
+    },
+    "9fa4a6d60bbd93a750c33aa3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:MoonLandingHoaxApollo11AstronautNeilSaysPresidentNixonIsACriminal",
+      "source_url": "https://archive.org/details/MoonLandingHoaxApollo11AstronautNeilSaysPresidentNixonIsACriminal",
+      "person": "Walt Disney",
+      "start": 82.43,
+      "reason": "The footage shows Apollo 11 moon landing archival material, which has no direct connection to Walt Disney's life or biography, despite the conspiratorial title of the source video.",
+      "reviewed_at": 1795706559.127815
+    },
+    "489d3d4dc6c20b13a9a672a1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:MoonLandingHoaxApollo11AstronautNeilSaysPresidentNixonIsACriminal",
+      "source_url": "https://archive.org/details/MoonLandingHoaxApollo11AstronautNeilSaysPresidentNixonIsACriminal",
+      "person": "Walt Disney",
+      "start": 115.62,
+      "reason": "The footage shows Apollo 11 lunar landing archival material, which has no connection to a biography of Walt Disney beyond conspiracy theory claims mentioned in the video title. Walt Disney is not visible and the context is irrelevant to his actual life and work.",
+      "reviewed_at": 1795706563.766892
+    },
+    "9901e88ca154dc7318a4e915": {
+      "kind": "segment_rejection",
+      "source_id": "archive:MoonLandingHoaxApollo11AstronautNeilSaysoneGiantLeapForWalt",
+      "source_url": "https://archive.org/details/MoonLandingHoaxApollo11AstronautNeilSaysoneGiantLeapForWalt",
+      "person": "Walt Disney",
+      "start": 106.25,
+      "reason": "The footage consists of blurry, indistinct archival clips overlaid with conspiratorial text about Walt Disney and the moon landing, lacking any genuine historical context or depiction of Walt Disney himself.",
+      "reviewed_at": 1795706570.8314648
+    },
+    "193abe7f0a26d91ec8dc4ee3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:MoonLandingHoaxApollo11AstronautNeilSaysoneGiantLeapForWalt",
+      "source_url": "https://archive.org/details/MoonLandingHoaxApollo11AstronautNeilSaysoneGiantLeapForWalt",
+      "person": "Walt Disney",
+      "start": 149.65,
+      "reason": "The footage consists of blurry, low-quality archival space/moon landing video related to a conspiracy theory video, with no visible appearance of Walt Disney or meaningful biographical illustration for his life.",
+      "reviewed_at": 1795706575.6921372
+    },
+    "e6a6ef052dd994a3b4b5afb9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:MoonLandingHoaxApollo11WaltDisneyMoviepart6Of7",
+      "source_url": "https://archive.org/details/MoonLandingHoaxApollo11WaltDisneyMoviepart6Of7",
+      "person": "Walt Disney",
+      "start": 163.78,
+      "reason": "The footage shows an Apollo lunar module in space, which has no concrete or defensible connection to the life or biography of Walt Disney, despite the video title.",
+      "reviewed_at": 1795706582.3005269
+    },
+    "ad8c18dee6a9e88026fdf24f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:MoonLandingHoaxApollo11WaltDisneyMoviepart6Of7",
+      "source_url": "https://archive.org/details/MoonLandingHoaxApollo11WaltDisneyMoviepart6Of7",
+      "person": "Walt Disney",
+      "start": 231.83,
+      "reason": "The footage shows Apollo 11 spacecraft imagery from 1969, which has no concrete or defensible connection to the life or biography of Walt Disney (who passed away in 1966).",
+      "reviewed_at": 1795706603.5508573
+    },
+    "9bf847f56b60b1304496dadb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:InterviewJRobertOppenheimer",
+      "source_url": "https://archive.org/details/InterviewJRobertOppenheimer",
+      "person": "J. Robert Oppenheimer",
+      "start": 5.0,
+      "reason": "The footage shows a location title card for Princeton, New Jersey followed by shots of laboratory equipment and machinery operations, but J. Robert Oppenheimer is never visibly present in any of the sampled frames.",
+      "reviewed_at": 1795706749.7899466
+    },
+    "c7b9e79eec79a3514932a0d7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:InterviewJRobertOppenheimer",
+      "source_url": "https://archive.org/details/InterviewJRobertOppenheimer",
+      "person": "J. Robert Oppenheimer",
+      "start": 1114.02,
+      "reason": "The sampled frames depict Edward R. Murrow, the interviewer, rather than J. Robert Oppenheimer, the subject of the biography.",
+      "reviewed_at": 1795706869.224597
     }
   }
 }

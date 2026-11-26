@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-11-26T00:11:52.862274+00:00",
-  "refresh_attempted_at": "2026-11-26T00:11:52.862274+00:00",
+  "generated_at": "2026-11-26T15:48:28.046204+00:00",
+  "refresh_attempted_at": "2026-11-26T15:48:28.046204+00:00",
   "refresh_status": "success",
-  "video_count": 43,
+  "video_count": 44,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 42,
   "reason": "",
   "totals": {
-    "views": 14073,
-    "likes": 298,
+    "views": 14160,
+    "likes": 300,
     "comments": 9
   },
   "averages": {
-    "views": 327.28,
-    "likes": 6.93,
-    "comments": 0.21,
-    "average_view_percentage": 63.57,
-    "subscribers_gained": 0.4,
+    "views": 321.82,
+    "likes": 6.82,
+    "comments": 0.2,
+    "average_view_percentage": 62.12,
+    "subscribers_gained": 0.39,
     "shares": 0.02
   },
   "top_videos": [
@@ -621,7 +621,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 399,
-      "views_after_24h": 280,
+      "views_after_24h": 359,
       "views_after_7d": 399,
       "likes": 17,
       "comments": 0,
@@ -765,7 +765,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 264,
+      "views": 265,
       "views_after_24h": 250,
       "views_after_7d": 250,
       "likes": 3,
@@ -775,7 +775,7 @@
       "average_view_percentage": 62.16,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.1364
+      "engagement_rate": 1.1321
     },
     {
       "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
@@ -881,7 +881,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 129,
+      "views": 130,
       "views_after_24h": 127,
       "views_after_7d": 127,
       "likes": 0,
@@ -1008,6 +1008,35 @@
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 5.3763
+    },
+    {
+      "topic": "Kishore Kumar: Lacking formal classical music training, Kishore Kumar taught himself to sing and yodel by listening to imported Austrian records while taking minor acting roles in Bombay.",
+      "video_id": "YC058qZkzHY",
+      "title": "The Untold Turning Point in Kishore Kumar's Story",
+      "workflow": "story",
+      "published_at": "2026-11-26T00:10:58Z",
+      "hook_text": "",
+      "hook_type": "",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": null,
+      "planned_duration_seconds": null,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 85,
+      "views_after_24h": null,
+      "views_after_7d": null,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 2.3529
     },
     {
       "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
@@ -1532,11 +1561,11 @@
       "engagement_rate": 0.0
     },
     {
-      "topic": "Kishore Kumar: Lacking formal classical music training, Kishore Kumar taught himself to sing and yodel by listening to imported Austrian records while taking minor acting roles in Bombay.",
-      "video_id": "YC058qZkzHY",
-      "title": "The Untold Turning Point in Kishore Kumar's Story",
+      "topic": "J. Robert Oppenheimer: Directing the Manhattan Project to conclusion, Oppenheimer watched the Trinity test detonate and realized the irrevocable shift in human warfare.",
+      "video_id": "UhE0lUU-Piw",
+      "title": "The Untold Turning Point in J. Robert Oppenheimer's Story",
       "workflow": "story",
-      "published_at": "2026-11-26T00:10:58Z",
+      "published_at": "2026-11-26T15:39:43Z",
       "hook_text": "",
       "hook_type": "",
       "hook_score": null,
@@ -1565,7 +1594,7 @@
     "target_average_view_percentage": 70.0,
     "metric": "average_view_percentage",
     "eligible_video_count": 42,
-    "immature_or_missing_metric_count": 1,
+    "immature_or_missing_metric_count": 2,
     "videos_meeting_target_count": 7,
     "target_hit_rate_percentage": 16.67,
     "average_view_percentage": 65.08,
@@ -1578,7 +1607,7 @@
         "average_view_percentage": 22.02,
         "average_view_duration": 9.0,
         "views": 24,
-        "age_hours": 605.0,
+        "age_hours": 620.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1590,7 +1619,7 @@
         "average_view_percentage": 26.56,
         "average_view_duration": 10.0,
         "views": 16,
-        "age_hours": 700.3,
+        "age_hours": 715.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1602,7 +1631,7 @@
         "average_view_percentage": 28.13,
         "average_view_duration": 12.0,
         "views": 194,
-        "age_hours": 1033.0,
+        "age_hours": 1048.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1614,7 +1643,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 722.7,
+        "age_hours": 738.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1626,7 +1655,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 107,
-        "age_hours": 821.0,
+        "age_hours": 836.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1638,7 +1667,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1776.7,
+        "age_hours": 1792.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1650,7 +1679,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1801.7,
+        "age_hours": 1817.3,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1662,7 +1691,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 918.6,
+        "age_hours": 934.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1674,7 +1703,7 @@
         "average_view_percentage": 40.42,
         "average_view_duration": 13.0,
         "views": 296,
-        "age_hours": 892.2,
+        "age_hours": 907.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1686,7 +1715,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1804.2,
+        "age_hours": 1819.8,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1700,7 +1729,7 @@
         "average_view_percentage": 597.81,
         "average_view_duration": 221.0,
         "views": 109,
-        "age_hours": 629.7,
+        "age_hours": 645.3,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1712,7 +1741,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 1015.7,
+        "age_hours": 1031.4,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1724,7 +1753,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 1086.9,
+        "age_hours": 1102.5,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1736,7 +1765,7 @@
         "average_view_percentage": 81.18,
         "average_view_duration": 30.0,
         "views": 11,
-        "age_hours": 703.0,
+        "age_hours": 718.7,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1748,7 +1777,7 @@
         "average_view_percentage": 79.17,
         "average_view_duration": 33.0,
         "views": 1428,
-        "age_hours": 271.0,
+        "age_hours": 286.6,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1760,7 +1789,7 @@
         "average_view_percentage": 74.66,
         "average_view_duration": 28.0,
         "views": 66,
-        "age_hours": 925.6,
+        "age_hours": 941.2,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1772,7 +1801,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 1117.6,
+        "age_hours": 1133.2,
         "target_met": true,
         "status": "goal_met"
       }

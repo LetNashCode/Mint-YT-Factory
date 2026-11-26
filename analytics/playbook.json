@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-26T18:15:50.931293+00:00",
+  "generated_at": "2026-11-26T22:33:38.571259+00:00",
   "video_count": 221,
-  "learning_sample_size": 188,
+  "learning_sample_size": 190,
   "learning_ready": true,
   "metrics_available": true,
   "comparative_learning_ready": true,
-  "advanced_metrics_videos": 188,
+  "advanced_metrics_videos": 190,
   "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -17,7 +17,7 @@
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 15.184,
+      "score": 15.062,
       "sample_size": 10
     }
   ],
@@ -37,13 +37,13 @@
     "Stephen King: The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon."
   ],
   "avoid_topics": [
-    "Why do tea bags float",
     "Why do socks roll up",
     "Why does a lock jam",
     "Why do aluminum foil sheets tear",
     "Why do plastic containers absorb smells",
     "Why do buttons pop off coats",
     "Why soda cans have indented bottoms",
+    "Why do pill bottles pop open",
     "Why do envelopes taste sweet",
     "Why do apples squeak when polished",
     "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive."

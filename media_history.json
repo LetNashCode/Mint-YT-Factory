@@ -22949,6 +22949,106 @@
       "shot": 2,
       "query": "ice cream cones until bursts through weakest",
       "recorded_at": 1795761525
+    },
+    {
+      "asset_key": "pexels:video:36541972",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/36541972/15494539_720_1280_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "car agonizing rubber screech wiper",
+      "recorded_at": 1795801199
+    },
+    {
+      "asset_key": "pexels:video:34622576",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34622576/14673572_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "car across your dry windshield",
+      "recorded_at": 1795801207
+    },
+    {
+      "asset_key": "pexels:video:3757014",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3757014/3757014-hd_1280_720_24fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "car but instead rubber stutters",
+      "recorded_at": 1795801214
+    },
+    {
+      "asset_key": "pexels:video:4568686",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4568686/4568686-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "car not sliding rubber gets",
+      "recorded_at": 1795801218
+    },
+    {
+      "asset_key": "pexels:video:27616449",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/27616449/12186401_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "car stretches like rubber band",
+      "recorded_at": 1795801224
+    },
+    {
+      "asset_key": "pexels:video:4211071",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4211071/4211071-hd_1280_720_50fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "car drag clean sneaker rubber",
+      "recorded_at": 1795801229
+    },
+    {
+      "asset_key": "pexels:video:8975313",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8975313/8975313-hd_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "car you recreate exact acoustic",
+      "recorded_at": 1795801235
+    },
+    {
+      "asset_key": "pexels:video:35667577",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35667577/15114996_960_720_24fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "car obnoxious noise isn broken",
+      "recorded_at": 1795801239
+    },
+    {
+      "asset_key": "pexels:video:15283975",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/15283975/15283975-hd_720_1280_60fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "car add drop rain fluid",
+      "recorded_at": 1795801249
+    },
+    {
+      "asset_key": "pexels:video:36704978",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/36704978/15558110_1280_720_50fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "car you instantly lubricate surface",
+      "recorded_at": 1795801253
     }
   ]
 }

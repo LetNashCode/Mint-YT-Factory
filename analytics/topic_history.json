@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do rubber boots leave scuff marks",
-    "normalized": "why do rubber boots leave scuff marks",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795675446,
-    "recorded_at": 1795675446,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do toaster slots click down hard",
     "normalized": "why do toaster slots click down hard",
     "workflow": "publish",
@@ -3522,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1795761226,
     "recorded_at": 1795761226,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do car wiper blades squeak",
+    "normalized": "why do car wiper blades squeak",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795801075,
+    "recorded_at": 1795801075,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

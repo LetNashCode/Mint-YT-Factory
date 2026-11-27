@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do toaster slots click down hard",
-    "normalized": "why do toaster slots click down hard",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795715595,
-    "recorded_at": 1795715595,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why microwave door mesh blocks radiation",
     "normalized": "why microwave door mesh blocks radiation",
     "workflow": "publish",
@@ -3522,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1795801075,
     "recorded_at": 1795801075,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do coins smell like metal",
+    "normalized": "why do coins smell like metal",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795817830,
+    "recorded_at": 1795817830,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

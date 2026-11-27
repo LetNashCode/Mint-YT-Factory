@@ -23049,6 +23049,96 @@
       "shot": 2,
       "query": "car you instantly lubricate surface",
       "recorded_at": 1795801253
+    },
+    {
+      "asset_key": "pexels:video:5651783",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5651783/5651783-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "coins rub shiny nickel between",
+      "recorded_at": 1795818858
+    },
+    {
+      "asset_key": "pexels:video:34320594",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34320594/14540148_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "coins your hands instantly smell",
+      "recorded_at": 1795818862
+    },
+    {
+      "asset_key": "pexels:video:7118320",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7118320/7118320-hd_1366_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "coins your brain assumes you",
+      "recorded_at": 1795818868
+    },
+    {
+      "asset_key": "pexels:video:13037020",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/13037020/13037020-hd_1282_720_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "coins metallic tang floating your",
+      "recorded_at": 1795818878
+    },
+    {
+      "asset_key": "pexels:video:6327801",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6327801/6327801-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "coins sweat your skin touches",
+      "recorded_at": 1795818882
+    },
+    {
+      "asset_key": "pexels:video:8327260",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8327260/8327260-hd_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "coins triggers instant chemical reaction",
+      "recorded_at": 1795818885
+    },
+    {
+      "asset_key": "pixabay:video:119",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2015/08/08/119-135736472_medium.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "coins metal steals electrons your",
+      "recorded_at": 1795818889
+    },
+    {
+      "asset_key": "pexels:video:41044355",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/41044355/17564469_720_1280_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "coins you smelling metal all",
+      "recorded_at": 1795818896
+    },
+    {
+      "asset_key": "pexels:video:8369982",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8369982/8369982-hd_720_1280_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "coins you literally smelling your",
+      "recorded_at": 1795818899
     }
   ]
 }

@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1790340916",
-    "video_id": "dMxRWwQLqo0",
-    "topic": "Why do zippers get stuck",
-    "completed_at": 1790342276
-  },
-  {
     "workdir": "output/1790359912",
     "video_id": "JECOcfWJVlo",
     "topic": "Why coffee cups drip down the side",
@@ -598,5 +592,11 @@
     "video_id": "onutcz_aOSM",
     "topic": "Why do car wiper blades squeak",
     "completed_at": 1795802826
+  },
+  {
+    "workdir": "output/1795818809",
+    "video_id": "MUH84uAYuys",
+    "topic": "Why do coins smell like metal",
+    "completed_at": 1795820123
   }
 ]

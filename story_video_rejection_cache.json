@@ -7535,8 +7535,8 @@
       "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
       "person": "Louis Armstrong",
       "start": 73.26,
-      "reason": "The video shows Jon Batiste performing on stage, which has no connection to Louis Armstrong beyond generic musical context, making it unusable for a biography about Louis Armstrong.",
-      "reviewed_at": 1792701659.6907928
+      "reason": "The footage shows Jon Batiste performing at the Aspen Ideas Festival, which has no connection to Louis Armstrong beyond both being musicians.",
+      "reviewed_at": 1795791435.734341
     },
     "dae174c07e68956c7cb38c28": {
       "kind": "segment_rejection",
@@ -7544,8 +7544,8 @@
       "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
       "person": "Louis Armstrong",
       "start": 102.52,
-      "reason": "The footage shows musician Jon Batiste performing at the Aspen Ideas Festival, which does not depict Louis Armstrong or his life.",
-      "reviewed_at": 1792701665.8386164
+      "reason": "The video segment features Jon Batiste playing a melodica at the Aspen Ideas Festival in 2014, which has no visual or historical connection to Louis Armstrong.",
+      "reviewed_at": 1795791441.0947473
     },
     "db1b049691bcf1b15f7f706b": {
       "kind": "segment_rejection",
@@ -7553,8 +7553,8 @@
       "source_url": "https://archive.org/details/Jon_Batiste_explains_Louis_Armstrong",
       "person": "Louis Armstrong",
       "start": 412.33,
-      "reason": "The video features Jon Batiste discussing music and Louis Armstrong at the Aspen Ideas Festival, but Louis Armstrong himself is not visible in the footage.",
-      "reviewed_at": 1792701706.6592047
+      "reason": "The video features Jon Batiste and Walter Isaacson discussing music at the Aspen Ideas Festival, but Louis Armstrong is the subject of the biography. Louis Armstrong is not visible in any of the frames, making this footage unusable for depicting him directly.",
+      "reviewed_at": 1795791448.5200243
     },
     "aafabada53894c0276b756f2": {
       "kind": "segment_rejection",
@@ -7562,8 +7562,8 @@
       "source_url": "https://archive.org/details/Jon_Batiste_explains_Louis_Armstrong",
       "person": "Louis Armstrong",
       "start": 586.9,
-      "reason": "The video features Jon Batiste and Walter Isaacson discussing music at the Aspen Ideas Festival. Louis Armstrong is not visible in any of the sampled frames, making this footage unusable for a biography about Louis Armstrong.",
-      "reviewed_at": 1792701718.4174495
+      "reason": "The video features Jon Batiste and Walter Isaacson discussing music at the Aspen Ideas Festival in 2014. The subject of the biography is Louis Armstrong, who is not present in the footage; the speakers are discussing Armstrong and jazz history, but modern interview footage of contemporary figures discussing the subject does not provide valid archival identity or direct historical context footage for Louis Armstrong himself.",
+      "reviewed_at": 1795791454.143783
     },
     "f1ffa1cca6f54fe22ab51bbb": {
       "kind": "segment_rejection",
@@ -7571,8 +7571,8 @@
       "source_url": "https://archive.org/details/Louis_Armstrong_International_Airport_Expansion_Announcement",
       "person": "Louis Armstrong",
       "start": 951.46,
-      "reason": "The footage shows a press conference about the Louis Armstrong International Airport expansion featuring city officials like Cynthia Hedge-Morrell, but Louis Armstrong himself is not visible (having passed away decades prior in 1971), making this unsuitable as biographical footage of the subject.",
-      "reviewed_at": 1792701738.3836496
+      "reason": "The footage shows a press conference about the Louis Armstrong International Airport expansion featuring city officials like Cynthia Hedge-Morrell, but Louis Armstrong (who passed away in 1971) is not visible in the frames.",
+      "reviewed_at": 1795791485.3554978
     },
     "0a90a23f3ad3a23ed838b4c8": {
       "kind": "segment_rejection",
@@ -7580,8 +7580,8 @@
       "source_url": "https://archive.org/details/Louis_Armstrong_International_Airport_Expansion_Announcement",
       "person": "Louis Armstrong",
       "start": 1357.08,
-      "reason": "The footage shows an interview with Nolan Rollins discussing the Louis Armstrong International Airport expansion in 2013, but Louis Armstrong (who passed away in 1971) is not visible and the clip has no direct connection to his life or career beyond sharing a namesake airport.",
-      "reviewed_at": 1792701749.1669452
+      "reason": "The footage features an interview with Nolan Rollins, Chairman of the New Orleans Aviation Board, discussing the Louis Armstrong International Airport expansion in 2013. Louis Armstrong is not visible, and the video has no direct historical or biographical relevance to Louis Armstrong's life.",
+      "reviewed_at": 1795791491.0695467
     },
     "62e5ad6ddacffb3190841951": {
       "kind": "segment_rejection",
@@ -15414,6 +15414,94 @@
       "start": 1114.02,
       "reason": "The sampled frames depict Edward R. Murrow, the interviewer, rather than J. Robert Oppenheimer, the subject of the biography.",
       "reviewed_at": 1795706869.224597
+    },
+    "18d3ae6b310fa0d67e779b8c": {
+      "source_id": "commons:148266341",
+      "source_url": "https://commons.wikimedia.org/wiki/File:The_Boat_(1921)_by_Buster_Keaton_and_Edward_F._Cline.webm",
+      "reason": "strong metadata exclusion: title card"
+    },
+    "542745f19958fcc281c865fc": {
+      "source_id": "commons:148264087",
+      "source_url": "https://commons.wikimedia.org/wiki/File:The_Goat_(1921)_by_Buster_Keaton_and_Malcolm_St._Clair.webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "e343ef1562cc3413cd3742a7": {
+      "source_id": "commons:151102011",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Our_Hospitality_(1923)_by_Buster_Keaton_and_John_G._Blystone.webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "d89e7f7a6f4a8155145e76ef": {
+      "source_id": "commons:148267475",
+      "source_url": "https://commons.wikimedia.org/wiki/File:The_Electric_House_(1922)_by_Buster_Keaton_and_Edward_F._Cline.webm",
+      "reason": "strong metadata exclusion: promotional"
+    },
+    "0faab5a0efb30bfd7d0527bd": {
+      "source_id": "commons:148242574",
+      "source_url": "https://commons.wikimedia.org/wiki/File:My_Wife%27s_Relations_(1922)_by_Buster_Keaton_and_Edward_F._Cline.webm",
+      "reason": "strong metadata exclusion: title card"
+    },
+    "8d4b555e82380026f1c42929": {
+      "kind": "segment_rejection",
+      "source_id": "archive:so-funny-it-hurt",
+      "source_url": "https://archive.org/details/so-funny-it-hurt",
+      "person": "Buster Keaton",
+      "start": 5.0,
+      "reason": "The footage shows archival moving shots of the Metro-Goldwyn-Mayer (MGM) studios exterior and gates, providing historical context relevant to Buster Keaton's career at the studio as discussed in the documentary.",
+      "reviewed_at": 1795791752.0267618
+    },
+    "17a920deba5b46c90c1bb427": {
+      "kind": "segment_rejection",
+      "source_id": "archive:so-funny-it-hurt",
+      "source_url": "https://archive.org/details/so-funny-it-hurt",
+      "person": "Buster Keaton",
+      "start": 181.02,
+      "reason": "The footage shows general archival clips of early filmmaking and factory workers from the silent era, providing contextual background for Buster Keaton's life and work, but Buster Keaton himself is not clearly visible in the sampled frames.",
+      "reviewed_at": 1795791766.1872962
+    },
+    "6b882fb074365e0c7fb969ee": {
+      "kind": "segment_rejection",
+      "source_id": "archive:1-buster-keaton-a-hard-act-to-follow",
+      "source_url": "https://archive.org/details/1-buster-keaton-a-hard-act-to-follow",
+      "person": "Buster Keaton",
+      "start": 478.8,
+      "reason": "The frames show Dean Riesner, not the subject Buster Keaton, making this clip unsuitable as identity footage for Buster Keaton.",
+      "reviewed_at": 1795791797.331992
+    },
+    "4a0d8394e232dfd19610b22d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:1-buster-keaton-a-hard-act-to-follow",
+      "source_url": "https://archive.org/details/1-buster-keaton-a-hard-act-to-follow",
+      "person": "Buster Keaton",
+      "start": 952.61,
+      "reason": "The frames show an unidentified woman being interviewed in a documentary about Buster Keaton, but Buster Keaton himself is not visible in any of the sampled frames.",
+      "reviewed_at": 1795791819.982212
+    },
+    "372b097eff3ccd0610e31b1e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:1-buster-keaton-a-hard-act-to-follow",
+      "source_url": "https://archive.org/details/1-buster-keaton-a-hard-act-to-follow",
+      "person": "Buster Keaton",
+      "start": 2137.11,
+      "reason": "The sampled segment features interviewees discussing Buster Keaton in a documentary, but Buster Keaton himself is not visible in any of the frames. It serves as biographical illustration.",
+      "reviewed_at": 1795791864.268778
+    },
+    "22f51e679bd1f8b2ec442fd7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:1-buster-keaton-a-hard-act-to-follow",
+      "source_url": "https://archive.org/details/1-buster-keaton-a-hard-act-to-follow",
+      "person": "Buster Keaton",
+      "start": 2847.82,
+      "reason": "The frames show a talking head interview with filmmaker/historian Kevin Brownlow discussing Buster Keaton in the documentary series 'Buster Keaton: A Hard Act To Follow'. Buster Keaton himself is not visible in the footage, but it provides valid biographical illustration/context commentary from a key documentary producer.",
+      "reviewed_at": 1795791932.6796608
+    },
+    "259b58cd2e51dbbe7345c384": {
+      "kind": "segment_rejection",
+      "source_id": "archive:1-buster-keaton-a-hard-act-to-follow",
+      "source_url": "https://archive.org/details/1-buster-keaton-a-hard-act-to-follow",
+      "person": "Buster Keaton",
+      "start": 3084.72,
+      "reason": "The segment consists entirely of production logos and title cards (Thames Television and FremantleMedia) without any historical context or biographical footage of Buster Keaton.",
+      "reviewed_at": 1795791942.2948027
     }
   }
 }

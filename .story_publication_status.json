@@ -1,6 +1,7 @@
 {
-  "status": "deferred",
+  "status": "pending",
   "video_id": "",
   "youtube_url": "",
-  "reason": "Gemini daily/project quota is exhausted; no final video was created or uploaded."
+  "reason": "",
+  "updated_at": 1795791143
 }

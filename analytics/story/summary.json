@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-26T20:07:09.738902+00:00",
-  "refresh_attempted_at": "2026-11-26T20:07:09.738902+00:00",
+  "generated_at": "2026-11-27T15:06:37.217068+00:00",
+  "refresh_attempted_at": "2026-11-27T15:06:37.217068+00:00",
   "refresh_status": "success",
   "video_count": 44,
   "optimization_ready": true,
@@ -8,12 +8,12 @@
   "advanced_metrics_videos": 42,
   "reason": "",
   "totals": {
-    "views": 14163,
+    "views": 14186,
     "likes": 300,
     "comments": 9
   },
   "averages": {
-    "views": 321.89,
+    "views": 322.41,
     "likes": 6.82,
     "comments": 0.2,
     "average_view_percentage": 62.09,
@@ -621,7 +621,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 399,
-      "views_after_24h": 368,
+      "views_after_24h": 394,
       "views_after_7d": 399,
       "likes": 17,
       "comments": 0,
@@ -736,7 +736,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 267,
+      "views": 266,
       "views_after_24h": 253,
       "views_after_7d": null,
       "likes": 8,
@@ -746,7 +746,7 @@
       "average_view_percentage": 41.9,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.3708
+      "engagement_rate": 3.3835
     },
     {
       "topic": "Luciano Pavarotti: Overcoming a severe pulmonary illness and years of rejection before becoming the world's most famous tenor.",
@@ -881,7 +881,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 130,
+      "views": 132,
       "views_after_24h": 127,
       "views_after_7d": 127,
       "likes": 0,
@@ -981,6 +981,35 @@
       "engagement_rate": 0.0
     },
     {
+      "topic": "Kishore Kumar: Lacking formal classical music training, Kishore Kumar taught himself to sing and yodel by listening to imported Austrian records while taking minor acting roles in Bombay.",
+      "video_id": "YC058qZkzHY",
+      "title": "The Untold Turning Point in Kishore Kumar's Story",
+      "workflow": "story",
+      "published_at": "2026-11-26T00:10:58Z",
+      "hook_text": "",
+      "hook_type": "",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": null,
+      "planned_duration_seconds": null,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 104,
+      "views_after_24h": 104,
+      "views_after_7d": null,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 1.9231
+    },
+    {
       "topic": "Amitabh Bachchan: Facing persistent rejection from All India Radio due to his deep voice before becoming the defining star of Indian cinema.",
       "video_id": "OMXqyVG5lnw",
       "title": "Amitabh Bachchan Was Rejected... Then Everything Changed",
@@ -1008,35 +1037,6 @@
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 5.3763
-    },
-    {
-      "topic": "Kishore Kumar: Lacking formal classical music training, Kishore Kumar taught himself to sing and yodel by listening to imported Austrian records while taking minor acting roles in Bombay.",
-      "video_id": "YC058qZkzHY",
-      "title": "The Untold Turning Point in Kishore Kumar's Story",
-      "workflow": "story",
-      "published_at": "2026-11-26T00:10:58Z",
-      "hook_text": "",
-      "hook_type": "",
-      "hook_score": null,
-      "hook_score_components": {},
-      "script_word_count": null,
-      "planned_duration_seconds": null,
-      "actual_duration_seconds": null,
-      "video_width": null,
-      "video_height": null,
-      "resolution": "",
-      "creative_strategy": "",
-      "views": 86,
-      "views_after_24h": null,
-      "views_after_7d": null,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 2.3256
     },
     {
       "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
@@ -1577,7 +1577,7 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 1,
+      "views": 5,
       "views_after_24h": null,
       "views_after_7d": null,
       "likes": 0,
@@ -1607,7 +1607,7 @@
         "average_view_percentage": 22.02,
         "average_view_duration": 9.0,
         "views": 24,
-        "age_hours": 624.9,
+        "age_hours": 643.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1619,7 +1619,7 @@
         "average_view_percentage": 26.56,
         "average_view_duration": 10.0,
         "views": 16,
-        "age_hours": 720.2,
+        "age_hours": 739.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1631,7 +1631,7 @@
         "average_view_percentage": 28.13,
         "average_view_duration": 12.0,
         "views": 194,
-        "age_hours": 1052.9,
+        "age_hours": 1071.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1643,7 +1643,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 742.6,
+        "age_hours": 761.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1655,7 +1655,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 107,
-        "age_hours": 841.0,
+        "age_hours": 859.9,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1667,7 +1667,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1796.6,
+        "age_hours": 1815.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1679,7 +1679,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1821.7,
+        "age_hours": 1840.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1691,7 +1691,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 938.6,
+        "age_hours": 957.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1703,7 +1703,7 @@
         "average_view_percentage": 40.42,
         "average_view_duration": 13.0,
         "views": 296,
-        "age_hours": 912.1,
+        "age_hours": 931.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1715,7 +1715,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1824.1,
+        "age_hours": 1843.1,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1729,7 +1729,7 @@
         "average_view_percentage": 597.81,
         "average_view_duration": 221.0,
         "views": 109,
-        "age_hours": 649.6,
+        "age_hours": 668.6,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1741,7 +1741,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 1035.7,
+        "age_hours": 1054.7,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1753,7 +1753,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 1106.8,
+        "age_hours": 1125.8,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1765,7 +1765,7 @@
         "average_view_percentage": 81.18,
         "average_view_duration": 30.0,
         "views": 11,
-        "age_hours": 723.0,
+        "age_hours": 742.0,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1777,7 +1777,7 @@
         "average_view_percentage": 79.17,
         "average_view_duration": 33.0,
         "views": 1428,
-        "age_hours": 290.9,
+        "age_hours": 309.9,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1789,7 +1789,7 @@
         "average_view_percentage": 74.66,
         "average_view_duration": 28.0,
         "views": 66,
-        "age_hours": 945.6,
+        "age_hours": 964.5,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1801,7 +1801,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 1137.5,
+        "age_hours": 1156.5,
         "target_met": true,
         "status": "goal_met"
       }

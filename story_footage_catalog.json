@@ -2,347 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Jim Henson",
-      "source": {
-        "id": "archive:tv-am-interview-1983",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tv-am-interview-1983/TV-am%20Interview%201983.mp4",
-        "source_url": "https://archive.org/details/tv-am-interview-1983",
-        "title": "Jim Henson \"The Dark Crystal\" TV Am Interview 1983",
-        "description": "Jim Henson and Frank Oz are interviewed about their recent movie, The Dark Crystal. They bring with them the Aughra puppet. Sourced from YouTube, TV-AM archive. https://www.youtube.com/watch?v=B_TCf0ANFHA The Dark Crystal",
-        "creator": "Jim Henson",
-        "license": "",
-        "subject": "The Dark Crystal",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 244.44,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 93.63,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The frames clearly show Jim Henson being interviewed in 1983 about The Dark Crystal, providing good archival identity footage and biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "05c7e7f6b297c331b270d9a140714704724f3b1affc528e6e0fc2f378dc7fd03",
-      "reviewed_at": 1792786117.6483586
-    },
-    {
-      "person": "Jim Henson",
-      "source": {
-        "id": "archive:tv-am-interview-1983",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tv-am-interview-1983/TV-am%20Interview%201983.mp4",
-        "source_url": "https://archive.org/details/tv-am-interview-1983",
-        "title": "Jim Henson \"The Dark Crystal\" TV Am Interview 1983",
-        "description": "Jim Henson and Frank Oz are interviewed about their recent movie, The Dark Crystal. They bring with them the Aughra puppet. Sourced from YouTube, TV-AM archive. https://www.youtube.com/watch?v=B_TCf0ANFHA The Dark Crystal",
-        "creator": "Jim Henson",
-        "license": "",
-        "subject": "The Dark Crystal",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 244.44,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 111.36,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames feature Jim Henson (alongside Frank Oz) being interviewed on TV-AM in 1983, which is genuine archival interview footage illustrating his life and career. The source has some simple timecode overlay and play/lock graphics, but it is clear, authentic, and usable historical material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7840c6cbd3dfe5e6b3e9edef047972a945ef5eb5d074e77ab60f4af3fe1bdb24",
-      "reviewed_at": 1792786123.5054722
-    },
-    {
-      "person": "Louis Braille",
-      "source": {
-        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
-        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
-        "title": "Louis Braille ~ The Braille Alphabet",
-        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "creator": "",
-        "license": "",
-        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 864.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 70.41,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7.0,
-        "reason": "The first frame clearly depicts an actor portraying Louis Braille as a young boy working on a writing apparatus, which fits the biographical illustration requirement. Subsequent frames show historical landscape context relevant to his life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "cc42a0faf776834cc8a9033eeca2c7768d1d721da75ca841957aa270e330204d",
-      "reviewed_at": 1792862593.570368
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
-        "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
-        "title": "Remembering the Crew of Columbia 20 Years Later",
-        "description": "Sen John Cornyn of Texas remembers the lost crew of the Space Shuttle, Columbia, who were lost when the Space Shuttle broke apart upon reentry, scattering debris over a large portion of Texas. The shuttle's left wing had been damaged upon takeoff when a large chunk of ice came off the main fuel tank and created a hole in the left wing about the size of basketball. Upon entering earth's atmosphere, the hot gasses entered the hole and the Columbia shuttle broke apart, just minutes before they were to have landed in Florida at the Kennedy Space Center. February 1, 2023 marks the 20th anniversary of the disaster, when the Space Shuttle Columbia disintegrated as it returned to Earth, killing all seven astronauts on board: commander Rick Husband, pilot Willie McCool, mission specialists Kalpana Chawla, Laurel Clark, Michael Anderson, David Brown and payload specialist Ilan Ramon of Israel. #Columbia #space #SpaceShuttleColumbia #ColumbiaCrew #IllinoisChannel #SenCornyn Politics, Personalities, Policies and business developments! Stay in touch with one of the most politically active, and important states in the USA!\\r \\r Follow us on Twitter: @IllinoisChannel\\r \\r \\r DONATE to help fund our Independent Coverage: https://illinoischannel.givingfuel.com/donatenow ['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
-        "creator": "ICTV",
-        "license": "",
-        "subject": "['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
-        "runtime": "00:06:55",
-        "direct_subject": true,
-        "duration_hint": 415.30442,
-        "identity_score": 10.0,
-        "archival_signal": 0
-      },
-      "start": 251.96,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Kalpana Chawla is clearly visible in the group photograph of the Space Shuttle Columbia crew displayed behind the speaker, making this usable as biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c9c3304ed8356bb40b8ae3e9353122f8375cc8b1926c3481deea48bb8f6fe023",
-      "reviewed_at": 1792862747.3440769
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 36.51,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7.5,
-        "reason": "The segment features an interview with Dr. Don Wilson discussing Kalpana Chawla, with a photograph of Kalpana Chawla clearly visible in the background throughout the frames. As an interview format discussing the subject with relevant biographical context, it is usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7665606258152d3bbfc8589b6c2aa770facb8fd6d0f55d9908f871abb8f4abdd",
-      "reviewed_at": 1792862755.8086803
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
-        "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
-        "title": "Remembering the Crew of Columbia 20 Years Later",
-        "description": "Sen John Cornyn of Texas remembers the lost crew of the Space Shuttle, Columbia, who were lost when the Space Shuttle broke apart upon reentry, scattering debris over a large portion of Texas. The shuttle's left wing had been damaged upon takeoff when a large chunk of ice came off the main fuel tank and created a hole in the left wing about the size of basketball. Upon entering earth's atmosphere, the hot gasses entered the hole and the Columbia shuttle broke apart, just minutes before they were to have landed in Florida at the Kennedy Space Center. February 1, 2023 marks the 20th anniversary of the disaster, when the Space Shuttle Columbia disintegrated as it returned to Earth, killing all seven astronauts on board: commander Rick Husband, pilot Willie McCool, mission specialists Kalpana Chawla, Laurel Clark, Michael Anderson, David Brown and payload specialist Ilan Ramon of Israel. #Columbia #space #SpaceShuttleColumbia #ColumbiaCrew #IllinoisChannel #SenCornyn Politics, Personalities, Policies and business developments! Stay in touch with one of the most politically active, and important states in the USA!\\r \\r Follow us on Twitter: @IllinoisChannel\\r \\r \\r DONATE to help fund our Independent Coverage: https://illinoischannel.givingfuel.com/donatenow ['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
-        "creator": "ICTV",
-        "license": "",
-        "subject": "['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
-        "runtime": "00:06:55",
-        "direct_subject": true,
-        "duration_hint": 415.30442,
-        "identity_score": 10.0,
-        "archival_signal": 0
-      },
-      "start": 282.83,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage shows US Senator John Cornyn speaking in the Senate alongside a displayed official crew photograph of the Space Shuttle Columbia mission, in which Kalpana Chawla is clearly visible. While this is secondary congressional footage rather than direct archival footage of Chawla herself, it is genuine news/government coverage commemorating her and the crew.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "bf46b64c95df66fe0839a95be9c53413a247eeaebf4704ede4aa5aa967eb488e",
-      "reviewed_at": 1792862766.855259
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
-        "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
-        "title": "Remembering the Crew of Columbia 20 Years Later",
-        "description": "Sen John Cornyn of Texas remembers the lost crew of the Space Shuttle, Columbia, who were lost when the Space Shuttle broke apart upon reentry, scattering debris over a large portion of Texas. The shuttle's left wing had been damaged upon takeoff when a large chunk of ice came off the main fuel tank and created a hole in the left wing about the size of basketball. Upon entering earth's atmosphere, the hot gasses entered the hole and the Columbia shuttle broke apart, just minutes before they were to have landed in Florida at the Kennedy Space Center. February 1, 2023 marks the 20th anniversary of the disaster, when the Space Shuttle Columbia disintegrated as it returned to Earth, killing all seven astronauts on board: commander Rick Husband, pilot Willie McCool, mission specialists Kalpana Chawla, Laurel Clark, Michael Anderson, David Brown and payload specialist Ilan Ramon of Israel. #Columbia #space #SpaceShuttleColumbia #ColumbiaCrew #IllinoisChannel #SenCornyn Politics, Personalities, Policies and business developments! Stay in touch with one of the most politically active, and important states in the USA!\\r \\r Follow us on Twitter: @IllinoisChannel\\r \\r \\r DONATE to help fund our Independent Coverage: https://illinoischannel.givingfuel.com/donatenow ['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
-        "creator": "ICTV",
-        "license": "",
-        "subject": "['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
-        "runtime": "00:06:55",
-        "direct_subject": true,
-        "duration_hint": 415.30442,
-        "identity_score": 10.0,
-        "archival_signal": 0
-      },
-      "start": 375.43,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features a US senator speaking about the Columbia space shuttle disaster alongside official archival crew portrait footage clearly showing Kalpana Chawla among the astronauts.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "66e1a048d9407742b728acfb5b8217428b7093c9dfd4d90d1e111d53e0ce5bfa",
-      "reviewed_at": 1792862814.5768898
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:israel-wohltater-der-menschheit",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
-        "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
-        "title": "Israel ist Wohltäter der Menschheit ( JONAS SALK )",
-        "description": "Israel ist nicht Gaza ; Kolonialismus ; Gewalt und Leid sondern Wohltäter der Menscheit. ( z.B.: Jonas Salk ) Israel is not Gaza; colonialism; violence and suffering but a benefactor of humanity. (e.g., Jonas Salk) Israël n’est pas Gaza ; colonialisme ; violence et souffrance mais bienfaiteur de l’humanité. (ex. : Jonas Salk) ['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
-        "creator": "BBC ( England )",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 249.233333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 77.38,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment contains archival footage clearly showing Jonas Salk working in his laboratory with test tubes, as well as historical context footage about the 1952 polio epidemic. The subject is clearly identifiable in the early frames, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b14583b23ec2709f956c1296f4934cd10ab9cada8c3e1d6387f9dbc114524337",
-      "reviewed_at": 1792862980.7369084
-    },
-    {
-      "person": "Marie Curie",
-      "source": {
-        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
-        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
-        "title": "Marie Curie A Scientific Hero",
-        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "creator": "Bloomington",
-        "license": "",
-        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "runtime": "00:02:12",
-        "direct_subject": true,
-        "duration_hint": 132.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 41.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly depict archival footage and photographs of Marie Curie working in her laboratory along with Pierre Curie, directly illustrating her life and scientific work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e87a15fd1cfecf8cc332c347b0ed1ee7af1fdfb5f6075129cc1de27f7d9efea6",
-      "reviewed_at": 1792863250.771687
-    },
-    {
-      "person": "M. S. Dhoni",
-      "source": {
-        "id": "archive:www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra/www.5MovieRulz.online%20-%20M.S%20Dhoni%20The%20Untold%20Story%20%282016%29%201080p%20Telugu%20HQ%20BluRay%20-%20HEVC%20-%20x265%20-%20%28DD%2B5.1%20-%20224Kbps%20%26%20AAC%29%20-%201.8GB%20-%20ESub.mp4",
-        "source_url": "https://archive.org/details/www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
-        "title": "Www. 5 Movie Rulz.online M. S Dhoni The Untold Story ( 2016) 1080p Telugu HQ Blu Ray HEVC X 265 ( DD+ 5.1 224 Kbps & AAC) 1.8 GB ESub",
-        "description": "Ms dhoni movie Telugu movies",
-        "creator": "",
-        "license": "",
-        "subject": "Telugu movies",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 11080.541667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5963.91,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The sampled frames show a dramatized scene from a biographical film depicting M. S. Dhoni walking outdoors with his father, illustrating his early life as requested by the narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "40048ae7e90ab7892c4ef4e22e5483d80df96232329d05008a7c1d33233a3c3d",
-      "reviewed_at": 1792867449.5574212
-    },
-    {
-      "person": "M. S. Dhoni",
-      "source": {
-        "id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta/www.8MovieRulz.sx%20-%20M.S.%20Dhoni%20The%20Untold%20Story%20%282016%29%20BR-Rip%20Org%20Auds%20%5BTelugu%20%2B%20Tamil%20%2B%20Hindi%5D%20750MB%20ESub.mp4",
-        "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
-        "title": "Www. 8 Movie Rulz.sx M. S. Dhoni The Untold Story ( 2016) BR Rip Org Auds [ Telugu + Tamil + Hindi] 750 MB ESub",
-        "description": "gguy ygugyu",
-        "creator": "",
-        "license": "",
-        "subject": "ygugyu",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 11080.625,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1707.56,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The clip features biographical dramatic footage from a film about M. S. Dhoni, depicting him in his youth watching/playing cricket in a cricket ground setting, fitting biographical illustration of his early life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "25028fbf6919ddeacc1d68e1843655756e0d1919f2fd3a8182fe837ddd907f0b",
-      "reviewed_at": 1792867480.520223
-    },
-    {
       "person": "M. S. Dhoni",
       "source": {
         "id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
@@ -8537,68 +8196,6 @@
       "reviewed_at": 1793798093.0544791
     },
     {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 171.08,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature genuine archival footage of Louis Armstrong playing the trumpet in Paris Blues (1961), providing excellent biographical illustration for a Short about his life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9cfb08485ad6ea01e262850d819b67052ab5a8de0974cafb65c47d259cd0ca6d",
-      "reviewed_at": 1793798849.3582385
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 226.44,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features genuine historical film of Louis Armstrong playing the trumpet (from Paris Blues, 1961), clearly showing him in multiple frames alongside other actors like Paul Newman.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ab44f569558b66050af1f850581597681fab4be74c44c0cb3329fa2a7fd42f87",
-      "reviewed_at": 1793798872.2948143
-    },
-    {
       "person": "Luciano Pavarotti",
       "source": {
         "id": "archive:Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
@@ -13073,316 +12670,6 @@
       },
       "review_key": "62ae8d2f1666e33041bf598d808cf2e002f063c146cd5fed9f17ddfe034e6fc1",
       "reviewed_at": 1794658264.2621825
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 254.12,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Louis Armstrong performing with his band in a scene from the 1961 film Paris Blues, directly illustrating his musical career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7a14e16184f4f97ff06f87761a9c0ea8d247c40c13d034357f011fd0656c67fb",
-      "reviewed_at": 1794658633.4324722
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 281.79,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video features authentic archival footage of Louis Armstrong playing the trumpet in the 1961 film Paris Blues, directly illustrating his musical career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "55a06f3ed5e05f80a2b2640b4f0d2aae511997f9cdcd4a68113d983e52615f43",
-      "reviewed_at": 1794658704.7120378
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 309.47,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "Louis Armstrong is clearly visible in the first frame, followed by Paul Newman in the remaining frames from the film Paris Blues (1961), providing genuine archival footage illustrating Armstrong's career and appearances in cinema.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "aa8db54db58cb57ec304f8093b1fd88ac6d0e0ad77014b93e39bf1ea54c9d398",
-      "reviewed_at": 1794658718.2168043
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 337.15,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "Louis Armstrong is clearly visible performing in archival footage from his cameo appearance in the 1961 film Paris Blues, perfectly illustrating his musical career for a biography short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f5b9dcc504e300e73c496592f402f087f0be9a0ab7862df55d05071a72fe18f4",
-      "reviewed_at": 1794658731.578153
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 198.76,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage features authentic archival film of Louis Armstrong performing in the 1961 film Paris Blues, directly showing him singing and playing music.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "bd7eead589f6edc54782dc45c89431496f5b4f28a596b2653da31b816925c360",
-      "reviewed_at": 1794658743.9126978
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 32.68,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Louis Armstrong is clearly visible and identifiable playing the trumpet in frame 2, with additional appearance context in other frames during his cameo in Paris Blues (1961).",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "87dc79a38edf092d37907b0930be51f6eeda30be3ab55824998b3d7a9578d9a5",
-      "reviewed_at": 1794658755.6844451
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 60.36,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features authentic archival footage of Louis Armstrong playing the trumpet in the 1961 film Paris Blues, clearly showing him performing and serving as a great biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5bbc6b6866b6cee2a983edac80ebee9a0e8d2d665674cf2740c70018a4ab7989",
-      "reviewed_at": 1794658770.5572116
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 88.04,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage features authentic archival film from Paris Blues (1961) clearly showing Louis Armstrong playing the trumpet live with his band, making it excellent biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "84ccb268772da7d8451abdc342805fd950692bbafd3d40014f65a05882da16ce",
-      "reviewed_at": 1794658782.8134353
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 143.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames feature genuine archival film footage from Paris Blues (1961), clearly showing Louis Armstrong performing in at least one frame alongside other musicians and actors, making it highly relevant and usable for a biographical short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "751ef1a56eaa1eb0d677c58e3a5077607ad39cc5630cde6d1a4b9a8ac7224277",
-      "reviewed_at": 1794658794.705706
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 115.72,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment features genuine historical film footage of Louis Armstrong performing on the trumpet (from Paris Blues, 1961), perfectly illustrating his career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8e95bf5caa2b2c7a63794336e7bbd1eb928169990d4b9980c7dd18429ec55ca6",
-      "reviewed_at": 1794658807.0543756
     },
     {
       "person": "Amelia Earhart",
@@ -18849,6 +18136,752 @@
       },
       "review_key": "f368c5b9d9dd70e57d283183ea5b9d6608694cd2e2e795aa8154de5f28f498b8",
       "reviewed_at": 1795706871.3560627
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 171.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Louis Armstrong playing the trumpet in archival film footage from Paris Blues (1961), perfectly illustrating his musical career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9d17157b89a1172a1aec99d2b0e30485cf1c86b664589fdac2c096533d3fd0d8",
+      "reviewed_at": 1795791225.3564346
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 226.44,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features authentic archival film footage of Louis Armstrong playing the trumpet (cameo appearance in Paris Blues 1961), with the subject clearly visible and identifiable in multiple sampled frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "99ae7266d2ad3b12197821362490d32fbe29251ebfc0815eb7a80e043c311b04",
+      "reviewed_at": 1795791502.3626618
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 254.12,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment contains authentic historical film footage featuring Louis Armstrong performing, perfectly matching the narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ab1b87c72f0f3370bebbacee3e0aa9d8410734e38ae7abf36c396244e5cd13f5",
+      "reviewed_at": 1795791513.8543406
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 281.79,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature genuine archival footage of Louis Armstrong playing the trumpet in a performance setting (from the 1961 film Paris Blues), perfectly illustrating his musical career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4b2b3c6900697ee616f2ddac33371cfb21919175050b5ee15cf17717a0d4ba30",
+      "reviewed_at": 1795791524.6071906
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 309.47,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Louis Armstrong is clearly visible playing the trumpet in the first frame, while subsequent frames show actor Paul Newman in a jazz club scene from the 1961 film Paris Blues. This constitutes genuine archival/film footage illustrating Armstrong's career and musical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fec817734cbbb26c70758a3ff0c1253e8c3a17addbe0774a6d119cddcf7f3971",
+      "reviewed_at": 1795791536.0915637
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 337.15,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features real historical film of Louis Armstrong playing the trumpet in Paris Blues (1961), with Louis clearly visible in multiple frames playing his instrument.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "26abe425ebb05fed7733f67732e795ea95a7f88abfbe3458de9caa5d7b9fda96",
+      "reviewed_at": 1795791546.38706
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 198.76,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature archival footage of Louis Armstrong performing in the 1961 film Paris Blues, making it valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0aa6f307dde4d45ad7a5877e41e1d704bde63a959caedf6a4b2e6e4bbf6dd8b1",
+      "reviewed_at": 1795791557.58875
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 32.68,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet in a cameo appearance from the 1961 film Paris Blues, making it authentic and directly relevant historical/biographical material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "51049899a3afe27f7e2e7cd69b49633c3d7cfc88b6a4ab9ab0e9ed9aa9a42633",
+      "reviewed_at": 1795791569.009523
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 60.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet in a live setting, matching the subject and biographical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "4227cc5252a6042dafcd56195516783e35562de71ff3696fe6359a34410ef7b0",
+      "reviewed_at": 1795791581.6399684
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 88.04,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features authentic archival film footage of Louis Armstrong performing with a band during his cameo in the 1961 film Paris Blues. He is clearly visible playing the trumpet across multiple frames, directly illustrating his musical career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "44c41b3e5af9a44f0b6a2c02e07ff9504415f8963ff07ec1e7ddafbb93df237a",
+      "reviewed_at": 1795791592.539439
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 143.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Louis Armstrong performing in archival footage from Paris Blues (1961), perfectly matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "943252cece50a1e9cbc147ff03850fb5ba25cc0eb42d3ea11076f570cd517a6b",
+      "reviewed_at": 1795791602.8596716
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 115.72,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature authentic archival film footage of Louis Armstrong performing on trumpet, perfectly matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "754d84536b729d4e83eb606443d2af462ae60ef4c2a3d10cd3aadc48733a708c",
+      "reviewed_at": 1795791616.248014
+    },
+    {
+      "person": "Buster Keaton",
+      "source": {
+        "id": "archive:so-funny-it-hurt",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/so-funny-it-hurt/So%20Funny%20It%20Hurt%20Buster%20Keaton%20%26%20MGM%20%282004%29.ia.mp4",
+        "source_url": "https://archive.org/details/so-funny-it-hurt",
+        "title": "So Funny It Hurt: Buster Keaton & MGM (2004)",
+        "description": "Hosted by longime Buster Keaton Friend James Karen, this 2004 documentary by silent film historian Kevin Brownlow and filmmaker Christopher Bird focuses on Keaton's time at MGM. In his autobiography, Keaton describes signing with the studio as \"the worst mistake of my life.\" Directed by Christopher Bird and Kevin Brownlow Produced by Melissa Roller and Patrick Stanbury Incidental Music Composed by Robert Israel, John Lanchbery, and Nic Raine Editing by Christopher Bird Sound by Richard Bytnar and Jim Palmer Narrated and Hosted by James Karen ['So Funny It Hurt: Buster Keaton & MGM', 'Buster Keaton', 'Metro-Goldwyn-Mayer', 'MGM', 'Kevin Brownlow', 'Christopher Bird', 'cinema', 'James Karen', 'documentary', 'documentary film', 'documentaries', 'documentary films', 'Melissa Roller', 'Patrick Stanbury', 'Robert Israel', 'John Lanchbery', 'Nic Raine', 'Richard Bytnar', 'Jim Palmer', 'Photoplay Productions', 'Turner Classic Movies', 'TCM', 'star system', 'studio system', 'screen comedy', 'Red Skelton', 'Spite Marriage', 'I Dood It', 'film history', 'Buster Keaton Productions', 'Irving Thalberg', 'Louis B. Mayer', 'Joseph M. Schenck', 'Nicholas Schenck', 'Roscoe Arbuckle', 'Fatty Arbuckle', 'Edward Sedgwick', 'improvisation', 'film production', 'filmmaking', 'The Cameraman', 'behind the scenes', 'New York filmmaking', 'silent film', 'silent comedy', 'silent films', 'silent cinema', 'comedy films', 'slapstick', 'slapstick comedy', 'silent', 'silent era', 'sound film', 'film stunts', 'Dorothy Sebastian', 'Natalie Talmadge', 'The Hollywood Revue', 'The Hollywood Revue of 1929', 'Free and Easy', 'Cecil B. DeMille', 'Joseph W. Farnham', 'talkies', 'alcoholism', 'farce', 'Doughboys', 'Marx Brothers', 'gag men', 'Jimmy Durante', 'dialogue', 'divorce', 'Watch the Bride', 'Eleanor Keaton']",
+        "creator": "['Christopher Bird', 'Kevin Brownlow']",
+        "license": "",
+        "subject": "['So Funny It Hurt: Buster Keaton & MGM', 'Buster Keaton', 'Metro-Goldwyn-Mayer', 'MGM', 'Kevin Brownlow', 'Christopher Bird', 'cinema', 'James Karen', 'documentary', 'documentary film', 'documentaries', 'documentary films', 'Melissa Roller', 'Patrick Stanbury', 'Robert Israel', 'John Lanchbery', 'Nic Raine', 'Richard Bytnar', 'Jim Palmer', 'Photoplay Productions', 'Turner Classic Movies', 'TCM', 'star system', 'studio system', 'screen comedy', 'Red Skelton', 'Spite Marriage', 'I Dood It', 'film history', 'Buster Keaton Productions', 'Irving Thalberg', 'Louis B. Mayer', 'Joseph M. Schenck', 'Nicholas Schenck', 'Roscoe Arbuckle', 'Fatty Arbuckle', 'Edward Sedgwick', 'improvisation', 'film production', 'filmmaking', 'The Cameraman', 'behind the scenes', 'New York filmmaking', 'silent film', 'silent comedy', 'silent films', 'silent cinema', 'comedy films', 'slapstick', 'slapstick comedy', 'silent', 'silent era', 'sound film', 'film stunts', 'Dorothy Sebastian', 'Natalie Talmadge', 'The Hollywood Revue', 'The Hollywood Revue of 1929', 'Free and Easy', 'Cecil B. DeMille', 'Joseph W. Farnham', 'talkies', 'alcoholism', 'farce', 'Doughboys', 'Marx Brothers', 'gag men', 'Jimmy Durante', 'dialogue', 'divorce', 'Watch the Bride', 'Eleanor Keaton']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2302.3,
+        "identity_score": 13.0,
+        "archival_signal": 2,
+        "alternate_urls": [
+          "https://archive.org/download/so-funny-it-hurt/So%20Funny%20It%20Hurt%20Buster%20Keaton%20%26%20MGM%20%282004%29.mp4"
+        ]
+      },
+      "start": 1237.16,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Buster Keaton performing a stunt outside a building, perfectly illustrating his career and work in silent comedy.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c6a0a12d00470279aa093b463535b3d0bf229d17d10fad9ca4dd696c16a1aaf7",
+      "reviewed_at": 1795791718.7461796
+    },
+    {
+      "person": "Buster Keaton",
+      "source": {
+        "id": "archive:1-buster-keaton-a-hard-act-to-follow",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.ia.mp4",
+        "source_url": "https://archive.org/details/1-buster-keaton-a-hard-act-to-follow",
+        "title": "Buster Keaton: A Hard Act To Follow",
+        "description": "A three-part television documentary series made in 1987, charting the life and career of Buster Keaton. The series was written and produced by Kevin Brownlow and David Gill for Thames Television and narrated by Lindsay Anderson. ['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "creator": "David Gill, Kevin Brownlow",
+        "license": "",
+        "subject": "['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3093.72,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.mp4"
+        ]
+      },
+      "start": 1663.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The clip features genuine archival footage of Buster Keaton acting in a later-life commercial or TV appearance (gas station attendant sketch), showing him clearly in multiple frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ce7e7469bbe4ff7f18aa625fc427ed5c275681563afd08268619573736a92c21",
+      "reviewed_at": 1795791739.5001757
+    },
+    {
+      "person": "Buster Keaton",
+      "source": {
+        "id": "archive:1-buster-keaton-a-hard-act-to-follow",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.ia.mp4",
+        "source_url": "https://archive.org/details/1-buster-keaton-a-hard-act-to-follow",
+        "title": "Buster Keaton: A Hard Act To Follow",
+        "description": "A three-part television documentary series made in 1987, charting the life and career of Buster Keaton. The series was written and produced by Kevin Brownlow and David Gill for Thames Television and narrated by Lindsay Anderson. ['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "creator": "David Gill, Kevin Brownlow",
+        "license": "",
+        "subject": "['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3093.72,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.mp4"
+        ]
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features authentic archival footage of Buster Keaton from his iconic silent film 'Seven Chances', showing him prominently on screen throughout the sampled frames as he is pursued by a crowd.",
+        "usage": "direct_event"
+      },
+      "review_key": "0efc09c8377faae65e3c0f7d2919b4181c5e4b874ac6a70cc52ed9b8044b6d25",
+      "reviewed_at": 1795791774.9471602
+    },
+    {
+      "person": "Buster Keaton",
+      "source": {
+        "id": "archive:1-buster-keaton-a-hard-act-to-follow",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.ia.mp4",
+        "source_url": "https://archive.org/details/1-buster-keaton-a-hard-act-to-follow",
+        "title": "Buster Keaton: A Hard Act To Follow",
+        "description": "A three-part television documentary series made in 1987, charting the life and career of Buster Keaton. The series was written and produced by Kevin Brownlow and David Gill for Thames Television and narrated by Lindsay Anderson. ['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "creator": "David Gill, Kevin Brownlow",
+        "license": "",
+        "subject": "['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3093.72,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.mp4"
+        ]
+      },
+      "start": 241.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames feature genuine archival footage showing Buster Keaton both acting in a scene (frame 1) and posing with others, making it highly relevant biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e81e1815d728da07a2069ca85ac2b4ba5e8e216a771600d9e4c2dc46e2af217d",
+      "reviewed_at": 1795791784.3587067
+    },
+    {
+      "person": "Buster Keaton",
+      "source": {
+        "id": "archive:1-buster-keaton-a-hard-act-to-follow",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.ia.mp4",
+        "source_url": "https://archive.org/details/1-buster-keaton-a-hard-act-to-follow",
+        "title": "Buster Keaton: A Hard Act To Follow",
+        "description": "A three-part television documentary series made in 1987, charting the life and career of Buster Keaton. The series was written and produced by Kevin Brownlow and David Gill for Thames Television and narrated by Lindsay Anderson. ['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "creator": "David Gill, Kevin Brownlow",
+        "license": "",
+        "subject": "['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3093.72,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.mp4"
+        ]
+      },
+      "start": 715.7,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The segment features authentic archival film footage of Buster Keaton performing in one of his classic silent comedies, making it directly relevant and high quality for a biographical video.",
+        "usage": "direct_event"
+      },
+      "review_key": "5543ebed337afdcd1c5f028536eb68001fab90c33d3d17b867461e329c5b3e19",
+      "reviewed_at": 1795791807.2694793
+    },
+    {
+      "person": "Buster Keaton",
+      "source": {
+        "id": "archive:1-buster-keaton-a-hard-act-to-follow",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.ia.mp4",
+        "source_url": "https://archive.org/details/1-buster-keaton-a-hard-act-to-follow",
+        "title": "Buster Keaton: A Hard Act To Follow",
+        "description": "A three-part television documentary series made in 1987, charting the life and career of Buster Keaton. The series was written and produced by Kevin Brownlow and David Gill for Thames Television and narrated by Lindsay Anderson. ['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "creator": "David Gill, Kevin Brownlow",
+        "license": "",
+        "subject": "['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3093.72,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.mp4"
+        ]
+      },
+      "start": 1189.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature genuine archival film footage of Buster Keaton performing in his classic silent comedy style, perfectly matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "78d08889c90025de6939f6e2e5582547e35c1c8c78595da47d5c2e778b9d5fe9",
+      "reviewed_at": 1795791830.0710177
+    },
+    {
+      "person": "Buster Keaton",
+      "source": {
+        "id": "archive:1-buster-keaton-a-hard-act-to-follow",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.ia.mp4",
+        "source_url": "https://archive.org/details/1-buster-keaton-a-hard-act-to-follow",
+        "title": "Buster Keaton: A Hard Act To Follow",
+        "description": "A three-part television documentary series made in 1987, charting the life and career of Buster Keaton. The series was written and produced by Kevin Brownlow and David Gill for Thames Television and narrated by Lindsay Anderson. ['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "creator": "David Gill, Kevin Brownlow",
+        "license": "",
+        "subject": "['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3093.72,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.mp4"
+        ]
+      },
+      "start": 1426.41,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The sampled frames show archival silent film footage of Buster Keaton in the first frame, followed by a contemporary interview discussing his life and career, fulfilling the biographical illustration requirements.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2ec117a6acb9ed4a23e58b4bb9beefc78fcc3139ec41c45d54541e9292824318",
+      "reviewed_at": 1795791840.6315982
+    },
+    {
+      "person": "Buster Keaton",
+      "source": {
+        "id": "archive:1-buster-keaton-a-hard-act-to-follow",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.ia.mp4",
+        "source_url": "https://archive.org/details/1-buster-keaton-a-hard-act-to-follow",
+        "title": "Buster Keaton: A Hard Act To Follow",
+        "description": "A three-part television documentary series made in 1987, charting the life and career of Buster Keaton. The series was written and produced by Kevin Brownlow and David Gill for Thames Television and narrated by Lindsay Anderson. ['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "creator": "David Gill, Kevin Brownlow",
+        "license": "",
+        "subject": "['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3093.72,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.mp4"
+        ]
+      },
+      "start": 1900.21,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video clip features authentic archival footage of Buster Keaton in a boat from one of his silent comedies, clearly showing him in frames 3-5 and directly illustrating his life and film career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "242277c7eae8764eb5cccd2ab42a8211b38d2400bb61280aea666f4999d47b7f",
+      "reviewed_at": 1795791853.065976
+    },
+    {
+      "person": "Buster Keaton",
+      "source": {
+        "id": "archive:1-buster-keaton-a-hard-act-to-follow",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.ia.mp4",
+        "source_url": "https://archive.org/details/1-buster-keaton-a-hard-act-to-follow",
+        "title": "Buster Keaton: A Hard Act To Follow",
+        "description": "A three-part television documentary series made in 1987, charting the life and career of Buster Keaton. The series was written and produced by Kevin Brownlow and David Gill for Thames Television and narrated by Lindsay Anderson. ['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "creator": "David Gill, Kevin Brownlow",
+        "license": "",
+        "subject": "['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3093.72,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.mp4"
+        ]
+      },
+      "start": 2374.02,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment clearly shows Buster Keaton speaking in archival footage from a documentary, making it highly usable and relevant for a biography short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b4a26e6d0794e0f93a2481b690cb7cef474060c239506e8f3f2fd21abbe547c0",
+      "reviewed_at": 1795791875.134385
+    },
+    {
+      "person": "Buster Keaton",
+      "source": {
+        "id": "archive:1-buster-keaton-a-hard-act-to-follow",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.ia.mp4",
+        "source_url": "https://archive.org/details/1-buster-keaton-a-hard-act-to-follow",
+        "title": "Buster Keaton: A Hard Act To Follow",
+        "description": "A three-part television documentary series made in 1987, charting the life and career of Buster Keaton. The series was written and produced by Kevin Brownlow and David Gill for Thames Television and narrated by Lindsay Anderson. ['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "creator": "David Gill, Kevin Brownlow",
+        "license": "",
+        "subject": "['David Gill', 'Kevin Brownlow', 'Buster Keaton', 'TV Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3093.72,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/1-buster-keaton-a-hard-act-to-follow/3_Buster_Keaton_-_A_Hard_Act_to_Follow.mp4"
+        ]
+      },
+      "start": 2610.92,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Buster Keaton in archival footage as well as interview footage discussing his life and career from a documentary, fulfilling all biographical illustration requirements.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2fbc91ad2d21062f70f7aebf35c4019887de06124d4412a9e4d778ec956d2927",
+      "reviewed_at": 1795791921.220408
+    },
+    {
+      "person": "Buster Keaton",
+      "source": {
+        "id": "archive:buster-keaton-the-genius-destroyed-by-hollywood",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/buster-keaton-the-genius-destroyed-by-hollywood/Buster_Keaton_-_The_Genius_Crushed_by_Hollywood_A_revealing_look_at_how_Buste...-318282769327717.ia.mp4",
+        "source_url": "https://archive.org/details/buster-keaton-the-genius-destroyed-by-hollywood",
+        "title": "Buster Keaton:The Genius Destroyed By Hollywood",
+        "description": "A spotlight on the 7 years during which his life changed, using extracts of Keaton’s films as magnifying mirrors, the film recounts the dramatic life of this creative genius and the Hollywood studios. ['Buster Keaton', 'Documentary', 'Jean-Baptiste Péretié']",
+        "creator": "",
+        "license": "",
+        "subject": "['Buster Keaton', 'Documentary', 'Jean-Baptiste Péretié']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3177.48,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/buster-keaton-the-genius-destroyed-by-hollywood/Buster_Keaton_-_The_Genius_Crushed_by_Hollywood_A_revealing_look_at_how_Buste...-318282769327717.mp4"
+        ]
+      },
+      "start": 1708.41,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature genuine archival film footage of Buster Keaton acting in costume (wearing a top hat and formal wear), directly illustrating his film career and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "84cda42daa3b793f27b124705b9c570e302a235b306b440d3751377fd4fd18eb",
+      "reviewed_at": 1795791949.320461
     }
   ]
 }

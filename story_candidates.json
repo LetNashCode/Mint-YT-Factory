@@ -1,15 +1,1 @@
-[
-  {
-    "format": "one_decision",
-    "person": "Buster Keaton",
-    "premise": "Keaton risked his life during the filming of Steamboat Bill, Jr. by standing in the exact spot where a real two-ton building wall dropped over him.",
-    "hook": "A single misplaced step of two inches would have crushed him instantly, yet he insisted on doing the stunt without a double or trick camera.",
-    "key_facts": [
-      "Filmed the climax of 'Steamboat Bill, Jr.' in 1928 during personal and financial distress.",
-      "Used a genuine building facade weighing an estimated two tons.",
-      "Cleared the falling frame through a single second-story window opening with only inches of tolerance.",
-      "Refused a stunt double and performed the sequence in a single continuous take."
-    ],
-    "source": "gemini_original"
-  }
-]
+[]

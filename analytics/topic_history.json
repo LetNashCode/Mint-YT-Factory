@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why does a screen attract fingerprints",
-    "normalized": "why does a screen attract fingerprints",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795650422,
-    "recorded_at": 1795650422,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do rubber boots leave scuff marks",
     "normalized": "why do rubber boots leave scuff marks",
     "workflow": "publish",
@@ -3522,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1795732360,
     "recorded_at": 1795732360,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "How do ice cream cones drip",
+    "normalized": "how do ice cream cones drip",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795761226,
+    "recorded_at": 1795761226,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

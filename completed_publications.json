@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1790275768",
-    "video_id": "itIwVMtVwnE",
-    "topic": "Why do zipper sliders jam",
-    "completed_at": 1790277312
-  },
-  {
     "workdir": "output/1790319921",
     "video_id": "0Htz284dUj0",
     "topic": "Why do tears taste salty",
@@ -598,5 +592,11 @@
     "video_id": "jrwgMj3DVq0",
     "topic": "Why do toaster slots click down hard",
     "completed_at": 1795716947
+  },
+  {
+    "workdir": "output/1795761299",
+    "video_id": "n0Yr5UcpyqI",
+    "topic": "How do ice cream cones drip",
+    "completed_at": 1795762759
   }
 ]

@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "How do ice cream cones drip",
-    "normalized": "how do ice cream cones drip",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1795761226,
-    "recorded_at": 1795761226,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do car wiper blades squeak",
     "normalized": "why do car wiper blades squeak",
     "workflow": "publish",
@@ -3522,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1795846074,
     "recorded_at": 1795846074,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do plastic butter tubs stain orange",
+    "normalized": "why do plastic butter tubs stain orange",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1795883058,
+    "recorded_at": 1795883058,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

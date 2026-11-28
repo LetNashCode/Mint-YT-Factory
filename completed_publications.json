@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1790359912",
-    "video_id": "JECOcfWJVlo",
-    "topic": "Why coffee cups drip down the side",
-    "completed_at": 1790362073
-  },
-  {
     "workdir": "output/1790406032",
     "video_id": "nvShfV3DglM",
     "topic": "Why does paint peel",
@@ -598,5 +592,11 @@
     "video_id": "MUH84uAYuys",
     "topic": "Why do coins smell like metal",
     "completed_at": 1795820123
+  },
+  {
+    "workdir": "output/1795846161",
+    "video_id": "u-yyDJDE2lU",
+    "topic": "Why do canned beans hiss when opened",
+    "completed_at": 1795847670
   }
 ]

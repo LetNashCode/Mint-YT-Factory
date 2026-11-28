@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-11-27T19:58:05.938184+00:00",
-  "refresh_attempted_at": "2026-11-27T19:58:05.938184+00:00",
+  "generated_at": "2026-11-28T14:38:18.958121+00:00",
+  "refresh_attempted_at": "2026-11-28T14:38:18.958121+00:00",
   "refresh_status": "success",
-  "video_count": 44,
+  "video_count": 45,
   "optimization_ready": true,
   "live_metrics_ready": true,
-  "advanced_metrics_videos": 42,
+  "advanced_metrics_videos": 43,
   "reason": "",
   "totals": {
-    "views": 14188,
+    "views": 14195,
     "likes": 300,
     "comments": 9
   },
   "averages": {
-    "views": 322.45,
-    "likes": 6.82,
+    "views": 315.44,
+    "likes": 6.67,
     "comments": 0.2,
-    "average_view_percentage": 62.09,
-    "subscribers_gained": 0.39,
+    "average_view_percentage": 61.6,
+    "subscribers_gained": 0.4,
     "shares": 0.02
   },
   "top_videos": [
@@ -621,7 +621,7 @@
       "resolution": "",
       "creative_strategy": "",
       "views": 399,
-      "views_after_24h": 400,
+      "views_after_24h": 401,
       "views_after_7d": 399,
       "likes": 17,
       "comments": 0,
@@ -736,17 +736,17 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 266,
+      "views": 269,
       "views_after_24h": 253,
       "views_after_7d": null,
       "likes": 8,
       "comments": 1,
       "shares": 0,
-      "average_view_duration": 18.0,
-      "average_view_percentage": 41.9,
+      "average_view_duration": 17.0,
+      "average_view_percentage": 41.28,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.3835
+      "engagement_rate": 3.3457
     },
     {
       "topic": "Luciano Pavarotti: Overcoming a severe pulmonary illness and years of rejection before becoming the world's most famous tenor.",
@@ -765,9 +765,9 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 265,
-      "views_after_24h": 252,
-      "views_after_7d": 252,
+      "views": 266,
+      "views_after_24h": 253,
+      "views_after_7d": 253,
       "likes": 3,
       "comments": 0,
       "shares": 0,
@@ -775,7 +775,7 @@
       "average_view_percentage": 62.11,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.1321
+      "engagement_rate": 1.1278
     },
     {
       "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
@@ -888,7 +888,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 24.0,
-      "average_view_percentage": 61.22,
+      "average_view_percentage": 60.14000000000001,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -997,17 +997,17 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 105,
+      "views": 106,
       "views_after_24h": 104,
       "views_after_7d": null,
       "likes": 2,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
+      "average_view_duration": 16.0,
+      "average_view_percentage": 41.84,
+      "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 1.9048
+      "engagement_rate": 1.8868
     },
     {
       "topic": "Amitabh Bachchan: Facing persistent rejection from All India Radio due to his deep voice before becoming the defining star of Indian cinema.",
@@ -1577,8 +1577,37 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
-      "views": 6,
+      "views": 8,
       "views_after_24h": 6,
+      "views_after_7d": null,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
+      "topic": "Alfred Hitchcock: Before crafting cinematic thrillers, he worked as an engineering draftsman and designed silent film title cards.",
+      "video_id": "geTBOuQD4Tc",
+      "title": "Before the Fame: Alfred Hitchcock's Untold Struggle",
+      "workflow": "story",
+      "published_at": "2026-11-28T14:36:48Z",
+      "hook_text": "",
+      "hook_type": "",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": null,
+      "planned_duration_seconds": null,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
+      "views": 0,
+      "views_after_24h": null,
       "views_after_7d": null,
       "likes": 0,
       "comments": 0,
@@ -1593,11 +1622,11 @@
   "retention_objective": {
     "target_average_view_percentage": 70.0,
     "metric": "average_view_percentage",
-    "eligible_video_count": 42,
+    "eligible_video_count": 43,
     "immature_or_missing_metric_count": 2,
     "videos_meeting_target_count": 7,
-    "target_hit_rate_percentage": 16.67,
-    "average_view_percentage": 65.05,
+    "target_hit_rate_percentage": 16.28,
+    "average_view_percentage": 64.47,
     "videos_needing_improvement": [
       {
         "video_id": "RVBp08uabW0",
@@ -1607,7 +1636,7 @@
         "average_view_percentage": 22.02,
         "average_view_duration": 9.0,
         "views": 24,
-        "age_hours": 648.7,
+        "age_hours": 667.4,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1619,7 +1648,7 @@
         "average_view_percentage": 26.56,
         "average_view_duration": 10.0,
         "views": 16,
-        "age_hours": 744.1,
+        "age_hours": 762.8,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1631,7 +1660,7 @@
         "average_view_percentage": 28.13,
         "average_view_duration": 12.0,
         "views": 194,
-        "age_hours": 1076.8,
+        "age_hours": 1095.4,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1643,7 +1672,7 @@
         "average_view_percentage": 33.66,
         "average_view_duration": 15.0,
         "views": 24,
-        "age_hours": 766.5,
+        "age_hours": 785.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1655,7 +1684,7 @@
         "average_view_percentage": 35.87,
         "average_view_duration": 13.0,
         "views": 107,
-        "age_hours": 864.8,
+        "age_hours": 883.5,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1667,7 +1696,7 @@
         "average_view_percentage": 37.76,
         "average_view_duration": 16.0,
         "views": 14,
-        "age_hours": 1820.4,
+        "age_hours": 1839.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1679,7 +1708,7 @@
         "average_view_percentage": 38.03,
         "average_view_duration": 15.0,
         "views": 376,
-        "age_hours": 1845.5,
+        "age_hours": 1864.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1691,7 +1720,7 @@
         "average_view_percentage": 38.94,
         "average_view_duration": 17.0,
         "views": 118,
-        "age_hours": 962.4,
+        "age_hours": 981.1,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1703,7 +1732,7 @@
         "average_view_percentage": 40.42,
         "average_view_duration": 13.0,
         "views": 296,
-        "age_hours": 935.9,
+        "age_hours": 954.6,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -1715,7 +1744,7 @@
         "average_view_percentage": 41.0,
         "average_view_duration": 14.0,
         "views": 1090,
-        "age_hours": 1848.0,
+        "age_hours": 1866.6,
         "target_met": false,
         "status": "needs_improvement"
       }
@@ -1729,7 +1758,7 @@
         "average_view_percentage": 597.81,
         "average_view_duration": 221.0,
         "views": 109,
-        "age_hours": 673.5,
+        "age_hours": 692.1,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1741,7 +1770,7 @@
         "average_view_percentage": 118.77,
         "average_view_duration": 49.0,
         "views": 76,
-        "age_hours": 1059.5,
+        "age_hours": 1078.2,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1753,7 +1782,7 @@
         "average_view_percentage": 86.52,
         "average_view_duration": 38.0,
         "views": 1040,
-        "age_hours": 1130.7,
+        "age_hours": 1149.4,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1765,7 +1794,7 @@
         "average_view_percentage": 81.18,
         "average_view_duration": 30.0,
         "views": 11,
-        "age_hours": 746.8,
+        "age_hours": 765.5,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1777,7 +1806,7 @@
         "average_view_percentage": 79.17,
         "average_view_duration": 33.0,
         "views": 1428,
-        "age_hours": 314.7,
+        "age_hours": 333.4,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1789,7 +1818,7 @@
         "average_view_percentage": 74.66,
         "average_view_duration": 28.0,
         "views": 66,
-        "age_hours": 969.4,
+        "age_hours": 988.1,
         "target_met": true,
         "status": "goal_met"
       },
@@ -1801,7 +1830,7 @@
         "average_view_percentage": 71.81,
         "average_view_duration": 32.0,
         "views": 35,
-        "age_hours": 1161.4,
+        "age_hours": 1180.0,
         "target_met": true,
         "status": "goal_met"
       }

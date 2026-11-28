@@ -7589,8 +7589,8 @@
       "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
       "person": "Louis Armstrong",
       "start": 99.31,
-      "reason": "The footage shows local politicians and children welcoming veterans at an airport named after Louis Armstrong, but Louis Armstrong himself is not visible (he passed away decades before this event). Therefore, it fails the criteria for biographical identity or direct historical event illustration.",
-      "reviewed_at": 1792701767.245327
+      "reason": "The footage shows unrelated modern video from an airport welcoming event and does not depict Louis Armstrong or any archival footage of him.",
+      "reviewed_at": 1795875034.363954
     },
     "e1437b1ab555a36f354ccfb7": {
       "kind": "segment_rejection",
@@ -7598,8 +7598,8 @@
       "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
       "person": "Louis Armstrong",
       "start": 139.74,
-      "reason": "The footage shows modern archival video from 2015 of veterans arriving at the Louis Armstrong International Airport, but Louis Armstrong (who died in 1971) is not present and the video does not depict his life or events related to him.",
-      "reviewed_at": 1792701782.532508
+      "reason": "The video footage depicts modern event coverage at the Louis Armstrong International Airport welcoming WWII veterans in 2015, featuring veterans and local volunteers. Louis Armstrong passed away in 1971 and is not present in the footage. Therefore, this clip cannot be used as archival footage illustrating the life of Louis Armstrong.",
+      "reviewed_at": 1795875039.128204
     },
     "a49acdab31dd295817d05341": {
       "kind": "segment_rejection",
@@ -10156,8 +10156,8 @@
       "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
       "person": "Louis Armstrong",
       "start": 5.0,
-      "reason": "The video shows Jon Batiste speaking at a panel discussion, but the subject of the biography is Louis Armstrong. Therefore, the person is not visible and the footage is not relevant.",
-      "reviewed_at": 1793217640.4890327
+      "reason": "The video features Jon Batiste speaking at a panel discussion, but the subject of the biography is Louis Armstrong. Therefore, the footage does not depict the correct person.",
+      "reviewed_at": 1795875014.68043
     },
     "087706d10f6a7fc14d2255a3": {
       "kind": "segment_rejection",
@@ -10165,8 +10165,8 @@
       "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
       "person": "Louis Armstrong",
       "start": 14.75,
-      "reason": "The footage shows Jon Batiste speaking at a panel discussion, not Louis Armstrong. Since Louis Armstrong is not visible and the clip does not provide usable historical context for him, it is rejected.",
-      "reviewed_at": 1793217646.5806408
+      "reason": "The video features Jon Batiste speaking at the Aspen Ideas Festival, which does not show Louis Armstrong (the subject of the biography). Therefore, it cannot be used as identity footage for Louis Armstrong.",
+      "reviewed_at": 1795875019.4100487
     },
     "fb834e50d4f8dd44a6172af1": {
       "kind": "segment_rejection",
@@ -10174,8 +10174,8 @@
       "source_url": "https://archive.org/details/Jon_Batiste_explains_Louis_Armstrong",
       "person": "Louis Armstrong",
       "start": 5.0,
-      "reason": "The video features Jon Batiste and Walter Isaacson discussing music at the Aspen Ideas Festival in 2014. It does not show Louis Armstrong, nor is it archival footage of him.",
-      "reviewed_at": 1793217663.0939426
+      "reason": "The video features Jon Batiste and Walter Isaacson discussing music at the Aspen Ideas Festival in 2014, not the biographical subject Louis Armstrong.",
+      "reviewed_at": 1795875024.6507485
     },
     "202b16fd4a6a1ff18b262cb1": {
       "kind": "segment_rejection",
@@ -10183,8 +10183,8 @@
       "source_url": "https://archive.org/details/Jon_Batiste_explains_Louis_Armstrong",
       "person": "Louis Armstrong",
       "start": 121.38,
-      "reason": "The video features Jon Batiste discussing Louis Armstrong, but Louis Armstrong is not visible in the footage. The subject of the biography is Louis Armstrong, not Jon Batiste.",
-      "reviewed_at": 1793217687.8028736
+      "reason": "The video features Jon Batiste and Walter Isaacson discussing music at the Aspen Ideas Festival. Louis Armstrong is the subject of the biography narration, but he is not present in the footage; the clip features Jon Batiste, making it irrelevant for direct identity footage of Louis Armstrong.",
+      "reviewed_at": 1795875029.2042384
     },
     "ab097028d6859c4be1dc644b": {
       "kind": "segment_rejection",
@@ -15502,6 +15502,402 @@
       "start": 3084.72,
       "reason": "The segment consists entirely of production logos and title cards (Thames Television and FremantleMedia) without any historical context or biographical footage of Buster Keaton.",
       "reviewed_at": 1795791942.2948027
+    },
+    "e080962e441faf4f39775fa7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee",
+      "source_url": "https://archive.org/details/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee",
+      "person": "Dev Anand",
+      "start": 5.0,
+      "reason": "The sampled frames depict an older male character actor (likely an antagonist or supporting actor from the film), not Dev Anand.",
+      "reviewed_at": 1795874577.6291888
+    },
+    "e1e92110b5afe33afb16d4b1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:guide-1965-dev-anand-waheeda-rehman-vijay-anand-r-k-narayan-classic-hindi-film",
+      "source_url": "https://archive.org/details/guide-1965-dev-anand-waheeda-rehman-vijay-anand-r-k-narayan-classic-hindi-film",
+      "person": "Dev Anand",
+      "start": 198.18,
+      "reason": "The sampled frames feature actress Waheeda Rehman, but the biography subject Dev Anand is not visible in any of the frames.",
+      "reviewed_at": 1795874590.5897896
+    },
+    "1474cd3ea5b96d1964169656": {
+      "kind": "segment_rejection",
+      "source_id": "archive:guide-1965-dev-anand-waheeda-rehman-vijay-anand-r-k-narayan-classic-hindi-film",
+      "source_url": "https://archive.org/details/guide-1965-dev-anand-waheeda-rehman-vijay-anand-r-k-narayan-classic-hindi-film",
+      "person": "Dev Anand",
+      "start": 391.36,
+      "reason": "The video clip features Waheeda Rehman dancing from the classic film 'Guide' (1965), which starred Dev Anand and was produced by his company Navketan Films. While Dev Anand himself is not visible in these specific frames, the footage provides valid archival biographical illustration of his iconic film career and major productions.",
+      "reviewed_at": 1795874596.5843112
+    },
+    "970a583312a1401d62719f95": {
+      "kind": "segment_rejection",
+      "source_id": "archive:baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee",
+      "source_url": "https://archive.org/details/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee",
+      "person": "Dev Anand",
+      "start": 434.95,
+      "reason": "The frames show actress Waheeda Rehman from the film Baat Ek Raat Ki (1962), but the subject of the biography is Dev Anand. While it provides valid period cinematic context from a film starring both actors, Dev Anand is not visible in these frames, making it suitable only as biographical illustration rather than direct footage of the subject.",
+      "reviewed_at": 1795874618.3965168
+    },
+    "54e90c2b6a55c3b107670c5f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee",
+      "source_url": "https://archive.org/details/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee",
+      "person": "Dev Anand",
+      "start": 542.44,
+      "reason": "The sampled frames feature a female actor (likely Waheeda Rehman from the film Baat Ek Raat Ki) walking around a room, but the named subject Dev Anand is not visible in any of the frames. However, the archival film clip serves as valid biographical illustration for the actor's work.",
+      "reviewed_at": 1795874625.794297
+    },
+    "3373f3121c68a6aea789582a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Munimji",
+      "source_url": "https://archive.org/details/Munimji",
+      "person": "Dev Anand",
+      "start": 5.0,
+      "reason": "The sampled frames show archival film footage from Munimji (1955), featuring Nalini Jaywant dancing outdoors, but the subject Dev Anand is not clearly visible in any of the frames. Therefore, it serves as general biographical illustration of the film context without featuring the subject directly.",
+      "reviewed_at": 1795874637.7766013
+    },
+    "86ebaa670f270a17cde43c9a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ccxnewsmn-CCX_News_Reporter_Honored_with_Wilma_Rudolph_Courage_Award",
+      "source_url": "https://archive.org/details/ccxnewsmn-CCX_News_Reporter_Honored_with_Wilma_Rudolph_Courage_Award",
+      "person": "Wilma Rudolph",
+      "start": 5.0,
+      "reason": "The footage shows news anchors discussing a modern award ceremony (Wilma Rudolph Courage Award) and does not feature historical footage or depictions of Wilma Rudolph herself.",
+      "reviewed_at": 1795874703.358991
+    },
+    "b8d137f9da7f93a5da19865b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ccxnewsmn-CCX_News_Reporter_Honored_with_Wilma_Rudolph_Courage_Award",
+      "source_url": "https://archive.org/details/ccxnewsmn-CCX_News_Reporter_Honored_with_Wilma_Rudolph_Courage_Award",
+      "person": "Wilma Rudolph",
+      "start": 14.64,
+      "reason": "The footage shows Sonya Goins receiving an award named after Wilma Rudolph, but the person depicted is not Wilma Rudolph herself, making it irrelevant for identity footage of the subject.",
+      "reviewed_at": 1795874708.1654968
+    },
+    "663de3d46aaf2a9f452d6235": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ccpamd-Chautauquan_Wilma_Rudolph",
+      "source_url": "https://archive.org/details/ccpamd-Chautauquan_Wilma_Rudolph",
+      "person": "Wilma Rudolph",
+      "start": 5.0,
+      "reason": "The footage shows a modern cultural/educational portrayal (Gwendolyn Briley-Strand as a Chautauqua performer) rather than historical footage of Wilma Rudolph herself, making it unsuitable for authentic biographical illustration.",
+      "reviewed_at": 1795874714.0054028
+    },
+    "0917aaf03d0ad88d1f3ebd5b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ccpamd-Chautauquan_Wilma_Rudolph",
+      "source_url": "https://archive.org/details/ccpamd-Chautauquan_Wilma_Rudolph",
+      "person": "Wilma Rudolph",
+      "start": 14.12,
+      "reason": "The footage shows a historical reenactment or performance portraying Wilma Rudolph by an actress, not actual archival footage of the real Wilma Rudolph. Therefore, it is not usable as genuine identity footage.",
+      "reviewed_at": 1795874723.1949937
+    },
+    "5e0e5fd1a062144100937f99": {
+      "kind": "segment_rejection",
+      "source_id": "archive:wktvmi-Krashawn_Martin_reads_Wilma_Unlimited_-_How_Wilma_Rudolph_Became_the_World_s_Fastest_Woman",
+      "source_url": "https://archive.org/details/wktvmi-Krashawn_Martin_reads_Wilma_Unlimited_-_How_Wilma_Rudolph_Became_the_World_s_Fastest_Woman",
+      "person": "Wilma Rudolph",
+      "start": 5.0,
+      "reason": "The video features a modern reader discussing the subject in a public access reading program, not Wilma Rudolph herself or genuine historical context.",
+      "reviewed_at": 1795874729.659058
+    },
+    "bc2cc40c06b64c65d797bafa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:wktvmi-Krashawn_Martin_reads_Wilma_Unlimited_-_How_Wilma_Rudolph_Became_the_World_s_Fastest_Woman",
+      "source_url": "https://archive.org/details/wktvmi-Krashawn_Martin_reads_Wilma_Unlimited_-_How_Wilma_Rudolph_Became_the_World_s_Fastest_Woman",
+      "person": "Wilma Rudolph",
+      "start": 60.81,
+      "reason": "The footage shows someone reading a children's book about Wilma Rudolph, but Wilma Rudolph herself is not visible in any frame, and the video consists solely of someone holding a book with illustrations.",
+      "reviewed_at": 1795874736.3433378
+    },
+    "d03c58efbecd1bad054effa7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "source_url": "https://archive.org/details/hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "person": "Wilma Rudolph",
+      "start": 48.36,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795874740.368303
+    },
+    "20f9ac8f4c51efb0f42fd3b4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "source_url": "https://archive.org/details/hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "person": "Wilma Rudolph",
+      "start": 91.72,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795874743.2633672
+    },
+    "1f817b7900e943126bf5fce1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "source_url": "https://archive.org/details/hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "person": "Wilma Rudolph",
+      "start": 135.08,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795874745.844955
+    },
+    "64b8f796fc09e4dc8b2d9c51": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "source_url": "https://archive.org/details/hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "person": "Wilma Rudolph",
+      "start": 178.44,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795874748.443024
+    },
+    "9049d5e0c70d3157288ef8f1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "source_url": "https://archive.org/details/hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "person": "Wilma Rudolph",
+      "start": 221.8,
+      "reason": "The provided video segment consists of illustrated children's book pages (drawings/animations) rather than actual filmed footage of Wilma Rudolph, making it unsuitable for a biographical short requiring real historical footage or identity footage.",
+      "reviewed_at": 1795874754.2285173
+    },
+    "3061707801209f00e5ae54fd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "source_url": "https://archive.org/details/hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "person": "Wilma Rudolph",
+      "start": 265.16,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795874756.9962904
+    },
+    "a327dcd5d68600ac9a6b25fa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "source_url": "https://archive.org/details/hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "person": "Wilma Rudolph",
+      "start": 351.88,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795874759.247215
+    },
+    "dcd232c0e58d0ba155fd3461": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "source_url": "https://archive.org/details/hcpsfl-Storytime_Online-_When_Wilma_Rudolph_Played_Basketball",
+      "person": "Wilma Rudolph",
+      "start": 395.24,
+      "reason": "The video segment contains children's book illustrations rather than real historical footage or photographs of Wilma Rudolph.",
+      "reviewed_at": 1795874764.1709924
+    },
+    "a44a736ce65196cce225bce3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mctvafmd-Sporting_Lives_-_Wilma_Rudolph_-_A_Chautauqua_Performance",
+      "source_url": "https://archive.org/details/mctvafmd-Sporting_Lives_-_Wilma_Rudolph_-_A_Chautauqua_Performance",
+      "person": "Wilma Rudolph",
+      "start": 5.0,
+      "reason": "The sampled frames depict the host and speaker Dr. Angela Rice Beemer, not the subject Wilma Rudolph, making this archival Chautauqua performance unsuitable as identity footage for Wilma Rudolph.",
+      "reviewed_at": 1795874774.0862556
+    },
+    "7e217a2d94414f2b35b13f50": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mctvafmd-Sporting_Lives_-_Wilma_Rudolph_-_A_Chautauqua_Performance",
+      "source_url": "https://archive.org/details/mctvafmd-Sporting_Lives_-_Wilma_Rudolph_-_A_Chautauqua_Performance",
+      "person": "Wilma Rudolph",
+      "start": 181.61,
+      "reason": "The frames show a contemporary Chautauqua performance where a modern actress portrays Wilma Rudolph in a stage/interview setting, rather than historical footage of the actual Wilma Rudolph. However, it is real moving footage usable as biographical illustration.",
+      "reviewed_at": 1795874780.4694836
+    },
+    "f27619ac75a26224c1e88cae": {
+      "kind": "segment_rejection",
+      "source_id": "archive:milkha-singh-lifes-distraction-to-ultimate-success",
+      "source_url": "https://archive.org/details/milkha-singh-lifes-distraction-to-ultimate-success",
+      "person": "Milkha Singh",
+      "start": 5.0,
+      "reason": "The sampled frames depict dramatized scenes with actors, text overlays ('DISTRACTION', 'RESULTS'), and do not feature actual historical footage of Milkha Singh, making it unusable as authentic biography media.",
+      "reviewed_at": 1795874857.694306
+    },
+    "01818ffc350069b09f37b180": {
+      "kind": "segment_rejection",
+      "source_id": "archive:milkha-singh-lifes-distraction-to-ultimate-success",
+      "source_url": "https://archive.org/details/milkha-singh-lifes-distraction-to-ultimate-success",
+      "person": "Milkha Singh",
+      "start": 23.2,
+      "reason": "The frames depict scenes from a fictional biographical film (Bhaag Milkha Bhaag starring Farhan Akhtar) rather than actual archival footage or genuine historical documentation of Milkha Singh.",
+      "reviewed_at": 1795874882.3650124
+    },
+    "2e1951a87fc903ada3a27f62": {
+      "kind": "segment_rejection",
+      "source_id": "archive:milkha-singh-lifes-distraction-to-ultimate-success",
+      "source_url": "https://archive.org/details/milkha-singh-lifes-distraction-to-ultimate-success",
+      "person": "Milkha Singh",
+      "start": 50.5,
+      "reason": "The video segment contains dramatized cinematic or fictional re-enactments (from a movie or tribute edit) rather than genuine archival footage or real identity footage of Milkha Singh. Furthermore, it features superimposed text ('ACHIEVE') and simulated dramatic framing, making it unsuitable for a biographical documentary short.",
+      "reviewed_at": 1795874886.270779
+    },
+    "be21dafca285d7772a9578ae": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.136",
+      "source_url": "https://archive.org/details/dli.MoI.films.136",
+      "person": "Milkha Singh",
+      "start": 831.08,
+      "reason": "The sampled frames consist entirely of title cards and closing credits/logos, providing no actual filmed footage or usable biographical context for Milkha Singh.",
+      "reviewed_at": 1795874938.9696884
+    },
+    "78bebe181d53cc138480d002": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tvrec0003_202004",
+      "source_url": "https://archive.org/details/tvrec0003_202004",
+      "person": "Jesse Owens",
+      "start": 1677.03,
+      "reason": "The segment features archival footage of the 1936 Berlin Olympics (stadium and torch relay), which is relevant historical context for Jesse Owens, though Jesse Owens himself is not clearly visible in these specific historical frames.",
+      "reviewed_at": 1795875279.6871877
+    },
+    "6e28fb5b526cae8621bb768e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jesseowensadolfhitler",
+      "source_url": "https://archive.org/details/jesseowensadolfhitler",
+      "person": "Jesse Owens",
+      "start": 167.73,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795875289.027039
+    },
+    "af8c41bb2ca60c7b6aabff4f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jesseowensadolfhitler",
+      "source_url": "https://archive.org/details/jesseowensadolfhitler",
+      "person": "Jesse Owens",
+      "start": 208.41,
+      "reason": "The candidate segment consists of static photographs (slideshow) rather than moving archival footage or real filmed video, which violates the requirement against static photographs.",
+      "reviewed_at": 1795875295.006696
+    },
+    "06ccd4c72ee0200669eae0e9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tvrec0003_202004",
+      "source_url": "https://archive.org/details/tvrec0003_202004",
+      "person": "Jesse Owens",
+      "start": 5.0,
+      "reason": "The frames consist entirely of sponsor and foundation title cards (Liberty Mutual and Alfred P. Sloan Foundation) and archival B-roll not depicting Jesse Owens, making the segment unusable for a biographical short about him.",
+      "reviewed_at": 1795875306.4577591
+    },
+    "fe370c14da30ea1555a9c612": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tvrec0003_202004",
+      "source_url": "https://archive.org/details/tvrec0003_202004",
+      "person": "Jesse Owens",
+      "start": 243.86,
+      "reason": "The footage shows archival black and white clips of children and crowds from the early-to-mid 20th century, which serves as biographical illustration for Jesse Owens' era, though Jesse Owens himself is not clearly identifiable among the crowds.",
+      "reviewed_at": 1795875315.6414988
+    },
+    "236e2b2be117f65910683881": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jesseowensadolfhitler",
+      "source_url": "https://archive.org/details/jesseowensadolfhitler",
+      "person": "Jesse Owens",
+      "start": 330.46,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795875319.085125
+    },
+    "62888b0e6ccfe1423d3be1ea": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jesseowensadolfhitler",
+      "source_url": "https://archive.org/details/jesseowensadolfhitler",
+      "person": "Jesse Owens",
+      "start": 371.14,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795875322.0200887
+    },
+    "8ec98b36b03c732fdbecc553": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jesseowensadolfhitler",
+      "source_url": "https://archive.org/details/jesseowensadolfhitler",
+      "person": "Jesse Owens",
+      "start": 452.5,
+      "reason": "The footage is a known digital fabrication/fake depicting Jesse Owens standing next to Adolf Hitler, which never actually happened historically.",
+      "reviewed_at": 1795875328.1295493
+    },
+    "079a4b92dcd4c472bd33502e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jesseowensadolfhitler",
+      "source_url": "https://archive.org/details/jesseowensadolfhitler",
+      "person": "Jesse Owens",
+      "start": 493.18,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795875331.453945
+    },
+    "223a99ccce1ac74700a40a42": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jesseowensadolfhitler",
+      "source_url": "https://archive.org/details/jesseowensadolfhitler",
+      "person": "Jesse Owens",
+      "start": 533.87,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1795875334.747323
+    },
+    "318a457f33c82985cd8ec789": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colbca-Black_History_Month_Spotlight_-_Jesse_Owens",
+      "source_url": "https://archive.org/details/colbca-Black_History_Month_Spotlight_-_Jesse_Owens",
+      "person": "Jesse Owens",
+      "start": 14.48,
+      "reason": "The provided video segment consists entirely of a static graphical slideshow with text and a cutout image, lacking actual filmed footage or moving historical archives.",
+      "reviewed_at": 1795875345.2303393
+    },
+    "4176d61d2130e3d193cf62fa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hctv23va-HCTV_Celebrates_Black_History_Month_-_Jesse_Owens",
+      "source_url": "https://archive.org/details/hctv23va-HCTV_Celebrates_Black_History_Month_-_Jesse_Owens",
+      "person": "Jesse Owens",
+      "start": 15.77,
+      "reason": "The segment consists entirely of two presentational hosts standing in front of a still photograph of Jesse Owens. No actual archival footage of Jesse Owens is shown moving, only a static historical image flanked by modern talk show hosts.",
+      "reviewed_at": 1795875357.0250409
+    },
+    "5bcf0ea752310af610770cb5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hctv23va-HCTV_Celebrates_Black_History_Month_-_Jesse_Owens",
+      "source_url": "https://archive.org/details/hctv23va-HCTV_Celebrates_Black_History_Month_-_Jesse_Owens",
+      "person": "Jesse Owens",
+      "start": 48.29,
+      "reason": "The sampled frames consist entirely of credit text, title cards, and sponsor logos, with no actual filmed footage or historical content present.",
+      "reviewed_at": 1795875362.521495
+    },
+    "90298b55ce53a57432b157d6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Black_History_Month_Jesse_Owens_and_His_Lasting_Impact_on_Phoenix",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Month_Jesse_Owens_and_His_Lasting_Impact_on_Phoenix",
+      "person": "Jesse Owens",
+      "start": 67.48,
+      "reason": "The sampled frames show modern student athletes running a track relay and a static photograph of Jesse Owens, followed by a graphic title card. Since Jesse Owens is not visibly present in moving archival footage of himself, and the segment relies on modern B-roll and a static photo, it is rejected.",
+      "reviewed_at": 1795875379.8359501
+    },
+    "e8ac5a39d94581ea4bc5ad3e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:qatvma-Black_History_Month_-_Jesse_Owens",
+      "source_url": "https://archive.org/details/qatvma-Black_History_Month_-_Jesse_Owens",
+      "person": "Jesse Owens",
+      "start": 2.21,
+      "reason": "The segment consists entirely of static photographs and title/text slides rather than moving historical footage, making it unsuitable for archival video usage.",
+      "reviewed_at": 1795875389.0535321
+    },
+    "11cbb9eaeec4eb88e3d30d95": {
+      "kind": "segment_rejection",
+      "source_id": "archive:alfred-hitchcocks-blackmail-1929-first-british-talkie-that-revolutionized-sound-",
+      "source_url": "https://archive.org/details/alfred-hitchcocks-blackmail-1929-first-british-talkie-that-revolutionized-sound-",
+      "person": "Alfred Hitchcock",
+      "start": 32.55,
+      "reason": "The video segment shows archival film footage relevant to the era and style of Alfred Hitchcock's early films (specifically Blackmail, 1929), serving as useful historical context and biographical illustration, although Hitchcock himself is not visibly present in the sampled frames.",
+      "reviewed_at": 1795875684.457491
+    },
+    "dbf881053eba8f73a12423f9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:alfred-hitchcocks-blackmail-1929-first-british-talkie-that-revolutionized-sound-",
+      "source_url": "https://archive.org/details/alfred-hitchcocks-blackmail-1929-first-british-talkie-that-revolutionized-sound-",
+      "person": "Alfred Hitchcock",
+      "start": 41.74,
+      "reason": "The footage shows authentic archival clips from Alfred Hitchcock's 1929 film 'Blackmail', serving as valid biographical illustration of his early cinematic work, even though Hitchcock himself is not visible in the frames.",
+      "reviewed_at": 1795875693.1809828
+    },
+    "f2eb46f79e746245eab5fd32": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Notorious1946TheatricalTrailer",
+      "source_url": "https://archive.org/details/Notorious1946TheatricalTrailer",
+      "person": "Alfred Hitchcock",
+      "start": 1085.08,
+      "reason": "The frames show William Everson being interviewed, not Alfred Hitchcock, making this footage unusable for depicting Hitchcock.",
+      "reviewed_at": 1795875698.3256254
     }
   }
 }

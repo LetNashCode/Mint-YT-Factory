@@ -2,995 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "M. S. Dhoni",
-      "source": {
-        "id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta/www.8MovieRulz.sx%20-%20M.S.%20Dhoni%20The%20Untold%20Story%20%282016%29%20BR-Rip%20Org%20Auds%20%5BTelugu%20%2B%20Tamil%20%2B%20Hindi%5D%20750MB%20ESub.mp4",
-        "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
-        "title": "Www. 8 Movie Rulz.sx M. S. Dhoni The Untold Story ( 2016) BR Rip Org Auds [ Telugu + Tamil + Hindi] 750 MB ESub",
-        "description": "gguy ygugyu",
-        "creator": "",
-        "license": "",
-        "subject": "ygugyu",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 11080.625,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2558.84,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The sampled frames feature the actor playing M. S. Dhoni in a biographical film dramatizing his early life and school days. While this is a dramatization rather than genuine archival footage of the real person, it clearly depicts the subject's youth for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "00e46c24333f4ec70422b109243062c638fd48aad2dee070ab221a8b83cf2367",
-      "reviewed_at": 1792867489.48728
-    },
-    {
-      "person": "M. S. Dhoni",
-      "source": {
-        "id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta/www.8MovieRulz.sx%20-%20M.S.%20Dhoni%20The%20Untold%20Story%20%282016%29%20BR-Rip%20Org%20Auds%20%5BTelugu%20%2B%20Tamil%20%2B%20Hindi%5D%20750MB%20ESub.mp4",
-        "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
-        "title": "Www. 8 Movie Rulz.sx M. S. Dhoni The Untold Story ( 2016) BR Rip Org Auds [ Telugu + Tamil + Hindi] 750 MB ESub",
-        "description": "gguy ygugyu",
-        "creator": "",
-        "license": "",
-        "subject": "ygugyu",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 11080.625,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 3410.12,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage features an actor portraying M.S. Dhoni in a biographical film dramatization. While not archival documentary footage of the actual subject, it depicts biographical scenes of his life suitable for illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "79ea4e383d95d6cba40bf415b1f1255623fe38bed87a77e81890e98017e4d344",
-      "reviewed_at": 1792867498.6523623
-    },
-    {
-      "person": "Ray Kroc",
-      "source": {
-        "id": "archive:ray-kroc",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ray-kroc/Ray%20Kroc.mp4",
-        "source_url": "https://archive.org/details/ray-kroc",
-        "title": "Ray Kroc",
-        "description": "Ray Kroc: Fast Food McMillionaire [\"McDonald's\", 'Ray Kroc', 'Documentary', 'Biography']",
-        "creator": "",
-        "license": "",
-        "subject": "[\"McDonald's\", 'Ray Kroc', 'Documentary', 'Biography']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2701.668335,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2072.44,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled archival video frames clearly show Ray Kroc interacting with others at a gathering, providing authentic biographical illustration of his life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f64074e6c57c84f1b43bb22d8b5e9297929bcf4453e6efcc0eb638a2f2f18759",
-      "reviewed_at": 1792868044.9679227
-    },
-    {
-      "person": "Manoj Bajpayee",
-      "source": {
-        "id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk/Akshay_Kumar_Latest_Action_Hindi_Full_Movie___Manoj_Bajpayee%2C_Anupam_Kher%2C_K.mp4",
-        "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
-        "title": "Akshay Kumar Latest Action Hindi Full Movie Manoj Bajpayee, Anupam Kher, K",
-        "description": "Spc 26 Hindi",
-        "creator": "",
-        "license": "",
-        "subject": "Hindi",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 7425.033333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 3995.56,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video clip features actor Manoj Bajpayee clearly visible in the opening frames, showing genuine film footage suitable for biographical illustration, though the remaining frames show him from behind.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9674c23a99862ab1e21a64b6416e084cfe5393562608b4a8215f78015a8a2cdc",
-      "reviewed_at": 1792868171.805521
-    },
-    {
-      "person": "Manoj Bajpayee",
-      "source": {
-        "id": "archive:kaun-1999_202609",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/kaun-1999_202609/Kaun%3F%20%281999%29.ia.mp4",
-        "source_url": "https://archive.org/details/kaun-1999_202609",
-        "title": "Kaun? (1999)",
-        "description": "Kaun? (1999) Directed by Ram Gopal Verma Written by Anurag Kashyap Starring: Urmila Matondkar, Manoj Bajpayee, Sushant Singh ['Anurag Kashyap', 'Kaun?', 'Manoj Bajpayee', 'Ram Gopal Verma', 'Sushant Singh', 'Urmila Matondkar']",
-        "creator": "",
-        "license": "",
-        "subject": "['Anurag Kashyap', 'Kaun?', 'Manoj Bajpayee', 'Ram Gopal Verma', 'Sushant Singh', 'Urmila Matondkar']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 5995.44,
-        "identity_score": 10.0,
-        "archival_signal": 0
-      },
-      "start": 4606.11,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The clip features genuine film footage from Manoj Bajpayee's acclaimed film 'Kaun?' (1999), clearly showing him acting in a key scene, making it highly relevant as biographical illustration for a Short about his career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "67a55564d2184446e78b4121cd672e6ca08616d4e7a286270297d85b63f50256",
-      "reviewed_at": 1792868280.1292489
-    },
-    {
-      "person": "Manoj Bajpayee",
-      "source": {
-        "id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk/Akshay_Kumar_Latest_Action_Hindi_Full_Movie___Manoj_Bajpayee%2C_Anupam_Kher%2C_K.mp4",
-        "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
-        "title": "Akshay Kumar Latest Action Hindi Full Movie Manoj Bajpayee, Anupam Kher, K",
-        "description": "Spc 26 Hindi",
-        "creator": "",
-        "license": "",
-        "subject": "Hindi",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 7425.033333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 575.08,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The segment features Manoj Bajpayee in scenes from his film, acting as biographical illustration for his career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ac248e5c597cf432a061d4dabfa8a9bbe050e5b711c601f35734974b057f078c",
-      "reviewed_at": 1792868303.7362995
-    },
-    {
-      "person": "Manoj Bajpayee",
-      "source": {
-        "id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk/Akshay_Kumar_Latest_Action_Hindi_Full_Movie___Manoj_Bajpayee%2C_Anupam_Kher%2C_K.mp4",
-        "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
-        "title": "Akshay Kumar Latest Action Hindi Full Movie Manoj Bajpayee, Anupam Kher, K",
-        "description": "Spc 26 Hindi",
-        "creator": "",
-        "license": "",
-        "subject": "Hindi",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 7425.033333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1715.24,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The clip features actor Manoj Bajpayee among an ensemble cast in a scene from a film, serving as biographical illustration of his acting career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a5ea45304b741856ccd02a2ae355e53ea4385b64c4372069eb78ffd896883af6",
-      "reviewed_at": 1792868353.0546608
-    },
-    {
-      "person": "Manoj Bajpayee",
-      "source": {
-        "id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk/Akshay_Kumar_Latest_Action_Hindi_Full_Movie___Manoj_Bajpayee%2C_Anupam_Kher%2C_K.mp4",
-        "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
-        "title": "Akshay Kumar Latest Action Hindi Full Movie Manoj Bajpayee, Anupam Kher, K",
-        "description": "Spc 26 Hindi",
-        "creator": "",
-        "license": "",
-        "subject": "Hindi",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 7425.033333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 3425.48,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly feature actor Manoj Bajpayee in a film scene, serving as biographical illustration for his career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d1b64ebc6a2736e7c92679d4a65dfd769a47e98bb3524763871d315badb855e7",
-      "reviewed_at": 1792868449.8411672
-    },
-    {
-      "person": "Manoj Bajpayee",
-      "source": {
-        "id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk/Akshay_Kumar_Latest_Action_Hindi_Full_Movie___Manoj_Bajpayee%2C_Anupam_Kher%2C_K.mp4",
-        "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
-        "title": "Akshay Kumar Latest Action Hindi Full Movie Manoj Bajpayee, Anupam Kher, K",
-        "description": "Spc 26 Hindi",
-        "creator": "",
-        "license": "",
-        "subject": "Hindi",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 7425.033333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2855.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video features actual film footage from 'Special 26' where Manoj Bajpayee is clearly visible in the sampled frames, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "30aee196a32f0d6bc27bad86635b23becaa606e085b3a11f57051d50bf60f494",
-      "reviewed_at": 1792868464.286355
-    },
-    {
-      "person": "Manoj Bajpayee",
-      "source": {
-        "id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk/Akshay_Kumar_Latest_Action_Hindi_Full_Movie___Manoj_Bajpayee%2C_Anupam_Kher%2C_K.mp4",
-        "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
-        "title": "Akshay Kumar Latest Action Hindi Full Movie Manoj Bajpayee, Anupam Kher, K",
-        "description": "Spc 26 Hindi",
-        "creator": "",
-        "license": "",
-        "subject": "Hindi",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 7425.033333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5135.72,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The clip features Manoj Bajpayee entering a scene in frame 4, making him clearly identifiable, and serves as biographical film footage illustrating his acting career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "369ef7b2f621d8414b15739a7fb82430e13c64fcf3d382dd83f4c8a3f75f47c7",
-      "reviewed_at": 1792868493.5568166
-    },
-    {
-      "person": "Surya Bonaly",
-      "source": {
-        "id": "archive:artistry-on-ice-1994",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/artistry-on-ice-1994/Artistry%20on%20Ice%20-%201994.ia.mp4",
-        "source_url": "https://archive.org/details/artistry-on-ice-1994",
-        "title": "Artistry On Ice - Verne Lundquist, Tracy Wilson",
-        "description": "CBS broadcast ['Verne Lundquist', 'Tracy Wilson', 'Sergei Grinkov', 'Ekaterina Gordeeva', 'Oksana Baiul', 'Surya Bonaly', 'Nancy Kerrigan', 'Chen Lu', 'Brian Boitano', 'Scott Davis', 'Elvis Stojko']",
-        "creator": "",
-        "license": "",
-        "subject": "['Verne Lundquist', 'Tracy Wilson', 'Sergei Grinkov', 'Ekaterina Gordeeva', 'Oksana Baiul', 'Surya Bonaly', 'Nancy Kerrigan', 'Chen Lu', 'Brian Boitano', 'Scott Davis', 'Elvis Stojko']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3902.133333,
-        "identity_score": 10.0,
-        "archival_signal": 0
-      },
-      "start": 2098.61,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6.5,
-        "reason": "The frames feature archival footage of figure skater Surya Bonaly during a broadcast, showing her clearly in the earlier frames, making it usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1e3a0e6f41b26328dace27215a2b0243a62e10049061e4572e7547b94916775a",
-      "reviewed_at": 1792868540.5397189
-    },
-    {
-      "person": "Tom Hanks",
-      "source": {
-        "id": "archive:ts-5-bts",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
-        "source_url": "https://archive.org/details/ts-5-bts",
-        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
-        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
-        "creator": "Fandango",
-        "license": "",
-        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1218.926042,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 653.81,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The sampled frames clearly feature Tom Hanks in an interview setting, though the segment transitions to animated film clips from Toy Story, which serve as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "39340366ac41038aa0dab6b97d94bc4e93cdccd71e3ada96ebf614bbde42fa85",
-      "reviewed_at": 1792868738.6661766
-    },
-    {
-      "person": "Tom Hanks",
-      "source": {
-        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
-        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
-        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
-        "creator": "",
-        "license": "",
-        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 96.996967,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features real archival footage of Tom Hanks speaking at the premiere of Larry Crowne, making it a valid biographical illustration despite the initial title card frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8451da809542b128325924b2737a2c60bc4f54a9f15b84177bce825b454bdcb8",
-      "reviewed_at": 1792868747.9005501
-    },
-    {
-      "person": "Tom Hanks",
-      "source": {
-        "id": "archive:ts-5-bts",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
-        "source_url": "https://archive.org/details/ts-5-bts",
-        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
-        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
-        "creator": "Fandango",
-        "license": "",
-        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1218.926042,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 97.69,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage shows Tom Hanks participating in a cast interview/panel discussion. While it is recent promotional material rather than archival footage of his early life or career, Tom Hanks is clearly visible and identifiable throughout the sampled frames, making it usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "02628f32bf0e321cd058d51586536a5be20ebc57cf7b423022b8bc288cd1e704",
-      "reviewed_at": 1792868769.6820483
-    },
-    {
-      "person": "Tom Hanks",
-      "source": {
-        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
-        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
-        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
-        "creator": "",
-        "license": "",
-        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 96.996967,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 14.22,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "Tom Hanks is clearly visible in all sampled frames during a red carpet interview/premiere appearance, making it valid archival biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3e47af4291895b35d020b513611669c77c533c47a26a72c4bf184fb57baa0fbe",
-      "reviewed_at": 1792868791.4694395
-    },
-    {
-      "person": "Tom Hanks",
-      "source": {
-        "id": "archive:ts-5-bts",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
-        "source_url": "https://archive.org/details/ts-5-bts",
-        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
-        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
-        "creator": "Fandango",
-        "license": "",
-        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1218.926042,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 283.06,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Tom Hanks is clearly visible in multiple sampled frames participating in a cast interview for Toy Story 5, making it suitable biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2d3d98e41578ba2b065242354d05e6b77ff1916dc42e1cdfc696ccadea1f99d6",
-      "reviewed_at": 1792868818.5023327
-    },
-    {
-      "person": "Tom Hanks",
-      "source": {
-        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
-        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
-        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
-        "creator": "",
-        "license": "",
-        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 96.996967,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 23.44,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The clip features real archival footage of Tom Hanks speaking at a red carpet premiere, clearly visible and identifiable throughout the sampled frames, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "63b3e37a9bd14a91b3299d555c696e276497b70a83c1cc6a8f925c37f2c5c60a",
-      "reviewed_at": 1792868831.5066588
-    },
-    {
-      "person": "Tom Hanks",
-      "source": {
-        "id": "archive:ts-5-bts",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
-        "source_url": "https://archive.org/details/ts-5-bts",
-        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
-        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
-        "creator": "Fandango",
-        "license": "",
-        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1218.926042,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 468.43,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7.0,
-        "reason": "The video segment features Tom Hanks clearly visible in an interview setting with other cast members. While usable as biographical illustration, the content is modern promotional material rather than archival footage matching the full historical scope of a comprehensive biography.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4a38ac5decc6e8eec9b8dde87debd26d1c612d8861af9ced2195b55841be7925",
-      "reviewed_at": 1792868884.1537704
-    },
-    {
-      "person": "Tom Hanks",
-      "source": {
-        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
-        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
-        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
-        "creator": "",
-        "license": "",
-        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 96.996967,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 60.33,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage clearly shows Tom Hanks being interviewed on a red carpet premiere, making it valid biographical illustration footage for a short about his career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "39702ebc1e4aece61c9af199a2cbfa5179d383b145cf3b89fb67487eb149dbba",
-      "reviewed_at": 1792868926.5680807
-    },
-    {
-      "person": "Tom Hanks",
-      "source": {
-        "id": "archive:ts-5-bts",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
-        "source_url": "https://archive.org/details/ts-5-bts",
-        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
-        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
-        "creator": "Fandango",
-        "license": "",
-        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1218.926042,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 561.12,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video segment shows Tom Hanks participating in a modern panel interview alongside other cast members. While it does not depict historical archival material of his early life, he is clearly visible as the named subject in a real, high-quality interview setting suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0867daec08fa3ebb98e11ef320bece91e1bbcf645987dc3f6d5bb5a8b0574ed4",
-      "reviewed_at": 1792868944.236727
-    },
-    {
-      "person": "Tom Hanks",
-      "source": {
-        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
-        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
-        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
-        "creator": "",
-        "license": "",
-        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 96.996967,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 32.67,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video shows real archival footage of Tom Hanks on the red carpet at the Larry Crowne premiere. He is clearly visible and identifiable throughout the sampled frames, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "02c7198190f79fce910a18f291d5469246d318aa6196ba1e3d8bb41f29793280",
-      "reviewed_at": 1792868960.4891334
-    },
-    {
-      "person": "Tom Hanks",
-      "source": {
-        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
-        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
-        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
-        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
-        "creator": "",
-        "license": "",
-        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 96.996967,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 41.89,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage shows Tom Hanks on a red carpet premiere, which is real archival footage of the subject suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a16a89b1e7bbe7840cacc76301df08953b9fc9d1245e6ee79cb131609da2b53a",
-      "reviewed_at": 1792869000.040724
-    },
-    {
-      "person": "APJ Abdul Kalam",
-      "source": {
-        "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3/%22APJ_Abdul_Kalam_interacts_with_Children%22-Asianet_News_Edufest%3A_Part_3.mp4",
-        "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "title": "\" APJ Abdul Kalam Interacts With Children\" Asianet News Edufest: Part 3",
-        "description": "Motivation speech Love",
-        "creator": "Durai",
-        "license": "",
-        "subject": "Love",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 927.92,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 497.11,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows APJ Abdul Kalam speaking at an event, interacting with students/audience members, which directly illustrates his later life and public interactions.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ee6778ccb642c0e1f3d768a43f0bd87826904f60d871471c28b04955e18a3acf",
-      "reviewed_at": 1792949869.2605097
-    },
-    {
-      "person": "APJ Abdul Kalam",
-      "source": {
-        "id": "commons:183824792",
-        "provider": "Wikimedia Commons",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/d/db/DR._APJ_Abdul_Kalam.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "source_url": "https://commons.wikimedia.org/wiki/File:DR._APJ_Abdul_Kalam.webm",
-        "title": "File:DR. APJ Abdul Kalam.webm",
-        "description": "Featuring thought leaders V.C. Sajjanar, B. Soma Raju, Arun Tiwari, and Prof Sandeep Shukla, the event also includes a student interaction on nation building and the launch of the new expanded edition of Wings of Fire. 📅 15 Oct 2025 | 🕔 5 PM | 📍 KRB Auditorium APJAbdulKalam #IIITHyderabad #Innovation #NationBuilding #WingsOfFire",
-        "creator": "WikiPBR",
-        "license": "CC BY 4.0",
-        "direct_subject": false,
-        "identity_score": 10.0,
-        "duration_hint": 137.043
-      },
-      "start": 71.25,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8.0,
-        "reason": "The frames clearly depict APJ Abdul Kalam participating in official meetings and interacting with dignitaries during his presidency. The footage is historical, authentic, and directly relevant for biographical illustration, although presented as a projection/slide capture.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "02a86c16b01af673069fd53e8a538cd8a64d39b63ad8e834f81d6ce6e26ae5a9",
-      "reviewed_at": 1792949882.4152496
-    },
-    {
-      "person": "APJ Abdul Kalam",
-      "source": {
-        "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3/%22APJ_Abdul_Kalam_interacts_with_Children%22-Asianet_News_Edufest%3A_Part_3.mp4",
-        "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "title": "\" APJ Abdul Kalam Interacts With Children\" Asianet News Edufest: Part 3",
-        "description": "Motivation speech Love",
-        "creator": "Durai",
-        "license": "",
-        "subject": "Love",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 927.92,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly show APJ Abdul Kalam speaking at an event, providing genuine archival footage suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d053bbbba8540b8e23b407e5e398b5cab44afa46a4d2c8f976a47130e62a87c1",
-      "reviewed_at": 1792949894.0800104
-    },
-    {
-      "person": "APJ Abdul Kalam",
-      "source": {
-        "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3/%22APJ_Abdul_Kalam_interacts_with_Children%22-Asianet_News_Edufest%3A_Part_3.mp4",
-        "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "title": "\" APJ Abdul Kalam Interacts With Children\" Asianet News Edufest: Part 3",
-        "description": "Motivation speech Love",
-        "creator": "Durai",
-        "license": "",
-        "subject": "Love",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 927.92,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 75.3,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The sampled frames clearly feature APJ Abdul Kalam speaking at an event, perfectly matching the narration and context of archival footage illustrating his life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d01ef1c5f698ee8ee8c148871546ce7d2223f60b03bdfdd112cb8c8b47243cfe",
-      "reviewed_at": 1792949937.6880436
-    },
-    {
-      "person": "APJ Abdul Kalam",
-      "source": {
-        "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3/%22APJ_Abdul_Kalam_interacts_with_Children%22-Asianet_News_Edufest%3A_Part_3.mp4",
-        "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "title": "\" APJ Abdul Kalam Interacts With Children\" Asianet News Edufest: Part 3",
-        "description": "Motivation speech Love",
-        "creator": "Durai",
-        "license": "",
-        "subject": "Love",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 927.92,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 145.6,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment features real archival footage of APJ Abdul Kalam interacting with children and speaking at an event, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f3bc56d194edef911f0a827f73879bd40ae13d6811a5bc541869e636659c840f",
-      "reviewed_at": 1792949949.1765368
-    },
-    {
-      "person": "APJ Abdul Kalam",
-      "source": {
-        "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3/%22APJ_Abdul_Kalam_interacts_with_Children%22-Asianet_News_Edufest%3A_Part_3.mp4",
-        "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "title": "\" APJ Abdul Kalam Interacts With Children\" Asianet News Edufest: Part 3",
-        "description": "Motivation speech Love",
-        "creator": "Durai",
-        "license": "",
-        "subject": "Love",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 927.92,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 215.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "APJ Abdul Kalam is clearly visible in the final frame speaking at a podium during an event with children, matching the narration and context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1ffdb1ab8dd4e7beb7c7560db66ca513e1e0adaf165e3e9b5d6f392281006f94",
-      "reviewed_at": 1792949959.648402
-    },
-    {
-      "person": "APJ Abdul Kalam",
-      "source": {
-        "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3/%22APJ_Abdul_Kalam_interacts_with_Children%22-Asianet_News_Edufest%3A_Part_3.mp4",
-        "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "title": "\" APJ Abdul Kalam Interacts With Children\" Asianet News Edufest: Part 3",
-        "description": "Motivation speech Love",
-        "creator": "Durai",
-        "license": "",
-        "subject": "Love",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 927.92,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 286.21,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features real archival footage of APJ Abdul Kalam speaking at an event, making him clearly visible and identifiable in multiple sampled frames, fulfilling the requirements for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ef1c756f776179470089c3af45beaeed0827fb0cec244aa3f19b8308e32b2efd",
-      "reviewed_at": 1792949968.9055686
-    },
-    {
-      "person": "APJ Abdul Kalam",
-      "source": {
-        "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3/%22APJ_Abdul_Kalam_interacts_with_Children%22-Asianet_News_Edufest%3A_Part_3.mp4",
-        "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "title": "\" APJ Abdul Kalam Interacts With Children\" Asianet News Edufest: Part 3",
-        "description": "Motivation speech Love",
-        "creator": "Durai",
-        "license": "",
-        "subject": "Love",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 927.92,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 356.51,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features real archival footage of APJ Abdul Kalam speaking at an event, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "10f5abedaa8eb3b0b67d41384e1528267173abc0f92b6cd1599c66ced9b9016b",
-      "reviewed_at": 1792949978.430913
-    },
-    {
-      "person": "APJ Abdul Kalam",
-      "source": {
-        "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3/%22APJ_Abdul_Kalam_interacts_with_Children%22-Asianet_News_Edufest%3A_Part_3.mp4",
-        "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "title": "\" APJ Abdul Kalam Interacts With Children\" Asianet News Edufest: Part 3",
-        "description": "Motivation speech Love",
-        "creator": "Durai",
-        "license": "",
-        "subject": "Love",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 927.92,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 426.81,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment shows real archival footage of APJ Abdul Kalam speaking at an event, with him clearly visible in the later frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "29d4f4a666e99597d937af50cc9e931d98ff04d7d1d74be1c573e6a9a01f4363",
-      "reviewed_at": 1792949987.5298796
-    },
-    {
-      "person": "APJ Abdul Kalam",
-      "source": {
-        "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3/%22APJ_Abdul_Kalam_interacts_with_Children%22-Asianet_News_Edufest%3A_Part_3.mp4",
-        "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "title": "\" APJ Abdul Kalam Interacts With Children\" Asianet News Edufest: Part 3",
-        "description": "Motivation speech Love",
-        "creator": "Durai",
-        "license": "",
-        "subject": "Love",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 927.92,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 567.41,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment shows real archival footage of APJ Abdul Kalam speaking at an event and interacting with an audience, directly supporting the biographical narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5274046281d3a4509bd0b30f1d35c55c95b68125b43071394c19aa4f4220d4f6",
-      "reviewed_at": 1792949997.438709
-    },
-    {
       "person": "APJ Abdul Kalam",
       "source": {
         "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
@@ -18138,378 +17149,6 @@
       "reviewed_at": 1795706871.3560627
     },
     {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 171.08,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Louis Armstrong playing the trumpet in archival film footage from Paris Blues (1961), perfectly illustrating his musical career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9d17157b89a1172a1aec99d2b0e30485cf1c86b664589fdac2c096533d3fd0d8",
-      "reviewed_at": 1795791225.3564346
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 226.44,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features authentic archival film footage of Louis Armstrong playing the trumpet (cameo appearance in Paris Blues 1961), with the subject clearly visible and identifiable in multiple sampled frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "99ae7266d2ad3b12197821362490d32fbe29251ebfc0815eb7a80e043c311b04",
-      "reviewed_at": 1795791502.3626618
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 254.12,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment contains authentic historical film footage featuring Louis Armstrong performing, perfectly matching the narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ab1b87c72f0f3370bebbacee3e0aa9d8410734e38ae7abf36c396244e5cd13f5",
-      "reviewed_at": 1795791513.8543406
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 281.79,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The sampled frames clearly feature genuine archival footage of Louis Armstrong playing the trumpet in a performance setting (from the 1961 film Paris Blues), perfectly illustrating his musical career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4b2b3c6900697ee616f2ddac33371cfb21919175050b5ee15cf17717a0d4ba30",
-      "reviewed_at": 1795791524.6071906
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 309.47,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "Louis Armstrong is clearly visible playing the trumpet in the first frame, while subsequent frames show actor Paul Newman in a jazz club scene from the 1961 film Paris Blues. This constitutes genuine archival/film footage illustrating Armstrong's career and musical context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "fec817734cbbb26c70758a3ff0c1253e8c3a17addbe0774a6d119cddcf7f3971",
-      "reviewed_at": 1795791536.0915637
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 337.15,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage features real historical film of Louis Armstrong playing the trumpet in Paris Blues (1961), with Louis clearly visible in multiple frames playing his instrument.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "26abe425ebb05fed7733f67732e795ea95a7f88abfbe3458de9caa5d7b9fda96",
-      "reviewed_at": 1795791546.38706
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 198.76,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature archival footage of Louis Armstrong performing in the 1961 film Paris Blues, making it valid biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0aa6f307dde4d45ad7a5877e41e1d704bde63a959caedf6a4b2e6e4bbf6dd8b1",
-      "reviewed_at": 1795791557.58875
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 32.68,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet in a cameo appearance from the 1961 film Paris Blues, making it authentic and directly relevant historical/biographical material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "51049899a3afe27f7e2e7cd69b49633c3d7cfc88b6a4ab9ab0e9ed9aa9a42633",
-      "reviewed_at": 1795791569.009523
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 60.36,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Louis Armstrong performing on the trumpet in a live setting, matching the subject and biographical context.",
-        "usage": "direct_event"
-      },
-      "review_key": "4227cc5252a6042dafcd56195516783e35562de71ff3696fe6359a34410ef7b0",
-      "reviewed_at": 1795791581.6399684
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 88.04,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features authentic archival film footage of Louis Armstrong performing with a band during his cameo in the 1961 film Paris Blues. He is clearly visible playing the trumpet across multiple frames, directly illustrating his musical career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "44c41b3e5af9a44f0b6a2c02e07ff9504415f8963ff07ec1e7ddafbb93df237a",
-      "reviewed_at": 1795791592.539439
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 143.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature Louis Armstrong performing in archival footage from Paris Blues (1961), perfectly matching the biographical context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "943252cece50a1e9cbc147ff03850fb5ba25cc0eb42d3ea11076f570cd517a6b",
-      "reviewed_at": 1795791602.8596716
-    },
-    {
-      "person": "Louis Armstrong",
-      "source": {
-        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
-        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
-        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "creator": "",
-        "license": "",
-        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 373.833333,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 115.72,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature authentic archival film footage of Louis Armstrong performing on trumpet, perfectly matching the biographical context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "754d84536b729d4e83eb606443d2af462ae60ef4c2a3d10cd3aadc48733a708c",
-      "reviewed_at": 1795791616.248014
-    },
-    {
       "person": "Buster Keaton",
       "source": {
         "id": "archive:so-funny-it-hurt",
@@ -18882,6 +17521,1481 @@
       },
       "review_key": "84cda42daa3b793f27b124705b9c570e302a235b306b440d3751377fd4fd18eb",
       "reviewed_at": 1795791949.320461
+    },
+    {
+      "person": "Dev Anand",
+      "source": {
+        "id": "archive:guide-1965-dev-anand-waheeda-rehman-vijay-anand-r-k-narayan-classic-hindi-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/guide-1965-dev-anand-waheeda-rehman-vijay-anand-r-k-narayan-classic-hindi-film/VTS_01_3.mp4",
+        "source_url": "https://archive.org/details/guide-1965-dev-anand-waheeda-rehman-vijay-anand-r-k-narayan-classic-hindi-film",
+        "title": "Guide(1965)[Dev Anand & Waheeda Rehman]",
+        "description": "Studio-T-Series ['The Guide(1965)', 'Guide(1965)', 'Dev Anand', 'Classic Hindi Film', 'Classic Hindi Movie', 'Hindi Movie', 'Hindi Film', 'Guide', 'The Guide', 'Waheeda Rehman', 'Navketan', 'S.D. Burman', 'Vijay Anand']",
+        "creator": "Vijay Anand",
+        "license": "",
+        "subject": "['The Guide(1965)', 'Guide(1965)', 'Dev Anand', 'Classic Hindi Film', 'Classic Hindi Movie', 'Hindi Movie', 'Hindi Film', 'Guide', 'The Guide', 'Waheeda Rehman', 'Navketan', 'S.D. Burman', 'Vijay Anand']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2525.356167,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/guide-1965-dev-anand-waheeda-rehman-vijay-anand-r-k-narayan-classic-hindi-film/VTS_01_2.mp4",
+          "https://archive.org/download/guide-1965-dev-anand-waheeda-rehman-vijay-anand-r-k-narayan-classic-hindi-film/VTS_01_1.mp4"
+        ]
+      },
+      "start": 1357.27,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames clearly feature Dev Anand acting in a scene from the classic film 'Guide' (1965), providing usable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8b0ec0ce09432f8b0e3d08da3f40d8e86ef71b34f621bdb4be7af5e2570dcdc1",
+      "reviewed_at": 1795874497.4336417
+    },
+    {
+      "person": "Dev Anand",
+      "source": {
+        "id": "archive:baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee/VTS_02_4.mp4",
+        "source_url": "https://archive.org/details/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee",
+        "title": "Baat Ek Raat Ki(1962)[Dev Anand & Waheeda Rehman]",
+        "description": "Studio-Captain Video ['Dev Anand', 'Hemant Kumar', 'Baat Ek Raat Ki', 'Baat Ek Raat Ki(1962)', 'Waheeda Rehman', 'Classic Hindi Film', 'Classic Hindi Movie', 'Hindi Film', 'Hindi Movie']",
+        "creator": "Shanker Mukerjee",
+        "license": "",
+        "subject": "['Dev Anand', 'Hemant Kumar', 'Baat Ek Raat Ki', 'Baat Ek Raat Ki(1962)', 'Waheeda Rehman', 'Classic Hindi Film', 'Classic Hindi Movie', 'Hindi Film', 'Hindi Movie']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1411.343267,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee/VTS_02_5.mp4",
+          "https://archive.org/download/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee/VTS_02_6.mp4"
+        ]
+      },
+      "start": 757.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features actor Dev Anand in a scene from the classic Hindi film 'Baat Ek Raat Ki' (1962), serving as valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "819c694d9f4a00634bc5a6e3667d075f6e59d8e715d5867424172502087da14c",
+      "reviewed_at": 1795874563.9006839
+    },
+    {
+      "person": "Dev Anand",
+      "source": {
+        "id": "archive:guide-1965-dev-anand-waheeda-rehman-vijay-anand-r-k-narayan-classic-hindi-film",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/guide-1965-dev-anand-waheeda-rehman-vijay-anand-r-k-narayan-classic-hindi-film/VTS_01_3.mp4",
+        "source_url": "https://archive.org/details/guide-1965-dev-anand-waheeda-rehman-vijay-anand-r-k-narayan-classic-hindi-film",
+        "title": "Guide(1965)[Dev Anand & Waheeda Rehman]",
+        "description": "Studio-T-Series ['The Guide(1965)', 'Guide(1965)', 'Dev Anand', 'Classic Hindi Film', 'Classic Hindi Movie', 'Hindi Movie', 'Hindi Film', 'Guide', 'The Guide', 'Waheeda Rehman', 'Navketan', 'S.D. Burman', 'Vijay Anand']",
+        "creator": "Vijay Anand",
+        "license": "",
+        "subject": "['The Guide(1965)', 'Guide(1965)', 'Dev Anand', 'Classic Hindi Film', 'Classic Hindi Movie', 'Hindi Movie', 'Hindi Film', 'Guide', 'The Guide', 'Waheeda Rehman', 'Navketan', 'S.D. Burman', 'Vijay Anand']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2525.356167,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/guide-1965-dev-anand-waheeda-rehman-vijay-anand-r-k-narayan-classic-hindi-film/VTS_01_2.mp4",
+          "https://archive.org/download/guide-1965-dev-anand-waheeda-rehman-vijay-anand-r-k-narayan-classic-hindi-film/VTS_01_1.mp4"
+        ]
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled segment features authentic film footage from Guide (1965). Dev Anand becomes clearly visible alongside Waheeda Rehman in the final frames, making this usable biographical illustration of his cinematic career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ebb837fcf8ecb2931b1393b0919b0ec45d13c5ca09a1ebe26dbab4ee0e2a67da",
+      "reviewed_at": 1795874569.1719997
+    },
+    {
+      "person": "Dev Anand",
+      "source": {
+        "id": "archive:baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee/VTS_02_4.mp4",
+        "source_url": "https://archive.org/details/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee",
+        "title": "Baat Ek Raat Ki(1962)[Dev Anand & Waheeda Rehman]",
+        "description": "Studio-Captain Video ['Dev Anand', 'Hemant Kumar', 'Baat Ek Raat Ki', 'Baat Ek Raat Ki(1962)', 'Waheeda Rehman', 'Classic Hindi Film', 'Classic Hindi Movie', 'Hindi Film', 'Hindi Movie']",
+        "creator": "Shanker Mukerjee",
+        "license": "",
+        "subject": "['Dev Anand', 'Hemant Kumar', 'Baat Ek Raat Ki', 'Baat Ek Raat Ki(1962)', 'Waheeda Rehman', 'Classic Hindi Film', 'Classic Hindi Movie', 'Hindi Film', 'Hindi Movie']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1411.343267,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee/VTS_02_5.mp4",
+          "https://archive.org/download/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee/VTS_02_6.mp4"
+        ]
+      },
+      "start": 112.49,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment features genuine archival film footage from the classic movie 'Baat Ek Raat Ki' clearly showing the subject Dev Anand, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0f778ff8f52532f47086fcfc9b1d7acee1c17ee57e147e6b44570e7da98907a3",
+      "reviewed_at": 1795874581.9683368
+    },
+    {
+      "person": "Dev Anand",
+      "source": {
+        "id": "archive:baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee/VTS_02_4.mp4",
+        "source_url": "https://archive.org/details/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee",
+        "title": "Baat Ek Raat Ki(1962)[Dev Anand & Waheeda Rehman]",
+        "description": "Studio-Captain Video ['Dev Anand', 'Hemant Kumar', 'Baat Ek Raat Ki', 'Baat Ek Raat Ki(1962)', 'Waheeda Rehman', 'Classic Hindi Film', 'Classic Hindi Movie', 'Hindi Film', 'Hindi Movie']",
+        "creator": "Shanker Mukerjee",
+        "license": "",
+        "subject": "['Dev Anand', 'Hemant Kumar', 'Baat Ek Raat Ki', 'Baat Ek Raat Ki(1962)', 'Waheeda Rehman', 'Classic Hindi Film', 'Classic Hindi Movie', 'Hindi Film', 'Hindi Movie']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1411.343267,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee/VTS_02_5.mp4",
+          "https://archive.org/download/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee/VTS_02_6.mp4"
+        ]
+      },
+      "start": 219.98,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The clip features genuine archival film footage from 'Baat Ek Raat Ki' (1962) clearly showing the subject, Dev Anand, in multiple frames, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c6341ada62e3328303a0305ee7693f124fab43bbd39bf534648cbd9efaa2fb0b",
+      "reviewed_at": 1795874603.035989
+    },
+    {
+      "person": "Dev Anand",
+      "source": {
+        "id": "archive:baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee/VTS_02_4.mp4",
+        "source_url": "https://archive.org/details/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee",
+        "title": "Baat Ek Raat Ki(1962)[Dev Anand & Waheeda Rehman]",
+        "description": "Studio-Captain Video ['Dev Anand', 'Hemant Kumar', 'Baat Ek Raat Ki', 'Baat Ek Raat Ki(1962)', 'Waheeda Rehman', 'Classic Hindi Film', 'Classic Hindi Movie', 'Hindi Film', 'Hindi Movie']",
+        "creator": "Shanker Mukerjee",
+        "license": "",
+        "subject": "['Dev Anand', 'Hemant Kumar', 'Baat Ek Raat Ki', 'Baat Ek Raat Ki(1962)', 'Waheeda Rehman', 'Classic Hindi Film', 'Classic Hindi Movie', 'Hindi Film', 'Hindi Movie']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1411.343267,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee/VTS_02_5.mp4",
+          "https://archive.org/download/baat-ek-raat-ki-1962-dev-anand-hindi-classic-film-hemant-kumar-waheeda-rehman-shanker-mukerjee/VTS_02_6.mp4"
+        ]
+      },
+      "start": 327.46,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Dev Anand in archival film footage, suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "91655f75f20617093d61216e119d349559c16be20b21c4ccd457c613d8e1a0b5",
+      "reviewed_at": 1795874609.4012272
+    },
+    {
+      "person": "Dev Anand",
+      "source": {
+        "id": "archive:Munimji",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Munimji/VTS_01_5.mp4",
+        "source_url": "https://archive.org/details/Munimji",
+        "title": "Munimji(1955) Dev Anand, Nalini Jaywant",
+        "description": "A classic Hindi film directed by Subodh Kumar Mukerji starring Dev Anand, Nalini Jaywant, Nirupa Roy & Pran. Filmistan movie. Producer-Shashadhar Mukherjee. Studio-Ultra ['Munimji', 'Dev Anand', 'Nalini Jaywant', 'Pran', 'Nirupa Roy', 'S.D.Burman', 'Subodh Kumar Mukerji', 'Subodh Kumar Mukherjee', 'Filmistan', 'Hemant Kumar', 'Kishore Kumar', 'Lata Mangeshkar', 'Geeta Dutt', 'Subodh Mukerji', 'Subodh Mukherjee', 'Hindi Movie', 'Hindi Film', 'Classic Hindi Movie', 'Classic Hindi Film']",
+        "creator": "Subodh Kumar Mukerji",
+        "license": "",
+        "subject": "['Munimji', 'Dev Anand', 'Nalini Jaywant', 'Pran', 'Nirupa Roy', 'S.D.Burman', 'Subodh Kumar Mukerji', 'Subodh Kumar Mukherjee', 'Filmistan', 'Hemant Kumar', 'Kishore Kumar', 'Lata Mangeshkar', 'Geeta Dutt', 'Subodh Mukerji', 'Subodh Mukherjee', 'Hindi Movie', 'Hindi Film', 'Classic Hindi Movie', 'Classic Hindi Film']",
+        "runtime": "147 minutes(Ultra DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1460.8594,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/Munimji/VTS_01_1.mp4",
+          "https://archive.org/download/Munimji/VTS_01_3.mp4"
+        ]
+      },
+      "start": 784.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Dev Anand acting in a scene from his classic film Munimji (1955), providing authentic biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4ab69f7b39f0b552016db6d6032f7a0a8181d1e7d00deef0a79cbc1268863c15",
+      "reviewed_at": 1795874630.7358365
+    },
+    {
+      "person": "Dev Anand",
+      "source": {
+        "id": "archive:Munimji",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Munimji/VTS_01_5.mp4",
+        "source_url": "https://archive.org/details/Munimji",
+        "title": "Munimji(1955) Dev Anand, Nalini Jaywant",
+        "description": "A classic Hindi film directed by Subodh Kumar Mukerji starring Dev Anand, Nalini Jaywant, Nirupa Roy & Pran. Filmistan movie. Producer-Shashadhar Mukherjee. Studio-Ultra ['Munimji', 'Dev Anand', 'Nalini Jaywant', 'Pran', 'Nirupa Roy', 'S.D.Burman', 'Subodh Kumar Mukerji', 'Subodh Kumar Mukherjee', 'Filmistan', 'Hemant Kumar', 'Kishore Kumar', 'Lata Mangeshkar', 'Geeta Dutt', 'Subodh Mukerji', 'Subodh Mukherjee', 'Hindi Movie', 'Hindi Film', 'Classic Hindi Movie', 'Classic Hindi Film']",
+        "creator": "Subodh Kumar Mukerji",
+        "license": "",
+        "subject": "['Munimji', 'Dev Anand', 'Nalini Jaywant', 'Pran', 'Nirupa Roy', 'S.D.Burman', 'Subodh Kumar Mukerji', 'Subodh Kumar Mukherjee', 'Filmistan', 'Hemant Kumar', 'Kishore Kumar', 'Lata Mangeshkar', 'Geeta Dutt', 'Subodh Mukerji', 'Subodh Mukherjee', 'Hindi Movie', 'Hindi Film', 'Classic Hindi Movie', 'Classic Hindi Film']",
+        "runtime": "147 minutes(Ultra DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1460.8594,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/Munimji/VTS_01_1.mp4",
+          "https://archive.org/download/Munimji/VTS_01_3.mp4"
+        ]
+      },
+      "start": 116.3,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival footage from the classic 1955 film 'Munimji' starring Dev Anand, who is clearly visible in multiple sampled frames alongside co-star Nalini Jaywant, making it ideal biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6a08c9841291bc56ad16176a5d8307267b29388c4529deabf76607658da8d61b",
+      "reviewed_at": 1795874641.4194858
+    },
+    {
+      "person": "Dev Anand",
+      "source": {
+        "id": "archive:Munimji",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Munimji/VTS_01_5.mp4",
+        "source_url": "https://archive.org/details/Munimji",
+        "title": "Munimji(1955) Dev Anand, Nalini Jaywant",
+        "description": "A classic Hindi film directed by Subodh Kumar Mukerji starring Dev Anand, Nalini Jaywant, Nirupa Roy & Pran. Filmistan movie. Producer-Shashadhar Mukherjee. Studio-Ultra ['Munimji', 'Dev Anand', 'Nalini Jaywant', 'Pran', 'Nirupa Roy', 'S.D.Burman', 'Subodh Kumar Mukerji', 'Subodh Kumar Mukherjee', 'Filmistan', 'Hemant Kumar', 'Kishore Kumar', 'Lata Mangeshkar', 'Geeta Dutt', 'Subodh Mukerji', 'Subodh Mukherjee', 'Hindi Movie', 'Hindi Film', 'Classic Hindi Movie', 'Classic Hindi Film']",
+        "creator": "Subodh Kumar Mukerji",
+        "license": "",
+        "subject": "['Munimji', 'Dev Anand', 'Nalini Jaywant', 'Pran', 'Nirupa Roy', 'S.D.Burman', 'Subodh Kumar Mukerji', 'Subodh Kumar Mukherjee', 'Filmistan', 'Hemant Kumar', 'Kishore Kumar', 'Lata Mangeshkar', 'Geeta Dutt', 'Subodh Mukerji', 'Subodh Mukherjee', 'Hindi Movie', 'Hindi Film', 'Classic Hindi Movie', 'Classic Hindi Film']",
+        "runtime": "147 minutes(Ultra DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1460.8594,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/Munimji/VTS_01_1.mp4",
+          "https://archive.org/download/Munimji/VTS_01_3.mp4"
+        ]
+      },
+      "start": 227.59,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Dev Anand acting in a scene from the classic 1955 film Munimji, making it authentic archival/biographical footage suitable for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "614b097ad14d04e0da652259d70af2e93b55658b2bf90a27a47b06a0afca2bb7",
+      "reviewed_at": 1795874649.9341385
+    },
+    {
+      "person": "Dev Anand",
+      "source": {
+        "id": "archive:Munimji",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Munimji/VTS_01_5.mp4",
+        "source_url": "https://archive.org/details/Munimji",
+        "title": "Munimji(1955) Dev Anand, Nalini Jaywant",
+        "description": "A classic Hindi film directed by Subodh Kumar Mukerji starring Dev Anand, Nalini Jaywant, Nirupa Roy & Pran. Filmistan movie. Producer-Shashadhar Mukherjee. Studio-Ultra ['Munimji', 'Dev Anand', 'Nalini Jaywant', 'Pran', 'Nirupa Roy', 'S.D.Burman', 'Subodh Kumar Mukerji', 'Subodh Kumar Mukherjee', 'Filmistan', 'Hemant Kumar', 'Kishore Kumar', 'Lata Mangeshkar', 'Geeta Dutt', 'Subodh Mukerji', 'Subodh Mukherjee', 'Hindi Movie', 'Hindi Film', 'Classic Hindi Movie', 'Classic Hindi Film']",
+        "creator": "Subodh Kumar Mukerji",
+        "license": "",
+        "subject": "['Munimji', 'Dev Anand', 'Nalini Jaywant', 'Pran', 'Nirupa Roy', 'S.D.Burman', 'Subodh Kumar Mukerji', 'Subodh Kumar Mukherjee', 'Filmistan', 'Hemant Kumar', 'Kishore Kumar', 'Lata Mangeshkar', 'Geeta Dutt', 'Subodh Mukerji', 'Subodh Mukherjee', 'Hindi Movie', 'Hindi Film', 'Classic Hindi Movie', 'Classic Hindi Film']",
+        "runtime": "147 minutes(Ultra DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1460.8594,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/Munimji/VTS_01_1.mp4",
+          "https://archive.org/download/Munimji/VTS_01_3.mp4"
+        ]
+      },
+      "start": 338.89,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features genuine historical film footage from the classic 1955 movie 'Munimji', clearly showing the subject Dev Anand acting alongside another actor, perfectly serving as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "37e4777afa44dd896715c4225f9760da667ae96c9c8c87d2d172de57a8b0d330",
+      "reviewed_at": 1795874655.2266243
+    },
+    {
+      "person": "Dev Anand",
+      "source": {
+        "id": "archive:Munimji",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Munimji/VTS_01_5.mp4",
+        "source_url": "https://archive.org/details/Munimji",
+        "title": "Munimji(1955) Dev Anand, Nalini Jaywant",
+        "description": "A classic Hindi film directed by Subodh Kumar Mukerji starring Dev Anand, Nalini Jaywant, Nirupa Roy & Pran. Filmistan movie. Producer-Shashadhar Mukherjee. Studio-Ultra ['Munimji', 'Dev Anand', 'Nalini Jaywant', 'Pran', 'Nirupa Roy', 'S.D.Burman', 'Subodh Kumar Mukerji', 'Subodh Kumar Mukherjee', 'Filmistan', 'Hemant Kumar', 'Kishore Kumar', 'Lata Mangeshkar', 'Geeta Dutt', 'Subodh Mukerji', 'Subodh Mukherjee', 'Hindi Movie', 'Hindi Film', 'Classic Hindi Movie', 'Classic Hindi Film']",
+        "creator": "Subodh Kumar Mukerji",
+        "license": "",
+        "subject": "['Munimji', 'Dev Anand', 'Nalini Jaywant', 'Pran', 'Nirupa Roy', 'S.D.Burman', 'Subodh Kumar Mukerji', 'Subodh Kumar Mukherjee', 'Filmistan', 'Hemant Kumar', 'Kishore Kumar', 'Lata Mangeshkar', 'Geeta Dutt', 'Subodh Mukerji', 'Subodh Mukherjee', 'Hindi Movie', 'Hindi Film', 'Classic Hindi Movie', 'Classic Hindi Film']",
+        "runtime": "147 minutes(Ultra DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1460.8594,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/Munimji/VTS_01_1.mp4",
+          "https://archive.org/download/Munimji/VTS_01_3.mp4"
+        ]
+      },
+      "start": 450.19,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Dev Anand (wearing glasses and a cap) alongside Nalini Jaywant in a scene from the classic film Munimji (1955), providing authentic biographical archival footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "81d39e4eeba9ada13b108bc827aff1ec85171ff241abb95f9349720d7940be0a",
+      "reviewed_at": 1795874661.594954
+    },
+    {
+      "person": "Dev Anand",
+      "source": {
+        "id": "archive:Munimji",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Munimji/VTS_01_5.mp4",
+        "source_url": "https://archive.org/details/Munimji",
+        "title": "Munimji(1955) Dev Anand, Nalini Jaywant",
+        "description": "A classic Hindi film directed by Subodh Kumar Mukerji starring Dev Anand, Nalini Jaywant, Nirupa Roy & Pran. Filmistan movie. Producer-Shashadhar Mukherjee. Studio-Ultra ['Munimji', 'Dev Anand', 'Nalini Jaywant', 'Pran', 'Nirupa Roy', 'S.D.Burman', 'Subodh Kumar Mukerji', 'Subodh Kumar Mukherjee', 'Filmistan', 'Hemant Kumar', 'Kishore Kumar', 'Lata Mangeshkar', 'Geeta Dutt', 'Subodh Mukerji', 'Subodh Mukherjee', 'Hindi Movie', 'Hindi Film', 'Classic Hindi Movie', 'Classic Hindi Film']",
+        "creator": "Subodh Kumar Mukerji",
+        "license": "",
+        "subject": "['Munimji', 'Dev Anand', 'Nalini Jaywant', 'Pran', 'Nirupa Roy', 'S.D.Burman', 'Subodh Kumar Mukerji', 'Subodh Kumar Mukherjee', 'Filmistan', 'Hemant Kumar', 'Kishore Kumar', 'Lata Mangeshkar', 'Geeta Dutt', 'Subodh Mukerji', 'Subodh Mukherjee', 'Hindi Movie', 'Hindi Film', 'Classic Hindi Movie', 'Classic Hindi Film']",
+        "runtime": "147 minutes(Ultra DVD version)",
+        "direct_subject": true,
+        "duration_hint": 1460.8594,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/Munimji/VTS_01_1.mp4",
+          "https://archive.org/download/Munimji/VTS_01_3.mp4"
+        ]
+      },
+      "start": 561.48,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features actor Dev Anand clearly identifiable in authentic archival film clips from Munimji (1955), serving as appropriate biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f8edf53839f139581bdadf77988cd8d4d2b46a793d3a16dd50f3f4502a9b77f7",
+      "reviewed_at": 1795874668.7734096
+    },
+    {
+      "person": "Milkha Singh",
+      "source": {
+        "id": "archive:milkha-singh-lifes-distraction-to-ultimate-success",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/milkha-singh-lifes-distraction-to-ultimate-success/Milkha%20Singh%20life%27s%20distraction%20to%20ultimate%20success.ia.mp4",
+        "source_url": "https://archive.org/details/milkha-singh-lifes-distraction-to-ultimate-success",
+        "title": "Milkha Singh Life's Distraction To Ultimate Success",
+        "description": "Milkha falls in chamdi matter then rise again chamdi matter",
+        "creator": "",
+        "license": "",
+        "subject": "chamdi matter",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 59.5,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/milkha-singh-lifes-distraction-to-ultimate-success/Milkha%20Singh%20life%27s%20distraction%20to%20ultimate%20success.mp4"
+        ]
+      },
+      "start": 14.1,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment contains moving dramatic/archival-style footage featuring an actor portraying Milkha Singh running and training, clearly identifiable in multiple frames, matching the biographical narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ed28164c28779e4c2835679193744512531ee4162329d244361d7b186ae1f721",
+      "reviewed_at": 1795874859.593893
+    },
+    {
+      "person": "Milkha Singh",
+      "source": {
+        "id": "archive:dli.MoI.films.136",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dli.MoI.films.136/Flying%20Sikh.ia.mp4",
+        "source_url": "https://archive.org/details/dli.MoI.films.136",
+        "title": "Flying Sikh (Milkha Singh)",
+        "description": "['The film depicts life and activities of Milkha Singh, his Childhood, his exciting career as an athletic and as the Deputy Director of Sports, Govt. of Punjab. Directed by Shankar Gangooli / S. P. Gangooli.', 'From the Government of India, Ministry of Information, Films Division'] GoI Films",
+        "creator": "Ministry of Information, Films Division",
+        "license": "",
+        "subject": "GoI Films",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 840.08,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/dli.MoI.films.136/Flying%20Sikh.mp4"
+        ]
+      },
+      "start": 703.99,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The archival video features authentic footage of Milkha Singh running on a running track and participating in athletic events, directly illustrating his career as an athlete.",
+        "usage": "direct_event"
+      },
+      "review_key": "f8722c07fc2554d1be0706118a09e81cca4b1df1e4f290e34c2b8310b02e6e85",
+      "reviewed_at": 1795874920.960567
+    },
+    {
+      "person": "Milkha Singh",
+      "source": {
+        "id": "archive:dli.MoI.films.136",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dli.MoI.films.136/Flying%20Sikh.ia.mp4",
+        "source_url": "https://archive.org/details/dli.MoI.films.136",
+        "title": "Flying Sikh (Milkha Singh)",
+        "description": "['The film depicts life and activities of Milkha Singh, his Childhood, his exciting career as an athletic and as the Deputy Director of Sports, Govt. of Punjab. Directed by Shankar Gangooli / S. P. Gangooli.', 'From the Government of India, Ministry of Information, Films Division'] GoI Films",
+        "creator": "Ministry of Information, Films Division",
+        "license": "",
+        "subject": "GoI Films",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 840.08,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": [
+          "https://archive.org/download/dli.MoI.films.136/Flying%20Sikh.mp4"
+        ]
+      },
+      "start": 767.54,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The archival footage clearly shows Milkha Singh in profile in the first three frames, and historical footage of athletes including Milkha Singh in the later frames, directly illustrating his athletic career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bc1ac8897462c36f94e046919a1044076368434e76ca85b42f4707a621a42ce7",
+      "reviewed_at": 1795874931.2048352
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 171.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment clearly features authentic archival film footage of Louis Armstrong performing with his band in Paris Blues (1961), making it highly relevant and usable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f8415fc15757364ffdca1d8dd4848cb1d118edbe7d45be2de5c6a448ba537bf3",
+      "reviewed_at": 1795875005.5046828
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 226.44,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Louis Armstrong playing his trumpet in actual historical film footage from the 1961 movie Paris Blues, with him being visibly present and identifiable.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5d6f3cf1bafed06c5de425571a54916e0b3c08de86ef9f57d6bdf74949e74e7c",
+      "reviewed_at": 1795875048.3469746
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 254.12,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Louis Armstrong is clearly visible and performing in frames 1, 2, and 5 (from the film Paris Blues 1961), serving as excellent biographical illustration for his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "61b4ddad6c8165e74fcaf3b38a53650b0970e94b619fc47c23b75ba9ea9f38ed",
+      "reviewed_at": 1795875059.0614657
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 281.79,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video features genuine archival film footage from 1961 ('Paris Blues') clearly showing Louis Armstrong playing the trumpet alongside Paul Newman, perfectly matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a8b06ce3cbbed4af233a77410bf86ecce014514bfd4130a5bf43448696e53809",
+      "reviewed_at": 1795875071.3135836
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 309.47,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Louis Armstrong is clearly visible playing the trumpet in the first frame, while subsequent frames show actor Paul Newman playing the trombone in the same scene from the 1961 film Paris Blues. This is genuine archival footage featuring the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b4a9fa129c4aa511f852112e71648af1064a799f65b2cd186721d0006d2ad339",
+      "reviewed_at": 1795875083.1070457
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 337.15,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Louis Armstrong is clearly visible performing on trumpet in archival film footage from Paris Blues (1961), providing valid and authentic biographical illustration of his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "34dd0795d01a4abd6cd50c0724dd1c0091c26f158d2c98ec77c056d40a6e38a2",
+      "reviewed_at": 1795875094.4555383
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 198.76,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features genuine historical archival moving image of Louis Armstrong performing in Paris Blues (1961), directly illustrating his career and musical life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fce3689ed00f0df8ae61924c46ac724132683510ed41e7964f405f86c3e03434",
+      "reviewed_at": 1795875106.4537878
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 32.68,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features authentic archival footage of Louis Armstrong performing in the 1961 film Paris Blues, with Armstrong clearly identifiable playing his trumpet in frame two.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fef1c1054b2f21a3b45af3309dffbe0f5978c5c94012c6499e6e9ebfe12494b5",
+      "reviewed_at": 1795875117.2243652
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 60.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly and prominently features Louis Armstrong performing on his trumpet during his cameo in Paris Blues (1961), perfectly illustrating his musical career for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0db6e113c8e625ce42b576044158fae5af33a8aea598274c82975fd1182787c0",
+      "reviewed_at": 1795875130.7614815
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 88.04,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Louis Armstrong performing with a trumpet in archival film footage from Paris Blues (1961), serving as a direct visual illustration for his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "17e1131503f3191dbc72b0b03fe9bcc8374fad30d774b7214b79dd209adb372f",
+      "reviewed_at": 1795875141.847103
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 143.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Louis Armstrong performing in archival footage from Paris Blues (1961), perfectly illustrating his musical career as narrated.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "70fe7940063036260e4f68549fa188118aa870f670bbbcf6f0c6e12da1018a50",
+      "reviewed_at": 1795875152.6172903
+    },
+    {
+      "person": "Louis Armstrong",
+      "source": {
+        "id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/louisarmstrongmakesacameoappearanceinparisblues1961/ParisBlues1961.mp4",
+        "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+        "title": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "description": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961 Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "creator": "",
+        "license": "",
+        "subject": "Z-Louis Armstrong makes a cameo appearance in Paris Blues 1961",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 373.833333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 115.72,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment clearly features Louis Armstrong playing the trumpet in archival film footage from Paris Blues (1961), perfectly matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "af73845e88a5cc7ae3f3b714becf85e74e9ffffc9c50a833c51fbc22a93e87f2",
+      "reviewed_at": 1795875163.659799
+    },
+    {
+      "person": "Jesse Owens",
+      "source": {
+        "id": "archive:tvrec0003_202004",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tvrec0003_202004/TVREC0003.mp4",
+        "source_url": "https://archive.org/details/tvrec0003_202004",
+        "title": "Jesse Owens - American Experience (VHS Recording)",
+        "description": "Taken from a VHS Recording (Small glitch at 11:53) Documentary",
+        "creator": "",
+        "license": "",
+        "subject": "Documentary",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3119.2,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": []
+      },
+      "start": 2393.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The first frame clearly shows Jesse Owens in archival footage wearing a USA track uniform, which is directly relevant to his biography and athletic career, even though subsequent frames show a documentary historian speaking.",
+        "usage": "direct_event"
+      },
+      "review_key": "fae00d64c3eb91f6b98dd2be93274e6aaef2833cf70527040de7bedeea6c1921",
+      "reviewed_at": 1795875283.4275424
+    },
+    {
+      "person": "Jesse Owens",
+      "source": {
+        "id": "archive:jesseowensadolfhitler",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jesseowensadolfhitler/American%20National%20Socialism%20-%20Jesse%20Owens.ia.mp4",
+        "source_url": "https://archive.org/details/jesseowensadolfhitler",
+        "title": "Jesse Owens & Adolf Hitler (The True Story - History Documentary)",
+        "description": "Created by https://www.bitchute.com/channel/adolfhitlerthegreateststoryevertold/ ['tgsnt', 'the greatest story never told', 'adolf hitler', 'hitler', 'jesse owens', 'movies', 'the movie', 'documentary', 'nazis', 'nazi germany', 'conspiracy', 'story', 'narrative', 'news', 'holohoax', 'national socialism', 'national socialist', 'nationalism', 'third reich', 'olympics', 'olympic history', 'awards', 'freedom fighters']",
+        "creator": "",
+        "license": "",
+        "subject": "['tgsnt', 'the greatest story never told', 'adolf hitler', 'hitler', 'jesse owens', 'movies', 'the movie', 'documentary', 'nazis', 'nazi germany', 'conspiracy', 'story', 'narrative', 'news', 'holohoax', 'national socialism', 'national socialist', 'nationalism', 'third reich', 'olympics', 'olympic history', 'awards', 'freedom fighters']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 542.866667,
+        "identity_score": 13.0,
+        "archival_signal": 2,
+        "alternate_urls": [
+          "https://archive.org/download/jesseowensadolfhitler/American%20National%20Socialism%20-%20Jesse%20Owens.mp4"
+        ]
+      },
+      "start": 249.09,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Jesse Owens alongside other Olympians in archival photographs from the 1936 Olympics, making it highly relevant biographical illustration despite being static photos within a documentary video.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "761aba4495d85186e85ce5006c22dd992bd577d43b3a9891bc14dc0a41ecf509",
+      "reviewed_at": 1795875298.7159872
+    },
+    {
+      "person": "Jesse Owens",
+      "source": {
+        "id": "archive:hctv23va-HCTV_Celebrates_Black_History_Month_-_Jesse_Owens",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/hctv23va-HCTV_Celebrates_Black_History_Month_-_Jesse_Owens/HCTV_Celebrates_Black_History_Month_-_Jesse_Owens.mp4",
+        "source_url": "https://archive.org/details/hctv23va-HCTV_Celebrates_Black_History_Month_-_Jesse_Owens",
+        "title": "HCTV Celebrates Black History Month: Jesse Owens",
+        "description": "With Gigi Smith & Casey Molina Produced by Herndon Community Television www.hctv.org HCTV: Fairfax County Cox Channel 23 Fairfax County Verizon Channel 28 Worldwide at http://hctv.org/livestream © HCTV 2014 Funding provided by a grant from the Town of Herndon ['Virginia', 'Herndon', 'Herndon Community TV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'hctv', 'herndon community television', 'Jesse Owens (Olympic Athlete)', 'Gigi Smith', 'Casey Molina', 'Herndon Live', 'Black History Month (Quotation Subject)', '2015']",
+        "creator": "Herndon Community TV",
+        "license": "",
+        "subject": "['Virginia', 'Herndon', 'Herndon Community TV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'hctv', 'herndon community television', 'Jesse Owens (Olympic Athlete)', 'Gigi Smith', 'Casey Molina', 'Herndon Live', 'Black History Month (Quotation Subject)', '2015']",
+        "runtime": "00:00:57",
+        "direct_subject": true,
+        "duration_hint": 57.290624,
+        "identity_score": 13.0,
+        "archival_signal": 0,
+        "alternate_urls": []
+      },
+      "start": 4.93,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The segment includes archival footage/photograph illustrations of Jesse Owens combined with community TV presenters, serving as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9672d0e8dff47dfab35fd92250c321f14c17d2138694bce7e6bcf62264d1bc5b",
+      "reviewed_at": 1795875348.610769
+    },
+    {
+      "person": "Alfred Hitchcock",
+      "source": {
+        "id": "archive:Notorious1946TheatricalTrailer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.mp4",
+        "source_url": "https://archive.org/details/Notorious1946TheatricalTrailer",
+        "title": "Alfred Hitchcock's Notorious (1946) Theatrical Trailer & Alfred Hitchcock - Masters of Cinema (Interview with Ingrid Bergman's daughter Pia Lindstrom and William Everson) in 1972",
+        "description": "Like Casablanca (1942), Many National Socialists felt that Notorious also gave false information to Americans about Adolf Hitler and National Socialist Germany. For the \"actual\" truth about Adolf Hitler, Holocaust, and WW2, the documentary \"Adolf Hitler: the greatest story never told\" is available here - https://archive.org/details/AdolfHitlerTheGreatestStoryNEVERToldParts127TGSNTtvYouTubeviaTorchbrowser.com Download Link for Trailer of Notorious - https://ia801504.us.archive.org/3/items/Notorious1946TheatricalTrailer/Notorious%20%281946%29%20-%20Theatrical%20Trailer.mp4 Here is the download link for \"Alfred Hitchcock - Masters of Cinema\" - https://ia601504.us.archive.org/3/items/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.mp4 Alfred Hitchcock Pia Lindstrom William Everson Ben Hecht Cary Grant Ingrid Bergman Claude Rains Leopoldine Konstantin Notorious 1946 1972",
+        "creator": "Alfred Hitchcock",
+        "license": "",
+        "subject": "Alfred Hitchcock Pia Lindstrom William Everson Ben Hecht Cary Grant Ingrid Bergman Claude Rains Leopoldine Konstantin Notorious 1946 1972",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2019.868333,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/Notorious1946TheatricalTrailer/Notorious%20%281946%29%20-%20Theatrical%20Trailer.mp4",
+          "https://archive.org/download/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.ogv"
+        ]
+      },
+      "start": 1547.98,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage shows real archival interview footage of Alfred Hitchcock speaking, making it suitable biographical illustration for a short about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "48e3c427498614fbf4753a2f7de3d8c3f55672eb084e269e3c3a63045f372e77",
+      "reviewed_at": 1795875700.941131
+    },
+    {
+      "person": "Alfred Hitchcock",
+      "source": {
+        "id": "archive:AlfredHitchcockExtendedInterview",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AlfredHitchcockExtendedInterview/AlfredHitchcockExtendedInterview.mp4",
+        "source_url": "https://archive.org/details/AlfredHitchcockExtendedInterview",
+        "title": "ALFRED HITCHCOCK Extended Interview",
+        "description": "This is the rough cut of an extended and highly informative Alfred Hitchcock interview. The interviewer is unknown as is the date, however it probably was sometime in 1966. ['Alfred Hitchcock', 'Alfred Hitchcock interview', 'film history']",
+        "creator": "unknown",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Alfred Hitchcock', 'Alfred Hitchcock interview', 'film history']",
+        "runtime": "40:15",
+        "direct_subject": true,
+        "duration_hint": 2414.8124,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/AlfredHitchcockExtendedInterview/AlfredHitchcockExtendedInterview.ogv"
+        ]
+      },
+      "start": 1297.75,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features genuine archival interview footage of Alfred Hitchcock speaking, making it highly usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "685a50d37b0f6d2a2251cc8aceb96b65da7d19e1bc6cd50cb38451e4f84076ea",
+      "reviewed_at": 1795875709.6809156
+    },
+    {
+      "person": "Alfred Hitchcock",
+      "source": {
+        "id": "archive:Notorious1946TheatricalTrailer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.mp4",
+        "source_url": "https://archive.org/details/Notorious1946TheatricalTrailer",
+        "title": "Alfred Hitchcock's Notorious (1946) Theatrical Trailer & Alfred Hitchcock - Masters of Cinema (Interview with Ingrid Bergman's daughter Pia Lindstrom and William Everson) in 1972",
+        "description": "Like Casablanca (1942), Many National Socialists felt that Notorious also gave false information to Americans about Adolf Hitler and National Socialist Germany. For the \"actual\" truth about Adolf Hitler, Holocaust, and WW2, the documentary \"Adolf Hitler: the greatest story never told\" is available here - https://archive.org/details/AdolfHitlerTheGreatestStoryNEVERToldParts127TGSNTtvYouTubeviaTorchbrowser.com Download Link for Trailer of Notorious - https://ia801504.us.archive.org/3/items/Notorious1946TheatricalTrailer/Notorious%20%281946%29%20-%20Theatrical%20Trailer.mp4 Here is the download link for \"Alfred Hitchcock - Masters of Cinema\" - https://ia601504.us.archive.org/3/items/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.mp4 Alfred Hitchcock Pia Lindstrom William Everson Ben Hecht Cary Grant Ingrid Bergman Claude Rains Leopoldine Konstantin Notorious 1946 1972",
+        "creator": "Alfred Hitchcock",
+        "license": "",
+        "subject": "Alfred Hitchcock Pia Lindstrom William Everson Ben Hecht Cary Grant Ingrid Bergman Claude Rains Leopoldine Konstantin Notorious 1946 1972",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2019.868333,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/Notorious1946TheatricalTrailer/Notorious%20%281946%29%20-%20Theatrical%20Trailer.mp4",
+          "https://archive.org/download/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.ogv"
+        ]
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features real archival interview footage from 1972 where Alfred Hitchcock is clearly visible and speaking with an interviewer, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "16b0dce79bff032834d0086209c3b295b997f6bcf7f9db5499feebed60ddb58b",
+      "reviewed_at": 1795875714.5671196
+    },
+    {
+      "person": "Alfred Hitchcock",
+      "source": {
+        "id": "archive:AlfredHitchcockExtendedInterview",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AlfredHitchcockExtendedInterview/AlfredHitchcockExtendedInterview.mp4",
+        "source_url": "https://archive.org/details/AlfredHitchcockExtendedInterview",
+        "title": "ALFRED HITCHCOCK Extended Interview",
+        "description": "This is the rough cut of an extended and highly informative Alfred Hitchcock interview. The interviewer is unknown as is the date, however it probably was sometime in 1966. ['Alfred Hitchcock', 'Alfred Hitchcock interview', 'film history']",
+        "creator": "unknown",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Alfred Hitchcock', 'Alfred Hitchcock interview', 'film history']",
+        "runtime": "40:15",
+        "direct_subject": true,
+        "duration_hint": 2414.8124,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/AlfredHitchcockExtendedInterview/AlfredHitchcockExtendedInterview.ogv"
+        ]
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames clearly show Alfred Hitchcock sitting in what appears to be a museum or archival exhibit setting alongside a historical mannequin, perfectly matching the biographical and archival context for a Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "dea855bc715515d418e35ed87f8714bbd778a02eef9863110d10b24b1cec6350",
+      "reviewed_at": 1795875720.634442
+    },
+    {
+      "person": "Alfred Hitchcock",
+      "source": {
+        "id": "archive:Notorious1946TheatricalTrailer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.mp4",
+        "source_url": "https://archive.org/details/Notorious1946TheatricalTrailer",
+        "title": "Alfred Hitchcock's Notorious (1946) Theatrical Trailer & Alfred Hitchcock - Masters of Cinema (Interview with Ingrid Bergman's daughter Pia Lindstrom and William Everson) in 1972",
+        "description": "Like Casablanca (1942), Many National Socialists felt that Notorious also gave false information to Americans about Adolf Hitler and National Socialist Germany. For the \"actual\" truth about Adolf Hitler, Holocaust, and WW2, the documentary \"Adolf Hitler: the greatest story never told\" is available here - https://archive.org/details/AdolfHitlerTheGreatestStoryNEVERToldParts127TGSNTtvYouTubeviaTorchbrowser.com Download Link for Trailer of Notorious - https://ia801504.us.archive.org/3/items/Notorious1946TheatricalTrailer/Notorious%20%281946%29%20-%20Theatrical%20Trailer.mp4 Here is the download link for \"Alfred Hitchcock - Masters of Cinema\" - https://ia601504.us.archive.org/3/items/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.mp4 Alfred Hitchcock Pia Lindstrom William Everson Ben Hecht Cary Grant Ingrid Bergman Claude Rains Leopoldine Konstantin Notorious 1946 1972",
+        "creator": "Alfred Hitchcock",
+        "license": "",
+        "subject": "Alfred Hitchcock Pia Lindstrom William Everson Ben Hecht Cary Grant Ingrid Bergman Claude Rains Leopoldine Konstantin Notorious 1946 1972",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2019.868333,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/Notorious1946TheatricalTrailer/Notorious%20%281946%29%20-%20Theatrical%20Trailer.mp4",
+          "https://archive.org/download/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.ogv"
+        ]
+      },
+      "start": 159.3,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage shows Alfred Hitchcock speaking in a 1972 archival interview, providing valid biographical illustration of his later life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0085576d9eeaf167449b21d26a0fa2e0cd6fa4aa8f75ef78ebafde9c9abf7910",
+      "reviewed_at": 1795875726.8430266
+    },
+    {
+      "person": "Alfred Hitchcock",
+      "source": {
+        "id": "archive:AlfredHitchcockExtendedInterview",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AlfredHitchcockExtendedInterview/AlfredHitchcockExtendedInterview.mp4",
+        "source_url": "https://archive.org/details/AlfredHitchcockExtendedInterview",
+        "title": "ALFRED HITCHCOCK Extended Interview",
+        "description": "This is the rough cut of an extended and highly informative Alfred Hitchcock interview. The interviewer is unknown as is the date, however it probably was sometime in 1966. ['Alfred Hitchcock', 'Alfred Hitchcock interview', 'film history']",
+        "creator": "unknown",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Alfred Hitchcock', 'Alfred Hitchcock interview', 'film history']",
+        "runtime": "40:15",
+        "direct_subject": true,
+        "duration_hint": 2414.8124,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/AlfredHitchcockExtendedInterview/AlfredHitchcockExtendedInterview.ogv"
+        ]
+      },
+      "start": 189.68,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature genuine archival footage of Alfred Hitchcock speaking in an interview, perfectly illustrating his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1cae59d9f0cafc7663d49c2051a21b3550a80704db0dbff410c99f30fe953553",
+      "reviewed_at": 1795875734.8865142
+    },
+    {
+      "person": "Alfred Hitchcock",
+      "source": {
+        "id": "archive:Notorious1946TheatricalTrailer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.mp4",
+        "source_url": "https://archive.org/details/Notorious1946TheatricalTrailer",
+        "title": "Alfred Hitchcock's Notorious (1946) Theatrical Trailer & Alfred Hitchcock - Masters of Cinema (Interview with Ingrid Bergman's daughter Pia Lindstrom and William Everson) in 1972",
+        "description": "Like Casablanca (1942), Many National Socialists felt that Notorious also gave false information to Americans about Adolf Hitler and National Socialist Germany. For the \"actual\" truth about Adolf Hitler, Holocaust, and WW2, the documentary \"Adolf Hitler: the greatest story never told\" is available here - https://archive.org/details/AdolfHitlerTheGreatestStoryNEVERToldParts127TGSNTtvYouTubeviaTorchbrowser.com Download Link for Trailer of Notorious - https://ia801504.us.archive.org/3/items/Notorious1946TheatricalTrailer/Notorious%20%281946%29%20-%20Theatrical%20Trailer.mp4 Here is the download link for \"Alfred Hitchcock - Masters of Cinema\" - https://ia601504.us.archive.org/3/items/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.mp4 Alfred Hitchcock Pia Lindstrom William Everson Ben Hecht Cary Grant Ingrid Bergman Claude Rains Leopoldine Konstantin Notorious 1946 1972",
+        "creator": "Alfred Hitchcock",
+        "license": "",
+        "subject": "Alfred Hitchcock Pia Lindstrom William Everson Ben Hecht Cary Grant Ingrid Bergman Claude Rains Leopoldine Konstantin Notorious 1946 1972",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2019.868333,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/Notorious1946TheatricalTrailer/Notorious%20%281946%29%20-%20Theatrical%20Trailer.mp4",
+          "https://archive.org/download/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.ogv"
+        ]
+      },
+      "start": 313.6,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames feature genuine archival video footage of Alfred Hitchcock himself in the first frame, followed by interview footage discussing his work, which serves as valid biographical illustration for a video about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0d68803f56cf20724ca9330134b1999a42b7acecd187de56cf4853d59407920d",
+      "reviewed_at": 1795875739.7005727
+    },
+    {
+      "person": "Alfred Hitchcock",
+      "source": {
+        "id": "archive:AlfredHitchcockExtendedInterview",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AlfredHitchcockExtendedInterview/AlfredHitchcockExtendedInterview.mp4",
+        "source_url": "https://archive.org/details/AlfredHitchcockExtendedInterview",
+        "title": "ALFRED HITCHCOCK Extended Interview",
+        "description": "This is the rough cut of an extended and highly informative Alfred Hitchcock interview. The interviewer is unknown as is the date, however it probably was sometime in 1966. ['Alfred Hitchcock', 'Alfred Hitchcock interview', 'film history']",
+        "creator": "unknown",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Alfred Hitchcock', 'Alfred Hitchcock interview', 'film history']",
+        "runtime": "40:15",
+        "direct_subject": true,
+        "duration_hint": 2414.8124,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/AlfredHitchcockExtendedInterview/AlfredHitchcockExtendedInterview.ogv"
+        ]
+      },
+      "start": 374.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly show Alfred Hitchcock speaking in archival interview footage, making it authentic and directly usable for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "06d085cbd75f0f6445e71cea84b8609b6c6de8d4d3d470d06585c0d0873a4b20",
+      "reviewed_at": 1795875746.8364437
+    },
+    {
+      "person": "Alfred Hitchcock",
+      "source": {
+        "id": "archive:Notorious1946TheatricalTrailer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.mp4",
+        "source_url": "https://archive.org/details/Notorious1946TheatricalTrailer",
+        "title": "Alfred Hitchcock's Notorious (1946) Theatrical Trailer & Alfred Hitchcock - Masters of Cinema (Interview with Ingrid Bergman's daughter Pia Lindstrom and William Everson) in 1972",
+        "description": "Like Casablanca (1942), Many National Socialists felt that Notorious also gave false information to Americans about Adolf Hitler and National Socialist Germany. For the \"actual\" truth about Adolf Hitler, Holocaust, and WW2, the documentary \"Adolf Hitler: the greatest story never told\" is available here - https://archive.org/details/AdolfHitlerTheGreatestStoryNEVERToldParts127TGSNTtvYouTubeviaTorchbrowser.com Download Link for Trailer of Notorious - https://ia801504.us.archive.org/3/items/Notorious1946TheatricalTrailer/Notorious%20%281946%29%20-%20Theatrical%20Trailer.mp4 Here is the download link for \"Alfred Hitchcock - Masters of Cinema\" - https://ia601504.us.archive.org/3/items/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.mp4 Alfred Hitchcock Pia Lindstrom William Everson Ben Hecht Cary Grant Ingrid Bergman Claude Rains Leopoldine Konstantin Notorious 1946 1972",
+        "creator": "Alfred Hitchcock",
+        "license": "",
+        "subject": "Alfred Hitchcock Pia Lindstrom William Everson Ben Hecht Cary Grant Ingrid Bergman Claude Rains Leopoldine Konstantin Notorious 1946 1972",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2019.868333,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/Notorious1946TheatricalTrailer/Notorious%20%281946%29%20-%20Theatrical%20Trailer.mp4",
+          "https://archive.org/download/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.ogv"
+        ]
+      },
+      "start": 467.89,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features genuine archival video footage of filmmaker Alfred Hitchcock speaking in an interview, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "94c824af2f85caa630f2f013d0997e3962fe49f75030b54248d4658ca66a1a11",
+      "reviewed_at": 1795875751.451507
+    },
+    {
+      "person": "Alfred Hitchcock",
+      "source": {
+        "id": "archive:AlfredHitchcockExtendedInterview",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AlfredHitchcockExtendedInterview/AlfredHitchcockExtendedInterview.mp4",
+        "source_url": "https://archive.org/details/AlfredHitchcockExtendedInterview",
+        "title": "ALFRED HITCHCOCK Extended Interview",
+        "description": "This is the rough cut of an extended and highly informative Alfred Hitchcock interview. The interviewer is unknown as is the date, however it probably was sometime in 1966. ['Alfred Hitchcock', 'Alfred Hitchcock interview', 'film history']",
+        "creator": "unknown",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Alfred Hitchcock', 'Alfred Hitchcock interview', 'film history']",
+        "runtime": "40:15",
+        "direct_subject": true,
+        "duration_hint": 2414.8124,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/AlfredHitchcockExtendedInterview/AlfredHitchcockExtendedInterview.ogv"
+        ]
+      },
+      "start": 559.03,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Alfred Hitchcock speaking in an archival interview, providing direct and authentic biographical illustration for a video about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a7db04fca6bfe45f6d7b692199ba56ffaddde3f1d00edeb651fcfb1f306e682e",
+      "reviewed_at": 1795875758.5627773
+    },
+    {
+      "person": "Alfred Hitchcock",
+      "source": {
+        "id": "archive:Notorious1946TheatricalTrailer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.mp4",
+        "source_url": "https://archive.org/details/Notorious1946TheatricalTrailer",
+        "title": "Alfred Hitchcock's Notorious (1946) Theatrical Trailer & Alfred Hitchcock - Masters of Cinema (Interview with Ingrid Bergman's daughter Pia Lindstrom and William Everson) in 1972",
+        "description": "Like Casablanca (1942), Many National Socialists felt that Notorious also gave false information to Americans about Adolf Hitler and National Socialist Germany. For the \"actual\" truth about Adolf Hitler, Holocaust, and WW2, the documentary \"Adolf Hitler: the greatest story never told\" is available here - https://archive.org/details/AdolfHitlerTheGreatestStoryNEVERToldParts127TGSNTtvYouTubeviaTorchbrowser.com Download Link for Trailer of Notorious - https://ia801504.us.archive.org/3/items/Notorious1946TheatricalTrailer/Notorious%20%281946%29%20-%20Theatrical%20Trailer.mp4 Here is the download link for \"Alfred Hitchcock - Masters of Cinema\" - https://ia601504.us.archive.org/3/items/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.mp4 Alfred Hitchcock Pia Lindstrom William Everson Ben Hecht Cary Grant Ingrid Bergman Claude Rains Leopoldine Konstantin Notorious 1946 1972",
+        "creator": "Alfred Hitchcock",
+        "license": "",
+        "subject": "Alfred Hitchcock Pia Lindstrom William Everson Ben Hecht Cary Grant Ingrid Bergman Claude Rains Leopoldine Konstantin Notorious 1946 1972",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2019.868333,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/Notorious1946TheatricalTrailer/Notorious%20%281946%29%20-%20Theatrical%20Trailer.mp4",
+          "https://archive.org/download/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.ogv"
+        ]
+      },
+      "start": 622.19,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Alfred Hitchcock speaking in a 1972 archival interview, making it authentic and highly relevant biographical material for a short about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d05f60f87a78c2b7c322e81e1a5f8c0e4334f93c2aa3e08c635a1a0092e02d2e",
+      "reviewed_at": 1795875763.6207054
+    },
+    {
+      "person": "Alfred Hitchcock",
+      "source": {
+        "id": "archive:AlfredHitchcockExtendedInterview",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AlfredHitchcockExtendedInterview/AlfredHitchcockExtendedInterview.mp4",
+        "source_url": "https://archive.org/details/AlfredHitchcockExtendedInterview",
+        "title": "ALFRED HITCHCOCK Extended Interview",
+        "description": "This is the rough cut of an extended and highly informative Alfred Hitchcock interview. The interviewer is unknown as is the date, however it probably was sometime in 1966. ['Alfred Hitchcock', 'Alfred Hitchcock interview', 'film history']",
+        "creator": "unknown",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Alfred Hitchcock', 'Alfred Hitchcock interview', 'film history']",
+        "runtime": "40:15",
+        "direct_subject": true,
+        "duration_hint": 2414.8124,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/AlfredHitchcockExtendedInterview/AlfredHitchcockExtendedInterview.ogv"
+        ]
+      },
+      "start": 743.71,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Alfred Hitchcock in an archival interview setting, making it highly usable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "86b072cc4c3aca995da975ee5a076cecb917320d2bca3bb83f61509687863464",
+      "reviewed_at": 1795875771.2341428
+    },
+    {
+      "person": "Alfred Hitchcock",
+      "source": {
+        "id": "archive:Notorious1946TheatricalTrailer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.mp4",
+        "source_url": "https://archive.org/details/Notorious1946TheatricalTrailer",
+        "title": "Alfred Hitchcock's Notorious (1946) Theatrical Trailer & Alfred Hitchcock - Masters of Cinema (Interview with Ingrid Bergman's daughter Pia Lindstrom and William Everson) in 1972",
+        "description": "Like Casablanca (1942), Many National Socialists felt that Notorious also gave false information to Americans about Adolf Hitler and National Socialist Germany. For the \"actual\" truth about Adolf Hitler, Holocaust, and WW2, the documentary \"Adolf Hitler: the greatest story never told\" is available here - https://archive.org/details/AdolfHitlerTheGreatestStoryNEVERToldParts127TGSNTtvYouTubeviaTorchbrowser.com Download Link for Trailer of Notorious - https://ia801504.us.archive.org/3/items/Notorious1946TheatricalTrailer/Notorious%20%281946%29%20-%20Theatrical%20Trailer.mp4 Here is the download link for \"Alfred Hitchcock - Masters of Cinema\" - https://ia601504.us.archive.org/3/items/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.mp4 Alfred Hitchcock Pia Lindstrom William Everson Ben Hecht Cary Grant Ingrid Bergman Claude Rains Leopoldine Konstantin Notorious 1946 1972",
+        "creator": "Alfred Hitchcock",
+        "license": "",
+        "subject": "Alfred Hitchcock Pia Lindstrom William Everson Ben Hecht Cary Grant Ingrid Bergman Claude Rains Leopoldine Konstantin Notorious 1946 1972",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2019.868333,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/Notorious1946TheatricalTrailer/Notorious%20%281946%29%20-%20Theatrical%20Trailer.mp4",
+          "https://archive.org/download/Notorious1946TheatricalTrailer/AlfredHitchcock-MastersOfCinemacompleteInterviewIn1972.ogv"
+        ]
+      },
+      "start": 776.49,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10.0,
+        "reason": "The sampled frames clearly feature Alfred Hitchcock himself in an archival interview from 1972, serving as direct and authentic biographical footage for a video about him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "eb2e8d6b8f5ce223fbdd868f7e61542b3b49f3e6f752ec015fe22cc4e60b45a0",
+      "reviewed_at": 1795875775.8552244
+    },
+    {
+      "person": "Alfred Hitchcock",
+      "source": {
+        "id": "archive:AlfredHitchcockExtendedInterview",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AlfredHitchcockExtendedInterview/AlfredHitchcockExtendedInterview.mp4",
+        "source_url": "https://archive.org/details/AlfredHitchcockExtendedInterview",
+        "title": "ALFRED HITCHCOCK Extended Interview",
+        "description": "This is the rough cut of an extended and highly informative Alfred Hitchcock interview. The interviewer is unknown as is the date, however it probably was sometime in 1966. ['Alfred Hitchcock', 'Alfred Hitchcock interview', 'film history']",
+        "creator": "unknown",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Alfred Hitchcock', 'Alfred Hitchcock interview', 'film history']",
+        "runtime": "40:15",
+        "direct_subject": true,
+        "duration_hint": 2414.8124,
+        "identity_score": 13.0,
+        "archival_signal": 1,
+        "alternate_urls": [
+          "https://archive.org/download/AlfredHitchcockExtendedInterview/AlfredHitchcockExtendedInterview.ogv"
+        ]
+      },
+      "start": 928.39,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features genuine archival interview footage of Alfred Hitchcock speaking, making it highly usable as biographical illustration for a documentary Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d1ad6dd0449303ae12f379442bd5e7be31be35c23c34da454353e40f095ef2ef",
+      "reviewed_at": 1795875784.4880574
     }
   ]
 }

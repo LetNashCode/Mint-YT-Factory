@@ -708,5 +708,21 @@
     "video_id": "UhE0lUU-Piw",
     "workdir": "",
     "published_at": 1795708104
+  },
+  {
+    "topic": "Alfred Hitchcock: Before crafting cinematic thrillers, he worked as an engineering draftsman and designed silent film title cards.",
+    "normalized": "alfred hitchcock before crafting cinematic thrillers he worked as an engineering draftsman and designed silent film title cards",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1795875674,
+    "recorded_at": 1795875674,
+    "metadata": {
+      "person": "Alfred Hitchcock",
+      "pillar": "before_they_were_famous"
+    },
+    "title": "Alfred Hitchcock: Before crafting cinematic thrillers, he worked as an engineering draftsman and designed silent film title cards.",
+    "video_id": "geTBOuQD4Tc",
+    "workdir": "",
+    "published_at": 1795876696
   }
 ]

@@ -1,18 +1,5 @@
 [
   {
-    "format": "rise_from_nothing",
-    "person": "Milkha Singh",
-    "premise": "Orphaned during the Partition of India, a young boy joined the Indian Army to survive, discovered running by chance, and became an international track icon.",
-    "hook": "He ran away from gunfire as an orphaned refugee—and ended up running for his country at the Olympic Games.",
-    "key_facts": [
-      "Lost both parents during the Partition violence in 1947.",
-      "Introduced to organized athletics only after enlisting in the Indian Army.",
-      "Won gold medals in both 200m and 400m at the 1958 Asian Games.",
-      "Finished fourth in the 400m final at the 1960 Rome Olympics, setting a national record."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Buster Keaton",
     "premise": "Refusing to use stunt doubles or special safety rigs, silent film pioneer Buster Keaton risked his life for cinematic realism in one of the most perilous stunts in film history.",
@@ -78,32 +65,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "rise_from_nothing",
-    "person": "Louis Armstrong",
-    "premise": "Arrested for firing a pistol into the air as a boy, Louis Armstrong was sent to a reform school where he picked up a cornet and redefined American jazz.",
-    "hook": "A troubled youth in New Orleans was sent to a juvenile home—and handed the instrument that changed musical history.",
-    "key_facts": [
-      "Sent to the Colored Waif's Home for Boys in New Orleans at age eleven on New Year's Eve 1912.",
-      "Received his first formal brass instruction under the reform school band director Peter Davis.",
-      "Joined King Oliver's Creole Jazz Band in Chicago in 1922.",
-      "Pioneered trumpet solo technique and scat singing with his Hot Five and Hot Seven recordings."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Wilma Rudolph",
-    "premise": "Paralyzed in her left leg by childhood polio, Wilma Rudolph wore leg braces until age nine before becoming the fastest woman on the planet.",
-    "hook": "Doctors told her mother she would never walk again; a decade later, she won three Olympic golds.",
-    "key_facts": [
-      "Diagnosed with infantile paralysis from polio at age four and wore a metal brace until age nine.",
-      "Underwent twice-weekly massage therapy trips 50 miles away to Meharry Medical College.",
-      "Qualified for her first Olympic team at age sixteen in 1956.",
-      "Became the first American woman to win three track-and-field gold medals in a single Olympics at Rome 1960."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "Jacques Cousteau",
     "premise": "A catastrophic automobile accident ended a young French naval aviator's dream of flying, turning his focus to oceanic swimming for physical therapy.",
@@ -113,71 +74,6 @@
       "Began daily swimming in the Mediterranean Sea to rebuild arm strength and mobility.",
       "Co-developed the modern open-circuit scuba system, the Aqua-Lung, with engineer Émile Gagnan in 1943.",
       "Produced the pioneering color underwater documentary The Silent World, winning an Oscar in 1957."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Jesse Owens",
-    "premise": "Competing in front of Adolf Hitler and a hostile host nation, African American sprinter Jesse Owens demolished racial superiority propaganda on the track.",
-    "hook": "In a stadium built to demonstrate Aryan supremacy, one athlete walked away with four gold medals.",
-    "key_facts": [
-      "Traveled to the 1936 Berlin Olympics amid global calls for an American boycott.",
-      "Won four gold medals: 100m, 200m, long jump, and 4x100m relay.",
-      "Tied or set world records in two of the events during the games.",
-      "Received an iconic standing ovation from over 100,000 German spectators in the Olympiastadion."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
-    "person": "J.R.D. Tata",
-    "premise": "A young aviation enthusiast obtained India's very first pilot license and personally flew a single-engine De Havilland Puss Moth to inaugurate commercial air service.",
-    "hook": "Before running India's largest industrial empire, he carried mailbags solo in an open cockpit.",
-    "key_facts": [
-      "Issued commercial pilot's license No. 1 in India in February 1929.",
-      "Piloted the inaugural flight of Tata Air Services from Karachi to Bombay on October 15, 1932.",
-      "Flew a single-engine Puss Moth carrying mail bags without radio navigation or instruments.",
-      "Later served as chairman of the Tata Group for over fifty years and was awarded the Bharat Ratna."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Dhyan Chand",
-    "premise": "Facing host nation Germany on a waterlogged grass field in the 1936 Olympic final, the captain of India's hockey team took off his spiked boots and played barefoot.",
-    "hook": "Slipping on a muddy pitch in front of Hitler, India's hockey captain took off his shoes and scored a blowout.",
-    "key_facts": [
-      "Captained the Indian field hockey team at the 1936 Berlin Olympics.",
-      "Discarded his rubber-spiked shoes at halftime to run faster on the wet turf.",
-      "Led India to an 8-1 victory over Germany in the gold medal match.",
-      "Scored over 400 international goals during his athletic career."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "Shakuntala Devi",
-    "premise": "The daughter of a circus trapeze artist traveled across India from childhood demonstrating rapid mental arithmetic, eventually beating electronic computers in public tests.",
-    "hook": "Without any formal schooling, she calculated the 23rd root of a 201-digit number faster than a mainframe computer.",
-    "key_facts": [
-      "Began public math demonstrations at age six at the University of Mysore.",
-      "Extracted the 23rd root of a 201-digit number mentally in 50 seconds at Southern Methodist University in 1977.",
-      "Multiplied two randomly selected 13-digit numbers at Imperial College London in 28 seconds in 1980.",
-      "Documented in the 1982 Guinness Book of World Records for mental calculation."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Orville and Wilbur Wright",
-    "premise": "Two bicycle mechanics with no university degrees built a wind tunnel in their workshop after discovering standard aerodynamic tables published by elite scientists were fatally wrong.",
-    "hook": "They realized every leading aviation scientist had published faulty math—so they built a miniature wind tunnel to rewrite the formulas themselves.",
-    "key_facts": [
-      "Operated a bicycle sales and repair shop in Dayton, Ohio.",
-      "Discovered in 1901 that Lilienthal's lift and drag tables contained systematic errors.",
-      "Built a six-foot wind tunnel in their shop to test over 200 miniature model wing shapes.",
-      "Achieved the first powered, controlled heavier-than-air flight at Kitty Hawk in December 1903."
     ],
     "source": "gemini_original"
   },
@@ -196,14 +92,131 @@
   },
   {
     "format": "rise_from_nothing",
-    "person": "Viswanathan Anand",
-    "premise": "Growing up in a country with zero Grandmasters, a teenage blitz prodigy from Madras mastered speed chess and dismantled the Soviet monopoly on the world chess crown.",
-    "hook": "India had never produced a single Grandmaster—until a teenager known as the 'Lightning Kid' challenged the Soviet empire.",
+    "person": "Louis Armstrong",
+    "premise": "From an impoverished childhood in New Orleans and a juvenile detention home to becoming the founding soloist of modern jazz.",
+    "hook": "Before he redefined modern music, he was arrested as a child and handed a cornet inside a reform school.",
     "key_facts": [
-      "Learned chess at age six and earned the nickname 'Lightning Kid' for his rapid move calculation.",
-      "Became India's first Grandmaster in 1988 at age eighteen.",
-      "Defeated Alexei Shirov in 2000 to win the FIDE World Chess Championship.",
-      "Held the undisputed World Chess Championship title from 2007 to 2013 across tournament, match, and knockout formats."
+      "Grew up in extreme poverty in New Orleans during the early 1900s.",
+      "Learned to play the cornet while confined at the Colored Waif's Home for Boys.",
+      "Joined King Oliver's Creole Jazz Band in Chicago in 1922.",
+      "Recorded seminal Hot Five and Hot Seven tracks between 1925 and 1928 that established solo improvisation in jazz."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Milkha Singh",
+    "premise": "Surviving childhood displacement and tragedy during Partition to become one of independent India's premier international track champions.",
+    "hook": "He lost his family during Partition and took up running only after joining the Indian Army.",
+    "key_facts": [
+      "Displaced during the 1947 Partition and survived severe hardship before enlisting in the Indian Army in 1951.",
+      "Introduced to organized track and field training while serving in the army.",
+      "Won India's first individual Commonwealth Games athletics gold medal at Cardiff in 1958.",
+      "Finished fourth in the 400-meter final at the 1960 Rome Olympics, setting an Indian national record that stood for nearly four decades."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Orson Welles",
+    "premise": "A sixteen-year-old traveler walked into Dublin's Gate Theatre and bluffed his way into professional acting by claiming to be a Broadway star.",
+    "hook": "At sixteen years old, he had zero Broadway credits, but he walked into a famous Irish theatre and claimed he was one of New York's finest.",
+    "key_facts": [
+      "Traveled to Ireland in 1931 on a painting tour after graduating from the Todd School for Boys.",
+      "Auditioned for directors Micheál MacLiammóir and Hilton Edwards at the Gate Theatre in Dublin using false claims of Broadway stardom.",
+      "Made his professional stage debut as the Duke of Karlsburg in Jew Süss in 1931.",
+      "Directed and starred in Citizen Kane a decade later at age twenty-five."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "A. R. Rahman",
+    "premise": "Following his father's early death, he supported his family as a session musician before revolutionizing Indian film music from a small backyard shed.",
+    "hook": "After his father died when he was nine, he dropped out of school to rent out musical instruments and play keyboards in recording bands.",
+    "key_facts": [
+      "Lost his father, composer R. K. Shekhar, at age nine and began working to support his family.",
+      "Played keyboards and synthesizers for composers Ilaiyaraaja, M. S. Viswanathan, and Ramesh Naidu.",
+      "Set up a modest backyard recording studio named Panchathan Record Inn in Chennai in 1989.",
+      "Composed the breakthrough soundtrack for Roja in 1992, winning the National Film Award for Best Music Direction."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Homi J. Bhabha",
+    "premise": "Stranded in India during a holiday by the outbreak of World War II, a Cambridge physicist decided to build a home research establishment.",
+    "hook": "A brief holiday visit home was cut off by World War II, prompting him to abandon his Cambridge laboratory to build scientific institutes in India.",
+    "key_facts": [
+      "Conducted pioneering cosmic ray research at Cambridge University and the Cavendish Laboratory during the 1930s.",
+      "Visited India on vacation in 1939 when World War II erupted in Europe, preventing his return to England.",
+      "Accepted a readership at the Indian Institute of Science in Bangalore created by C. V. Raman.",
+      "Secured funding from the Sir Dorabji Tata Trust to establish the Tata Institute of Fundamental Research in Mumbai in 1945."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Viswanathan Anand",
+    "premise": "Coming from a country without a modern grandmaster tradition, he dismantled decades of Soviet domination to become Undisputed World Chess Champion.",
+    "hook": "When he earned his international title, his home nation had zero grandmasters and little professional chess infrastructure.",
+    "key_facts": [
+      "Learned chess from his mother in Chennai and honed his play at the Tal Chess Club.",
+      "Became India's first Grandmaster in 1988 after winning the World Junior Championship in 1987.",
+      "Won the FIDE World Chess Championship in 2000 in Tehran.",
+      "Defeated Vladimir Kramnik in 2008 in Bonn to become the Undisputed World Chess Champion."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Ratan Tata",
+    "premise": "Facing dismissal from foreign executives after an early automotive struggle, he returned years later to acquire those very vehicle brands.",
+    "hook": "When he offered to sell an underperforming car line in 1999, executives told him he knew nothing about cars; nine years later, he bought their flagship marques.",
+    "key_facts": [
+      "Launched the Tata Indica in 1998 as India's first indigenous passenger car, which faced early commercial hurdles.",
+      "Met with Ford officials in Detroit in 1999 to discuss selling the car business, where executives expressed skepticism about Tata's capabilities.",
+      "Continued refining the vehicle line, achieving strong market sales across subsequent years.",
+      "Led Tata Motors to purchase Ford's Jaguar and Land Rover brands in 2008 for $2.3 billion."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Vikram Sarabhai",
+    "premise": "Convinced that developing nations needed space exploration for direct public utility, he built a rocket program out of a coastal fishing village.",
+    "hook": "While superpower nations raced to put weapons in orbit, he chose to launch sounding rockets from inside a beachside church.",
+    "key_facts": [
+      "Established the Physical Research Laboratory in Ahmedabad in 1947 after studying cosmic rays at Cambridge.",
+      "Formulated the Indian National Committee for Space Research in 1962 with the backing of the central government.",
+      "Selected the coastal village of Thumba in Kerala, using St. Mary Magdalene Church as the program's primary workshop.",
+      "Successfully launched India's first sounding rocket, a Nike-Apache, on November 21, 1963."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Jesse Owens",
+    "premise": "An athlete facing racial segregation at home traveled to Nazi Germany and dominated the track events at the 1936 Berlin Games.",
+    "hook": "He had to ride freight elevators and enter backdoors in his own country, but he won four gold medals in front of the Nazi leadership.",
+    "key_facts": [
+      "Set three world records and tied a fourth within 45 minutes at the 1935 Big Ten meet in Ann Arbor.",
+      "Competed at the 1936 Summer Olympics in Berlin amid overt Nazi propaganda asserting Aryan superiority.",
+      "Won gold medals in the 100 meters, 200 meters, long jump, and 4x100-meter relay.",
+      "Returned to the United States where he still faced domestic racial segregation and lacked commercial endorsement opportunities."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Dhyan Chand",
+    "premise": "A sepoy in the British Indian Army who practiced hockey only beneath the full moon transformed into field hockey's greatest center-forward.",
+    "hook": "He worked as an ordinary soldier with no formal coaching, practicing his stickwork alone at night when the moon was bright.",
+    "key_facts": [
+      "Enlisted as a sepoy in the 14th Punjab Regiment of the British Indian Army in 1922.",
+      "Practiced stick-handling at night after completing military duties, earning the nickname 'Chand' from the moonlight.",
+      "Selected for the Indian Army team touring New Zealand in 1926, which led to his national selection.",
+      "Captained India to Olympic field hockey gold medals in 1928, 1932, and 1936, scoring over 400 international goals."
     ],
     "source": "gemini_original"
   }
